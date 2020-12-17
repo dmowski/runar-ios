@@ -101,10 +101,10 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             let width = view.bounds.width
             let padding: CGFloat = 16
-            let minimumItemSpasing: CGFloat = 10
+            let minimumItemSpasing: CGFloat = 16
             let availableWidth = width - (padding * 2) - minimumItemSpasing
             let itemWidth = availableWidth / 2
-        let aspectRatio: CGFloat = 183/199
+        let aspectRatio: CGFloat = 183 / 199
         return CGSize(width: itemWidth, height: itemWidth / aspectRatio)
     }
 
