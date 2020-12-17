@@ -17,6 +17,8 @@ class CollectionViewController: UICollectionViewController {
         let mainImageView: UIImageView = UIImageView(image: mainImage)
         mainImageView.contentMode = .scaleAspectFill
         collectionView.backgroundView = mainImageView
+//        let layout = UICollectionViewFlowLayout()
+//        collectionView.collectionViewLayout = layout
 
         
 
@@ -99,21 +101,22 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             let width = view.bounds.width
             let padding: CGFloat = 16
-            let minimumItemSpasing: CGFloat = 16
+            let minimumItemSpasing: CGFloat = 10
             let availableWidth = width - (padding * 2) - minimumItemSpasing
             let itemWidth = availableWidth / 2
-        return CGSize(width: itemWidth, height: itemWidth + 20)
+        let aspectRatio: CGFloat = 183/199
+        return CGSize(width: itemWidth, height: itemWidth / aspectRatio)
     }
-    
-    
+
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 25, left: 16, bottom: 16, right: 16)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
