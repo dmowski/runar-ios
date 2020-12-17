@@ -9,7 +9,7 @@ import UIKit
 
 class MainCell: UICollectionViewCell {
     
-    @IBOutlet var alignmentName: UIImageView!
+    @IBOutlet var alignmentName: UILabel!
     static let reuseIdentifier = "Cell"
     
     override func awakeFromNib() {
@@ -19,27 +19,27 @@ class MainCell: UICollectionViewCell {
         contentView.layer.borderColor = UIColor.white.cgColor
     }
     
-    func cellFor(indexPath: IndexPath) {
-        switch indexPath.item {
-        case 0:
-            alignmentName.image = UIImage(named: "Руна дня")
-        case 1:
-            alignmentName.image = UIImage(named: "Расклад из 2 рун")
-        case 2:
-            alignmentName.image = UIImage(named:"Норны")
-        case 3:
-            alignmentName.image = UIImage(named: "Краткий прогноз")
-        case 4:
-            alignmentName.image = UIImage(named: "Молот Тора")
-        case 5:
-            alignmentName.image = UIImage(named: "Крест")
-        case 6:
-            alignmentName.image = UIImage(named: "Крест стихий")
-        case 7:
-            alignmentName.image = UIImage(named: "Кельтский крест")
-
-        default:
-            break
+        func cellFor(indexPath: IndexPath) {
+            switch indexPath.item {
+            case 0:
+                alignmentName.text = "Руна дня"
+            case 1:
+                alignmentName.text = "Расклад из 2 рун"
+            case 2:
+                alignmentName.text = "Норны"
+            case 3:
+                alignmentName.text = "Краткий прогноз"
+            case 4:
+                alignmentName.text = "Молот Тора"
+            case 5:
+                alignmentName.text = "Крест"
+            case 6:
+                alignmentName.text = "Крест стихий"
+            case 7:
+                alignmentName.text = "Кельтский крест"
+    
+            default:
+                break
+            }
         }
-    }
 }

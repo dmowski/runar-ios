@@ -21,6 +21,9 @@
 		9BD2295A258AB02500E17E98 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22959258AB02500E17E98 /* CollectionViewController.swift */; };
 		9BD22968258AC52F00E17E98 /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22967258AC52F00E17E98 /* MainCell.xib */; };
 		9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22971258AD6EF00E17E98 /* MainCell.swift */; };
+		9BD229AF258B7F6100E17E98 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229AC258B7F6000E17E98 /* AmaticSC-Bold.ttf */; };
+		9BD229B0258B7F6100E17E98 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229AD258B7F6100E17E98 /* OFL.txt */; };
+		9BD229B1258B7F6100E17E98 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229AE258B7F6100E17E98 /* AmaticSC-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		9BD22959258AB02500E17E98 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		9BD22967258AC52F00E17E98 /* MainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCell.xib; sourceTree = "<group>"; };
 		9BD22971258AD6EF00E17E98 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		9BD229AC258B7F6000E17E98 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
+		9BD229AD258B7F6100E17E98 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		9BD229AE258B7F6100E17E98 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,7 @@
 		9BD228FC258A321B00E17E98 /* Runar */ = {
 			isa = PBXGroup;
 			children = (
+				9BD229A8258B7F4F00E17E98 /* Fonts */,
 				9BD228FD258A321B00E17E98 /* AppDelegate.swift */,
 				9BD228FF258A321B00E17E98 /* SceneDelegate.swift */,
 				9BD22903258A321B00E17E98 /* Main.storyboard */,
@@ -144,6 +151,16 @@
 				9BD22921258A322000E17E98 /* Info.plist */,
 			);
 			path = RunarUITests;
+			sourceTree = "<group>";
+		};
+		9BD229A8258B7F4F00E17E98 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9BD229AC258B7F6000E17E98 /* AmaticSC-Bold.ttf */,
+				9BD229AE258B7F6100E17E98 /* AmaticSC-Regular.ttf */,
+				9BD229AD258B7F6100E17E98 /* OFL.txt */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +266,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BD229B1258B7F6100E17E98 /* AmaticSC-Regular.ttf in Resources */,
+				9BD229B0258B7F6100E17E98 /* OFL.txt in Resources */,
 				9BD2290A258A321F00E17E98 /* LaunchScreen.storyboard in Resources */,
 				9BD22952258A6F3D00E17E98 /* SettingsStoryboard.storyboard in Resources */,
 				9BD22968258AC52F00E17E98 /* MainCell.xib in Resources */,
@@ -256,6 +275,7 @@
 				9BD2294D258A6F2600E17E98 /* FavouritiesStoryboard.storyboard in Resources */,
 				9BD22948258A6BE500E17E98 /* SagasStoryboard.storyboard in Resources */,
 				9BD22905258A321B00E17E98 /* Main.storyboard in Resources */,
+				9BD229AF258B7F6100E17E98 /* AmaticSC-Bold.ttf in Resources */,
 				9BD22937258A644400E17E98 /* RunesStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
