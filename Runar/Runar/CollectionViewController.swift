@@ -15,21 +15,17 @@ class CollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         let mainImage: UIImage? = UIImage(named: "main")
         let mainImageView: UIImageView = UIImageView(image: mainImage)
-        view.addSubview(mainImageView)
-        
-        NSLayoutConstraint.activate([
-            mainImageView.topAnchor.constraint(equalTo: view.topAnchor),
-            mainImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            mainImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            mainImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ])
+        mainImageView.contentMode = .scaleAspectFill
+        collectionView.backgroundView = mainImageView
+
         
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        collectionView.register(UINib(nibName: "MainCell", bundle: .main), forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -54,13 +50,13 @@ class CollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 2
+        return 8
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        cell.backgroundColor = .red
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCell.reuseIdentifier, for: indexPath) as! MainCell
+        cell.cellFor(indexPath: indexPath)
         
         return cell
     }
@@ -101,12 +97,14 @@ class CollectionViewController: UICollectionViewController {
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemsPerRow: CGFloat = 2
-        let paddingWidth = 16 * (itemsPerRow + 1)
-        let availableWidth = collectionView.frame.width - paddingWidth
-        let widthPerItem = availableWidth / itemsPerRow
-        return CGSize(width: widthPerItem, height: widthPerItem)
+            let width = view.bounds.width
+            let padding: CGFloat = 16
+            let minimumItemSpasing: CGFloat = 16
+            let availableWidth = width - (padding * 2) - minimumItemSpasing
+            let itemWidth = availableWidth / 2
+        return CGSize(width: itemWidth, height: itemWidth + 20)
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 25, left: 16, bottom: 16, right: 16)
