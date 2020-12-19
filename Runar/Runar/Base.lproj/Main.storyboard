@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VvS-F4-4Ws">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VvS-F4-4Ws">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AmaticSC-Regular.ttf">
+            <string>AmaticSC-Regular</string>
+        </array>
+        <array key="PoiretOne-Regular.ttf">
+            <string>PoiretOne-Regular</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Settings-->
         <scene sceneID="MW7-BV-mLR">
@@ -63,7 +74,7 @@
                         <color key="selectedImageTintColor" red="0.93725490199999995" green="0.80392156859999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="mwL-3d-xKu" kind="relationship" relationship="viewControllers" id="KGu-5y-EiJ"/>
+                        <segue destination="IEb-Dg-Y4a" kind="relationship" relationship="viewControllers" id="KGu-5y-EiJ"/>
                         <segue destination="ueB-ss-Fbb" kind="relationship" relationship="viewControllers" id="uHf-Yy-CYI"/>
                         <segue destination="v3p-2a-qlw" kind="relationship" relationship="viewControllers" id="i44-dI-toY"/>
                         <segue destination="FES-2J-UoQ" kind="relationship" relationship="viewControllers" id="Rr6-vo-Tg1"/>
@@ -74,7 +85,7 @@
             </objects>
             <point key="canvasLocation" x="133" y="94"/>
         </scene>
-        <!--Расклады-->
+        <!--Collection View Controller-->
         <scene sceneID="ev3-ev-3ce">
             <objects>
                 <collectionViewController id="mwL-3d-xKu" customClass="CollectionViewController" customModule="Runar" customModuleProvider="target" sceneMemberID="viewController">
@@ -160,17 +171,112 @@
                             <outlet property="delegate" destination="mwL-3d-xKu" id="keG-ud-HS6"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Расклады" image="home" id="oa7-Ae-Quu"/>
+                    <navigationItem key="navigationItem" id="fFx-KH-AWe"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bau-h3-iwW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="944.92753623188412" y="93.75"/>
+            <point key="canvasLocation" x="1884" y="93.103448275862078"/>
+        </scene>
+        <!--Alignment Info View Controller-->
+        <scene sceneID="dy3-mN-4ne">
+            <objects>
+                <viewController storyboardIdentifier="AlignmentInformation" id="qxQ-aU-nmE" customClass="AlignmentInfoViewController" customModule="Runar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tnB-xv-FI6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main" translatesAutoresizingMaskIntoConstraints="NO" id="Da8-D9-Yg4">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aum-Kq-A0N">
+                                <rect key="frame" x="80" y="761" width="254" height="56"/>
+                                <color key="backgroundColor" red="0.41568627450980389" green="0.41568627450980389" blue="0.41568627450980389" alpha="0.35828111539074303" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="SC3-xN-N13"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AmaticSC-Regular" family="Amatic SC" pointSize="30"/>
+                                <state key="normal" title="Начать расклад">
+                                    <color key="titleColor" red="0.82352941180000006" green="0.76862745099999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9k2-I0-DCg">
+                                <rect key="frame" x="50" y="86" width="314" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="5hd-q1-B0r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AmaticSC-Regular" family="Amatic SC" pointSize="55"/>
+                                <color key="textColor" red="0.82352941180000006" green="0.76862745099999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Больше не показывать" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z44-ib-CX6">
+                                <rect key="frame" x="110" y="726" width="244" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="wqh-hB-VnV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <color key="textColor" red="0.6588235294117647" green="0.65098039215686276" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IQ-cF-V6X">
+                                <rect key="frame" x="17" y="206" width="380" height="490"/>
+                                <fontDescription key="fontDescription" name="PoiretOne-Regular" family="Poiret One" pointSize="17"/>
+                                <color key="textColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1IQ-cF-V6X" firstAttribute="leading" secondItem="tnB-xv-FI6" secondAttribute="leading" constant="17" id="7Y8-sw-z2j"/>
+                            <constraint firstItem="9k2-I0-DCg" firstAttribute="leading" secondItem="tnB-xv-FI6" secondAttribute="leading" constant="50" id="8JE-5L-v6u"/>
+                            <constraint firstItem="9k2-I0-DCg" firstAttribute="top" secondItem="tnB-xv-FI6" secondAttribute="top" constant="86" id="8vi-um-7vS"/>
+                            <constraint firstAttribute="trailing" secondItem="1IQ-cF-V6X" secondAttribute="trailing" constant="17" id="9ug-fb-TpO"/>
+                            <constraint firstAttribute="bottom" secondItem="aum-Kq-A0N" secondAttribute="bottom" constant="79" id="GvX-A8-mKT"/>
+                            <constraint firstAttribute="trailing" secondItem="9k2-I0-DCg" secondAttribute="trailing" constant="50" id="I6f-MC-xVE"/>
+                            <constraint firstItem="Da8-D9-Yg4" firstAttribute="leading" secondItem="tnB-xv-FI6" secondAttribute="leading" id="K74-Pm-4cq"/>
+                            <constraint firstAttribute="trailing" secondItem="aum-Kq-A0N" secondAttribute="trailing" constant="80" id="NaE-fI-LtE"/>
+                            <constraint firstItem="z44-ib-CX6" firstAttribute="leading" secondItem="tnB-xv-FI6" secondAttribute="leading" constant="110" id="Qdr-yv-vgp"/>
+                            <constraint firstAttribute="trailing" secondItem="z44-ib-CX6" secondAttribute="trailing" constant="60" id="RY7-dx-f9g"/>
+                            <constraint firstItem="aum-Kq-A0N" firstAttribute="leading" secondItem="tnB-xv-FI6" secondAttribute="leading" constant="80" id="TX5-wm-kNQ"/>
+                            <constraint firstItem="z44-ib-CX6" firstAttribute="top" secondItem="1IQ-cF-V6X" secondAttribute="bottom" constant="30" id="VC7-1F-y6a"/>
+                            <constraint firstItem="aum-Kq-A0N" firstAttribute="top" secondItem="z44-ib-CX6" secondAttribute="bottom" constant="16" id="d9o-1e-2Vs"/>
+                            <constraint firstAttribute="bottom" secondItem="Da8-D9-Yg4" secondAttribute="bottom" id="rbl-l3-W4U"/>
+                            <constraint firstAttribute="trailing" secondItem="Da8-D9-Yg4" secondAttribute="trailing" id="tkz-kD-2R7"/>
+                            <constraint firstItem="Da8-D9-Yg4" firstAttribute="top" secondItem="tnB-xv-FI6" secondAttribute="top" id="u6f-kA-987"/>
+                            <constraint firstItem="1IQ-cF-V6X" firstAttribute="top" secondItem="9k2-I0-DCg" secondAttribute="bottom" constant="50" id="wUp-bb-MiS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="77l-B6-aah"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aqA-yI-jec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2709.5999999999999" y="89.505247376311857"/>
+        </scene>
+        <!--Расклады-->
+        <scene sceneID="zDh-Vq-eUG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IEb-Dg-Y4a" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Расклады" image="home" id="oa7-Ae-Quu"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Di3-I8-cdH">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mwL-3d-xKu" kind="relationship" relationship="rootViewController" id="TXp-lq-5Vj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dqp-JM-nf3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="944.79999999999995" y="93.103448275862078"/>
         </scene>
     </scenes>
     <resources>
         <image name="bookmark" width="30" height="28"/>
         <image name="favourite" width="23" height="21"/>
         <image name="home" width="30" height="28"/>
+        <image name="main" width="414" height="1003"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

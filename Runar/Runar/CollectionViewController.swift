@@ -17,8 +17,7 @@ class CollectionViewController: UICollectionViewController {
         let mainImageView: UIImageView = UIImageView(image: mainImage)
         mainImageView.contentMode = .scaleAspectFill
         collectionView.backgroundView = mainImageView
-//        let layout = UICollectionViewFlowLayout()
-//        collectionView.collectionViewLayout = layout
+        navigationController?.navigationBar.isHidden = true
 
         
 
@@ -93,6 +92,12 @@ class CollectionViewController: UICollectionViewController {
     
     }
     */
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let alInfVC = mainStoryboard.instantiateViewController(withIdentifier: "AlignmentInformation") as! AlignmentInfoViewController
+        self.navigationController?.pushViewController(alInfVC, animated: true)
+    }
 
 }
 
