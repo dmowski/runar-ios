@@ -7,11 +7,6 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="AmaticSC-Bold.ttf">
-            <string>AmaticSC-Bold</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,22 +17,28 @@
                 <rect key="frame" x="0.0" y="0.0" width="186" height="221"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yk8-VP-DaS">
-                        <rect key="frame" x="9" y="174" width="168" height="31"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yk8-VP-DaS">
+                        <rect key="frame" x="8" y="174" width="170" height="31"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="31" id="Zwt-Ut-Vl8"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="30"/>
-                        <color key="textColor" red="0.82352941176470584" green="0.76862745098039209" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Align">
+                                <attributes>
+                                    <color key="NSColor" red="0.82352941176470584" green="0.76862745098039209" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="36" name="AmaticSC-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
                         <color key="highlightedColor" red="0.94509803920000002" green="0.80392156859999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="0.36428717760160972" colorSpace="custom" customColorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="Yk8-VP-DaS" firstAttribute="leading" secondItem="jXe-1R-sGX" secondAttribute="leading" constant="9" id="PYe-Dq-eG6"/>
+                    <constraint firstItem="Yk8-VP-DaS" firstAttribute="leading" secondItem="jXe-1R-sGX" secondAttribute="leading" constant="8" id="PYe-Dq-eG6"/>
                     <constraint firstAttribute="bottom" secondItem="Yk8-VP-DaS" secondAttribute="bottom" constant="16" id="dSJ-59-hmE"/>
-                    <constraint firstAttribute="trailing" secondItem="Yk8-VP-DaS" secondAttribute="trailing" constant="9" id="ntw-Cl-Zbv"/>
+                    <constraint firstAttribute="trailing" secondItem="Yk8-VP-DaS" secondAttribute="trailing" constant="8" id="ntw-Cl-Zbv"/>
                 </constraints>
             </collectionViewCellContentView>
             <constraints>

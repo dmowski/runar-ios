@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B9F14AA258FAFB600062F47 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F14A7258FAFB600062F47 /* AmaticSC-Regular.ttf */; };
+		9B9F14AB258FAFB600062F47 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F14A8258FAFB600062F47 /* AmaticSC-Bold.ttf */; };
 		9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD228FD258A321B00E17E98 /* AppDelegate.swift */; };
 		9BD22900258A321B00E17E98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD228FF258A321B00E17E98 /* SceneDelegate.swift */; };
 		9BD22905258A321B00E17E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22903258A321B00E17E98 /* Main.storyboard */; };
@@ -21,9 +23,6 @@
 		9BD2295A258AB02500E17E98 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22959258AB02500E17E98 /* CollectionViewController.swift */; };
 		9BD22968258AC52F00E17E98 /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22967258AC52F00E17E98 /* MainCell.xib */; };
 		9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22971258AD6EF00E17E98 /* MainCell.swift */; };
-		9BD229AF258B7F6100E17E98 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229AC258B7F6000E17E98 /* AmaticSC-Bold.ttf */; };
-		9BD229B0258B7F6100E17E98 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229AD258B7F6100E17E98 /* OFL.txt */; };
-		9BD229B1258B7F6100E17E98 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229AE258B7F6100E17E98 /* AmaticSC-Regular.ttf */; };
 		9BD229CA258D776200E17E98 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229BD258D776000E17E98 /* Roboto-MediumItalic.ttf */; };
 		9BD229CB258D776200E17E98 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229BE258D776000E17E98 /* Roboto-Regular.ttf */; };
 		9BD229CC258D776200E17E98 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229BF258D776000E17E98 /* Roboto-Bold.ttf */; };
@@ -58,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B9F14A7258FAFB600062F47 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
+		9B9F14A8258FAFB600062F47 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
 		9BD228FA258A321B00E17E98 /* Runar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD228FD258A321B00E17E98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BD228FF258A321B00E17E98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,9 +79,6 @@
 		9BD22959258AB02500E17E98 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		9BD22967258AC52F00E17E98 /* MainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCell.xib; sourceTree = "<group>"; };
 		9BD22971258AD6EF00E17E98 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
-		9BD229AC258B7F6000E17E98 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
-		9BD229AD258B7F6100E17E98 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
-		9BD229AE258B7F6100E17E98 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
 		9BD229BD258D776000E17E98 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
 		9BD229BE258D776000E17E98 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		9BD229BF258D776000E17E98 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -146,6 +144,8 @@
 		9BD228FC258A321B00E17E98 /* Runar */ = {
 			isa = PBXGroup;
 			children = (
+				9B9F14A7258FAFB600062F47 /* AmaticSC-Regular.ttf */,
+				9B9F14A8258FAFB600062F47 /* AmaticSC-Bold.ttf */,
 				9BD229A8258B7F4F00E17E98 /* Fonts */,
 				9BD228FD258A321B00E17E98 /* AppDelegate.swift */,
 				9BD228FF258A321B00E17E98 /* SceneDelegate.swift */,
@@ -188,19 +188,8 @@
 			children = (
 				9BD229DA258D7BD400E17E98 /* PoiretOne-Regular.ttf */,
 				9BD229BC258D773900E17E98 /* Roboto */,
-				9BD229BB258D772600E17E98 /* Amaticas */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		9BD229BB258D772600E17E98 /* Amaticas */ = {
-			isa = PBXGroup;
-			children = (
-				9BD229AC258B7F6000E17E98 /* AmaticSC-Bold.ttf */,
-				9BD229AE258B7F6100E17E98 /* AmaticSC-Regular.ttf */,
-				9BD229AD258B7F6100E17E98 /* OFL.txt */,
-			);
-			path = Amaticas;
 			sourceTree = "<group>";
 		};
 		9BD229BC258D773900E17E98 /* Roboto */ = {
@@ -327,10 +316,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BD229CC258D776200E17E98 /* Roboto-Bold.ttf in Resources */,
-				9BD229B1258B7F6100E17E98 /* AmaticSC-Regular.ttf in Resources */,
 				9BD229CD258D776200E17E98 /* Roboto-Light.ttf in Resources */,
-				9BD229B0258B7F6100E17E98 /* OFL.txt in Resources */,
+				9B9F14AB258FAFB600062F47 /* AmaticSC-Bold.ttf in Resources */,
 				9BD229D3258D776200E17E98 /* Roboto-Italic.ttf in Resources */,
+				9B9F14AA258FAFB600062F47 /* AmaticSC-Regular.ttf in Resources */,
 				9BD2290A258A321F00E17E98 /* LaunchScreen.storyboard in Resources */,
 				9BD22952258A6F3D00E17E98 /* SettingsStoryboard.storyboard in Resources */,
 				9BD229CA258D776200E17E98 /* Roboto-MediumItalic.ttf in Resources */,
@@ -347,7 +336,6 @@
 				9BD229D6258D776200E17E98 /* Roboto-BoldItalic.ttf in Resources */,
 				9BD229CB258D776200E17E98 /* Roboto-Regular.ttf in Resources */,
 				9BD229D2258D776200E17E98 /* Apache License.txt in Resources */,
-				9BD229AF258B7F6100E17E98 /* AmaticSC-Bold.ttf in Resources */,
 				9BD229D5258D776200E17E98 /* Roboto-Black.ttf in Resources */,
 				9BD22937258A644400E17E98 /* RunesStoryboard.storyboard in Resources */,
 			);
