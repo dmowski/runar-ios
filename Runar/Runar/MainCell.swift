@@ -20,8 +20,10 @@ class MainCell: UICollectionViewCell {
         
         contentView.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
         
+        alignmentName.attributedText = NSMutableAttributedString(string: alignmentName.text!, attributes: [NSAttributedString.Key.kern: -0.72])
+
         alignmentName.textAlignment = .center
-        alignmentName.attributedText = NSMutableAttributedString(string: alignmentName.text!, attributes: [NSAttributedString.Key.kern: -2])
+
 
     }
     
