@@ -22,22 +22,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="186" height="221"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yk8-VP-DaS">
-                        <rect key="frame" x="9" y="170" width="165" height="35"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yk8-VP-DaS">
+                        <rect key="frame" x="9" y="174" width="168" height="31"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="35" id="Zwt-Ut-Vl8"/>
+                            <constraint firstAttribute="height" constant="31" id="Zwt-Ut-Vl8"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="30"/>
                         <color key="textColor" red="0.82352941176470584" green="0.76862745098039209" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
+                        <color key="highlightedColor" red="0.94509803920000002" green="0.80392156859999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="0.36428717760160972" colorSpace="custom" customColorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Yk8-VP-DaS" secondAttribute="trailing" constant="9" id="6zo-qP-QTX"/>
-                    <constraint firstItem="Yk8-VP-DaS" firstAttribute="width" secondItem="jXe-1R-sGX" secondAttribute="width" multiplier="0.901639" id="SOY-w2-wJH"/>
+                    <constraint firstItem="Yk8-VP-DaS" firstAttribute="leading" secondItem="jXe-1R-sGX" secondAttribute="leading" constant="9" id="PYe-Dq-eG6"/>
                     <constraint firstAttribute="bottom" secondItem="Yk8-VP-DaS" secondAttribute="bottom" constant="16" id="dSJ-59-hmE"/>
-                    <constraint firstItem="Yk8-VP-DaS" firstAttribute="centerX" secondItem="jXe-1R-sGX" secondAttribute="centerX" id="i1g-g4-D1K"/>
-                    <constraint firstItem="Yk8-VP-DaS" firstAttribute="leading" secondItem="jXe-1R-sGX" secondAttribute="leading" constant="9" id="pBF-uo-gJ9"/>
+                    <constraint firstAttribute="trailing" secondItem="Yk8-VP-DaS" secondAttribute="trailing" constant="9" id="ntw-Cl-Zbv"/>
                 </constraints>
             </collectionViewCellContentView>
             <constraints>

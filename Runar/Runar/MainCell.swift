@@ -16,7 +16,13 @@ class MainCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 8
         contentView.layer.borderWidth = 1
         contentView.layer.masksToBounds = true
-        contentView.layer.borderColor = UIColor.white.cgColor
+        contentView.layer.borderColor = UIColor(red: 0.55, green: 0.55, blue: 0.55, alpha: 1).cgColor
+        
+//        alignmentName.textAlignment = .center
+//        let paragraphStyle = NSMutableParagraphStyle()
+//        paragraphStyle.lineHeightMultiple = 0.55
+//        alignmentName.attributedText = NSMutableAttributedString(string: alignmentName.text!, attributes: [NSAttributedString.Key.kern: -0.72, NSAttributedString.Key.paragraphStyle: paragraphStyle])
+
     }
     
         func cellFor(indexPath: IndexPath) {
