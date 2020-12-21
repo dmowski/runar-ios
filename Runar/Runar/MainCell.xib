@@ -23,7 +23,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Align" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yk8-VP-DaS">
-                        <rect key="frame" x="8" y="131.5" width="170" height="73.5"/>
+                        <rect key="frame" x="8" y="141" width="170" height="68"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="31" id="Zwt-Ut-Vl8"/>
                         </constraints>
@@ -38,7 +38,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Yk8-VP-DaS" firstAttribute="leading" secondItem="jXe-1R-sGX" secondAttribute="leading" constant="8" id="PYe-Dq-eG6"/>
-                    <constraint firstAttribute="bottom" secondItem="Yk8-VP-DaS" secondAttribute="bottom" constant="16" id="dSJ-59-hmE"/>
+                    <constraint firstAttribute="bottom" secondItem="Yk8-VP-DaS" secondAttribute="bottom" constant="12" id="dSJ-59-hmE"/>
                     <constraint firstAttribute="trailing" secondItem="Yk8-VP-DaS" secondAttribute="trailing" constant="8" id="ntw-Cl-Zbv"/>
                 </constraints>
             </collectionViewCellContentView>

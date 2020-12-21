@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B9F14C1258FB74900062F47 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F14BF258FB74900062F47 /* AmaticSC-Bold.ttf */; };
-		9B9F14C2258FB74900062F47 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F14C0258FB74900062F47 /* AmaticSC-Regular.ttf */; };
+		9B9F151C2591499A00062F47 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F151A2591499A00062F47 /* AmaticSC-Regular.ttf */; };
+		9B9F151D2591499A00062F47 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F151B2591499A00062F47 /* AmaticSC-Bold.ttf */; };
 		9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD228FD258A321B00E17E98 /* AppDelegate.swift */; };
-		9BD22900258A321B00E17E98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD228FF258A321B00E17E98 /* SceneDelegate.swift */; };
 		9BD22905258A321B00E17E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22903258A321B00E17E98 /* Main.storyboard */; };
 		9BD22907258A321F00E17E98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22906258A321F00E17E98 /* Assets.xcassets */; };
 		9BD2290A258A321F00E17E98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22908258A321F00E17E98 /* LaunchScreen.storyboard */; };
@@ -57,11 +56,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9B9F14BF258FB74900062F47 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AmaticSC-Bold.ttf"; path = "../../../../../Downloads/Amatic_SC/AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
-		9B9F14C0258FB74900062F47 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AmaticSC-Regular.ttf"; path = "../../../../../Downloads/Amatic_SC/AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
+		9B9F151A2591499A00062F47 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
+		9B9F151B2591499A00062F47 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
 		9BD228FA258A321B00E17E98 /* Runar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD228FD258A321B00E17E98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9BD228FF258A321B00E17E98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9BD22904258A321B00E17E98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9BD22906258A321F00E17E98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BD22909258A321F00E17E98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 			children = (
 				9BD229A8258B7F4F00E17E98 /* Fonts */,
 				9BD228FD258A321B00E17E98 /* AppDelegate.swift */,
-				9BD228FF258A321B00E17E98 /* SceneDelegate.swift */,
 				9BD22903258A321B00E17E98 /* Main.storyboard */,
 				9BD22967258AC52F00E17E98 /* MainCell.xib */,
 				9BD22971258AD6EF00E17E98 /* MainCell.swift */,
@@ -184,8 +181,8 @@
 		9BD229A8258B7F4F00E17E98 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				9B9F14BF258FB74900062F47 /* AmaticSC-Bold.ttf */,
-				9B9F14C0258FB74900062F47 /* AmaticSC-Regular.ttf */,
+				9B9F151B2591499A00062F47 /* AmaticSC-Bold.ttf */,
+				9B9F151A2591499A00062F47 /* AmaticSC-Regular.ttf */,
 				9BD229DA258D7BD400E17E98 /* PoiretOne-Regular.ttf */,
 				9BD229BC258D773900E17E98 /* Roboto */,
 			);
@@ -317,7 +314,6 @@
 			files = (
 				9BD229CC258D776200E17E98 /* Roboto-Bold.ttf in Resources */,
 				9BD229CD258D776200E17E98 /* Roboto-Light.ttf in Resources */,
-				9B9F14C1258FB74900062F47 /* AmaticSC-Bold.ttf in Resources */,
 				9BD229D3258D776200E17E98 /* Roboto-Italic.ttf in Resources */,
 				9BD2290A258A321F00E17E98 /* LaunchScreen.storyboard in Resources */,
 				9BD22952258A6F3D00E17E98 /* SettingsStoryboard.storyboard in Resources */,
@@ -326,6 +322,7 @@
 				9BD229D0258D776200E17E98 /* Roboto-Medium.ttf in Resources */,
 				9BD22968258AC52F00E17E98 /* MainCell.xib in Resources */,
 				9BD22907258A321F00E17E98 /* Assets.xcassets in Resources */,
+				9B9F151D2591499A00062F47 /* AmaticSC-Bold.ttf in Resources */,
 				9BD2294D258A6F2600E17E98 /* FavouritiesStoryboard.storyboard in Resources */,
 				9BD229CF258D776200E17E98 /* Roboto-LightItalic.ttf in Resources */,
 				9BD229D4258D776200E17E98 /* Roboto-ThinItalic.ttf in Resources */,
@@ -333,8 +330,8 @@
 				9BD229D1258D776200E17E98 /* Roboto-Thin.ttf in Resources */,
 				9BD22905258A321B00E17E98 /* Main.storyboard in Resources */,
 				9BD229D6258D776200E17E98 /* Roboto-BoldItalic.ttf in Resources */,
-				9B9F14C2258FB74900062F47 /* AmaticSC-Regular.ttf in Resources */,
 				9BD229CB258D776200E17E98 /* Roboto-Regular.ttf in Resources */,
+				9B9F151C2591499A00062F47 /* AmaticSC-Regular.ttf in Resources */,
 				9BD229D2258D776200E17E98 /* Apache License.txt in Resources */,
 				9BD229D5258D776200E17E98 /* Roboto-Black.ttf in Resources */,
 				9BD22937258A644400E17E98 /* RunesStoryboard.storyboard in Resources */,
@@ -365,7 +362,6 @@
 				9BD2295A258AB02500E17E98 /* CollectionViewController.swift in Sources */,
 				9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */,
 				9BD229DF258D82DD00E17E98 /* AlignmentInfoViewController.swift in Sources */,
-				9BD22900258A321B00E17E98 /* SceneDelegate.swift in Sources */,
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,7 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -527,7 +523,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
