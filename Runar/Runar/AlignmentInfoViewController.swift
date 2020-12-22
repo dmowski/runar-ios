@@ -9,6 +9,7 @@ import UIKit
 
 class AlignmentInfoViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.tabBarController?.tabBar.isHidden = true
@@ -26,4 +27,8 @@ class AlignmentInfoViewController: UIViewController {
     }
     */
 
+    @IBAction func buttonCloseOnTap(_ sender: UIButton) {
+        navigationController?.popToRootViewController(animated: true)
+    }
 }
+

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VvS-F4-4Ws">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VvS-F4-4Ws">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -224,10 +224,22 @@
                                 <color key="textColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvq-5v-T1D">
+                                <rect key="frame" x="354.66666666666669" y="57" width="31" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="31" id="I3K-CI-Vvu"/>
+                                    <constraint firstAttribute="height" constant="31" id="O91-7N-Zrk"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="escape"/>
+                                <connections>
+                                    <action selector="buttonCloseOnTap:" destination="qxQ-aU-nmE" eventType="touchUpInside" id="0pv-wJ-xC8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hi1-Aj-dGi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="mvq-5v-T1D" firstAttribute="top" secondItem="tnB-xv-FI6" secondAttribute="topMargin" constant="56.990000000000002" id="7HB-PT-jM9"/>
                             <constraint firstItem="1IQ-cF-V6X" firstAttribute="leading" secondItem="tnB-xv-FI6" secondAttribute="leading" constant="17" id="7Y8-sw-z2j"/>
                             <constraint firstItem="9k2-I0-DCg" firstAttribute="leading" secondItem="tnB-xv-FI6" secondAttribute="leading" constant="50" id="8JE-5L-v6u"/>
                             <constraint firstItem="9k2-I0-DCg" firstAttribute="top" secondItem="tnB-xv-FI6" secondAttribute="top" constant="86" id="8vi-um-7vS"/>
@@ -242,6 +254,7 @@
                             <constraint firstItem="z44-ib-CX6" firstAttribute="top" secondItem="1IQ-cF-V6X" secondAttribute="bottom" constant="30" id="VC7-1F-y6a"/>
                             <constraint firstItem="aum-Kq-A0N" firstAttribute="top" secondItem="z44-ib-CX6" secondAttribute="bottom" constant="16" id="d9o-1e-2Vs"/>
                             <constraint firstAttribute="bottom" secondItem="Da8-D9-Yg4" secondAttribute="bottom" id="rbl-l3-W4U"/>
+                            <constraint firstItem="hi1-Aj-dGi" firstAttribute="trailing" secondItem="mvq-5v-T1D" secondAttribute="trailing" constant="28.370000000000001" id="sLo-00-tkr"/>
                             <constraint firstAttribute="trailing" secondItem="Da8-D9-Yg4" secondAttribute="trailing" id="tkz-kD-2R7"/>
                             <constraint firstItem="Da8-D9-Yg4" firstAttribute="top" secondItem="tnB-xv-FI6" secondAttribute="top" id="u6f-kA-987"/>
                             <constraint firstItem="1IQ-cF-V6X" firstAttribute="top" secondItem="9k2-I0-DCg" secondAttribute="bottom" constant="50" id="wUp-bb-MiS"/>
@@ -276,6 +289,7 @@
     </scenes>
     <resources>
         <image name="bookmark" width="30" height="28"/>
+        <image name="escape" width="31" height="31"/>
         <image name="favourite" width="23" height="21"/>
         <image name="home" width="30" height="28"/>
         <image name="main" width="414" height="1003"/>
