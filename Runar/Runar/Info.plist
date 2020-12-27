@@ -45,5 +45,10 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AmaticSC-Bold.ttf</string>
+		<string></string>
+	</array>
 </dict>
 </plist>

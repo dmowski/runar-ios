@@ -20,7 +20,6 @@
 		9BD2294D258A6F2600E17E98 /* FavouritiesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD2294C258A6F2600E17E98 /* FavouritiesStoryboard.storyboard */; };
 		9BD22952258A6F3D00E17E98 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22951258A6F3D00E17E98 /* SettingsStoryboard.storyboard */; };
 		9BD2295A258AB02500E17E98 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22959258AB02500E17E98 /* CollectionViewController.swift */; };
-		9BD22968258AC52F00E17E98 /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22967258AC52F00E17E98 /* MainCell.xib */; };
 		9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22971258AD6EF00E17E98 /* MainCell.swift */; };
 		9BD229CA258D776200E17E98 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229BD258D776000E17E98 /* Roboto-MediumItalic.ttf */; };
 		9BD229CB258D776200E17E98 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229BE258D776000E17E98 /* Roboto-Regular.ttf */; };
@@ -75,7 +74,6 @@
 		9BD2294C258A6F2600E17E98 /* FavouritiesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavouritiesStoryboard.storyboard; sourceTree = "<group>"; };
 		9BD22951258A6F3D00E17E98 /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		9BD22959258AB02500E17E98 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		9BD22967258AC52F00E17E98 /* MainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCell.xib; sourceTree = "<group>"; };
 		9BD22971258AD6EF00E17E98 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		9BD229BD258D776000E17E98 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
 		9BD229BE258D776000E17E98 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -119,6 +117,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B9C25C825993DB100A4E135 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9BD22903258A321B00E17E98 /* Main.storyboard */,
+				9BD22936258A644400E17E98 /* RunesStoryboard.storyboard */,
+				9BD22947258A6BE500E17E98 /* SagasStoryboard.storyboard */,
+				9BD2294C258A6F2600E17E98 /* FavouritiesStoryboard.storyboard */,
+				9BD22951258A6F3D00E17E98 /* SettingsStoryboard.storyboard */,
+				9BD22908258A321F00E17E98 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		9B9C25C925993DE000A4E135 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9BD22959258AB02500E17E98 /* CollectionViewController.swift */,
+				9BD229DE258D82DD00E17E98 /* AlignmentInfoViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9B9C25CA25993DF800A4E135 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				9BD228FD258A321B00E17E98 /* AppDelegate.swift */,
+				9BD22906258A321F00E17E98 /* Assets.xcassets */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		9B9C25CB25993E0900A4E135 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9B9C25CC25993E1100A4E135 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9B9C25CC25993E1100A4E135 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9BD22971258AD6EF00E17E98 /* MainCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		9BD228F1258A321B00E17E98 = {
 			isa = PBXGroup;
 			children = (
@@ -142,20 +187,12 @@
 		9BD228FC258A321B00E17E98 /* Runar */ = {
 			isa = PBXGroup;
 			children = (
-				9BD229A8258B7F4F00E17E98 /* Fonts */,
-				9BD228FD258A321B00E17E98 /* AppDelegate.swift */,
-				9BD22903258A321B00E17E98 /* Main.storyboard */,
-				9BD22967258AC52F00E17E98 /* MainCell.xib */,
-				9BD22971258AD6EF00E17E98 /* MainCell.swift */,
-				9BD22959258AB02500E17E98 /* CollectionViewController.swift */,
-				9BD229DE258D82DD00E17E98 /* AlignmentInfoViewController.swift */,
-				9BD22936258A644400E17E98 /* RunesStoryboard.storyboard */,
-				9BD22947258A6BE500E17E98 /* SagasStoryboard.storyboard */,
-				9BD2294C258A6F2600E17E98 /* FavouritiesStoryboard.storyboard */,
-				9BD22951258A6F3D00E17E98 /* SettingsStoryboard.storyboard */,
-				9BD22906258A321F00E17E98 /* Assets.xcassets */,
-				9BD22908258A321F00E17E98 /* LaunchScreen.storyboard */,
 				9BD2290B258A321F00E17E98 /* Info.plist */,
+				9B9C25CB25993E0900A4E135 /* Views */,
+				9B9C25CA25993DF800A4E135 /* Support */,
+				9B9C25C925993DE000A4E135 /* Controllers */,
+				9BD229A8258B7F4F00E17E98 /* Fonts */,
+				9B9C25C825993DB100A4E135 /* Storyboards */,
 			);
 			path = Runar;
 			sourceTree = "<group>";
@@ -320,7 +357,6 @@
 				9BD229CA258D776200E17E98 /* Roboto-MediumItalic.ttf in Resources */,
 				9BD229CE258D776200E17E98 /* Roboto-BlackItalic.ttf in Resources */,
 				9BD229D0258D776200E17E98 /* Roboto-Medium.ttf in Resources */,
-				9BD22968258AC52F00E17E98 /* MainCell.xib in Resources */,
 				9BD22907258A321F00E17E98 /* Assets.xcassets in Resources */,
 				9B9F151D2591499A00062F47 /* AmaticSC-Bold.ttf in Resources */,
 				9BD2294D258A6F2600E17E98 /* FavouritiesStoryboard.storyboard in Resources */,
