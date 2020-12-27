@@ -12,6 +12,19 @@ class MainCell: UICollectionViewCell {
     @IBOutlet var alignmentName: UILabel!
     static let reuseIdentifier = "Cell"
     
+    override var isHighlighted: Bool {
+            didSet {
+                if self.isHighlighted {
+                    contentView.layer.backgroundColor = UIColor(red: 1, green: 0.918, blue: 0.792, alpha: 0.15).cgColor
+                    contentView.layer.borderColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1).cgColor
+                } else {
+                    contentView.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
+                    contentView.layer.borderColor = UIColor(red: 0.55, green: 0.55, blue: 0.55, alpha: 1).cgColor
+                    
+                }
+            }
+    }
+    
     override func awakeFromNib() {
         contentView.layer.cornerRadius = 8
         contentView.layer.borderWidth = 1

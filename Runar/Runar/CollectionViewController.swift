@@ -18,7 +18,7 @@ class CollectionViewController: UICollectionViewController {
         mainImageView.contentMode = .scaleAspectFill
         collectionView.backgroundView = mainImageView
         navigationController?.navigationBar.isHidden = true
-
+        collectionView.delaysContentTouches = false
         
 
         // Uncomment the following line to preserve selection between presentations
@@ -64,19 +64,6 @@ class CollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDelegate
 
-    
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        if let cell = collectionView.cellForItem(at: indexPath) {
-            cell.contentView.layer.borderColor = UIColor(red: 0.792, green: 0.792, blue: 0.792, alpha: 1).cgColor
-        }
-        return true
-    }
-    
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
