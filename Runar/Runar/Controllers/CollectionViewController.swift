@@ -36,6 +36,10 @@ class CollectionViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false 
+    }
 
     /*
     // MARK: - Navigation
@@ -74,6 +78,7 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let alInfVC = mainStoryboard.instantiateViewController(withIdentifier: "AlignmentInformation") as! AlignmentInfoViewController
+        alInfVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(alInfVC, animated: true)
     }
 }
