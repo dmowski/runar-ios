@@ -31,6 +31,7 @@ class MainCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor =  UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         label.textAlignment = .center
+        label.highlightedTextColor = UIColor(red: 0.988, green: 0.784, blue: 0.455, alpha: 1)
         return label
     }()
     
