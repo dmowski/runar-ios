@@ -10,7 +10,7 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class CollectionViewController: UICollectionViewController {
-    
+
 
     
     override func viewDidLoad() {
@@ -67,7 +67,7 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCell.reuseIdentifier, for: indexPath) as! MainCell
-        cell.cellFor(indexPath: indexPath)
+        cell.nameFor(indexPath: indexPath)
         
         return cell
     }
@@ -76,8 +76,7 @@ class CollectionViewController: UICollectionViewController {
 
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let alInfVC = mainStoryboard.instantiateViewController(withIdentifier: "AlignmentInformation") as! AlignmentInfoViewController
+        let alInfVC = AlignmentInfoViewController(name: DataBase().namesDataSourse[indexPath.item])
         alInfVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(alInfVC, animated: true)
     }

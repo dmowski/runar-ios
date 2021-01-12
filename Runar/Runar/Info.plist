@@ -47,8 +47,9 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>SFProDisplay-Light.ttf</string>
 		<string>AmaticSC-Bold.ttf</string>
-		<string></string>
+		<string>Roboto-Light.ttf</string>
 	</array>
 </dict>
 </plist>

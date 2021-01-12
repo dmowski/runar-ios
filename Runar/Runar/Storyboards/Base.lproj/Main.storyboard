@@ -144,7 +144,7 @@
                                     <color key="titleColor" red="0.82352941180000006" green="0.76862745099999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9k2-I0-DCg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кельтский крест" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9k2-I0-DCg">
                                 <rect key="frame" x="50" y="86" width="314" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="5hd-q1-B0r"/>
