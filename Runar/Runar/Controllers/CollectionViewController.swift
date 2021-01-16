@@ -11,7 +11,7 @@ private let reuseIdentifier = "Cell"
 
 class CollectionViewController: UICollectionViewController {
 
-
+    private let floatingImage = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class CollectionViewController: UICollectionViewController {
         navigationController?.navigationBar.isHidden = true
         collectionView.delaysContentTouches = false
         
-
+        createFloatingButton()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -80,6 +80,43 @@ class CollectionViewController: UICollectionViewController {
         alInfVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(alInfVC, animated: true)
     }
+    
+    var pointingToBottom: Bool = true {
+        didSet {
+            guard oldValue != pointingToBottom else { return }
+            if pointingToBottom {
+                floatingImage.image = UIImage(named: "floatingDown")
+            } else {
+                floatingImage.image = UIImage(named: "floatingUp")
+            }
+        }
+    }
+    
+    private func createFloatingButton() {
+        floatingImage.image = UIImage(named: "floatingDown")
+        floatingImage.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.addSubview(floatingImage)
+        
+        NSLayoutConstraint.activate([
+            floatingImage.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -4),
+            floatingImage.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
+            floatingImage.widthAnchor.constraint(equalToConstant: 77),
+            floatingImage.heightAnchor.constraint(equalToConstant: 24),
+        ])
+        
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if scrollView.contentSize != .zero  && (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)/2) {
+            pointingToBottom = false
+        } else {
+            pointingToBottom = true
+        }
+    }
+    
+    
+    
 }
 
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
