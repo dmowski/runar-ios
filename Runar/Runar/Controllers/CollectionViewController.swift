@@ -76,9 +76,14 @@ class CollectionViewController: UICollectionViewController {
 
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let alInfVC = AlignmentInfoViewController(name: DataBase().namesDataSourse[indexPath.item])
+        let name = DataBase().namesDataSourse[indexPath.item]
+        if UserDefaults.standard.bool(forKey: name) == true {
+            
+        } else {
+        let alInfVC = AlignmentInfoViewController(name: name)
         alInfVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(alInfVC, animated: true)
+        }
     }
     
     var pointingToBottom: Bool = true {

@@ -125,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				9BD22903258A321B00E17E98 /* Main.storyboard */,
-				9B9C266E25A2173100A4E135 /* DataBase.swift */,
 				9BD22936258A644400E17E98 /* RunesStoryboard.storyboard */,
 				9BD22947258A6BE500E17E98 /* SagasStoryboard.storyboard */,
 				9BD2294C258A6F2600E17E98 /* FavouritiesStoryboard.storyboard */,
@@ -147,6 +146,7 @@
 		9B9C25CA25993DF800A4E135 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				9B9C266E25A2173100A4E135 /* DataBase.swift */,
 				9BD228FD258A321B00E17E98 /* AppDelegate.swift */,
 				9BD22906258A321F00E17E98 /* Assets.xcassets */,
 			);

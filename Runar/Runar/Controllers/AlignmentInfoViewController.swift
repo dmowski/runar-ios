@@ -43,10 +43,7 @@ class AlignmentInfoViewController: UIViewController {
         setUpStack()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
+
     
     func backgroundSetup() {
         background.image = UIImage(named: "main_fire")
@@ -55,7 +52,7 @@ class AlignmentInfoViewController: UIViewController {
         background.isUserInteractionEnabled = true
         self.view.addSubview(background)
         NSLayoutConstraint.activate([
-            background.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            background.topAnchor.constraint(equalTo: view.topAnchor),
             background.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             background.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             background.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
@@ -73,7 +70,7 @@ class AlignmentInfoViewController: UIViewController {
         background.addSubview(nameLabel)
         
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: background.topAnchor, constant: 55),
+            nameLabel.topAnchor.constraint(equalTo: background.topAnchor, constant: 60),
             nameLabel.bottomAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 65),
             nameLabel.centerXAnchor.constraint(equalTo: background.centerXAnchor)
         ])
@@ -92,7 +89,7 @@ class AlignmentInfoViewController: UIViewController {
         startButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
         background.addSubview(startButton)
         NSLayoutConstraint.activate([
-            startButton.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -78),
+            startButton.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -65),
             startButton.topAnchor.constraint(equalTo: startButton.bottomAnchor, constant: -54),
                 startButton.leadingAnchor.constraint(lessThanOrEqualTo: background.leadingAnchor, constant: 80),
             startButton.widthAnchor.constraint(equalToConstant: 255),
@@ -110,8 +107,8 @@ class AlignmentInfoViewController: UIViewController {
         background.addSubview(escape)
         escape.addTarget(self, action: #selector(self.escapeOnTap), for: .touchUpInside)
         NSLayoutConstraint.activate([
-            escape.topAnchor.constraint(equalTo: background.topAnchor, constant: 21),
-            escape.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -28),
+            escape.topAnchor.constraint(equalTo: background.topAnchor, constant: 44),
+            escape.trailingAnchor.constraint(equalTo: background.trailingAnchor),
             escape.widthAnchor.constraint(equalToConstant: CGFloat(width)),
             escape.bottomAnchor.constraint(equalTo: escape.topAnchor, constant: CGFloat(height))
         ])
@@ -139,7 +136,7 @@ class AlignmentInfoViewController: UIViewController {
         NSLayoutConstraint.activate([
             descriptionLabel.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 30),
             descriptionLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -30),
-            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 13),
+            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 50),
             descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: startButton.bottomAnchor, constant: -100),
         ])
     }
@@ -198,11 +195,11 @@ class AlignmentInfoViewController: UIViewController {
                    if button.isSelected {
                     showButton.setImage(UIImage(named: "unselected"), for: .normal)
                        button.isSelected = false
-                    selected = false
+                    UserDefaults.standard.set(false, forKey: self.name)
                       } else {
                         showButton.setImage(UIImage(named: "selected"), for: .selected)
                        button.isSelected = true
-                        selected = true
+                        UserDefaults.standard.set(true, forKey: self.name)
                       }
                   }
     }
