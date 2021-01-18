@@ -21,8 +21,9 @@ class MainCell: UICollectionViewCell {
                 contentView.layer.backgroundColor = UIColor(red: 1, green: 0.918, blue: 0.792, alpha: 0.15).cgColor
                 contentView.layer.borderColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1).cgColor
             } else {
-                contentView.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
-                contentView.layer.borderColor = UIColor(red: 0.55, green: 0.55, blue: 0.55, alpha: 1).cgColor
+                contentView.layer.backgroundColor = UIColor(red: 0.146, green: 0.146, blue: 0.146, alpha: 0.35).cgColor
+                contentView.layer.borderColor = UIColor(red: 0.824, green: 0.769, blue: 0.678, alpha: 0.7).cgColor
+
                 
             }
         }
@@ -44,8 +45,9 @@ class MainCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 8
         contentView.layer.borderWidth = 1
         contentView.layer.masksToBounds = true
-        contentView.layer.borderColor = UIColor(red: 0.55, green: 0.55, blue: 0.55, alpha: 1).cgColor
-        contentView.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
+        contentView.layer.borderColor = UIColor(red: 0.824, green: 0.769, blue: 0.678, alpha: 0.7).cgColor
+
+        contentView.layer.backgroundColor = UIColor(red: 0.146, green: 0.146, blue: 0.146, alpha: 0.35).cgColor
         
     }
     
