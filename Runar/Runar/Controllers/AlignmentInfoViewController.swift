@@ -9,8 +9,9 @@ import UIKit
 
 class AlignmentInfoViewController: UIViewController {
     
-    private static let nameFontMultiplier = 55/785
+    private let nameFontMultiplier = 55/785
     var background = UIImageView()
+    var backgroundFire = UIImageView()
     var name = String()
     var nameLabel = UILabel()
     var startButton = UIButton()
@@ -43,25 +44,39 @@ class AlignmentInfoViewController: UIViewController {
         setUpStack()
     }
     
-
-    
     func backgroundSetup() {
-        background.image = UIImage(named: "main_fire")
+        backgroundFire.image = UIImage(named: "main_fire")
+        backgroundFire.translatesAutoresizingMaskIntoConstraints = false
+        backgroundFire.contentMode = .scaleAspectFill
+        backgroundFire.isUserInteractionEnabled = true
+        self.view.addSubview(backgroundFire)
+        NSLayoutConstraint.activate([
+            backgroundFire.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            backgroundFire.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            backgroundFire.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            backgroundFire.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+        ])
+        
+        background.image = UIImage(named: "backgroundDown")
         background.translatesAutoresizingMaskIntoConstraints = false
         background.contentMode = .scaleAspectFill
         background.isUserInteractionEnabled = true
         self.view.addSubview(background)
         NSLayoutConstraint.activate([
-            background.topAnchor.constraint(equalTo: view.topAnchor),
-            background.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            background.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            background.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            background.topAnchor.constraint(equalTo: backgroundFire.topAnchor),
+            background.bottomAnchor.constraint(equalTo: backgroundFire.bottomAnchor),
+            background.leadingAnchor.constraint(equalTo: backgroundFire.leadingAnchor),
+            background.trailingAnchor.constraint(equalTo: backgroundFire.trailingAnchor),
         ])
     }
     
     func setUpNameLabel() {
         nameLabel.text = name
-        nameLabel.font = UIFont(name: "AmaticSC-Bold", size: 55)
+        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
+        nameLabel.font = UIFont(name: "AmaticSC-Bold", size: 45)
+        } else {
+            nameLabel.font = UIFont(name: "AmaticSC-Bold", size: 55)
+        }
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.textColor =  UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         nameLabel.textAlignment = .center
@@ -70,7 +85,7 @@ class AlignmentInfoViewController: UIViewController {
         background.addSubview(nameLabel)
         
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: background.topAnchor, constant: 60),
+            nameLabel.topAnchor.constraint(equalTo: background.topAnchor, constant: 25),
             nameLabel.bottomAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 65),
             nameLabel.centerXAnchor.constraint(equalTo: background.centerXAnchor)
         ])
@@ -84,10 +99,24 @@ class AlignmentInfoViewController: UIViewController {
         startButton.setTitle("Начать расклад", for: .normal)
         
         startButton.translatesAutoresizingMaskIntoConstraints = false
+        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
+            startButton.titleLabel?.font = UIFont(name: "AmaticSC-Bold", size: 24)
+        } else {
         startButton.titleLabel?.font = UIFont(name: "AmaticSC-Bold", size: 30)
+        }
         startButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .normal)
         startButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
         background.addSubview(startButton)
+        
+        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
+            NSLayoutConstraint.activate([
+                startButton.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -55),
+                startButton.topAnchor.constraint(equalTo: startButton.bottomAnchor, constant: -46),
+                    startButton.leadingAnchor.constraint(lessThanOrEqualTo: background.leadingAnchor, constant: 55),
+                startButton.widthAnchor.constraint(equalToConstant: 210),
+                startButton.centerXAnchor.constraint(equalTo: background.centerXAnchor)
+            ])
+        } else {
         NSLayoutConstraint.activate([
             startButton.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -65),
             startButton.topAnchor.constraint(equalTo: startButton.bottomAnchor, constant: -54),
@@ -95,23 +124,30 @@ class AlignmentInfoViewController: UIViewController {
             startButton.widthAnchor.constraint(equalToConstant: 255),
             startButton.centerXAnchor.constraint(equalTo: background.centerXAnchor)
         ])
-        
+        }
     }
     
     func setUpEscape() {
         escape.translatesAutoresizingMaskIntoConstraints = false
         let image = UIImage(named: "escape")
-        let width = 48
-        let height = 48
         escape.setImage(image, for: .normal)
         background.addSubview(escape)
         escape.addTarget(self, action: #selector(self.escapeOnTap), for: .touchUpInside)
+        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
+            NSLayoutConstraint.activate([
+                escape.topAnchor.constraint(equalTo: background.topAnchor),
+                escape.trailingAnchor.constraint(equalTo: background.trailingAnchor),
+                escape.widthAnchor.constraint(equalToConstant: 40),
+                escape.bottomAnchor.constraint(equalTo: escape.topAnchor, constant: 40)
+            ])
+        } else {
         NSLayoutConstraint.activate([
-            escape.topAnchor.constraint(equalTo: background.topAnchor, constant: 44),
+            escape.topAnchor.constraint(equalTo: background.topAnchor),
             escape.trailingAnchor.constraint(equalTo: background.trailingAnchor),
-            escape.widthAnchor.constraint(equalToConstant: CGFloat(width)),
-            escape.bottomAnchor.constraint(equalTo: escape.topAnchor, constant: CGFloat(height))
+            escape.widthAnchor.constraint(equalToConstant: 48),
+            escape.bottomAnchor.constraint(equalTo: escape.topAnchor, constant: 48)
         ])
+        }
     }
     
     
@@ -120,25 +156,39 @@ class AlignmentInfoViewController: UIViewController {
     }
     
     func setUpDescription() {
+        
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.text = DataBase.alDescription[name]
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 1.34
+        paragraphStyle.lineHeightMultiple = 1.26
         descriptionLabel.attributedText = NSMutableAttributedString(string: descriptionLabel.text!, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         descriptionLabel.textColor = UIColor(red: 0.913, green: 0.913, blue: 0.913, alpha: 1)
+        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
+            descriptionLabel.font = UIFont(name: "SFProDisplay-Light", size: 17)
+        } else {
         descriptionLabel.font = UIFont(name: "SFProDisplay-Light", size: 20)
+        }
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = .left
         descriptionLabel.sizeToFit()
         background.addSubview(descriptionLabel)
         
+        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
         NSLayoutConstraint.activate([
-            descriptionLabel.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 30),
-            descriptionLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -30),
-            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 50),
+            descriptionLabel.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 32),
+            descriptionLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -24),
+            descriptionLabel.topAnchor.constraint(equalTo: escape.bottomAnchor, constant: 60),
             descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: startButton.bottomAnchor, constant: -100),
         ])
+        } else {
+            NSLayoutConstraint.activate([
+                descriptionLabel.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 32),
+                descriptionLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -32),
+                descriptionLabel.topAnchor.constraint(equalTo: escape.bottomAnchor, constant: 60),
+                descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: startButton.bottomAnchor, constant: -100),
+            ])
+        }
     }
     
 
@@ -149,17 +199,29 @@ class AlignmentInfoViewController: UIViewController {
         background.addSubview(showButton)
         showButton.addTarget(self, action: #selector(select), for: .touchUpInside)
         
-        NSLayoutConstraint.activate([
-            
-            showButton.widthAnchor.constraint(equalToConstant: 20),
-            showButton.heightAnchor.constraint(equalToConstant: 20),
-        ])
+        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
+            NSLayoutConstraint.activate([
+                
+                showButton.widthAnchor.constraint(equalToConstant: 16.44),
+                showButton.heightAnchor.constraint(equalToConstant: 16.44),
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                
+                showButton.widthAnchor.constraint(equalToConstant: 20),
+                showButton.heightAnchor.constraint(equalToConstant: 20),
+            ])
+        }
     }
     
     func setUpShowLabel() {
         showLabel.text = "Больше не показывать"
         showLabel.translatesAutoresizingMaskIntoConstraints = false
+        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
+            showLabel.font = UIFont(name: "Roboto-Light", size: 14)
+        } else {
         showLabel.font = UIFont(name: "Roboto-Light", size: 16)
+        }
         showLabel.textColor = UIColor(red: 0.659, green: 0.651, blue: 0.639, alpha: 1)
         showLabel.textAlignment = .left
         background.addSubview(showLabel)
@@ -181,13 +243,22 @@ class AlignmentInfoViewController: UIViewController {
         background.addSubview(stack)
         stack.addArrangedSubview(showButton)
         stack.addArrangedSubview(showLabel)
-        
+      
+        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
+            NSLayoutConstraint.activate([
+                stack.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 55),
+                stack.centerXAnchor.constraint(equalTo: background.centerXAnchor),
+                stack.bottomAnchor.constraint(equalTo: startButton.topAnchor, constant: -18)
+                
+            ])
+        } else {
         NSLayoutConstraint.activate([
             stack.leadingAnchor.constraint(lessThanOrEqualTo: background.leadingAnchor, constant: 80),
             stack.centerXAnchor.constraint(equalTo: background.centerXAnchor),
             stack.bottomAnchor.constraint(equalTo: startButton.topAnchor, constant: -18)
             
         ])
+        }
     }
     
     @objc func select(sender: UIButton!) {

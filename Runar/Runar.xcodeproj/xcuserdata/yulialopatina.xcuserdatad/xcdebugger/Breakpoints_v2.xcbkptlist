@@ -96,32 +96,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "85736063-D539-4C4E-A820-C24E77FFB918"
-            shouldBeEnabled = "Yes"
+            uuid = "B386A10A-3F9B-4C08-846B-5D71261872D5"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Runar/Controllers/AlignmentInfoViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
-            landmarkName = "select(sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CB205955-785D-4EBB-A205-B40AEBC5E5B4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Runar/Controllers/AlignmentInfoViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
-            landmarkName = "select(sender:)"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "setUpEscape()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
