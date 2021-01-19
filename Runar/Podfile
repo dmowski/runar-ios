@@ -1,0 +1,5 @@
+use_frameworks!
+
+target 'Runar' do
+    pod 'SwiftGen'
+end
