@@ -15,10 +15,10 @@ class CollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for family in UIFont.familyNames.sorted() {
-            let names = UIFont.fontNames(forFamilyName: family)
-            print("Family: \(family) Font names: \(names)")
-        }
+//        for family in UIFont.familyNames.sorted() {
+//            let names = UIFont.fontNames(forFamilyName: family)
+//            print("Family: \(family) Font names: \(names)")
+//        }
         let mainImage: UIImage? = UIImage(named: "main")
         let mainImageView: UIImageView = UIImageView(image: mainImage)
         mainImageView.contentMode = .scaleAspectFill
