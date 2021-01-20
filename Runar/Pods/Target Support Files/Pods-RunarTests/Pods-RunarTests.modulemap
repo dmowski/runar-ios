@@ -1,0 +1,6 @@
+framework module Pods_RunarTests {
+  umbrella header "Pods-RunarTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
