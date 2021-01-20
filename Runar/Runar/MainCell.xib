@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<<<<<<< HEAD
     <device id="retina6_1" orientation="portrait" appearance="light"/>
+=======
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+>>>>>>> alignment-info-screen
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -22,6 +26,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="186" height="221"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+<<<<<<< HEAD
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yk8-VP-DaS">
                         <rect key="frame" x="9" y="170" width="165" height="35"/>
                         <constraints>
@@ -38,6 +43,26 @@
                     <constraint firstAttribute="bottom" secondItem="Yk8-VP-DaS" secondAttribute="bottom" constant="16" id="dSJ-59-hmE"/>
                     <constraint firstItem="Yk8-VP-DaS" firstAttribute="centerX" secondItem="jXe-1R-sGX" secondAttribute="centerX" id="i1g-g4-D1K"/>
                     <constraint firstItem="Yk8-VP-DaS" firstAttribute="leading" secondItem="jXe-1R-sGX" secondAttribute="leading" constant="9" id="pBF-uo-gJ9"/>
+=======
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кельтский крест" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yk8-VP-DaS">
+                        <rect key="frame" x="8" y="163.5" width="170" height="45.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="31" id="Zwt-Ut-Vl8"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="36"/>
+                        <color key="textColor" red="0.82352941176470584" green="0.76862745098039209" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="highlightedColor" red="0.94509803920000002" green="0.80392156859999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="58"/>
+                        </variation>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Yk8-VP-DaS" firstAttribute="leading" secondItem="jXe-1R-sGX" secondAttribute="leading" constant="8" id="PYe-Dq-eG6"/>
+                    <constraint firstAttribute="bottom" secondItem="Yk8-VP-DaS" secondAttribute="bottom" constant="12" id="dSJ-59-hmE"/>
+                    <constraint firstAttribute="trailing" secondItem="Yk8-VP-DaS" secondAttribute="trailing" constant="8" id="ntw-Cl-Zbv"/>
+>>>>>>> alignment-info-screen
                 </constraints>
             </collectionViewCellContentView>
             <constraints>
@@ -52,7 +77,11 @@
             <connections>
                 <outlet property="alignmentName" destination="Yk8-VP-DaS" id="vGo-h7-6yG"/>
             </connections>
+<<<<<<< HEAD
             <point key="canvasLocation" x="-94.20289855072464" y="-38.504464285714285"/>
+=======
+            <point key="canvasLocation" x="-94.53125" y="-38.96484375"/>
+>>>>>>> alignment-info-screen
         </collectionViewCell>
     </objects>
 </document>
