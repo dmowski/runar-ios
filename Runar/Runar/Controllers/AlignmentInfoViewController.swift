@@ -102,7 +102,7 @@ class AlignmentInfoViewController: UIViewController {
         if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
             startButton.titleLabel?.font = UIFont(name: "AmaticSC-Bold", size: 24)
         } else {
-        startButton.titleLabel?.font = UIFont(name: "AmaticSC-Bold", size: 30)
+        startButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 30)
         }
         startButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .normal)
         startButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)

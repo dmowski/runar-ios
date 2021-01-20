@@ -1,5 +1,5 @@
 input_dir: Runar/Support
-output_dir: Runar/Support/SwiftGen
+output_dir: Runar/SwiftGen
 xcassets:
   inputs: Assets.xcassets
   outputs:
