@@ -20,11 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         let newViewcontroller:UIViewController = mainstoryboard.instantiateViewController(withIdentifier: "Initial") as! UITabBarController
                         window?.rootViewController = newViewcontroller
         window?.makeKeyAndVisible()
-        if UserDefaults.isFirstLaunch() {
-            print("First launch")
-        } else {
-            print("Not first ")
-        }
+        signIn()
         return true
     }
 }
@@ -42,6 +38,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-
+extension AppDelegate {
+    
+    func randomString(length: Int) -> String {
+      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      return String((0..<length).map{ _ in letters.randomElement()! })
+    }
+    
+    func signIn() {
+        let id = randomString(length: 26)
+        let created = NSDate().timeIntervalSince1970
+        let systemVersion = UIDevice.current.systemVersion
+        NetworkingManager().createUser(with: id, date: created, os: systemVersion)
+        print(id, created, systemVersion)
+    }
+}
 
 
