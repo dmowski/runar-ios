@@ -11,8 +11,9 @@ class MainCell: UICollectionViewCell {
     
     static let reuseIdentifier = "Cell"
     private static let fontMultiplier : CGFloat = 32/199
-    private static let bottonBottomMultiplier : CGFloat = 12/199
-    private static let bottomTopMultiplier: CGFloat = 156/199
+    private static let labelBottomMultiplier : CGFloat = 12/199
+    private static let labelTopMultiplier: CGFloat = 156/199
+    private static let imageLeftMultiplier: CGFloat = 45/183
     var image = UIImageView()
     
     
@@ -71,12 +72,12 @@ class MainCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             alignmentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 9),
             alignmentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -9),
-            alignmentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -(self.frame.size.height * MainCell.bottonBottomMultiplier)),
-            alignmentLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: (self.frame.size.height * MainCell.bottomTopMultiplier)),
+            alignmentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -(self.frame.size.height * MainCell.labelBottomMultiplier)),
+            alignmentLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: (self.frame.size.height * MainCell.labelTopMultiplier)),
             
             image.topAnchor.constraint(equalTo: contentView.topAnchor),
-            image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 45),
-            image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -45),
+            image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: (self.frame.size.width * MainCell.imageLeftMultiplier)),
+            image.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             image.bottomAnchor.constraint(equalTo: alignmentLabel.topAnchor, constant: -1)
         ])
         
