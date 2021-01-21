@@ -13,7 +13,7 @@ class MainCell: UICollectionViewCell {
     private static let fontMultiplier : CGFloat = 32/199
     private static let labelBottomMultiplier : CGFloat = 12/199
     private static let labelTopMultiplier: CGFloat = 156/199
-    private static let imageLeftMultiplier: CGFloat = 45/183
+    private static let imageLeftMultiplier: CGFloat = 59/183
     var image = UIImageView()
     
     
@@ -75,10 +75,10 @@ class MainCell: UICollectionViewCell {
             alignmentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -(self.frame.size.height * MainCell.labelBottomMultiplier)),
             alignmentLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: (self.frame.size.height * MainCell.labelTopMultiplier)),
             
-            image.topAnchor.constraint(equalTo: contentView.topAnchor),
+            image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
             image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: (self.frame.size.width * MainCell.imageLeftMultiplier)),
             image.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            image.bottomAnchor.constraint(equalTo: alignmentLabel.topAnchor, constant: -1)
+            image.bottomAnchor.constraint(equalTo: alignmentLabel.topAnchor, constant: -13)
         ])
         
     }
