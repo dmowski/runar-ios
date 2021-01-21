@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         let newViewcontroller:UIViewController = mainstoryboard.instantiateViewController(withIdentifier: "Initial") as! UITabBarController
                         window?.rootViewController = newViewcontroller
         window?.makeKeyAndVisible()
-        signIn()
+        if UserDefaults.isFirstLaunch(){
+            signIn() }
         return true
     }
 }
@@ -46,11 +47,10 @@ extension AppDelegate {
     }
     
     func signIn() {
-        let id = randomString(length: 26)
+        let id = randomString(length: 32)
         let created = NSDate().timeIntervalSince1970
-        let systemVersion = UIDevice.current.systemVersion
+        let systemVersion = "IOS " + UIDevice.current.systemVersion
         NetworkingManager().createUser(with: id, date: created, os: systemVersion)
-        print(id, created, systemVersion)
     }
 }
 
