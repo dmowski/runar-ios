@@ -12,6 +12,9 @@ private let reuseIdentifier = "Cell"
 class CollectionViewController: UICollectionViewController {
     
     private let floatingImage = UIButton()
+    private let data = DataBase.runes.map {
+        MainCellModel(runeId: $0.id, name: $0.name, image: $0.image)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,28 +64,37 @@ class CollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 8
+        return data.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCell.reuseIdentifier, for: indexPath) as! MainCell
-        cell.nameFor(indexPath: indexPath)
+        cell.update(with: data[safe: indexPath.row])
         
         return cell
     }
+    
     
     // MARK: UICollectionViewDelegate
     
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let name = DataBase().namesDataSourse[indexPath.item]
-        if UserDefaults.standard.bool(forKey: name) == true {
-            
+        guard let runeDescription = DataBase.runes.first(where: {
+            $0.id == data[safe: indexPath.row]?.runeId
+        }) else { return }
+        if UserDefaults.standard.bool(forKey: runeDescription.name) == true {
+            let viewModel = AlignmentViewModel(runeDescription: runeDescription)
+            let viewController = AlignmentViewController()
+            viewController.viewModel = viewModel
+            viewController.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(viewController, animated: true)
         } else {
-            let alInfVC = AlignmentInfoViewController(name: name)
-            alInfVC.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(alInfVC, animated: true)
+            let viewModel = AlignmentInfoViewModel(runeDescription: runeDescription)
+            let viewController = AlignmentInfoViewController()
+            viewController.viewModel = viewModel
+            viewController.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
     
@@ -157,5 +169,28 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 16
+    }
+}
+
+private extension RuneDescription {
+    var image: UIImage {
+        switch layout {
+        case .dayRune:
+            return Assets.dayRune.image
+        case .twoRunes:
+            return Assets.twoRunes.image
+        case .norns:
+            return Assets.norns.image
+        case .thorsHummer:
+            return Assets.thorsHummer.image
+        case .shortPrediction:
+            return Assets.shortPrediction.image
+        case .cross:
+            return Assets.cross.image
+        case .elementsCross:
+            return Assets.elementsCross.image
+        case .keltsCross:
+            return Assets.keltsCross.image
+        }
     }
 }

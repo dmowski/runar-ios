@@ -22,15 +22,7 @@ class AlignmentInfoViewController: UIViewController {
     var selected: Bool = false
     var stack = UIStackView()
     
-    
-    init(name: String) {
-        super.init(nibName: nil, bundle: nil)
-        self.name = name
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var viewModel: AlignmentInfoViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +63,7 @@ class AlignmentInfoViewController: UIViewController {
     }
     
     func setUpNameLabel() {
-        nameLabel.text = name
+        nameLabel.text = viewModel.name
         if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
         nameLabel.font = UIFont(name: "AmaticSC-Bold", size: 45)
         } else {
@@ -97,6 +89,9 @@ class AlignmentInfoViewController: UIViewController {
         startButton.layer.cornerRadius = 8
         startButton.layer.borderWidth = 1
         startButton.setTitle("Начать расклад", for: .normal)
+        
+        startButton.addTarget(self, action: #selector(buttomTapped), for: .touchUpInside)
+        
         
         startButton.translatesAutoresizingMaskIntoConstraints = false
         if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
@@ -125,6 +120,14 @@ class AlignmentInfoViewController: UIViewController {
             startButton.centerXAnchor.constraint(equalTo: background.centerXAnchor)
         ])
         }
+    }
+    
+    @objc func buttomTapped(_ sender: Any) {
+        let viewModel = AlignmentViewModel(runeDescription: self.viewModel.runeDescription)
+        let viewController = AlignmentViewController()
+        viewController.viewModel = viewModel
+        viewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func setUpEscape() {
@@ -159,7 +162,7 @@ class AlignmentInfoViewController: UIViewController {
         
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.lineBreakMode = .byWordWrapping
-        descriptionLabel.text = DataBase.alDescription[name]
+        descriptionLabel.text = viewModel.runeDescription.description
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.26
         descriptionLabel.attributedText = NSMutableAttributedString(string: descriptionLabel.text!, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
