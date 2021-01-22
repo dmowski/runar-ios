@@ -51,10 +51,16 @@ class MainCell: UICollectionViewCell {
         
     }
     
-    func nameFor(indexPath: IndexPath) {
-        let data = DataBase()
-        alignmentLabel.text = data.namesDataSourse[indexPath.item]
-        image.image = UIImage(named: data.namesDataSourse[indexPath.item])
+//    func nameFor(indexPath: IndexPath) {
+//        let data = DataBase()
+//        alignmentLabel.text = data.namesDataSourse[indexPath.item]
+//        image.image = UIImage(named: data.namesDataSourse[indexPath.item])
+//    }
+    
+    func update(with model: MainCellModel?) {
+        guard let model = model else { return }
+        alignmentLabel.text = model.name
+        image.image = model.image
     }
     
     func setUpRune() {
@@ -82,4 +88,28 @@ class MainCell: UICollectionViewCell {
     
     
 
+}
+
+
+private extension RuneDescription {
+    var image: UIImage {
+        switch layout {
+        case .dayRune:
+            return Assets.dayRune.image
+        case .twoRunes:
+            return Assets.twoRunes.image
+        case .norns:
+            return Assets.norns.image
+        case .thorsHummer:
+            return Assets.thorsHummer.image
+        case .shortPrediction:
+            return Assets.shortPrediction.image
+        case .cross:
+            return Assets.cross.image
+        case .elementsCross:
+            return Assets.elementsCross.image
+        case .keltsCross:
+            return Assets.keltsCross.image
+        }
+    }
 }

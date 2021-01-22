@@ -9,16 +9,27 @@ import Foundation
 
 struct DataBase {
     
-    let namesDataSourse = ["Руна дня","Расклад из 2 рун","Норны","Краткий прогноз","Молот Тора","Крест","Крест стихий","Кельтский крест"]
-    
-   static let alDescription = [
-    "Руна дня" : L10n.runesOfTheDay,
-    "Расклад из 2 рун" : L10n.layoutOfTwoRunes,
-    "Норны" : L10n.norns,
-    "Молот Тора" : L10n.thorsHammer,
-    "Краткий прогноз": L10n.briefForecast,
-    "Крест" : L10n.cross,
-    "Крест стихий" : L10n.crossOfTheElements,
-    "Кельтский крест" : L10n.celticCross
+    static let runes = [
+        RuneDescription(id: UUID().uuidString, name: L10n.Rune.DayRune.name, layout: .dayRune, description: L10n.Rune.DayRune.description),
+        RuneDescription(id: UUID().uuidString, name: L10n.Rune.TwoRunes.name, layout: .twoRunes, description: L10n.Rune.TwoRunes.description),
+        RuneDescription(id: UUID().uuidString, name: L10n.Rune.Norns.name, layout: .norns, description: L10n.Rune.Norns.description),
+        RuneDescription(id: UUID().uuidString, name: L10n.Rune.ThorsHummer.name, layout: .thorsHummer, description: L10n.Rune.ThorsHummer.description),
+        RuneDescription(id: UUID().uuidString, name: L10n.Rune.ShortPrediction.name, layout: .shortPrediction, description: L10n.Rune.ShortPrediction.description),
+        RuneDescription(id: UUID().uuidString, name: L10n.Rune.Cross.name, layout: .cross, description: L10n.Rune.Cross.description),
+        RuneDescription(id: UUID().uuidString, name: L10n.Rune.ElementsCross.name, layout: .elementsCross, description: L10n.Rune.ElementsCross.description),
+        RuneDescription(id: UUID().uuidString, name: L10n.Rune.KeltsCross.name, layout: .keltsCross, description: L10n.Rune.KeltsCross.description)
     ]
+//    let namesDataSourse = ["Руна дня","Расклад из 2 рун","Норны","Краткий прогноз","Молот Тора","Крест","Крест стихий","Кельтский крест"]
+//    
+//   static let alDescription = [
+//    "Руна дня" : L10n.runesOfTheDay,
+//    "Расклад из 2 рун" : L10n.layoutOfTwoRunes,
+//    "Норны" : L10n.norns,
+//    "Молот Тора" : L10n.thorsHammer,
+//    "Краткий прогноз": L10n.briefForecast,
+//    "Крест" : L10n.cross,
+//    "Крест стихий" : L10n.crossOfTheElements,
+//    "Кельтский крест" : L10n.celticCross
+//    ]
 }
+

@@ -10,7 +10,17 @@
 		191D32CE25B7C46A001DC210 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D32CB25B7C46A001DC210 /* Fonts.swift */; };
 		191D32CF25B7C46A001DC210 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D32CC25B7C46A001DC210 /* Assets.swift */; };
 		191D32D025B7C46A001DC210 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D32CD25B7C46A001DC210 /* Localizable.swift */; };
+		195AEDC325B8C3A300180A49 /* AlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195AEDC225B8C3A300180A49 /* AlignmentViewController.swift */; };
 		198A056925B77BE200FDA485 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 198A056825B77BE200FDA485 /* Localizable.strings */; };
+		19C0F1E425BAE9700027422B /* FirstRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1E325BAE9700027422B /* FirstRunView.swift */; };
+		19C0F1E925BAE9830027422B /* TwoRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1E825BAE9830027422B /* TwoRunView.swift */; };
+		19C0F1EE25BAEC020027422B /* RunesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1ED25BAEC020027422B /* RunesView.swift */; };
+		19C0F1F425BAF07E0027422B /* AligmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1F325BAF07E0027422B /* AligmentViewModel.swift */; };
+		19C0F1FC25BAF9D00027422B /* MainCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1FB25BAF9D00027422B /* MainCellModel.swift */; };
+		19C0F20A25BAFCB20027422B /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F20925BAFCB20027422B /* Array+Extensions.swift */; };
+		19C0F21025BAFDCB0027422B /* AlignmentInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F20F25BAFDCB0027422B /* AlignmentInfoViewModel.swift */; };
+		19C0F21625BAFEB40027422B /* RuneLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F21525BAFEB40027422B /* RuneLayout.swift */; };
+		19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F21A25BAFEFE0027422B /* RuneDescription.swift */; };
 		9B97AC7F25AE6E81008FFF3F /* SFProDisplay-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B97AC7E25AE6E81008FFF3F /* SFProDisplay-Light.ttf */; };
 		9B97AD5825B636BE008FFF3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B97AD5725B636BD008FFF3F /* Constants.swift */; };
 		9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9C266E25A2173100A4E135 /* DataBase.swift */; };
@@ -67,7 +77,17 @@
 		191D32CC25B7C46A001DC210 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Assets.swift; path = Runar/SwiftGen/Assets.swift; sourceTree = SOURCE_ROOT; };
 		191D32CD25B7C46A001DC210 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localizable.swift; path = Runar/SwiftGen/Localizable.swift; sourceTree = SOURCE_ROOT; };
 		192EF92C25B7AFB70055DB9D /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		195AEDC225B8C3A300180A49 /* AlignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentViewController.swift; sourceTree = "<group>"; };
 		198A056825B77BE200FDA485 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		19C0F1E325BAE9700027422B /* FirstRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunView.swift; sourceTree = "<group>"; };
+		19C0F1E825BAE9830027422B /* TwoRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoRunView.swift; sourceTree = "<group>"; };
+		19C0F1ED25BAEC020027422B /* RunesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunesView.swift; sourceTree = "<group>"; };
+		19C0F1F325BAF07E0027422B /* AligmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AligmentViewModel.swift; sourceTree = "<group>"; };
+		19C0F1FB25BAF9D00027422B /* MainCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellModel.swift; sourceTree = "<group>"; };
+		19C0F20925BAFCB20027422B /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		19C0F20F25BAFDCB0027422B /* AlignmentInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentInfoViewModel.swift; sourceTree = "<group>"; };
+		19C0F21525BAFEB40027422B /* RuneLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneLayout.swift; sourceTree = "<group>"; };
+		19C0F21A25BAFEFE0027422B /* RuneDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneDescription.swift; sourceTree = "<group>"; };
 		1A56DC55326BF359E39532FA /* Pods-Runar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar.release.xcconfig"; path = "Target Support Files/Pods-Runar/Pods-Runar.release.xcconfig"; sourceTree = "<group>"; };
 		9B97AC7E25AE6E81008FFF3F /* SFProDisplay-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Light.ttf"; sourceTree = "<group>"; };
 		9B97AD5725B636BD008FFF3F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -148,6 +168,41 @@
 			path = Support/SwiftGen;
 			sourceTree = "<group>";
 		};
+		19C0F1F225BAF0540027422B /* Aligment */ = {
+			isa = PBXGroup;
+			children = (
+				195AEDC225B8C3A300180A49 /* AlignmentViewController.swift */,
+				19C0F1F325BAF07E0027422B /* AligmentViewModel.swift */,
+			);
+			path = Aligment;
+			sourceTree = "<group>";
+		};
+		19C0F20025BAFC830027422B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				19C0F20925BAFCB20027422B /* Array+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		19C0F20E25BAFDA80027422B /* AligmentInfo */ = {
+			isa = PBXGroup;
+			children = (
+				9BD229DE258D82DD00E17E98 /* AlignmentInfoViewController.swift */,
+				19C0F20F25BAFDCB0027422B /* AlignmentInfoViewModel.swift */,
+			);
+			path = AligmentInfo;
+			sourceTree = "<group>";
+		};
+		19C0F21425BAFE9B0027422B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				19C0F21525BAFEB40027422B /* RuneLayout.swift */,
+				19C0F21A25BAFEFE0027422B /* RuneDescription.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		9B9C25C825993DB100A4E135 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,9 +219,13 @@
 		9B9C25C925993DE000A4E135 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				19C0F20E25BAFDA80027422B /* AligmentInfo */,
+				19C0F1F225BAF0540027422B /* Aligment */,
 				9BD22959258AB02500E17E98 /* CollectionViewController.swift */,
-				9BD229DE258D82DD00E17E98 /* AlignmentInfoViewController.swift */,
 				9B97AD5725B636BD008FFF3F /* Constants.swift */,
+				19C0F1ED25BAEC020027422B /* RunesView.swift */,
+				19C0F1E325BAE9700027422B /* FirstRunView.swift */,
+				19C0F1E825BAE9830027422B /* TwoRunView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -195,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				9BD22971258AD6EF00E17E98 /* MainCell.swift */,
+				19C0F1FB25BAF9D00027422B /* MainCellModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -225,6 +285,8 @@
 		9BD228FC258A321B00E17E98 /* Runar */ = {
 			isa = PBXGroup;
 			children = (
+				19C0F21425BAFE9B0027422B /* Models */,
+				19C0F20025BAFC830027422B /* Extensions */,
 				198A056725B77B9B00FDA485 /* SwiftGen */,
 				9BD2290B258A321F00E17E98 /* Info.plist */,
 				9B9C25CB25993E0900A4E135 /* Views */,
@@ -499,12 +561,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				191D32CE25B7C46A001DC210 /* Fonts.swift in Sources */,
+				19C0F1E925BAE9830027422B /* TwoRunView.swift in Sources */,
+				19C0F1E425BAE9700027422B /* FirstRunView.swift in Sources */,
 				9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */,
+				195AEDC325B8C3A300180A49 /* AlignmentViewController.swift in Sources */,
+				19C0F1FC25BAF9D00027422B /* MainCellModel.swift in Sources */,
+				19C0F21025BAFDCB0027422B /* AlignmentInfoViewModel.swift in Sources */,
 				191D32CF25B7C46A001DC210 /* Assets.swift in Sources */,
 				9BD2295A258AB02500E17E98 /* CollectionViewController.swift in Sources */,
+				19C0F1F425BAF07E0027422B /* AligmentViewModel.swift in Sources */,
 				9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */,
 				9BD229DF258D82DD00E17E98 /* AlignmentInfoViewController.swift in Sources */,
+				19C0F20A25BAFCB20027422B /* Array+Extensions.swift in Sources */,
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
+				19C0F1EE25BAEC020027422B /* RunesView.swift in Sources */,
+				19C0F21625BAFEB40027422B /* RuneLayout.swift in Sources */,
+				19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */,
 				191D32D025B7C46A001DC210 /* Localizable.swift in Sources */,
 				9B97AD5825B636BE008FFF3F /* Constants.swift in Sources */,
 			);

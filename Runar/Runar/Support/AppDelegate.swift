@@ -49,7 +49,7 @@ extension AppDelegate {
         let id = randomString(length: 26)
         let created = NSDate().timeIntervalSince1970
         let systemVersion = UIDevice.current.systemVersion
-        NetworkingManager().createUser(with: id, date: created, os: systemVersion)
+//        NetworkingManager().createUser(with: id, date: created, os: systemVersion)
         print(id, created, systemVersion)
     }
 }
