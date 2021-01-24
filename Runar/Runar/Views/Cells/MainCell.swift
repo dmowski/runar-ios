@@ -85,9 +85,6 @@ class MainCell: UICollectionViewCell {
         ])
         
     }
-    
-    
-
 }
 
 
