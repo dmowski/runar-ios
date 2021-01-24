@@ -7,29 +7,29 @@
 
 import UIKit
 
-class TwoRunView: UIView {
+class TwoRuneView: UIView {
     
     private let aligmentOneButton = UIButton()
     private let aligmentTwoButton = UIButton()
-        
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            setUpContent()
-        }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setUpContent()
+    }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setUpContent()
     }
     
     func setUpContent() {
-        aligmentOneButton.backgroundColor = UIColor(red: 0.146, green: 0.146, blue: 0.146, alpha: 0.35)
-        aligmentOneButton.layer.borderColor = UIColor(red: 0.824, green: 0.769, blue: 0.678, alpha: 0.7).cgColor
+        aligmentOneButton.backgroundColor = Assets.Colors.Touch.layerBackground.color
+        aligmentOneButton.layer.borderColor = Assets.Colors.Touch.layerBorder.color.cgColor
         aligmentOneButton.layer.cornerRadius = 25
-        aligmentOneButton.layer.borderWidth = 1
+        aligmentOneButton.layer.borderWidth = 2
         aligmentOneButton.setTitle("1", for: .normal)
         
-        aligmentTwoButton.backgroundColor = UIColor(red: 0.146, green: 0.146, blue: 0.146, alpha: 0.35)
-        aligmentTwoButton.layer.borderColor = UIColor(red: 0.824, green: 0.769, blue: 0.678, alpha: 0.7).cgColor
+        aligmentTwoButton.backgroundColor = Assets.Colors.UnTouch.layerBackground.color
+        aligmentTwoButton.layer.borderColor = Assets.Colors.UnTouch.layerBorder.color.cgColor
         aligmentTwoButton.layer.cornerRadius = 25
         aligmentTwoButton.layer.borderWidth = 1
         aligmentTwoButton.setTitle("2", for: .normal)
@@ -43,8 +43,8 @@ class TwoRunView: UIView {
         } else {
             aligmentOneButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 50)
         }
-        aligmentOneButton.setTitleColor(UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36), for: .normal)
-        aligmentOneButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
+        aligmentOneButton.setTitleColor(Assets.Colors.Touch.text.color, for: .normal)
+     
         addSubview(aligmentOneButton)
         
         if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
@@ -52,8 +52,8 @@ class TwoRunView: UIView {
         } else {
             aligmentTwoButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 50)
         }
-        aligmentTwoButton.setTitleColor(UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36), for: .normal)
-        aligmentTwoButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
+        aligmentTwoButton.setTitleColor(Assets.Colors.UnTouch.text.color, for: .normal)
+
         self.addSubview(aligmentTwoButton)
         
         NSLayoutConstraint.activate([

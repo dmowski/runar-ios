@@ -11,9 +11,15 @@
 		191D32CF25B7C46A001DC210 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D32CC25B7C46A001DC210 /* Assets.swift */; };
 		191D32D025B7C46A001DC210 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D32CD25B7C46A001DC210 /* Localizable.swift */; };
 		195AEDC325B8C3A300180A49 /* AlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195AEDC225B8C3A300180A49 /* AlignmentViewController.swift */; };
+		1987AAB625BDCDA400BB3655 /* ThreeRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AAB525BDCDA400BB3655 /* ThreeRuneView.swift */; };
+		1987AABB25BDCDB400BB3655 /* FourRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AABA25BDCDB400BB3655 /* FourRuneView.swift */; };
+		1987AAC025BDCDBF00BB3655 /* FiveRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AABF25BDCDBF00BB3655 /* FiveRuneView.swift */; };
+		1987AAC525BDCDCA00BB3655 /* SixRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AAC425BDCDCA00BB3655 /* SixRuneView.swift */; };
+		1987AACA25BDCDD500BB3655 /* SevenRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AAC925BDCDD500BB3655 /* SevenRuneView.swift */; };
+		1987AACF25BDCDF000BB3655 /* EightRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AACE25BDCDF000BB3655 /* EightRuneView.swift */; };
 		198A056925B77BE200FDA485 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 198A056825B77BE200FDA485 /* Localizable.strings */; };
-		19C0F1E425BAE9700027422B /* FirstRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1E325BAE9700027422B /* FirstRunView.swift */; };
-		19C0F1E925BAE9830027422B /* TwoRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1E825BAE9830027422B /* TwoRunView.swift */; };
+		19C0F1E425BAE9700027422B /* FirstRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1E325BAE9700027422B /* FirstRuneView.swift */; };
+		19C0F1E925BAE9830027422B /* TwoRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1E825BAE9830027422B /* TwoRuneView.swift */; };
 		19C0F1EE25BAEC020027422B /* RunesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1ED25BAEC020027422B /* RunesView.swift */; };
 		19C0F1F425BAF07E0027422B /* AligmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1F325BAF07E0027422B /* AligmentViewModel.swift */; };
 		19C0F1FC25BAF9D00027422B /* MainCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1FB25BAF9D00027422B /* MainCellModel.swift */; };
@@ -78,9 +84,15 @@
 		191D32CD25B7C46A001DC210 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localizable.swift; path = Runar/SwiftGen/Localizable.swift; sourceTree = SOURCE_ROOT; };
 		192EF92C25B7AFB70055DB9D /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		195AEDC225B8C3A300180A49 /* AlignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentViewController.swift; sourceTree = "<group>"; };
+		1987AAB525BDCDA400BB3655 /* ThreeRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeRuneView.swift; sourceTree = "<group>"; };
+		1987AABA25BDCDB400BB3655 /* FourRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourRuneView.swift; sourceTree = "<group>"; };
+		1987AABF25BDCDBF00BB3655 /* FiveRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveRuneView.swift; sourceTree = "<group>"; };
+		1987AAC425BDCDCA00BB3655 /* SixRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixRuneView.swift; sourceTree = "<group>"; };
+		1987AAC925BDCDD500BB3655 /* SevenRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenRuneView.swift; sourceTree = "<group>"; };
+		1987AACE25BDCDF000BB3655 /* EightRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightRuneView.swift; sourceTree = "<group>"; };
 		198A056825B77BE200FDA485 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		19C0F1E325BAE9700027422B /* FirstRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunView.swift; sourceTree = "<group>"; };
-		19C0F1E825BAE9830027422B /* TwoRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoRunView.swift; sourceTree = "<group>"; };
+		19C0F1E325BAE9700027422B /* FirstRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRuneView.swift; sourceTree = "<group>"; };
+		19C0F1E825BAE9830027422B /* TwoRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoRuneView.swift; sourceTree = "<group>"; };
 		19C0F1ED25BAEC020027422B /* RunesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunesView.swift; sourceTree = "<group>"; };
 		19C0F1F325BAF07E0027422B /* AligmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AligmentViewModel.swift; sourceTree = "<group>"; };
 		19C0F1FB25BAF9D00027422B /* MainCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellModel.swift; sourceTree = "<group>"; };
@@ -157,6 +169,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1987AAB425BDCD8600BB3655 /* RunesView */ = {
+			isa = PBXGroup;
+			children = (
+				19C0F1ED25BAEC020027422B /* RunesView.swift */,
+				19C0F1E325BAE9700027422B /* FirstRuneView.swift */,
+				19C0F1E825BAE9830027422B /* TwoRuneView.swift */,
+				1987AAB525BDCDA400BB3655 /* ThreeRuneView.swift */,
+				1987AABA25BDCDB400BB3655 /* FourRuneView.swift */,
+				1987AABF25BDCDBF00BB3655 /* FiveRuneView.swift */,
+				1987AAC425BDCDCA00BB3655 /* SixRuneView.swift */,
+				1987AAC925BDCDD500BB3655 /* SevenRuneView.swift */,
+				1987AACE25BDCDF000BB3655 /* EightRuneView.swift */,
+			);
+			path = RunesView;
+			sourceTree = "<group>";
+		};
 		198A056725B77B9B00FDA485 /* SwiftGen */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +199,7 @@
 		19C0F1F225BAF0540027422B /* Aligment */ = {
 			isa = PBXGroup;
 			children = (
+				1987AAB425BDCD8600BB3655 /* RunesView */,
 				195AEDC225B8C3A300180A49 /* AlignmentViewController.swift */,
 				19C0F1F325BAF07E0027422B /* AligmentViewModel.swift */,
 			);
@@ -223,9 +252,6 @@
 				19C0F1F225BAF0540027422B /* Aligment */,
 				9BD22959258AB02500E17E98 /* CollectionViewController.swift */,
 				9B97AD5725B636BD008FFF3F /* Constants.swift */,
-				19C0F1ED25BAEC020027422B /* RunesView.swift */,
-				19C0F1E325BAE9700027422B /* FirstRunView.swift */,
-				19C0F1E825BAE9830027422B /* TwoRunView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -561,8 +587,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				191D32CE25B7C46A001DC210 /* Fonts.swift in Sources */,
-				19C0F1E925BAE9830027422B /* TwoRunView.swift in Sources */,
-				19C0F1E425BAE9700027422B /* FirstRunView.swift in Sources */,
+				19C0F1E925BAE9830027422B /* TwoRuneView.swift in Sources */,
+				1987AAC525BDCDCA00BB3655 /* SixRuneView.swift in Sources */,
+				19C0F1E425BAE9700027422B /* FirstRuneView.swift in Sources */,
+				1987AACA25BDCDD500BB3655 /* SevenRuneView.swift in Sources */,
 				9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */,
 				195AEDC325B8C3A300180A49 /* AlignmentViewController.swift in Sources */,
 				19C0F1FC25BAF9D00027422B /* MainCellModel.swift in Sources */,
@@ -571,13 +599,17 @@
 				9BD2295A258AB02500E17E98 /* CollectionViewController.swift in Sources */,
 				19C0F1F425BAF07E0027422B /* AligmentViewModel.swift in Sources */,
 				9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */,
+				1987AAB625BDCDA400BB3655 /* ThreeRuneView.swift in Sources */,
 				9BD229DF258D82DD00E17E98 /* AlignmentInfoViewController.swift in Sources */,
 				19C0F20A25BAFCB20027422B /* Array+Extensions.swift in Sources */,
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
 				19C0F1EE25BAEC020027422B /* RunesView.swift in Sources */,
 				19C0F21625BAFEB40027422B /* RuneLayout.swift in Sources */,
 				19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */,
+				1987AABB25BDCDB400BB3655 /* FourRuneView.swift in Sources */,
+				1987AACF25BDCDF000BB3655 /* EightRuneView.swift in Sources */,
 				191D32D025B7C46A001DC210 /* Localizable.swift in Sources */,
+				1987AAC025BDCDBF00BB3655 /* FiveRuneView.swift in Sources */,
 				9B97AD5825B636BE008FFF3F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

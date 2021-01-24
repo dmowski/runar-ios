@@ -22,6 +22,19 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Assets {
   internal static let accentColor = ColorAsset(name: "AccentColor")
+  internal enum Colors {
+    internal static let color2 = ColorAsset(name: "Colors/Color-2")
+    internal enum Touch {
+      internal static let layerBackground = ColorAsset(name: "Colors/Touch/layerBackground")
+      internal static let layerBorder = ColorAsset(name: "Colors/Touch/layerBorder")
+      internal static let text = ColorAsset(name: "Colors/Touch/text")
+    }
+    internal enum UnTouch {
+      internal static let layerBackground = ColorAsset(name: "Colors/UnTouch/layerBackground")
+      internal static let layerBorder = ColorAsset(name: "Colors/UnTouch/layerBorder")
+      internal static let text = ColorAsset(name: "Colors/UnTouch/text")
+    }
+  }
   internal enum LayoutsRunes {
     internal static let альгизОбратная = ImageAsset(name: "Layouts Runes/альгиз обратная")
     internal static let альгиз = ImageAsset(name: "Layouts Runes/альгиз")
@@ -75,6 +88,7 @@ internal enum Assets {
   internal static let twoRunes = ImageAsset(name: "twoRunes")
   internal static let backgroundDown = ImageAsset(name: "backgroundDown")
   internal static let bookmark = ImageAsset(name: "bookmark")
+  internal static let circle = ImageAsset(name: "circle")
   internal static let escape = ImageAsset(name: "escape")
   internal static let favourite = ImageAsset(name: "favourite")
   internal static let floatingDown = ImageAsset(name: "floatingDown")
