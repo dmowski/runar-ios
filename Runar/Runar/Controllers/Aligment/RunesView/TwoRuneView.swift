@@ -6,68 +6,61 @@
 //
 
 import UIKit
+import Combine
 
-class TwoRuneView: UIView {
+class TwoRuneView: UIView, RuneViewProtocol {
     
-    private let aligmentOneButton = UIButton()
-    private let aligmentTwoButton = UIButton()
+    //-------------------------------------------------
+    // MARK: - Variables
+    //-------------------------------------------------
     
-    override init(frame: CGRect) {
+    public var viewModel: RunesView.ViewModel?
+    public var runesSet: [RuneType] = []
+    public var cancellables: [AnyCancellable] = []
+    public var indexesAndButtons: [Int : RuneButton] = [:]
+    
+    //-------------------------------------------------
+    // MARK: - Methods
+    //-------------------------------------------------
+    
+    override public init(frame: CGRect) {
         super.init(frame: frame)
+        
         setUpContent()
     }
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
+        
         setUpContent()
     }
     
-    func setUpContent() {
-        aligmentOneButton.backgroundColor = Assets.Colors.Touch.layerBackground.color
-        aligmentOneButton.layer.borderColor = Assets.Colors.Touch.layerBorder.color.cgColor
-        aligmentOneButton.layer.cornerRadius = 25
-        aligmentOneButton.layer.borderWidth = 2
-        aligmentOneButton.setTitle("1", for: .normal)
+    private func setUpContent() {
         
-        aligmentTwoButton.backgroundColor = Assets.Colors.UnTouch.layerBackground.color
-        aligmentTwoButton.layer.borderColor = Assets.Colors.UnTouch.layerBorder.color.cgColor
-        aligmentTwoButton.layer.cornerRadius = 25
-        aligmentTwoButton.layer.borderWidth = 1
-        aligmentTwoButton.setTitle("2", for: .normal)
-        
-        
-        aligmentOneButton.translatesAutoresizingMaskIntoConstraints = false
-        aligmentTwoButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
-            aligmentOneButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 50)
-        } else {
-            aligmentOneButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 50)
-        }
-        aligmentOneButton.setTitleColor(Assets.Colors.Touch.text.color, for: .normal)
-     
-        addSubview(aligmentOneButton)
-        
-        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
-            aligmentTwoButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 50)
-        } else {
-            aligmentTwoButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 50)
-        }
-        aligmentTwoButton.setTitleColor(Assets.Colors.UnTouch.text.color, for: .normal)
-
-        self.addSubview(aligmentTwoButton)
-        
-        NSLayoutConstraint.activate([
-            aligmentOneButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -127),
-            aligmentOneButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            aligmentOneButton.leadingAnchor.constraint(equalTo: aligmentOneButton.trailingAnchor, constant: -68),
-            aligmentOneButton.heightAnchor.constraint(equalToConstant: 90),
-        ])
-        NSLayoutConstraint.activate([
-            aligmentTwoButton.trailingAnchor.constraint(equalTo: aligmentOneButton.leadingAnchor, constant: -24),
-            aligmentTwoButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            aligmentTwoButton.widthAnchor.constraint(equalToConstant: 68),
-            aligmentTwoButton.heightAnchor.constraint(equalToConstant: 90),
-        ])
+        configureIndexesAndButtons(count: 2)
+        addButtons()
+        setupViewConstraints()
+        highlightFirstButton()
     }
     
+    private func setupViewConstraints() {
+        guard
+            let buttonOne = getButton(index: 0),
+            let buttonTwo = getButton(index: 1)
+            else {
+            assertionFailure("Unexpected number of buttons. Expected number: 2. ExistingNumber: \(indexesAndButtons.count)")
+            return
+        }
+        
+        NSLayoutConstraint.activate([
+            buttonOne.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 13.widthDependent()),
+            buttonOne.centerYAnchor.constraint(equalTo: centerYAnchor),
+            buttonOne.widthAnchor.constraint(equalToConstant: 68.widthDependent()),
+            buttonOne.heightAnchor.constraint(equalToConstant: 90.widthDependent()),
+
+            buttonTwo.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -13.widthDependent()),
+            buttonTwo.centerYAnchor.constraint(equalTo: centerYAnchor),
+            buttonTwo.widthAnchor.constraint(equalToConstant: 68.widthDependent()),
+            buttonTwo.heightAnchor.constraint(equalToConstant: 90.widthDependent()),
+        ])
+    }
 }

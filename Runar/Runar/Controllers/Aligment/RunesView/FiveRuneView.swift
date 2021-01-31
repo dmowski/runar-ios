@@ -6,115 +6,74 @@
 //
 
 import UIKit
+import Combine
 
-class FiveRuneView: UIView {
+class FiveRuneView: UIView, RuneViewProtocol {
     
-    private let aligmentOneButton = UIButton()
-    private let aligmentTwoButton = UIButton()
-    private let aligmentThreeButton = UIButton()
-    private let aligmentFourButton = UIButton()
+    //-------------------------------------------------
+    // MARK: - Variables
+    //-------------------------------------------------
     
     
-    override init(frame: CGRect) {
+    public var viewModel: RunesView.ViewModel?
+    public var runesSet: [RuneType] = []
+    public var cancellables: [AnyCancellable] = []
+    public var indexesAndButtons: [Int : RuneButton] = [:]
+    
+    //-------------------------------------------------
+    // MARK: - Methods
+    //-------------------------------------------------
+    
+    override public init(frame: CGRect) {
         super.init(frame: frame)
+        
         setUpContent()
     }
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
+        
         setUpContent()
     }
     
-    func setUpContent() {
+    private func setUpContent() {
         
-        aligmentOneButton.backgroundColor = Assets.Colors.Touch.layerBackground.color
-        aligmentOneButton.layer.borderColor = Assets.Colors.Touch.layerBorder.color.cgColor
-        aligmentOneButton.layer.cornerRadius = 25
-        aligmentOneButton.layer.borderWidth = 2
-        aligmentOneButton.setTitle("1", for: .normal)
-        
-        aligmentTwoButton.backgroundColor = Assets.Colors.UnTouch.layerBackground.color
-        aligmentTwoButton.layer.borderColor = Assets.Colors.UnTouch.layerBorder.color.cgColor
-        aligmentTwoButton.layer.cornerRadius = 25
-        aligmentTwoButton.layer.borderWidth = 1
-        aligmentTwoButton.setTitle("2", for: .normal)
-        
-        aligmentThreeButton.backgroundColor = Assets.Colors.UnTouch.layerBackground.color
-        aligmentThreeButton.layer.borderColor = Assets.Colors.UnTouch.layerBorder.color.cgColor
-        aligmentThreeButton.layer.cornerRadius = 25
-        aligmentThreeButton.layer.borderWidth = 1
-        aligmentThreeButton.setTitle("3", for: .normal)
-        
-        aligmentFourButton.backgroundColor = Assets.Colors.UnTouch.layerBackground.color
-        aligmentFourButton.layer.borderColor = Assets.Colors.UnTouch.layerBorder.color.cgColor
-        aligmentFourButton.layer.cornerRadius = 25
-        aligmentFourButton.layer.borderWidth = 1
-        aligmentFourButton.setTitle("4", for: .normal)
-        
-        aligmentOneButton.translatesAutoresizingMaskIntoConstraints = false
-        aligmentTwoButton.translatesAutoresizingMaskIntoConstraints = false
-        aligmentThreeButton.translatesAutoresizingMaskIntoConstraints = false
-        aligmentFourButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
-            aligmentOneButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 50)
-        } else {
-            aligmentOneButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 50)
-        }
-        aligmentOneButton.setTitleColor(Assets.Colors.Touch.text.color, for: .normal)
-       
-        addSubview(aligmentOneButton)
-        
-        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
-            aligmentTwoButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 50)
-        } else {
-            aligmentTwoButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 50)
-        }
-        aligmentTwoButton.setTitleColor(Assets.Colors.UnTouch.text.color, for: .normal)
+        configureIndexesAndButtons(count: 4)
+        addButtons()
+        setupViewConstraints()
+        highlightFirstButton()
+    }
     
-        addSubview(aligmentTwoButton)
-        
-        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
-            aligmentThreeButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 50)
-        } else {
-            aligmentThreeButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 50)
+    private func setupViewConstraints() {
+        guard
+            let buttonOne = getButton(index: 0),
+            let buttonTwo = getButton(index: 1),
+            let buttonThree = getButton(index: 2),
+            let buttonFour = getButton(index: 3)
+        else {
+            assertionFailure("Unexpected number of buttons. Expected number: 4. ExistingNumber: \(indexesAndButtons.count)")
+            return
         }
-        aligmentThreeButton.setTitleColor(Assets.Colors.UnTouch.text.color, for: .normal)
-      
-        addSubview(aligmentThreeButton)
-        
-        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
-            aligmentFourButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 50)
-        } else {
-            aligmentFourButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 50)
-        }
-        aligmentFourButton.setTitleColor(Assets.Colors.UnTouch.text.color, for: .normal)
-       
-        addSubview(aligmentFourButton)
         
         NSLayoutConstraint.activate([
-            aligmentOneButton.leadingAnchor.constraint(equalTo: aligmentFourButton.trailingAnchor, constant: -68),
-            aligmentOneButton.topAnchor.constraint(equalTo: aligmentFourButton.bottomAnchor, constant: 24),
-            aligmentOneButton.heightAnchor.constraint(equalToConstant: 90),
-            aligmentOneButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            buttonOne.leadingAnchor.constraint(equalTo: buttonFour.trailingAnchor, constant: -68.widthDependent()),
+            buttonOne.topAnchor.constraint(equalTo: buttonFour.bottomAnchor, constant: 24.widthDependent()),
+            buttonOne.heightAnchor.constraint(equalToConstant: 90.widthDependent()),
+            buttonOne.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            buttonTwo.trailingAnchor.constraint(equalTo: buttonThree.leadingAnchor, constant: -116.widthDependent()),
+            buttonTwo.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            buttonTwo.widthAnchor.constraint(equalToConstant: 68.widthDependent()),
+            buttonTwo.heightAnchor.constraint(equalToConstant: 90.widthDependent()),
+            
+            buttonThree.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -81.widthDependent()),
+            buttonThree.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            buttonThree.leadingAnchor.constraint(equalTo: buttonThree.trailingAnchor, constant: -68.widthDependent()),
+            buttonThree.heightAnchor.constraint(equalToConstant: 90.widthDependent()),
+            
+            buttonFour.leadingAnchor.constraint(equalTo: buttonFour.trailingAnchor, constant: -68.widthDependent()),
+            buttonFour.bottomAnchor.constraint(equalTo: buttonFour.topAnchor, constant: 90.widthDependent()),
+            buttonFour.topAnchor.constraint(equalTo: self.topAnchor, constant: 194.widthDependent()),
+            buttonFour.centerXAnchor.constraint(equalTo: self.centerXAnchor),
         ])
-        NSLayoutConstraint.activate([
-            aligmentTwoButton.trailingAnchor.constraint(equalTo: aligmentThreeButton.leadingAnchor, constant: -116),
-            aligmentTwoButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            aligmentTwoButton.widthAnchor.constraint(equalToConstant: 68),
-            aligmentTwoButton.heightAnchor.constraint(equalToConstant: 90),
-        ])
-        NSLayoutConstraint.activate([
-            aligmentThreeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -81),
-            aligmentThreeButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            aligmentThreeButton.leadingAnchor.constraint(equalTo: aligmentThreeButton.trailingAnchor, constant: -68),
-            aligmentThreeButton.heightAnchor.constraint(equalToConstant: 90),
-        ])
-        NSLayoutConstraint.activate([
-            aligmentFourButton.leadingAnchor.constraint(equalTo: aligmentFourButton.trailingAnchor, constant: -68),
-            aligmentFourButton.bottomAnchor.constraint(equalTo: aligmentFourButton.topAnchor, constant: 90),
-            aligmentFourButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 194),
-            aligmentFourButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-        ])
-        
     }
 }
