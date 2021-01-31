@@ -5,45 +5,51 @@
 //  Created by Oleg Kanatov on 22.01.21.
 //
 
+import Combine
 import UIKit
 
-class FirstRuneView: UIView {
+public class FirstRuneView: UIView, RuneViewProtocol {
     
-    private let aligmentOneButton = UIButton()
+    //-------------------------------------------------
+    // MARK: - Variables
+    //-------------------------------------------------
     
+    public var viewModel: RunesView.ViewModel?
+    public var runesSet: [RuneType] = []
+    public var cancellables: [AnyCancellable] = []
+    public var indexesAndButtons: [Int : RuneButton] = [:]
     
-    override init(frame: CGRect) {
+    //-------------------------------------------------
+    // MARK: - Methods
+    //-------------------------------------------------
+    
+    override public init(frame: CGRect) {
         super.init(frame: frame)
+        
         setUpContent()
     }
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
+        
         setUpContent()
     }
     
-    func setUpContent() {
-        aligmentOneButton.backgroundColor = Assets.Colors.Touch.layerBackground.color
-        aligmentOneButton.layer.borderColor = Assets.Colors.Touch.layerBorder.color.cgColor
-        aligmentOneButton.layer.cornerRadius = 25
-        aligmentOneButton.layer.borderWidth = 2
-        aligmentOneButton.setTitle("1", for: .normal)
+    private func setUpContent() {
         
-        
-        aligmentOneButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
-            aligmentOneButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 50)
-        } else {
-            aligmentOneButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 50)
-        }
-        aligmentOneButton.setTitleColor(Assets.Colors.Touch.text.color, for: .normal)
-        addSubview(aligmentOneButton)
+        configureIndexesAndButtons(count: 1)
+        addButtons()
+        setupViewConstraints()
+        highlightFirstButton()
+    }
+    
+    private func setupViewConstraints() {
+        guard let buttonOne = getButton(index: 0) else { return }
         
         NSLayoutConstraint.activate([
-            aligmentOneButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            aligmentOneButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            aligmentOneButton.widthAnchor.constraint(equalToConstant: 68),
-            aligmentOneButton.heightAnchor.constraint(equalToConstant: 90),
+            buttonOne.centerXAnchor.constraint(equalTo: centerXAnchor),
+            buttonOne.centerYAnchor.constraint(equalTo: centerYAnchor),
+            buttonOne.widthAnchor.constraint(equalToConstant: 68.widthDependent()),
+            buttonOne.heightAnchor.constraint(equalToConstant: 90.widthDependent()),
         ])
     }
 }

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190784DC25C422CF00434D57 /* RuneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190784DB25C422CF00434D57 /* RuneType.swift */; };
+		190784E725C422EC00434D57 /* TwoRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190784E625C422EC00434D57 /* TwoRuneView.swift */; };
+		190784EF25C422F900434D57 /* RuneViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190784EE25C422F900434D57 /* RuneViewProtocol.swift */; };
+		190784F425C4230F00434D57 /* RunesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190784F325C4230F00434D57 /* RunesView.swift */; };
+		1907850425C4232F00434D57 /* RuneLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1907850325C4232E00434D57 /* RuneLayout.swift */; };
+		1907850C25C4235000434D57 /* RuneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1907850B25C4235000434D57 /* RuneButton.swift */; };
+		1907851425C4236000434D57 /* FirstRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1907851325C4236000434D57 /* FirstRuneView.swift */; };
 		191D32CE25B7C46A001DC210 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D32CB25B7C46A001DC210 /* Fonts.swift */; };
 		191D32CF25B7C46A001DC210 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D32CC25B7C46A001DC210 /* Assets.swift */; };
 		191D32D025B7C46A001DC210 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D32CD25B7C46A001DC210 /* Localizable.swift */; };
@@ -18,14 +25,15 @@
 		1987AACA25BDCDD500BB3655 /* SevenRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AAC925BDCDD500BB3655 /* SevenRuneView.swift */; };
 		1987AACF25BDCDF000BB3655 /* EightRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AACE25BDCDF000BB3655 /* EightRuneView.swift */; };
 		198A056925B77BE200FDA485 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 198A056825B77BE200FDA485 /* Localizable.strings */; };
-		19C0F1E425BAE9700027422B /* FirstRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1E325BAE9700027422B /* FirstRuneView.swift */; };
-		19C0F1E925BAE9830027422B /* TwoRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1E825BAE9830027422B /* TwoRuneView.swift */; };
-		19C0F1EE25BAEC020027422B /* RunesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1ED25BAEC020027422B /* RunesView.swift */; };
+		19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC60225C01A2D000808CF /* ScreenDependent.swift */; };
+		19BDC61225C02EE9000808CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC61125C02EE9000808CF /* SceneDelegate.swift */; };
+		19BDC61B25C030B1000808CF /* UIControlPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC61825C030B1000808CF /* UIControlPublisher.swift */; };
+		19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC61925C030B1000808CF /* UIControlSubscription.swift */; };
+		19BDC61D25C030B1000808CF /* PublisherProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC61A25C030B1000808CF /* PublisherProvider.swift */; };
 		19C0F1F425BAF07E0027422B /* AligmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1F325BAF07E0027422B /* AligmentViewModel.swift */; };
 		19C0F1FC25BAF9D00027422B /* MainCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F1FB25BAF9D00027422B /* MainCellModel.swift */; };
 		19C0F20A25BAFCB20027422B /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F20925BAFCB20027422B /* Array+Extensions.swift */; };
 		19C0F21025BAFDCB0027422B /* AlignmentInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F20F25BAFDCB0027422B /* AlignmentInfoViewModel.swift */; };
-		19C0F21625BAFEB40027422B /* RuneLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F21525BAFEB40027422B /* RuneLayout.swift */; };
 		19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C0F21A25BAFEFE0027422B /* RuneDescription.swift */; };
 		9B97AC7F25AE6E81008FFF3F /* SFProDisplay-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B97AC7E25AE6E81008FFF3F /* SFProDisplay-Light.ttf */; };
 		9B97AD5825B636BE008FFF3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B97AD5725B636BD008FFF3F /* Constants.swift */; };
@@ -79,6 +87,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		190784DB25C422CF00434D57 /* RuneType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuneType.swift; path = ../../../../../Downloads/RuneViews/RuneType.swift; sourceTree = "<group>"; };
+		190784E625C422EC00434D57 /* TwoRuneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoRuneView.swift; sourceTree = "<group>"; };
+		190784EE25C422F900434D57 /* RuneViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneViewProtocol.swift; sourceTree = "<group>"; };
+		190784F325C4230F00434D57 /* RunesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunesView.swift; sourceTree = "<group>"; };
+		1907850325C4232E00434D57 /* RuneLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneLayout.swift; sourceTree = "<group>"; };
+		1907850B25C4235000434D57 /* RuneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneButton.swift; sourceTree = "<group>"; };
+		1907851325C4236000434D57 /* FirstRuneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRuneView.swift; sourceTree = "<group>"; };
 		191D32CB25B7C46A001DC210 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fonts.swift; path = Runar/SwiftGen/Fonts.swift; sourceTree = SOURCE_ROOT; };
 		191D32CC25B7C46A001DC210 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Assets.swift; path = Runar/SwiftGen/Assets.swift; sourceTree = SOURCE_ROOT; };
 		191D32CD25B7C46A001DC210 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localizable.swift; path = Runar/SwiftGen/Localizable.swift; sourceTree = SOURCE_ROOT; };
@@ -91,14 +106,15 @@
 		1987AAC925BDCDD500BB3655 /* SevenRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenRuneView.swift; sourceTree = "<group>"; };
 		1987AACE25BDCDF000BB3655 /* EightRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightRuneView.swift; sourceTree = "<group>"; };
 		198A056825B77BE200FDA485 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		19C0F1E325BAE9700027422B /* FirstRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRuneView.swift; sourceTree = "<group>"; };
-		19C0F1E825BAE9830027422B /* TwoRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoRuneView.swift; sourceTree = "<group>"; };
-		19C0F1ED25BAEC020027422B /* RunesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunesView.swift; sourceTree = "<group>"; };
+		19BDC60225C01A2D000808CF /* ScreenDependent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDependent.swift; sourceTree = "<group>"; };
+		19BDC61125C02EE9000808CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		19BDC61825C030B1000808CF /* UIControlPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlPublisher.swift; sourceTree = "<group>"; };
+		19BDC61925C030B1000808CF /* UIControlSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlSubscription.swift; sourceTree = "<group>"; };
+		19BDC61A25C030B1000808CF /* PublisherProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublisherProvider.swift; sourceTree = "<group>"; };
 		19C0F1F325BAF07E0027422B /* AligmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AligmentViewModel.swift; sourceTree = "<group>"; };
 		19C0F1FB25BAF9D00027422B /* MainCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellModel.swift; sourceTree = "<group>"; };
 		19C0F20925BAFCB20027422B /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		19C0F20F25BAFDCB0027422B /* AlignmentInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentInfoViewModel.swift; sourceTree = "<group>"; };
-		19C0F21525BAFEB40027422B /* RuneLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneLayout.swift; sourceTree = "<group>"; };
 		19C0F21A25BAFEFE0027422B /* RuneDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneDescription.swift; sourceTree = "<group>"; };
 		1A56DC55326BF359E39532FA /* Pods-Runar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar.release.xcconfig"; path = "Target Support Files/Pods-Runar/Pods-Runar.release.xcconfig"; sourceTree = "<group>"; };
 		9B97AC7E25AE6E81008FFF3F /* SFProDisplay-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Light.ttf"; sourceTree = "<group>"; };
@@ -172,15 +188,17 @@
 		1987AAB425BDCD8600BB3655 /* RunesView */ = {
 			isa = PBXGroup;
 			children = (
-				19C0F1ED25BAEC020027422B /* RunesView.swift */,
-				19C0F1E325BAE9700027422B /* FirstRuneView.swift */,
-				19C0F1E825BAE9830027422B /* TwoRuneView.swift */,
+				190784F325C4230F00434D57 /* RunesView.swift */,
+				1907851325C4236000434D57 /* FirstRuneView.swift */,
+				190784E625C422EC00434D57 /* TwoRuneView.swift */,
 				1987AAB525BDCDA400BB3655 /* ThreeRuneView.swift */,
 				1987AABA25BDCDB400BB3655 /* FourRuneView.swift */,
 				1987AABF25BDCDBF00BB3655 /* FiveRuneView.swift */,
 				1987AAC425BDCDCA00BB3655 /* SixRuneView.swift */,
 				1987AAC925BDCDD500BB3655 /* SevenRuneView.swift */,
 				1987AACE25BDCDF000BB3655 /* EightRuneView.swift */,
+				1907850B25C4235000434D57 /* RuneButton.swift */,
+				190784EE25C422F900434D57 /* RuneViewProtocol.swift */,
 			);
 			path = RunesView;
 			sourceTree = "<group>";
@@ -194,6 +212,24 @@
 			);
 			name = SwiftGen;
 			path = Support/SwiftGen;
+			sourceTree = "<group>";
+		};
+		19BDC61625C0306E000808CF /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				19BDC61725C030B1000808CF /* Combine */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		19BDC61725C030B1000808CF /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				19BDC61825C030B1000808CF /* UIControlPublisher.swift */,
+				19BDC61925C030B1000808CF /* UIControlSubscription.swift */,
+				19BDC61A25C030B1000808CF /* PublisherProvider.swift */,
+			);
+			path = Combine;
 			sourceTree = "<group>";
 		};
 		19C0F1F225BAF0540027422B /* Aligment */ = {
@@ -226,7 +262,8 @@
 		19C0F21425BAFE9B0027422B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				19C0F21525BAFEB40027422B /* RuneLayout.swift */,
+				190784DB25C422CF00434D57 /* RuneType.swift */,
+				1907850325C4232E00434D57 /* RuneLayout.swift */,
 				19C0F21A25BAFEFE0027422B /* RuneDescription.swift */,
 			);
 			path = Models;
@@ -259,11 +296,13 @@
 		9B9C25CA25993DF800A4E135 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				19BDC60225C01A2D000808CF /* ScreenDependent.swift */,
 				9BD229A8258B7F4F00E17E98 /* Fonts */,
 				9BD22906258A321F00E17E98 /* Assets.xcassets */,
 				198A056825B77BE200FDA485 /* Localizable.strings */,
 				9B9C266E25A2173100A4E135 /* DataBase.swift */,
 				9BD228FD258A321B00E17E98 /* AppDelegate.swift */,
+				19BDC61125C02EE9000808CF /* SceneDelegate.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -311,6 +350,7 @@
 		9BD228FC258A321B00E17E98 /* Runar */ = {
 			isa = PBXGroup;
 			children = (
+				19BDC61625C0306E000808CF /* Base */,
 				19C0F21425BAFE9B0027422B /* Models */,
 				19C0F20025BAFC830027422B /* Extensions */,
 				198A056725B77B9B00FDA485 /* SwiftGen */,
@@ -586,30 +626,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				190784F425C4230F00434D57 /* RunesView.swift in Sources */,
 				191D32CE25B7C46A001DC210 /* Fonts.swift in Sources */,
-				19C0F1E925BAE9830027422B /* TwoRuneView.swift in Sources */,
+				19BDC61D25C030B1000808CF /* PublisherProvider.swift in Sources */,
 				1987AAC525BDCDCA00BB3655 /* SixRuneView.swift in Sources */,
-				19C0F1E425BAE9700027422B /* FirstRuneView.swift in Sources */,
+				190784EF25C422F900434D57 /* RuneViewProtocol.swift in Sources */,
 				1987AACA25BDCDD500BB3655 /* SevenRuneView.swift in Sources */,
 				9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */,
 				195AEDC325B8C3A300180A49 /* AlignmentViewController.swift in Sources */,
+				1907851425C4236000434D57 /* FirstRuneView.swift in Sources */,
 				19C0F1FC25BAF9D00027422B /* MainCellModel.swift in Sources */,
 				19C0F21025BAFDCB0027422B /* AlignmentInfoViewModel.swift in Sources */,
 				191D32CF25B7C46A001DC210 /* Assets.swift in Sources */,
 				9BD2295A258AB02500E17E98 /* CollectionViewController.swift in Sources */,
 				19C0F1F425BAF07E0027422B /* AligmentViewModel.swift in Sources */,
+				190784E725C422EC00434D57 /* TwoRuneView.swift in Sources */,
 				9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */,
 				1987AAB625BDCDA400BB3655 /* ThreeRuneView.swift in Sources */,
 				9BD229DF258D82DD00E17E98 /* AlignmentInfoViewController.swift in Sources */,
+				19BDC61225C02EE9000808CF /* SceneDelegate.swift in Sources */,
+				190784DC25C422CF00434D57 /* RuneType.swift in Sources */,
+				19BDC61B25C030B1000808CF /* UIControlPublisher.swift in Sources */,
+				1907850C25C4235000434D57 /* RuneButton.swift in Sources */,
 				19C0F20A25BAFCB20027422B /* Array+Extensions.swift in Sources */,
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
-				19C0F1EE25BAEC020027422B /* RunesView.swift in Sources */,
-				19C0F21625BAFEB40027422B /* RuneLayout.swift in Sources */,
+				19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */,
 				19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */,
 				1987AABB25BDCDB400BB3655 /* FourRuneView.swift in Sources */,
+				1907850425C4232F00434D57 /* RuneLayout.swift in Sources */,
 				1987AACF25BDCDF000BB3655 /* EightRuneView.swift in Sources */,
 				191D32D025B7C46A001DC210 /* Localizable.swift in Sources */,
 				1987AAC025BDCDBF00BB3655 /* FiveRuneView.swift in Sources */,
+				19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */,
 				9B97AD5825B636BE008FFF3F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -790,6 +838,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UAC36J6PJ8;
 				INFOPLIST_FILE = Runar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -810,6 +859,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UAC36J6PJ8;
 				INFOPLIST_FILE = Runar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,17 +1,17 @@
 //
 //  RuneLayout.swift
-//  Runar
+//  Help
 //
-//  Created by Oleg Kanatov on 22.01.21.
+//  Created by Artyom Gotsev on 29.01.21.
 //
 
 public enum RuneLayout {
-    case dayRune
-    case twoRunes
-    case norns
-    case thorsHummer
-    case shortPrediction
-    case cross
-    case elementsCross
-    case keltsCross
+        case dayRune
+        case twoRunes
+        case norns
+        case shortPrediction
+        case thorsHummer
+        case cross
+        case elementsCross
+        case keltsCross
 }
