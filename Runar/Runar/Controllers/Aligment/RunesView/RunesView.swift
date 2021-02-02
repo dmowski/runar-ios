@@ -25,6 +25,8 @@ public class RunesView: UIView {
     // MARK: - Variables
     //-------------------------------------------------
     
+    private var runeLayout: RuneLayout = .dayRune
+    
     private let enumeratedRuneViews: [RuneLayout: RuneViewProtocol & UIView] = [
         .dayRune: FirstRuneView(),
         .twoRunes: TwoRuneView(),
@@ -42,7 +44,6 @@ public class RunesView: UIView {
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupContent()
     }
     
@@ -86,9 +87,22 @@ public class RunesView: UIView {
     public func setRuneLayout(_ runeLayout: RuneLayout) {
         enumeratedRuneViews.forEach { $0.value.isHidden = true }
         enumeratedRuneViews[runeLayout]?.isHidden = false
+        
+        self.runeLayout = runeLayout
     }
     
     public func update(with model: ViewModel) {
         enumeratedRuneViews.forEach { $0.value.viewModel = model }
+    }
+    
+    public func openHighlightedButton() {
+        guard let selectedRuneView = enumeratedRuneViews[runeLayout] else {
+            assertionFailure("There is no selected RuneView with layout: \(runeLayout)")
+            return
+        }
+        
+        selectedRuneView.openHighlightedButton()
+        selectedRuneView.highlightNextButton()
+        selectedRuneView.verifyDidHighlightAllButtons()
     }
 }
