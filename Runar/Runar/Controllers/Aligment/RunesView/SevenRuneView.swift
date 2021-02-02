@@ -14,7 +14,7 @@ class SevenRuneView: UIView, RuneViewProtocol {
     // MARK: - Variables
     //-------------------------------------------------
     
-    
+    public var highlightedButton: RuneButton?
     public var viewModel: RunesView.ViewModel?
     public var runesSet: [RuneType] = []
     public var cancellables: [AnyCancellable] = []

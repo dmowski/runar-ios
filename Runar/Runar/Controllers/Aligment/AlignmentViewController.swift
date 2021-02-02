@@ -23,6 +23,11 @@ class AlignmentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        runesViewContainer.update(with: .init(didHighlightAllRunes: { [weak self] runes in
+            self!.startButton.setTitle("Погнали нахуй!", for: .normal)
+            self!.startButton.addTarget(self, action: #selector(self?.escapeOnTap), for: .touchUpInside)
+        }))
+        
         
         runesViewContainer.setRuneLayout(viewModel.runeLayout)
         
@@ -61,7 +66,7 @@ class AlignmentViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             escapeButton.topAnchor.constraint(equalTo: backgroundView.topAnchor),
-            escapeButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
+            escapeButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -8.widthDependent()),
             escapeButton.widthAnchor.constraint(equalToConstant: 48.widthDependent()),
             escapeButton.bottomAnchor.constraint(equalTo: escapeButton.topAnchor, constant: 48.widthDependent())
         ])
@@ -96,12 +101,10 @@ class AlignmentViewController: UIViewController {
         startButton.layer.cornerRadius = 8
         startButton.layer.borderWidth = 1
         startButton.setTitle("Вытянуть руну", for: .normal)
-        
-        
         startButton.translatesAutoresizingMaskIntoConstraints = false
-      
         startButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 30.widthDependent())
-    
+        startButton.addTarget(self, action: #selector(self.openButton), for: .touchUpInside)
+        
         startButton.setTitleColor(Assets.Colors.textColor.color, for: .normal)
         startButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
         backgroundView.addSubview(startButton)
@@ -113,6 +116,10 @@ class AlignmentViewController: UIViewController {
             startButton.widthAnchor.constraint(equalToConstant: 255.widthDependent()),
             startButton.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor)
         ])
+    }
+    
+    @objc func openButton (sender: UIButton!) {
+        self.runesViewContainer.openHighlightedButton()
     }
     
     func setUpContainerView() {

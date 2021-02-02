@@ -269,11 +269,11 @@ class AlignmentInfoViewController: UIViewController {
                    if button.isSelected {
                     showButton.setImage(UIImage(named: "unselected"), for: .normal)
                        button.isSelected = false
-                    UserDefaults.standard.set(false, forKey: self.name)
+                    UserDefaults.standard.set(false, forKey: viewModel.name)
                       } else {
                         showButton.setImage(UIImage(named: "selected"), for: .selected)
                        button.isSelected = true
-                        UserDefaults.standard.set(true, forKey: self.name)
+                        UserDefaults.standard.set(true, forKey: viewModel.name)
                       }
                   }
     }

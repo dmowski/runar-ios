@@ -17,11 +17,49 @@ public protocol RuneViewProtocol: AnyObject {
     var indexesAndButtons: [Int: RuneButton] { get set }
     
     func getButton(index: Int) -> RuneButton?
-    func configureIndexesAndButtons(count: Int)
+    
+    func configureIndexesAndButtons(count: Int, availableRunes: [RuneType])
     func addButtons()
+    
     func highlightFirstButton()
-    func openButton(index: Int)
-    func highlightNextButton(previousIndex: Int) -> Bool
+    func highlightNextButton()
+    func openHighlightedButton()
+    
+    func verifyDidHighlightAllButtons()
+}
+
+private extension RuneViewProtocol where Self: UIView {
+    var areAllButtonsOpened: Bool {
+        !indexesAndButtons.contains(where: { $0.value.runeState != .rune })
+    }
+    
+    var lastOpenedIndexAndButton: (Int, RuneButton)? {
+        indexesAndButtons
+            .sorted(by: { $0.key < $1.key })
+            .last(where: { $0.value.runeState == .rune })
+    }
+    
+    var highlightedIndexAndButton: (Int, RuneButton)? {
+        indexesAndButtons
+            .sorted(by: { $0.key < $1.key })
+            .first(where: { $0.value.runeState == .highlighted })
+    }
+    
+    func tintAllButtons() {
+        indexesAndButtons.forEach { $0.value.setRuneState(.tinted) }
+    }
+    
+    func highlightNextButton(previousIndex: Int) {
+        guard let buttonToHighlight = getButton(index: previousIndex + 1) else { return }
+        
+        buttonToHighlight.setRuneState(.highlighted)
+    }
+    
+    func openButton(index: Int) {
+        guard let buttonToOpen = getButton(index: index) else { return }
+        
+        buttonToOpen.setRuneState(.rune)
+    }
 }
 
 public extension RuneViewProtocol where Self: UIView {
@@ -29,8 +67,7 @@ public extension RuneViewProtocol where Self: UIView {
         indexesAndButtons[index]
     }
     
-    func configureIndexesAndButtons(count: Int) {
-        let availableRunes = RuneType.allCases
+    func configureIndexesAndButtons(count: Int, availableRunes: [RuneType] = RuneType.allCases) {
         runesSet.removeAll()
         
         indexesAndButtons = (0..<count).reduce(into: [Int: RuneButton](), { dict, index in
@@ -55,9 +92,8 @@ public extension RuneViewProtocol where Self: UIView {
                     
                     guard button?.runeState == .highlighted else { return }
                     self.openButton(index: index)
-                    
-                    guard !self.highlightNextButton(previousIndex: index) else { return }
-                    self.viewModel?.didHighlightAllRunes(self.runesSet)
+                    self.highlightNextButton(previousIndex: index)
+                    self.verifyDidHighlightAllButtons()
                 }.store(in: &cancellables)
             dict[index] = button
         })
@@ -70,25 +106,26 @@ public extension RuneViewProtocol where Self: UIView {
     }
     
     func highlightFirstButton() {
-        let isSuccessful = highlightNextButton(previousIndex: -1)
-        if !isSuccessful {
-            assertionFailure("Failed to highlight first button. IndexesAndButtons seems to be empty")
-        }
+        assert(!indexesAndButtons.isEmpty, "IndexesAndButtons is empty")
+        
+        tintAllButtons()
+        highlightNextButton(previousIndex: -1)
     }
     
-    func openButton(index: Int) {
-        guard let buttonToOpen = getButton(index: index) else {
-            assertionFailure("there is no button with index: \(index) in indexesAndButtons")
-            return
-        }
-        buttonToOpen.setRuneState(.rune)
+    func highlightNextButton() {
+        guard let lastOpenedButtonIndex = lastOpenedIndexAndButton?.0 else { return }
+        
+        highlightNextButton(previousIndex: lastOpenedButtonIndex)
     }
-    @discardableResult
-    func highlightNextButton(previousIndex: Int) -> Bool {
-        guard let buttonToHighlight = getButton(index: previousIndex + 1) else {
-            return false
-        }
-        buttonToHighlight.setRuneState(.highlighted)
-        return true
+    
+    func openHighlightedButton() {
+        guard let highlightedButtonIndex = highlightedIndexAndButton?.0 else { return }
+        
+        openButton(index: highlightedButtonIndex)
+    }
+    
+    func verifyDidHighlightAllButtons() {
+        guard areAllButtonsOpened else { return }
+        viewModel?.didHighlightAllRunes(runesSet)
     }
 }

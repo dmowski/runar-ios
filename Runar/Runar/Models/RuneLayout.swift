@@ -6,12 +6,12 @@
 //
 
 public enum RuneLayout {
-        case dayRune
-        case twoRunes
-        case norns
-        case shortPrediction
-        case thorsHummer
-        case cross
-        case elementsCross
-        case keltsCross
+    case dayRune
+    case twoRunes
+    case norns
+    case shortPrediction
+    case thorsHummer
+    case cross
+    case elementsCross
+    case keltsCross
 }

@@ -53,6 +53,7 @@ public class RuneButton: UIButton {
     public func setRuneState (_ runeState: State) {
         switch runeState {
         case .tinted:
+            clipsToBounds = true
             backgroundColor = Constants.BackgroundColor.tinted
             layer.borderColor = Constants.BorderColor.tinted.cgColor
             layer.borderWidth = Constants.BorderWidth.tinted.widthDependent()
@@ -63,6 +64,7 @@ public class RuneButton: UIButton {
             )
             setImage(nil, for: .normal)
         case .highlighted:
+            clipsToBounds = true
             backgroundColor = Constants.BackgroundColor.highlighted
             layer.borderColor = Constants.BorderColor.highlighted.cgColor
             layer.borderWidth = Constants.BorderWidth.highlighted.widthDependent()
@@ -80,7 +82,7 @@ public class RuneButton: UIButton {
             isUserInteractionEnabled = false
             setAttributedTitle(nil, for: .normal)
             setImage(viewModel?.image, for: .normal)
-            imageEdgeInsets = UIEdgeInsets(top: 105, left: 83, bottom: 105, right: 83)
+            imageEdgeInsets = UIEdgeInsets(top: 105.widthDependent(), left: 83.widthDependent(), bottom: 105.widthDependent(), right: 83.widthDependent())
         }
         
         self.runeState = runeState
@@ -112,9 +114,9 @@ public class RuneButton: UIButton {
     }
 }
 
-//-------------------------------------------------
-// MARK: - Constants
-//-------------------------------------------------
+    //-------------------------------------------------
+    // MARK: - Constants
+    //-------------------------------------------------
 
 private extension RuneButton {
     enum Constants {

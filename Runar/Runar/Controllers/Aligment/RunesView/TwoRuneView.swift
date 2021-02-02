@@ -9,11 +9,12 @@ import UIKit
 import Combine
 
 class TwoRuneView: UIView, RuneViewProtocol {
+   
     
     //-------------------------------------------------
     // MARK: - Variables
     //-------------------------------------------------
-    
+    public var highlightedButton: RuneButton?
     public var viewModel: RunesView.ViewModel?
     public var runesSet: [RuneType] = []
     public var cancellables: [AnyCancellable] = []
@@ -36,7 +37,7 @@ class TwoRuneView: UIView, RuneViewProtocol {
     
     private func setUpContent() {
         
-        configureIndexesAndButtons(count: 2)
+        configureIndexesAndButtons(count: 2, availableRunes: RuneType.simplyRune)
         addButtons()
         setupViewConstraints()
         highlightFirstButton()
@@ -52,15 +53,16 @@ class TwoRuneView: UIView, RuneViewProtocol {
         }
         
         NSLayoutConstraint.activate([
-            buttonOne.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 13.widthDependent()),
+            buttonOne.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 12.widthDependent()),
             buttonOne.centerYAnchor.constraint(equalTo: centerYAnchor),
             buttonOne.widthAnchor.constraint(equalToConstant: 68.widthDependent()),
             buttonOne.heightAnchor.constraint(equalToConstant: 90.widthDependent()),
 
-            buttonTwo.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -13.widthDependent()),
+            buttonTwo.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -12.widthDependent()),
             buttonTwo.centerYAnchor.constraint(equalTo: centerYAnchor),
             buttonTwo.widthAnchor.constraint(equalToConstant: 68.widthDependent()),
             buttonTwo.heightAnchor.constraint(equalToConstant: 90.widthDependent()),
         ])
     }
+
 }
