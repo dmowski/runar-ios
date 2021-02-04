@@ -50,8 +50,10 @@ public class FirstRuneView: UIView, RuneViewProtocol {
         NSLayoutConstraint.activate([
             buttonOne.centerXAnchor.constraint(equalTo: centerXAnchor),
             buttonOne.centerYAnchor.constraint(equalTo: centerYAnchor),
+
             buttonOne.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
             buttonOne.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
+
         ])
     }
 }

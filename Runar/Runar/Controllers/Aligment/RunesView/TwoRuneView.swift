@@ -53,6 +53,7 @@ class TwoRuneView: UIView, RuneViewProtocol {
         }
         
         NSLayoutConstraint.activate([
+
             buttonOne.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 12.heightDependent()),
             buttonOne.centerYAnchor.constraint(equalTo: centerYAnchor),
             buttonOne.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
@@ -62,6 +63,7 @@ class TwoRuneView: UIView, RuneViewProtocol {
             buttonTwo.centerYAnchor.constraint(equalTo: centerYAnchor),
             buttonTwo.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
             buttonTwo.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
+
         ])
     }
 

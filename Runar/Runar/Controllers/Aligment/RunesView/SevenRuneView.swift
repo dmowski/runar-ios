@@ -86,6 +86,7 @@ class SevenRuneView: UIView, RuneViewProtocol {
             buttonSix.centerXAnchor.constraint(equalTo: centerXAnchor),
             buttonSix.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
             buttonSix.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
+
         ])
     }
 }

@@ -55,6 +55,7 @@ class FiveRuneView: UIView, RuneViewProtocol {
         }
         
         NSLayoutConstraint.activate([
+
             buttonOne.leadingAnchor.constraint(equalTo: buttonFour.trailingAnchor, constant: -68.heightDependent()),
             buttonOne.topAnchor.constraint(equalTo: buttonFour.bottomAnchor, constant: 24.heightDependent()),
             buttonOne.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
@@ -73,6 +74,7 @@ class FiveRuneView: UIView, RuneViewProtocol {
             buttonFour.leadingAnchor.constraint(equalTo: buttonFour.trailingAnchor, constant: -68.heightDependent()),
             buttonFour.bottomAnchor.constraint(equalTo: buttonFour.topAnchor, constant: 90.heightDependent()),
             buttonFour.topAnchor.constraint(equalTo: self.topAnchor, constant: 194.heightDependent()),
+
             buttonFour.centerXAnchor.constraint(equalTo: self.centerXAnchor),
         ])
     }
