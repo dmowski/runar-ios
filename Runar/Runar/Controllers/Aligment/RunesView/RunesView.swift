@@ -100,7 +100,7 @@ public class RunesView: UIView {
             assertionFailure("There is no selected RuneView with layout: \(runeLayout)")
             return
         }
-        
+
         selectedRuneView.openHighlightedButton()
         selectedRuneView.highlightNextButton()
         selectedRuneView.verifyDidHighlightAllButtons()

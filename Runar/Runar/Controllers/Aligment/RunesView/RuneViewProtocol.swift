@@ -28,7 +28,10 @@ public protocol RuneViewProtocol: AnyObject {
     func verifyDidHighlightAllButtons()
 }
 
-private extension RuneViewProtocol where Self: UIView {
+<
+public extension RuneViewProtocol where Self: UIView {
+
+
     var areAllButtonsOpened: Bool {
         !indexesAndButtons.contains(where: { $0.value.runeState != .rune })
     }
@@ -82,7 +85,9 @@ public extension RuneViewProtocol where Self: UIView {
             let runeImage = associatedRune.image
             
             let button = RuneButton()
-            button.layer.cornerRadius = 25.widthDependent()
+
+            button.layer.cornerRadius = 25.heightDependent()
+
             button.clipsToBounds = true
             button.translatesAutoresizingMaskIntoConstraints = false
             button.update(with: .init(title: "\(index + 1)", image: runeImage))
@@ -119,11 +124,20 @@ public extension RuneViewProtocol where Self: UIView {
     }
     
     func openHighlightedButton() {
-        guard let highlightedButtonIndex = highlightedIndexAndButton?.0 else { return }
+
         
-        openButton(index: highlightedButtonIndex)
+        guard let highlightedButtonIndex = highlightedIndexAndButton?.0 else { return }
+        let button = getButton(index: highlightedButtonIndex)
+        button?.animateButton(completion: {_ in
+            self.openButton(index: highlightedButtonIndex)
+            self.highlightNextButton()
+            self.verifyDidHighlightAllButtons()
+        })
+    }
+
     }
     
+
     func verifyDidHighlightAllButtons() {
         guard areAllButtonsOpened else { return }
         viewModel?.didHighlightAllRunes(runesSet)

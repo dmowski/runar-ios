@@ -56,30 +56,32 @@ class SixRuneView: UIView, RuneViewProtocol {
         }
         
         NSLayoutConstraint.activate([
-            buttonOne.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 81.widthDependent()),
-            buttonOne.trailingAnchor.constraint(equalTo: buttonOne.leadingAnchor, constant: 68.widthDependent()),
-            buttonOne.topAnchor.constraint(equalTo: self.topAnchor, constant: 251.widthDependent()),
-            buttonOne.bottomAnchor.constraint(equalTo: buttonOne.topAnchor, constant: 90.widthDependent()),
+
+            buttonOne.centerYAnchor.constraint(equalTo: centerYAnchor),
+            buttonOne.trailingAnchor.constraint(equalTo: buttonTwo.leadingAnchor, constant: -24.heightDependent()),
+            buttonOne.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
+            buttonOne.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
             
-            buttonTwo.leadingAnchor.constraint(equalTo: buttonOne.trailingAnchor, constant: 24.widthDependent()),
-            buttonTwo.topAnchor.constraint(equalTo: self.topAnchor, constant: 251.widthDependent()),
-            buttonTwo.bottomAnchor.constraint(equalTo: buttonOne.topAnchor, constant: 90.widthDependent()),
-            buttonTwo.trailingAnchor.constraint(equalTo: buttonTwo.leadingAnchor, constant: 68.widthDependent()),
+            buttonTwo.centerXAnchor.constraint(equalTo: centerXAnchor),
+            buttonTwo.centerYAnchor.constraint(equalTo: centerYAnchor),
+            buttonTwo.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
+            buttonTwo.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
             
-            buttonThree.leadingAnchor.constraint(equalTo: buttonTwo.trailingAnchor, constant: 24.widthDependent()),
-            buttonThree.topAnchor.constraint(equalTo: self.topAnchor, constant: 251.widthDependent()),
-            buttonThree.bottomAnchor.constraint(equalTo: buttonThree.topAnchor, constant: 90.widthDependent()),
-            buttonThree.trailingAnchor.constraint(equalTo: buttonThree.leadingAnchor, constant: 68.widthDependent()),
+            buttonThree.centerYAnchor.constraint(equalTo: centerYAnchor),
+            buttonThree.leadingAnchor.constraint(equalTo: buttonTwo.trailingAnchor, constant: 24.heightDependent()),
+            buttonThree.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
+            buttonThree.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
             
-            buttonFour.bottomAnchor.constraint(equalTo: buttonTwo.topAnchor, constant: -24.widthDependent()),
-            buttonFour.leadingAnchor.constraint(equalTo: buttonOne.trailingAnchor, constant: 24.widthDependent()),
-            buttonFour.widthAnchor.constraint(equalToConstant: 68.widthDependent()),
-            buttonFour.heightAnchor.constraint(equalToConstant: 90.widthDependent()),
+            buttonFour.bottomAnchor.constraint(equalTo: buttonTwo.topAnchor, constant: -24.heightDependent()),
+            buttonFour.centerXAnchor.constraint(equalTo: centerXAnchor),
+            buttonFour.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
+            buttonFour.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
             
-            buttonFive.topAnchor.constraint(equalTo: buttonTwo.bottomAnchor, constant: 24.widthDependent()),
-            buttonFive.leadingAnchor.constraint(equalTo: buttonOne.trailingAnchor, constant: 24.widthDependent()),
-            buttonFive.widthAnchor.constraint(equalToConstant: 68.widthDependent()),
-            buttonFive.heightAnchor.constraint(equalToConstant: 90.widthDependent()),
+            buttonFive.topAnchor.constraint(equalTo: buttonTwo.bottomAnchor, constant: 24.heightDependent()),
+            buttonFive.centerXAnchor.constraint(equalTo: centerXAnchor),
+            buttonFive.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
+            buttonFive.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
+
         ])
     }
 }

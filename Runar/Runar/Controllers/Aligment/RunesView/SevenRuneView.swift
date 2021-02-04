@@ -57,35 +57,36 @@ class SevenRuneView: UIView, RuneViewProtocol {
         }
         
         NSLayoutConstraint.activate([
-            buttonThree.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 81.widthDependent()),
-            buttonThree.trailingAnchor.constraint(equalTo: buttonThree.leadingAnchor, constant: 68.widthDependent()),
-            buttonThree.topAnchor.constraint(equalTo: self.topAnchor, constant: 251.widthDependent()),
-            buttonThree.bottomAnchor.constraint(equalTo: buttonThree.topAnchor, constant: 90.widthDependent()),
+            buttonThree.trailingAnchor.constraint(equalTo: buttonTwo.leadingAnchor, constant: -24.heightDependent()),
+            buttonThree.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -214.heightDependent()),
+            buttonThree.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
+            buttonThree.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
             
-            buttonTwo.leadingAnchor.constraint(equalTo: buttonThree.trailingAnchor, constant: 24.widthDependent()),
-            buttonTwo.topAnchor.constraint(equalTo: self.topAnchor, constant: 251.widthDependent()),
-            buttonTwo.bottomAnchor.constraint(equalTo: buttonThree.topAnchor, constant: 90.widthDependent()),
-            buttonTwo.trailingAnchor.constraint(equalTo: buttonTwo.leadingAnchor, constant: 68.widthDependent()),
+            buttonTwo.centerXAnchor.constraint(equalTo: centerXAnchor),
+            buttonTwo.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -214.heightDependent()),
+            buttonTwo.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
+            buttonTwo.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
+
+            buttonOne.leadingAnchor.constraint(equalTo: buttonTwo.trailingAnchor, constant: 24.heightDependent()),
+            buttonOne.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -214.heightDependent()),
+            buttonOne.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
+            buttonOne.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
             
-            buttonOne.leadingAnchor.constraint(equalTo: buttonTwo.trailingAnchor, constant: 24.widthDependent()),
-            buttonOne.topAnchor.constraint(equalTo: self.topAnchor, constant: 251.widthDependent()),
-            buttonOne.bottomAnchor.constraint(equalTo: buttonOne.topAnchor, constant: 90.widthDependent()),
-            buttonOne.trailingAnchor.constraint(equalTo: buttonOne.leadingAnchor, constant: 68.widthDependent()),
-            
-            buttonFive.bottomAnchor.constraint(equalTo: buttonTwo.topAnchor, constant: -24.widthDependent()),
-            buttonFive.leadingAnchor.constraint(equalTo: buttonThree.trailingAnchor, constant: 24.widthDependent()),
-            buttonFive.widthAnchor.constraint(equalToConstant: 68.widthDependent()),
-            buttonFive.heightAnchor.constraint(equalToConstant: 90.widthDependent()),
-            
-            buttonFour.topAnchor.constraint(equalTo: buttonTwo.bottomAnchor, constant: 24.widthDependent()),
-            buttonFour.leadingAnchor.constraint(equalTo: buttonThree.trailingAnchor, constant: 24.widthDependent()),
-            buttonFour.widthAnchor.constraint(equalToConstant: 68.widthDependent()),
-            buttonFour.heightAnchor.constraint(equalToConstant: 90.widthDependent()),
-            
-            buttonSix.bottomAnchor.constraint(equalTo: buttonFive.topAnchor, constant: -24.widthDependent()),
-            buttonSix.leadingAnchor.constraint(equalTo: buttonThree.trailingAnchor, constant: 24.widthDependent()),
-            buttonSix.widthAnchor.constraint(equalToConstant: 68.widthDependent()),
-            buttonSix.heightAnchor.constraint(equalToConstant: 90.widthDependent()),
+            buttonFive.bottomAnchor.constraint(equalTo: buttonTwo.topAnchor, constant: -24.heightDependent()),
+            buttonFive.centerXAnchor.constraint(equalTo: centerXAnchor),
+            buttonFive.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
+            buttonFive.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
+
+            buttonFour.topAnchor.constraint(equalTo: buttonTwo.bottomAnchor, constant: 24.heightDependent()),
+            buttonFour.centerXAnchor.constraint(equalTo: centerXAnchor),
+            buttonFour.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
+            buttonFour.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
+
+            buttonSix.bottomAnchor.constraint(equalTo: buttonFive.topAnchor, constant: -24.heightDependent()),
+            buttonSix.centerXAnchor.constraint(equalTo: centerXAnchor),
+            buttonSix.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
+            buttonSix.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
+
         ])
     }
 }

@@ -24,8 +24,10 @@ class AlignmentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         runesViewContainer.update(with: .init(didHighlightAllRunes: { [weak self] runes in
-            self!.startButton.setTitle("Погнали нахуй!", for: .normal)
-            self!.startButton.addTarget(self, action: #selector(self?.escapeOnTap), for: .touchUpInside)
+
+            self?.startButton.setTitle("Толковать", for: .normal)
+            self?.startButton.addTarget(self, action: #selector(self?.escapeOnTap), for: .touchUpInside)
+
         }))
         
         
@@ -66,9 +68,11 @@ class AlignmentViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             escapeButton.topAnchor.constraint(equalTo: backgroundView.topAnchor),
-            escapeButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -8.widthDependent()),
-            escapeButton.widthAnchor.constraint(equalToConstant: 48.widthDependent()),
-            escapeButton.bottomAnchor.constraint(equalTo: escapeButton.topAnchor, constant: 48.widthDependent())
+
+            escapeButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -8.heightDependent()),
+            escapeButton.widthAnchor.constraint(equalToConstant: 48.heightDependent()),
+            escapeButton.bottomAnchor.constraint(equalTo: escapeButton.topAnchor, constant: 48.heightDependent())
+
         ])
     }
     
@@ -79,7 +83,9 @@ class AlignmentViewController: UIViewController {
     func setUpNameLabel() {
         nameLabel.text = viewModel.name
       
-        nameLabel.font = FontFamily.AmaticSC.bold.font(size: 55.widthDependent())
+
+        nameLabel.font = FontFamily.AmaticSC.bold.font(size: 55.heightDependent())
+
     
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.textColor = Assets.Colors.textColor.color
@@ -89,8 +95,10 @@ class AlignmentViewController: UIViewController {
         backgroundView.addSubview(nameLabel)
         
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 25.widthDependent()),
-            nameLabel.bottomAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 65.widthDependent()),
+
+            nameLabel.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 25.heightDependent()),
+            nameLabel.bottomAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 65.heightDependent()),
+
             nameLabel.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor)
         ])
     }
@@ -98,11 +106,13 @@ class AlignmentViewController: UIViewController {
     func setUpStart() {
         startButton.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
         startButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
-        startButton.layer.cornerRadius = 8
-        startButton.layer.borderWidth = 1
+
+        startButton.layer.cornerRadius = 8.heightDependent()
+        startButton.layer.borderWidth = 1.heightDependent()
         startButton.setTitle("Вытянуть руну", for: .normal)
         startButton.translatesAutoresizingMaskIntoConstraints = false
-        startButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 30.widthDependent())
+        startButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 30.heightDependent())
+
         startButton.addTarget(self, action: #selector(self.openButton), for: .touchUpInside)
         
         startButton.setTitleColor(Assets.Colors.textColor.color, for: .normal)
@@ -110,10 +120,11 @@ class AlignmentViewController: UIViewController {
         backgroundView.addSubview(startButton)
        
         NSLayoutConstraint.activate([
-            startButton.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -70.widthDependent()),
-            startButton.topAnchor.constraint(equalTo: startButton.bottomAnchor, constant: -54.widthDependent()),
-            startButton.leadingAnchor.constraint(lessThanOrEqualTo: backgroundView.leadingAnchor, constant: 80.widthDependent()),
-            startButton.widthAnchor.constraint(equalToConstant: 255.widthDependent()),
+
+            startButton.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -82.heightDependent()),
+            startButton.heightAnchor.constraint(equalToConstant: 56.heightDependent()),
+            startButton.widthAnchor.constraint(equalToConstant: 255.heightDependent()),
+
             startButton.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor)
         ])
     }
@@ -138,16 +149,20 @@ class AlignmentViewController: UIViewController {
     func setUpShowButton(){
         showButton.translatesAutoresizingMaskIntoConstraints = false
         showButton.layer.borderColor = Assets.Colors.textColor.color.cgColor
-        showButton.layer.borderWidth = 1.widthDependent()
-        showButton.layer.cornerRadius = 12.widthDependent()
+
+        showButton.layer.borderWidth = 1.heightDependent()
+        showButton.layer.cornerRadius = 12.heightDependent()
         showButton.setTitle("i", for: .normal)
-        showButton.titleLabel?.font = FontFamily.SFProDisplay.light.font(size: 16.widthDependent())
+        showButton.titleLabel?.font = FontFamily.SFProDisplay.light.font(size: 16.heightDependent())
+
         backgroundView.addSubview(showButton)
         
         
             NSLayoutConstraint.activate([
-                showButton.widthAnchor.constraint(equalToConstant: 24.widthDependent()),
-                showButton.heightAnchor.constraint(equalToConstant: 24.widthDependent()),
+
+                showButton.widthAnchor.constraint(equalToConstant: 24.heightDependent()),
+                showButton.heightAnchor.constraint(equalToConstant: 24.heightDependent()),
+
             ])
     }
     
@@ -156,7 +171,9 @@ class AlignmentViewController: UIViewController {
         showLabel.translatesAutoresizingMaskIntoConstraints = false
     
        
-        showLabel.font = FontFamily.SFProDisplay.light.font(size: 16.widthDependent())
+
+        showLabel.font = FontFamily.SFProDisplay.light.font(size: 16.heightDependent())
+
         
         showLabel.textColor = Assets.Colors.textColor.color
         showLabel.textAlignment = .left
@@ -164,8 +181,10 @@ class AlignmentViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             
-            showLabel.widthAnchor.constraint(equalToConstant: 150.widthDependent()),
-            showLabel.heightAnchor.constraint(equalToConstant: 36.widthDependent())
+
+            showLabel.widthAnchor.constraint(equalToConstant: 150.heightDependent()),
+            showLabel.heightAnchor.constraint(equalToConstant: 36.heightDependent())
+
             
         ])
     }
@@ -174,7 +193,9 @@ class AlignmentViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.distribution = .equalSpacing
-        stack.spacing = 12.widthDependent()
+
+        stack.spacing = 12.heightDependent()
+
         
         backgroundView.addSubview(stack)
         stack.addArrangedSubview(showButton)
@@ -182,7 +203,9 @@ class AlignmentViewController: UIViewController {
       
         NSLayoutConstraint.activate([
             stack.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
-            stack.topAnchor.constraint(equalTo: startButton.bottomAnchor, constant: 27.widthDependent())
+
+            stack.topAnchor.constraint(equalTo: startButton.bottomAnchor, constant: 27.heightDependent())
+
         ])
     }
 }
