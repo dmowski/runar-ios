@@ -28,7 +28,7 @@ public protocol RuneViewProtocol: AnyObject {
     func verifyDidHighlightAllButtons()
 }
 
-<
+
 public extension RuneViewProtocol where Self: UIView {
 
 
@@ -135,7 +135,6 @@ public extension RuneViewProtocol where Self: UIView {
         })
     }
 
-    }
     
 
     func verifyDidHighlightAllButtons() {

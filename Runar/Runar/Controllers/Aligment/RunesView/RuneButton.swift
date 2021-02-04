@@ -126,10 +126,6 @@ public class RuneButton: UIButton {
         animateButtonUp(completion: { result in
             completion(result)
         })
-
-        }
-        
-        self.runeState = runeState
         
         //        backgroundColor = runeState.backgroundColor
         //        layer.borderColor = runeState.borderColor
@@ -168,7 +164,7 @@ public class RuneButton: UIButton {
 
     }
 
-}
+
 
     //-------------------------------------------------
     // MARK: - Constants

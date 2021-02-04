@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		190784DC25C422CF00434D57 /* RuneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190784DB25C422CF00434D57 /* RuneType.swift */; };
 		1907850425C4232F00434D57 /* RuneLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1907850325C4232E00434D57 /* RuneLayout.swift */; };
 		1907850C25C4235000434D57 /* RuneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1907850B25C4235000434D57 /* RuneButton.swift */; };
 		1907851425C4236000434D57 /* FirstRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1907851325C4236000434D57 /* FirstRuneView.swift */; };
@@ -35,6 +34,8 @@
 		19D9BAD625C9765C00418CE7 /* TwoRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BAD525C9765C00418CE7 /* TwoRuneView.swift */; };
 		19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BAFD25C9874200418CE7 /* RuneViewProtocol.swift */; };
 		19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BB0525C9874E00418CE7 /* RunesView.swift */; };
+		1A04A48091973E2F0EB04A65 /* Pods_RunarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */; };
+		9B739DDC25CC296900726B30 /* RuneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739DDB25CC296900726B30 /* RuneType.swift */; };
 		9B97AC7F25AE6E81008FFF3F /* SFProDisplay-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B97AC7E25AE6E81008FFF3F /* SFProDisplay-Light.ttf */; };
 		9B97AD5825B636BE008FFF3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B97AD5725B636BD008FFF3F /* Constants.swift */; };
 		9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9C266E25A2173100A4E135 /* DataBase.swift */; };
@@ -66,6 +67,7 @@
 		9BD229D5258D776200E17E98 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229C8258D776200E17E98 /* Roboto-Black.ttf */; };
 		9BD229D6258D776200E17E98 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229C9258D776200E17E98 /* Roboto-BoldItalic.ttf */; };
 		9BD229DF258D82DD00E17E98 /* AlignmentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD229DE258D82DD00E17E98 /* AlignmentInfoViewController.swift */; };
+		D33A65EC2DE4E4D7C3C956F3 /* Pods_Runar_RunarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */; };
 		DB92AEE5E33DCFB508195B8F /* Pods_Runar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,7 +89,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		190784DB25C422CF00434D57 /* RuneType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuneType.swift; path = ../../../../../Downloads/RuneViews/RuneType.swift; sourceTree = "<group>"; };
 		1907850325C4232E00434D57 /* RuneLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneLayout.swift; sourceTree = "<group>"; };
 		1907850B25C4235000434D57 /* RuneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneButton.swift; sourceTree = "<group>"; };
 		1907851325C4236000434D57 /* FirstRuneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRuneView.swift; sourceTree = "<group>"; };
@@ -117,6 +118,10 @@
 		19D9BAFD25C9874200418CE7 /* RuneViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneViewProtocol.swift; sourceTree = "<group>"; };
 		19D9BB0525C9874E00418CE7 /* RunesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunesView.swift; sourceTree = "<group>"; };
 		1A56DC55326BF359E39532FA /* Pods-Runar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar.release.xcconfig"; path = "Target Support Files/Pods-Runar/Pods-Runar.release.xcconfig"; sourceTree = "<group>"; };
+		29AD0AF3F59DE1B0E9AF6F8D /* Pods-RunarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.release.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.release.xcconfig"; sourceTree = "<group>"; };
+		7187BE777607C9CC2B878552 /* Pods-RunarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.debug.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B739DDB25CC296900726B30 /* RuneType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneType.swift; sourceTree = "<group>"; };
 		9B97AC7E25AE6E81008FFF3F /* SFProDisplay-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Light.ttf"; sourceTree = "<group>"; };
 		9B97AD5725B636BD008FFF3F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9B9C266E25A2173100A4E135 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
@@ -156,6 +161,9 @@
 		9BD229DA258D7BD400E17E98 /* PoiretOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PoiretOne-Regular.ttf"; sourceTree = "<group>"; };
 		9BD229DE258D82DD00E17E98 /* AlignmentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentInfoViewController.swift; sourceTree = "<group>"; };
 		9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.release.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar_RunarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2B75E01B5066B4D9AE555E1 /* Pods-Runar-RunarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F9215007654A411DBEF358A7 /* Pods-Runar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar.debug.xcconfig"; path = "Target Support Files/Pods-Runar/Pods-Runar.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A04A48091973E2F0EB04A65 /* Pods_RunarTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D33A65EC2DE4E4D7C3C956F3 /* Pods_Runar_RunarUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +272,7 @@
 		19C0F21425BAFE9B0027422B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				190784DB25C422CF00434D57 /* RuneType.swift */,
+				9B739DDB25CC296900726B30 /* RuneType.swift */,
 				1907850325C4232E00434D57 /* RuneLayout.swift */,
 				19C0F21A25BAFEFE0027422B /* RuneDescription.swift */,
 			);
@@ -418,6 +428,10 @@
 			children = (
 				F9215007654A411DBEF358A7 /* Pods-Runar.debug.xcconfig */,
 				1A56DC55326BF359E39532FA /* Pods-Runar.release.xcconfig */,
+				F2B75E01B5066B4D9AE555E1 /* Pods-Runar-RunarUITests.debug.xcconfig */,
+				C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */,
+				7187BE777607C9CC2B878552 /* Pods-RunarTests.debug.xcconfig */,
+				29AD0AF3F59DE1B0E9AF6F8D /* Pods-RunarTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -426,6 +440,8 @@
 			isa = PBXGroup;
 			children = (
 				9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */,
+				E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */,
+				952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -437,8 +453,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BD22924258A322000E17E98 /* Build configuration list for PBXNativeTarget "Runar" */;
 			buildPhases = (
-				195F59B425B78DD2000EDDB1 /* SwiftGen */,
 				E310DAD7AEB8D84FE584879F /* [CP] Check Pods Manifest.lock */,
+				195F59B425B78DD2000EDDB1 /* SwiftGen */,
 				9BD228F6258A321B00E17E98 /* Sources */,
 				9BD228F7258A321B00E17E98 /* Frameworks */,
 				9BD228F8258A321B00E17E98 /* Resources */,
@@ -456,6 +472,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BD22927258A322000E17E98 /* Build configuration list for PBXNativeTarget "RunarTests" */;
 			buildPhases = (
+				ABF78A6E3A36E16A0AC5CE23 /* [CP] Check Pods Manifest.lock */,
 				9BD2290C258A322000E17E98 /* Sources */,
 				9BD2290D258A322000E17E98 /* Frameworks */,
 				9BD2290E258A322000E17E98 /* Resources */,
@@ -474,6 +491,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BD2292A258A322000E17E98 /* Build configuration list for PBXNativeTarget "RunarUITests" */;
 			buildPhases = (
+				564B1F13C8738A7E3E299AB3 /* [CP] Check Pods Manifest.lock */,
 				9BD22917258A322000E17E98 /* Sources */,
 				9BD22918258A322000E17E98 /* Frameworks */,
 				9BD22919258A322000E17E98 /* Resources */,
@@ -597,6 +615,50 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" \nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
 		};
+		564B1F13C8738A7E3E299AB3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Runar-RunarUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABF78A6E3A36E16A0AC5CE23 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RunarTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E310DAD7AEB8D84FE584879F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -645,8 +707,8 @@
 				1987AAB625BDCDA400BB3655 /* ThreeRuneView.swift in Sources */,
 				9BD229DF258D82DD00E17E98 /* AlignmentInfoViewController.swift in Sources */,
 				19BDC61225C02EE9000808CF /* SceneDelegate.swift in Sources */,
-				190784DC25C422CF00434D57 /* RuneType.swift in Sources */,
 				19BDC61B25C030B1000808CF /* UIControlPublisher.swift in Sources */,
+				9B739DDC25CC296900726B30 /* RuneType.swift in Sources */,
 				1907850C25C4235000434D57 /* RuneButton.swift in Sources */,
 				19C0F20A25BAFCB20027422B /* Array+Extensions.swift in Sources */,
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
@@ -873,6 +935,7 @@
 		};
 		9BD22928258A322000E17E98 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7187BE777607C9CC2B878552 /* Pods-RunarTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -894,6 +957,7 @@
 		};
 		9BD22929258A322000E17E98 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29AD0AF3F59DE1B0E9AF6F8D /* Pods-RunarTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -915,6 +979,7 @@
 		};
 		9BD2292B258A322000E17E98 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2B75E01B5066B4D9AE555E1 /* Pods-Runar-RunarUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -934,6 +999,7 @@
 		};
 		9BD2292C258A322000E17E98 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
