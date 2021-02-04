@@ -54,20 +54,20 @@ class ThreeRuneView: UIView, RuneViewProtocol {
         }
         
         NSLayoutConstraint.activate([
-            buttonOne.leadingAnchor.constraint(equalTo: buttonTwo.trailingAnchor, constant: 26.widthDependent()),
+            buttonOne.leadingAnchor.constraint(equalTo: buttonTwo.trailingAnchor, constant: 26.heightDependent()),
             buttonOne.centerYAnchor.constraint(equalTo: centerYAnchor),
-            buttonOne.widthAnchor.constraint(equalToConstant: 68.widthDependent()),
-            buttonOne.heightAnchor.constraint(equalToConstant: 90.widthDependent()),
+            buttonOne.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
+            buttonOne.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
 
             buttonTwo.centerXAnchor.constraint(equalTo: centerXAnchor),
             buttonTwo.centerYAnchor.constraint(equalTo: centerYAnchor),
-            buttonTwo.widthAnchor.constraint(equalToConstant: 68.widthDependent()),
-            buttonTwo.heightAnchor.constraint(equalToConstant: 90.widthDependent()),
+            buttonTwo.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
+            buttonTwo.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
             
-            buttonThree.trailingAnchor.constraint(equalTo: buttonTwo.leadingAnchor, constant: -26.widthDependent()),
+            buttonThree.trailingAnchor.constraint(equalTo: buttonTwo.leadingAnchor, constant: -26.heightDependent()),
             buttonThree.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            buttonThree.widthAnchor.constraint(equalToConstant: 68.widthDependent()),
-            buttonThree.heightAnchor.constraint(equalToConstant: 90.widthDependent()),
+            buttonThree.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
+            buttonThree.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
         ])
     }
 }

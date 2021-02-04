@@ -21,7 +21,7 @@ public class RuneButton: UIButton {
             NSAttributedString(
                 string: title,
                 attributes: [
-                    .font: FontFamily.AmaticSC.bold.font(size: 50.widthDependent()),
+                    .font: FontFamily.AmaticSC.bold.font(size: 50.heightDependent()),
                     .foregroundColor: color
                 ]
             )
@@ -56,7 +56,7 @@ public class RuneButton: UIButton {
             clipsToBounds = true
             backgroundColor = Constants.BackgroundColor.tinted
             layer.borderColor = Constants.BorderColor.tinted.cgColor
-            layer.borderWidth = Constants.BorderWidth.tinted.widthDependent()
+            layer.borderWidth = Constants.BorderWidth.tinted.heightDependent()
             isUserInteractionEnabled = false
             setAttributedTitle(
                 viewModel?.getAttributedTitle(with: Constants.TextColor.tinted),
@@ -67,7 +67,7 @@ public class RuneButton: UIButton {
             clipsToBounds = true
             backgroundColor = Constants.BackgroundColor.highlighted
             layer.borderColor = Constants.BorderColor.highlighted.cgColor
-            layer.borderWidth = Constants.BorderWidth.highlighted.widthDependent()
+            layer.borderWidth = Constants.BorderWidth.highlighted.heightDependent()
             isUserInteractionEnabled = true
             setAttributedTitle(
                 viewModel?.getAttributedTitle(with: Constants.TextColor.highlighted),
@@ -82,16 +82,43 @@ public class RuneButton: UIButton {
             isUserInteractionEnabled = false
             setAttributedTitle(nil, for: .normal)
             setImage(viewModel?.image, for: .normal)
-            imageEdgeInsets = UIEdgeInsets(top: 105.widthDependent(), left: 83.widthDependent(), bottom: 105.widthDependent(), right: 83.widthDependent())
+            imageEdgeInsets = UIEdgeInsets(top: 105.heightDependent(), left: 83.heightDependent(), bottom: 105.heightDependent(), right: 83.heightDependent())
         }
         
         self.runeState = runeState
-        
-        //        backgroundColor = runeState.backgroundColor
-        //        layer.borderColor = runeState.borderColor
-        //        layer.borderWidth = runeState.borderWidth
-        //        setTitleColor(runeState.textColor, for: .normal)
-        //        self.runeState = runeState
+    }
+    
+    
+    //-------------------------------------------------
+    // MARK: -  Button animation
+    //-------------------------------------------------
+    
+    
+    private func animateButtonUp(completion: @escaping (Bool) -> ()) {
+
+        UIView.animate(withDuration: 0.25, delay: 0.0, options: [.allowUserInteraction, .curveEaseIn], animations: {
+            self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        }, completion: {[ weak self ]
+            (value: Bool) in self?.animateButtonDown(completion: { result in
+                completion(result)
+            })
+        })
+    }
+
+    private func animateButtonDown(completion: @escaping (Bool) -> ()) {
+
+        UIView.animate(withDuration: 0.25, delay: 0.0, options: [.allowUserInteraction, .curveEaseOut], animations: {
+            self.transform = CGAffineTransform.identity
+        }, completion: {
+            (value: Bool) in
+            completion(value)
+        })
+    }
+    
+    public func animateButton(completion: @escaping (Bool) -> ())  {
+        animateButtonUp(completion: { result in
+            completion(result)
+        })
     }
     
     //-------------------------------------------------
@@ -101,17 +128,25 @@ public class RuneButton: UIButton {
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.allowUserInteraction, .curveEaseOut], animations: {
+            self.transform = CGAffineTransform.identity
+        })
     }
     
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         transform = .identity
+
     }
     
     public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
         transform = .identity
+
     }
+    
+    
+    
 }
 
     //-------------------------------------------------
@@ -139,45 +174,3 @@ private extension RuneButton {
     }
 }
 
-//private extension RuneButton.State {
-//    var backgroundColor: UIColor {
-//        switch self {
-//        case .tinted:
-//            return Assets.Colors.UnTouch.layerBackground.color
-//        case .highlighted:
-//            return Assets.Colors.Touch.layerBackground.color
-//        case .rune:
-//            return .clear
-//        }
-//    }
-//    var borderColor: CGColor {
-//        switch self {
-//        case .tinted:
-//            return Assets.Colors.UnTouch.layerBorder.color.cgColor
-//        case .highlighted:
-//            return Assets.Colors.Touch.layerBorder.color.cgColor
-//        case .rune:
-//            return UIColor.clear.cgColor
-//        }
-//    }
-//    var textColor: UIColor {
-//        switch self {
-//        case .tinted:
-//            return Assets.Colors.UnTouch.text.color
-//        case .highlighted:
-//            return Assets.Colors.Touch.text.color
-//        case .rune:
-//            return .clear
-//        }
-//    }
-//    var borderWidth: CGFloat {
-//        switch self {
-//        case .tinted:
-//            return 1
-//        case .highlighted:
-//            return 2
-//        case .rune:
-//            return 0
-//        }
-//    }
-//}
