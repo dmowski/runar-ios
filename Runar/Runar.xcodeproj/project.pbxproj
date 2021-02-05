@@ -37,6 +37,8 @@
 		1A04A48091973E2F0EB04A65 /* Pods_RunarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */; };
 		9B739DDC25CC296900726B30 /* RuneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739DDB25CC296900726B30 /* RuneType.swift */; };
 		9B739DF325CD765800726B30 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739DF225CD765800726B30 /* Constants.swift */; };
+		9B739E0525CD77E900726B30 /* ProcessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739E0325CD77E900726B30 /* ProcessingViewController.swift */; };
+		9B739E0625CD77E900726B30 /* ProcessingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739E0425CD77E900726B30 /* ProcessingViewModel.swift */; };
 		9B97AC7F25AE6E81008FFF3F /* SFProDisplay-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B97AC7E25AE6E81008FFF3F /* SFProDisplay-Light.ttf */; };
 		9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9C266E25A2173100A4E135 /* DataBase.swift */; };
 		9B9F151C2591499A00062F47 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F151A2591499A00062F47 /* AmaticSC-Regular.ttf */; };
@@ -123,6 +125,8 @@
 		952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B739DDB25CC296900726B30 /* RuneType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneType.swift; sourceTree = "<group>"; };
 		9B739DF225CD765800726B30 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Runar/Support/Constants.swift; sourceTree = SOURCE_ROOT; };
+		9B739E0325CD77E900726B30 /* ProcessingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingViewController.swift; sourceTree = "<group>"; };
+		9B739E0425CD77E900726B30 /* ProcessingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingViewModel.swift; sourceTree = "<group>"; };
 		9B97AC7E25AE6E81008FFF3F /* SFProDisplay-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Light.ttf"; sourceTree = "<group>"; };
 		9B9C266E25A2173100A4E135 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		9B9F151A2591499A00062F47 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
@@ -279,6 +283,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		9B739E0225CD77E900726B30 /* Processing */ = {
+			isa = PBXGroup;
+			children = (
+				9B739E0325CD77E900726B30 /* ProcessingViewController.swift */,
+				9B739E0425CD77E900726B30 /* ProcessingViewModel.swift */,
+			);
+			path = Processing;
+			sourceTree = "<group>";
+		};
 		9B9C25C825993DB100A4E135 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,10 +308,10 @@
 		9B9C25C925993DE000A4E135 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9B739E0225CD77E900726B30 /* Processing */,
 				19C0F20E25BAFDA80027422B /* AligmentInfo */,
 				19C0F1F225BAF0540027422B /* Aligment */,
 				9BD22959258AB02500E17E98 /* CollectionViewController.swift */,
-				9B739DF225CD765800726B30 /* Constants.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -306,6 +319,7 @@
 		9B9C25CA25993DF800A4E135 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				9B739DF225CD765800726B30 /* Constants.swift */,
 				19BDC60225C01A2D000808CF /* ScreenDependent.swift */,
 				9BD229A8258B7F4F00E17E98 /* Fonts */,
 				9BD22906258A321F00E17E98 /* Assets.xcassets */,
@@ -713,8 +727,10 @@
 				1907850C25C4235000434D57 /* RuneButton.swift in Sources */,
 				19C0F20A25BAFCB20027422B /* Array+Extensions.swift in Sources */,
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
+				9B739E0625CD77E900726B30 /* ProcessingViewModel.swift in Sources */,
 				19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */,
 				19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */,
+				9B739E0525CD77E900726B30 /* ProcessingViewController.swift in Sources */,
 				1987AABB25BDCDB400BB3655 /* FourRuneView.swift in Sources */,
 				1907850425C4232F00434D57 /* RuneLayout.swift in Sources */,
 				1987AACF25BDCDF000BB3655 /* EightRuneView.swift in Sources */,

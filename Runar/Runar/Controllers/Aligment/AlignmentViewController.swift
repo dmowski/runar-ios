@@ -12,7 +12,6 @@ class AlignmentViewController: UIViewController {
     private let backgroundView = UIImageView()
     private let escapeButton = UIButton()
     private let nameLabel = UILabel()
-    var name = String()
     private let startButton = UIButton()
     var runesViewContainer = RunesView()
     private let showButton = UIButton()
@@ -78,7 +77,12 @@ class AlignmentViewController: UIViewController {
     }
     
     @objc func escapeOnTap (sender: UIButton!) {
-        self.navigationController?.popToRootViewController(animated: true)
+        let runeDescription = viewModel.runeDescription
+        let viewModel = ProcessingViewModel(runeDescription: runeDescription)
+        let viewController = ProcessingViewController()
+        viewController.viewModel = viewModel
+        viewController.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func setUpNameLabel() {
