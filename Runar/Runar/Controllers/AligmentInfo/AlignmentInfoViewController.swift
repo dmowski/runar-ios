@@ -160,14 +160,6 @@ class AlignmentInfoViewController: UIViewController {
         descriptionLabel.sizeToFit()
         background.addSubview(descriptionLabel)
         
-//        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
-//        NSLayoutConstraint.activate([
-//            descriptionLabel.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 32),
-//            descriptionLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -24),
-//            descriptionLabel.topAnchor.constraint(equalTo: escape.bottomAnchor, constant: 60),
-//            descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: startButton.bottomAnchor, constant: -100),
-//        ])
-//        } else {
             NSLayoutConstraint.activate([
                 descriptionLabel.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 32),
                 descriptionLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -32),
@@ -176,8 +168,6 @@ class AlignmentInfoViewController: UIViewController {
             ])
         
     }
-    
-
     
     func setUpShowButton(){
         showButton.translatesAutoresizingMaskIntoConstraints = false

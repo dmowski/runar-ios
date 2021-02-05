@@ -19,17 +19,5 @@ struct DataBase {
         RuneDescription(id: UUID().uuidString, name: L10n.Rune.ElementsCross.name, layout: .elementsCross, description: L10n.Rune.ElementsCross.description),
         RuneDescription(id: UUID().uuidString, name: L10n.Rune.KeltsCross.name, layout: .keltsCross, description: L10n.Rune.KeltsCross.description)
     ]
-//    let namesDataSourse = ["Руна дня","Расклад из 2 рун","Норны","Краткий прогноз","Молот Тора","Крест","Крест стихий","Кельтский крест"]
-//    
-//   static let alDescription = [
-//    "Руна дня" : L10n.runesOfTheDay,
-//    "Расклад из 2 рун" : L10n.layoutOfTwoRunes,
-//    "Норны" : L10n.norns,
-//    "Молот Тора" : L10n.thorsHammer,
-//    "Краткий прогноз": L10n.briefForecast,
-//    "Крест" : L10n.cross,
-//    "Крест стихий" : L10n.crossOfTheElements,
-//    "Кельтский крест" : L10n.celticCross
-//    ]
 }
 
