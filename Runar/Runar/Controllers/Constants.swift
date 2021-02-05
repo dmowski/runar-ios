@@ -13,3 +13,7 @@ enum ScreenSize {
     static let maxLength    = max(ScreenSize.width, ScreenSize.height)
     static let minLength    = min(ScreenSize.width, ScreenSize.height)
 }
+
+enum DeviceType {
+    static let iPhoneSE = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0
+}
