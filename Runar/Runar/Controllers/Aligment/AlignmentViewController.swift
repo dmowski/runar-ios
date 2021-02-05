@@ -179,7 +179,7 @@ class AlignmentViewController: UIViewController {
         showLabel.textAlignment = .left
         backgroundView.addSubview(showLabel)
         let widthConstant : CGFloat = DeviceType.iPhoneSE ? 115 : 130
-        let heightConstant : CGFloat = DeviceType.iPhoneSE ? 36 : 48
+        let heightConstant : CGFloat = DeviceType.iPhoneSE ? 36 : 56
         
         NSLayoutConstraint.activate([
             showLabel.widthAnchor.constraint(equalToConstant: widthConstant),

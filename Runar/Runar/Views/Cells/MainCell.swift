@@ -11,7 +11,9 @@ class MainCell: UICollectionViewCell {
     
     static let reuseIdentifier = "Cell"
     private static let fontMultiplier : CGFloat = 32/199
-    private static let bottonMultiplier : CGFloat = 12/199
+    private static let labelBottomMultiplier : CGFloat = 12/199
+    private static let labelTopMultiplier: CGFloat = 156/199
+    private static let imageLeftMultiplier: CGFloat = 59/183
     var image = UIImageView()
     
     
@@ -50,12 +52,7 @@ class MainCell: UICollectionViewCell {
         contentView.layer.backgroundColor = UIColor(red: 0.146, green: 0.146, blue: 0.146, alpha: 0.35).cgColor
         
     }
-    
-//    func nameFor(indexPath: IndexPath) {
-//        let data = DataBase()
-//        alignmentLabel.text = data.namesDataSourse[indexPath.item]
-//        image.image = UIImage(named: data.namesDataSourse[indexPath.item])
-//    }
+
     
     func update(with model: MainCellModel?) {
         guard let model = model else { return }
@@ -76,12 +73,13 @@ class MainCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             alignmentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 9),
             alignmentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -9),
-            alignmentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -(self.frame.size.height * MainCell.bottonMultiplier)),
+            alignmentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -(self.frame.size.height * MainCell.labelBottomMultiplier)),
+                        alignmentLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: (self.frame.size.height * MainCell.labelTopMultiplier)),
             
-            image.topAnchor.constraint(equalTo: contentView.topAnchor),
-            image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 45),
-            image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -45),
-            image.heightAnchor.constraint(equalToConstant: 155 / 199 * self.frame.size.height)
+            image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: (self.frame.size.width * MainCell.imageLeftMultiplier)),
+                         image.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            image.bottomAnchor.constraint(equalTo: alignmentLabel.topAnchor, constant: -13)
         ])
         
     }
