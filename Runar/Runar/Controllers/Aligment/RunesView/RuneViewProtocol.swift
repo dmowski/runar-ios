@@ -125,14 +125,9 @@ public extension RuneViewProtocol where Self: UIView {
     
     func openHighlightedButton() {
 
-        
         guard let highlightedButtonIndex = highlightedIndexAndButton?.0 else { return }
-        let button = getButton(index: highlightedButtonIndex)
-        button?.animateButton(completion: {_ in
-            self.openButton(index: highlightedButtonIndex)
-            self.highlightNextButton()
-            self.verifyDidHighlightAllButtons()
-        })
+        openButton(index: highlightedButtonIndex)
+ 
     }
 
     

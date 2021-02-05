@@ -96,13 +96,17 @@ public class RunesView: UIView {
     }
     
     public func openHighlightedButton() {
-        guard let selectedRuneView = enumeratedRuneViews[runeLayout] else {
-            assertionFailure("There is no selected RuneView with layout: \(runeLayout)")
-            return
-        }
+            guard let selectedRuneView = enumeratedRuneViews[runeLayout] else {
+                assertionFailure("There is no selected RuneView with layout: \(runeLayout)")
+                return
+            }
+            
+        guard let (_, highlightedButton) = selectedRuneView.highlightedIndexAndButton else { return }
 
-        selectedRuneView.openHighlightedButton()
-        selectedRuneView.highlightNextButton()
-        selectedRuneView.verifyDidHighlightAllButtons()
-    }
+            highlightedButton.animateButton(completion: { [weak selectedRuneView] _ in
+            selectedRuneView?.openHighlightedButton()
+            selectedRuneView?.highlightNextButton()
+            selectedRuneView?.verifyDidHighlightAllButtons()
+            })
+        }
 }

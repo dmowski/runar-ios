@@ -101,39 +101,30 @@ public class RuneButton: UIButton {
     //-------------------------------------------------
     
     
-    private func animateButtonUp(completion: @escaping (Bool) -> ()) {
-
-        UIView.animate(withDuration: 0.25, delay: 0.0, options: [.allowUserInteraction, .curveEaseIn], animations: {
-            self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-        }, completion: {[ weak self ]
-            (value: Bool) in self?.animateButtonDown(completion: { result in
-                completion(result)
+    private func animateButtonTap(completion: @escaping (Bool) -> ()) {
+            UIView.animate(withDuration: 0.05, delay: 0.0, options: [.allowUserInteraction, .curveEaseIn], animations: {
+                self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            }, completion: {
+                (value: Bool) in
+                completion(value)
             })
-        })
-    }
-
-    private func animateButtonDown(completion: @escaping (Bool) -> ()) {
-
-        UIView.animate(withDuration: 0.25, delay: 0.0, options: [.allowUserInteraction, .curveEaseOut], animations: {
-            self.transform = CGAffineTransform.identity
-        }, completion: {
-            (value: Bool) in
-            completion(value)
-        })
-    }
-    
-    public func animateButton(completion: @escaping (Bool) -> ())  {
-        animateButtonUp(completion: { result in
-            completion(result)
-        })
+        }
         
-        //        backgroundColor = runeState.backgroundColor
-        //        layer.borderColor = runeState.borderColor
-        //        layer.borderWidth = runeState.borderWidth
-        //        setTitleColor(runeState.textColor, for: .normal)
-        //        self.runeState = runeState
-
-    }
+        private func animateButtonDown(completion: @escaping (Bool) -> ()) {
+            
+            UIView.animate(withDuration: 0.25, delay: 0.0, options: [.allowUserInteraction, .curveEaseOut], animations: {
+                self.transform = CGAffineTransform.identity
+            }, completion: {
+                (value: Bool) in
+                completion(value)
+            })
+        }
+        
+        public func animateButton(completion: @escaping (Bool) -> ())  {
+            animateButtonTap(completion: { [weak self] _ in
+                self?.animateButtonDown(completion: completion)
+            })
+        }
     
     //-------------------------------------------------
     // MARK: - Handle touch
@@ -142,10 +133,6 @@ public class RuneButton: UIButton {
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
-
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.allowUserInteraction, .curveEaseOut], animations: {
-            self.transform = CGAffineTransform.identity
-        })
 
     }
     
