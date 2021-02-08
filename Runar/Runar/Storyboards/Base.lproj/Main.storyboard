@@ -41,16 +41,6 @@
             </objects>
             <point key="canvasLocation" x="-333" y="599"/>
         </scene>
-        <!--Sagas-->
-        <scene sceneID="YOm-K9-Cc9">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SagasStoryboard" referencedIdentifier="Sagas" id="v3p-2a-qlw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="1uZ-Ef-6Bw"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WHz-NR-bFE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2" y="624"/>
-        </scene>
         <!--Runes-->
         <scene sceneID="hJW-zv-MKQ">
             <objects>
@@ -67,17 +57,17 @@
                 <tabBarController storyboardIdentifier="Initial" automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="dark" id="VvS-F4-4Ws" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Ykh-Rg-4A9">
+                    <tabBar key="tabBar" alpha="0.90000000000000002" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ykh-Rg-4A9">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="0.15921117315839783" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.93725490199999995" green="0.80392156859999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" red="0.93725490199999995" green="0.80392156859999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="IEb-Dg-Y4a" kind="relationship" relationship="viewControllers" id="KGu-5y-EiJ"/>
                         <segue destination="ueB-ss-Fbb" kind="relationship" relationship="viewControllers" id="uHf-Yy-CYI"/>
-                        <segue destination="v3p-2a-qlw" kind="relationship" relationship="viewControllers" id="i44-dI-toY"/>
                         <segue destination="FES-2J-UoQ" kind="relationship" relationship="viewControllers" id="Rr6-vo-Tg1"/>
                         <segue destination="lln-gb-Rgf" kind="relationship" relationship="viewControllers" id="8Lb-Bv-GAt"/>
                     </connections>
@@ -91,7 +81,7 @@
             <objects>
                 <collectionViewController id="mwL-3d-xKu" customClass="CollectionViewController" customModule="Runar" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="aGm-gL-YNI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NiL-wU-DKj">
@@ -215,7 +205,7 @@
         <scene sceneID="zDh-Vq-eUG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IEb-Dg-Y4a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Расклады" image="home" id="oa7-Ae-Quu"/>
+                    <tabBarItem key="tabBarItem" title="Расклады" image="Home-unselected" selectedImage="Home-selected" id="oa7-Ae-Quu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Di3-I8-cdH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -232,10 +222,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Home-selected" width="16" height="18"/>
+        <image name="Home-unselected" width="16" height="18"/>
         <image name="bookmark" width="30" height="28"/>
         <image name="escape" width="31" height="31"/>
         <image name="favourite" width="23" height="21"/>
-        <image name="home" width="30" height="28"/>
         <image name="main" width="414" height="1003"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

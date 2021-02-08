@@ -19,7 +19,7 @@
                         <viewLayoutGuide key="safeArea" id="6tX-ck-ynE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Избранное" image="bookmark" id="ELH-4K-pB8"/>
+                    <tabBarItem key="tabBarItem" title="Избранное" image="Favourite-unselected" selectedImage="Favourite-selected" id="ELH-4K-pB8"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6es-Og-s9W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -28,7 +28,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bookmark" width="30" height="28"/>
+        <image name="Favourite-selected" width="16" height="17"/>
+        <image name="Favourite-unselected" width="16" height="17"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

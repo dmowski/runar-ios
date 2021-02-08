@@ -54,7 +54,6 @@
 		9BD22915258A322000E17E98 /* RunarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22914258A322000E17E98 /* RunarTests.swift */; };
 		9BD22920258A322000E17E98 /* RunarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD2291F258A322000E17E98 /* RunarUITests.swift */; };
 		9BD22937258A644400E17E98 /* RunesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22936258A644400E17E98 /* RunesStoryboard.storyboard */; };
-		9BD22948258A6BE500E17E98 /* SagasStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22947258A6BE500E17E98 /* SagasStoryboard.storyboard */; };
 		9BD2294D258A6F2600E17E98 /* FavouritiesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD2294C258A6F2600E17E98 /* FavouritiesStoryboard.storyboard */; };
 		9BD22952258A6F3D00E17E98 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22951258A6F3D00E17E98 /* SettingsStoryboard.storyboard */; };
 		9BD2295A258AB02500E17E98 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22959258AB02500E17E98 /* CollectionViewController.swift */; };
@@ -152,7 +151,6 @@
 		9BD2291F258A322000E17E98 /* RunarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunarUITests.swift; sourceTree = "<group>"; };
 		9BD22921258A322000E17E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BD22936258A644400E17E98 /* RunesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RunesStoryboard.storyboard; sourceTree = "<group>"; };
-		9BD22947258A6BE500E17E98 /* SagasStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SagasStoryboard.storyboard; sourceTree = "<group>"; };
 		9BD2294C258A6F2600E17E98 /* FavouritiesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavouritiesStoryboard.storyboard; sourceTree = "<group>"; };
 		9BD22951258A6F3D00E17E98 /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		9BD22959258AB02500E17E98 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -314,7 +312,6 @@
 			children = (
 				9BD22903258A321B00E17E98 /* Main.storyboard */,
 				9BD22936258A644400E17E98 /* RunesStoryboard.storyboard */,
-				9BD22947258A6BE500E17E98 /* SagasStoryboard.storyboard */,
 				9BD2294C258A6F2600E17E98 /* FavouritiesStoryboard.storyboard */,
 				9BD22951258A6F3D00E17E98 /* SettingsStoryboard.storyboard */,
 				9BD22908258A321F00E17E98 /* LaunchScreen.storyboard */,
@@ -600,7 +597,6 @@
 				9BD2294D258A6F2600E17E98 /* FavouritiesStoryboard.storyboard in Resources */,
 				9BD229CF258D776200E17E98 /* Roboto-LightItalic.ttf in Resources */,
 				9BD229D4258D776200E17E98 /* Roboto-ThinItalic.ttf in Resources */,
-				9BD22948258A6BE500E17E98 /* SagasStoryboard.storyboard in Resources */,
 				9BD229D1258D776200E17E98 /* Roboto-Thin.ttf in Resources */,
 				9BD22905258A321B00E17E98 /* Main.storyboard in Resources */,
 				9BD229D6258D776200E17E98 /* Roboto-BoldItalic.ttf in Resources */,
