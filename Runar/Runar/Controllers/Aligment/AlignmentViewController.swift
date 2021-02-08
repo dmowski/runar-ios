@@ -197,6 +197,9 @@ class AlignmentViewController: UIViewController {
         stack.axis = .horizontal
         stack.distribution = .equalSpacing
         stack.spacing = 12
+        stack.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(openDescriptionPopup))
+        stack.addGestureRecognizer(tap)
 
         backgroundView.addSubview(stack)
         stack.addArrangedSubview(showButton)
@@ -209,6 +212,18 @@ class AlignmentViewController: UIViewController {
 
         ])
     }
+    
+    @objc func openDescriptionPopup (sender: UIButton!) {
+        let viewModel = RuneDescriptionPopUpViewModel(runeDescription: self.viewModel.runeDescription)
+        let viewController = RuneDescriptionPopUp()
+        viewController.viewModel = viewModel
+       // viewController.hidesBottomBarWhenPushed = true
+        viewController.modalPresentationStyle = .overFullScreen
+        viewController.modalTransitionStyle = .crossDissolve
+        self.present(viewController, animated: true)
+
+    }
+    
 }
 
 

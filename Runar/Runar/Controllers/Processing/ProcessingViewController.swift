@@ -26,7 +26,7 @@ class ProcessingViewController: UIViewController {
         super.viewDidLoad()
         backgroundSetup()
         setUpImageView()
-        shapeSetUp()
+        //shapeSetUp()
         
         setUpNameLabel()
         setUpStart()
@@ -38,11 +38,9 @@ class ProcessingViewController: UIViewController {
         CATransaction.setCompletionBlock({
             self.navigationController?.pushViewController(self.setUpNextController(), animated: true)
         })
+        shapeSetUp()
         animationSetUp()
       CATransaction.commit()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         
     }
 
@@ -77,22 +75,24 @@ class ProcessingViewController: UIViewController {
         backgroundFire.addSubview(imageView)
         
         let topConstant: CGFloat = DeviceType.iPhoneSE ? 138 : 202
-        let bottomContant: CGFloat = DeviceType.iPhoneSE ? -215 : -318
+        //let bottomContant: CGFloat = DeviceType.iPhoneSE ? -215 : -318
+        let heightConstant: CGFloat = DeviceType.iPhoneSE ? 167 : 294
         let leadingConstant: CGFloat = DeviceType.iPhoneSE ? 76 : 60
         
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: backgroundFire.topAnchor, constant: topConstant),
-            imageView.bottomAnchor.constraint(equalTo: backgroundFire.bottomAnchor, constant: bottomContant),
-            imageView.leadingAnchor.constraint(equalTo: backgroundFire.leadingAnchor, constant: leadingConstant),
-            imageView.trailingAnchor.constraint(equalTo: backgroundFire.trailingAnchor, constant: -leadingConstant)
+            imageView.topAnchor.constraint(equalTo: backgroundFire.topAnchor, constant: topConstant.heightDependent()),
+            imageView.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: heightConstant),
+            imageView.centerXAnchor.constraint(equalTo: backgroundFire.centerXAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: heightConstant)
         ])
+        view.layoutIfNeeded()
     }
     
     func shapeSetUp() {
-       let center = CGPoint(x: imageView.bounds.midX,
-                                     y: imageView.bounds.midY)
-        //let center = CGPoint(x: imageView.frame.origin.x, y: imageView.frame.origin.y)
-        let circularPath = UIBezierPath(arcCenter: center, radius: 147 / 414 * self.view.frame.size.width, startAngle: -CGFloat.pi / 2, endAngle: CGFloat.pi * 2, clockwise: true)
+        let center = CGPoint(x: imageView.frame.midX, y: imageView.frame.midY)
+        let startAngle: CGFloat = -0.25 * 2 * .pi
+        let endAngle: CGFloat = startAngle + 2 * .pi
+        let circularPath = UIBezierPath(arcCenter: center, radius: 147, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         shapeLayer.path = circularPath.cgPath
         shapeLayer.strokeEnd = 0
         shapeLayer.fillColor = UIColor.clear.cgColor
@@ -103,11 +103,12 @@ class ProcessingViewController: UIViewController {
     
     func animationSetUp () {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        basicAnimation.fromValue = 0
         basicAnimation.toValue = 1
         basicAnimation.duration = 15
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
-        shapeLayer.add(basicAnimation, forKey: "animation")
+        shapeLayer.add(basicAnimation, forKey: nil)
         
     }
 
@@ -185,7 +186,7 @@ class ProcessingViewController: UIViewController {
         NSLayoutConstraint.activate([
             processingLabel.leadingAnchor.constraint(equalTo: backgroundFire.leadingAnchor, constant: 50),
             processingLabel.trailingAnchor.constraint(equalTo: backgroundFire.trailingAnchor, constant: -50),
-            processingLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
+            processingLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20.heightDependent()),
             processingLabel.heightAnchor.constraint(equalToConstant: 17)
         ])
     }
@@ -193,7 +194,8 @@ class ProcessingViewController: UIViewController {
     func setUpAdNameAndText () {
         
         adName.text = "Wardruna"
-        adName.font = UIFont(name: "SFProDisplay-Regular", size: 24)
+        adName.font = FontFamily.SFProDisplay.regular.font(size: 24)
+        
         adName.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         adName.textAlignment = .center
         
@@ -210,7 +212,7 @@ class ProcessingViewController: UIViewController {
         NSLayoutConstraint.activate([
             adName.leadingAnchor.constraint(equalTo: backgroundFire.leadingAnchor, constant: 60),
             adName.trailingAnchor.constraint(equalTo: backgroundFire.trailingAnchor, constant: -60),
-            adName.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 24),
+            adName.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 24.heightDependent()),
             adName.bottomAnchor.constraint(equalTo: adName.topAnchor, constant: 25),
             
             adText.leadingAnchor.constraint(equalTo: backgroundFire.leadingAnchor, constant: 60),

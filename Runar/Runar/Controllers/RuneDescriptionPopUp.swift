@@ -31,15 +31,7 @@ class RuneDescriptionPopUp: UIViewController {
     var message: String?
     var buttonTitle: String?
     
-    init(with name: String) {
-        super.init(nibName: nil, bundle: nil)
-        self.alertTitle = name
-        self.message = DataBase.alDescription[name]
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var viewModel: RuneDescriptionPopUpViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,21 +65,30 @@ class RuneDescriptionPopUp: UIViewController {
     }
     
     func configureTitleLabel() {
-        titleLabel.text = alertTitle ?? "Something went wrong"
+        titleLabel.text = viewModel.runeDescription.description
         
-        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
-            NSLayoutConstraint.activate([
-                titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 34.88),
-                titleLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-                titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -387.75)
-            ])
-        } else {
-            NSLayoutConstraint.activate([
-                titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 44),
-                titleLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-                titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -486)
-            ])
-        }
+//        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
+//            NSLayoutConstraint.activate([
+//                titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 34.88),
+//                titleLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+//                titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -387.75)
+//            ])
+//        } else {
+//            NSLayoutConstraint.activate([
+//                titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 44),
+//                titleLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+//                titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -486)
+//            ])
+//        }
+        
+        NSLayoutConstraint.activate([
+                        titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 44),
+                        titleLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 35),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 11),
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: -11),
+            
+                    ])
         
     }
     
@@ -117,7 +118,7 @@ class RuneDescriptionPopUp: UIViewController {
     }
     
     func configureBodyLabel() {
-        messageLabel.text = message ?? "Unable to complete request"
+        messageLabel.text = viewModel.runeDescription.description
         messageLabel.lineBreakMode = .byWordWrapping
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.34
