@@ -14,13 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-//        self.window = UIWindow(frame: UIScreen.main.bounds)
-//        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let newViewcontroller:UIViewController = mainstoryboard.instantiateViewController(withIdentifier: "Initial") as! UITabBarController
-//        window?.rootViewController = newViewcontroller
-//        window?.makeKeyAndVisible()
-//        signIn()
+        signIn()
         return true
     }
     @available(iOS 13.0, *)
@@ -60,10 +54,10 @@ extension AppDelegate {
     }
     
     func signIn() {
-        let id = randomString(length: 26)
+        let id = randomString(length: 32)
         let created = NSDate().timeIntervalSince1970
-        let systemVersion = UIDevice.current.systemVersion
-        //        NetworkingManager().createUser(with: id, date: created, os: systemVersion)
+        let systemVersion = "IOS " + UIDevice.current.systemVersion
+        NetworkingManager().createUser(with: id, date: created, os: systemVersion)
         print(id, created, systemVersion)
     }
 }

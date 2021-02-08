@@ -42,6 +42,7 @@
 		9B739E0B25CD9B4500726B30 /* RuneDescriptionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739E0A25CD9B4500726B30 /* RuneDescriptionPopUp.swift */; };
 		9B739E1025CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739E0F25CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift */; };
 		9B739E4325D1DCD100726B30 /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B739E4225D1DCD000726B30 /* SFProDisplay-Regular.ttf */; };
+		9B739E4C25D1E99B00726B30 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739E4B25D1E99A00726B30 /* NetworkingManager.swift */; };
 		9B97AC7F25AE6E81008FFF3F /* SFProDisplay-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B97AC7E25AE6E81008FFF3F /* SFProDisplay-Light.ttf */; };
 		9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9C266E25A2173100A4E135 /* DataBase.swift */; };
 		9B9F151C2591499A00062F47 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F151A2591499A00062F47 /* AmaticSC-Regular.ttf */; };
@@ -133,6 +134,7 @@
 		9B739E0A25CD9B4500726B30 /* RuneDescriptionPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneDescriptionPopUp.swift; sourceTree = "<group>"; };
 		9B739E0F25CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneDescriptionPopUpViewModel.swift; sourceTree = "<group>"; };
 		9B739E4225D1DCD000726B30 /* SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		9B739E4B25D1E99A00726B30 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		9B97AC7E25AE6E81008FFF3F /* SFProDisplay-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Light.ttf"; sourceTree = "<group>"; };
 		9B9C266E25A2173100A4E135 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		9B9F151A2591499A00062F47 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				9B9C266E25A2173100A4E135 /* DataBase.swift */,
 				9BD228FD258A321B00E17E98 /* AppDelegate.swift */,
 				19BDC61125C02EE9000808CF /* SceneDelegate.swift */,
+				9B739E4B25D1E99A00726B30 /* NetworkingManager.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -749,6 +752,7 @@
 				19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */,
 				19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */,
 				9B739E0525CD77E900726B30 /* ProcessingViewController.swift in Sources */,
+				9B739E4C25D1E99B00726B30 /* NetworkingManager.swift in Sources */,
 				9B739E1025CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift in Sources */,
 				1987AABB25BDCDB400BB3655 /* FourRuneView.swift in Sources */,
 				1907850425C4232F00434D57 /* RuneLayout.swift in Sources */,
