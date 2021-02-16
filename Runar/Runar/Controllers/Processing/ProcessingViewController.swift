@@ -36,7 +36,7 @@ class ProcessingViewController: UIViewController {
         CATransaction.begin()
 
         CATransaction.setCompletionBlock({
-            self.navigationController?.pushViewController(self.setUpNextController(), animated: true)
+            self.viewModel.closeTransition()
         })
         shapeSetUp()
         animationSetUp()
@@ -44,9 +44,9 @@ class ProcessingViewController: UIViewController {
         
     }
 
-    func setUpNextController()-> AlignmentInfoViewController {
-        let viewModel = AlignmentInfoViewModel(runeDescription: self.viewModel.runeDescription)
-        let viewController = AlignmentInfoViewController()
+    func setUpNextController()-> AlignmentViewController {
+        let viewModel = AlignmentViewModel(runeDescription: self.viewModel.runeDescription)
+        let viewController = AlignmentViewController()
         viewController.viewModel = viewModel
         viewController.hidesBottomBarWhenPushed = true
         return viewController
@@ -105,7 +105,7 @@ class ProcessingViewController: UIViewController {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.fromValue = 0
         basicAnimation.toValue = 1
-        basicAnimation.duration = 15
+        basicAnimation.duration = 1
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         shapeLayer.add(basicAnimation, forKey: nil)
