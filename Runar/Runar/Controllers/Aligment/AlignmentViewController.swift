@@ -28,7 +28,7 @@ class AlignmentViewController: UIViewController {
     private let labelOne = UILabel()
     private let labelTwo = UILabel()
     private let labelThree = UILabel()
-    
+    private let cancelButton = UIButton()
     
     //-------------------------------------------------
     // MARK: - Methods
@@ -128,15 +128,14 @@ class AlignmentViewController: UIViewController {
             guard let contentView = self?.contentView else { return }
             guard let scrollViewAlignment = self?.scrollViewAlignment else { return }
             scrollViewAlignment.isScrollEnabled = true
-
+            
+            self?.setUpCancel()
             self?.setUpContentInterpretationView()
+            self?.setUpLabelOne()
+            self?.setUpLabelTwo()
+            self?.setUpLabelThree()
             stack.removeFromSuperview()
             startButton.removeFromSuperview()
-//            NSLayoutConstraint.activate([
-//                startButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-//                startButton.bottomAnchor.constraint(equalTo: contentInterpretationView.bottomAnchor)
-//            ])
-            
             
             self?.navigationController?.popViewController(animated: true)
         }
@@ -297,18 +296,19 @@ class AlignmentViewController: UIViewController {
             contentInterpretationView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             contentInterpretationView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             contentInterpretationView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            contentInterpretationView.heightAnchor.constraint(equalToConstant: 900)
+            contentInterpretationView.heightAnchor.constraint(equalToConstant: 900) // Убери эту строку и посмотри в дебагере как выглядит
         ])
     }
     
     func setUpLabelOne() {
         labelOne.text = "Прими себя со всеми своими недостатками и смотри только в будущее"
         labelOne.font = FontFamily.SFProDisplay.light.font(size: 20)
+        labelOne.textColor = .white
         labelOne.translatesAutoresizingMaskIntoConstraints = false
-        
+        contentInterpretationView.addSubview(labelOne)
         NSLayoutConstraint.activate([
-    
-            labelOne.heightAnchor.constraint(equalToConstant: 30),
+            labelOne.topAnchor.constraint(equalTo: contentInterpretationView.topAnchor),
+            labelOne.heightAnchor.constraint(equalToConstant: 50),
             labelOne.widthAnchor.constraint(equalToConstant: 363)
         ])
     }
@@ -316,11 +316,12 @@ class AlignmentViewController: UIViewController {
     func setUpLabelTwo() {
         labelTwo.text = "Благоприятность – 45 %"
         labelTwo.font = FontFamily.SFProDisplay.light.font(size: 20)
+        labelTwo.textColor = .white
         labelTwo.translatesAutoresizingMaskIntoConstraints = false
-        
+        contentInterpretationView.addSubview(labelTwo)
         NSLayoutConstraint.activate([
             labelTwo.topAnchor.constraint(equalTo: labelOne.bottomAnchor, constant: 20),
-            labelTwo.heightAnchor.constraint(equalToConstant: 30),
+            labelTwo.heightAnchor.constraint(equalToConstant: 50),
             labelTwo.widthAnchor.constraint(equalToConstant: 363)
         ])
     }
@@ -328,12 +329,45 @@ class AlignmentViewController: UIViewController {
     func setUpLabelThree() {
         labelThree.text = "В настоящее время с Вами происходит: Достижение цели, удача, что является следствием вашего прошлого Перемена к лучшему. Чтобы достичь в будущем Окончание Черной полосы в жизни, вам необходимо обратить внимание на непреодолимое обстоятельство. Возможно, причиной ваших трудностей является Эмоциональное переживание. Лучшее, чего Вы можете ожидать - это Бессилие. В результате, вас ждет Неприятное затруднение."
         labelThree.font = FontFamily.SFProDisplay.light.font(size: 20)
+        labelThree.textColor = .white
         labelThree.translatesAutoresizingMaskIntoConstraints = false
-        
+        contentInterpretationView.addSubview(labelThree)
         NSLayoutConstraint.activate([
             labelThree.topAnchor.constraint(equalTo: labelTwo.bottomAnchor, constant: 20),
             labelThree.heightAnchor.constraint(equalToConstant: 30),
             labelThree.widthAnchor.constraint(equalToConstant: 363)
+        ])
+    }
+    
+    
+    func setUpCancel() {
+        cancelButton.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
+        cancelButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
+        
+        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 6.58 : 8
+        cancelButton.layer.cornerRadius = radiusConstant
+        let borderConstant: CGFloat = DeviceType.iPhoneSE ? 0.82 : 1
+        cancelButton.layer.borderWidth = borderConstant
+        cancelButton.setTitle("Завершить", for: .normal)
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30
+        
+        cancelButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
+        cancelButton.addTarget(self, action: #selector(self.openButton), for: .touchUpInside)
+        cancelButton.setTitleColor(Assets.Colors.textColor.color, for: .normal)
+        cancelButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
+        contentInterpretationView.addSubview(cancelButton)
+        
+//        let bottomConstant: CGFloat = DeviceType.iPhoneSE ? 373 : 631
+        let heightConstant: CGFloat = DeviceType.iPhoneSE ? 46 : 56
+        let widthConsatnt: CGFloat = DeviceType.iPhoneSE ? 210 : 255
+        NSLayoutConstraint.activate([
+            cancelButton.heightAnchor.constraint(equalToConstant: heightConstant),
+            cancelButton.widthAnchor.constraint(equalToConstant: widthConsatnt),
+            cancelButton.centerXAnchor.constraint(equalTo: contentInterpretationView.centerXAnchor),
+            cancelButton.bottomAnchor.constraint(equalTo: contentInterpretationView.bottomAnchor),
+//            cancelButton.topAnchor.constraint(equalTo: labelThree.bottomAnchor)
         ])
     }
 }
