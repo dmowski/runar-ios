@@ -14,7 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        signIn()
+        if UserDefaults.isFirstLaunch(){
+            signIn()
+        }
         return true
     }
     @available(iOS 13.0, *)
