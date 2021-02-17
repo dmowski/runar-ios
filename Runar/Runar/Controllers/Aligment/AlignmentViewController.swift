@@ -43,7 +43,7 @@ class AlignmentViewController: UIViewController {
             
         }))
         
-//        scrollViewAlignment.isScrollEnabled = false
+        scrollViewAlignment.isScrollEnabled = false
         scrollViewAlignment.showsVerticalScrollIndicator = false
         
         runesViewContainer.setRuneLayout(viewModel.runeLayout)
@@ -124,16 +124,14 @@ class AlignmentViewController: UIViewController {
         let viewModel = ProcessingViewModel(runeDescription: runeDescription) { [weak self] in
             guard let startButton = self?.startButton else { return }
             guard let stack = self?.stack else { return }
-            guard let contentInterpretationView = self?.contentInterpretationView else { return }
-            guard let contentView = self?.contentView else { return }
             guard let scrollViewAlignment = self?.scrollViewAlignment else { return }
             scrollViewAlignment.isScrollEnabled = true
             
-            self?.setUpCancel()
             self?.setUpContentInterpretationView()
             self?.setUpLabelOne()
             self?.setUpLabelTwo()
             self?.setUpLabelThree()
+            self?.setUpCancel()
             stack.removeFromSuperview()
             startButton.removeFromSuperview()
             
@@ -282,11 +280,18 @@ class AlignmentViewController: UIViewController {
         
     }
     
+    
+    //-------------------------------------------------
+    // MARK: - After advertising
+    //-------------------------------------------------
+    
+    
     func setUpContentInterpretationView() {
         let backgroundImage: UIImage = {
             let image = Assets.interpretationBackground.image
             return image
         }()
+        
         contentInterpretationView.backgroundColor = UIColor(patternImage: backgroundImage)
         contentInterpretationView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(contentInterpretationView)
@@ -295,8 +300,7 @@ class AlignmentViewController: UIViewController {
             contentInterpretationView.topAnchor.constraint(equalTo: runesViewContainer.bottomAnchor),
             contentInterpretationView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             contentInterpretationView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            contentInterpretationView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            contentInterpretationView.heightAnchor.constraint(equalToConstant: 900) // Убери эту строку и посмотри в дебагере как выглядит
+            contentInterpretationView.bottomAnchor.constraint(greaterThanOrEqualTo: contentView.bottomAnchor),
         ])
     }
     
@@ -308,8 +312,6 @@ class AlignmentViewController: UIViewController {
         contentInterpretationView.addSubview(labelOne)
         NSLayoutConstraint.activate([
             labelOne.topAnchor.constraint(equalTo: contentInterpretationView.topAnchor),
-            labelOne.heightAnchor.constraint(equalToConstant: 50),
-            labelOne.widthAnchor.constraint(equalToConstant: 363)
         ])
     }
     
@@ -320,9 +322,7 @@ class AlignmentViewController: UIViewController {
         labelTwo.translatesAutoresizingMaskIntoConstraints = false
         contentInterpretationView.addSubview(labelTwo)
         NSLayoutConstraint.activate([
-            labelTwo.topAnchor.constraint(equalTo: labelOne.bottomAnchor, constant: 20),
-            labelTwo.heightAnchor.constraint(equalToConstant: 50),
-            labelTwo.widthAnchor.constraint(equalToConstant: 363)
+            labelTwo.topAnchor.constraint(equalTo: labelOne.bottomAnchor, constant: 50),
         ])
     }
     
@@ -333,9 +333,7 @@ class AlignmentViewController: UIViewController {
         labelThree.translatesAutoresizingMaskIntoConstraints = false
         contentInterpretationView.addSubview(labelThree)
         NSLayoutConstraint.activate([
-            labelThree.topAnchor.constraint(equalTo: labelTwo.bottomAnchor, constant: 20),
-            labelThree.heightAnchor.constraint(equalToConstant: 30),
-            labelThree.widthAnchor.constraint(equalToConstant: 363)
+            labelThree.topAnchor.constraint(equalTo: labelTwo.bottomAnchor, constant: 500),
         ])
     }
     
@@ -366,8 +364,8 @@ class AlignmentViewController: UIViewController {
             cancelButton.heightAnchor.constraint(equalToConstant: heightConstant),
             cancelButton.widthAnchor.constraint(equalToConstant: widthConsatnt),
             cancelButton.centerXAnchor.constraint(equalTo: contentInterpretationView.centerXAnchor),
-            cancelButton.bottomAnchor.constraint(equalTo: contentInterpretationView.bottomAnchor),
-//            cancelButton.topAnchor.constraint(equalTo: labelThree.bottomAnchor)
+            cancelButton.topAnchor.constraint(equalTo: labelThree.bottomAnchor, constant: 50),
+            cancelButton.bottomAnchor.constraint(equalTo: contentInterpretationView.bottomAnchor)
         ])
     }
 }
