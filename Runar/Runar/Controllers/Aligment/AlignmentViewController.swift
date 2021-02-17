@@ -64,16 +64,17 @@ class AlignmentViewController: UIViewController {
     func setUpScrollView() {
         scrollViewAlignment.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundView.addSubview(scrollViewAlignment)
+        view.addSubview(scrollViewAlignment)
         scrollViewAlignment.addSubview(contentView)
+        contentView.addSubview(backgroundView)
         scrollViewAlignment.contentInsetAdjustmentBehavior = .never
         
         
         NSLayoutConstraint.activate([
-            scrollViewAlignment.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
-            scrollViewAlignment.widthAnchor.constraint(equalTo: backgroundView.widthAnchor),
-            scrollViewAlignment.topAnchor.constraint(equalTo: backgroundView.topAnchor),
-            scrollViewAlignment.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor),
+            scrollViewAlignment.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            scrollViewAlignment.widthAnchor.constraint(equalTo: view.widthAnchor),
+            scrollViewAlignment.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollViewAlignment.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             contentView.leadingAnchor.constraint(equalTo: scrollViewAlignment.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollViewAlignment.trailingAnchor),
@@ -90,13 +91,11 @@ class AlignmentViewController: UIViewController {
         backgroundView.contentMode = .scaleAspectFill
         backgroundView.isUserInteractionEnabled = true
         
-        self.view.addSubview(backgroundView)
-        
         NSLayoutConstraint.activate([
-            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            backgroundView.heightAnchor.constraint(equalToConstant: view.frame.height),
+            backgroundView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
         ])
     }
     
