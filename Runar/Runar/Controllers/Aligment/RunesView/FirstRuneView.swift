@@ -53,7 +53,11 @@ public class FirstRuneView: UIView, RuneViewProtocol {
 
             buttonOne.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
             buttonOne.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
-
+            
+            buttonOne.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor),
+            buttonOne.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor),
+            buttonOne.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor),
+            buttonOne.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor)
         ])
     }
 }

@@ -10,6 +10,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// В настоящее время с Вами происходит:\n\nДостижение цели, удача, что является следствием вашего прошлого Перемена к лучшему.\n\nЧтобы достичь в будущем Окончание Черной полосы в жизни, вам необходимо обратить внимание на непреодолимое обстоятельство.\n\nВозможно, причиной ваших трудностей является Эмоциональное переживание.\n\nЛучшее, чего Вы можете ожидать - это Бессилие.\n\nВ результате, вас ждет Неприятное затруднение.
+  internal static let textInterpritation = L10n.tr("Localizable", "text_interpritation")
 
   internal enum Rune {
     internal enum Cross {

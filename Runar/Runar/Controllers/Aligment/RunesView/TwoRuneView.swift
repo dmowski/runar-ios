@@ -63,7 +63,11 @@ class TwoRuneView: UIView, RuneViewProtocol {
             buttonTwo.centerYAnchor.constraint(equalTo: centerYAnchor),
             buttonTwo.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
             buttonTwo.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
-
+            
+            buttonOne.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor),
+            buttonOne.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor),
+            buttonOne.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor),
+            buttonOne.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor)
         ])
     }
 

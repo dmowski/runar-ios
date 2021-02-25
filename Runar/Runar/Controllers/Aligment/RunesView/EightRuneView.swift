@@ -93,7 +93,12 @@ class EightRuneView: UIView, RuneViewProtocol {
             buttonSeven.centerXAnchor.constraint(equalTo: centerXAnchor),
             buttonSeven.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
             buttonSeven.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
-
+            
+            
+            buttonSeven.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor),
+            buttonFour.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor),
+            buttonThree.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor),
+            buttonTwo.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor)
         ])
     }
 }

@@ -29,6 +29,7 @@ class AlignmentViewController: UIViewController {
     private let labelTwo = UILabel()
     private let labelThree = UILabel()
     private let cancelButton = UIButton()
+    private let dividingLine = UIView()
     
     //-------------------------------------------------
     // MARK: - Methods
@@ -37,10 +38,8 @@ class AlignmentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         runesViewContainer.update(with: .init(didHighlightAllRunes: { [weak self] runes in
-            
             self?.startButton.setTitle("Толковать", for: .normal)
             self?.startButton.addTarget(self, action: #selector(self?.buttonTaped), for: .touchUpInside)
-            
         }))
         
         scrollViewAlignment.isScrollEnabled = false
@@ -68,7 +67,7 @@ class AlignmentViewController: UIViewController {
         scrollViewAlignment.addSubview(contentView)
         contentView.addSubview(backgroundView)
         scrollViewAlignment.contentInsetAdjustmentBehavior = .never
-        
+        scrollViewAlignment.bounces = false
         
         NSLayoutConstraint.activate([
             scrollViewAlignment.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -76,8 +75,7 @@ class AlignmentViewController: UIViewController {
             scrollViewAlignment.topAnchor.constraint(equalTo: view.topAnchor),
             scrollViewAlignment.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            contentView.leadingAnchor.constraint(equalTo: scrollViewAlignment.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: scrollViewAlignment.trailingAnchor),
+            contentView.centerXAnchor.constraint(equalTo: scrollViewAlignment.centerXAnchor),
             contentView.topAnchor.constraint(equalTo: scrollViewAlignment.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollViewAlignment.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollViewAlignment.widthAnchor),
@@ -92,10 +90,10 @@ class AlignmentViewController: UIViewController {
         backgroundView.isUserInteractionEnabled = true
         
         NSLayoutConstraint.activate([
-            backgroundView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundView.heightAnchor.constraint(equalToConstant: view.frame.height),
-            backgroundView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            backgroundView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
     
@@ -110,7 +108,7 @@ class AlignmentViewController: UIViewController {
         let widthAnchor: CGFloat = DeviceType.iPhoneSE ? 40 : 48
         
         NSLayoutConstraint.activate([
-            escapeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 50),
+            escapeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 50.heightDependent()),
             escapeButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: trailingConstant),
             escapeButton.widthAnchor.constraint(equalToConstant: widthAnchor),
             escapeButton.heightAnchor.constraint(equalToConstant: widthAnchor)
@@ -121,21 +119,11 @@ class AlignmentViewController: UIViewController {
     @objc func buttonTaped (sender: UIButton!) {
         let runeDescription = viewModel.runeDescription
         let viewModel = ProcessingViewModel(runeDescription: runeDescription) { [weak self] in
-            guard let startButton = self?.startButton else { return }
-            guard let stack = self?.stack else { return }
-            guard let scrollViewAlignment = self?.scrollViewAlignment else { return }
-            scrollViewAlignment.isScrollEnabled = true
             
-            self?.setUpContentInterpretationView()
-            self?.setUpLabelOne()
-            self?.setUpLabelTwo()
-            self?.setUpLabelThree()
-            self?.setUpCancel()
-            stack.removeFromSuperview()
-            startButton.removeFromSuperview()
-            
+            self?.setUpContentAfterAdvertising()
             self?.navigationController?.popViewController(animated: true)
         }
+        
         let viewController = ProcessingViewController()
         viewController.viewModel = viewModel
         viewController.hidesBottomBarWhenPushed = true
@@ -159,8 +147,8 @@ class AlignmentViewController: UIViewController {
         contentView.addSubview(nameLabel)
         
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 77),
-            nameLabel.heightAnchor.constraint(equalToConstant: 65),
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 77.heightDependent()),
+            nameLabel.heightAnchor.constraint(equalToConstant: 65.heightDependent()),
             nameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         ])
     }
@@ -192,7 +180,7 @@ class AlignmentViewController: UIViewController {
             startButton.heightAnchor.constraint(equalToConstant: heightConstant),
             startButton.widthAnchor.constraint(equalToConstant: widthConsatnt),
             startButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            startButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -82)
+            startButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -82.heightDependent())
         ])
     }
     
@@ -203,12 +191,11 @@ class AlignmentViewController: UIViewController {
     
     func setUpContainerView() {
         runesViewContainer.translatesAutoresizingMaskIntoConstraints = false
-        
         contentView.addSubview(runesViewContainer)
         
         NSLayoutConstraint.activate([
             runesViewContainer.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
-            runesViewContainer.heightAnchor.constraint(equalToConstant: 631),
+            runesViewContainer.bottomAnchor.constraint(equalTo: startButton.topAnchor),
             runesViewContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             runesViewContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
         ])
@@ -284,6 +271,34 @@ class AlignmentViewController: UIViewController {
     // MARK: - After advertising
     //-------------------------------------------------
     
+    func setUpContentAfterAdvertising() {
+        scrollViewAlignment.isScrollEnabled = true
+        
+        stack.removeFromSuperview()
+        startButton.removeFromSuperview()
+        escapeButton.removeFromSuperview()
+        
+        removeConstant()
+        setUpContentInterpretationView()
+        setUpLabelOne()
+        setUpLabelTwo()
+        setUpDividingLine()
+        setUpLabelThree()
+        setUpCancel()
+    }
+    
+    func removeConstant() {
+        runesViewContainer.removeFromSuperview()
+        runesViewContainer.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(runesViewContainer)
+        
+        NSLayoutConstraint.activate([
+            runesViewContainer.centerXAnchor.constraint(equalTo: scrollViewAlignment.centerXAnchor),
+            runesViewContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            runesViewContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            runesViewContainer.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 35.heightDependent()),
+        ])
+    }
     
     func setUpContentInterpretationView() {
         let backgroundImage: UIImage = {
@@ -299,40 +314,68 @@ class AlignmentViewController: UIViewController {
             contentInterpretationView.topAnchor.constraint(equalTo: runesViewContainer.bottomAnchor),
             contentInterpretationView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             contentInterpretationView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            contentInterpretationView.bottomAnchor.constraint(greaterThanOrEqualTo: contentView.bottomAnchor),
+            contentInterpretationView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor),
+
         ])
     }
     
     func setUpLabelOne() {
-        labelOne.text = "Прими себя со всеми своими недостатками и смотри только в будущее"
-        labelOne.font = FontFamily.SFProDisplay.light.font(size: 20)
-        labelOne.textColor = .white
+        let text = "Прими себя со всеми своими недостатками и смотри только в будущее"
+        labelOne.font = FontFamily.SFProDisplay.light.font(size: 20.heightDependent())
+        labelOne.textColor = Assets.Colors.Touch.text.color
+        labelOne.numberOfLines = 0
+        labelOne.lineBreakMode = .byWordWrapping
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.22
+        labelOne.attributedText = NSAttributedString(string: text, attributes: [NSAttributedString.Key.paragraphStyle : paragraphStyle])
         labelOne.translatesAutoresizingMaskIntoConstraints = false
         contentInterpretationView.addSubview(labelOne)
         NSLayoutConstraint.activate([
-            labelOne.topAnchor.constraint(equalTo: contentInterpretationView.topAnchor),
+            labelOne.topAnchor.constraint(equalTo: contentInterpretationView.topAnchor, constant: 74.heightDependent()),
+            labelOne.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
+            labelOne.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor, constant: -24.heightDependent()),
+            labelOne.heightAnchor.constraint(equalToConstant: 83.heightDependent())
         ])
     }
     
     func setUpLabelTwo() {
         labelTwo.text = "Благоприятность – 45 %"
-        labelTwo.font = FontFamily.SFProDisplay.light.font(size: 20)
-        labelTwo.textColor = .white
+        labelTwo.font = FontFamily.SFProDisplay.light.font(size: 20.heightDependent())
+        labelTwo.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         labelTwo.translatesAutoresizingMaskIntoConstraints = false
         contentInterpretationView.addSubview(labelTwo)
         NSLayoutConstraint.activate([
-            labelTwo.topAnchor.constraint(equalTo: labelOne.bottomAnchor, constant: 50),
+            labelTwo.topAnchor.constraint(equalTo: labelOne.bottomAnchor, constant: 23.heightDependent()),
+            labelTwo.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
+            labelTwo.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor,constant: -24.heightDependent()),
         ])
     }
     
+    func setUpDividingLine() {
+        dividingLine.backgroundColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 0.3)
+        dividingLine.translatesAutoresizingMaskIntoConstraints = false
+        contentInterpretationView.addSubview(dividingLine)
+        
+        NSLayoutConstraint.activate([
+            dividingLine.topAnchor.constraint(equalTo: labelTwo.bottomAnchor, constant: 27.heightDependent()),
+            dividingLine.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
+            dividingLine.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor, constant: -24.heightDependent()),
+            dividingLine.heightAnchor.constraint(equalToConstant: 1.heightDependent())
+        ])
+        
+    }
+    
     func setUpLabelThree() {
-        labelThree.text = "В настоящее время с Вами происходит: Достижение цели, удача, что является следствием вашего прошлого Перемена к лучшему. Чтобы достичь в будущем Окончание Черной полосы в жизни, вам необходимо обратить внимание на непреодолимое обстоятельство. Возможно, причиной ваших трудностей является Эмоциональное переживание. Лучшее, чего Вы можете ожидать - это Бессилие. В результате, вас ждет Неприятное затруднение."
-        labelThree.font = FontFamily.SFProDisplay.light.font(size: 20)
-        labelThree.textColor = .white
+        labelThree.text = L10n.textInterpritation
+        labelThree.font = FontFamily.Roboto.thin.font(size: 19.heightDependent())
+        labelThree.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
+        labelThree.numberOfLines = 0
         labelThree.translatesAutoresizingMaskIntoConstraints = false
         contentInterpretationView.addSubview(labelThree)
         NSLayoutConstraint.activate([
-            labelThree.topAnchor.constraint(equalTo: labelTwo.bottomAnchor, constant: 500),
+            labelThree.topAnchor.constraint(equalTo: dividingLine.bottomAnchor, constant: 32.heightDependent()),
+            labelThree.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
+            labelThree.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor, constant: -24.heightDependent()),
         ])
     }
     
@@ -351,7 +394,7 @@ class AlignmentViewController: UIViewController {
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30
         
         cancelButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
-        cancelButton.addTarget(self, action: #selector(self.openButton), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(self.escapeOnTap), for: .touchUpInside)
         cancelButton.setTitleColor(Assets.Colors.textColor.color, for: .normal)
         cancelButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
         contentInterpretationView.addSubview(cancelButton)
@@ -363,7 +406,7 @@ class AlignmentViewController: UIViewController {
             cancelButton.heightAnchor.constraint(equalToConstant: heightConstant),
             cancelButton.widthAnchor.constraint(equalToConstant: widthConsatnt),
             cancelButton.centerXAnchor.constraint(equalTo: contentInterpretationView.centerXAnchor),
-            cancelButton.topAnchor.constraint(equalTo: labelThree.bottomAnchor, constant: 50),
+            cancelButton.topAnchor.constraint(equalTo: labelThree.bottomAnchor, constant: 19.heightDependent()),
             cancelButton.bottomAnchor.constraint(equalTo: contentInterpretationView.bottomAnchor)
         ])
     }
