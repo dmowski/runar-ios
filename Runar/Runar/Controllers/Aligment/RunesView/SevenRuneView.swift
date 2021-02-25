@@ -58,17 +58,16 @@ class SevenRuneView: UIView, RuneViewProtocol {
         
         NSLayoutConstraint.activate([
             buttonThree.trailingAnchor.constraint(equalTo: buttonTwo.leadingAnchor, constant: -24.heightDependent()),
-            buttonThree.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -214.heightDependent()),
+            buttonThree.bottomAnchor.constraint(equalTo: buttonTwo.bottomAnchor),
             buttonThree.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
             buttonThree.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
             
             buttonTwo.centerXAnchor.constraint(equalTo: centerXAnchor),
-            buttonTwo.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -214.heightDependent()),
             buttonTwo.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
             buttonTwo.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
 
             buttonOne.leadingAnchor.constraint(equalTo: buttonTwo.trailingAnchor, constant: 24.heightDependent()),
-            buttonOne.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -214.heightDependent()),
+            buttonOne.bottomAnchor.constraint(equalTo: buttonTwo.bottomAnchor),
             buttonOne.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
             buttonOne.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
             
@@ -86,7 +85,11 @@ class SevenRuneView: UIView, RuneViewProtocol {
             buttonSix.centerXAnchor.constraint(equalTo: centerXAnchor),
             buttonSix.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
             buttonSix.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
-
+            
+            buttonSix.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor),
+            buttonFour.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor),
+            buttonThree.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor),
+            buttonOne.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor)
         ])
     }
 }

@@ -73,9 +73,12 @@ class FiveRuneView: UIView, RuneViewProtocol {
             
             buttonFour.leadingAnchor.constraint(equalTo: buttonFour.trailingAnchor, constant: -68.heightDependent()),
             buttonFour.bottomAnchor.constraint(equalTo: buttonFour.topAnchor, constant: 90.heightDependent()),
-            buttonFour.topAnchor.constraint(equalTo: self.topAnchor, constant: 194.heightDependent()),
-
             buttonFour.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            buttonFour.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor),
+            buttonOne.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor),
+            buttonTwo.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor),
+            buttonThree.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor)
         ])
     }
 }

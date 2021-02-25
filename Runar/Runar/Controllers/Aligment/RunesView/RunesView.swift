@@ -55,7 +55,6 @@ public class RunesView: UIView {
     
     private func setupContent() {
         addSubviews()
-        setupViewConstraints()
         setRuneLayout(.dayRune)
     }
     
@@ -65,28 +64,24 @@ public class RunesView: UIView {
         }
     }
     
-    private func setupViewConstraints() {
-        NSLayoutConstraint.activate(
-            enumeratedRuneViews.flatMap { _, runeView -> [NSLayoutConstraint] in
-                runeView.translatesAutoresizingMaskIntoConstraints = false
-                
-                return [
-                    runeView.topAnchor.constraint(equalTo: topAnchor),
-                    runeView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                    runeView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                    runeView.bottomAnchor.constraint(equalTo: bottomAnchor)
-                ]
-            }
-        )
-    }
-    
     //-------------------------------------------------
     // MARK: -
     //-------------------------------------------------
     
     public func setRuneLayout(_ runeLayout: RuneLayout) {
-        enumeratedRuneViews.forEach { $0.value.isHidden = true }
-        enumeratedRuneViews[runeLayout]?.isHidden = false
+        enumeratedRuneViews.forEach { $0.value.removeFromSuperview() }
+        guard let chosenView = enumeratedRuneViews[runeLayout] else { return }
+        chosenView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(chosenView)
+        
+        NSLayoutConstraint.activate([
+            chosenView.topAnchor.constraint(greaterThanOrEqualTo: topAnchor),
+            chosenView.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor),
+            chosenView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
+            chosenView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor),
+            chosenView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            chosenView.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
         
         self.runeLayout = runeLayout
     }
