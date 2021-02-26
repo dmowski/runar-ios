@@ -77,10 +77,8 @@ public class RunesView: UIView {
         NSLayoutConstraint.activate([
             chosenView.topAnchor.constraint(greaterThanOrEqualTo: topAnchor),
             chosenView.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor),
-            chosenView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
-            chosenView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor),
             chosenView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            chosenView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            chosenView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
         self.runeLayout = runeLayout
