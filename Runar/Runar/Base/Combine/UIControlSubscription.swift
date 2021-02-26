@@ -20,7 +20,7 @@ public extension UIControl {
         }
         
         public func request(_ demand: Subscribers.Demand) {
-            // Empty
+            
         }
         
         public func cancel() {

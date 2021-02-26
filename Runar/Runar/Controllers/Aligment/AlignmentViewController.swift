@@ -25,9 +25,9 @@ class AlignmentViewController: UIViewController {
     private let contentView = UIView()
     public var viewModel: AlignmentViewModel!
     private let contentInterpretationView = UIView()
-    private let labelOne = UILabel()
-    private let labelTwo = UILabel()
-    private let labelThree = UILabel()
+    private let luckLevelLabel = UILabel()
+    private let descriptionLabel = UILabel()
+    private let affirmationLabel = UILabel()
     private let cancelButton = UIButton()
     private let dividingLine = UIView()
     
@@ -280,10 +280,10 @@ class AlignmentViewController: UIViewController {
         
         removeConstant()
         setUpContentInterpretationView()
-        setUpLabelOne()
-        setUpLabelTwo()
+        setUpLuckLevelLabel()
         setUpDividingLine()
-        setUpLabelThree()
+        setUpDescriptionLabel()
+        setUpAffirmationLabel()
         setUpCancel()
     }
     
@@ -319,36 +319,20 @@ class AlignmentViewController: UIViewController {
         ])
     }
     
-    func setUpLabelOne() {
-        let text = "Прими себя со всеми своими недостатками и смотри только в будущее"
-        labelOne.font = FontFamily.SFProDisplay.light.font(size: 20.heightDependent())
-        labelOne.textColor = Assets.Colors.Touch.text.color
-        labelOne.numberOfLines = 0
-        labelOne.lineBreakMode = .byWordWrapping
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 1.22
-        labelOne.attributedText = NSAttributedString(string: text, attributes: [NSAttributedString.Key.paragraphStyle : paragraphStyle])
-        labelOne.translatesAutoresizingMaskIntoConstraints = false
-        contentInterpretationView.addSubview(labelOne)
+    func setUpLuckLevelLabel() {
+        luckLevelLabel.text = "Уровень удачи – 45 %"
+        luckLevelLabel.font = FontFamily.SFProDisplay.light.font(size: 20.heightDependent())
+        luckLevelLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        luckLevelLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentInterpretationView.addSubview(luckLevelLabel)
         NSLayoutConstraint.activate([
-            labelOne.topAnchor.constraint(equalTo: contentInterpretationView.topAnchor, constant: 74.heightDependent()),
-            labelOne.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
-            labelOne.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor, constant: -24.heightDependent()),
-            labelOne.heightAnchor.constraint(equalToConstant: 83.heightDependent())
+            luckLevelLabel.topAnchor.constraint(equalTo: contentInterpretationView.topAnchor, constant: 76.heightDependent()),
+            luckLevelLabel.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
+            luckLevelLabel.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor,constant: -24.heightDependent()),
         ])
-    }
-    
-    func setUpLabelTwo() {
-        labelTwo.text = "Благоприятность – 45 %"
-        labelTwo.font = FontFamily.SFProDisplay.light.font(size: 20.heightDependent())
-        labelTwo.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        labelTwo.translatesAutoresizingMaskIntoConstraints = false
-        contentInterpretationView.addSubview(labelTwo)
-        NSLayoutConstraint.activate([
-            labelTwo.topAnchor.constraint(equalTo: labelOne.bottomAnchor, constant: 23.heightDependent()),
-            labelTwo.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
-            labelTwo.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor,constant: -24.heightDependent()),
-        ])
+        
+        
+        
     }
     
     func setUpDividingLine() {
@@ -357,7 +341,7 @@ class AlignmentViewController: UIViewController {
         contentInterpretationView.addSubview(dividingLine)
         
         NSLayoutConstraint.activate([
-            dividingLine.topAnchor.constraint(equalTo: labelTwo.bottomAnchor, constant: 27.heightDependent()),
+            dividingLine.topAnchor.constraint(equalTo: luckLevelLabel.bottomAnchor, constant: 27.heightDependent()),
             dividingLine.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
             dividingLine.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor, constant: -24.heightDependent()),
             dividingLine.heightAnchor.constraint(equalToConstant: 1.heightDependent())
@@ -365,17 +349,35 @@ class AlignmentViewController: UIViewController {
         
     }
     
-    func setUpLabelThree() {
-        labelThree.text = L10n.textInterpritation
-        labelThree.font = FontFamily.Roboto.thin.font(size: 19.heightDependent())
-        labelThree.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
-        labelThree.numberOfLines = 0
-        labelThree.translatesAutoresizingMaskIntoConstraints = false
-        contentInterpretationView.addSubview(labelThree)
+    func setUpDescriptionLabel() {
+        descriptionLabel.text = L10n.textInterpritation("14")
+        descriptionLabel.font = FontFamily.Roboto.thin.font(size: 19.heightDependent())
+        descriptionLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentInterpretationView.addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
-            labelThree.topAnchor.constraint(equalTo: dividingLine.bottomAnchor, constant: 32.heightDependent()),
-            labelThree.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
-            labelThree.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor, constant: -24.heightDependent()),
+            descriptionLabel.topAnchor.constraint(equalTo: dividingLine.bottomAnchor, constant: 32.heightDependent()),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor, constant: -24.heightDependent()),
+        ])
+    }
+    
+    func setUpAffirmationLabel() {
+        let text = "Прими себя со всеми своими недостатками и смотри только в будущее"
+        affirmationLabel.font = FontFamily.SFProDisplay.light.font(size: 20.heightDependent())
+        affirmationLabel.textColor = Assets.Colors.Touch.text.color
+        affirmationLabel.numberOfLines = 0
+        affirmationLabel.lineBreakMode = .byWordWrapping
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.22
+        affirmationLabel.attributedText = NSAttributedString(string: text, attributes: [NSAttributedString.Key.paragraphStyle : paragraphStyle])
+        affirmationLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentInterpretationView.addSubview(affirmationLabel)
+        NSLayoutConstraint.activate([
+            affirmationLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 30.heightDependent()),
+            affirmationLabel.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
+            affirmationLabel.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor, constant: -24.heightDependent()),
         ])
     }
     
@@ -406,7 +408,7 @@ class AlignmentViewController: UIViewController {
             cancelButton.heightAnchor.constraint(equalToConstant: heightConstant),
             cancelButton.widthAnchor.constraint(equalToConstant: widthConsatnt),
             cancelButton.centerXAnchor.constraint(equalTo: contentInterpretationView.centerXAnchor),
-            cancelButton.topAnchor.constraint(equalTo: labelThree.bottomAnchor, constant: 19.heightDependent()),
+            cancelButton.topAnchor.constraint(equalTo: affirmationLabel.bottomAnchor, constant: 115.heightDependent()),
             cancelButton.bottomAnchor.constraint(equalTo: contentInterpretationView.bottomAnchor)
         ])
     }
