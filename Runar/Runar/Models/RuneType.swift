@@ -241,7 +241,7 @@ public extension RuneType {
             }
         case .odin:
             return  Assets.LayoutsRunes.odinRune.image
-        default: return UIImage()
+       
         }
     }
 }
