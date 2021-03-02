@@ -25,7 +25,7 @@ public class RunesView: UIView {
     // MARK: - Variables
     //-------------------------------------------------
     
-    private var runeLayout: RuneLayout = .dayRune
+    var runeLayout: RuneLayout = .dayRune
     
     private let enumeratedRuneViews: [RuneLayout: RuneViewProtocol & UIView] = [
         .dayRune: FirstRuneView(),
