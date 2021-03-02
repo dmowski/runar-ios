@@ -56,7 +56,6 @@ class FourRuneView: UIView, RuneViewProtocol {
         
         NSLayoutConstraint.activate([
 
-            buttonOne.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -127.heightDependent()),
             buttonOne.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             buttonOne.leadingAnchor.constraint(equalTo: buttonOne.trailingAnchor, constant: -68.heightDependent()),
             buttonOne.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
