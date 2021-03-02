@@ -787,8 +787,8 @@
 "description.auspiciousness.Reverse.Fehu" = "30";
 "description.auspiciousness.Uruz" = "80";
 "description.auspiciousness.Reverse.Uruz" = "20";
-"description.auspiciousness.Þurisaz" = "20";
-"description.auspiciousness.Reverse.Þurisaz" = "40";
+"description.auspiciousness.Purisaz" = "20";
+"description.auspiciousness.Reverse.Purisaz" = "40";
 "description.auspiciousness.Ansuz" = "70";
 "description.auspiciousness.Reverse.Ansuz" = "20";
 "description.auspiciousness.Raidu" = "70";

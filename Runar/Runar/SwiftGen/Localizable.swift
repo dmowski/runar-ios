@@ -51,6 +51,8 @@ internal enum L10n {
       internal static let opila = L10n.tr("Localizable", "description.auspiciousness.Opila")
       /// 50
       internal static let perpu = L10n.tr("Localizable", "description.auspiciousness.Perpu")
+      /// 20
+      internal static let purisaz = L10n.tr("Localizable", "description.auspiciousness.Purisaz")
       /// 70
       internal static let raidu = L10n.tr("Localizable", "description.auspiciousness.Raidu")
       /// 90
@@ -61,8 +63,6 @@ internal enum L10n {
       internal static let uruz = L10n.tr("Localizable", "description.auspiciousness.Uruz")
       /// 70
       internal static let wunji = L10n.tr("Localizable", "description.auspiciousness.Wunji")
-      /// 20
-      internal static let þurisaz = L10n.tr("Localizable", "description.auspiciousness.Þurisaz")
       internal enum Reverse {
         /// 40
         internal static let algiz = L10n.tr("Localizable", "description.auspiciousness.Reverse.Algiz")
@@ -87,6 +87,8 @@ internal enum L10n {
         /// 40
         internal static let perpu = L10n.tr("Localizable", "description.auspiciousness.Reverse.Perpu")
         /// 40
+        internal static let purisaz = L10n.tr("Localizable", "description.auspiciousness.Reverse.Purisaz")
+        /// 40
         internal static let raidu = L10n.tr("Localizable", "description.auspiciousness.Reverse.Raidu")
         /// 10
         internal static let tiwaz = L10n.tr("Localizable", "description.auspiciousness.Reverse.Tiwaz")
@@ -94,8 +96,6 @@ internal enum L10n {
         internal static let uruz = L10n.tr("Localizable", "description.auspiciousness.Reverse.Uruz")
         /// 40
         internal static let wunji = L10n.tr("Localizable", "description.auspiciousness.Reverse.Wunji")
-        /// 40
-        internal static let þurisaz = L10n.tr("Localizable", "description.auspiciousness.Reverse.Þurisaz")
       }
     }
     internal enum Total {

@@ -23,7 +23,7 @@ public enum RuneType: CaseIterable, Equatable {
             .dagaz, .odin
         ]
     }
-
+    
     
     case fehu(isReversed: Bool)
     case urus(isReversed: Bool)
@@ -241,7 +241,126 @@ public extension RuneType {
             }
         case .odin:
             return  Assets.LayoutsRunes.odinRune.image
-       
+            
+        }
+    }
+    
+    var luck: String {
+        switch self {
+        case let .fehu(isReversed: isReversed):
+            if isReversed {
+                return L10n.Description.Auspiciousness.Reverse.fehu
+            } else {
+                return L10n.Description.Auspiciousness.fehu
+            }
+        case let .urus(isReversed: isReversed):
+            if isReversed {
+                return L10n.Description.Auspiciousness.Reverse.uruz
+            } else {
+                return L10n.Description.Auspiciousness.uruz
+            }
+        case let .purisaz(isReversed: isReversed):
+            if isReversed {
+                return L10n.Description.Auspiciousness.Reverse.purisaz
+            } else {
+                return L10n.Description.Auspiciousness.purisaz
+            }
+        case let .ansuz(isReversed: isReversed):
+            if isReversed {
+                return L10n.Description.Auspiciousness.Reverse.ansuz
+            } else {
+                return L10n.Description.Auspiciousness.ansuz
+            }
+        case let .raidu(isReversed: isReversed):
+            if isReversed {
+                return L10n.Description.Auspiciousness.Reverse.raidu
+            } else {
+                return L10n.Description.Auspiciousness.raidu
+            }
+        case let .kauna(isReversed: isReversed):
+            if isReversed {
+                return L10n.Description.Auspiciousness.Reverse.kauna
+            } else {
+                return L10n.Description.Auspiciousness.kauna
+            }
+        case .gebu:
+            return L10n.Description.Auspiciousness.gebu
+        case let .wunji(isReversed: isReversed):
+            if isReversed {
+                return L10n.Description.Auspiciousness.Reverse.wunji
+            } else {
+                return L10n.Description.Auspiciousness.wunji
+            }
+        case .hagalaz:
+            return  L10n.Description.Auspiciousness.hagalaz
+        case let .naudiz(isReversed: isReversed):
+            if isReversed {
+                return L10n.Description.Auspiciousness.Reverse.naudiz
+            } else {
+                return L10n.Description.Auspiciousness.naudiz
+            }
+        case .isaz:
+            return  L10n.Description.Auspiciousness.isaz
+        case .jara:
+            return  L10n.Description.Auspiciousness.jara
+        case .iwas:
+            return  L10n.Description.Auspiciousness.iwaz
+        case let .perpu(isReversed: isReversed):
+            if isReversed {
+                return L10n.Description.Auspiciousness.Reverse.perpu
+            } else {
+                return L10n.Description.Auspiciousness.perpu
+            }
+        case let .algis(isReversed: isReversed):
+            if isReversed {
+                return L10n.Description.Auspiciousness.Reverse.algiz
+            } else {
+                return L10n.Description.Auspiciousness.algiz
+            }
+        case .sowilu:
+            return  L10n.Description.Auspiciousness.sowilu
+        case let .tiwaz(isReversed: isReversed):
+            if isReversed {
+                return L10n.Description.Auspiciousness.Reverse.tiwaz
+            } else {
+                return L10n.Description.Auspiciousness.tiwaz
+            }
+        case let .berkana(isReversed: isReversed):
+            if isReversed {
+                return L10n.Description.Auspiciousness.Reverse.berkana
+            } else {
+                return L10n.Description.Auspiciousness.berkana
+            }
+        case let .ehwaz(isReversed: isReversed):
+            if isReversed {
+                return L10n.Description.Auspiciousness.Reverse.ehvaz
+            } else {
+                return L10n.Description.Auspiciousness.ehwaz
+            }
+        case let .mannaz(isReversed: isReversed):
+            if isReversed {
+                return L10n.Description.Auspiciousness.Reverse.mannaz
+            } else {
+                return L10n.Description.Auspiciousness.mannaz
+            }
+        case let .lagus(isReversed: isReversed):
+            if isReversed {
+                return L10n.Description.Auspiciousness.Reverse.laguz
+            } else {
+                return L10n.Description.Auspiciousness.laguz
+            }
+        case .inwaz:
+            return  L10n.Description.Auspiciousness.inwaz
+        case .dagaz:
+            return  L10n.Description.Auspiciousness.dagaz
+        case let .opila(isReversed: isReversed):
+            if isReversed {
+                return L10n.Description.Auspiciousness.Reverse.opila
+            } else {
+                return L10n.Description.Auspiciousness.opila
+            }
+        case .odin:
+            return  L10n.Description.Auspiciousness.odin
         }
     }
 }
