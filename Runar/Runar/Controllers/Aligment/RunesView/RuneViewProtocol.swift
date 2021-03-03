@@ -70,13 +70,13 @@ public extension RuneViewProtocol where Self: UIView {
         indexesAndButtons[index]
     }
     
-    func configureIndexesAndButtons(count: Int, availableRunes: [RuneType] = RuneType.allCases) {
+    func configureIndexesAndButtons(count: Int, availableRunes: [RuneType] = RuneType.allCases(subtype: <#T##RuneType.RuneSubType#>)) {
         runesSet.removeAll()
         
         indexesAndButtons = (0..<count).reduce(into: [Int: RuneButton](), { dict, index in
             let availableRunes = availableRunes.filter { !runesSet.contains($0) }
             
-            guard let associatedRune = availableRunes.randomElement()?.any else {
+            guard let associatedRune = availableRunes.randomElement() else {
                 assertionFailure("availableRunes is empty")
                 return
             }
@@ -90,7 +90,7 @@ public extension RuneViewProtocol where Self: UIView {
 
             button.clipsToBounds = true
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.update(with: .init(title: "\(index + 1)", image: runeImage))
+            button.update(with: .init(runeType: associatedRune, title: "\(index + 1)", image: runeImage))
             button.tapPublisher()
                 .sink { [weak self, weak button] in
                     guard let self = self else { return }
