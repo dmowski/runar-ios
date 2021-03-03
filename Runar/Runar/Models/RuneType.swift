@@ -1,78 +1,43 @@
 import UIKit
 
-public enum RuneType: CaseIterable, Equatable {
+public enum RuneType: Equatable {
     public typealias AllCases = Array<RuneType>
-    
-    public static var allCases: Array<RuneType> {
-        [
-            .fehu(isReversed: false), .urus(isReversed: false), .purisaz(isReversed: false),
-            .ansuz(isReversed: false), .raidu(isReversed: false), .kauna(isReversed: false),
-            .gebu, .wunji(isReversed: false), .hagalaz, .naudiz(isReversed: false),
-            .isaz, .jara, .iwas,
-            .perpu(isReversed: false), .algis(isReversed: false), .sowilu,
-            .tiwaz(isReversed: false), .berkana(isReversed: false), .ehwaz(isReversed: false),
-            .mannaz(isReversed: false), .lagus(isReversed: false), .inwaz,
-            .dagaz, .opila(isReversed: false), .odin
-        ]
-    }
-    public static var simplyRune: Array<RuneType> {
-        [
-            .gebu, .hagalaz,
-            .isaz, .jara, .iwas,
-            .sowilu, .inwaz,
-            .dagaz, .odin
-        ]
-    }
-    
-    
-    case fehu(isReversed: Bool)
-    case urus(isReversed: Bool)
-    case purisaz(isReversed: Bool)
-    case ansuz(isReversed: Bool)
-    case raidu(isReversed: Bool)
-    case kauna(isReversed: Bool)
-    case gebu
-    case wunji(isReversed: Bool)
-    case hagalaz
-    case naudiz(isReversed: Bool)
-    case isaz
-    case jara
-    case iwas
-    case perpu(isReversed: Bool)
-    case algis(isReversed: Bool)
-    case sowilu
-    case tiwaz(isReversed: Bool)
-    case berkana(isReversed: Bool)
-    case ehwaz(isReversed: Bool)
-    case mannaz(isReversed: Bool)
-    case lagus(isReversed: Bool)
-    case inwaz
-    case dagaz
-    case opila(isReversed: Bool)
-    case odin
-    
-    static public func ==(lhs: RuneType, rhs: RuneType) -> Bool {
-        switch (lhs, rhs) {
-        case (.fehu, .fehu), (.urus, .urus), (.purisaz, .purisaz),
-             (.ansuz, .ansuz), (.raidu, .raidu), (.kauna, .kauna),
-             (.gebu, .gebu), (.wunji, .wunji), (.hagalaz, .hagalaz),
-             (.naudiz, .naudiz), (.isaz, .isaz), (.jara, .jara),
-             (.iwas, .iwas), (.perpu, .perpu), (.algis, .algis),
-             (.sowilu, .sowilu), (.tiwaz, .tiwaz), (.berkana, .berkana),
-             (.ehwaz, .ehwaz), (.mannaz, .mannaz), (.lagus, .lagus),
-             (.inwaz, .inwaz), (.dagaz, .dagaz), (.opila, .opila),
-             (.odin, .odin):
-            return true
-        default: return false
-        }
-    }
-}
 
-public extension RuneType {
-    var any: RuneType {
+    public enum RuneSubType {
+        case random
+        case original
+        case reversed
+    }
+    
+    public static func allCases(subtype: RuneSubType = .original) {
+       
+        [ RuneType.fehu(isReversed: false), .urus(isReversed: false), .purisaz(isReversed: false),
+          .ansuz(isReversed: false), .raidu(isReversed: false), .kauna(isReversed: false),
+          .gebu, .wunji(isReversed: false), .hagalaz, .naudiz(isReversed: false),
+          .isaz, .jara, .iwas,
+          .perpu(isReversed: false), .algis(isReversed: false), .sowilu,
+          .tiwaz(isReversed: false), .berkana(isReversed: false), .ehwaz(isReversed: false),
+          .mannaz(isReversed: false), .lagus(isReversed: false), .inwaz,
+          .dagaz, .opila(isReversed: false), .odin
+            
+        ].map { $0.withSubtype(subtype) }
+    }
+
+    public func withSubtype(_ subtype: RuneSubType = .random) -> RuneType {
+        let isReversed: Bool
+
+        switch subtype {
+        case  .original:
+            isReversed = false
+        case  .reversed:
+            isReversed = true
+        case .random:
+            isReversed = Bool.random()
+        }
+    
         switch self {
         case .fehu:
-            return  .fehu(isReversed: Bool.random())
+            return  RuneType.fehu(isReversed: isReversed)
         case .urus:
             return  .urus(isReversed: Bool.random())
         case .purisaz:
@@ -123,6 +88,52 @@ public extension RuneType {
             return  .odin
         }
     }
+
+    case fehu(isReversed: Bool)
+    case urus(isReversed: Bool)
+    case purisaz(isReversed: Bool)
+    case ansuz(isReversed: Bool)
+    case raidu(isReversed: Bool)
+    case kauna(isReversed: Bool)
+    case gebu
+    case wunji(isReversed: Bool)
+    case hagalaz
+    case naudiz(isReversed: Bool)
+    case isaz
+    case jara
+    case iwas
+    case perpu(isReversed: Bool)
+    case algis(isReversed: Bool)
+    case sowilu
+    case tiwaz(isReversed: Bool)
+    case berkana(isReversed: Bool)
+    case ehwaz(isReversed: Bool)
+    case mannaz(isReversed: Bool)
+    case lagus(isReversed: Bool)
+    case inwaz
+    case dagaz
+    case opila(isReversed: Bool)
+    case odin
+    
+    static public func ==(lhs: RuneType, rhs: RuneType) -> Bool {
+        switch (lhs, rhs) {
+        case (.fehu, .fehu), (.urus, .urus), (.purisaz, .purisaz),
+             (.ansuz, .ansuz), (.raidu, .raidu), (.kauna, .kauna),
+             (.gebu, .gebu), (.wunji, .wunji), (.hagalaz, .hagalaz),
+             (.naudiz, .naudiz), (.isaz, .isaz), (.jara, .jara),
+             (.iwas, .iwas), (.perpu, .perpu), (.algis, .algis),
+             (.sowilu, .sowilu), (.tiwaz, .tiwaz), (.berkana, .berkana),
+             (.ehwaz, .ehwaz), (.mannaz, .mannaz), (.lagus, .lagus),
+             (.inwaz, .inwaz), (.dagaz, .dagaz), (.opila, .opila),
+             (.odin, .odin):
+            return true
+        default: return false
+        }
+    }
+}
+
+
+public extension RuneType {
     
     var image: UIImage {
         
@@ -363,4 +374,6 @@ public extension RuneType {
             return  L10n.Description.Auspiciousness.odin
         }
     }
+    
+
 }
