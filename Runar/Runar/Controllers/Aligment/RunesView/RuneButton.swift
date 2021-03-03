@@ -14,6 +14,7 @@ public class RuneButton: UIButton {
     //-------------------------------------------------
     
     public struct ViewModel {
+        public let runeType: RuneType
         public let title: String
         public let image: UIImage
         
@@ -42,7 +43,9 @@ public class RuneButton: UIButton {
     
     private var viewModel: ViewModel?
     public private(set) var runeState: State = .tinted
-    
+    var runeType: RuneType? {
+        viewModel?.runeType
+    }
     //-------------------------------------------------
     // MARK: - Methods
     //-------------------------------------------------
