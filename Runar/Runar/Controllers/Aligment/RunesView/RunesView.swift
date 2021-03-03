@@ -9,6 +9,9 @@ import UIKit
 
 public class RunesView: UIView {
     
+    var runesSet: [RuneType] {
+        enumeratedRuneViews[runeLayout]?.runesSet ?? []
+    }
     //-------------------------------------------------
     // MARK: - Nested types
     //-------------------------------------------------
