@@ -37,7 +37,7 @@ class TwoRuneView: UIView, RuneViewProtocol {
     
     private func setUpContent() {
         
-        configureIndexesAndButtons(count: 2, availableRunes: RuneType.simplyRune)
+        configureIndexesAndButtons(count: 2, availableRunes: RuneType.allCases(subtype: .original))
         addButtons()
         setupViewConstraints()
         highlightFirstButton()

@@ -70,7 +70,7 @@ public extension RuneViewProtocol where Self: UIView {
         indexesAndButtons[index]
     }
     
-    func configureIndexesAndButtons(count: Int, availableRunes: [RuneType] = RuneType.allCases(subtype: <#T##RuneType.RuneSubType#>)) {
+    func configureIndexesAndButtons(count: Int, availableRunes: [RuneType] = RuneType.allCases()) {
         runesSet.removeAll()
         
         indexesAndButtons = (0..<count).reduce(into: [Int: RuneButton](), { dict, index in
