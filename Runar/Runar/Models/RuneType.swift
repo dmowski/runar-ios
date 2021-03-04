@@ -375,5 +375,158 @@ public extension RuneType {
         }
     }
     
+    var description: String {
+        switch self {
+        case let .fehu(isReversed: isReversed):
+            if isReversed {
+            return L10n.Description.Total.Reverse.fehu
+            } else {
+                return L10n.Description.Total.fehu
+                
+            }
+        case .urus(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Description.Total.Reverse.uruz
+            } else {
+                return L10n.Description.Total.uruz
+            }
+        case .purisaz(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Description.Total.Reverse.purisaz
+            } else {
+                return L10n.Description.Total.purisaz
+            }
+        case .ansuz(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Description.Total.Reverse.ansuz
+            } else {
+                return L10n.Description.Total.ansuz
+            }
+        case .raidu(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Description.Total.Reverse.raidu
+            } else {
+                return L10n.Description.Total.raidu
+            }
+        case .kauna(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Description.Total.Reverse.kauna
+            } else {
+                return L10n.Description.Total.kauna
+            }
+        case .gebu:
+            return L10n.Description.Total.gebu
+        case .wunji(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Description.Total.Reverse.wunji
+            } else {
+                return L10n.Description.Total.wunji
+            }
+        case .hagalaz:
+            <#code#>
+        case .naudiz(isReversed: let isReversed):
+            <#code#>
+        case .isaz:
+            <#code#>
+        case .jara:
+            <#code#>
+        case .iwas:
+            <#code#>
+        case .perpu(isReversed: let isReversed):
+            <#code#>
+        case .algis(isReversed: let isReversed):
+            <#code#>
+        case .sowilu:
+            <#code#>
+        case .tiwaz(isReversed: let isReversed):
+            <#code#>
+        case .berkana(isReversed: let isReversed):
+            <#code#>
+        case .ehwaz(isReversed: let isReversed):
+            <#code#>
+        case .mannaz(isReversed: let isReversed):
+            <#code#>
+        case .lagus(isReversed: let isReversed):
+            <#code#>
+        case .inwaz:
+            <#code#>
+        case .dagaz:
+            <#code#>
+        case .opila(isReversed: let isReversed):
+            <#code#>
+        case .odin:
+            <#code#>
+        }
+    }
 
+    func cross (runeType: RuneType) -> String {
+        switch (self, runeType) {
+        case (.fehu, .algis) :
+            return L10n.InterpretationForTwoRunes.Fehu.algiz
+            <#code#>
+        default:
+            <#code#>
+        }
+    }
+    
+    var value: String {
+        switch self {
+        case .fehu(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Description.Value.Reverse.fehu
+            } else {
+                return L10n.Description.Value.fehu
+            }
+
+        case .urus(isReversed: let isReversed):
+            <#code#>
+        case .purisaz(isReversed: let isReversed):
+            <#code#>
+        case .ansuz(isReversed: let isReversed):
+            <#code#>
+        case .raidu(isReversed: let isReversed):
+            <#code#>
+        case .kauna(isReversed: let isReversed):
+            <#code#>
+        case .gebu:
+            <#code#>
+        case .wunji(isReversed: let isReversed):
+            <#code#>
+        case .hagalaz:
+            <#code#>
+        case .naudiz(isReversed: let isReversed):
+            <#code#>
+        case .isaz:
+            <#code#>
+        case .jara:
+            <#code#>
+        case .iwas:
+            <#code#>
+        case .perpu(isReversed: let isReversed):
+            <#code#>
+        case .algis(isReversed: let isReversed):
+            <#code#>
+        case .sowilu:
+            <#code#>
+        case .tiwaz(isReversed: let isReversed):
+            <#code#>
+        case .berkana(isReversed: let isReversed):
+            <#code#>
+        case .ehwaz(isReversed: let isReversed):
+            <#code#>
+        case .mannaz(isReversed: let isReversed):
+            <#code#>
+        case .lagus(isReversed: let isReversed):
+            <#code#>
+        case .inwaz:
+            <#code#>
+        case .dagaz:
+            <#code#>
+        case .opila(isReversed: let isReversed):
+            <#code#>
+        case .odin:
+            <#code#>
+        }
+    }
+    
 }
