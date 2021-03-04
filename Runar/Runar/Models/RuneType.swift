@@ -39,23 +39,23 @@ public enum RuneType: Equatable {
         case .fehu:
             return  RuneType.fehu(isReversed: isReversed)
         case .urus:
-            return  .urus(isReversed: Bool.random())
+            return  .urus(isReversed: isReversed)
         case .purisaz:
-            return  .purisaz(isReversed: Bool.random())
+            return  .purisaz(isReversed: isReversed)
         case .ansuz:
-            return  .ansuz(isReversed: Bool.random())
+            return  .ansuz(isReversed: isReversed)
         case .raidu:
-            return  .raidu(isReversed: Bool.random())
+            return  .raidu(isReversed: isReversed)
         case .kauna:
-            return  .kauna(isReversed: Bool.random())
+            return  .kauna(isReversed: isReversed)
         case .gebu:
             return  .gebu
         case .wunji:
-            return  .wunji(isReversed: Bool.random())
+            return  .wunji(isReversed: isReversed)
         case .hagalaz:
             return  .hagalaz
         case .naudiz:
-            return  .naudiz(isReversed: Bool.random())
+            return  .naudiz(isReversed: isReversed)
         case .isaz:
             return  .isaz
         case .jara:
@@ -63,27 +63,27 @@ public enum RuneType: Equatable {
         case .iwas:
             return  .iwas
         case .perpu:
-            return  .perpu(isReversed: Bool.random())
+            return  .perpu(isReversed: isReversed)
         case .algis:
-            return  .algis(isReversed: Bool.random())
+            return  .algis(isReversed: isReversed)
         case .sowilu:
             return  .sowilu
         case .tiwaz:
-            return  .tiwaz(isReversed: Bool.random())
+            return  .tiwaz(isReversed: isReversed)
         case .berkana:
-            return  .berkana(isReversed: Bool.random())
+            return  .berkana(isReversed: isReversed)
         case .ehwaz:
-            return  .ehwaz(isReversed: Bool.random())
+            return  .ehwaz(isReversed: isReversed)
         case .mannaz:
-            return  .mannaz(isReversed: Bool.random())
+            return  .mannaz(isReversed: isReversed)
         case .lagus:
-            return  .lagus(isReversed: Bool.random())
+            return  .lagus(isReversed: isReversed)
         case .inwaz:
             return  .inwaz
         case .dagaz:
             return  .dagaz
         case .opila:
-            return  .opila(isReversed: Bool.random())
+            return  .opila(isReversed: isReversed)
         case .odin:
             return  .odin
         }
