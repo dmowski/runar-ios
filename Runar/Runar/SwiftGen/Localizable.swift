@@ -12,92 +12,6 @@ import Foundation
 internal enum L10n {
 
   internal enum Description {
-    internal enum Auspiciousness {
-      /// 70
-      internal static let algiz = L10n.tr("Localizable", "description.auspiciousness.Algiz")
-      /// 70
-      internal static let ansuz = L10n.tr("Localizable", "description.auspiciousness.Ansuz")
-      /// 70
-      internal static let berkana = L10n.tr("Localizable", "description.auspiciousness.Berkana")
-      /// 90
-      internal static let dagaz = L10n.tr("Localizable", "description.auspiciousness.Dagaz")
-      /// 60
-      internal static let ehwaz = L10n.tr("Localizable", "description.auspiciousness.Ehwaz")
-      /// 60
-      internal static let fehu = L10n.tr("Localizable", "description.auspiciousness.Fehu")
-      /// 90
-      internal static let gebu = L10n.tr("Localizable", "description.auspiciousness.Gebu")
-      /// 30
-      internal static let hagalaz = L10n.tr("Localizable", "description.auspiciousness.Hagalaz")
-      /// 70
-      internal static let inwaz = L10n.tr("Localizable", "description.auspiciousness.Inwaz")
-      /// 10
-      internal static let isaz = L10n.tr("Localizable", "description.auspiciousness.Isaz")
-      /// 20
-      internal static let iwaz = L10n.tr("Localizable", "description.auspiciousness.Iwaz")
-      /// 80
-      internal static let jara = L10n.tr("Localizable", "description.auspiciousness.Jara")
-      /// 80
-      internal static let kauna = L10n.tr("Localizable", "description.auspiciousness.Kauna")
-      /// 50
-      internal static let laguz = L10n.tr("Localizable", "description.auspiciousness.Laguz")
-      /// 40
-      internal static let mannaz = L10n.tr("Localizable", "description.auspiciousness.Mannaz")
-      /// 20
-      internal static let naudiz = L10n.tr("Localizable", "description.auspiciousness.Naudiz")
-      /// 50
-      internal static let odin = L10n.tr("Localizable", "description.auspiciousness.Odin")
-      /// 50
-      internal static let opila = L10n.tr("Localizable", "description.auspiciousness.Opila")
-      /// 50
-      internal static let perpu = L10n.tr("Localizable", "description.auspiciousness.Perpu")
-      /// 20
-      internal static let purisaz = L10n.tr("Localizable", "description.auspiciousness.Purisaz")
-      /// 70
-      internal static let raidu = L10n.tr("Localizable", "description.auspiciousness.Raidu")
-      /// 90
-      internal static let sowilu = L10n.tr("Localizable", "description.auspiciousness.Sowilu")
-      /// 80
-      internal static let tiwaz = L10n.tr("Localizable", "description.auspiciousness.Tiwaz")
-      /// 80
-      internal static let uruz = L10n.tr("Localizable", "description.auspiciousness.Uruz")
-      /// 70
-      internal static let wunji = L10n.tr("Localizable", "description.auspiciousness.Wunji")
-      internal enum Reverse {
-        /// 40
-        internal static let algiz = L10n.tr("Localizable", "description.auspiciousness.Reverse.Algiz")
-        /// 20
-        internal static let ansuz = L10n.tr("Localizable", "description.auspiciousness.Reverse.Ansuz")
-        /// 30
-        internal static let berkana = L10n.tr("Localizable", "description.auspiciousness.Reverse.Berkana")
-        /// 40
-        internal static let ehvaz = L10n.tr("Localizable", "description.auspiciousness.Reverse.Ehvaz")
-        /// 30
-        internal static let fehu = L10n.tr("Localizable", "description.auspiciousness.Reverse.Fehu")
-        /// 20
-        internal static let kauna = L10n.tr("Localizable", "description.auspiciousness.Reverse.Kauna")
-        /// 30
-        internal static let laguz = L10n.tr("Localizable", "description.auspiciousness.Reverse.Laguz")
-        /// 40
-        internal static let mannaz = L10n.tr("Localizable", "description.auspiciousness.Reverse.Mannaz ")
-        /// 20
-        internal static let naudiz = L10n.tr("Localizable", "description.auspiciousness.Reverse.Naudiz")
-        /// 40
-        internal static let opila = L10n.tr("Localizable", "description.auspiciousness.Reverse.Opila")
-        /// 40
-        internal static let perpu = L10n.tr("Localizable", "description.auspiciousness.Reverse.Perpu")
-        /// 40
-        internal static let purisaz = L10n.tr("Localizable", "description.auspiciousness.Reverse.Purisaz")
-        /// 40
-        internal static let raidu = L10n.tr("Localizable", "description.auspiciousness.Reverse.Raidu")
-        /// 10
-        internal static let tiwaz = L10n.tr("Localizable", "description.auspiciousness.Reverse.Tiwaz")
-        /// 20
-        internal static let uruz = L10n.tr("Localizable", "description.auspiciousness.Reverse.Uruz")
-        /// 40
-        internal static let wunji = L10n.tr("Localizable", "description.auspiciousness.Reverse.Wunji")
-      }
-    }
     internal enum Total {
       /// Ситуация о которой Вы спрашиваете, означает крутой благоприятный поворот на Вашем пути. Не исключено, что перед Вами откроются новые перспективы и представится уникальная возможность изменить свою жизнь. Некая добрая, мощная и поддерживающая сила является союзником на данном этапе. Возможно завяжутся новые интересные знакомства, которые принесут свою пользу так же в духовном развитии. Однако надо помнить, что на любых поворотах требуется осторожность. Во времена крутых перемен очень важно не поддаваться любым эмоциям - ни положительным, ни отрицательным. Сохраняйте способность трезво мыслить и проявите гибкость ума при любых обстоятельствах. Здесь очень важно, чтобы при любых благих порывах души Вы не должны отрываться от земли, от своих корней
       internal static let algiz = L10n.tr("Localizable", "description.total.Algiz")
@@ -273,81 +187,36 @@ internal enum L10n {
   }
 
   internal enum InterpretationElementsCross {
-    /// %@
-    internal static func affirmation(_ p1: Any) -> String {
-      return L10n.tr("Localizable", "interpretationElementsCross.affirmation", String(describing: p1))
+    /// Вам, как человеку, присуща важная черта - %@, и в настоящее время с Вами происходит %@. Источником Ваших проблем может быть %@. Наиболее вероятное будущее может быть описано как %@. Для достижения этого результата, Ваша главная цель - %@. Если же Вы не достигнете поставленной цели - вас ждет %@.
+    internal static func text(_ p1: Any, _ p2: Any, _ p3: Any, _ p4: Any, _ p5: Any, _ p6: Any) -> String {
+      return L10n.tr("Localizable", "interpretationElementsCross.text", String(describing: p1), String(describing: p2), String(describing: p3), String(describing: p4), String(describing: p5), String(describing: p6))
     }
-    /// Уровень удачи - %@
-    internal static func luck(_ p1: Any) -> String {
-      return L10n.tr("Localizable", "interpretationElementsCross.luck", String(describing: p1))
-    }
-    /// Вашу текущее состояние можно описать как Интерпретация для руны №1. Ваша проблема - это Интерпретация для руны №2, но для её решения вы должны опираться на Интерпретация для руны №3. Если вы будете настойчивы в своих действиях то вас ждет Интерпретация для руны №4
-    internal static let text = L10n.tr("Localizable", "interpretationElementsCross.text")
-  }
-
-  internal enum InterpretationForDayRune {
-    /// %@
-    internal static func affirmation(_ p1: Any) -> String {
-      return L10n.tr("Localizable", "interpretationForDayRune.affirmation", String(describing: p1))
-    }
-    /// Уровень удачи - %@
-    internal static func luck(_ p1: Any) -> String {
-      return L10n.tr("Localizable", "interpretationForDayRune.luck", String(describing: p1))
-    }
-    /// Дело, которым Вы сейчас заняты завершится успешно. Вы легко расправитесь с любыми проблемами и избавитесь от них, включая ненужные сердечные привязанности. Знак говорит о выходе из периода застоя, о завершении одного этапа жизни и о зарождении нового, который переведёт Вас на другую стадию развития - более высокую и  благоприятную. С завершением  старого, придёт новое. Но перед наступлением нового этапа необходимо избавиться от старых установок и взглядов, расчищая место для нового. Данная Руна символизирует плодородие и покровительствует тем, кто работает на земле. Так же она помогает избавиться от бесплодия или мужского бессилия. Мягкая цикличная энергия Руны - это та благоприятная среда, где происходит планомерный обмен энергиями, перетекая  из одного состояния в другое и обратно
-    internal static let text = L10n.tr("Localizable", "interpretationForDayRune.text")
   }
 
   internal enum InterpretationForNorns {
-    /// %@
-    internal static func affirmation(_ p1: Any) -> String {
-      return L10n.tr("Localizable", "interpretationForNorns.affirmation", String(describing: p1))
+    /// Общее положение Ваших дел может быть описано как %@. Обратите самое пристальное внимание на важную проблему, а именно - %@. Возможное решение этой проблемы - это %@
+    internal static func text(_ p1: Any, _ p2: Any, _ p3: Any) -> String {
+      return L10n.tr("Localizable", "interpretationForNorns.text", String(describing: p1), String(describing: p2), String(describing: p3))
     }
-    /// Уровень удачи - %@
-    internal static func luck(_ p1: Any) -> String {
-      return L10n.tr("Localizable", "interpretationForNorns.luck", String(describing: p1))
-    }
-    /// Общее положение Ваших дел может быть описано как ссылка на диапазон для руны №1. Обратите самое пристальное внимание на важную проблему, а именно - ссылка на диапазон для руны №2. Возможное решение этой проблемы - это ссылка на диапазон для руны №3
-    internal static let text = L10n.tr("Localizable", "interpretationForNorns.text")
   }
 
   internal enum InterpretationForShortPrediction {
-    /// %@
-    internal static func affirmation(_ p1: Any) -> String {
-      return L10n.tr("Localizable", "interpretationForShortPrediction.affirmation", String(describing: p1))
+    /// Ваше текущее состояние можно описать как %@. Ваша проблема - это %@, но для её решения вы должны опираться на %@. Если вы будете настойчивы в своих действиях то вас ждет %@.
+    internal static func text(_ p1: Any, _ p2: Any, _ p3: Any, _ p4: Any) -> String {
+      return L10n.tr("Localizable", "interpretationForShortPrediction.text", String(describing: p1), String(describing: p2), String(describing: p3), String(describing: p4))
     }
-    /// Уровень удачи - %@
-    internal static func luck(_ p1: Any) -> String {
-      return L10n.tr("Localizable", "interpretationForShortPrediction.luck", String(describing: p1))
-    }
-    /// Общее положение Ваших дел может быть описано как ссылка на диапазон для руны №1. Обратите самое пристальное внимание на важную проблему, а именно - ссылка на диапазон для руны №2. Возможное решение этой проблемы - это ссылка на диапазон для руны №3
-    internal static let text = L10n.tr("Localizable", "interpretationForShortPrediction.text")
   }
 
   internal enum InterpretationForThorsHummer {
-    /// %@
-    internal static func affirmation(_ p1: Any) -> String {
-      return L10n.tr("Localizable", "interpretationForThorsHummer.affirmation", String(describing: p1))
-    }
-    /// Уровень удачи - %@
-    internal static func luck(_ p1: Any) -> String {
-      return L10n.tr("Localizable", "interpretationForThorsHummer.luck", String(describing: p1))
-    }
     /// В прошлом вы ощущали Интерпретация для руны №1, в настоящее время Вы чувствуете Интерпретация 2-х рун таблицы, в будущем вас ожидает Интерпретация для руны №4
     internal static let text = L10n.tr("Localizable", "interpretationForThorsHummer.text")
   }
 
   internal enum InterpretationForTwoRunes {
-    /// %@
-    internal static func affirmation(_ p1: Any) -> String {
-      return L10n.tr("Localizable", "interpretationForTwoRunes.affirmation", String(describing: p1))
+    /// Ваше настоящее положение дел можно охарактеризовать как %@
+    internal static func text(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "interpretationForTwoRunes.text", String(describing: p1))
     }
-    /// Уровень удачи - %@
-    internal static func luck(_ p1: Any) -> String {
-      return L10n.tr("Localizable", "interpretationForTwoRunes.luck", String(describing: p1))
-    }
-    /// Ваше настоящее положение дел можно охарактеризовать как "Значение сочетания рун №1 и №2"
-    internal static let text = L10n.tr("Localizable", "interpretationForTwoRunes.text")
     internal enum Algiz {
       /// Ясновидение, паранормальные способности
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Ansuz")
@@ -1601,29 +1470,17 @@ internal enum L10n {
   }
 
   internal enum InterpretationForСross {
-    /// %@
-    internal static func affirmation(_ p1: Any) -> String {
-      return L10n.tr("Localizable", "interpretationForСross.affirmation", String(describing: p1))
+    /// В прошлом вы ощущали %@, настоящее (в том числе проблема) может быть описано как %@. При естественном развитии ситуации, Вас ожидает %@, причем есть сила, а именно %@, на которую Вы не можете влиять. Но если Судьба принесет вам помощь - %@, то Вас ждет лучшее будущее.
+    internal static func text(_ p1: Any, _ p2: Any, _ p3: Any, _ p4: Any, _ p5: Any) -> String {
+      return L10n.tr("Localizable", "interpretationForСross.text", String(describing: p1), String(describing: p2), String(describing: p3), String(describing: p4), String(describing: p5))
     }
-    /// Уровень удачи - %@
-    internal static func luck(_ p1: Any) -> String {
-      return L10n.tr("Localizable", "interpretationForСross.luck", String(describing: p1))
-    }
-    /// В прошлом вы ощущали Интерпретация для руны №1, настоящее (в том числе проблема) может быть описано как Интерпретация для руны №2. При естественном развитии ситуации, Вас ожидает Интерпретация для руны №3, причем есть сила, а именно Интерпретация для руны №5, на которую Вы не можете влиять. Но если Судьба принесет вам помощь - Интерпретация для руны №4,  то Вас ждет лучшее будущее
-    internal static let text = L10n.tr("Localizable", "interpretationForСross.text")
   }
 
   internal enum InterpretationKeltsCross {
-    /// %@
-    internal static func affirmation(_ p1: Any) -> String {
-      return L10n.tr("Localizable", "interpretationKeltsCross.affirmation", String(describing: p1))
+    /// В настоящее время с Вами происходит %@, что является следствием вашего прошлого -  %@. Если в будущем ваша цель %@, вам необходимо обратить внимание на %@. Возможно, причиной ваших трудностей является %@. Лучшее, чего Вы можете ожидать - это %@. Как наиболее вероятный результат - вас ждет %@.
+    internal static func text(_ p1: Any, _ p2: Any, _ p3: Any, _ p4: Any, _ p5: Any, _ p6: Any, _ p7: Any) -> String {
+      return L10n.tr("Localizable", "interpretationKeltsCross.text", String(describing: p1), String(describing: p2), String(describing: p3), String(describing: p4), String(describing: p5), String(describing: p6), String(describing: p7))
     }
-    /// Уровень удачи - %@
-    internal static func luck(_ p1: Any) -> String {
-      return L10n.tr("Localizable", "interpretationKeltsCross.luck", String(describing: p1))
-    }
-    /// В настоящее время с Вами происходит:\n\nИнтерпретация для руны №1, что является следствием вашего прошлого -  Интерпретация для руны №2.\n\nЕсли в будущем ваша цель Интерпретация для руны №3, вам необходимо обратить внимание на Интерпретация для руны №4.\n\nВозможно, причиной ваших трудностей является Интерпретация для руны №5.\n\nЛучшее, чего Вы можете ожидать - это Интерпретация для руны №6.\n\nКак наиболее вероятный результат - вас ждет Интерпретация для руны №7
-    internal static let text = L10n.tr("Localizable", "interpretationKeltsCross.text")
   }
 
   internal enum Rune {

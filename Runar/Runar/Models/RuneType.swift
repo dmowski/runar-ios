@@ -256,122 +256,122 @@ public extension RuneType {
         }
     }
     
-    var luck: String {
+    var luck: Int {
         switch self {
         case let .fehu(isReversed: isReversed):
             if isReversed {
-                return L10n.Description.Auspiciousness.Reverse.fehu
+                return 30
             } else {
-                return L10n.Description.Auspiciousness.fehu
+                return 60
             }
         case let .urus(isReversed: isReversed):
             if isReversed {
-                return L10n.Description.Auspiciousness.Reverse.uruz
+                return 20
             } else {
-                return L10n.Description.Auspiciousness.uruz
+                return 80
             }
         case let .purisaz(isReversed: isReversed):
             if isReversed {
-                return L10n.Description.Auspiciousness.Reverse.purisaz
+                return 40
             } else {
-                return L10n.Description.Auspiciousness.purisaz
+                return 20
             }
         case let .ansuz(isReversed: isReversed):
             if isReversed {
-                return L10n.Description.Auspiciousness.Reverse.ansuz
+                return 20
             } else {
-                return L10n.Description.Auspiciousness.ansuz
+                return 70
             }
         case let .raidu(isReversed: isReversed):
             if isReversed {
-                return L10n.Description.Auspiciousness.Reverse.raidu
+                return 40
             } else {
-                return L10n.Description.Auspiciousness.raidu
+                return 70
             }
         case let .kauna(isReversed: isReversed):
             if isReversed {
-                return L10n.Description.Auspiciousness.Reverse.kauna
+                return 20
             } else {
-                return L10n.Description.Auspiciousness.kauna
+                return 80
             }
         case .gebu:
-            return L10n.Description.Auspiciousness.gebu
+            return 90
         case let .wunji(isReversed: isReversed):
             if isReversed {
-                return L10n.Description.Auspiciousness.Reverse.wunji
+                return 40
             } else {
-                return L10n.Description.Auspiciousness.wunji
+                return 70
             }
         case .hagalaz:
-            return  L10n.Description.Auspiciousness.hagalaz
+            return  30
         case let .naudiz(isReversed: isReversed):
             if isReversed {
-                return L10n.Description.Auspiciousness.Reverse.naudiz
+                return 20
             } else {
-                return L10n.Description.Auspiciousness.naudiz
+                return 20
             }
         case .isaz:
-            return  L10n.Description.Auspiciousness.isaz
+            return  10
         case .jara:
-            return  L10n.Description.Auspiciousness.jara
+            return  80
         case .iwas:
-            return  L10n.Description.Auspiciousness.iwaz
+            return  20
         case let .perpu(isReversed: isReversed):
             if isReversed {
-                return L10n.Description.Auspiciousness.Reverse.perpu
+                return 40
             } else {
-                return L10n.Description.Auspiciousness.perpu
+                return 50
             }
         case let .algis(isReversed: isReversed):
             if isReversed {
-                return L10n.Description.Auspiciousness.Reverse.algiz
+                return 40
             } else {
-                return L10n.Description.Auspiciousness.algiz
+                return 70
             }
         case .sowilu:
-            return  L10n.Description.Auspiciousness.sowilu
+            return  90
         case let .tiwaz(isReversed: isReversed):
             if isReversed {
-                return L10n.Description.Auspiciousness.Reverse.tiwaz
+                return 10
             } else {
-                return L10n.Description.Auspiciousness.tiwaz
+                return 80
             }
         case let .berkana(isReversed: isReversed):
             if isReversed {
-                return L10n.Description.Auspiciousness.Reverse.berkana
+                return 30
             } else {
-                return L10n.Description.Auspiciousness.berkana
+                return 70
             }
         case let .ehwaz(isReversed: isReversed):
             if isReversed {
-                return L10n.Description.Auspiciousness.Reverse.ehvaz
+                return 40
             } else {
-                return L10n.Description.Auspiciousness.ehwaz
+                return 60
             }
         case let .mannaz(isReversed: isReversed):
             if isReversed {
-                return L10n.Description.Auspiciousness.Reverse.mannaz
+                return 40
             } else {
-                return L10n.Description.Auspiciousness.mannaz
+                return 40
             }
         case let .lagus(isReversed: isReversed):
             if isReversed {
-                return L10n.Description.Auspiciousness.Reverse.laguz
+                return 30
             } else {
-                return L10n.Description.Auspiciousness.laguz
+                return 50
             }
         case .inwaz:
-            return  L10n.Description.Auspiciousness.inwaz
+            return  70
         case .dagaz:
-            return  L10n.Description.Auspiciousness.dagaz
+            return  90
         case let .opila(isReversed: isReversed):
             if isReversed {
-                return L10n.Description.Auspiciousness.Reverse.opila
+                return 40
             } else {
-                return L10n.Description.Auspiciousness.opila
+                return 50
             }
         case .odin:
-            return  L10n.Description.Auspiciousness.odin
+            return  50
         }
     }
     
