@@ -14,25 +14,24 @@ class AlignmentViewController: UIViewController {
     //-------------------------------------------------
     
     private let backgroundView = UIImageView()
-    private let escapeButton = UIButton()
-    private let nameLabel = UILabel()
-    private let startButton = UIButton()
+    let escapeButton = UIButton()
+    let nameLabel = UILabel()
+    let startButton = UIButton()
     var runesViewContainer = RunesView()
     private let showButton = UIButton()
     private let showLabel = UILabel()
     var stack = UIStackView()
-    private let scrollViewAlignment = UIScrollView()
-    private let contentView = UIView()
+    let scrollViewAlignment = UIScrollView()
+    let contentView = UIView()
     public var viewModel: AlignmentViewModel!
-    private let contentInterpretationView = UIView()
-    private let luckLevelLabel = UILabel()
-    private let descriptionLabel = UILabel()
-    private let affirmationLabel = UILabel()
-    private let cancelButton = UIButton()
-    private let dividingLine = UIView()
-    private var text = String()
-    private var totalLuck: Int = 10
-    private var affirmation = Affirmation()
+    let contentInterpretationView = UIView()
+    let luckLevelLabel = UILabel()
+    let descriptionLabel = UILabel()
+    let affirmationLabel = UILabel()
+    let cancelButton = UIButton()
+    let dividingLine = UIView()
+    var totalLuck: Int = 10
+    var affirmation = Affirmation()
     
     
     override func viewDidLoad() {
@@ -267,7 +266,7 @@ class AlignmentViewController: UIViewController {
         ])
     }
     
-    // MARK: -PopUp
+    // MARK: -Info PopUp
     
     @objc func openDescriptionPopup (sender: UIButton!) {
         let viewModel = RuneDescriptionPopUpViewModel(runeDescription: self.viewModel.runeDescription)
@@ -278,266 +277,6 @@ class AlignmentViewController: UIViewController {
         viewController.modalTransitionStyle = .crossDissolve
         self.present(viewController, animated: true)
         
-    }
-    
-    
-    //-------------------------------------------------
-    // MARK: - After advertising
-    //-------------------------------------------------
-    
-    func setUpContentAfterAdvertising() {
-        scrollViewAlignment.isScrollEnabled = true
-        
-        stack.removeFromSuperview()
-        startButton.removeFromSuperview()
-        escapeButton.removeFromSuperview()
-        
-        removeConstant()
-        setUpContentInterpretationView()
-        setUpLuckLevelLabel()
-        setUpDividingLine()
-        setUpDescriptionLabel()
-        setUpAffirmationLabel()
-        setUpCancel()
-    }
-    
-    func removeConstant() {
-        runesViewContainer.removeFromSuperview()
-        runesViewContainer.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(runesViewContainer)
-        
-        NSLayoutConstraint.activate([
-            runesViewContainer.centerXAnchor.constraint(equalTo: scrollViewAlignment.centerXAnchor),
-            runesViewContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            runesViewContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            runesViewContainer.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 35.heightDependent()),
-        ])
-    }
-    
-    func setUpContentInterpretationView() {
-        let backgroundImage: UIImage = {
-            let image = Assets.interpretationBackground.image
-            return image
-        }()
-        
-        contentInterpretationView.backgroundColor = UIColor(patternImage: backgroundImage)
-        contentInterpretationView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(contentInterpretationView)
-        
-        NSLayoutConstraint.activate([
-            contentInterpretationView.topAnchor.constraint(equalTo: runesViewContainer.bottomAnchor),
-            contentInterpretationView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            contentInterpretationView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            contentInterpretationView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor),
-            
-        ])
-    }
-    
-    // MARK: - Luck Label
-    
-    func setUpLuckLevelLabel() {
-        switch runesViewContainer.runeLayout {
-        case .dayRune:
-            guard !runesViewContainer.runesSet.isEmpty else {return}
-            totalLuck = runesViewContainer.runesSet[0].luck
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
-        case .twoRunes:
-            guard !runesViewContainer.runesSet.isEmpty else {return}
-            let luck1 = runesViewContainer.runesSet[0].luck
-            let luck2 = runesViewContainer.runesSet[1].luck
-            totalLuck = (luck1 + luck2)/2
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
-        case .norns:
-            guard !runesViewContainer.runesSet.isEmpty else {return}
-            totalLuck = runesViewContainer.runesSet[2].luck
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
-        case .shortPrediction:
-            guard !runesViewContainer.runesSet.isEmpty else {return}
-            let luck1 = runesViewContainer.runesSet[2].luck
-            let luck2 = runesViewContainer.runesSet[3].luck
-            totalLuck = (luck1 + luck2)/2
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
-        case .thorsHummer:
-            guard !runesViewContainer.runesSet.isEmpty else {return}
-            let luck1 = runesViewContainer.runesSet[1].luck
-            let luck2 = runesViewContainer.runesSet[2].luck
-            let luck3 = runesViewContainer.runesSet[3].luck
-            totalLuck = (luck1 + luck2 + luck3)/3
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
-        case .cross:
-            guard !runesViewContainer.runesSet.isEmpty else {return}
-            let luck1 = runesViewContainer.runesSet[2].luck
-            let luck2 = runesViewContainer.runesSet[3].luck
-            let luck3 = runesViewContainer.runesSet[4].luck
-            totalLuck = (luck1 + luck2 + luck3)/3
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
-        case .elementsCross:
-            let luck1 = runesViewContainer.runesSet[2].luck
-            let luck2 = runesViewContainer.runesSet[4].luck
-            let luck3 = runesViewContainer.runesSet[5].luck
-            totalLuck = (luck1 + luck2 + luck3)/3
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
-        case .keltsCross:
-            guard !runesViewContainer.runesSet.isEmpty else {return}
-            let luck1 = runesViewContainer.runesSet[2].luck
-            let luck2 = runesViewContainer.runesSet[4].luck
-            let luck3 = runesViewContainer.runesSet[5].luck
-            let luck4 = runesViewContainer.runesSet[5].luck
-            totalLuck = (luck1 + luck2 + luck3 + luck4)/4
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
-        }
-        
-        luckLevelLabel.font = FontFamily.SFProDisplay.light.font(size: 20.heightDependent())
-        luckLevelLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        luckLevelLabel.translatesAutoresizingMaskIntoConstraints = false
-        contentInterpretationView.addSubview(luckLevelLabel)
-        NSLayoutConstraint.activate([
-            luckLevelLabel.topAnchor.constraint(equalTo: contentInterpretationView.topAnchor, constant: 76.heightDependent()),
-            luckLevelLabel.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
-            luckLevelLabel.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor,constant: -24.heightDependent()),
-        ])
-    }
-    
-    func setUpDividingLine() {
-        dividingLine.backgroundColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 0.3)
-        dividingLine.translatesAutoresizingMaskIntoConstraints = false
-        contentInterpretationView.addSubview(dividingLine)
-        
-        NSLayoutConstraint.activate([
-            dividingLine.topAnchor.constraint(equalTo: luckLevelLabel.bottomAnchor, constant: 27.heightDependent()),
-            dividingLine.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
-            dividingLine.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor, constant: -24.heightDependent()),
-            dividingLine.heightAnchor.constraint(equalToConstant: 1.heightDependent())
-        ])
-        
-    }
-    
-    // MARK: - DescriptionLabel
-    
-    func setUpDescriptionLabel() {
-        switch runesViewContainer.runeLayout {
-        case .dayRune:
-            descriptionLabel.text = runesViewContainer.runesSet[0].description
-        case .twoRunes:
-            let firstRune = runesViewContainer.runesSet[0]
-            let secondRune = runesViewContainer.runesSet[1]
-            let description = firstRune.cross(runeType: secondRune)
-            descriptionLabel.text = L10n.InterpretationForTwoRunes.text(description)
-        case .norns:
-            let firstRune = runesViewContainer.runesSet[0]
-            let secondRune = runesViewContainer.runesSet[1]
-            let thirdRune = runesViewContainer.runesSet[2]
-            descriptionLabel.text = L10n.InterpretationForNorns.text(firstRune.value, secondRune.value, thirdRune.value)
-        case .shortPrediction:
-            let firstRune = runesViewContainer.runesSet[0]
-            let secondRune = runesViewContainer.runesSet[1]
-            let thirdRune = runesViewContainer.runesSet[2]
-            let fourthRune = runesViewContainer.runesSet[3]
-            descriptionLabel.text = L10n.InterpretationForShortPrediction.text(firstRune, secondRune, thirdRune, fourthRune)
-        case .thorsHummer:
-            let firstRune = runesViewContainer.runesSet[0]
-            let secondRune = runesViewContainer.runesSet[1]
-            let fourthRune = runesViewContainer.runesSet[3]
-            descriptionLabel.text = L10n.InterpretationForThorsHummer.text(firstRune, secondRune, fourthRune)
-        case .cross:
-            let firstRune = runesViewContainer.runesSet[0]
-            let secondRune = runesViewContainer.runesSet[1]
-            let thirdRune = runesViewContainer.runesSet[2]
-            let fourthRune = runesViewContainer.runesSet[3]
-            let fifthRune = runesViewContainer.runesSet[4]
-            descriptionLabel.text = L10n.InterpretationForСross.text(firstRune, secondRune, thirdRune, fifthRune, fourthRune)
-        case .elementsCross:
-            let firstRune = runesViewContainer.runesSet[0]
-            let secondRune = runesViewContainer.runesSet[1]
-            let thirdRune = runesViewContainer.runesSet[2]
-            let fourthRune = runesViewContainer.runesSet[3]
-            let fifthRune = runesViewContainer.runesSet[4]
-            let sixthRune = runesViewContainer.runesSet[5]
-            descriptionLabel.text = L10n.InterpretationElementsCross.text(secondRune, firstRune, fourthRune, thirdRune, fifthRune, sixthRune)
-        case .keltsCross:
-            let firstRune = runesViewContainer.runesSet[0]
-            let secondRune = runesViewContainer.runesSet[1]
-            let thirdRune = runesViewContainer.runesSet[2]
-            let fourthRune = runesViewContainer.runesSet[3]
-            let fifthRune = runesViewContainer.runesSet[4]
-            let sixthRune = runesViewContainer.runesSet[5]
-            let seventhRune = runesViewContainer.runesSet[6]
-            descriptionLabel.text = L10n.InterpretationKeltsCross.text(firstRune, secondRune, thirdRune, fourthRune, fifthRune, sixthRune, seventhRune)
-            
-        }
-        
-        descriptionLabel.font = FontFamily.Roboto.thin.font(size: 19.heightDependent())
-        descriptionLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        contentInterpretationView.addSubview(descriptionLabel)
-        NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: dividingLine.bottomAnchor, constant: 32.heightDependent()),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor, constant: -24.heightDependent()),
-        ])
-    }
-    
-    // MARK: - AffirmationLabel
-    
-    func setUpAffirmationLabel() {
-        if totalLuck>39 && totalLuck<=50 {
-            affirmationLabel.text = affirmation.fourtyPercent.randomElement()
-        } else if totalLuck>29 && totalLuck<=39 {
-            affirmationLabel.text = affirmation.thirtyPercent.randomElement()
-        } else if totalLuck>19 && totalLuck<=29 {
-            affirmationLabel.text = affirmation.twentyPercent.randomElement()
-        } else if totalLuck>=10 && totalLuck<=19 {
-            affirmationLabel.text = affirmation.tenPercent.randomElement()
-        } else {
-            affirmationLabel.isHidden = true
-        }
-        
-        affirmationLabel.font = FontFamily.SFProDisplay.light.font(size: 20.heightDependent())
-        affirmationLabel.textColor = Assets.Colors.Touch.text.color
-        affirmationLabel.numberOfLines = 0
-        affirmationLabel.lineBreakMode = .byWordWrapping
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 1.22
-        affirmationLabel.attributedText = NSAttributedString(string: text, attributes: [NSAttributedString.Key.paragraphStyle : paragraphStyle])
-        affirmationLabel.translatesAutoresizingMaskIntoConstraints = false
-        contentInterpretationView.addSubview(affirmationLabel)
-        NSLayoutConstraint.activate([
-            affirmationLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 30.heightDependent()),
-            affirmationLabel.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
-            affirmationLabel.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor, constant: -24.heightDependent()),
-        ])
-    }
-    
-    // MARK: - CompleteButton
-    
-    func setUpCancel() {
-        cancelButton.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
-        cancelButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
-        
-        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 6.58 : 8
-        cancelButton.layer.cornerRadius = radiusConstant
-        let borderConstant: CGFloat = DeviceType.iPhoneSE ? 0.82 : 1
-        cancelButton.layer.borderWidth = borderConstant
-        cancelButton.setTitle("Завершить", for: .normal)
-        cancelButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30
-        cancelButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
-        cancelButton.addTarget(self, action: #selector(self.escapeOnTap), for: .touchUpInside)
-        cancelButton.setTitleColor(Assets.Colors.textColor.color, for: .normal)
-        cancelButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
-        contentInterpretationView.addSubview(cancelButton)
-        
-        let heightConstant: CGFloat = DeviceType.iPhoneSE ? 46 : 56
-        let widthConsatnt: CGFloat = DeviceType.iPhoneSE ? 210 : 255
-        NSLayoutConstraint.activate([
-            cancelButton.heightAnchor.constraint(equalToConstant: heightConstant),
-            cancelButton.widthAnchor.constraint(equalToConstant: widthConsatnt),
-            cancelButton.centerXAnchor.constraint(equalTo: contentInterpretationView.centerXAnchor),
-            cancelButton.topAnchor.constraint(equalTo: affirmationLabel.bottomAnchor, constant: 115.heightDependent()),
-            cancelButton.bottomAnchor.constraint(equalTo: contentInterpretationView.bottomAnchor, constant: -75)
-        ])
     }
 }
 
