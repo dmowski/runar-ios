@@ -9,7 +9,7 @@ public enum RuneType: Equatable {
         case reversed
     }
     
-    public static func allCases(subtype: RuneSubType = .original) {
+    public static func allCases(subtype: RuneSubType = .original) -> [Self] {
        
         [ RuneType.fehu(isReversed: false), .urus(isReversed: false), .purisaz(isReversed: false),
           .ansuz(isReversed: false), .raidu(isReversed: false), .kauna(isReversed: false),
