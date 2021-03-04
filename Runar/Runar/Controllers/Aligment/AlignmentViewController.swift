@@ -323,21 +323,47 @@ class AlignmentViewController: UIViewController {
     func setUpLuckLevelLabel() {
         switch runesViewContainer.runeLayout {
         case .dayRune:
-            luckLevelLabel.text = L10n.InterpretationForDayRune.luck("Жду проперти")
+            guard !runesViewContainer.runesSet.isEmpty else {return}
+            let luck = runesViewContainer.runesSet[0].luck
+            luckLevelLabel.text = "Уровень удачи - \(String(luck)) %"
         case .twoRunes:
-            luckLevelLabel.text = L10n.InterpretationForTwoRunes.luck("Жду проперти")
+            guard !runesViewContainer.runesSet.isEmpty else {return}
+            let luck1 = runesViewContainer.runesSet[0].luck
+            let luck2 = runesViewContainer.runesSet[1].luck
+            luckLevelLabel.text = "Уровень удачи - \(String((luck1 + luck2)/2)) %"
         case .norns:
-            luckLevelLabel.text = L10n.InterpretationForNorns.luck("Жду проперти")
+            guard !runesViewContainer.runesSet.isEmpty else {return}
+            let luck = runesViewContainer.runesSet[2].luck
+            luckLevelLabel.text = "Уровень удачи - \(String(luck)) %"
         case .shortPrediction:
-            luckLevelLabel.text = L10n.InterpretationForShortPrediction.luck("Жду проперти")
+            guard !runesViewContainer.runesSet.isEmpty else {return}
+            let luck1 = runesViewContainer.runesSet[2].luck
+            let luck2 = runesViewContainer.runesSet[3].luck
+            luckLevelLabel.text = "Уровень удачи - \(String((luck1 + luck2)/2)) %"
         case .thorsHummer:
-            luckLevelLabel.text = L10n.InterpretationForThorsHummer.luck("Жду проперти")
+            guard !runesViewContainer.runesSet.isEmpty else {return}
+            let luck1 = runesViewContainer.runesSet[1].luck
+            let luck2 = runesViewContainer.runesSet[2].luck
+            let luck3 = runesViewContainer.runesSet[3].luck
+            luckLevelLabel.text = "Уровень удачи - \(String((luck1 + luck2 + luck3)/3)) %"
         case .cross:
-            luckLevelLabel.text = L10n.InterpretationForСross.luck("Жду проперти")
+            guard !runesViewContainer.runesSet.isEmpty else {return}
+            let luck1 = runesViewContainer.runesSet[2].luck
+            let luck2 = runesViewContainer.runesSet[3].luck
+            let luck3 = runesViewContainer.runesSet[4].luck
+            luckLevelLabel.text = "Уровень удачи - \(String((luck1 + luck2 + luck3)/3)) %"
         case .elementsCross:
-            luckLevelLabel.text = L10n.InterpretationElementsCross.luck("Жду проперти")
+            let luck1 = runesViewContainer.runesSet[2].luck
+            let luck2 = runesViewContainer.runesSet[4].luck
+            let luck3 = runesViewContainer.runesSet[5].luck
+            luckLevelLabel.text = "Уровень удачи - \(String((luck1 + luck2 + luck3)/3)) %"
         case .keltsCross:
-            luckLevelLabel.text = L10n.InterpretationKeltsCross.luck("Жду проперти")
+            guard !runesViewContainer.runesSet.isEmpty else {return}
+            let luck1 = runesViewContainer.runesSet[2].luck
+            let luck2 = runesViewContainer.runesSet[4].luck
+            let luck3 = runesViewContainer.runesSet[5].luck
+            let luck4 = runesViewContainer.runesSet[5].luck
+            luckLevelLabel.text = "Уровень удачи - \(String((luck1 + luck2 + luck3 + luck4)/4)) %"
         }
         
         luckLevelLabel.font = FontFamily.SFProDisplay.light.font(size: 20.heightDependent())
@@ -366,25 +392,25 @@ class AlignmentViewController: UIViewController {
     }
     
     func setUpDescriptionLabel() {
-        switch runesViewContainer.runeLayout {
-        case .dayRune:
-            descriptionLabel.text = L10n.InterpretationForDayRune.text
-        case .twoRunes:
-            descriptionLabel.text = L10n.InterpretationForTwoRunes.text
-        case .norns:
-            descriptionLabel.text = L10n.InterpretationForNorns.text
-        case .shortPrediction:
-            descriptionLabel.text = L10n.InterpretationForShortPrediction.text
-        case .thorsHummer:
-            descriptionLabel.text = L10n.InterpretationForThorsHummer.text
-        case .cross:
-            descriptionLabel.text = L10n.InterpretationForСross.text
-        case .elementsCross:
-            descriptionLabel.text = L10n.InterpretationElementsCross.text
-        case .keltsCross:
-            descriptionLabel.text = L10n.InterpretationKeltsCross.text
-
-        }
+//        switch runesViewContainer.runeLayout {
+//        case .dayRune:
+//            descriptionLabel.text = L10n.InterpretationForDayRune.text
+//        case .twoRunes:
+//            descriptionLabel.text = L10n.InterpretationForTwoRunes.text
+//        case .norns:
+//            descriptionLabel.text = L10n.InterpretationForNorns.text
+//        case .shortPrediction:
+//            descriptionLabel.text = L10n.InterpretationForShortPrediction.text
+//        case .thorsHummer:
+//            descriptionLabel.text = L10n.InterpretationForThorsHummer.text
+//        case .cross:
+//            descriptionLabel.text = L10n.InterpretationForСross.text
+//        case .elementsCross:
+//            descriptionLabel.text = L10n.InterpretationElementsCross.text
+//        case .keltsCross:
+//            descriptionLabel.text = L10n.InterpretationKeltsCross.text
+        
+        //}
         
         descriptionLabel.font = FontFamily.Roboto.thin.font(size: 19.heightDependent())
         descriptionLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
@@ -400,24 +426,7 @@ class AlignmentViewController: UIViewController {
     
     func setUpAffirmationLabel() {
         
-        switch runesViewContainer.runeLayout {
-        case .dayRune:
-            text = L10n.InterpretationForDayRune.affirmation("Жду проперти")
-        case .twoRunes:
-            text = L10n.InterpretationForTwoRunes.affirmation("Жду проперти")
-        case .norns:
-            text = L10n.InterpretationForNorns.affirmation("Жду проперти")
-        case .shortPrediction:
-            text = L10n.InterpretationForShortPrediction.affirmation("Жду проперти")
-        case .thorsHummer:
-            text = L10n.InterpretationForThorsHummer.affirmation("Жду проперти")
-        case .cross:
-            text = L10n.InterpretationForСross.affirmation("Жду проперти")
-        case .elementsCross:
-            text = L10n.InterpretationElementsCross.affirmation("Жду проперти")
-        case .keltsCross:
-            text = L10n.InterpretationKeltsCross.affirmation("Жду проперти")
-        }
+        
         
         affirmationLabel.font = FontFamily.SFProDisplay.light.font(size: 20.heightDependent())
         affirmationLabel.textColor = Assets.Colors.Touch.text.color

@@ -23,55 +23,19 @@
 "rune.keltsCross.name" = "Кельтский крест";
 "rune.keltsCross.description" = "Известность и популярность данного гадания объясняется широтой толкования, с его помощью можно как просто заглянуть в свое будущее, так и узнать, как действовать и чего ожидать от конкретно возникшей затруднительной ситуации.";
 
+"interpretationForTwoRunes.text" = "Ваше настоящее положение дел можно охарактеризовать как %@";
 
-"interpretationForDayRune.text" = "Дело, которым Вы сейчас заняты завершится успешно. Вы легко расправитесь с любыми проблемами и избавитесь от них, включая ненужные сердечные привязанности. Знак говорит о выходе из периода застоя, о завершении одного этапа жизни и о зарождении нового, который переведёт Вас на другую стадию развития - более высокую и  благоприятную. С завершением  старого, придёт новое. Но перед наступлением нового этапа необходимо избавиться от старых установок и взглядов, расчищая место для нового. Данная Руна символизирует плодородие и покровительствует тем, кто работает на земле. Так же она помогает избавиться от бесплодия или мужского бессилия. Мягкая цикличная энергия Руны - это та благоприятная среда, где происходит планомерный обмен энергиями, перетекая  из одного состояния в другое и обратно";
-"interpretationForDayRune.luck" = "Уровень удачи - %@";
-"interpretationForDayRune.affirmation" = "%@";
-
-
-"interpretationForTwoRunes.text" = "Ваше настоящее положение дел можно охарактеризовать как \"Значение сочетания рун №1 и №2\"";
-"interpretationForTwoRunes.luck" = "Уровень удачи - %@";
-"interpretationForTwoRunes.affirmation" = "%@";
-
-
-"interpretationForNorns.text" = "Общее положение Ваших дел может быть описано как ссылка на диапазон для руны №1. Обратите самое пристальное внимание на важную проблему, а именно - ссылка на диапазон для руны №2. Возможное решение этой проблемы - это ссылка на диапазон для руны №3";
-"interpretationForNorns.luck" = "Уровень удачи - %@";
-"interpretationForNorns.affirmation" = "%@";
-
-
-"interpretationForShortPrediction.text" = "Общее положение Ваших дел может быть описано как ссылка на диапазон для руны №1. Обратите самое пристальное внимание на важную проблему, а именно - ссылка на диапазон для руны №2. Возможное решение этой проблемы - это ссылка на диапазон для руны №3";
-"interpretationForShortPrediction.luck" = "Уровень удачи - %@";
-"interpretationForShortPrediction.affirmation" = "%@";
-
+"interpretationForNorns.text" = "Общее положение Ваших дел может быть описано как %@. Обратите самое пристальное внимание на важную проблему, а именно - %@. Возможное решение этой проблемы - это %@";
 
 "interpretationForThorsHummer.text" = "В прошлом вы ощущали Интерпретация для руны №1, в настоящее время Вы чувствуете Интерпретация 2-х рун таблицы, в будущем вас ожидает Интерпретация для руны №4";
-"interpretationForThorsHummer.luck" = "Уровень удачи - %@";
-"interpretationForThorsHummer.affirmation" = "%@";
 
+"interpretationForShortPrediction.text" = "Ваше текущее состояние можно описать как %@. Ваша проблема - это %@, но для её решения вы должны опираться на %@. Если вы будете настойчивы в своих действиях то вас ждет %@.";
 
-"interpretationForСross.text" = "В прошлом вы ощущали Интерпретация для руны №1, настоящее (в том числе проблема) может быть описано как Интерпретация для руны №2. При естественном развитии ситуации, Вас ожидает Интерпретация для руны №3, причем есть сила, а именно Интерпретация для руны №5, на которую Вы не можете влиять. Но если Судьба принесет вам помощь - Интерпретация для руны №4,  то Вас ждет лучшее будущее";
-"interpretationForСross.luck" = "Уровень удачи - %@";
-"interpretationForСross.affirmation" = "%@";
+"interpretationForСross.text" = "В прошлом вы ощущали %@, настоящее (в том числе проблема) может быть описано как %@. При естественном развитии ситуации, Вас ожидает %@, причем есть сила, а именно %@, на которую Вы не можете влиять. Но если Судьба принесет вам помощь - %@, то Вас ждет лучшее будущее.";
 
+"interpretationElementsCross.text" = "Вам, как человеку, присуща важная черта - %@, и в настоящее время с Вами происходит %@. Источником Ваших проблем может быть %@. Наиболее вероятное будущее может быть описано как %@. Для достижения этого результата, Ваша главная цель - %@. Если же Вы не достигнете поставленной цели - вас ждет %@.";
 
-"interpretationElementsCross.text" = "Вашу текущее состояние можно описать как Интерпретация для руны №1. Ваша проблема - это Интерпретация для руны №2, но для её решения вы должны опираться на Интерпретация для руны №3. Если вы будете настойчивы в своих действиях то вас ждет Интерпретация для руны №4";
-"interpretationElementsCross.luck" = "Уровень удачи - %@";
-"interpretationElementsCross.affirmation" = "%@";
-
-
-"interpretationKeltsCross.text" = "В настоящее время с Вами происходит:
-
-Интерпретация для руны №1, что является следствием вашего прошлого -  Интерпретация для руны №2.
-
-Если в будущем ваша цель Интерпретация для руны №3, вам необходимо обратить внимание на Интерпретация для руны №4.
-
-Возможно, причиной ваших трудностей является Интерпретация для руны №5.
-
-Лучшее, чего Вы можете ожидать - это Интерпретация для руны №6.
-
-Как наиболее вероятный результат - вас ждет Интерпретация для руны №7";
-"interpretationKeltsCross.luck" = "Уровень удачи - %@";
-"interpretationKeltsCross.affirmation" = "%@";
+"interpretationKeltsCross.text" = "В настоящее время с Вами происходит %@, что является следствием вашего прошлого -  %@. Если в будущем ваша цель %@, вам необходимо обратить внимание на %@. Возможно, причиной ваших трудностей является %@. Лучшее, чего Вы можете ожидать - это %@. Как наиболее вероятный результат - вас ждет %@.";
 
 
 "interpretationForTwoRunes.Fehu.Uruz" = "Наследование имущества";
@@ -783,44 +747,4 @@
 "description.value.Reverse.Opila" = "Осторожность";
 "description.value.Odin" = "Глобальное изменение";
 
-"description.auspiciousness.Fehu" = "60";
-"description.auspiciousness.Reverse.Fehu" = "30";
-"description.auspiciousness.Uruz" = "80";
-"description.auspiciousness.Reverse.Uruz" = "20";
-"description.auspiciousness.Purisaz" = "20";
-"description.auspiciousness.Reverse.Purisaz" = "40";
-"description.auspiciousness.Ansuz" = "70";
-"description.auspiciousness.Reverse.Ansuz" = "20";
-"description.auspiciousness.Raidu" = "70";
-"description.auspiciousness.Reverse.Raidu" = "40";
-"description.auspiciousness.Kauna" = "80";
-"description.auspiciousness.Reverse.Kauna" = "20";
-"description.auspiciousness.Gebu" = "90";
-"description.auspiciousness.Wunji" = "70";
-"description.auspiciousness.Reverse.Wunji" = "40";
-"description.auspiciousness.Hagalaz" = "30";
-"description.auspiciousness.Naudiz" = "20";
-"description.auspiciousness.Reverse.Naudiz" = "20";
-"description.auspiciousness.Isaz" = "10";
-"description.auspiciousness.Jara" = "80";
-"description.auspiciousness.Iwaz" = "20";
-"description.auspiciousness.Perpu" = "50";
-"description.auspiciousness.Reverse.Perpu" = "40";
-"description.auspiciousness.Algiz" = "70";
-"description.auspiciousness.Reverse.Algiz" = "40";
-"description.auspiciousness.Sowilu" = "90";
-"description.auspiciousness.Tiwaz" = "80";
-"description.auspiciousness.Reverse.Tiwaz" = "10";
-"description.auspiciousness.Berkana" = "70";
-"description.auspiciousness.Reverse.Berkana" = "30";
-"description.auspiciousness.Ehwaz" = "60";
-"description.auspiciousness.Reverse.Ehvaz" = "40";
-"description.auspiciousness.Mannaz" = "40";
-"description.auspiciousness.Reverse.Mannaz " = "40";
-"description.auspiciousness.Laguz" = "50";
-"description.auspiciousness.Reverse.Laguz" = "30";
-"description.auspiciousness.Inwaz" = "70";
-"description.auspiciousness.Dagaz" = "90";
-"description.auspiciousness.Opila" = "50";
-"description.auspiciousness.Reverse.Opila" = "40";
-"description.auspiciousness.Odin" = "50";
+
