@@ -47,6 +47,7 @@
 		9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9C266E25A2173100A4E135 /* DataBase.swift */; };
 		9B9F151C2591499A00062F47 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F151A2591499A00062F47 /* AmaticSC-Regular.ttf */; };
 		9B9F151D2591499A00062F47 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F151B2591499A00062F47 /* AmaticSC-Bold.ttf */; };
+		9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAEB61C25F13412004B7761 /* Affirmation.swift */; };
 		9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD228FD258A321B00E17E98 /* AppDelegate.swift */; };
 		9BD22905258A321B00E17E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22903258A321B00E17E98 /* Main.storyboard */; };
 		9BD22907258A321F00E17E98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22906258A321F00E17E98 /* Assets.xcassets */; };
@@ -138,6 +139,7 @@
 		9B9C266E25A2173100A4E135 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		9B9F151A2591499A00062F47 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
 		9B9F151B2591499A00062F47 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
+		9BAEB61C25F13412004B7761 /* Affirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Affirmation.swift; sourceTree = "<group>"; };
 		9BD228FA258A321B00E17E98 /* Runar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD228FD258A321B00E17E98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BD22904258A321B00E17E98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				9B739DDB25CC296900726B30 /* RuneType.swift */,
 				1907850325C4232E00434D57 /* RuneLayout.swift */,
 				19C0F21A25BAFEFE0027422B /* RuneDescription.swift */,
+				9BAEB61C25F13412004B7761 /* Affirmation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				1907850C25C4235000434D57 /* RuneButton.swift in Sources */,
 				19C0F20A25BAFCB20027422B /* Array+Extensions.swift in Sources */,
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
+				9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */,
 				9B739E0625CD77E900726B30 /* ProcessingViewModel.swift in Sources */,
 				19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */,
 				19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */,

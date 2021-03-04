@@ -12,7 +12,7 @@ class AlignmentViewController: UIViewController {
     //-------------------------------------------------
     // MARK: - Variables
     //-------------------------------------------------
-
+    
     private let backgroundView = UIImageView()
     private let escapeButton = UIButton()
     private let nameLabel = UILabel()
@@ -31,10 +31,9 @@ class AlignmentViewController: UIViewController {
     private let cancelButton = UIButton()
     private let dividingLine = UIView()
     private var text = String()
+    private var totalLuck: Int = 10
+    private var affirmation = Affirmation()
     
-    //-------------------------------------------------
-    // MARK: - Methods
-    //-------------------------------------------------
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +59,7 @@ class AlignmentViewController: UIViewController {
         setUpShowLabel()
         setUpStack()
     }
+    // MARK: -ScrollView
     
     func setUpScrollView() {
         scrollViewAlignment.translatesAutoresizingMaskIntoConstraints = false
@@ -84,6 +84,8 @@ class AlignmentViewController: UIViewController {
         ])
     }
     
+    // MARK: - Background
+    
     func backgroundViewSetup() {
         backgroundView.image = Assets.mainFire.image
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
@@ -97,6 +99,8 @@ class AlignmentViewController: UIViewController {
             backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
+    
+    // MARK: - EscapeButton
     
     func setUpEscape() {
         escapeButton.translatesAutoresizingMaskIntoConstraints = false
@@ -135,6 +139,8 @@ class AlignmentViewController: UIViewController {
         navigationController?.popToRootViewController(animated: true)
     }
     
+    // MARK: - NameLabel
+    
     func setUpNameLabel() {
         nameLabel.text = viewModel.name
         
@@ -153,6 +159,8 @@ class AlignmentViewController: UIViewController {
             nameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         ])
     }
+    
+    // MARK: - StartButton
     
     func setUpStart() {
         startButton.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
@@ -190,6 +198,8 @@ class AlignmentViewController: UIViewController {
         self.runesViewContainer.openHighlightedButton()
     }
     
+    // MARK: - ContainerView
+    
     func setUpContainerView() {
         runesViewContainer.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(runesViewContainer)
@@ -202,6 +212,7 @@ class AlignmentViewController: UIViewController {
         ])
     }
     
+    // MARK: - ShowButton and label
     func setUpShowButton(){
         showButton.translatesAutoresizingMaskIntoConstraints = false
         showButton.layer.borderColor = Assets.Colors.textColor.color.cgColor
@@ -255,6 +266,8 @@ class AlignmentViewController: UIViewController {
             
         ])
     }
+    
+    // MARK: -PopUp
     
     @objc func openDescriptionPopup (sender: UIButton!) {
         let viewModel = RuneDescriptionPopUpViewModel(runeDescription: self.viewModel.runeDescription)
@@ -316,54 +329,62 @@ class AlignmentViewController: UIViewController {
             contentInterpretationView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             contentInterpretationView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             contentInterpretationView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor),
-
+            
         ])
     }
+    
+    // MARK: - Luck Label
     
     func setUpLuckLevelLabel() {
         switch runesViewContainer.runeLayout {
         case .dayRune:
             guard !runesViewContainer.runesSet.isEmpty else {return}
-            let luck = runesViewContainer.runesSet[0].luck
-            luckLevelLabel.text = "Уровень удачи - \(String(luck)) %"
+            totalLuck = runesViewContainer.runesSet[0].luck
+            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
         case .twoRunes:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             let luck1 = runesViewContainer.runesSet[0].luck
             let luck2 = runesViewContainer.runesSet[1].luck
-            luckLevelLabel.text = "Уровень удачи - \(String((luck1 + luck2)/2)) %"
+            totalLuck = (luck1 + luck2)/2
+            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
         case .norns:
             guard !runesViewContainer.runesSet.isEmpty else {return}
-            let luck = runesViewContainer.runesSet[2].luck
-            luckLevelLabel.text = "Уровень удачи - \(String(luck)) %"
+            totalLuck = runesViewContainer.runesSet[2].luck
+            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
         case .shortPrediction:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             let luck1 = runesViewContainer.runesSet[2].luck
             let luck2 = runesViewContainer.runesSet[3].luck
-            luckLevelLabel.text = "Уровень удачи - \(String((luck1 + luck2)/2)) %"
+            totalLuck = (luck1 + luck2)/2
+            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
         case .thorsHummer:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             let luck1 = runesViewContainer.runesSet[1].luck
             let luck2 = runesViewContainer.runesSet[2].luck
             let luck3 = runesViewContainer.runesSet[3].luck
-            luckLevelLabel.text = "Уровень удачи - \(String((luck1 + luck2 + luck3)/3)) %"
+            totalLuck = (luck1 + luck2 + luck3)/3
+            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
         case .cross:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             let luck1 = runesViewContainer.runesSet[2].luck
             let luck2 = runesViewContainer.runesSet[3].luck
             let luck3 = runesViewContainer.runesSet[4].luck
-            luckLevelLabel.text = "Уровень удачи - \(String((luck1 + luck2 + luck3)/3)) %"
+            totalLuck = (luck1 + luck2 + luck3)/3
+            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
         case .elementsCross:
             let luck1 = runesViewContainer.runesSet[2].luck
             let luck2 = runesViewContainer.runesSet[4].luck
             let luck3 = runesViewContainer.runesSet[5].luck
-            luckLevelLabel.text = "Уровень удачи - \(String((luck1 + luck2 + luck3)/3)) %"
+            totalLuck = (luck1 + luck2 + luck3)/3
+            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
         case .keltsCross:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             let luck1 = runesViewContainer.runesSet[2].luck
             let luck2 = runesViewContainer.runesSet[4].luck
             let luck3 = runesViewContainer.runesSet[5].luck
             let luck4 = runesViewContainer.runesSet[5].luck
-            luckLevelLabel.text = "Уровень удачи - \(String((luck1 + luck2 + luck3 + luck4)/4)) %"
+            totalLuck = (luck1 + luck2 + luck3 + luck4)/4
+            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
         }
         
         luckLevelLabel.font = FontFamily.SFProDisplay.light.font(size: 20.heightDependent())
@@ -391,26 +412,59 @@ class AlignmentViewController: UIViewController {
         
     }
     
+    // MARK: - DescriptionLabel
+    
     func setUpDescriptionLabel() {
-//        switch runesViewContainer.runeLayout {
-//        case .dayRune:
-//            descriptionLabel.text = L10n.InterpretationForDayRune.text
-//        case .twoRunes:
-//            descriptionLabel.text = L10n.InterpretationForTwoRunes.text
-//        case .norns:
-//            descriptionLabel.text = L10n.InterpretationForNorns.text
-//        case .shortPrediction:
-//            descriptionLabel.text = L10n.InterpretationForShortPrediction.text
-//        case .thorsHummer:
-//            descriptionLabel.text = L10n.InterpretationForThorsHummer.text
-//        case .cross:
-//            descriptionLabel.text = L10n.InterpretationForСross.text
-//        case .elementsCross:
-//            descriptionLabel.text = L10n.InterpretationElementsCross.text
-//        case .keltsCross:
-//            descriptionLabel.text = L10n.InterpretationKeltsCross.text
-        
-        //}
+        switch runesViewContainer.runeLayout {
+        case .dayRune:
+            descriptionLabel.text = runesViewContainer.runesSet[0].description
+        case .twoRunes:
+            let firstRune = runesViewContainer.runesSet[0]
+            let secondRune = runesViewContainer.runesSet[1]
+            let description = firstRune.cross(runeType: secondRune)
+            descriptionLabel.text = L10n.InterpretationForTwoRunes.text(description)
+        case .norns:
+            let firstRune = runesViewContainer.runesSet[0]
+            let secondRune = runesViewContainer.runesSet[1]
+            let thirdRune = runesViewContainer.runesSet[2]
+            descriptionLabel.text = L10n.InterpretationForNorns.text(firstRune.value, secondRune.value, thirdRune.value)
+        case .shortPrediction:
+            let firstRune = runesViewContainer.runesSet[0]
+            let secondRune = runesViewContainer.runesSet[1]
+            let thirdRune = runesViewContainer.runesSet[2]
+            let fourthRune = runesViewContainer.runesSet[3]
+            descriptionLabel.text = L10n.InterpretationForShortPrediction.text(firstRune, secondRune, thirdRune, fourthRune)
+        case .thorsHummer:
+            let firstRune = runesViewContainer.runesSet[0]
+            let secondRune = runesViewContainer.runesSet[1]
+            let fourthRune = runesViewContainer.runesSet[3]
+            descriptionLabel.text = L10n.InterpretationForThorsHummer.text(firstRune, secondRune, fourthRune)
+        case .cross:
+            let firstRune = runesViewContainer.runesSet[0]
+            let secondRune = runesViewContainer.runesSet[1]
+            let thirdRune = runesViewContainer.runesSet[2]
+            let fourthRune = runesViewContainer.runesSet[3]
+            let fifthRune = runesViewContainer.runesSet[4]
+            descriptionLabel.text = L10n.InterpretationForСross.text(firstRune, secondRune, thirdRune, fifthRune, fourthRune)
+        case .elementsCross:
+            let firstRune = runesViewContainer.runesSet[0]
+            let secondRune = runesViewContainer.runesSet[1]
+            let thirdRune = runesViewContainer.runesSet[2]
+            let fourthRune = runesViewContainer.runesSet[3]
+            let fifthRune = runesViewContainer.runesSet[4]
+            let sixthRune = runesViewContainer.runesSet[5]
+            descriptionLabel.text = L10n.InterpretationElementsCross.text(secondRune, firstRune, fourthRune, thirdRune, fifthRune, sixthRune)
+        case .keltsCross:
+            let firstRune = runesViewContainer.runesSet[0]
+            let secondRune = runesViewContainer.runesSet[1]
+            let thirdRune = runesViewContainer.runesSet[2]
+            let fourthRune = runesViewContainer.runesSet[3]
+            let fifthRune = runesViewContainer.runesSet[4]
+            let sixthRune = runesViewContainer.runesSet[5]
+            let seventhRune = runesViewContainer.runesSet[6]
+            descriptionLabel.text = L10n.InterpretationKeltsCross.text(firstRune, secondRune, thirdRune, fourthRune, fifthRune, sixthRune, seventhRune)
+            
+        }
         
         descriptionLabel.font = FontFamily.Roboto.thin.font(size: 19.heightDependent())
         descriptionLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
@@ -424,9 +478,20 @@ class AlignmentViewController: UIViewController {
         ])
     }
     
+    // MARK: - AffirmationLabel
+    
     func setUpAffirmationLabel() {
-        
-        
+        if totalLuck>39 && totalLuck<=50 {
+            affirmationLabel.text = affirmation.fourtyPercent.randomElement()
+        } else if totalLuck>29 && totalLuck<=39 {
+            affirmationLabel.text = affirmation.thirtyPercent.randomElement()
+        } else if totalLuck>19 && totalLuck<=29 {
+            affirmationLabel.text = affirmation.twentyPercent.randomElement()
+        } else if totalLuck>=10 && totalLuck<=19 {
+            affirmationLabel.text = affirmation.tenPercent.randomElement()
+        } else {
+            affirmationLabel.isHidden = true
+        }
         
         affirmationLabel.font = FontFamily.SFProDisplay.light.font(size: 20.heightDependent())
         affirmationLabel.textColor = Assets.Colors.Touch.text.color
@@ -444,6 +509,7 @@ class AlignmentViewController: UIViewController {
         ])
     }
     
+    // MARK: - CompleteButton
     
     func setUpCancel() {
         cancelButton.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
@@ -457,14 +523,12 @@ class AlignmentViewController: UIViewController {
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30
-        
         cancelButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
         cancelButton.addTarget(self, action: #selector(self.escapeOnTap), for: .touchUpInside)
         cancelButton.setTitleColor(Assets.Colors.textColor.color, for: .normal)
         cancelButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
         contentInterpretationView.addSubview(cancelButton)
         
-//        let bottomConstant: CGFloat = DeviceType.iPhoneSE ? 373 : 631
         let heightConstant: CGFloat = DeviceType.iPhoneSE ? 46 : 56
         let widthConsatnt: CGFloat = DeviceType.iPhoneSE ? 210 : 255
         NSLayoutConstraint.activate([
