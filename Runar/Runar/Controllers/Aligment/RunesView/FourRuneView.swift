@@ -37,7 +37,7 @@ class FourRuneView: UIView, RuneViewProtocol {
     
     private func setUpContent() {
         
-        configureIndexesAndButtons(count: 4)
+        configureIndexesAndButtons(count: 4, availableRunes: RuneType.allCases(subtype: .original))
         addButtons()
         setupViewConstraints()
         highlightFirstButton()
