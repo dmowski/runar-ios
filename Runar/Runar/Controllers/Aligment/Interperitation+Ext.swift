@@ -161,19 +161,19 @@ extension AlignmentViewController {
             let secondRune = runesViewContainer.runesSet[1]
             let thirdRune = runesViewContainer.runesSet[2]
             let fourthRune = runesViewContainer.runesSet[3]
-            descriptionLabel.text = L10n.InterpretationForShortPrediction.text(firstRune, secondRune, thirdRune, fourthRune)
+            descriptionLabel.text = L10n.InterpretationForShortPrediction.text(firstRune.value, secondRune, thirdRune.value, fourthRune.value)
         case .thorsHummer:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
             let fourthRune = runesViewContainer.runesSet[3]
-            descriptionLabel.text = L10n.InterpretationForThorsHummer.text(firstRune, secondRune, fourthRune)
+            descriptionLabel.text = L10n.InterpretationForThorsHummer.text(firstRune.value, secondRune.value, fourthRune.value)
         case .cross:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
             let thirdRune = runesViewContainer.runesSet[2]
             let fourthRune = runesViewContainer.runesSet[3]
             let fifthRune = runesViewContainer.runesSet[4]
-            descriptionLabel.text = L10n.InterpretationForСross.text(firstRune, secondRune, thirdRune, fifthRune, fourthRune)
+            descriptionLabel.text = L10n.InterpretationForСross.text(firstRune.value, secondRune.value, thirdRune.value, fifthRune.value, fourthRune.value)
         case .elementsCross:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
@@ -181,7 +181,7 @@ extension AlignmentViewController {
             let fourthRune = runesViewContainer.runesSet[3]
             let fifthRune = runesViewContainer.runesSet[4]
             let sixthRune = runesViewContainer.runesSet[5]
-            descriptionLabel.text = L10n.InterpretationElementsCross.text(secondRune, firstRune, fourthRune, thirdRune, fifthRune, sixthRune)
+            descriptionLabel.text = L10n.InterpretationElementsCross.text(secondRune.value, firstRune.value, fourthRune.value, thirdRune.value, fifthRune.value, sixthRune.value)
         case .keltsCross:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
@@ -190,7 +190,7 @@ extension AlignmentViewController {
             let fifthRune = runesViewContainer.runesSet[4]
             let sixthRune = runesViewContainer.runesSet[5]
             let seventhRune = runesViewContainer.runesSet[6]
-            descriptionLabel.text = L10n.InterpretationKeltsCross.text(firstRune, secondRune, thirdRune, fourthRune, fifthRune, sixthRune, seventhRune)
+            descriptionLabel.text = L10n.InterpretationKeltsCross.text(firstRune.value, secondRune.value, thirdRune.value, fourthRune.value, fifthRune.value, sixthRune.value, seventhRune.value)
             
         }
         
@@ -225,6 +225,7 @@ extension AlignmentViewController {
         affirmationLabel.font = FontFamily.SFProDisplay.light.font(size: 20.heightDependent())
         affirmationLabel.textColor = Assets.Colors.Touch.text.color
         affirmationLabel.numberOfLines = 0
+        affirmationLabel.sizeToFit()
         affirmationLabel.lineBreakMode = .byWordWrapping
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.22
@@ -260,11 +261,16 @@ extension AlignmentViewController {
         
         let heightConstant: CGFloat = DeviceType.iPhoneSE ? 46 : 56
         let widthConsatnt: CGFloat = DeviceType.iPhoneSE ? 210 : 255
+        
+        if affirmationLabel.isHidden {
+            cancelButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 60.heightDependent()).isActive = true
+        } else {
+            cancelButton.topAnchor.constraint(equalTo: affirmationLabel.bottomAnchor, constant: 60.heightDependent()).isActive = true
+        }
         NSLayoutConstraint.activate([
             cancelButton.heightAnchor.constraint(equalToConstant: heightConstant),
             cancelButton.widthAnchor.constraint(equalToConstant: widthConsatnt),
             cancelButton.centerXAnchor.constraint(equalTo: contentInterpretationView.centerXAnchor),
-            cancelButton.topAnchor.constraint(equalTo: affirmationLabel.bottomAnchor, constant: 115.heightDependent()),
             cancelButton.bottomAnchor.constraint(equalTo: contentInterpretationView.bottomAnchor, constant: -75)
         ])
     }
