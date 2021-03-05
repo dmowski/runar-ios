@@ -218,6 +218,8 @@ internal enum L10n {
       internal static let opila = L10n.tr("Localizable", "description.value.Opila")
       /// Неожиданная трудность
       internal static let perpu = L10n.tr("Localizable", "description.value.Perpu")
+      /// Неизвестность
+      internal static let purisaz = L10n.tr("Localizable", "description.value.Purisaz")
       /// Перемена к лучшему
       internal static let raidu = L10n.tr("Localizable", "description.value.Raidu")
       /// Победа в любой деятельности
@@ -228,8 +230,6 @@ internal enum L10n {
       internal static let uruz = L10n.tr("Localizable", "description.value.Uruz")
       /// Окончание "черной" полосы в жизни
       internal static let wunji = L10n.tr("Localizable", "description.value.Wunji")
-      /// Неизвестность
-      internal static let þurisaz = L10n.tr("Localizable", "description.value.Þurisaz")
       internal enum Reverse {
         /// Заблуждение
         internal static let algiz = L10n.tr("Localizable", "description.value.Reverse.Algiz")
@@ -253,6 +253,8 @@ internal enum L10n {
         internal static let opila = L10n.tr("Localizable", "description.value.Reverse.Opila")
         /// Неопределенность
         internal static let perpu = L10n.tr("Localizable", "description.value.Reverse.Perpu")
+        /// Страх действовать
+        internal static let purisaz = L10n.tr("Localizable", "description.value.Reverse.Purisaz")
         /// Неожиданное событие
         internal static let raidu = L10n.tr("Localizable", "description.value.Reverse.Raidu")
         /// Упадок сил
@@ -261,8 +263,6 @@ internal enum L10n {
         internal static let uruz = L10n.tr("Localizable", "description.value.Reverse.Uruz")
         /// Медленное движение к цели
         internal static let wunji = L10n.tr("Localizable", "description.value.Reverse.Wunji")
-        /// Страх действовать
-        internal static let þurisaz = L10n.tr("Localizable", "description.value.Reverse.Þurisaz")
       }
     }
   }
@@ -289,8 +289,10 @@ internal enum L10n {
   }
 
   internal enum InterpretationForThorsHummer {
-    /// В прошлом вы ощущали Интерпретация для руны №1, в настоящее время Вы чувствуете Интерпретация 2-х рун таблицы, в будущем вас ожидает Интерпретация для руны №4
-    internal static let text = L10n.tr("Localizable", "interpretationForThorsHummer.text")
+    /// В прошлом вы ощущали %@, в настоящее время Вы чувствуете %@, в будущем вас ожидает %@
+    internal static func text(_ p1: Any, _ p2: Any, _ p3: Any) -> String {
+      return L10n.tr("Localizable", "interpretationForThorsHummer.text", String(describing: p1), String(describing: p2), String(describing: p3))
+    }
   }
 
   internal enum InterpretationForTwoRunes {
