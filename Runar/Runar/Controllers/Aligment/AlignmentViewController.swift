@@ -75,7 +75,6 @@ class AlignmentViewController: UIViewController {
             scrollViewAlignment.topAnchor.constraint(equalTo: view.topAnchor),
             scrollViewAlignment.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            contentView.centerXAnchor.constraint(equalTo: scrollViewAlignment.centerXAnchor),
             contentView.topAnchor.constraint(equalTo: scrollViewAlignment.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollViewAlignment.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollViewAlignment.widthAnchor),
