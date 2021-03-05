@@ -27,7 +27,7 @@
 
 "interpretationForNorns.text" = "Общее положение Ваших дел может быть описано как %@. Обратите самое пристальное внимание на важную проблему, а именно - %@. Возможное решение этой проблемы - это %@";
 
-"interpretationForThorsHummer.text" = "В прошлом вы ощущали Интерпретация для руны №1, в настоящее время Вы чувствуете Интерпретация 2-х рун таблицы, в будущем вас ожидает Интерпретация для руны №4";
+"interpretationForThorsHummer.text" = "В прошлом вы ощущали %@, в настоящее время Вы чувствуете %@, в будущем вас ожидает %@";
 
 "interpretationForShortPrediction.text" = "Ваше текущее состояние можно описать как %@. Ваша проблема - это %@, но для её решения вы должны опираться на %@. Если вы будете настойчивы в своих действиях то вас ждет %@.";
 
@@ -709,8 +709,8 @@
 "description.value.Reverse.Fehu" = "Разочарование или потеря";
 "description.value.Uruz" = "Перемена в жизни";
 "description.value.Reverse.Uruz" = "Упущенная возможность";
-"description.value.Þurisaz" = "Неизвестность";
-"description.value.Reverse.Þurisaz" = "Страх действовать";
+"description.value.Purisaz" = "Неизвестность";
+"description.value.Reverse.Purisaz" = "Страх действовать";
 "description.value.Ansuz" = "Духовное озарение, вмешательство высших сил";
 "description.value.Reverse.Ansuz" = "Тревога и уныние";
 "description.value.Raidu" = "Перемена к лучшему";

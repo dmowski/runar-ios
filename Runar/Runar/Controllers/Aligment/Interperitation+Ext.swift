@@ -209,7 +209,7 @@ extension AlignmentViewController {
     // MARK: - AffirmationLabel
     
     func setUpAffirmationLabel() {
-        var affirmationText: String
+        var affirmationText = String()
         if totalLuck>39 && totalLuck<=50 {
             affirmationText = affirmation.fourtyPercent.randomElement() ?? ""
         } else if totalLuck>29 && totalLuck<=39 {
