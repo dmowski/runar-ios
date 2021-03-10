@@ -21,6 +21,10 @@
 		1987AACA25BDCDD500BB3655 /* SevenRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AAC925BDCDD500BB3655 /* SevenRuneView.swift */; };
 		1987AACF25BDCDF000BB3655 /* EightRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AACE25BDCDF000BB3655 /* EightRuneView.swift */; };
 		198A056925B77BE200FDA485 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 198A056825B77BE200FDA485 /* Localizable.strings */; };
+		199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A678A25F837110013DE5D /* MainTabBarController.swift */; };
+		199A679325F838C10013DE5D /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A679225F838C10013DE5D /* LibraryViewController.swift */; };
+		199A679825F838E50013DE5D /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A679725F838E50013DE5D /* FavoritesViewController.swift */; };
+		199A679D25F8390F0013DE5D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A679C25F8390F0013DE5D /* SettingsViewController.swift */; };
 		19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC60225C01A2D000808CF /* ScreenDependent.swift */; };
 		19BDC61225C02EE9000808CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC61125C02EE9000808CF /* SceneDelegate.swift */; };
 		19BDC61B25C030B1000808CF /* UIControlPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC61825C030B1000808CF /* UIControlPublisher.swift */; };
@@ -51,14 +55,9 @@
 		9BAEB62F25F18BF3004B7761 /* RunesInterpretationsPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAEB62E25F18BF3004B7761 /* RunesInterpretationsPopUp.swift */; };
 		9BAEB63425F18C3B004B7761 /* Interperitation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAEB63325F18C3B004B7761 /* Interperitation+Ext.swift */; };
 		9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD228FD258A321B00E17E98 /* AppDelegate.swift */; };
-		9BD22905258A321B00E17E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22903258A321B00E17E98 /* Main.storyboard */; };
 		9BD22907258A321F00E17E98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22906258A321F00E17E98 /* Assets.xcassets */; };
-		9BD2290A258A321F00E17E98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22908258A321F00E17E98 /* LaunchScreen.storyboard */; };
 		9BD22915258A322000E17E98 /* RunarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22914258A322000E17E98 /* RunarTests.swift */; };
 		9BD22920258A322000E17E98 /* RunarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD2291F258A322000E17E98 /* RunarUITests.swift */; };
-		9BD22937258A644400E17E98 /* RunesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22936258A644400E17E98 /* RunesStoryboard.storyboard */; };
-		9BD2294D258A6F2600E17E98 /* FavouritiesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD2294C258A6F2600E17E98 /* FavouritiesStoryboard.storyboard */; };
-		9BD22952258A6F3D00E17E98 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22951258A6F3D00E17E98 /* SettingsStoryboard.storyboard */; };
 		9BD2295A258AB02500E17E98 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22959258AB02500E17E98 /* CollectionViewController.swift */; };
 		9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22971258AD6EF00E17E98 /* MainCell.swift */; };
 		9BD229CA258D776200E17E98 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229BD258D776000E17E98 /* Roboto-MediumItalic.ttf */; };
@@ -112,6 +111,10 @@
 		1987AAC925BDCDD500BB3655 /* SevenRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenRuneView.swift; sourceTree = "<group>"; };
 		1987AACE25BDCDF000BB3655 /* EightRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightRuneView.swift; sourceTree = "<group>"; };
 		198A056825B77BE200FDA485 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		199A678A25F837110013DE5D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		199A679225F838C10013DE5D /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		199A679725F838E50013DE5D /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		199A679C25F8390F0013DE5D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		19BDC60225C01A2D000808CF /* ScreenDependent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDependent.swift; sourceTree = "<group>"; };
 		19BDC61125C02EE9000808CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		19BDC61825C030B1000808CF /* UIControlPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlPublisher.swift; sourceTree = "<group>"; };
@@ -146,9 +149,7 @@
 		9BAEB63325F18C3B004B7761 /* Interperitation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interperitation+Ext.swift"; sourceTree = "<group>"; };
 		9BD228FA258A321B00E17E98 /* Runar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD228FD258A321B00E17E98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9BD22904258A321B00E17E98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9BD22906258A321F00E17E98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9BD22909258A321F00E17E98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BD2290B258A321F00E17E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BD22910258A322000E17E98 /* RunarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD22914258A322000E17E98 /* RunarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunarTests.swift; sourceTree = "<group>"; };
@@ -156,9 +157,6 @@
 		9BD2291B258A322000E17E98 /* RunarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD2291F258A322000E17E98 /* RunarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunarUITests.swift; sourceTree = "<group>"; };
 		9BD22921258A322000E17E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9BD22936258A644400E17E98 /* RunesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RunesStoryboard.storyboard; sourceTree = "<group>"; };
-		9BD2294C258A6F2600E17E98 /* FavouritiesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavouritiesStoryboard.storyboard; sourceTree = "<group>"; };
-		9BD22951258A6F3D00E17E98 /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		9BD22959258AB02500E17E98 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		9BD22971258AD6EF00E17E98 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		9BD229BD258D776000E17E98 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -240,6 +238,17 @@
 			path = Support/SwiftGen;
 			sourceTree = "<group>";
 		};
+		199A678925F836C20013DE5D /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				199A678A25F837110013DE5D /* MainTabBarController.swift */,
+				199A679225F838C10013DE5D /* LibraryViewController.swift */,
+				199A679725F838E50013DE5D /* FavoritesViewController.swift */,
+				199A679C25F8390F0013DE5D /* SettingsViewController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
 		19BDC61625C0306E000808CF /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,21 +325,10 @@
 			path = SFProDisplay;
 			sourceTree = "<group>";
 		};
-		9B9C25C825993DB100A4E135 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				9BD22903258A321B00E17E98 /* Main.storyboard */,
-				9BD22936258A644400E17E98 /* RunesStoryboard.storyboard */,
-				9BD2294C258A6F2600E17E98 /* FavouritiesStoryboard.storyboard */,
-				9BD22951258A6F3D00E17E98 /* SettingsStoryboard.storyboard */,
-				9BD22908258A321F00E17E98 /* LaunchScreen.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
 		9B9C25C925993DE000A4E135 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				199A678925F836C20013DE5D /* TabBarController */,
 				9B739E0A25CD9B4500726B30 /* RuneDescriptionPopUp.swift */,
 				9B739E0F25CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift */,
 				9B739E0225CD77E900726B30 /* Processing */,
@@ -408,7 +406,6 @@
 				9B9C25CB25993E0900A4E135 /* Views */,
 				9B9C25CA25993DF800A4E135 /* Support */,
 				9B9C25C925993DE000A4E135 /* Controllers */,
-				9B9C25C825993DB100A4E135 /* Storyboards */,
 			);
 			path = Runar;
 			sourceTree = "<group>";
@@ -596,18 +593,14 @@
 				9BD229CC258D776200E17E98 /* Roboto-Bold.ttf in Resources */,
 				9BD229CD258D776200E17E98 /* Roboto-Light.ttf in Resources */,
 				9BD229D3258D776200E17E98 /* Roboto-Italic.ttf in Resources */,
-				9BD2290A258A321F00E17E98 /* LaunchScreen.storyboard in Resources */,
-				9BD22952258A6F3D00E17E98 /* SettingsStoryboard.storyboard in Resources */,
 				9BD229CA258D776200E17E98 /* Roboto-MediumItalic.ttf in Resources */,
 				9BD229CE258D776200E17E98 /* Roboto-BlackItalic.ttf in Resources */,
 				9BD229D0258D776200E17E98 /* Roboto-Medium.ttf in Resources */,
 				9BD22907258A321F00E17E98 /* Assets.xcassets in Resources */,
 				9B9F151D2591499A00062F47 /* AmaticSC-Bold.ttf in Resources */,
-				9BD2294D258A6F2600E17E98 /* FavouritiesStoryboard.storyboard in Resources */,
 				9BD229CF258D776200E17E98 /* Roboto-LightItalic.ttf in Resources */,
 				9BD229D4258D776200E17E98 /* Roboto-ThinItalic.ttf in Resources */,
 				9BD229D1258D776200E17E98 /* Roboto-Thin.ttf in Resources */,
-				9BD22905258A321B00E17E98 /* Main.storyboard in Resources */,
 				9BD229D6258D776200E17E98 /* Roboto-BoldItalic.ttf in Resources */,
 				9BD229CB258D776200E17E98 /* Roboto-Regular.ttf in Resources */,
 				9B9F151C2591499A00062F47 /* AmaticSC-Regular.ttf in Resources */,
@@ -615,7 +608,6 @@
 				9BD229D5258D776200E17E98 /* Roboto-Black.ttf in Resources */,
 				9B739E4325D1DCD100726B30 /* SFProDisplay-Regular.ttf in Resources */,
 				198A056925B77BE200FDA485 /* Localizable.strings in Resources */,
-				9BD22937258A644400E17E98 /* RunesStoryboard.storyboard in Resources */,
 				9B97AC7F25AE6E81008FFF3F /* SFProDisplay-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -734,7 +726,9 @@
 				19BDC61D25C030B1000808CF /* PublisherProvider.swift in Sources */,
 				1987AAC525BDCDCA00BB3655 /* SixRuneView.swift in Sources */,
 				19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */,
+				199A679825F838E50013DE5D /* FavoritesViewController.swift in Sources */,
 				1987AACA25BDCDD500BB3655 /* SevenRuneView.swift in Sources */,
+				199A679D25F8390F0013DE5D /* SettingsViewController.swift in Sources */,
 				9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */,
 				195AEDC325B8C3A300180A49 /* AlignmentViewController.swift in Sources */,
 				1907851425C4236000434D57 /* FirstRuneView.swift in Sources */,
@@ -756,6 +750,7 @@
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
 				9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */,
 				9B739E0625CD77E900726B30 /* ProcessingViewModel.swift in Sources */,
+				199A679325F838C10013DE5D /* LibraryViewController.swift in Sources */,
 				19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */,
 				19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */,
 				9B739E0525CD77E900726B30 /* ProcessingViewController.swift in Sources */,
@@ -766,6 +761,7 @@
 				1987AACF25BDCDF000BB3655 /* EightRuneView.swift in Sources */,
 				191D32D025B7C46A001DC210 /* Localizable.swift in Sources */,
 				1987AAC025BDCDBF00BB3655 /* FiveRuneView.swift in Sources */,
+				199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */,
 				9BAEB63425F18C3B004B7761 /* Interperitation+Ext.swift in Sources */,
 				19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */,
 				9B739E0B25CD9B4500726B30 /* RuneDescriptionPopUp.swift in Sources */,
@@ -802,25 +798,6 @@
 			targetProxy = 9BD2291C258A322000E17E98 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		9BD22903258A321B00E17E98 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9BD22904258A321B00E17E98 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		9BD22908258A321F00E17E98 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9BD22909258A321F00E17E98 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9BD22922258A322000E17E98 /* Debug */ = {

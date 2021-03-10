@@ -18,7 +18,7 @@ class CollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let mainImage: UIImage? = UIImage(named: "main")
+        let mainImage: UIImage? = Assets.Background.main.image
         let mainImageView: UIImageView = UIImageView(image: mainImage)
         mainImageView.contentMode = .scaleAspectFill
         collectionView.backgroundView = mainImageView
@@ -26,37 +26,23 @@ class CollectionViewController: UICollectionViewController {
         collectionView.delaysContentTouches = false
         
         createFloatingButton()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Register cell classes
-        
+
         collectionView.register(MainCell.self, forCellWithReuseIdentifier: MainCell.reuseIdentifier)
         
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false 
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    // MARK: UICollectionViewDataSource
+    //-------------------------------------------------
+    // MARK: - UICollectionViewDataSource
+    //-------------------------------------------------
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
@@ -71,9 +57,9 @@ class CollectionViewController: UICollectionViewController {
         return cell
     }
     
-    
-    // MARK: UICollectionViewDelegate
-    
+    //-------------------------------------------------
+    // MARK: - UICollectionViewDelegate
+    //-------------------------------------------------
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let runeDescription = DataBase.runes.first(where: {
@@ -93,6 +79,10 @@ class CollectionViewController: UICollectionViewController {
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
+    
+    //-------------------------------------------------
+    // MARK: - Move Button
+    //-------------------------------------------------
     
     var pointingToBottom: Bool = true {
         didSet {
@@ -117,13 +107,12 @@ class CollectionViewController: UICollectionViewController {
             floatingImage.widthAnchor.constraint(equalToConstant: 77),
             floatingImage.heightAnchor.constraint(equalToConstant: 24),
         ])
-        
     }
     
     @objc func floatingTapped (sender: UIButton) {
         
         if pointingToBottom == true {
-            collectionView.setContentOffset(CGPoint(x: 0, y: collectionView.contentSize.height - collectionView.bounds.height), animated: true)
+            collectionView.setContentOffset(CGPoint(x: 0, y: collectionView.contentSize.height - collectionView.bounds.height + collectionView.adjustedContentInset.bottom), animated: true)
         } else {
             collectionView.setContentOffset(CGPoint(x: 0, y: -view.safeAreaInsets.top), animated: true)
         }
@@ -139,6 +128,10 @@ class CollectionViewController: UICollectionViewController {
     }
 }
 
+//-------------------------------------------------
+// MARK: - Extension
+//-------------------------------------------------
+
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -150,7 +143,6 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
         let aspectRatio: CGFloat = 183 / 199
         return CGSize(width: itemWidth, height: itemWidth / aspectRatio)
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 25, left: 16, bottom: 16, right: 16)
@@ -169,21 +161,21 @@ private extension RuneDescription {
     var image: UIImage {
         switch layout {
         case .dayRune:
-            return Assets.dayRune.image
+            return Assets.CellSettings.Runes.dayRune.image
         case .twoRunes:
-            return Assets.twoRunes.image
+            return Assets.CellSettings.Runes.twoRunes.image
         case .norns:
-            return Assets.norns.image
+            return Assets.CellSettings.Runes.norns.image
         case .thorsHummer:
-            return Assets.thorsHummer.image
+            return Assets.CellSettings.Runes.thorsHummer.image
         case .shortPrediction:
-            return Assets.shortPrediction.image
+            return Assets.CellSettings.Runes.shortPrediction.image
         case .cross:
-            return Assets.cross.image
+            return Assets.CellSettings.Runes.cross.image
         case .elementsCross:
-            return Assets.elementsCross.image
+            return Assets.CellSettings.Runes.elementsCross.image
         case .keltsCross:
-            return Assets.keltsCross.image
+            return Assets.CellSettings.Runes.keltsCross.image
         }
     }
 }

@@ -183,9 +183,9 @@ class AlignmentViewController: UIViewController {
         let heightConstant: CGFloat = DeviceType.iPhoneSE ? 46 : 56
         let widthConsatnt: CGFloat = DeviceType.iPhoneSE ? 210 : 255
         NSLayoutConstraint.activate([
-            startButton.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: bottomConstant),
-            startButton.heightAnchor.constraint(equalToConstant: heightConstant),
-            startButton.widthAnchor.constraint(equalToConstant: widthConsatnt),
+            startButton.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: bottomConstant.heightDependent()),
+            startButton.heightAnchor.constraint(equalToConstant: heightConstant.heightDependent()),
+            startButton.widthAnchor.constraint(equalToConstant: widthConsatnt.heightDependent()),
             startButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             startButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -82.heightDependent())
         ])
