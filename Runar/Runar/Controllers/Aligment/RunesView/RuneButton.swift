@@ -17,7 +17,8 @@ public class RuneButton: UIButton {
         public let runeType: RuneType
         public let title: String
         public let image: UIImage
-        
+        public var openRune: (()->())
+        public var runeInfo: ((_ runeType: RuneType)->())
         public func getAttributedTitle(with color: UIColor) -> NSAttributedString {
             NSAttributedString(
                 string: title,
@@ -88,7 +89,7 @@ public class RuneButton: UIButton {
             backgroundColor = .clear
             layer.borderColor = UIColor.clear.cgColor
             layer.borderWidth = 0
-            isUserInteractionEnabled = false
+            isUserInteractionEnabled = true
             setAttributedTitle(nil, for: .normal)
             setImage(viewModel?.image, for: .normal)
 
@@ -141,6 +142,17 @@ public class RuneButton: UIButton {
     
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
+        switch self.runeState {
+        case .highlighted:
+            self.viewModel?.openRune()
+        case .rune:
+            guard let runeType = runeType else {return }
+            self.viewModel?.runeInfo(runeType)
+
+        default:
+             break
+        }
+    
         transform = .identity
 
     }
