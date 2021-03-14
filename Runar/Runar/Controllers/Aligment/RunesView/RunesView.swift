@@ -19,16 +19,21 @@ public class RunesView: UIView {
     public class ViewModel {
         public let didHighlightAllRunes: ([RuneType]) -> Void
         
-        public init(didHighlightAllRunes: @escaping ([RuneType]) -> Void) {
+        public init(viewController: UIViewController, runesLayout: RuneLayout, didHighlightAllRunes: @escaping ([RuneType]) -> Void) {
             self.didHighlightAllRunes = didHighlightAllRunes
+            self.viewController = viewController
+            self.runeLayout = runesLayout
         }
+        
+        public var viewController: UIViewController
+        public var runeLayout: RuneLayout
     }
     
     //-------------------------------------------------
     // MARK: - Variables
     //-------------------------------------------------
     
-    var runeLayout: RuneLayout = .dayRune
+    public var runeLayout: RuneLayout = .dayRune
     
     private let enumeratedRuneViews: [RuneLayout: RuneViewProtocol & UIView] = [
         .dayRune: FirstRuneView(),
