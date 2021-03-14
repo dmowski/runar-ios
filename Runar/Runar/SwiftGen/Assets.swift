@@ -27,11 +27,11 @@ internal enum Assets {
   }
   internal enum CellSettings {
     internal enum Colors {
-      internal static let backgroundColor = ColorAsset(name: "CellSettings/Colors/backgroundColor")
+      internal static let backgroundColor = ColorAsset(name: "CellSettings/Colors/BackgroundColor")
+      internal static let colorDidLight = ColorAsset(name: "CellSettings/Colors/ColorDidLight")
+      internal static let colorLight = ColorAsset(name: "CellSettings/Colors/ColorLight")
       internal static let backgroundColorHighlite = ColorAsset(name: "CellSettings/Colors/backgroundColorHighlite")
       internal static let borderColor = ColorAsset(name: "CellSettings/Colors/borderColor")
-      internal static let colorDidLight = ColorAsset(name: "CellSettings/Colors/colorDidLight")
-      internal static let colorLight = ColorAsset(name: "CellSettings/Colors/colorLight")
     }
     internal enum Runes {
       internal static let cross = ImageAsset(name: "CellSettings/Runes/cross")
@@ -105,10 +105,10 @@ internal enum Assets {
   }
   internal enum TabBar {
     internal enum Image {
-      internal static let favorites = ImageAsset(name: "TabBar/Image/favorites")
-      internal static let home = ImageAsset(name: "TabBar/Image/home")
-      internal static let library = ImageAsset(name: "TabBar/Image/library")
-      internal static let settings = ImageAsset(name: "TabBar/Image/settings")
+      internal static let favorites = ImageAsset(name: "TabBar/Image/Favorites")
+      internal static let home = ImageAsset(name: "TabBar/Image/Home")
+      internal static let library = ImageAsset(name: "TabBar/Image/Library")
+      internal static let settings = ImageAsset(name: "TabBar/Image/Settings")
     }
     internal static let pushColor = ColorAsset(name: "TabBar/pushColor")
   }
@@ -119,6 +119,8 @@ internal enum Assets {
   internal static let floatingUp = ImageAsset(name: "floatingUp")
   internal static let mainFire = ImageAsset(name: "main_fire")
   internal static let person2 = ImageAsset(name: "person 2")
+  internal static let popUpVectorLeft = ImageAsset(name: "popUpVectorLeft")
+  internal static let popUpVectorRight = ImageAsset(name: "popUpVectorRight")
   internal static let selected = ImageAsset(name: "selected")
   internal static let unselected = ImageAsset(name: "unselected")
   internal static let vector = ImageAsset(name: "vector")
