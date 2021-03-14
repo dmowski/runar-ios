@@ -83,25 +83,109 @@ public extension RuneViewProtocol where Self: UIView {
             
             runesSet.append(associatedRune)
             let runeImage = associatedRune.image
-            
             let button = RuneButton()
-
             button.layer.cornerRadius = 25.heightDependent()
-
             button.clipsToBounds = true
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.update(with: .init(runeType: associatedRune, title: "\(index + 1)", image: runeImage))
-            button.tapPublisher()
-                .sink { [weak self, weak button] in
-                    guard let self = self else { return }
+
+            button.update(with: .init(runeType: associatedRune,
+                                      title: "\(index + 1)", image: runeImage,
+                openRune: {
+                self.openButton(index: index)
+                self.highlightNextButton(previousIndex: index)
+                self.verifyDidHighlightAllButtons()
+                }, runeInfo: { runeType in
+                
+                    let oneRune = OneRuneViewController(runeType: runeType, runeTime: self.configureRuneTime(runeLayout: self.viewModel!.runeLayout, index:index))
                     
-                    guard button?.runeState == .highlighted else { return }
-                    self.openButton(index: index)
-                    self.highlightNextButton(previousIndex: index)
-                    self.verifyDidHighlightAllButtons()
-                }.store(in: &cancellables)
+                guard let controller = self.viewModel?.viewController else {return}
+                controller.addChild(oneRune)
+                controller.view.addSubview(oneRune.view)
+                oneRune.view.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    oneRune.view.bottomAnchor.constraint(equalTo: controller.view.bottomAnchor),
+                    oneRune.view.centerXAnchor.constraint(equalTo: controller.view.centerXAnchor),
+                    oneRune.view.widthAnchor.constraint(equalTo: controller.view.widthAnchor),
+                                                oneRune.view.heightAnchor.constraint(equalToConstant: controller.view.frame.height * 2 / 3)
+                    
+                ])
+                oneRune.didMove(toParent: self.viewModel?.viewController)
+            }))
+
             dict[index] = button
         })
+    }
+    
+    func configureRuneTime(runeLayout: RuneLayout, index: Int) -> String {
+        var result = String()
+        switch (runeLayout, index) {
+        case (.dayRune, 0):
+            result = ""
+        case (.twoRunes, 0):
+            result = "Настоящее"
+        case (.twoRunes, 1):
+            result = "Силы, влияющие на вас"
+        case (.norns, 0):
+            result = "Общая ситуация"
+        case (.norns, 1):
+            result = "Проблема"
+        case (.norns, 2):
+            result = "Решение проблемы"
+        case (.shortPrediction, 0):
+            result = "Настоящее"
+        case (.shortPrediction, 1):
+            result = "Проблема"
+        case (.shortPrediction, 2):
+            result = "Решение"
+        case (.shortPrediction, 3):
+            result = "Результат"
+        case (.thorsHummer, 0):
+            result = "Прошлое"
+        case (.thorsHummer, 1):
+            result = "Ситуация в настоящее время"
+        case (.thorsHummer, 2):
+            result = "Ситуация в настоящее время"
+        case (.thorsHummer, 3):
+            result = "Будущее"
+        case (.cross, 0):
+            result = "Прошлое"
+        case (.cross, 1):
+            result = "Проблема"
+        case (.cross, 2):
+            result = "Результат"
+        case (.cross, 3):
+            result = "Помощь"
+        case (.cross, 4):
+            result = "Непреодолимая сила"
+        case (.elementsCross, 0):
+            result = "Настоящее"
+        case (.elementsCross, 1):
+            result = "Ваша сущность"
+        case (.elementsCross, 2):
+            result = "Вероятное будущее"
+        case (.elementsCross, 3):
+            result = "Проблема"
+        case (.elementsCross, 4):
+            result = "Ваша цель"
+        case (.elementsCross, 5):
+            result = "Трудности"
+        case (.keltsCross, 0):
+            result = "Настоящее, истинное положение вещей"
+        case (.keltsCross, 1):
+            result = "Прошлое"
+        case (.keltsCross, 2):
+            result = "Будущее"
+        case (.keltsCross, 3):
+            result = "Условия, на которые необходимо обратить внимание"
+        case (.keltsCross, 4):
+            result = "Причина трудностей"
+        case (.keltsCross, 5):
+            result = "Лучшее, чего можно ожидать"
+        case (.keltsCross, 6):
+            result = ""
+        default: break
+        }
+        return result
     }
     
     func addButtons() {
