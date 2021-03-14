@@ -36,7 +36,7 @@ class AlignmentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        runesViewContainer.update(with: .init(didHighlightAllRunes: { [weak self] runes in
+        runesViewContainer.update(with: .init(viewController: self, runesLayout: viewModel.runeLayout, didHighlightAllRunes: { [weak self] runes in
             self?.startButton.setTitle("Толковать", for: .normal)
             self?.startButton.addTarget(self, action: #selector(self?.buttonTaped), for: .touchUpInside)
         }))
