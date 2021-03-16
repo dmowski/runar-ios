@@ -13,6 +13,7 @@ final class BottomLineView: UIView {
     override init(frame: CGRect) {
         super.init(frame:frame)
         self.translatesAutoresizingMaskIntoConstraints = false
+        addBlackView()
         setVectorsConstr()
         setUpPageControl()
     }
@@ -26,27 +27,25 @@ final class BottomLineView: UIView {
         self.runesSet = runesSet
     }
     
-    private var blackLayer: CAGradientLayer = {
-        let layer0 = CAGradientLayer()
-        layer0.colors = [
-          UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
-          UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
-        ]
-        layer0.locations = [0, 0.43]
-        layer0.startPoint = CGPoint(x: 0.25, y: 0.5)
-        layer0.endPoint = CGPoint(x: 0.75, y: 0.5)
-        layer0.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0, b: 1, c: -1, d: 0, tx: 1, ty: 0))
-        return layer0
+    //MARK: -BlackView
+    private var blackView: UIImageView = {
+        let blackView = UIImageView()
+        blackView.image = UIImage(named: "bottomBlackGradient")
+        blackView.translatesAutoresizingMaskIntoConstraints = false
+        return blackView
     }()
     
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        blackLayer.bounds = self.bounds.insetBy(dx: -0.5*self.bounds.size.width, dy: -0.5*self.bounds.size.height)
-//        blackLayer.position = self.center
-//        self.layer.addSublayer(blackLayer)
-//        self.layer.cornerRadius = 20
-//
-//    }
+    private func addBlackView() {
+        self.addSubview(blackView)
+        NSLayoutConstraint.activate([
+            blackView.topAnchor.constraint(equalTo: self.topAnchor),
+            blackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            blackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            blackView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
+        
+    }
+    
     //MARK: - Vectors
     
     private let leftVectror: UIImageView = {
