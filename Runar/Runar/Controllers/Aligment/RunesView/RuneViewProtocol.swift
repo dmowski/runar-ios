@@ -101,6 +101,7 @@ public extension RuneViewProtocol where Self: UIView {
                 guard let controller = self.viewModel?.viewController else {return}
                 controller.addChild(oneRune)
                 controller.view.addSubview(oneRune.view)
+                oneRune.didMove(toParent: controller)
                 oneRune.view.translatesAutoresizingMaskIntoConstraints = false
                 NSLayoutConstraint.activate([
                     oneRune.view.bottomAnchor.constraint(equalTo: controller.view.bottomAnchor),
