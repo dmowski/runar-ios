@@ -29,7 +29,7 @@ final class TopLineView: UIView {
         self.init(frame: .zero)
         let nameParagraphStyle = NSMutableParagraphStyle()
         nameParagraphStyle.lineHeightMultiple = 0.87
-        runeNameLabel.attributedText = NSMutableAttributedString(string: "runeType.name", attributes: [NSAttributedString.Key.paragraphStyle: nameParagraphStyle])
+        runeNameLabel.attributedText = NSMutableAttributedString(string: String(runeType.name), attributes: [NSAttributedString.Key.paragraphStyle: nameParagraphStyle])
         let timeParagraphStyle = NSMutableParagraphStyle()
         timeParagraphStyle.lineHeightMultiple = 1.4
         timeLabel.attributedText = NSMutableAttributedString(string: runeTime, attributes: [NSAttributedString.Key.paragraphStyle: timeParagraphStyle])

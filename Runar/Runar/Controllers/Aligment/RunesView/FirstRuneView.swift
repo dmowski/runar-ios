@@ -38,7 +38,7 @@ public class FirstRuneView: UIView, RuneViewProtocol {
     
     private func setUpContent() {
         
-        configureIndexesAndButtons(count: 1)
+        configureIndexesAndButtons(count: 1, availableRunes: RuneType.allCases(subtype: .random))
         addButtons()
         setupViewConstraints()
         highlightFirstButton()
