@@ -114,6 +114,7 @@ internal enum Assets {
   }
   internal static let ads = ImageAsset(name: "ads")
   internal static let backgroundDown = ImageAsset(name: "backgroundDown")
+  internal static let bottomBlackGradient = ImageAsset(name: "bottomBlackGradient")
   internal static let escape = ImageAsset(name: "escape")
   internal static let floatingDown = ImageAsset(name: "floatingDown")
   internal static let floatingUp = ImageAsset(name: "floatingUp")
@@ -122,6 +123,7 @@ internal enum Assets {
   internal static let popUpVectorLeft = ImageAsset(name: "popUpVectorLeft")
   internal static let popUpVectorRight = ImageAsset(name: "popUpVectorRight")
   internal static let selected = ImageAsset(name: "selected")
+  internal static let topBlackGradient = ImageAsset(name: "topBlackGradient")
   internal static let unselected = ImageAsset(name: "unselected")
   internal static let vector = ImageAsset(name: "vector")
 }
