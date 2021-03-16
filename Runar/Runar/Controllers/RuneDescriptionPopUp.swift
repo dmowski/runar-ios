@@ -36,10 +36,10 @@ class RuneDescriptionPopUp: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        view.addSubview(containerView)
-        view.addSubview(titleLabel)
-        view.addSubview(actionButton)
-        view.addSubview(messageLabel)
+        
+
+ 
+        
         configureContainerView()
         configureTitleLabel()
         configureActionButton()
@@ -47,6 +47,7 @@ class RuneDescriptionPopUp: UIViewController {
     }
     
     func configureContainerView() {
+        view.addSubview(containerView)
         if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
             NSLayoutConstraint.activate([
                 containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
@@ -65,7 +66,7 @@ class RuneDescriptionPopUp: UIViewController {
     }
     
     func configureTitleLabel() {
-        titleLabel.text = viewModel.runeDescription.description
+        titleLabel.text = viewModel.runeDescription.name
         
 //        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
 //            NSLayoutConstraint.activate([
@@ -80,7 +81,7 @@ class RuneDescriptionPopUp: UIViewController {
 //                titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -486)
 //            ])
 //        }
-        
+        containerView.addSubview(titleLabel)
         NSLayoutConstraint.activate([
                         titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 44),
                         titleLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
@@ -93,22 +94,23 @@ class RuneDescriptionPopUp: UIViewController {
     }
     
     func configureActionButton() {
+        containerView.addSubview(actionButton)
         actionButton.setTitle("Ok", for: .normal)
         actionButton.addTarget(self , action: #selector(dismissVC), for: .touchUpInside)
         
         if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
             NSLayoutConstraint.activate([
-                actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -366),
+                actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -36),
                 actionButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 113.71),
                 actionButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -112.88),
-                actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -366)
+                actionButton.heightAnchor.constraint(equalToConstant: 46)
             ])
         } else {
             NSLayoutConstraint.activate([
-                actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -469),
+                actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -40),
                 actionButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 145),
                 actionButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -143),
-                actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -40)
+                actionButton.heightAnchor.constraint(equalToConstant: 56)
             ])
         }
     }
@@ -118,6 +120,7 @@ class RuneDescriptionPopUp: UIViewController {
     }
     
     func configureBodyLabel() {
+        containerView.addSubview(messageLabel)
         messageLabel.text = viewModel.runeDescription.description
         messageLabel.lineBreakMode = .byWordWrapping
         let paragraphStyle = NSMutableParagraphStyle()
@@ -131,14 +134,14 @@ class RuneDescriptionPopUp: UIViewController {
                 messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 17.75),
                 messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 17),
                 messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
-                messageLabel.bottomAnchor.constraint(lessThanOrEqualTo: actionButton.topAnchor, constant: -98)
+                messageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -98)
             ])
         } else {
             NSLayoutConstraint.activate([
                 messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 21),
                 messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24),
                 messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
-                messageLabel.bottomAnchor.constraint(lessThanOrEqualTo: actionButton.topAnchor, constant: -37)
+                messageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -37)
             ])
         }
     }
