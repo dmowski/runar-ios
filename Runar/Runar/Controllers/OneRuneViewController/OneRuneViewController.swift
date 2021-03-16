@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class OneRuneViewController: UIViewController {
     
     private var runeType : RuneType?
@@ -29,6 +30,7 @@ class OneRuneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        topLine?.delegate = self
         setView()
         setUpTopLineConstr()
         setUpBottomConstr()
@@ -128,5 +130,13 @@ class OneRuneViewController: UIViewController {
             descriptionLabel.widthAnchor.constraint(equalTo: scrollViewDescription.widthAnchor),
             descriptionLabel.bottomAnchor.constraint(equalTo: scrollViewDescription.bottomAnchor)
         ])
+    }
+}
+
+extension OneRuneViewController: Closable {
+    func closePopUp() {
+        self.willMove(toParent: nil)
+        self.view.removeFromSuperview()
+        self.removeFromParent()
     }
 }
