@@ -37,7 +37,7 @@ class SevenRuneView: UIView, RuneViewProtocol {
     
     private func setUpContent() {
         
-        configureIndexesAndButtons(count: 6)
+        configureIndexesAndButtons(count: 6, availableRunes: RuneType.allCases(subtype: .random))
         addButtons()
         setupViewConstraints()
         highlightFirstButton()

@@ -494,6 +494,126 @@ public extension RuneType {
             return L10n.Description.Total.odin
         }
     }
+    
+    var name: String {
+        switch self {
+        case let .fehu(isReversed: isReversed):
+            if isReversed {
+            return L10n.Name.Reverse.fehu
+            } else {
+                return L10n.Name.fehu
+                
+            }
+        case .urus(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Name.Reverse.uruz
+            } else {
+                return L10n.Name.uruz
+            }
+        case .purisaz(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Name.Reverse.purisaz
+            } else {
+                return L10n.Name.purisaz
+            }
+        case .ansuz(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Name.Reverse.ansuz
+            } else {
+                return L10n.Name.ansuz
+            }
+        case .raidu(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Name.Reverse.raidu
+            } else {
+                return L10n.Name.raidu
+            }
+        case .kauna(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Name.Reverse.kauna
+            } else {
+                return L10n.Name.kauna
+            }
+        case .gebu:
+            return L10n.Name.gebu
+        case .wunji(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Name.Reverse.wunji
+            } else {
+                return L10n.Name.wunji
+            }
+        case .hagalaz:
+            return L10n.Name.hagalaz
+        case .naudiz(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Name.Reverse.naudiz
+            } else {
+                return L10n.Name.naudiz
+            }
+        case .isaz:
+            return L10n.Name.isaz
+        case .jara:
+            return L10n.Name.jara
+        case .iwas:
+            return L10n.Name.iwaz
+        case .perpu(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Name.Reverse.perpu
+            } else {
+                return L10n.Name.perpu
+            }
+        case .algis(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Name.Reverse.algiz
+            } else {
+                return L10n.Name.algiz
+            }
+        case .sowilu:
+            return L10n.Name.sowilu
+        case .tiwaz(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Name.Reverse.tiwaz
+            } else {
+                return L10n.Name.tiwaz
+            }
+        case .berkana(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Name.Reverse.berkana
+            } else {
+                return L10n.Name.berkana
+            }
+        case .ehwaz(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Name.Reverse.ehvaz
+            } else {
+                return L10n.Name.ehwaz
+            }
+        case .mannaz(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Name.Reverse.mannaz
+            } else {
+                return L10n.Name.mannaz
+            }
+        case .lagus(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Name.Reverse.laguz
+            } else {
+                return L10n.Name.laguz
+            }
+        case .inwaz:
+            return L10n.Name.inwaz
+        case .dagaz:
+            return L10n.Name.dagaz
+        case .opila(isReversed: let isReversed):
+            if isReversed {
+                return L10n.Name.Reverse.opila
+            } else {
+                return L10n.Name.opila
+            }
+        case .odin:
+            return L10n.Name.odin
+        }
+    }
 
     func cross (runeType: RuneType) -> String {
         switch (self, runeType) {

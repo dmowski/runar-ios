@@ -37,7 +37,7 @@ class SixRuneView: UIView, RuneViewProtocol {
     
     private func setUpContent() {
         
-        configureIndexesAndButtons(count: 5)
+        configureIndexesAndButtons(count: 5, availableRunes: RuneType.allCases(subtype: .random))
         addButtons()
         setupViewConstraints()
         highlightFirstButton()

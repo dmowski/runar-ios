@@ -37,7 +37,7 @@ class ThreeRuneView: UIView, RuneViewProtocol {
     
     private func setUpContent() {
         
-        configureIndexesAndButtons(count: 3)
+        configureIndexesAndButtons(count: 3, availableRunes: RuneType.allCases(subtype: .random))
         addButtons()
         setupViewConstraints()
         highlightFirstButton()

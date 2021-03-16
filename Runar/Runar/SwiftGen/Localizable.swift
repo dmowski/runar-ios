@@ -1566,6 +1566,93 @@ internal enum L10n {
     }
   }
 
+  internal enum Name {
+    /// Альгиз
+    internal static let algiz = L10n.tr("Localizable", "name.Algiz")
+    /// Ансуз
+    internal static let ansuz = L10n.tr("Localizable", "name.Ansuz")
+    /// Беркана
+    internal static let berkana = L10n.tr("Localizable", "name.Berkana")
+    /// Дагаз
+    internal static let dagaz = L10n.tr("Localizable", "name.Dagaz")
+    /// Эваз
+    internal static let ehwaz = L10n.tr("Localizable", "name.Ehwaz")
+    /// Феху
+    internal static let fehu = L10n.tr("Localizable", "name.Fehu")
+    /// Гебо
+    internal static let gebu = L10n.tr("Localizable", "name.Gebu")
+    /// Хагалаз
+    internal static let hagalaz = L10n.tr("Localizable", "name.Hagalaz")
+    /// Ингуз
+    internal static let inwaz = L10n.tr("Localizable", "name.Inwaz")
+    /// Иса
+    internal static let isaz = L10n.tr("Localizable", "name.Isaz")
+    /// Эйваз
+    internal static let iwaz = L10n.tr("Localizable", "name.Iwaz")
+    /// Йера
+    internal static let jara = L10n.tr("Localizable", "name.Jara")
+    /// Кеназ
+    internal static let kauna = L10n.tr("Localizable", "name.Kauna")
+    /// Лагуз
+    internal static let laguz = L10n.tr("Localizable", "name.Laguz")
+    /// Манназ
+    internal static let mannaz = L10n.tr("Localizable", "name.Mannaz")
+    /// Наутиз
+    internal static let naudiz = L10n.tr("Localizable", "name.Naudiz")
+    /// Руна Одина
+    internal static let odin = L10n.tr("Localizable", "name.Odin")
+    /// Отилла
+    internal static let opila = L10n.tr("Localizable", "name.Opila")
+    /// Перт
+    internal static let perpu = L10n.tr("Localizable", "name.Perpu")
+    /// Турисаз
+    internal static let purisaz = L10n.tr("Localizable", "name.Purisaz")
+    /// Райдо
+    internal static let raidu = L10n.tr("Localizable", "name.Raidu")
+    /// Совило
+    internal static let sowilu = L10n.tr("Localizable", "name.Sowilu")
+    /// Тейваз
+    internal static let tiwaz = L10n.tr("Localizable", "name.Tiwaz")
+    /// Уруз
+    internal static let uruz = L10n.tr("Localizable", "name.Uruz")
+    /// Вуньо
+    internal static let wunji = L10n.tr("Localizable", "name.Wunji")
+    internal enum Reverse {
+      /// Альгиз обратная
+      internal static let algiz = L10n.tr("Localizable", "name.Reverse.Algiz")
+      /// Ансуз обратная
+      internal static let ansuz = L10n.tr("Localizable", "name.Reverse.Ansuz")
+      /// Беркана обратная
+      internal static let berkana = L10n.tr("Localizable", "name.Reverse.Berkana")
+      /// Эваз обратная
+      internal static let ehvaz = L10n.tr("Localizable", "name.Reverse.Ehvaz")
+      /// Феху обратная
+      internal static let fehu = L10n.tr("Localizable", "name.Reverse.Fehu")
+      /// Кеназ обратная
+      internal static let kauna = L10n.tr("Localizable", "name.Reverse.Kauna")
+      /// Лагуз обратная
+      internal static let laguz = L10n.tr("Localizable", "name.Reverse.Laguz")
+      /// Манназ обратная
+      internal static let mannaz = L10n.tr("Localizable", "name.Reverse.Mannaz")
+      /// Наутиз обратная
+      internal static let naudiz = L10n.tr("Localizable", "name.Reverse.Naudiz")
+      /// Отилла обратная
+      internal static let opila = L10n.tr("Localizable", "name.Reverse.Opila")
+      /// Перт обратная
+      internal static let perpu = L10n.tr("Localizable", "name.Reverse.Perpu")
+      /// Турисаз обратная
+      internal static let purisaz = L10n.tr("Localizable", "name.Reverse.Purisaz")
+      /// Райдо обратная
+      internal static let raidu = L10n.tr("Localizable", "name.Reverse.Raidu")
+      /// Тейваз обратная
+      internal static let tiwaz = L10n.tr("Localizable", "name.Reverse.Tiwaz")
+      /// Уруз обратная
+      internal static let uruz = L10n.tr("Localizable", "name.Reverse.Uruz")
+      /// Вуньо обратная
+      internal static let wunji = L10n.tr("Localizable", "name.Reverse.Wunji")
+    }
+  }
+
   internal enum Rune {
     internal enum Cross {
       /// Чтобы узнать, как сейчас (за или против вас) складывается ситуация, используйте этот популярный расклад. Он поможет скоординировать ваши действия и подскажет оптимальное решение проблемы.

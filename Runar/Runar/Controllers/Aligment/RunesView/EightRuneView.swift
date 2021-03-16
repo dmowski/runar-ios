@@ -37,7 +37,7 @@ class EightRuneView: UIView, RuneViewProtocol {
     
     private func setUpContent() {
         
-        configureIndexesAndButtons(count: 7)
+        configureIndexesAndButtons(count: 7, availableRunes: RuneType.allCases(subtype: .random))
         addButtons()
         setupViewConstraints()
         highlightFirstButton()
