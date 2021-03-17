@@ -268,15 +268,12 @@ class AlignmentViewController: UIViewController {
     // MARK: -Info PopUp
     
     @objc func openDescriptionPopup (sender: UIButton!) {
-        let viewModel = RuneDescriptionPopUpViewModel(runeDescription: self.viewModel.runeDescription)
-        let viewController = RuneDescriptionPopUp()
-        viewController.viewModel = viewModel
-        // viewController.hidesBottomBarWhenPushed = true
-        viewController.modalPresentationStyle = .overFullScreen
-        viewController.modalTransitionStyle = .crossDissolve
-        self.present(viewController, animated: true)
-        
-    }
+            let viewModel = RuneDescriptionPopUpViewModel(runeDescription: self.viewModel.runeDescription)
+            let viewController = RuneDescriptionPopUp()
+            viewController.viewModel = viewModel
+            viewController.modalPresentationStyle = .overCurrentContext
+            self.present(viewController, animated: true)
+        }
 }
 
 

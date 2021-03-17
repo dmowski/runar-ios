@@ -143,30 +143,78 @@ extension AlignmentViewController {
     // MARK: - DescriptionLabel
     
     func setUpDescriptionLabel() {
+        
+        descriptionLabel.font = FontFamily.Roboto.thin.font(size: 19.heightDependent())
+        descriptionLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
+        descriptionLabel.numberOfLines = 0
+        
         switch runesViewContainer.runeLayout {
         case .dayRune:
             descriptionLabel.text = runesViewContainer.runesSet[0].description
+            descriptionLabel.font = FontFamily.Roboto.light.font(size: 19.heightDependent())
         case .twoRunes:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
             let description = firstRune.cross(runeType: secondRune)
             descriptionLabel.text = L10n.InterpretationForTwoRunes.text(description)
+            
+            guard let textDescription = descriptionLabel.text else { return }
+            let changeColor = NSString(string: textDescription)
+            let text = NSMutableAttributedString(string: changeColor as String)
+        
+            text.addAttributes(
+                [.font: FontFamily.Roboto.light.font(size: 19)],
+                               range: changeColor.range(of: description))
+            descriptionLabel.attributedText = text
         case .norns:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
             let thirdRune = runesViewContainer.runesSet[2]
             descriptionLabel.text = L10n.InterpretationForNorns.text(firstRune.value, secondRune.value, thirdRune.value)
+            
+            guard let textDescription = descriptionLabel.text else { return }
+            let changeColor = NSString(string: textDescription)
+            let text = NSMutableAttributedString(string: changeColor as String)
+            
+            [firstRune.value, secondRune.value, thirdRune.value].forEach {
+            text.addAttributes(
+                [.font: FontFamily.Roboto.light.font(size: 19)],
+                               range: changeColor.range(of: $0))
+            }
+            descriptionLabel.attributedText = text
         case .shortPrediction:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
             let thirdRune = runesViewContainer.runesSet[2]
             let fourthRune = runesViewContainer.runesSet[3]
             descriptionLabel.text = L10n.InterpretationForShortPrediction.text(firstRune.value, secondRune, thirdRune.value, fourthRune.value)
+            
+            guard let textDescription = descriptionLabel.text else { return }
+            let changeColor = NSString(string: textDescription)
+            let text = NSMutableAttributedString(string: changeColor as String)
+            
+            [firstRune.value, secondRune.value, thirdRune.value, fourthRune.value].forEach {
+            text.addAttributes(
+                [.font: FontFamily.Roboto.light.font(size: 19)],
+                               range: changeColor.range(of: $0))
+            }
+            descriptionLabel.attributedText = text
         case .thorsHummer:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
             let fourthRune = runesViewContainer.runesSet[3]
             descriptionLabel.text = L10n.InterpretationForThorsHummer.text(firstRune.value, secondRune.value, fourthRune.value)
+            
+            guard let textDescription = descriptionLabel.text else { return }
+            let changeColor = NSString(string: textDescription)
+            let text = NSMutableAttributedString(string: changeColor as String)
+            
+            [firstRune.value, secondRune.value, fourthRune.value].forEach {
+            text.addAttributes(
+                [.font: FontFamily.Roboto.light.font(size: 19)],
+                               range: changeColor.range(of: $0))
+            }
+            descriptionLabel.attributedText = text
         case .cross:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
@@ -174,6 +222,17 @@ extension AlignmentViewController {
             let fourthRune = runesViewContainer.runesSet[3]
             let fifthRune = runesViewContainer.runesSet[4]
             descriptionLabel.text = L10n.InterpretationForСross.text(firstRune.value, secondRune.value, thirdRune.value, fifthRune.value, fourthRune.value)
+            
+            guard let textDescription = descriptionLabel.text else { return }
+            let changeColor = NSString(string: textDescription)
+            let text = NSMutableAttributedString(string: changeColor as String)
+            
+            [firstRune.value, secondRune.value, thirdRune.value, fourthRune.value, fifthRune.value].forEach {
+            text.addAttributes(
+                [.font: FontFamily.Roboto.light.font(size: 19)],
+                               range: changeColor.range(of: $0))
+            }
+            descriptionLabel.attributedText = text
         case .elementsCross:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
@@ -182,6 +241,17 @@ extension AlignmentViewController {
             let fifthRune = runesViewContainer.runesSet[4]
             let sixthRune = runesViewContainer.runesSet[5]
             descriptionLabel.text = L10n.InterpretationElementsCross.text(secondRune.value, firstRune.value, fourthRune.value, thirdRune.value, fifthRune.value, sixthRune.value)
+            
+            guard let textDescription = descriptionLabel.text else { return }
+            let changeColor = NSString(string: textDescription)
+            let text = NSMutableAttributedString(string: changeColor as String)
+            
+            [firstRune.value, secondRune.value, thirdRune.value, fourthRune.value, fifthRune.value, sixthRune.value].forEach {
+            text.addAttributes(
+                [.font: FontFamily.Roboto.light.font(size: 19)],
+                               range: changeColor.range(of: $0))
+            }
+            descriptionLabel.attributedText = text
         case .keltsCross:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
@@ -192,11 +262,18 @@ extension AlignmentViewController {
             let seventhRune = runesViewContainer.runesSet[6]
             descriptionLabel.text = L10n.InterpretationKeltsCross.text(firstRune.value, secondRune.value, thirdRune.value, fourthRune.value, fifthRune.value, sixthRune.value, seventhRune.value)
             
+            guard let textDescription = descriptionLabel.text else { return }
+            let changeColor = NSString(string: textDescription)
+            let text = NSMutableAttributedString(string: changeColor as String)
+            
+            [firstRune.value, secondRune.value, thirdRune.value, fourthRune.value, fifthRune.value, sixthRune.value, seventhRune.value].forEach {
+            text.addAttributes(
+                [.font: FontFamily.Roboto.light.font(size: 19)],
+                               range: changeColor.range(of: $0))
+            }
+            descriptionLabel.attributedText = text
         }
         
-        descriptionLabel.font = FontFamily.Roboto.thin.font(size: 19.heightDependent())
-        descriptionLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
-        descriptionLabel.numberOfLines = 0
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         contentInterpretationView.addSubview(descriptionLabel)
         NSLayoutConstraint.activate([

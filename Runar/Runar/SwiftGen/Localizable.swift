@@ -268,35 +268,35 @@ internal enum L10n {
   }
 
   internal enum InterpretationElementsCross {
-    /// Вам, как человеку, присуща важная черта - %@, и в настоящее время с Вами происходит %@. Источником Ваших проблем может быть %@. Наиболее вероятное будущее может быть описано как %@. Для достижения этого результата, Ваша главная цель - %@. Если же Вы не достигнете поставленной цели - вас ждет %@.
+    /// Вам, как человеку, присуща важная черта - %@, и в настоящее время с Вами происходит %@.\n\nИсточником Ваших проблем может быть %@.\n\nНаиболее вероятное будущее может быть описано как %@.\n\nДля достижения этого результата, Ваша главная цель - %@.\n\nЕсли же Вы не достигнете поставленной цели - вас ждет %@.
     internal static func text(_ p1: Any, _ p2: Any, _ p3: Any, _ p4: Any, _ p5: Any, _ p6: Any) -> String {
       return L10n.tr("Localizable", "interpretationElementsCross.text", String(describing: p1), String(describing: p2), String(describing: p3), String(describing: p4), String(describing: p5), String(describing: p6))
     }
   }
 
   internal enum InterpretationForNorns {
-    /// Общее положение Ваших дел может быть описано как %@. Обратите самое пристальное внимание на важную проблему, а именно - %@. Возможное решение этой проблемы - это %@
+    /// Общее положение Ваших дел может быть описано как %@.\n\nОбратите самое пристальное внимание на важную проблему, а именно - %@.\n\nВозможное решение этой проблемы - это %@.
     internal static func text(_ p1: Any, _ p2: Any, _ p3: Any) -> String {
       return L10n.tr("Localizable", "interpretationForNorns.text", String(describing: p1), String(describing: p2), String(describing: p3))
     }
   }
 
   internal enum InterpretationForShortPrediction {
-    /// Ваше текущее состояние можно описать как %@. Ваша проблема - это %@, но для её решения вы должны опираться на %@. Если вы будете настойчивы в своих действиях то вас ждет %@.
+    /// Ваше текущее состояние можно описать как %@.\n\nВаша проблема - это %@, но для её решения вы должны опираться на %@.\n\nЕсли вы будете настойчивы в своих действиях то вас ждет %@.
     internal static func text(_ p1: Any, _ p2: Any, _ p3: Any, _ p4: Any) -> String {
       return L10n.tr("Localizable", "interpretationForShortPrediction.text", String(describing: p1), String(describing: p2), String(describing: p3), String(describing: p4))
     }
   }
 
   internal enum InterpretationForThorsHummer {
-    /// В прошлом вы ощущали %@, в настоящее время Вы чувствуете %@, в будущем вас ожидает %@
+    /// В прошлом вы ощущали %@, в настоящее время Вы чувствуете %@, в будущем вас ожидает %@.
     internal static func text(_ p1: Any, _ p2: Any, _ p3: Any) -> String {
       return L10n.tr("Localizable", "interpretationForThorsHummer.text", String(describing: p1), String(describing: p2), String(describing: p3))
     }
   }
 
   internal enum InterpretationForTwoRunes {
-    /// Ваше настоящее положение дел можно охарактеризовать как %@
+    /// Ваше настоящее положение дел можно охарактеризовать как %@.
     internal static func text(_ p1: Any) -> String {
       return L10n.tr("Localizable", "interpretationForTwoRunes.text", String(describing: p1))
     }
@@ -1553,14 +1553,14 @@ internal enum L10n {
   }
 
   internal enum InterpretationForСross {
-    /// В прошлом вы ощущали %@, настоящее (в том числе проблема) может быть описано как %@. При естественном развитии ситуации, Вас ожидает %@, причем есть сила, а именно %@, на которую Вы не можете влиять. Но если Судьба принесет вам помощь - %@, то Вас ждет лучшее будущее.
+    /// В прошлом вы ощущали %@, настоящее (в том числе проблема) может быть описано как %@.\n\nПри естественном развитии ситуации, Вас ожидает %@, причем есть сила, а именно %@, на которую Вы не можете влиять.\n\nНо если Судьба принесет вам помощь - %@, то Вас ждет лучшее будущее.
     internal static func text(_ p1: Any, _ p2: Any, _ p3: Any, _ p4: Any, _ p5: Any) -> String {
       return L10n.tr("Localizable", "interpretationForСross.text", String(describing: p1), String(describing: p2), String(describing: p3), String(describing: p4), String(describing: p5))
     }
   }
 
   internal enum InterpretationKeltsCross {
-    /// В настоящее время с Вами происходит %@, что является следствием вашего прошлого -  %@. Если в будущем ваша цель %@, вам необходимо обратить внимание на %@. Возможно, причиной ваших трудностей является %@. Лучшее, чего Вы можете ожидать - это %@. Как наиболее вероятный результат - вас ждет %@.
+    /// В настоящее время с Вами происходит:\n\n%@, что является следствием вашего прошлого -  %@.\n\nЕсли в будущем ваша цель %@, вам необходимо обратить внимание на %@.\n\nВозможно, причиной ваших трудностей является %@.\n\nЛучшее, чего Вы можете ожидать - это %@.\n\nКак наиболее вероятный результат - вас ждет %@.
     internal static func text(_ p1: Any, _ p2: Any, _ p3: Any, _ p4: Any, _ p5: Any, _ p6: Any, _ p7: Any) -> String {
       return L10n.tr("Localizable", "interpretationKeltsCross.text", String(describing: p1), String(describing: p2), String(describing: p3), String(describing: p4), String(describing: p5), String(describing: p6), String(describing: p7))
     }
