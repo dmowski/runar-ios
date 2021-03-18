@@ -10,6 +10,9 @@ import UIKit
 
 class OneRuneViewController: UIViewController {
     
+    var runesVC = {() -> () in
+        return
+    }
     private var runeType : RuneType?
     public var runesSet = [RuneType]()
     private var runeTime = String()
@@ -138,5 +141,6 @@ extension OneRuneViewController: Closable {
         self.willMove(toParent: nil)
         self.view.removeFromSuperview()
         self.removeFromParent()
+        runesVC()
     }
 }
