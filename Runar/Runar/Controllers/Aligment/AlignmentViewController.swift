@@ -32,7 +32,7 @@ class AlignmentViewController: UIViewController {
     let dividingLine = UIView()
     var totalLuck: Int = 10
     var affirmation = Affirmation()
-    
+    var readyToOpen = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,6 +131,7 @@ class AlignmentViewController: UIViewController {
         viewController.viewModel = viewModel
         viewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(viewController, animated: true)
+        self.readyToOpen = true
     }
     
     @objc func escapeOnTap (sender: UIButton!) {
@@ -274,6 +275,30 @@ class AlignmentViewController: UIViewController {
             viewController.modalPresentationStyle = .overCurrentContext
             self.present(viewController, animated: true)
         }
+
+    
+
+//-------------------------------------------------
+// MARK: -
+//-------------------------------------------------
+
+func addOneRuneViewController(controller: OneRuneViewController) {
+    contentInterpretationView.isHidden = true
+    self.addChild(controller)
+    self.view.addSubview(controller.view)
+    controller.didMove(toParent: controller)
+    controller.view.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+        controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        controller.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        controller.view.widthAnchor.constraint(equalTo: view.widthAnchor),
+        controller.view.heightAnchor.constraint(equalToConstant: view.frame.height * 2 / 3)
+        
+    ])
+    controller.didMove(toParent: self)
+    controller.runesVC = { [weak self] in
+        self?.contentInterpretationView.isHidden = false
+    }
 }
 
-
+}
