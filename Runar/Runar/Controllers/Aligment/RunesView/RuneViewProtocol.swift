@@ -97,21 +97,12 @@ public extension RuneViewProtocol where Self: UIView {
                 }, runeInfo: { runeType in
                 
                     let oneRune = OneRuneViewController(runeType: runeType, runeTime: self.configureRuneTime(runeLayout: self.viewModel!.runeLayout, index:index))
-                    
+                
                 guard let controller = self.viewModel?.viewController else {return}
-                controller.addChild(oneRune)
-                controller.view.addSubview(oneRune.view)
-                oneRune.didMove(toParent: controller)
-                oneRune.view.translatesAutoresizingMaskIntoConstraints = false
-                NSLayoutConstraint.activate([
-                    oneRune.view.bottomAnchor.constraint(equalTo: controller.view.bottomAnchor),
-                    oneRune.view.centerXAnchor.constraint(equalTo: controller.view.centerXAnchor),
-                    oneRune.view.widthAnchor.constraint(equalTo: controller.view.widthAnchor),
-                                                oneRune.view.heightAnchor.constraint(equalToConstant: controller.view.frame.height * 2 / 3)
-                    
-                ])
-                oneRune.didMove(toParent: self.viewModel?.viewController)
-            }))
+                if controller.readyToOpen == true {
+                    controller.addOneRuneViewController(controller: oneRune)
+                }
+                }))
 
             dict[index] = button
         })

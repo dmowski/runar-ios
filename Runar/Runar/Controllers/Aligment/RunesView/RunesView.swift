@@ -21,11 +21,11 @@ public class RunesView: UIView {
         
         public init(viewController: UIViewController, runesLayout: RuneLayout, didHighlightAllRunes: @escaping ([RuneType]) -> Void) {
             self.didHighlightAllRunes = didHighlightAllRunes
-            self.viewController = viewController
+            self.viewController = viewController as? AlignmentViewController
             self.runeLayout = runesLayout
         }
         
-        public var viewController: UIViewController
+        internal var viewController: AlignmentViewController?
         public var runeLayout: RuneLayout
     }
     
