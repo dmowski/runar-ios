@@ -7,13 +7,7 @@
 
 import UIKit
 
-protocol Closable {
-    func closePopUp()
-}
-
 final class TopLineView: UIView {
-    
-    var delegate: Closable?
     
     override init(frame: CGRect) {
         super.init(frame:frame)
@@ -22,7 +16,6 @@ final class TopLineView: UIView {
         configureNameConstr()
         configureTimeConstr()
         configureLuckConstr()
-        setUpCloseConstr()
     }
     
     convenience init(runeType: RuneType, runeTime: String) {
@@ -116,30 +109,6 @@ final class TopLineView: UIView {
             luckLevelLabel.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 5.heightDependent()),
             luckLevelLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             luckLevelLabel.heightAnchor.constraint(equalToConstant: 29.heightDependent())
-        ])
-    }
-    
-    //MARK: - CloseButton
-    
-    private var closeButton: UIButton = {
-        let button = UIButton()
-        button.setImage(Assets.escape.image, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(buttonOnClose), for: .touchUpInside)
-        return button
-    }()
-    
-    @objc private func buttonOnClose() {
-        delegate?.closePopUp()
-    }
-    
-    private func setUpCloseConstr() {
-        self.addSubview(closeButton)
-        NSLayoutConstraint.activate([
-            closeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 10.heightDependent()),
-            closeButton.heightAnchor.constraint(equalToConstant: 48.heightDependent()),
-            closeButton.widthAnchor.constraint(equalToConstant: 48.heightDependent()),
-            closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10.heightDependent())
         ])
     }
 }

@@ -96,7 +96,7 @@ public extension RuneViewProtocol where Self: UIView {
                 self.verifyDidHighlightAllButtons()
                 }, runeInfo: { runeType in
                 
-                    let oneRune = OneRuneViewController(runeType: runeType, runeTime: self.configureRuneTime(runeLayout: self.viewModel!.runeLayout, index:index))
+                let oneRune = OneRuneViewController(runeType: runeType,runeLayout: self.viewModel!.runeLayout, runesSet: self.runesSet)
                 
                 guard let controller = self.viewModel?.viewController else {return}
                 if controller.readyToOpen == true {
@@ -107,79 +107,7 @@ public extension RuneViewProtocol where Self: UIView {
             dict[index] = button
         })
     }
-    
-    func configureRuneTime(runeLayout: RuneLayout, index: Int) -> String {
-        var result = String()
-        switch (runeLayout, index) {
-        case (.dayRune, 0):
-            result = ""
-        case (.twoRunes, 0):
-            result = "Настоящее"
-        case (.twoRunes, 1):
-            result = "Силы, влияющие на вас"
-        case (.norns, 0):
-            result = "Общая ситуация"
-        case (.norns, 1):
-            result = "Проблема"
-        case (.norns, 2):
-            result = "Решение проблемы"
-        case (.shortPrediction, 0):
-            result = "Настоящее"
-        case (.shortPrediction, 1):
-            result = "Проблема"
-        case (.shortPrediction, 2):
-            result = "Решение"
-        case (.shortPrediction, 3):
-            result = "Результат"
-        case (.thorsHummer, 0):
-            result = "Прошлое"
-        case (.thorsHummer, 1):
-            result = "Ситуация в настоящее время"
-        case (.thorsHummer, 2):
-            result = "Ситуация в настоящее время"
-        case (.thorsHummer, 3):
-            result = "Будущее"
-        case (.cross, 0):
-            result = "Прошлое"
-        case (.cross, 1):
-            result = "Проблема"
-        case (.cross, 2):
-            result = "Результат"
-        case (.cross, 3):
-            result = "Помощь"
-        case (.cross, 4):
-            result = "Непреодолимая сила"
-        case (.elementsCross, 0):
-            result = "Настоящее"
-        case (.elementsCross, 1):
-            result = "Ваша сущность"
-        case (.elementsCross, 2):
-            result = "Вероятное будущее"
-        case (.elementsCross, 3):
-            result = "Проблема"
-        case (.elementsCross, 4):
-            result = "Ваша цель"
-        case (.elementsCross, 5):
-            result = "Трудности"
-        case (.keltsCross, 0):
-            result = "Настоящее, истинное положение вещей"
-        case (.keltsCross, 1):
-            result = "Прошлое"
-        case (.keltsCross, 2):
-            result = "Будущее"
-        case (.keltsCross, 3):
-            result = "Условия, на которые необходимо обратить внимание"
-        case (.keltsCross, 4):
-            result = "Причина трудностей"
-        case (.keltsCross, 5):
-            result = "Лучшее, чего можно ожидать"
-        case (.keltsCross, 6):
-            result = ""
-        default: break
-        }
-        return result
-    }
-    
+        
     func addButtons() {
         indexesAndButtons.forEach { _, button in
             addSubview(button)
