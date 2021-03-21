@@ -10,6 +10,9 @@ import UIKit
 final class BottomLineView: UIView {
     
     private var runesSet = [RuneType]()
+    var pageControl = UIPageControl()
+    var movePage: ((CGFloat)->())?
+    
     override init(frame: CGRect) {
         super.init(frame:frame)
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -22,9 +25,11 @@ final class BottomLineView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(runesSet: [RuneType]) {
+    convenience init(runesSet: [RuneType], runeType: RuneType) {
         self.init(frame: .zero)
         self.runesSet = runesSet
+        pageControl.numberOfPages = runesSet.count
+        pageControl.currentPage = runesSet.firstIndex(of: runeType) ?? 0
     }
     
     //MARK: -BlackView
@@ -43,7 +48,6 @@ final class BottomLineView: UIView {
             blackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             blackView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
-        
     }
     
     //MARK: - Vectors
@@ -52,6 +56,7 @@ final class BottomLineView: UIView {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "popUpVectorLeft")
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
     
@@ -59,10 +64,17 @@ final class BottomLineView: UIView {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "popUpVectorRight")
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
     
     private func setVectorsConstr() {
+        let tapGestureLeft = UITapGestureRecognizer()
+        leftVectror.addGestureRecognizer(tapGestureLeft)
+        tapGestureLeft.addTarget(self, action: #selector(lefrVectorTap))
+        let tapGestureRight = UITapGestureRecognizer()
+        rightVectror.addGestureRecognizer(tapGestureRight)
+        tapGestureRight.addTarget(self, action: #selector(rightVectorTap))
         self.addSubview(leftVectror)
         self.addSubview(rightVectror)
         NSLayoutConstraint.activate([
@@ -78,13 +90,30 @@ final class BottomLineView: UIView {
         ])
     }
     
+    @objc private func lefrVectorTap() {
+        guard let movePage = movePage else {return}
+        var current:CGFloat = CGFloat(pageControl.currentPage-1)
+        if current < 0 {
+            current = CGFloat(pageControl.numberOfPages - 1)
+        }
+        movePage(current)
+    }
+    
+    @objc private func rightVectorTap() {
+        guard let movePage = movePage else {return}
+        var current:CGFloat = CGFloat(pageControl.currentPage+1)
+        if current > CGFloat(pageControl.numberOfPages-1) {
+            current = 0
+        }
+        movePage(current)
+    }
+    
     private func setUpPageControl()  {
-        let pageControl = UIPageControl()
-        pageControl.numberOfPages = 5
         pageControl.currentPage = 2
         pageControl.currentPageIndicatorTintColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         pageControl.pageIndicatorTintColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 0.3)
        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.addTarget(self, action: #selector(pageControlDidChange(_:)), for: .valueChanged)
         
         self.addSubview(pageControl)
         NSLayoutConstraint.activate([
@@ -92,6 +121,11 @@ final class BottomLineView: UIView {
             pageControl.heightAnchor.constraint(equalToConstant: 45.heightDependent()),
             pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
-    
 }
+    @objc private func pageControlDidChange(_ sender: UIPageControl) {
+        let current = sender.currentPage
+        guard let movePage = movePage else {return}
+        movePage(CGFloat(current))
+    }
+    
 }

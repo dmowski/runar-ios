@@ -15,16 +15,17 @@ class OneRuneViewController: UIViewController {
     }
     private var runeType : RuneType?
     public var runesSet = [RuneType]()
-    private var runeTime = String()
-    var topLine : TopLineView?
-    var bottomLine : BottomLineView?
+    private var runeLayout : RuneLayout?
+    private var topWithDescription: TopWithDescriptionView?
+    private var bottomLine : BottomLineView?
     
-    init(runeType: RuneType, runeTime: String) {
+    init(runeType: RuneType, runeLayout: RuneLayout, runesSet: [RuneType]) {
         super.init(nibName: nil, bundle: nil)
         self.runeType = runeType
-        self.runeTime = runeTime
-        topLine = TopLineView(runeType: runeType , runeTime: runeTime)
-        bottomLine = BottomLineView(runesSet: runesSet)
+        self.runeLayout = runeLayout
+        self.runesSet = runesSet
+        pageScroll.delegate = self
+        bottomLine = BottomLineView(runesSet: runesSet, runeType: runeType)
     }
     
     required init?(coder: NSCoder) {
@@ -33,12 +34,9 @@ class OneRuneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topLine?.delegate = self
         setView()
-        setUpTopLineConstr()
         setUpBottomConstr()
-        setUpScrollViewDescription()
-        setUpDescriptionLabel()
+        configurePageScroll()
     }
     
     private func setView() {
@@ -54,19 +52,11 @@ class OneRuneViewController: UIViewController {
         
     }
     
-    private func setUpTopLineConstr() {
-        guard let topLine = topLine else {return}
-        view.addSubview(topLine)
-        NSLayoutConstraint.activate([
-            topLine.topAnchor.constraint(equalTo: view.topAnchor),
-            topLine.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            topLine.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            topLine.heightAnchor.constraint(equalToConstant: 153.heightDependent())
-        ])
-    }
-    
     private func setUpBottomConstr() {
         guard let bottomLine = bottomLine else {return}
+        bottomLine.movePage = { current in
+            self.pageScroll.setContentOffset(CGPoint(x: CGFloat(current) * self.view.frame.size.width, y: 0), animated: true)
+        }
         bottomLine.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bottomLine)
         NSLayoutConstraint.activate([
@@ -77,70 +67,47 @@ class OneRuneViewController: UIViewController {
         ])
     }
     
-    //-------------------------------------------------
-    // MARK: - ScrollViewDescription
-    //-------------------------------------------------
-    
-    private var scrollViewDescription = UIScrollView()
-    private let contentLabel = UILabel()
-    
-    private func setUpScrollViewDescription() {
-        guard let topLine = topLine else {return}
+    private var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+    private var pageScroll = UIScrollView()
+
+    private func configurePageScroll() {
+        pageScroll.translatesAutoresizingMaskIntoConstraints = false
         guard let bottomLine = bottomLine else {return}
-        
-        scrollViewDescription.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(scrollViewDescription)
-        
+        view.addSubview(pageScroll)
         NSLayoutConstraint.activate([
-            scrollViewDescription.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            scrollViewDescription.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            scrollViewDescription.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            scrollViewDescription.topAnchor.constraint(equalTo: topLine.bottomAnchor),
-            scrollViewDescription.bottomAnchor.constraint(equalTo: bottomLine.topAnchor),
+            pageScroll.topAnchor.constraint(equalTo: view.topAnchor),
+            pageScroll.leadingAnchor.constraint(equalTo:view.leadingAnchor),
+            pageScroll.bottomAnchor.constraint(equalTo: bottomLine.topAnchor),
+            pageScroll.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+        
+        var previousAnchor = pageScroll.leadingAnchor
+        for index in 0..<runesSet.count {
+            guard let runeLayout = runeLayout else {return}
+            let page = TopWithDescriptionView(runeType: runesSet[index], runeTime: runesSet[index].configureRuneTime(runeLayout: runeLayout, index: index))
+            page.close = { [self] in
+            self.willMove(toParent: nil)
+            self.view.removeFromSuperview()
+            self.removeFromParent()
+                runesVC()
+            }
+            pageScroll.addSubview(page)
+            NSLayoutConstraint.activate([
+                page.leadingAnchor.constraint(equalTo: previousAnchor),
+                page.widthAnchor.constraint(equalToConstant: self.view.frame.size.width),
+                page.topAnchor.constraint(equalTo: view.topAnchor),
+                page.bottomAnchor.constraint(equalTo: bottomLine.topAnchor)
+            ])
+            previousAnchor = page.trailingAnchor
+            
+        }
+        previousAnchor.constraint(equalTo: pageScroll.trailingAnchor).isActive = true
+        }
     }
-    
-    //-------------------------------------------------
-    // MARK: - DescriptionLabel
-    //-------------------------------------------------
-    
-    private func setUpDescriptionLabel() {
-        let descriptionLabel: UILabel = {
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.numberOfLines = 0
-            label.sizeToFit()
-            return label
-        }()
-        
-        guard let description = runeType?.description else {return}
-       
-        let timeParagraphStyle = NSMutableParagraphStyle()
-        timeParagraphStyle.lineHeightMultiple = 1.23
-        
-        let atributes: [NSAttributedString.Key: Any] = [
-            .font: FontFamily.SFProDisplay.light.font(size: 19),
-            .foregroundColor: UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1),
-            .paragraphStyle: timeParagraphStyle,
-            .kern: -0.38,
-        ]
-        descriptionLabel.attributedText = NSMutableAttributedString(string: description, attributes: atributes)
-    
-        scrollViewDescription.addSubview(descriptionLabel)
-        NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: scrollViewDescription.topAnchor),
-            descriptionLabel.widthAnchor.constraint(equalTo: scrollViewDescription.widthAnchor),
-            descriptionLabel.bottomAnchor.constraint(equalTo: scrollViewDescription.bottomAnchor)
-        ])
+
+extension OneRuneViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        bottomLine?.pageControl.currentPage = Int(floorf(Float(pageScroll.contentOffset.x) / Float(scrollView.frame.size.width)))
     }
 }
 
-extension OneRuneViewController: Closable {
-    func closePopUp() {
-        self.willMove(toParent: nil)
-        self.view.removeFromSuperview()
-        self.removeFromParent()
-        runesVC()
-    }
-}
