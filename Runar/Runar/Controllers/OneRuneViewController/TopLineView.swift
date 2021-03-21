@@ -26,7 +26,7 @@ final class TopLineView: UIView {
         let timeParagraphStyle = NSMutableParagraphStyle()
         timeParagraphStyle.lineHeightMultiple = 1.4
         timeLabel.attributedText = NSMutableAttributedString(string: runeTime, attributes: [NSAttributedString.Key.paragraphStyle: timeParagraphStyle])
-        luckLevelLabel.attributedText = NSMutableAttributedString(string: String(runeType.luck), attributes: [NSAttributedString.Key.paragraphStyle: timeParagraphStyle])
+        luckLevelLabel.attributedText = NSMutableAttributedString(string: "Уровень удачи - \(String(runeType.luck)) %", attributes: [NSAttributedString.Key.paragraphStyle: timeParagraphStyle])
     }
     
     required init?(coder: NSCoder) {
