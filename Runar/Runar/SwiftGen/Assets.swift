@@ -115,6 +115,7 @@ internal enum Assets {
   internal static let ads = ImageAsset(name: "ads")
   internal static let backgroundDown = ImageAsset(name: "backgroundDown")
   internal static let bottomBlackGradient = ImageAsset(name: "bottomBlackGradient")
+  internal static let darkRune = ImageAsset(name: "darkRune")
   internal static let escape = ImageAsset(name: "escape")
   internal static let floatingDown = ImageAsset(name: "floatingDown")
   internal static let floatingUp = ImageAsset(name: "floatingUp")

@@ -18,6 +18,8 @@ class OneRuneViewController: UIViewController {
     private var runeLayout : RuneLayout?
     private var topWithDescription: TopWithDescriptionView?
     private var bottomLine : BottomLineView?
+    var leaveLightAndMakeDark : ((Int)->())?
+    var removeAllDark: (()->())?
     
     init(runeType: RuneType, runeLayout: RuneLayout, runesSet: [RuneType]) {
         super.init(nibName: nil, bundle: nil)
@@ -90,6 +92,7 @@ class OneRuneViewController: UIViewController {
             self.view.removeFromSuperview()
             self.removeFromParent()
                 runesVC()
+                removeAllDark!()
             }
             pageScroll.addSubview(page)
             NSLayoutConstraint.activate([
@@ -108,6 +111,9 @@ class OneRuneViewController: UIViewController {
 extension OneRuneViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         bottomLine?.pageControl.currentPage = Int(floorf(Float(pageScroll.contentOffset.x) / Float(scrollView.frame.size.width)))
+        let index = (bottomLine?.pageControl.currentPage)!
+        self.removeAllDark!()
+        self.leaveLightAndMakeDark!(index)
     }
 }
 

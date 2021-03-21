@@ -47,6 +47,7 @@ public class RuneButton: UIButton {
     var runeType: RuneType? {
         viewModel?.runeType
     }
+    private var darkImage = UIImageView()
     //-------------------------------------------------
     // MARK: - Methods
     //-------------------------------------------------
@@ -129,6 +130,17 @@ public class RuneButton: UIButton {
                 self?.animateButtonDown(completion: completion)
             })
         }
+    
+    func addDark() {
+        darkImage = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
+        darkImage.image = UIImage(named: "darkRune")
+        self.addSubview(darkImage)
+    }
+    
+    
+    func removeDark(){
+        darkImage.removeFromSuperview()
+    }
     
     //-------------------------------------------------
     // MARK: - Handle touch

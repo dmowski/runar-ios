@@ -94,13 +94,21 @@ public extension RuneViewProtocol where Self: UIView {
                 self.openButton(index: index)
                 self.highlightNextButton(previousIndex: index)
                 self.verifyDidHighlightAllButtons()
-                }, runeInfo: { runeType in
+                }, runeInfo: { [self] runeType in
                 
                 let oneRune = OneRuneViewController(runeType: runeType,runeLayout: self.viewModel!.runeLayout, runesSet: self.runesSet)
-                
+                    oneRune.leaveLightAndMakeDark = {index in
+                        self.addDarkFor(index: index)
+                    }
+                    
+                    oneRune.removeAllDark = {
+                        self.removeAllDark()
+                    }
+                    
                 guard let controller = self.viewModel?.viewController else {return}
                 if controller.readyToOpen == true {
                     controller.addOneRuneViewController(controller: oneRune)
+                    oneRune.leaveLightAndMakeDark!(runesSet.firstIndex(of: runeType)!)
                 }
                 }))
 
@@ -135,9 +143,20 @@ public extension RuneViewProtocol where Self: UIView {
     }
 
     
-
     func verifyDidHighlightAllButtons() {
         guard areAllButtonsOpened else { return }
         viewModel?.didHighlightAllRunes(runesSet)
+    }
+    
+    func addDarkFor(index: Int) {
+        for button in 0..<indexesAndButtons.values.count where button != index {
+            indexesAndButtons[button]?.addDark()
+        }
+    }
+    
+    func removeAllDark() {
+        for button in indexesAndButtons.values {
+            button.removeDark()
+        }
     }
 }
