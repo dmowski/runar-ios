@@ -18,7 +18,7 @@ public class RuneButton: UIButton {
         public let title: String
         public let image: UIImage
         public var openRune: (()->())
-        public var runeInfo: ((_ runeType: RuneType)->())
+        public var runeInfo: ((_ runeType: RuneType, _ frame: CGPoint)->())
         public func getAttributedTitle(with color: UIColor) -> NSAttributedString {
             NSAttributedString(
                 string: title,
@@ -159,7 +159,7 @@ public class RuneButton: UIButton {
             self.viewModel?.openRune()
         case .rune:
             guard let runeType = runeType else {return }
-            self.viewModel?.runeInfo(runeType)
+            self.viewModel?.runeInfo(runeType, self.frame.origin)
 
         default:
              break
