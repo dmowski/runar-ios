@@ -132,9 +132,10 @@ public class RuneButton: UIButton {
         }
     
     func addDark() {
-        darkImage = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
+        darkImage = UIImageView(frame: CGRect(x: -20, y: -20, width: self.frame.size.width + 40, height: self.frame.size.height + 36))
         darkImage.image = UIImage(named: "darkRune")
         self.addSubview(darkImage)
+
     }
     
     
