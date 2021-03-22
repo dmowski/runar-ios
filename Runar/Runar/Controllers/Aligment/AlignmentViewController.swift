@@ -296,8 +296,13 @@ func addOneRuneViewController(controller: OneRuneViewController) {
         
     ])
     controller.didMove(toParent: self)
-    controller.runesVC = { [weak self] in
+    controller.closeVC = { [weak self] in
         self?.contentInterpretationView.isHidden = false
+    }
+    
+    controller.changeContentOffset = { [self]frame in
+        scrollViewAlignment.contentOffset.y = frame.y + 105
+        view.setNeedsLayout()
     }
 }
 

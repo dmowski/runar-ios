@@ -10,22 +10,26 @@ import UIKit
 
 class OneRuneViewController: UIViewController {
     
-    var runesVC = {() -> () in
+    var closeVC = {() -> () in
         return
     }
+
+    var runesSet = [RuneType]()
     private var runeType : RuneType?
-    public var runesSet = [RuneType]()
     private var runeLayout : RuneLayout?
     private var topWithDescription: TopWithDescriptionView?
     private var bottomLine : BottomLineView?
     var leaveLightAndMakeDark : ((Int)->())?
     var removeAllDark: (()->())?
+    var changeContentOffset: ((CGPoint)->())?
+    private var buttonFrame: CGPoint?
     
-    init(runeType: RuneType, runeLayout: RuneLayout, runesSet: [RuneType]) {
+    init(runeType: RuneType, runeLayout: RuneLayout, runesSet: [RuneType], frame: CGPoint) {
         super.init(nibName: nil, bundle: nil)
         self.runeType = runeType
         self.runeLayout = runeLayout
         self.runesSet = runesSet
+        self.buttonFrame = frame
         pageScroll.delegate = self
         bottomLine = BottomLineView(runesSet: runesSet, runeType: runeType)
     }
@@ -91,7 +95,7 @@ class OneRuneViewController: UIViewController {
             self.willMove(toParent: nil)
             self.view.removeFromSuperview()
             self.removeFromParent()
-                runesVC()
+                closeVC()
                 removeAllDark!()
             }
             pageScroll.addSubview(page)
@@ -114,6 +118,7 @@ extension OneRuneViewController: UIScrollViewDelegate {
         let index = (bottomLine?.pageControl.currentPage)!
         self.removeAllDark!()
         self.leaveLightAndMakeDark!(index)
+        changeContentOffset!(buttonFrame!)
     }
 }
 
