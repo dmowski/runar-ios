@@ -337,6 +337,7 @@ class AlignmentViewController: UIViewController {
 //-------------------------------------------------
 
 func addOneRuneViewController(controller: OneRuneViewController) {
+    if runesViewContainer.runeLayout != .dayRune {
     contentInterpretationView.isHidden = true
     self.addChild(controller)
     self.view.addSubview(controller.view)
@@ -397,7 +398,7 @@ func addOneRuneViewController(controller: OneRuneViewController) {
         case (.dayRune, true):
             break
         case (.twoRunes, true):
-            heightConstant = 60
+            heightConstant = 40
         case (.norns, true):
             heightConstant = 100
         case (.shortPrediction, true):
@@ -413,6 +414,7 @@ func addOneRuneViewController(controller: OneRuneViewController) {
         }
         scrollViewAlignment.contentOffset.y = frame.origin.y - heightConstant
 
+    }
     }
 }
 
