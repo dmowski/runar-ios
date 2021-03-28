@@ -376,10 +376,44 @@ func addOneRuneViewController(controller: OneRuneViewController) {
     }
     
     controller.changeContentOffset = { [self]frame in
-        scrollViewAlignment.contentOffset.y = frame.y + 200
-        view.setNeedsLayout()
+        var heightConstant: CGFloat = 0
+        switch (runesViewContainer.runeLayout, DeviceType.iPhoneSE) {
+        case (.dayRune, false):
+            break
+        case (.twoRunes, false):
+            heightConstant = 220.heightDependent()
+        case (.norns, false):
+            heightConstant = 300.heightDependent()
+        case (.shortPrediction, false):
+            heightConstant = 250.heightDependent()
+        case (.thorsHummer, false):
+            heightConstant = 60.heightDependent()
+        case (.cross, false):
+            heightConstant = 230.heightDependent()
+        case (.elementsCross, false):
+            heightConstant = 100.heightDependent()
+        case (.keltsCross, false):
+            heightConstant = 120.heightDependent()
+        case (.dayRune, true):
+            break
+        case (.twoRunes, true):
+            heightConstant = 60
+        case (.norns, true):
+            heightConstant = 100
+        case (.shortPrediction, true):
+            heightConstant = 50
+        case (.thorsHummer, true):
+            heightConstant = 60
+        case (.cross, true):
+            heightConstant = 45
+        case (.elementsCross, true):
+            heightConstant = 0
+        case (.keltsCross, true):
+            heightConstant = 0
+        }
+        scrollViewAlignment.contentOffset.y = frame.origin.y - heightConstant
+
     }
-    
 }
 
 }
