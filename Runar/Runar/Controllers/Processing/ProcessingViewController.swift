@@ -26,8 +26,6 @@ class ProcessingViewController: UIViewController {
         super.viewDidLoad()
         backgroundSetup()
         setUpImageView()
-        //shapeSetUp()
-        
         setUpNameLabel()
         setUpStart()
         setUpProcessingLabel()
@@ -74,13 +72,10 @@ class ProcessingViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         backgroundFire.addSubview(imageView)
         
-        let topConstant: CGFloat = DeviceType.iPhoneSE ? 138 : 202
-        //let bottomContant: CGFloat = DeviceType.iPhoneSE ? -215 : -318
         let heightConstant: CGFloat = DeviceType.iPhoneSE ? 167 : 294
-        let leadingConstant: CGFloat = DeviceType.iPhoneSE ? 76 : 60
-        
+       
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: backgroundFire.topAnchor, constant: topConstant.heightDependent()),
+            imageView.topAnchor.constraint(equalTo: backgroundFire.topAnchor, constant: 202.heightDependent()),
             imageView.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: heightConstant),
             imageView.centerXAnchor.constraint(equalTo: backgroundFire.centerXAnchor),
             imageView.widthAnchor.constraint(equalToConstant: heightConstant)
@@ -89,10 +84,11 @@ class ProcessingViewController: UIViewController {
     }
     
     func shapeSetUp() {
+        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147
         let center = CGPoint(x: imageView.frame.midX, y: imageView.frame.midY)
         let startAngle: CGFloat = -0.25 * 2 * .pi
         let endAngle: CGFloat = startAngle + 2 * .pi
-        let circularPath = UIBezierPath(arcCenter: center, radius: 147, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: center, radius: radiusConstant, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         shapeLayer.path = circularPath.cgPath
         shapeLayer.strokeEnd = 0
         shapeLayer.fillColor = UIColor.clear.cgColor
