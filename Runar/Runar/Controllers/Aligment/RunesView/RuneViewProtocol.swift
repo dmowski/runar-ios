@@ -30,8 +30,8 @@ public protocol RuneViewProtocol: AnyObject {
 
 
 public extension RuneViewProtocol where Self: UIView {
-
-
+    
+    
     var areAllButtonsOpened: Bool {
         !indexesAndButtons.contains(where: { $0.value.runeState != .rune })
     }
@@ -87,35 +87,36 @@ public extension RuneViewProtocol where Self: UIView {
             button.layer.cornerRadius = 25.heightDependent()
             button.clipsToBounds = true
             button.translatesAutoresizingMaskIntoConstraints = false
-
+            
             button.update(with: .init(runeType: associatedRune,
                                       title: "\(index + 1)", image: runeImage,
-                openRune: {
-                self.openButton(index: index)
-                self.highlightNextButton(previousIndex: index)
-                self.verifyDidHighlightAllButtons()
-                }, runeInfo: { [self] (runeType, frame) in
-                
-                    let oneRune = OneRuneViewController(runeType: runeType,runeLayout: self.viewModel!.runeLayout, runesSet: self.runesSet, frame: frame)
-                    oneRune.leaveLightAndMakeDark = {index in
-                        self.addDarkFor(index: index)
-                    }
-                    
-                    oneRune.removeAllDark = {
-                        self.removeAllDark()
-                    }
-                    
-                guard let controller = self.viewModel?.viewController else {return}
-                if controller.readyToOpen == true {
-                    controller.addOneRuneViewController(controller: oneRune)
-                    oneRune.leaveLightAndMakeDark!(runesSet.firstIndex(of: runeType)!)
-                }
-                }))
-
+                                      openRune: {
+                                        self.openButton(index: index)
+                                        self.highlightNextButton(previousIndex: index)
+                                        self.verifyDidHighlightAllButtons()
+                                      }, runeInfo: { [self] (runeType, frame) in
+                                        
+                                        let oneRune = OneRuneViewController(runeType: runeType,runeLayout: self.viewModel!.runeLayout, runesSet: self.runesSet, index: index)
+                                        oneRune.leaveLightAndMakeDark = {index in
+                                            self.addDarkFor(index: index)
+                                        }
+                                        
+                                        oneRune.removeAllDark = {
+                                            self.removeAllDark()
+                                        }
+                                        oneRune.buttonFrames = viewModel?.buttonFrames
+                                        
+                                        guard let controller = self.viewModel?.viewController else {return}
+                                        if controller.readyToOpen == true {
+                                            controller.addOneRuneViewController(controller: oneRune)
+                                            oneRune.leaveLightAndMakeDark!(runesSet.firstIndex(of: runeType)!)
+                                        }
+                                      }))
+            
             dict[index] = button
         })
     }
-        
+    
     func addButtons() {
         indexesAndButtons.forEach { _, button in
             addSubview(button)
@@ -146,6 +147,14 @@ public extension RuneViewProtocol where Self: UIView {
     func verifyDidHighlightAllButtons() {
         guard areAllButtonsOpened else { return }
         viewModel?.didHighlightAllRunes(runesSet)
+
+        let sorted = indexesAndButtons.sorted(by: {$0.key < $1.key})
+        let valuesArraySorted = Array(sorted.map({ $0.value }))
+        valuesArraySorted.forEach { button in
+            viewModel?.buttonFrames.append(button.frame)
+            //)
+            
+        }
     }
     
     func addDarkFor(index: Int) {

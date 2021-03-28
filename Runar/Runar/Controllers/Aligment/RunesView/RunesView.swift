@@ -18,7 +18,7 @@ public class RunesView: UIView {
     
     public class ViewModel {
         public let didHighlightAllRunes: ([RuneType]) -> Void
-        
+        public var buttonFrames: [CGRect] = []
         public init(viewController: UIViewController, runesLayout: RuneLayout, didHighlightAllRunes: @escaping ([RuneType]) -> Void) {
             self.didHighlightAllRunes = didHighlightAllRunes
             self.viewController = viewController as? AlignmentViewController

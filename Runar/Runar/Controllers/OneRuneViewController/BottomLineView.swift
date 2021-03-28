@@ -10,6 +10,7 @@ import UIKit
 final class BottomLineView: UIView {
     
     private var runesSet = [RuneType]()
+    private var runeType : RuneType?
     var pageControl = UIPageControl()
     var movePage: ((CGFloat)->())?
     
@@ -28,6 +29,7 @@ final class BottomLineView: UIView {
     convenience init(runesSet: [RuneType], runeType: RuneType) {
         self.init(frame: .zero)
         self.runesSet = runesSet
+        self.runeType = runeType
         pageControl.numberOfPages = runesSet.count
         pageControl.currentPage = runesSet.firstIndex(of: runeType) ?? 0
     }
@@ -109,7 +111,6 @@ final class BottomLineView: UIView {
     }
     
     private func setUpPageControl()  {
-        pageControl.currentPage = 2
         pageControl.currentPageIndicatorTintColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         pageControl.pageIndicatorTintColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 0.3)
        pageControl.translatesAutoresizingMaskIntoConstraints = false

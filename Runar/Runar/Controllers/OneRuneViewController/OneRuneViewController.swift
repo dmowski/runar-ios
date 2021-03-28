@@ -10,26 +10,24 @@ import UIKit
 
 class OneRuneViewController: UIViewController {
     
-    var closeVC = {() -> () in
-        return
-    }
-
+    var closeVC = {() -> () in return }
     var runesSet = [RuneType]()
     private var runeType : RuneType?
     private var runeLayout : RuneLayout?
+    private var index: Int?
     private var topWithDescription: TopWithDescriptionView?
     private var bottomLine : BottomLineView?
     var leaveLightAndMakeDark : ((Int)->())?
     var removeAllDark: (()->())?
-    var changeContentOffset: ((CGPoint)->())?
-    private var buttonFrame: CGPoint?
+    var changeContentOffset: ((CGRect)->())?
+    var buttonFrames: [CGRect]?
     
-    init(runeType: RuneType, runeLayout: RuneLayout, runesSet: [RuneType], frame: CGPoint) {
+    init(runeType: RuneType, runeLayout: RuneLayout, runesSet: [RuneType], index: Int) {
         super.init(nibName: nil, bundle: nil)
         self.runeType = runeType
         self.runeLayout = runeLayout
         self.runesSet = runesSet
-        self.buttonFrame = frame
+        self.index = index
         pageScroll.delegate = self
         bottomLine = BottomLineView(runesSet: runesSet, runeType: runeType)
     }
@@ -43,6 +41,12 @@ class OneRuneViewController: UIViewController {
         setView()
         setUpBottomConstr()
         configurePageScroll()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        let buttonFrame = buttonFrames?[index ?? 0]
+        changeContentOffset!(buttonFrame!)
     }
     
     private func setView() {
@@ -73,7 +77,6 @@ class OneRuneViewController: UIViewController {
         ])
     }
     
-    private var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
     private var pageScroll = UIScrollView()
 
     private func configurePageScroll() {
@@ -110,7 +113,7 @@ class OneRuneViewController: UIViewController {
         }
         previousAnchor.constraint(equalTo: pageScroll.trailingAnchor).isActive = true
         }
-    }
+}
 
 extension OneRuneViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -118,7 +121,8 @@ extension OneRuneViewController: UIScrollViewDelegate {
         let index = (bottomLine?.pageControl.currentPage)!
         self.removeAllDark!()
         self.leaveLightAndMakeDark!(index)
-        changeContentOffset!(buttonFrame!)
+        guard let frame = buttonFrames?[index] else { return }
+        changeContentOffset!(frame)
     }
 }
 
