@@ -120,6 +120,7 @@ internal enum Assets {
   internal static let floatingDown = ImageAsset(name: "floatingDown")
   internal static let floatingUp = ImageAsset(name: "floatingUp")
   internal static let mainFire = ImageAsset(name: "main_fire")
+  internal static let nameLabelGradient = ImageAsset(name: "nameLabelGradient")
   internal static let person2 = ImageAsset(name: "person 2")
   internal static let popUpVectorLeft = ImageAsset(name: "popUpVectorLeft")
   internal static let popUpVectorRight = ImageAsset(name: "popUpVectorRight")

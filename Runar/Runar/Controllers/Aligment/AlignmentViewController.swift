@@ -33,6 +33,11 @@ class AlignmentViewController: UIViewController {
     var totalLuck: Int = 10
     var affirmation = Affirmation()
     var readyToOpen = false
+    var containerTopAnchor : NSLayoutConstraint!
+    let invibaleView = UIView()
+    let popapLabel = UILabel()
+    var scrollViewTop : NSLayoutConstraint!
+    let viewBlack = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,10 +55,10 @@ class AlignmentViewController: UIViewController {
         
         backgroundViewSetup()
         setUpEscape()
-        setUpNameLabel()
+        invisibaleView()
         setUpStart()
         setUpContainerView()
-        
+        setUpNameLabel()
         setUpShowButton()
         setUpShowLabel()
         setUpStack()
@@ -68,11 +73,12 @@ class AlignmentViewController: UIViewController {
         contentView.addSubview(backgroundView)
         scrollViewAlignment.contentInsetAdjustmentBehavior = .never
         scrollViewAlignment.bounces = false
-        
+        scrollViewTop = scrollViewAlignment.topAnchor.constraint(equalTo: view.topAnchor)
+        scrollViewTop.isActive = true
         NSLayoutConstraint.activate([
             scrollViewAlignment.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             scrollViewAlignment.widthAnchor.constraint(equalTo: view.widthAnchor),
-            scrollViewAlignment.topAnchor.constraint(equalTo: view.topAnchor),
+//            scrollViewAlignment.topAnchor.constraint(equalTo: view.topAnchor),
             scrollViewAlignment.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             contentView.topAnchor.constraint(equalTo: scrollViewAlignment.topAnchor),
@@ -139,6 +145,18 @@ class AlignmentViewController: UIViewController {
     }
     
     // MARK: - NameLabel
+    func invisibaleView() {
+        invibaleView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(invibaleView)
+        NSLayoutConstraint.activate([
+            invibaleView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            invibaleView.heightAnchor.constraint(equalToConstant: 139.heightDependent()),
+            invibaleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            invibaleView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            invibaleView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+        ])
+        
+    }
     
     func setUpNameLabel() {
         nameLabel.text = viewModel.name
@@ -153,9 +171,45 @@ class AlignmentViewController: UIViewController {
         contentView.addSubview(nameLabel)
         
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 77.heightDependent()),
-            nameLabel.heightAnchor.constraint(equalToConstant: 65.heightDependent()),
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 43.heightDependent()),
+            nameLabel.heightAnchor.constraint(equalToConstant: 96.heightDependent()),
+            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             nameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+        ])
+    }
+    
+    func popapNameLabel() {
+        popapLabel.text = viewModel.name
+        
+        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 45 : 55
+        popapLabel.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
+        
+        popapLabel.translatesAutoresizingMaskIntoConstraints = false
+        popapLabel.textColor = Assets.Colors.textColor.color
+        popapLabel.textAlignment = .center
+        popapLabel.attributedText = NSMutableAttributedString(string: nameLabel.text!, attributes: [NSAttributedString.Key.kern: -1.1])
+        popapLabel.backgroundColor = UIColor(patternImage: Assets.nameLabelGradient.image)
+        view.addSubview(popapLabel)
+        
+        NSLayoutConstraint.activate([
+            popapLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 43.heightDependent()),
+            popapLabel.heightAnchor.constraint(equalToConstant: 96.heightDependent()),
+            popapLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            popapLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            popapLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
+    func viewBlackBackground() {
+        viewBlack.backgroundColor = .black
+        viewBlack.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(viewBlack)
+        NSLayoutConstraint.activate([
+            viewBlack.topAnchor.constraint(equalTo: view.topAnchor),
+            viewBlack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            viewBlack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            viewBlack.bottomAnchor.constraint(equalTo: popapLabel.topAnchor)
         ])
     }
     
@@ -180,11 +234,11 @@ class AlignmentViewController: UIViewController {
         startButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
         contentView.addSubview(startButton)
         
-        let bottomConstant: CGFloat = DeviceType.iPhoneSE ? 373 : 631
+        let bottomConstant: CGFloat = DeviceType.iPhoneSE ? 373 : 785
         let heightConstant: CGFloat = DeviceType.iPhoneSE ? 46 : 56
         let widthConsatnt: CGFloat = DeviceType.iPhoneSE ? 210 : 255
         NSLayoutConstraint.activate([
-            startButton.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: bottomConstant.heightDependent()),
+            startButton.topAnchor.constraint(equalTo: view.topAnchor, constant: bottomConstant.heightDependent()),
             startButton.heightAnchor.constraint(equalToConstant: heightConstant.heightDependent()),
             startButton.widthAnchor.constraint(equalToConstant: widthConsatnt.heightDependent()),
             startButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -204,7 +258,7 @@ class AlignmentViewController: UIViewController {
         contentView.addSubview(runesViewContainer)
         
         NSLayoutConstraint.activate([
-            runesViewContainer.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+            runesViewContainer.topAnchor.constraint(equalTo: view.topAnchor, constant: 162.heightDependent()),
             runesViewContainer.bottomAnchor.constraint(equalTo: startButton.topAnchor),
             runesViewContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             runesViewContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
@@ -288,22 +342,44 @@ func addOneRuneViewController(controller: OneRuneViewController) {
     self.view.addSubview(controller.view)
     controller.didMove(toParent: controller)
     controller.view.translatesAutoresizingMaskIntoConstraints = false
+    nameLabel.removeFromSuperview()
+    popapNameLabel()
+    viewBlackBackground()
+    containerTopAnchor.isActive = false
+    containerTopAnchor = runesViewContainer.topAnchor.constraint(equalTo: invibaleView.centerYAnchor)
+    containerTopAnchor.isActive = true
+    
+    
+//    scrollViewTop.isActive = false
+//    scrollViewTop = scrollViewAlignment.topAnchor.constraint(equalTo: invibaleView.topAnchor)
+//    scrollViewTop.isActive = true
     NSLayoutConstraint.activate([
         controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         controller.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         controller.view.widthAnchor.constraint(equalTo: view.widthAnchor),
         controller.view.heightAnchor.constraint(equalToConstant: view.frame.height * 2 / 3)
-        
     ])
     controller.didMove(toParent: self)
     controller.closeVC = { [weak self] in
         self?.contentInterpretationView.isHidden = false
+        self?.containerTopAnchor!.constant = 162.heightDependent()
+        self?.containerTopAnchor.isActive = false
+        self?.containerTopAnchor = self?.runesViewContainer.topAnchor.constraint(equalTo: (self?.contentView.topAnchor)!, constant: 162.heightDependent())
+        self?.containerTopAnchor.isActive = true
+        self?.nameLabel.backgroundColor = .clear
+        self?.popapLabel.removeFromSuperview()
+        self?.setUpNameLabel()
+//        self?.scrollViewTop.isActive = false
+//        self?.scrollViewTop = self?.scrollViewAlignment.topAnchor.constraint(equalTo: (self?.view.topAnchor)!)
+//        self?.scrollViewTop.isActive = true
+        self?.viewBlack.removeFromSuperview()
     }
     
     controller.changeContentOffset = { [self]frame in
-        scrollViewAlignment.contentOffset.y = frame.y + 105
+        scrollViewAlignment.contentOffset.y = frame.y + 200
         view.setNeedsLayout()
     }
+    
 }
 
 }
