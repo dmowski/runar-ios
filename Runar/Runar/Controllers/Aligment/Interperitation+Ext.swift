@@ -12,6 +12,7 @@ extension AlignmentViewController {
     //-------------------------------------------------
     // MARK: - After advertising
     //-------------------------------------------------
+//    var containerTopAnchor : NSLayoutConstraint
     
     func setUpContentAfterAdvertising() {
         scrollViewAlignment.isScrollEnabled = true
@@ -19,9 +20,11 @@ extension AlignmentViewController {
         stack.removeFromSuperview()
         startButton.removeFromSuperview()
         escapeButton.removeFromSuperview()
+        nameLabel.removeFromSuperview()
         
         removeConstant()
         setUpContentInterpretationView()
+        setUpNameLabel()
         setUpLuckLevelLabel()
         setUpDividingLine()
         setUpDescriptionLabel()
@@ -29,16 +32,17 @@ extension AlignmentViewController {
         setUpCancel()
     }
     
+    
     func removeConstant() {
         runesViewContainer.removeFromSuperview()
         runesViewContainer.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(runesViewContainer)
-        
+        containerTopAnchor = runesViewContainer.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 162.heightDependent())
+        containerTopAnchor!.isActive = true
         NSLayoutConstraint.activate([
             runesViewContainer.centerXAnchor.constraint(equalTo: scrollViewAlignment.centerXAnchor),
             runesViewContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             runesViewContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            runesViewContainer.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 35.heightDependent()),
         ])
     }
     
