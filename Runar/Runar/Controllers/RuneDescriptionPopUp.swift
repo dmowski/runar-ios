@@ -22,10 +22,76 @@ struct Constants {
 //self.present(runeDescriptionPopUp, animated: true)
 class RuneDescriptionPopUp: UIViewController {
     
-    let containerView = AlertContainerView()
-    let titleLabel = TitleLabel(textAlignment: .center, fontSize: 20)
-    let messageLabel = BodyLabel(textAlignment: .left)
-    let actionButton = SampleButton(backgroundColor: Constants.actionButtonBackgroundColor, title: "Ok")
+    //MARK: Containerview
+    let containerView: UIView = {
+        let containerView = UIView()
+        containerView.backgroundColor = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 0.75)
+        containerView.layer.cornerRadius = 20
+        containerView.layer.borderWidth = 1
+        containerView.layer.borderColor = UIColor(red: 84/255, green: 84/255, blue: 88/255, alpha: 0.65).cgColor
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        return containerView
+    }()
+    
+    //MARK: TitleLabel
+    let titleLabel: UILabel = {
+        let titlelabel = UILabel()
+        titlelabel.frame = .zero
+        titlelabel.textAlignment = .center
+    
+        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
+            titlelabel.font = UIFont(name: "AmaticSC-Bold", size: 35)
+        } else {
+            titlelabel.font = UIFont(name: "AmaticSC-Bold", size: 40)
+        }
+        
+        titlelabel.adjustsFontSizeToFitWidth = true
+        titlelabel.minimumScaleFactor = 0.9
+        titlelabel.lineBreakMode = .byTruncatingTail
+        titlelabel.translatesAutoresizingMaskIntoConstraints = false
+        titlelabel.textColor = Constants.labelTextColour
+        return titlelabel
+    }()
+    
+    //MARK: MessageLabel
+    let messageLabel: UILabel = {
+        let messageLabel = UILabel()
+        messageLabel.frame = .zero
+        messageLabel.textAlignment = .left
+        
+        messageLabel.textColor = UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 1)
+        
+        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
+            messageLabel.font = UIFont(name: "SFProDisplay-Light", size: 17)
+        } else {
+            messageLabel.font = UIFont(name: "SFProDisplay-Light", size: 20)
+        }
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        return messageLabel
+    }()
+    
+    //MARK: ActionButton
+    let actionButton: UIButton = {
+        let actionButton = UIButton()
+        actionButton.frame = .zero
+        actionButton.backgroundColor = Constants.actionButtonBackgroundColor
+        actionButton.setTitle("Ok", for: .normal)
+        
+        actionButton.layer.cornerRadius = 8
+        actionButton.setTitleColor(Constants.actionButonTitleColor, for: .normal)
+        actionButton.layer.borderWidth = 1
+        actionButton.layer.borderColor = Constants.actionButonBorderColor
+        
+        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
+            actionButton.titleLabel?.font = UIFont(name: "AmaticSC-Bold", size: 24)
+        } else {
+            actionButton.titleLabel?.font = UIFont(name: "AmaticSC-Bold", size: 30)
+        }
+        
+        actionButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        return actionButton
+    }()
     
     var alertTitle: String?
     var message: String?
@@ -36,10 +102,6 @@ class RuneDescriptionPopUp: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        
-
- 
-        
         configureContainerView()
         configureTitleLabel()
         configureActionButton()
@@ -59,7 +121,7 @@ class RuneDescriptionPopUp: UIViewController {
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingConstant),
             containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: bottomConstant)
         ])
-}
+    }
     
     func configureTitleLabel() {
         titleLabel.text = viewModel.runeDescription.name
@@ -124,129 +186,3 @@ class RuneDescriptionPopUp: UIViewController {
         ])
     }
 }
-
-//MARK: BodyLabel
-class BodyLabel: UILabel {
-
-    override init(frame: CGRect) {
-         super.init(frame: frame)
-         configure()
-     }
-     
-     required init?(coder: NSCoder) {
-         fatalError("init(coder:) has not been implemented")
-     }
-     
-    convenience init(textAlignment: NSTextAlignment) {
-         self.init(frame: .zero)
-         self.textAlignment = textAlignment
-        
-     }
-     
-     private func configure() {
-        textColor = UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 1)
-        
-        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
-        font = UIFont(name: "SFProDisplay-Light", size: 17)
-        } else {
-            font = UIFont(name: "SFProDisplay-Light", size: 20)
-        }
-        translatesAutoresizingMaskIntoConstraints = false
-     }
-}
-
-//MARK: SampleButton
-
-class SampleButton: UIButton {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configure()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-   convenience init(backgroundColor: UIColor, title: String) {
-        self.init(frame: .zero)
-        self.backgroundColor = backgroundColor
-        self.setTitle(title, for: .normal)
-    }
-    
-    private func configure() {
-        layer.cornerRadius = 8
-        setTitleColor(Constants.actionButonTitleColor, for: .normal)
-        layer.borderWidth = 1
-        layer.borderColor = Constants.actionButonBorderColor
-        
-        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
-            titleLabel?.font = UIFont(name: "AmaticSC-Bold", size: 24)
-        } else {
-            titleLabel?.font = UIFont(name: "AmaticSC-Bold", size: 30)
-        }
-        
-        translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    func setBackground(backgroundColor: UIColor, title: String) {
-        self.backgroundColor = backgroundColor
-        setTitle(title, for: .normal)
-    }
-}
-
-//MARK: TitleLabel
-
-class TitleLabel: UILabel {
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configure()
-    }
-    
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-   convenience init(textAlignment: NSTextAlignment, fontSize: CGFloat) {
-    self.init(frame: .zero)
-        self.textAlignment = textAlignment
-    
-        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
-            self.font = UIFont(name: "AmaticSC-Bold", size: 35)
-        } else {
-            self.font = UIFont(name: "AmaticSC-Bold", size: 40)
-        }
-    }
-    
-    private func configure() {
-        adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.9
-        lineBreakMode = .byTruncatingTail
-        translatesAutoresizingMaskIntoConstraints = false
-        self.textColor = Constants.labelTextColour
-    }
-}
-
-//MARK: AlertContainerView
-
-class AlertContainerView: UIView {
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configure()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func configure(){
-        backgroundColor = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 0.75)
-        layer.cornerRadius = 20
-        layer.borderWidth = 1
-        layer.borderColor = UIColor(red: 84/255, green: 84/255, blue: 88/255, alpha: 0.65).cgColor
-        translatesAutoresizingMaskIntoConstraints = false
-    }
-}
-
