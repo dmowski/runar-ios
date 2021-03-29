@@ -56,7 +56,6 @@ class RuneDescriptionPopUp: UIViewController {
     //MARK: ScrollView
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-//        scrollView.frame = .zero
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
