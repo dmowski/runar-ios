@@ -48,48 +48,34 @@ class RuneDescriptionPopUp: UIViewController {
     
     func configureContainerView() {
         view.addSubview(containerView)
-        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
-            NSLayoutConstraint.activate([
-                containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
-                containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
-                containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
-                containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60)
-            ])
-        } else {
-            NSLayoutConstraint.activate([
-                containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 156),
-                containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-                containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-                containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -175)
-            ])
-        }
-    }
+        let topConstant: CGFloat = DeviceType.iPhoneSE ? 60 : 156
+        let trailingConstant: CGFloat = DeviceType.iPhoneSE ? -8 : -16
+        let leadingConstant: CGFloat = DeviceType.iPhoneSE ? 8 : 16
+        let bottomConstant: CGFloat = DeviceType.iPhoneSE ? -60 : -175
+        
+        NSLayoutConstraint.activate([
+            containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: topConstant),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: trailingConstant),
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingConstant),
+            containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: bottomConstant)
+        ])
+}
     
     func configureTitleLabel() {
         titleLabel.text = viewModel.runeDescription.name
-        
-//        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
-//            NSLayoutConstraint.activate([
-//                titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 34.88),
-//                titleLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-//                titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -387.75)
-//            ])
-//        } else {
-//            NSLayoutConstraint.activate([
-//                titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 44),
-//                titleLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-//                titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -486)
-//            ])
-//        }
         containerView.addSubview(titleLabel)
+        let topConstant: CGFloat = DeviceType.iPhoneSE ? 29 : 39
+        let trailingConstant: CGFloat = DeviceType.iPhoneSE ? -21.88 : -11
+        let leadingConstant: CGFloat = DeviceType.iPhoneSE ? 21.25 : 11
+        let bottomConstant: CGFloat = DeviceType.iPhoneSE ? 35 : 35
+
         NSLayoutConstraint.activate([
-                        titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 44),
-                        titleLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 35),
-            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 11),
-            titleLabel.trailingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: -11),
-            
-                    ])
+            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: topConstant),
+            titleLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: trailingConstant),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: leadingConstant),
+            titleLabel.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: bottomConstant)
+        ])
         
     }
     
@@ -97,22 +83,18 @@ class RuneDescriptionPopUp: UIViewController {
         containerView.addSubview(actionButton)
         actionButton.setTitle("Ok", for: .normal)
         actionButton.addTarget(self , action: #selector(dismissVC), for: .touchUpInside)
+
+        let heighConstant: CGFloat = DeviceType.iPhoneSE ? 46 : 56
+        let trailingConstant: CGFloat = DeviceType.iPhoneSE ? -112.88 : -143
+        let leadingConstant: CGFloat = DeviceType.iPhoneSE ? 113.71 : 145
+        let bottomConstant: CGFloat = DeviceType.iPhoneSE ? -36 : -40
         
-        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0 {
-            NSLayoutConstraint.activate([
-                actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -36),
-                actionButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 113.71),
-                actionButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -112.88),
-                actionButton.heightAnchor.constraint(equalToConstant: 46)
-            ])
-        } else {
-            NSLayoutConstraint.activate([
-                actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -40),
-                actionButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 145),
-                actionButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -143),
-                actionButton.heightAnchor.constraint(equalToConstant: 56)
-            ])
-        }
+        NSLayoutConstraint.activate([
+            actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: bottomConstant),
+            actionButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: leadingConstant),
+            actionButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: trailingConstant),
+            actionButton.heightAnchor.constraint(equalToConstant: heighConstant)
+        ])
     }
     
    @objc func dismissVC() {
@@ -129,21 +111,17 @@ class RuneDescriptionPopUp: UIViewController {
         messageLabel.numberOfLines = 0
         messageLabel.sizeToFit()
         
-        if UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0{
-            NSLayoutConstraint.activate([
-                messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 17.75),
-                messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 17),
-                messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
-                messageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -98)
-            ])
-        } else {
-            NSLayoutConstraint.activate([
-                messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 21),
-                messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24),
-                messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
-                messageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -37)
-            ])
-        }
+        let topConstant: CGFloat = DeviceType.iPhoneSE ? 20.75 : 26
+        let trailingConstant: CGFloat = DeviceType.iPhoneSE ? -24 : -24
+        let leadingConstant: CGFloat = DeviceType.iPhoneSE ? 17 : 24
+        let bottomConstant: CGFloat = DeviceType.iPhoneSE ? -16 : -37
+
+        NSLayoutConstraint.activate([
+            messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: topConstant),
+            messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: leadingConstant),
+            messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: trailingConstant),
+            messageLabel.bottomAnchor.constraint(lessThanOrEqualTo: actionButton.topAnchor, constant: bottomConstant)
+        ])
     }
 }
 
