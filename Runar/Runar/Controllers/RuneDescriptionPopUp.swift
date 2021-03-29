@@ -53,6 +53,14 @@ class RuneDescriptionPopUp: UIViewController {
         return titlelabel
     }()
     
+    //MARK: ScrollView
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+//        scrollView.frame = .zero
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
     //MARK: MessageLabel
     let messageLabel: UILabel = {
         let messageLabel = UILabel()
@@ -105,6 +113,7 @@ class RuneDescriptionPopUp: UIViewController {
         configureContainerView()
         configureTitleLabel()
         configureActionButton()
+        configureScrollView()
         configureBodyLabel()
     }
     
@@ -159,12 +168,27 @@ class RuneDescriptionPopUp: UIViewController {
         ])
     }
     
-   @objc func dismissVC() {
+    @objc func dismissVC() {
         dismiss(animated: true, completion: nil)
     }
     
+    func configureScrollView(){
+        containerView.addSubview(scrollView)
+        let topConstant: CGFloat = DeviceType.iPhoneSE ? 20.75 : 26
+        let trailingConstant: CGFloat = DeviceType.iPhoneSE ? -24 : -24
+        let leadingConstant: CGFloat = DeviceType.iPhoneSE ? 17 : 24
+        let bottomConstant: CGFloat = DeviceType.iPhoneSE ? -16 : -37
+
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: topConstant),
+            scrollView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: leadingConstant),
+            scrollView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: trailingConstant),
+            scrollView.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: bottomConstant)
+        ])
+    }
+    
     func configureBodyLabel() {
-        containerView.addSubview(messageLabel)
+        scrollView.addSubview(messageLabel)
         messageLabel.text = viewModel.runeDescription.description
         messageLabel.lineBreakMode = .byWordWrapping
         let paragraphStyle = NSMutableParagraphStyle()
@@ -173,16 +197,13 @@ class RuneDescriptionPopUp: UIViewController {
         messageLabel.numberOfLines = 0
         messageLabel.sizeToFit()
         
-        let topConstant: CGFloat = DeviceType.iPhoneSE ? 20.75 : 26
-        let trailingConstant: CGFloat = DeviceType.iPhoneSE ? -24 : -24
-        let leadingConstant: CGFloat = DeviceType.iPhoneSE ? 17 : 24
-        let bottomConstant: CGFloat = DeviceType.iPhoneSE ? -16 : -37
+        let widthAnchor: CGFloat = DeviceType.iPhoneSE ? 263 : 334
 
         NSLayoutConstraint.activate([
-            messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: topConstant),
-            messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: leadingConstant),
-            messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: trailingConstant),
-            messageLabel.bottomAnchor.constraint(lessThanOrEqualTo: actionButton.topAnchor, constant: bottomConstant)
+            messageLabel.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            messageLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            messageLabel.widthAnchor.constraint(equalToConstant: widthAnchor),
+            messageLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
     }
 }
