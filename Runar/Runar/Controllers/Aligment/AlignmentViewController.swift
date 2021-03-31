@@ -16,11 +16,11 @@ class AlignmentViewController: UIViewController {
     private let backgroundView = UIImageView()
     let escapeButton = UIButton()
     let nameLabel = UILabel()
-    let startButton = UIButton()
+    let startButton = CustomButton()
     var runesViewContainer = RunesView()
-    private let showButton = UIButton()
-    private let showLabel = UILabel()
-    var stack = UIStackView()
+    let showButton = UIButton()
+    
+    
     let scrollViewAlignment = UIScrollView()
     let contentView = UIView()
     public var viewModel: AlignmentViewModel!
@@ -28,7 +28,7 @@ class AlignmentViewController: UIViewController {
     let luckLevelLabel = UILabel()
     let descriptionLabel = UILabel()
     let affirmationLabel = UILabel()
-    let cancelButton = UIButton()
+    let cancelButton = CustomButton()
     let dividingLine = UIView()
     var totalLuck: Int = 10
     var affirmation = Affirmation()
@@ -38,6 +38,9 @@ class AlignmentViewController: UIViewController {
     let popapLabel = UILabel()
     var scrollViewTop : NSLayoutConstraint!
     let viewBlack = UIView()
+    let checkButton = UIButton()
+    let checkLabel = UILabel()
+    let checkStack = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,16 +55,12 @@ class AlignmentViewController: UIViewController {
         runesViewContainer.setRuneLayout(viewModel.runeLayout)
         
         setUpScrollView()
-        
         backgroundViewSetup()
         setUpEscape()
-        invisibaleView()
         setUpStart()
-        setUpContainerView()
         setUpNameLabel()
+        setUpContainerView()
         setUpShowButton()
-        setUpShowLabel()
-        setUpStack()
     }
     // MARK: -ScrollView
     
@@ -73,12 +72,10 @@ class AlignmentViewController: UIViewController {
         contentView.addSubview(backgroundView)
         scrollViewAlignment.contentInsetAdjustmentBehavior = .never
         scrollViewAlignment.bounces = false
-        scrollViewTop = scrollViewAlignment.topAnchor.constraint(equalTo: view.topAnchor)
-        scrollViewTop.isActive = true
         NSLayoutConstraint.activate([
             scrollViewAlignment.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             scrollViewAlignment.widthAnchor.constraint(equalTo: view.widthAnchor),
-//            scrollViewAlignment.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollViewAlignment.topAnchor.constraint(equalTo: view.topAnchor),
             scrollViewAlignment.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             contentView.topAnchor.constraint(equalTo: scrollViewAlignment.topAnchor),
@@ -113,11 +110,12 @@ class AlignmentViewController: UIViewController {
         contentView.addSubview(escapeButton)
         escapeButton.addTarget(self, action: #selector(self.escapeOnTap), for: .touchUpInside)
         
-        let trailingConstant: CGFloat = DeviceType.iPhoneSE ? -4 : -8
+        let trailingConstant: CGFloat = DeviceType.iPhoneSE ? 0 : -10
         let widthAnchor: CGFloat = DeviceType.iPhoneSE ? 40 : 48
+        let escapeTop: CGFloat = DeviceType.iPhoneSE ? 20 : 54
         
         NSLayoutConstraint.activate([
-            escapeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 50.heightDependent()),
+            escapeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: escapeTop.heightDependent()),
             escapeButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: trailingConstant),
             escapeButton.widthAnchor.constraint(equalToConstant: widthAnchor),
             escapeButton.heightAnchor.constraint(equalToConstant: widthAnchor)
@@ -169,12 +167,11 @@ class AlignmentViewController: UIViewController {
         nameLabel.textAlignment = .center
         nameLabel.attributedText = NSMutableAttributedString(string: nameLabel.text!, attributes: [NSAttributedString.Key.kern: -1.1])
         contentView.addSubview(nameLabel)
-        
+        let nameLabelTop: CGFloat = DeviceType.iPhoneSE ? 33 : 57
+        let nameLabelHeight: CGFloat = DeviceType.iPhoneSE ? 75 : 90
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 43.heightDependent()),
-            nameLabel.heightAnchor.constraint(equalToConstant: 96.heightDependent()),
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: nameLabelTop.heightDependent()),
+            nameLabel.heightAnchor.constraint(equalToConstant: nameLabelHeight),
             nameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         ])
     }
@@ -231,18 +228,16 @@ class AlignmentViewController: UIViewController {
         startButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
         startButton.addTarget(self, action: #selector(self.openButton), for: .touchUpInside)
         startButton.setTitleColor(Assets.Colors.textColor.color, for: .normal)
-        startButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
+        startButton.setTitleColor(UIColor(red: 0.294, green: 0.282, blue: 0.259, alpha: 1), for: .highlighted)
         contentView.addSubview(startButton)
         
-        let bottomConstant: CGFloat = DeviceType.iPhoneSE ? 373 : 785
+        let widthConstant: CGFloat = DeviceType.iPhoneSE ? 210 : 255
         let heightConstant: CGFloat = DeviceType.iPhoneSE ? 46 : 56
-        let widthConsatnt: CGFloat = DeviceType.iPhoneSE ? 210 : 255
         NSLayoutConstraint.activate([
-            startButton.topAnchor.constraint(equalTo: view.topAnchor, constant: bottomConstant.heightDependent()),
-            startButton.heightAnchor.constraint(equalToConstant: heightConstant.heightDependent()),
-            startButton.widthAnchor.constraint(equalToConstant: widthConsatnt.heightDependent()),
-            startButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            startButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -82.heightDependent())
+            startButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40.heightDependent()),
+            startButton.widthAnchor.constraint(equalToConstant: widthConstant),
+            startButton.heightAnchor.constraint(equalToConstant: heightConstant),
+            startButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         ])
     }
     
@@ -258,7 +253,7 @@ class AlignmentViewController: UIViewController {
         contentView.addSubview(runesViewContainer)
         
         NSLayoutConstraint.activate([
-            runesViewContainer.topAnchor.constraint(equalTo: view.topAnchor, constant: 162.heightDependent()),
+            runesViewContainer.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: -20.heightDependent()),
             runesViewContainer.bottomAnchor.constraint(equalTo: startButton.topAnchor),
             runesViewContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             runesViewContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
@@ -268,59 +263,20 @@ class AlignmentViewController: UIViewController {
     // MARK: - ShowButton and label
     func setUpShowButton(){
         showButton.translatesAutoresizingMaskIntoConstraints = false
-        showButton.layer.borderColor = Assets.Colors.textColor.color.cgColor
-        
-        showButton.layer.borderWidth = 1
-        showButton.layer.cornerRadius = 12
-        showButton.setTitle("i", for: .normal)
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 14 : 16
-        showButton.titleLabel?.font = FontFamily.SFProDisplay.light.font(size: fontConstant)
-        
-        let constant: CGFloat = DeviceType.iPhoneSE ? 21 : 24
+        showButton.setImage(Assets.learnAboutTheAlignment.image, for: .normal)
+        showButton.addTarget(self, action: #selector(self.openDescriptionPopup), for: .touchUpInside)
+        contentView.addSubview(showButton)
+
         NSLayoutConstraint.activate([
-            showButton.widthAnchor.constraint(equalToConstant: constant),
-            showButton.heightAnchor.constraint(equalToConstant: constant),
+            showButton.leadingAnchor.constraint(equalTo: startButton.trailingAnchor, constant: 16.heightDependent()),
+            showButton.centerYAnchor.constraint(equalTo: startButton.centerYAnchor),
+            showButton.widthAnchor.constraint(equalToConstant: 48),
+            showButton.heightAnchor.constraint(equalToConstant: 48),
         ])
     }
     
-    func setUpShowLabel() {
-        showLabel.text = "Узнать о раскладе"
-        showLabel.translatesAutoresizingMaskIntoConstraints = false
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 14 : 16
-        showLabel.font = FontFamily.SFProDisplay.light.font(size: fontConstant)
-        showLabel.textColor = Assets.Colors.textColor.color
-        showLabel.textAlignment = .left
-        let widthConstant : CGFloat = DeviceType.iPhoneSE ? 115 : 130
-        let heightConstant : CGFloat = DeviceType.iPhoneSE ? 36 : 56
-        
-        NSLayoutConstraint.activate([
-            showLabel.widthAnchor.constraint(equalToConstant: widthConstant),
-            showLabel.heightAnchor.constraint(equalToConstant: heightConstant)
-        ])
-    }
     
-    func setUpStack() {
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .horizontal
-        stack.distribution = .equalSpacing
-        stack.spacing = 12
-        stack.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(openDescriptionPopup))
-        stack.addGestureRecognizer(tap)
-        
-        contentView.addSubview(stack)
-        stack.addArrangedSubview(showButton)
-        stack.addArrangedSubview(showLabel)
-        
-        let bottomomConstant : CGFloat = DeviceType.iPhoneSE ?  6 : 16
-        NSLayoutConstraint.activate([
-            stack.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            stack.topAnchor.constraint(equalTo: startButton.bottomAnchor, constant: bottomomConstant)
-            
-        ])
-    }
-    
-    // MARK: -Info PopUp
+    // MARK: - Info PopUp
     
     @objc func openDescriptionPopup (sender: UIButton!) {
             let viewModel = RuneDescriptionPopUpViewModel(runeDescription: self.viewModel.runeDescription)
@@ -337,6 +293,7 @@ class AlignmentViewController: UIViewController {
 //-------------------------------------------------
 
 func addOneRuneViewController(controller: OneRuneViewController) {
+    invisibaleView()
     if runesViewContainer.runeLayout != .dayRune {
     contentInterpretationView.isHidden = true
     self.addChild(controller)
@@ -350,10 +307,7 @@ func addOneRuneViewController(controller: OneRuneViewController) {
     containerTopAnchor = runesViewContainer.topAnchor.constraint(equalTo: invibaleView.centerYAnchor)
     containerTopAnchor.isActive = true
     
-    
-//    scrollViewTop.isActive = false
-//    scrollViewTop = scrollViewAlignment.topAnchor.constraint(equalTo: invibaleView.topAnchor)
-//    scrollViewTop.isActive = true
+    scrollViewAlignment.isScrollEnabled = false
     NSLayoutConstraint.activate([
         controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         controller.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -370,10 +324,9 @@ func addOneRuneViewController(controller: OneRuneViewController) {
         self?.nameLabel.backgroundColor = .clear
         self?.popapLabel.removeFromSuperview()
         self?.setUpNameLabel()
-//        self?.scrollViewTop.isActive = false
-//        self?.scrollViewTop = self?.scrollViewAlignment.topAnchor.constraint(equalTo: (self?.view.topAnchor)!)
-//        self?.scrollViewTop.isActive = true
         self?.viewBlack.removeFromSuperview()
+        self?.scrollViewAlignment.isScrollEnabled = true
+        self?.invibaleView.removeFromSuperview()
     }
     
     controller.changeContentOffset = { [self]frame in

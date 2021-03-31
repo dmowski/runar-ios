@@ -94,7 +94,7 @@ public class RuneButton: UIButton {
             setAttributedTitle(nil, for: .normal)
             setImage(viewModel?.image, for: .normal)
 
-            imageEdgeInsets = UIEdgeInsets(top: 105.heightDependent(), left: 83.heightDependent(), bottom: 105.heightDependent(), right: 83.heightDependent())
+            imageEdgeInsets = UIEdgeInsets(top: 120.heightDependent(), left: 95.heightDependent(), bottom: 120.heightDependent(), right: 95.heightDependent())
         }
         
         self.runeState = runeState
