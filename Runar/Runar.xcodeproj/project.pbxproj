@@ -13,6 +13,7 @@
 		191D32CE25B7C46A001DC210 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D32CB25B7C46A001DC210 /* Fonts.swift */; };
 		191D32CF25B7C46A001DC210 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D32CC25B7C46A001DC210 /* Assets.swift */; };
 		191D32D025B7C46A001DC210 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D32CD25B7C46A001DC210 /* Localizable.swift */; };
+		193FFB382613319000D60171 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193FFB372613319000D60171 /* CustomButton.swift */; };
 		195AEDC325B8C3A300180A49 /* AlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195AEDC225B8C3A300180A49 /* AlignmentViewController.swift */; };
 		1987AAB625BDCDA400BB3655 /* ThreeRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AAB525BDCDA400BB3655 /* ThreeRuneView.swift */; };
 		1987AABB25BDCDB400BB3655 /* FourRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AABA25BDCDB400BB3655 /* FourRuneView.swift */; };
@@ -108,6 +109,7 @@
 		191D32CC25B7C46A001DC210 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Assets.swift; path = Runar/SwiftGen/Assets.swift; sourceTree = SOURCE_ROOT; };
 		191D32CD25B7C46A001DC210 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localizable.swift; path = Runar/SwiftGen/Localizable.swift; sourceTree = SOURCE_ROOT; };
 		192EF92C25B7AFB70055DB9D /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		193FFB372613319000D60171 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		195AEDC225B8C3A300180A49 /* AlignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentViewController.swift; sourceTree = "<group>"; };
 		1987AAB525BDCDA400BB3655 /* ThreeRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeRuneView.swift; sourceTree = "<group>"; };
 		1987AABA25BDCDB400BB3655 /* FourRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourRuneView.swift; sourceTree = "<group>"; };
@@ -219,6 +221,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		193FFB362613316100D60171 /* Custom Class */ = {
+			isa = PBXGroup;
+			children = (
+				193FFB372613319000D60171 /* CustomButton.swift */,
+			);
+			path = "Custom Class";
+			sourceTree = "<group>";
+		};
 		1987AAB425BDCD8600BB3655 /* RunesView */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +431,7 @@
 		9BD228FC258A321B00E17E98 /* Runar */ = {
 			isa = PBXGroup;
 			children = (
+				193FFB362613316100D60171 /* Custom Class */,
 				19BDC61625C0306E000808CF /* Base */,
 				19C0F21425BAFE9B0027422B /* Models */,
 				19C0F20025BAFC830027422B /* Extensions */,
@@ -790,6 +801,7 @@
 				1987AAC025BDCDBF00BB3655 /* FiveRuneView.swift in Sources */,
 				199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */,
 				9BAEB63425F18C3B004B7761 /* Interperitation+Ext.swift in Sources */,
+				193FFB382613319000D60171 /* CustomButton.swift in Sources */,
 				19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */,
 				9B739E0B25CD9B4500726B30 /* RuneDescriptionPopUp.swift in Sources */,
 				9B0CB88B2607B6A000B2AF60 /* TopWithDescriptionView.swift in Sources */,
@@ -879,7 +891,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -934,7 +946,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

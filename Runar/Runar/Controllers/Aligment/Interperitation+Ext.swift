@@ -12,12 +12,11 @@ extension AlignmentViewController {
     //-------------------------------------------------
     // MARK: - After advertising
     //-------------------------------------------------
-//    var containerTopAnchor : NSLayoutConstraint
     
     func setUpContentAfterAdvertising() {
         scrollViewAlignment.isScrollEnabled = true
         
-        stack.removeFromSuperview()
+        showButton.removeFromSuperview()
         startButton.removeFromSuperview()
         escapeButton.removeFromSuperview()
         nameLabel.removeFromSuperview()
@@ -30,6 +29,9 @@ extension AlignmentViewController {
         setUpDescriptionLabel()
         setUpAffirmationLabel()
         setUpCancel()
+        setUpCheckBox()
+        setUpCheckLabel()
+        setUpCheckStack()
     }
     
     
@@ -119,14 +121,14 @@ extension AlignmentViewController {
             luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
         }
         
-        luckLevelLabel.font = FontFamily.SFProDisplay.light.font(size: 20.heightDependent())
+        luckLevelLabel.font = FontFamily.SFProDisplay.light.font(size: 20)
         luckLevelLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         luckLevelLabel.translatesAutoresizingMaskIntoConstraints = false
         contentInterpretationView.addSubview(luckLevelLabel)
         NSLayoutConstraint.activate([
-            luckLevelLabel.topAnchor.constraint(equalTo: contentInterpretationView.topAnchor, constant: 76.heightDependent()),
-            luckLevelLabel.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
-            luckLevelLabel.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor,constant: -24.heightDependent()),
+            luckLevelLabel.topAnchor.constraint(equalTo: contentInterpretationView.topAnchor, constant: 76),
+            luckLevelLabel.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24),
+            luckLevelLabel.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor,constant: -24),
         ])
     }
     
@@ -136,10 +138,10 @@ extension AlignmentViewController {
         contentInterpretationView.addSubview(dividingLine)
         
         NSLayoutConstraint.activate([
-            dividingLine.topAnchor.constraint(equalTo: luckLevelLabel.bottomAnchor, constant: 27.heightDependent()),
-            dividingLine.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
-            dividingLine.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor, constant: -24.heightDependent()),
-            dividingLine.heightAnchor.constraint(equalToConstant: 1.heightDependent())
+            dividingLine.topAnchor.constraint(equalTo: luckLevelLabel.bottomAnchor, constant: 27),
+            dividingLine.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24),
+            dividingLine.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor, constant: -24),
+            dividingLine.heightAnchor.constraint(equalToConstant: 1)
         ])
         
     }
@@ -147,96 +149,39 @@ extension AlignmentViewController {
     // MARK: - DescriptionLabel
     
     func setUpDescriptionLabel() {
-        
-        descriptionLabel.font = FontFamily.Roboto.thin.font(size: 19.heightDependent())
-        descriptionLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
-        descriptionLabel.numberOfLines = 0
+        var descriptionLabelString = String()
         
         switch runesViewContainer.runeLayout {
         case .dayRune:
-            descriptionLabel.text = runesViewContainer.runesSet[0].description
-            descriptionLabel.font = FontFamily.Roboto.light.font(size: 19.heightDependent())
+            descriptionLabelString = runesViewContainer.runesSet[0].description
         case .twoRunes:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
             let description = firstRune.cross(runeType: secondRune)
-            descriptionLabel.text = L10n.InterpretationForTwoRunes.text(description)
-            
-            guard let textDescription = descriptionLabel.text else { return }
-            let changeColor = NSString(string: textDescription)
-            let text = NSMutableAttributedString(string: changeColor as String)
-        
-            text.addAttributes(
-                [.font: FontFamily.Roboto.light.font(size: 19)],
-                               range: changeColor.range(of: description))
-            descriptionLabel.attributedText = text
+            descriptionLabelString = L10n.InterpretationForTwoRunes.text(description)
         case .norns:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
             let thirdRune = runesViewContainer.runesSet[2]
-            descriptionLabel.text = L10n.InterpretationForNorns.text(firstRune.value, secondRune.value, thirdRune.value)
-            
-            guard let textDescription = descriptionLabel.text else { return }
-            let changeColor = NSString(string: textDescription)
-            let text = NSMutableAttributedString(string: changeColor as String)
-            
-            [firstRune.value, secondRune.value, thirdRune.value].forEach {
-            text.addAttributes(
-                [.font: FontFamily.Roboto.light.font(size: 19)],
-                               range: changeColor.range(of: $0))
-            }
-            descriptionLabel.attributedText = text
+            descriptionLabelString = L10n.InterpretationForNorns.text(firstRune.value, secondRune.value, thirdRune.value)
         case .shortPrediction:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
             let thirdRune = runesViewContainer.runesSet[2]
             let fourthRune = runesViewContainer.runesSet[3]
-            descriptionLabel.text = L10n.InterpretationForShortPrediction.text(firstRune.value, secondRune, thirdRune.value, fourthRune.value)
-            
-            guard let textDescription = descriptionLabel.text else { return }
-            let changeColor = NSString(string: textDescription)
-            let text = NSMutableAttributedString(string: changeColor as String)
-            
-            [firstRune.value, secondRune.value, thirdRune.value, fourthRune.value].forEach {
-            text.addAttributes(
-                [.font: FontFamily.Roboto.light.font(size: 19)],
-                               range: changeColor.range(of: $0))
-            }
-            descriptionLabel.attributedText = text
+            descriptionLabelString = L10n.InterpretationForShortPrediction.text(firstRune.value, secondRune, thirdRune.value, fourthRune.value)
         case .thorsHummer:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
             let fourthRune = runesViewContainer.runesSet[3]
-            descriptionLabel.text = L10n.InterpretationForThorsHummer.text(firstRune.value, secondRune.value, fourthRune.value)
-            
-            guard let textDescription = descriptionLabel.text else { return }
-            let changeColor = NSString(string: textDescription)
-            let text = NSMutableAttributedString(string: changeColor as String)
-            
-            [firstRune.value, secondRune.value, fourthRune.value].forEach {
-            text.addAttributes(
-                [.font: FontFamily.Roboto.light.font(size: 19)],
-                               range: changeColor.range(of: $0))
-            }
-            descriptionLabel.attributedText = text
+            descriptionLabelString = L10n.InterpretationForThorsHummer.text(firstRune.value, secondRune.value, fourthRune.value)
         case .cross:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
             let thirdRune = runesViewContainer.runesSet[2]
             let fourthRune = runesViewContainer.runesSet[3]
             let fifthRune = runesViewContainer.runesSet[4]
-            descriptionLabel.text = L10n.InterpretationForСross.text(firstRune.value, secondRune.value, thirdRune.value, fifthRune.value, fourthRune.value)
-            
-            guard let textDescription = descriptionLabel.text else { return }
-            let changeColor = NSString(string: textDescription)
-            let text = NSMutableAttributedString(string: changeColor as String)
-            
-            [firstRune.value, secondRune.value, thirdRune.value, fourthRune.value, fifthRune.value].forEach {
-            text.addAttributes(
-                [.font: FontFamily.Roboto.light.font(size: 19)],
-                               range: changeColor.range(of: $0))
-            }
-            descriptionLabel.attributedText = text
+            descriptionLabelString = L10n.InterpretationForСross.text(firstRune.value, secondRune.value, thirdRune.value, fifthRune.value, fourthRune.value)
         case .elementsCross:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
@@ -244,18 +189,7 @@ extension AlignmentViewController {
             let fourthRune = runesViewContainer.runesSet[3]
             let fifthRune = runesViewContainer.runesSet[4]
             let sixthRune = runesViewContainer.runesSet[5]
-            descriptionLabel.text = L10n.InterpretationElementsCross.text(secondRune.value, firstRune.value, fourthRune.value, thirdRune.value, fifthRune.value, sixthRune.value)
-            
-            guard let textDescription = descriptionLabel.text else { return }
-            let changeColor = NSString(string: textDescription)
-            let text = NSMutableAttributedString(string: changeColor as String)
-            
-            [firstRune.value, secondRune.value, thirdRune.value, fourthRune.value, fifthRune.value, sixthRune.value].forEach {
-            text.addAttributes(
-                [.font: FontFamily.Roboto.light.font(size: 19)],
-                               range: changeColor.range(of: $0))
-            }
-            descriptionLabel.attributedText = text
+            descriptionLabelString = L10n.InterpretationElementsCross.text(secondRune.value, firstRune.value, fourthRune.value, thirdRune.value, fifthRune.value, sixthRune.value)
         case .keltsCross:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
@@ -264,19 +198,17 @@ extension AlignmentViewController {
             let fifthRune = runesViewContainer.runesSet[4]
             let sixthRune = runesViewContainer.runesSet[5]
             let seventhRune = runesViewContainer.runesSet[6]
-            descriptionLabel.text = L10n.InterpretationKeltsCross.text(firstRune.value, secondRune.value, thirdRune.value, fourthRune.value, fifthRune.value, sixthRune.value, seventhRune.value)
-            
-            guard let textDescription = descriptionLabel.text else { return }
-            let changeColor = NSString(string: textDescription)
-            let text = NSMutableAttributedString(string: changeColor as String)
-            
-            [firstRune.value, secondRune.value, thirdRune.value, fourthRune.value, fifthRune.value, sixthRune.value, seventhRune.value].forEach {
-            text.addAttributes(
-                [.font: FontFamily.Roboto.light.font(size: 19)],
-                               range: changeColor.range(of: $0))
-            }
-            descriptionLabel.attributedText = text
+            descriptionLabelString = L10n.InterpretationKeltsCross.text(firstRune.value, secondRune.value, thirdRune.value, fourthRune.value, fifthRune.value, sixthRune.value, seventhRune.value)
         }
+        
+        descriptionLabel.font = FontFamily.SFProDisplay.light.font(size: 19)
+        descriptionLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.sizeToFit()
+        descriptionLabel.lineBreakMode = .byWordWrapping
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.22
+        descriptionLabel.attributedText = NSAttributedString(string: descriptionLabelString, attributes: [NSAttributedString.Key.paragraphStyle : paragraphStyle])
         
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         contentInterpretationView.addSubview(descriptionLabel)
@@ -303,8 +235,8 @@ extension AlignmentViewController {
             affirmationLabel.isHidden = true
         }
         
-        affirmationLabel.font = FontFamily.SFProDisplay.light.font(size: 20.heightDependent())
-        affirmationLabel.textColor = Assets.Colors.Touch.text.color
+        affirmationLabel.font = FontFamily.SFProDisplay.light.font(size: 19)
+        affirmationLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         affirmationLabel.numberOfLines = 0
         affirmationLabel.sizeToFit()
         affirmationLabel.lineBreakMode = .byWordWrapping
@@ -314,10 +246,78 @@ extension AlignmentViewController {
         affirmationLabel.translatesAutoresizingMaskIntoConstraints = false
         contentInterpretationView.addSubview(affirmationLabel)
         NSLayoutConstraint.activate([
-            affirmationLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 30.heightDependent()),
+            affirmationLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
             affirmationLabel.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24.heightDependent()),
             affirmationLabel.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor, constant: -24.heightDependent()),
         ])
+    }
+    
+    
+    //-------------------------------------------------
+    // MARK: - CheckBox
+    //-------------------------------------------------
+    
+    func setUpCheckBox(){
+        checkButton.translatesAutoresizingMaskIntoConstraints = false
+        checkButton.setImage(UIImage(named: "unselected"), for: .normal)
+        checkButton.addTarget(self, action: #selector(select), for: .touchUpInside)
+        
+        let widthContant: CGFloat = DeviceType.iPhoneSE ? 16.44 : 20
+        let heightConstant: CGFloat = DeviceType.iPhoneSE ? 16.44 : 20
+        
+        NSLayoutConstraint.activate([
+            
+            checkButton.widthAnchor.constraint(equalToConstant: widthContant),
+            checkButton.heightAnchor.constraint(equalToConstant: heightConstant),
+        ])
+        
+    }
+    
+    func setUpCheckLabel() {
+        checkLabel.text = "Сохранить результат"
+        checkLabel.translatesAutoresizingMaskIntoConstraints = false
+        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 14 : 16
+        checkLabel.font = FontFamily.Roboto.light.font(size: fontConstant)
+        checkLabel.textColor = UIColor(red: 0.659, green: 0.651, blue: 0.639, alpha: 1)
+        checkLabel.textAlignment = .left
+        let heightAnchor: CGFloat = DeviceType.iPhoneSE ? 23.02 : 28
+        NSLayoutConstraint.activate([
+            
+            checkLabel.heightAnchor.constraint(equalToConstant: heightAnchor)
+            
+        ])
+    }
+    
+    func setUpCheckStack() {
+        checkStack.translatesAutoresizingMaskIntoConstraints = false
+        checkStack.axis = .horizontal
+        checkStack.distribution = .equalSpacing
+        let spacing: CGFloat = DeviceType.iPhoneSE ? 9.86 : 12
+        checkStack.spacing = spacing
+        
+        contentInterpretationView.addSubview(checkStack)
+        checkStack.addArrangedSubview(checkButton)
+        checkStack.addArrangedSubview(checkLabel)
+        
+        let bottomAnchor: CGFloat = DeviceType.iPhoneSE ? -13.15 : -27
+        
+        NSLayoutConstraint.activate([
+            checkStack.centerXAnchor.constraint(equalTo: contentInterpretationView.centerXAnchor),
+            checkStack.bottomAnchor.constraint(equalTo: cancelButton.topAnchor, constant: bottomAnchor)
+            
+        ])
+    }
+    
+    @objc func select(sender: UIButton!) {
+        if let button = sender {
+            if button.isSelected {
+                checkButton.setImage(UIImage(named: "unselected"), for: .normal)
+                button.isSelected = false
+            } else {
+                checkButton.setImage(UIImage(named: "selected"), for: .selected)
+                button.isSelected = true
+            }
+        }
     }
     
     // MARK: - CompleteButton
@@ -336,23 +336,23 @@ extension AlignmentViewController {
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30
         cancelButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
         cancelButton.addTarget(self, action: #selector(self.escapeOnTap), for: .touchUpInside)
-        cancelButton.setTitleColor(Assets.Colors.textColor.color, for: .normal)
-        cancelButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
+        cancelButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .normal)
+        cancelButton.setTitleColor(UIColor(red: 0.294, green: 0.282, blue: 0.259, alpha: 1), for: .highlighted)
         contentInterpretationView.addSubview(cancelButton)
         
         let heightConstant: CGFloat = DeviceType.iPhoneSE ? 46 : 56
         let widthConsatnt: CGFloat = DeviceType.iPhoneSE ? 210 : 255
         
         if affirmationLabel.isHidden {
-            cancelButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 60.heightDependent()).isActive = true
+            cancelButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 115.heightDependent()).isActive = true
         } else {
-            cancelButton.topAnchor.constraint(equalTo: affirmationLabel.bottomAnchor, constant: 60.heightDependent()).isActive = true
+            cancelButton.topAnchor.constraint(equalTo: affirmationLabel.bottomAnchor, constant: 115.heightDependent()).isActive = true
         }
         NSLayoutConstraint.activate([
             cancelButton.heightAnchor.constraint(equalToConstant: heightConstant),
             cancelButton.widthAnchor.constraint(equalToConstant: widthConsatnt),
             cancelButton.centerXAnchor.constraint(equalTo: contentInterpretationView.centerXAnchor),
-            cancelButton.bottomAnchor.constraint(equalTo: contentInterpretationView.bottomAnchor, constant: -75)
+            cancelButton.bottomAnchor.constraint(equalTo: contentInterpretationView.bottomAnchor, constant: -50.heightDependent())
         ])
     }
 }

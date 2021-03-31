@@ -57,23 +57,23 @@ class FourRuneView: UIView, RuneViewProtocol {
         NSLayoutConstraint.activate([
 
             buttonOne.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            buttonOne.leadingAnchor.constraint(equalTo: buttonOne.trailingAnchor, constant: -68.heightDependent()),
-            buttonOne.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
+            buttonOne.leadingAnchor.constraint(equalTo: buttonOne.trailingAnchor, constant: -76.heightDependent()),
+            buttonOne.heightAnchor.constraint(equalToConstant: 100.heightDependent()),
             
-            buttonTwo.trailingAnchor.constraint(equalTo: buttonOne.leadingAnchor, constant: -24.heightDependent()),
+            buttonTwo.trailingAnchor.constraint(equalTo: buttonOne.leadingAnchor, constant: -28.heightDependent()),
             buttonTwo.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            buttonTwo.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
-            buttonTwo.topAnchor.constraint(equalTo: buttonTwo.bottomAnchor, constant: -90.heightDependent()),
+            buttonTwo.widthAnchor.constraint(equalToConstant: 76.heightDependent()),
+            buttonTwo.topAnchor.constraint(equalTo: buttonTwo.bottomAnchor, constant: -100.heightDependent()),
             
-            buttonThree.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
-            buttonThree.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
-            buttonThree.topAnchor.constraint(equalTo: buttonTwo.bottomAnchor, constant: 24.heightDependent()),
-            buttonThree.trailingAnchor.constraint(equalTo: buttonOne.leadingAnchor, constant: -24.heightDependent()),
+            buttonThree.widthAnchor.constraint(equalToConstant: 76.heightDependent()),
+            buttonThree.heightAnchor.constraint(equalToConstant: 100.heightDependent()),
+            buttonThree.topAnchor.constraint(equalTo: buttonTwo.bottomAnchor, constant: 25.heightDependent()),
+            buttonThree.trailingAnchor.constraint(equalTo: buttonOne.leadingAnchor, constant: -28.heightDependent()),
             
-            buttonFour.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
-            buttonFour.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
-            buttonFour.bottomAnchor.constraint(equalTo: buttonTwo.topAnchor, constant: -24.heightDependent()),
-            buttonFour.trailingAnchor.constraint(equalTo: buttonOne.leadingAnchor, constant: -24.heightDependent()),
+            buttonFour.widthAnchor.constraint(equalToConstant: 76.heightDependent()),
+            buttonFour.heightAnchor.constraint(equalToConstant: 100.heightDependent()),
+            buttonFour.bottomAnchor.constraint(equalTo: buttonTwo.topAnchor, constant: -25.heightDependent()),
+            buttonFour.trailingAnchor.constraint(equalTo: buttonOne.leadingAnchor, constant: -28.heightDependent()),
             
             buttonFour.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor),
             buttonThree.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor),

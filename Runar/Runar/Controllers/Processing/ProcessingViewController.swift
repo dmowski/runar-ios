@@ -57,10 +57,10 @@ class ProcessingViewController: UIViewController {
         backgroundFire.isUserInteractionEnabled = true
         self.view.addSubview(backgroundFire)
         NSLayoutConstraint.activate([
-            backgroundFire.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            backgroundFire.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            backgroundFire.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            backgroundFire.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            backgroundFire.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundFire.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundFire.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundFire.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
     
@@ -118,10 +118,12 @@ class ProcessingViewController: UIViewController {
         nameLabel.textAlignment = .center
         nameLabel.attributedText = NSMutableAttributedString(string: nameLabel.text!, attributes: [NSAttributedString.Key.kern: -1.1])
         backgroundFire.addSubview(nameLabel)
+        let nameLabelTop: CGFloat = DeviceType.iPhoneSE ? 33 : 57
+        let nameLabelHeight: CGFloat = DeviceType.iPhoneSE ? 75 : 90
         
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: backgroundFire.topAnchor, constant: 25),
-            nameLabel.bottomAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 65),
+            nameLabel.topAnchor.constraint(equalTo: backgroundFire.topAnchor, constant: nameLabelTop.heightDependent()),
+            nameLabel.heightAnchor.constraint(equalToConstant: nameLabelHeight),
             nameLabel.centerXAnchor.constraint(equalTo: backgroundFire.centerXAnchor)
         ])
     }
@@ -144,21 +146,18 @@ class ProcessingViewController: UIViewController {
         startButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
         backgroundFire.addSubview(startButton)
         
-        let buttonBottomConstant: CGFloat = DeviceType.iPhoneSE ? -55 : -65
-        let buttonTopConstant: CGFloat = DeviceType.iPhoneSE ? -46 : -54
-        let buttonLeadingConstant: CGFloat = DeviceType.iPhoneSE ? 55 : 80
+        let heightConstant: CGFloat = DeviceType.iPhoneSE ? 46 : 56
         let buttonWidthConsatnt: CGFloat = DeviceType.iPhoneSE ? 210 : 255
         
         let vectorTop: CGFloat = DeviceType.iPhoneSE ? 17.25 : 21
         let vectorTrailing: CGFloat = DeviceType.iPhoneSE ? -18.76 : -22.84
         let vectorWidth: CGFloat = DeviceType.iPhoneSE ? 15.74 : 19.16
         let vectorHeight: CGFloat = DeviceType.iPhoneSE ? 10.68 : 13
-            
+        
         NSLayoutConstraint.activate([
-            startButton.bottomAnchor.constraint(equalTo: backgroundFire.bottomAnchor, constant: buttonBottomConstant),
-            startButton.topAnchor.constraint(equalTo: startButton.bottomAnchor, constant: buttonTopConstant),
-            startButton.leadingAnchor.constraint(lessThanOrEqualTo: backgroundFire.leadingAnchor, constant: buttonLeadingConstant),
+            startButton.bottomAnchor.constraint(equalTo: backgroundFire.bottomAnchor, constant: -40.heightDependent()),
             startButton.widthAnchor.constraint(equalToConstant: buttonWidthConsatnt),
+            startButton.heightAnchor.constraint(equalToConstant: heightConstant),
             startButton.centerXAnchor.constraint(equalTo: backgroundFire.centerXAnchor),
        
             vectorImageView.topAnchor.constraint(equalTo: startButton.topAnchor, constant: vectorTop),

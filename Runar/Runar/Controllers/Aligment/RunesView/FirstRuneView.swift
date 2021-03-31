@@ -51,8 +51,8 @@ public class FirstRuneView: UIView, RuneViewProtocol {
             buttonOne.centerXAnchor.constraint(equalTo: centerXAnchor),
             buttonOne.centerYAnchor.constraint(equalTo: centerYAnchor),
 
-            buttonOne.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
-            buttonOne.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
+            buttonOne.widthAnchor.constraint(equalToConstant: 76.heightDependent()),
+            buttonOne.heightAnchor.constraint(equalToConstant: 100.heightDependent()),
             
             buttonOne.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor),
             buttonOne.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor),
