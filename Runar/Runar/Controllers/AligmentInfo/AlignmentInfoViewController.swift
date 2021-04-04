@@ -126,7 +126,7 @@ class AlignmentInfoViewController: UIViewController {
     
     func setUpEscape() {
         escape.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(named: "escape")
+        let image = Assets.escape.image
         escape.setImage(image, for: .normal)
         background.addSubview(escape)
         escape.addTarget(self, action: #selector(self.escapeOnTap), for: .touchUpInside)
@@ -195,7 +195,7 @@ class AlignmentInfoViewController: UIViewController {
         showLabel.text = "Больше не показывать"
         showLabel.translatesAutoresizingMaskIntoConstraints = false
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 14 : 16
-        descriptionLabel.font = FontFamily.Roboto.light.font(size: fontConstant)
+        showLabel.font = FontFamily.Roboto.light.font(size: fontConstant)
         showLabel.textColor = UIColor(red: 0.659, green: 0.651, blue: 0.639, alpha: 1)
         showLabel.textAlignment = .left
         let heightAnchor: CGFloat = DeviceType.iPhoneSE ? 23.02 : 28
