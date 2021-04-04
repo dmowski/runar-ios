@@ -351,19 +351,19 @@ func addOneRuneViewController(controller: OneRuneViewController) {
         case (.dayRune, true):
             break
         case (.twoRunes, true):
-            heightConstant = 40
+            heightConstant = 200
         case (.norns, true):
-            heightConstant = 100
+            heightConstant = 235
         case (.shortPrediction, true):
-            heightConstant = 50
+            heightConstant = 150
         case (.thorsHummer, true):
             heightConstant = 60
         case (.cross, true):
-            heightConstant = 45
+            heightConstant = 150
         case (.elementsCross, true):
-            heightConstant = 0
+            heightConstant = 50
         case (.keltsCross, true):
-            heightConstant = 0
+            heightConstant = 70
         }
         scrollViewAlignment.contentOffset.y = frame.origin.y - heightConstant
 
