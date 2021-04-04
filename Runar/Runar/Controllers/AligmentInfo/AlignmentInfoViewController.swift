@@ -38,7 +38,7 @@ class AlignmentInfoViewController: UIViewController {
     }
     
     func backgroundSetup() {
-        backgroundFire.image = UIImage(named: "main_fire")
+        backgroundFire.image = Assets.mainFire.image
         backgroundFire.translatesAutoresizingMaskIntoConstraints = false
         backgroundFire.contentMode = .scaleAspectFill
         backgroundFire.isUserInteractionEnabled = true
@@ -50,7 +50,7 @@ class AlignmentInfoViewController: UIViewController {
             backgroundFire.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         
-        background.image = UIImage(named: "backgroundDown")
+        background.image = Assets.backgroundDown.image
         background.translatesAutoresizingMaskIntoConstraints = false
         background.contentMode = .scaleAspectFill
         background.isUserInteractionEnabled = true
@@ -177,7 +177,7 @@ class AlignmentInfoViewController: UIViewController {
     
     func setUpShowButton(){
         showButton.translatesAutoresizingMaskIntoConstraints = false
-        showButton.setImage(UIImage(named: "unselected"), for: .normal)
+        showButton.setImage(Assets.unselected.image, for: .normal)
         showButton.addTarget(self, action: #selector(select), for: .touchUpInside)
         
         let widthContant: CGFloat = DeviceType.iPhoneSE ? 16.44 : 20
@@ -230,11 +230,11 @@ class AlignmentInfoViewController: UIViewController {
     @objc func select(sender: UIButton!) {
         if let button = sender {
                    if button.isSelected {
-                    showButton.setImage(UIImage(named: "unselected"), for: .normal)
+                    showButton.setImage(Assets.unselected.image, for: .normal)
                        button.isSelected = false
                     UserDefaults.standard.set(false, forKey: viewModel.name)
                       } else {
-                        showButton.setImage(UIImage(named: "selected"), for: .selected)
+                        showButton.setImage(Assets.selected.image, for: .selected)
                        button.isSelected = true
                         UserDefaults.standard.set(true, forKey: viewModel.name)
                       }
