@@ -58,7 +58,6 @@
 		9B9F151C2591499A00062F47 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F151A2591499A00062F47 /* AmaticSC-Regular.ttf */; };
 		9B9F151D2591499A00062F47 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F151B2591499A00062F47 /* AmaticSC-Bold.ttf */; };
 		9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAEB61C25F13412004B7761 /* Affirmation.swift */; };
-		9BAEB62F25F18BF3004B7761 /* RunesInterpretationsPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAEB62E25F18BF3004B7761 /* RunesInterpretationsPopUp.swift */; };
 		9BAEB63425F18C3B004B7761 /* Interperitation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAEB63325F18C3B004B7761 /* Interperitation+Ext.swift */; };
 		9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD228FD258A321B00E17E98 /* AppDelegate.swift */; };
 		9BD22907258A321F00E17E98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22906258A321F00E17E98 /* Assets.xcassets */; };
@@ -157,7 +156,6 @@
 		9B9F151A2591499A00062F47 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
 		9B9F151B2591499A00062F47 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
 		9BAEB61C25F13412004B7761 /* Affirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Affirmation.swift; sourceTree = "<group>"; };
-		9BAEB62E25F18BF3004B7761 /* RunesInterpretationsPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunesInterpretationsPopUp.swift; sourceTree = "<group>"; };
 		9BAEB63325F18C3B004B7761 /* Interperitation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interperitation+Ext.swift"; sourceTree = "<group>"; };
 		9BD228FA258A321B00E17E98 /* Runar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD228FD258A321B00E17E98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -294,7 +292,6 @@
 				195AEDC225B8C3A300180A49 /* AlignmentViewController.swift */,
 				9BAEB63325F18C3B004B7761 /* Interperitation+Ext.swift */,
 				19C0F1F325BAF07E0027422B /* AligmentViewModel.swift */,
-				9BAEB62E25F18BF3004B7761 /* RunesInterpretationsPopUp.swift */,
 			);
 			path = Aligment;
 			sourceTree = "<group>";
@@ -771,7 +768,6 @@
 				19C0F21025BAFDCB0027422B /* AlignmentInfoViewModel.swift in Sources */,
 				191D32CF25B7C46A001DC210 /* Assets.swift in Sources */,
 				19D9BAD625C9765C00418CE7 /* TwoRuneView.swift in Sources */,
-				9BAEB62F25F18BF3004B7761 /* RunesInterpretationsPopUp.swift in Sources */,
 				9BD2295A258AB02500E17E98 /* CollectionViewController.swift in Sources */,
 				19C0F1F425BAF07E0027422B /* AligmentViewModel.swift in Sources */,
 				9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */,

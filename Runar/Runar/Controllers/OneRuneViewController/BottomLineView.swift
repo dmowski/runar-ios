@@ -31,7 +31,7 @@ final class BottomLineView: UIView {
         self.runesSet = runesSet
         self.runeType = runeType
         pageControl.numberOfPages = runesSet.count
-        pageControl.currentPage = runesSet.firstIndex(of: runeType) ?? 0
+        pageControl.currentPage = runesSet.firstIndex(of: runeType)!
     }
     
     //MARK: -BlackView
