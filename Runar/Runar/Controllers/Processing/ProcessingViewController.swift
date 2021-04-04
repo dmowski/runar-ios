@@ -25,10 +25,11 @@ class ProcessingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundSetup()
-        setUpImageView()
+        
         setUpNameLabel()
         setUpStart()
         setUpProcessingLabel()
+        setUpImageView()
         setUpAdNameAndText()
         
         CATransaction.begin()
@@ -51,7 +52,7 @@ class ProcessingViewController: UIViewController {
     }
     
     func backgroundSetup() {
-        backgroundFire.image = UIImage(named: "main_fire")
+        backgroundFire.image = Assets.mainFire.image
         backgroundFire.translatesAutoresizingMaskIntoConstraints = false
         backgroundFire.contentMode = .scaleAspectFill
         backgroundFire.isUserInteractionEnabled = true
@@ -66,16 +67,17 @@ class ProcessingViewController: UIViewController {
     
     
     func setUpImageView() {
-        imageView.image = UIImage(named: "ads")
+        imageView.image = Assets.ads.image
         let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147
         imageView.layer.cornerRadius = radiusConstant
         imageView.translatesAutoresizingMaskIntoConstraints = false
         backgroundFire.addSubview(imageView)
         
         let heightConstant: CGFloat = DeviceType.iPhoneSE ? 167 : 294
+        let topConstant: CGFloat = DeviceType.iPhoneSE ? 70 : 93.heightDependent()
        
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: backgroundFire.topAnchor, constant: 202.heightDependent()),
+            imageView.topAnchor.constraint(equalTo: processingLabel.bottomAnchor, constant: topConstant),
             imageView.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: heightConstant),
             imageView.centerXAnchor.constraint(equalTo: backgroundFire.centerXAnchor),
             imageView.widthAnchor.constraint(equalToConstant: heightConstant)
@@ -101,7 +103,7 @@ class ProcessingViewController: UIViewController {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.fromValue = 0
         basicAnimation.toValue = 1
-        basicAnimation.duration = 1
+        basicAnimation.duration = 15
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         shapeLayer.add(basicAnimation, forKey: nil)
@@ -135,7 +137,7 @@ class ProcessingViewController: UIViewController {
         startButton.layer.borderWidth = 1
         startButton.setTitle("Перейти на сайт", for: .normal)
         
-        vectorImageView.image = UIImage(named: "vector")
+        vectorImageView.image = Assets.vector.image
         vectorImageView.translatesAutoresizingMaskIntoConstraints = false
         startButton.addSubview(vectorImageView)
         
@@ -196,7 +198,7 @@ class ProcessingViewController: UIViewController {
         
         adText.text = "Helvegen"
         adText.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
-        adText.font = UIFont(name: "SFProDisplay-Light", size: 16)
+        adText.font = FontFamily.SFProDisplay.light.font(size: 16)
         adText.textAlignment = .center
         
         adName.translatesAutoresizingMaskIntoConstraints = false
