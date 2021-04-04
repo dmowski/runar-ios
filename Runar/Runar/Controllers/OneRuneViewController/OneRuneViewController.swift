@@ -41,12 +41,18 @@ class OneRuneViewController: UIViewController {
         setView()
         setUpBottomConstr()
         configurePageScroll()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         let buttonFrame = buttonFrames?[index ?? 0]
         changeContentOffset!(buttonFrame!)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        openCurrentPage()
     }
     
     private func setView() {
@@ -113,16 +119,21 @@ class OneRuneViewController: UIViewController {
         }
         previousAnchor.constraint(equalTo: pageScroll.trailingAnchor).isActive = true
         }
+    
+    private func openCurrentPage() {
+        self.pageScroll.setContentOffset(CGPoint(x: view.frame.size.width * CGFloat(self.index!), y: 0.0), animated: false)
+    }
 }
 
 extension OneRuneViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        bottomLine?.pageControl.currentPage = Int(floorf(Float(pageScroll.contentOffset.x) / Float(scrollView.frame.size.width)))
+        guard let changeContentOffset = changeContentOffset else {return}
+        bottomLine?.pageControl.currentPage = Int(floorf(Float(pageScroll.contentOffset.x) / Float(view.frame.size.width)))
         let index = (bottomLine?.pageControl.currentPage)!
         self.removeAllDark!()
         self.leaveLightAndMakeDark!(index)
         guard let frame = buttonFrames?[index] else { return }
-        changeContentOffset!(frame)
+        changeContentOffset(frame)
     }
 }
 
