@@ -29,9 +29,9 @@ extension AlignmentViewController {
         setUpDescriptionLabel()
         setUpAffirmationLabel()
         setUpCancel()
-        setUpCheckBox()
-        setUpCheckLabel()
-        setUpCheckStack()
+//        setUpCheckBox()
+//        setUpCheckLabel()
+//        setUpCheckStack()
     }
     
     

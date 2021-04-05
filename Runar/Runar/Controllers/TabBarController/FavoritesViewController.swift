@@ -13,6 +13,7 @@ class FavoritesViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .brown
+        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.092, green: 0.092, blue: 0.092, alpha: 0.94)
     }
 
 

@@ -23,6 +23,7 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 internal enum Assets {
   internal static let accentColor = ColorAsset(name: "AccentColor")
   internal enum Background {
+    internal static let backgroundShadowSetting = ImageAsset(name: "Background/backgroundShadowSetting")
     internal static let main = ImageAsset(name: "Background/main")
   }
   internal enum CellSettings {
