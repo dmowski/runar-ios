@@ -43,7 +43,7 @@ class MainTabBarController: UITabBarController {
         let navigationVC = UINavigationController(rootViewController: rootViewController)
         navigationVC.tabBarItem.image = image
         navigationVC.tabBarItem.title = title
-        navigationVC.setNavigationBarHidden(true, animated: false)
+//        navigationVC.setNavigationBarHidden(true, animated: false)
         
         return navigationVC
     }
