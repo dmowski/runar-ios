@@ -328,6 +328,7 @@ class AlignmentViewController: UIViewController {
                 self?.scrollViewAlignment.isScrollEnabled = true
                 self?.invibaleView.removeFromSuperview()
                 self?.readyToOpen = true
+                self?.scrollViewAlignment.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
             }
             
             controller.changeContentOffset = { [self]frame in
@@ -336,7 +337,7 @@ class AlignmentViewController: UIViewController {
                 case (.dayRune, false):
                     break
                 case (.twoRunes, false):
-                    heightConstant = 220.heightDependent()
+                    heightConstant = 230.heightDependent()
                 case (.norns, false):
                     heightConstant = 300.heightDependent()
                 case (.shortPrediction, false):
