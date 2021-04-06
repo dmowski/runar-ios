@@ -169,7 +169,7 @@ extension AlignmentViewController {
             let secondRune = runesViewContainer.runesSet[1]
             let thirdRune = runesViewContainer.runesSet[2]
             let fourthRune = runesViewContainer.runesSet[3]
-            descriptionLabelString = L10n.InterpretationForShortPrediction.text(firstRune.value, secondRune, thirdRune.value, fourthRune.value)
+            descriptionLabelString = L10n.InterpretationForShortPrediction.text(firstRune.value, secondRune.value, thirdRune.value, fourthRune.value)
         case .thorsHummer:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
