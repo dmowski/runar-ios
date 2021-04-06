@@ -29,6 +29,8 @@ class CollectionViewController: UICollectionViewController {
 
         collectionView.register(MainCell.self, forCellWithReuseIdentifier: MainCell.reuseIdentifier)
         
+        MusicViewController.shared.playCurrentSong()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
