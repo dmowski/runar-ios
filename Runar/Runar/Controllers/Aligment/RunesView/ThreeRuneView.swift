@@ -37,7 +37,7 @@ class ThreeRuneView: UIView, RuneViewProtocol {
     
     private func setUpContent() {
         
-        configureIndexesAndButtons(count: 3)
+        configureIndexesAndButtons(count: 3, availableRunes: RuneType.allCases(subtype: .random))
         addButtons()
         setupViewConstraints()
         highlightFirstButton()
@@ -55,21 +55,25 @@ class ThreeRuneView: UIView, RuneViewProtocol {
         
         NSLayoutConstraint.activate([
 
-            buttonOne.leadingAnchor.constraint(equalTo: buttonTwo.trailingAnchor, constant: 26.heightDependent()),
+            buttonOne.leadingAnchor.constraint(equalTo: buttonTwo.trailingAnchor, constant: 28.heightDependent()),
             buttonOne.centerYAnchor.constraint(equalTo: centerYAnchor),
-            buttonOne.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
-            buttonOne.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
+            buttonOne.widthAnchor.constraint(equalToConstant: 76.heightDependent()),
+            buttonOne.heightAnchor.constraint(equalToConstant: 100.heightDependent()),
 
             buttonTwo.centerXAnchor.constraint(equalTo: centerXAnchor),
             buttonTwo.centerYAnchor.constraint(equalTo: centerYAnchor),
-            buttonTwo.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
-            buttonTwo.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
+            buttonTwo.widthAnchor.constraint(equalToConstant: 76.heightDependent()),
+            buttonTwo.heightAnchor.constraint(equalToConstant: 100.heightDependent()),
             
-            buttonThree.trailingAnchor.constraint(equalTo: buttonTwo.leadingAnchor, constant: -26.heightDependent()),
+            buttonThree.trailingAnchor.constraint(equalTo: buttonTwo.leadingAnchor, constant: -25.heightDependent()),
             buttonThree.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            buttonThree.widthAnchor.constraint(equalToConstant: 68.heightDependent()),
-            buttonThree.heightAnchor.constraint(equalToConstant: 90.heightDependent()),
-
+            buttonThree.widthAnchor.constraint(equalToConstant: 76.heightDependent()),
+            buttonThree.heightAnchor.constraint(equalToConstant: 100.heightDependent()),
+            
+            buttonOne.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor),
+            buttonOne.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor),
+            buttonOne.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor),
+            buttonOne.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor)
         ])
     }
 }

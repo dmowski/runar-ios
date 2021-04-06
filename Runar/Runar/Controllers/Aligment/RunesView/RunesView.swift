@@ -9,23 +9,31 @@ import UIKit
 
 public class RunesView: UIView {
     
+    var runesSet: [RuneType] {
+        enumeratedRuneViews[runeLayout]?.runesSet ?? []
+    }
     //-------------------------------------------------
     // MARK: - Nested types
     //-------------------------------------------------
     
     public class ViewModel {
         public let didHighlightAllRunes: ([RuneType]) -> Void
-        
-        public init(didHighlightAllRunes: @escaping ([RuneType]) -> Void) {
+        public var buttonFrames: [CGRect] = []
+        public init(viewController: UIViewController, runesLayout: RuneLayout, didHighlightAllRunes: @escaping ([RuneType]) -> Void) {
             self.didHighlightAllRunes = didHighlightAllRunes
+            self.viewController = viewController as? AlignmentViewController
+            self.runeLayout = runesLayout
         }
+        
+        internal var viewController: AlignmentViewController?
+        public var runeLayout: RuneLayout
     }
     
     //-------------------------------------------------
     // MARK: - Variables
     //-------------------------------------------------
     
-    private var runeLayout: RuneLayout = .dayRune
+    public var runeLayout: RuneLayout = .dayRune
     
     private let enumeratedRuneViews: [RuneLayout: RuneViewProtocol & UIView] = [
         .dayRune: FirstRuneView(),
@@ -55,7 +63,6 @@ public class RunesView: UIView {
     
     private func setupContent() {
         addSubviews()
-        setupViewConstraints()
         setRuneLayout(.dayRune)
     }
     
@@ -65,28 +72,22 @@ public class RunesView: UIView {
         }
     }
     
-    private func setupViewConstraints() {
-        NSLayoutConstraint.activate(
-            enumeratedRuneViews.flatMap { _, runeView -> [NSLayoutConstraint] in
-                runeView.translatesAutoresizingMaskIntoConstraints = false
-                
-                return [
-                    runeView.topAnchor.constraint(equalTo: topAnchor),
-                    runeView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                    runeView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                    runeView.bottomAnchor.constraint(equalTo: bottomAnchor)
-                ]
-            }
-        )
-    }
-    
     //-------------------------------------------------
     // MARK: -
     //-------------------------------------------------
     
     public func setRuneLayout(_ runeLayout: RuneLayout) {
-        enumeratedRuneViews.forEach { $0.value.isHidden = true }
-        enumeratedRuneViews[runeLayout]?.isHidden = false
+        enumeratedRuneViews.forEach { $0.value.removeFromSuperview() }
+        guard let chosenView = enumeratedRuneViews[runeLayout] else { return }
+        chosenView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(chosenView)
+        
+        NSLayoutConstraint.activate([
+            chosenView.topAnchor.constraint(greaterThanOrEqualTo: topAnchor),
+            chosenView.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor),
+            chosenView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            chosenView.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
         
         self.runeLayout = runeLayout
     }

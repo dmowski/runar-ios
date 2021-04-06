@@ -14,9 +14,11 @@ public class RuneButton: UIButton {
     //-------------------------------------------------
     
     public struct ViewModel {
+        public let runeType: RuneType
         public let title: String
         public let image: UIImage
-        
+        public var openRune: (()->())
+        public var runeInfo: ((_ runeType: RuneType, _ frame: CGPoint)->())
         public func getAttributedTitle(with color: UIColor) -> NSAttributedString {
             NSAttributedString(
                 string: title,
@@ -42,7 +44,10 @@ public class RuneButton: UIButton {
     
     private var viewModel: ViewModel?
     public private(set) var runeState: State = .tinted
-    
+    var runeType: RuneType? {
+        viewModel?.runeType
+    }
+    private var darkImage = UIImageView()
     //-------------------------------------------------
     // MARK: - Methods
     //-------------------------------------------------
@@ -85,11 +90,11 @@ public class RuneButton: UIButton {
             backgroundColor = .clear
             layer.borderColor = UIColor.clear.cgColor
             layer.borderWidth = 0
-            isUserInteractionEnabled = false
+            isUserInteractionEnabled = true
             setAttributedTitle(nil, for: .normal)
             setImage(viewModel?.image, for: .normal)
 
-            imageEdgeInsets = UIEdgeInsets(top: 105.heightDependent(), left: 83.heightDependent(), bottom: 105.heightDependent(), right: 83.heightDependent())
+            imageEdgeInsets = UIEdgeInsets(top: 120.heightDependent(), left: 95.heightDependent(), bottom: 120.heightDependent(), right: 95.heightDependent())
         }
         
         self.runeState = runeState
@@ -126,6 +131,18 @@ public class RuneButton: UIButton {
             })
         }
     
+    func addDark() {
+        darkImage = UIImageView(frame: CGRect(x: -20, y: -20, width: self.frame.size.width + 40, height: self.frame.size.height + 36))
+        darkImage.image = UIImage(named: "darkRune")
+        self.addSubview(darkImage)
+
+    }
+    
+    
+    func removeDark(){
+        darkImage.removeFromSuperview()
+    }
+    
     //-------------------------------------------------
     // MARK: - Handle touch
     //-------------------------------------------------
@@ -138,6 +155,17 @@ public class RuneButton: UIButton {
     
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
+        switch self.runeState {
+        case .highlighted:
+            self.viewModel?.openRune()
+        case .rune:
+            guard let runeType = runeType else {return }
+            self.viewModel?.runeInfo(runeType, self.frame.origin)
+
+        default:
+             break
+        }
+    
         transform = .identity
 
     }

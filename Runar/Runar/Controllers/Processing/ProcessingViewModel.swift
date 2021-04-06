@@ -12,7 +12,9 @@ public class ProcessingViewModel {
     public var name: String {
         runeDescription.name
     }
-    public init (runeDescription: RuneDescription) {
+    public let closeTransition: () -> Void
+    public init (runeDescription: RuneDescription, closeTransition: @escaping () -> Void) {
         self.runeDescription = runeDescription
+        self.closeTransition = closeTransition
     }
 }

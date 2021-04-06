@@ -22,6 +22,29 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Assets {
   internal static let accentColor = ColorAsset(name: "AccentColor")
+  internal enum Background {
+    internal static let backgroundShadowSetting = ImageAsset(name: "Background/backgroundShadowSetting")
+    internal static let main = ImageAsset(name: "Background/main")
+  }
+  internal enum CellSettings {
+    internal enum Colors {
+      internal static let backgroundColor = ColorAsset(name: "CellSettings/Colors/BackgroundColor")
+      internal static let colorDidLight = ColorAsset(name: "CellSettings/Colors/ColorDidLight")
+      internal static let colorLight = ColorAsset(name: "CellSettings/Colors/ColorLight")
+      internal static let backgroundColorHighlite = ColorAsset(name: "CellSettings/Colors/backgroundColorHighlite")
+      internal static let borderColor = ColorAsset(name: "CellSettings/Colors/borderColor")
+    }
+    internal enum Runes {
+      internal static let cross = ImageAsset(name: "CellSettings/Runes/cross")
+      internal static let dayRune = ImageAsset(name: "CellSettings/Runes/dayRune")
+      internal static let elementsCross = ImageAsset(name: "CellSettings/Runes/elementsCross")
+      internal static let keltsCross = ImageAsset(name: "CellSettings/Runes/keltsCross")
+      internal static let norns = ImageAsset(name: "CellSettings/Runes/norns")
+      internal static let shortPrediction = ImageAsset(name: "CellSettings/Runes/shortPrediction")
+      internal static let thorsHummer = ImageAsset(name: "CellSettings/Runes/thorsHummer")
+      internal static let twoRunes = ImageAsset(name: "CellSettings/Runes/twoRunes")
+    }
+  }
   internal enum Colors {
     internal static let textColor = ColorAsset(name: "Colors/TextColor")
     internal enum Touch {
@@ -35,10 +58,7 @@ internal enum Assets {
       internal static let text = ColorAsset(name: "Colors/UnTouch/text")
     }
   }
-  internal static let favouriteSelected = ImageAsset(name: "Favourite-selected")
-  internal static let favouriteUnselected = ImageAsset(name: "Favourite-unselected")
-  internal static let homeSelected = ImageAsset(name: "Home-selected")
-  internal static let homeUnselected = ImageAsset(name: "Home-unselected")
+  internal static let interpretationBackground = ImageAsset(name: "InterpretationBackground")
   internal enum LayoutsRunes {
     internal static let algiz = ImageAsset(name: "LayoutsRunes/Algiz")
     internal static let ansuz = ImageAsset(name: "LayoutsRunes/Ansuz")
@@ -84,27 +104,32 @@ internal enum Assets {
     internal static let uruz = ImageAsset(name: "LayoutsRunes/Uruz")
     internal static let wunji = ImageAsset(name: "LayoutsRunes/Wunji")
   }
-  internal static let librarySelected = ImageAsset(name: "Library-selected")
-  internal static let library = ImageAsset(name: "Library")
-  internal static let cross = ImageAsset(name: "cross")
-  internal static let dayRune = ImageAsset(name: "dayRune")
-  internal static let elementsCross = ImageAsset(name: "elementsCross")
-  internal static let keltsCross = ImageAsset(name: "keltsCross")
-  internal static let norns = ImageAsset(name: "norns")
-  internal static let shortPrediction = ImageAsset(name: "shortPrediction")
-  internal static let thorsHummer = ImageAsset(name: "thorsHummer")
-  internal static let twoRunes = ImageAsset(name: "twoRunes")
-  internal static let settingsSelected = ImageAsset(name: "Settings-selected")
-  internal static let settingsUnselected = ImageAsset(name: "Settings-unselected")
+  internal enum TabBar {
+    internal enum Image {
+      internal static let favorites = ImageAsset(name: "TabBar/Image/Favorites")
+      internal static let home = ImageAsset(name: "TabBar/Image/Home")
+      internal static let library = ImageAsset(name: "TabBar/Image/Library")
+      internal static let settings = ImageAsset(name: "TabBar/Image/Settings")
+    }
+    internal static let pushColor = ColorAsset(name: "TabBar/pushColor")
+  }
   internal static let ads = ImageAsset(name: "ads")
   internal static let backgroundDown = ImageAsset(name: "backgroundDown")
+  internal static let bottomBlackGradient = ImageAsset(name: "bottomBlackGradient")
+  internal static let darkRune = ImageAsset(name: "darkRune")
   internal static let escape = ImageAsset(name: "escape")
   internal static let floatingDown = ImageAsset(name: "floatingDown")
   internal static let floatingUp = ImageAsset(name: "floatingUp")
-  internal static let main = ImageAsset(name: "main")
+  internal static let launchRunar = ImageAsset(name: "launchRunar")
+  internal static let launchScreen = ImageAsset(name: "launchScreen")
+  internal static let learnAboutTheAlignment = ImageAsset(name: "learnAboutTheAlignment")
   internal static let mainFire = ImageAsset(name: "main_fire")
+  internal static let nameLabelGradient = ImageAsset(name: "nameLabelGradient")
   internal static let person2 = ImageAsset(name: "person 2")
+  internal static let popUpVectorLeft = ImageAsset(name: "popUpVectorLeft")
+  internal static let popUpVectorRight = ImageAsset(name: "popUpVectorRight")
   internal static let selected = ImageAsset(name: "selected")
+  internal static let topBlackGradient = ImageAsset(name: "topBlackGradient")
   internal static let unselected = ImageAsset(name: "unselected")
   internal static let vector = ImageAsset(name: "vector")
 }
