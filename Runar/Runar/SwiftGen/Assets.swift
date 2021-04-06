@@ -58,6 +58,7 @@ internal enum Assets {
       internal static let text = ColorAsset(name: "Colors/UnTouch/text")
     }
   }
+  internal static let danheim = ImageAsset(name: "Danheim")
   internal static let interpretationBackground = ImageAsset(name: "InterpretationBackground")
   internal enum LayoutsRunes {
     internal static let algiz = ImageAsset(name: "LayoutsRunes/Algiz")
@@ -104,6 +105,7 @@ internal enum Assets {
     internal static let uruz = ImageAsset(name: "LayoutsRunes/Uruz")
     internal static let wunji = ImageAsset(name: "LayoutsRunes/Wunji")
   }
+  internal static let led = ImageAsset(name: "Led")
   internal enum TabBar {
     internal enum Image {
       internal static let favorites = ImageAsset(name: "TabBar/Image/Favorites")

@@ -31,6 +31,7 @@ class ProcessingViewController: UIViewController {
         setUpProcessingLabel()
         setUpImageView()
         setUpAdNameAndText()
+        fillContent()
         
         CATransaction.begin()
 
@@ -67,7 +68,7 @@ class ProcessingViewController: UIViewController {
     
     
     func setUpImageView() {
-        imageView.image = Assets.ads.image
+                
         let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147
         imageView.layer.cornerRadius = radiusConstant
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -190,13 +191,11 @@ class ProcessingViewController: UIViewController {
     
     func setUpAdNameAndText () {
         
-        adName.text = "Wardruna"
         adName.font = FontFamily.SFProDisplay.regular.font(size: 24)
         
         adName.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         adName.textAlignment = .center
         
-        adText.text = "Helvegen"
         adText.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         adText.font = FontFamily.SFProDisplay.light.font(size: 16)
         adText.textAlignment = .center
@@ -218,6 +217,32 @@ class ProcessingViewController: UIViewController {
             adText.bottomAnchor.constraint(equalTo: adText.topAnchor, constant: 25),
         ])
     }
+    
+    private func fillContent() {
+        switch MusicViewController.shared.currentSoundsIndex {
+        case 0:
+            imageView.image = Assets.led.image
+            adName.text = "Лёдъ"
+            adText.text = "Мать моя сказала"
+        case 1:
+            imageView.image = Assets.led.image
+            adName.text = "Лёдъ"
+            adText.text = "Чёрная ладья"
+        case 2:
+            imageView.image = Assets.danheim.image
+            adName.text = "Danheim"
+            adText.text = "Runar"
+        case 3:
+            imageView.image = Assets.danheim.image
+            adName.text = "Danheim"
+            adText.text = "Kala"
+        default:
+            imageView.image = Assets.ads.image
+        }
+    }
 }
-
+//static let ledFirstSong = "led_Mat moys skazala_master"
+//static let ledSecondSong = "led_chernaya ladya_master"
+//static let danheimFirstSong = "Danheim-Runar_master"
+//static let danheimSecondSong = "Danheim-Kala_master"
 
