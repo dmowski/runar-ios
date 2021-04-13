@@ -7,13 +7,8 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingViewController: UIViewController {
 
-
-    //-------------------------------------------------
-    // MARK: - Variables
-    //-------------------------------------------------
-    
     private let backgroundDown = UIImageView()
     
     override func viewDidLoad() {

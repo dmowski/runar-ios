@@ -106,6 +106,7 @@ internal enum Assets {
     internal static let wunji = ImageAsset(name: "LayoutsRunes/Wunji")
   }
   internal static let led = ImageAsset(name: "Led")
+  internal static let settingsArrow = ImageAsset(name: "Settings-arrow")
   internal enum TabBar {
     internal enum Image {
       internal static let favorites = ImageAsset(name: "TabBar/Image/Favorites")
@@ -122,6 +123,8 @@ internal enum Assets {
   internal static let escape = ImageAsset(name: "escape")
   internal static let floatingDown = ImageAsset(name: "floatingDown")
   internal static let floatingUp = ImageAsset(name: "floatingUp")
+  internal static let languageSelected = ImageAsset(name: "language-selected")
+  internal static let languageUnselected = ImageAsset(name: "language-unselected")
   internal static let launchRunar = ImageAsset(name: "launchRunar")
   internal static let launchScreen = ImageAsset(name: "launchScreen")
   internal static let learnAboutTheAlignment = ImageAsset(name: "learnAboutTheAlignment")

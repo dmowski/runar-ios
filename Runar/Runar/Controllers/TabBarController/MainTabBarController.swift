@@ -27,14 +27,11 @@ class MainTabBarController: UITabBarController {
         
         let lay = UICollectionViewFlowLayout()
         let collectionVC = CollectionViewController(collectionViewLayout: lay)
-        let libraryVC = LibraryViewController()
-        let favoritesVC = FavoritesViewController()
         let settingsVC = SettingsViewController()
         
         viewControllers = [
             generateTabBarController(rootViewController: collectionVC, image: Assets.TabBar.Image.home.image, title: "Расклады"),
-            generateTabBarController(rootViewController: libraryVC, image: Assets.TabBar.Image.library.image, title: "Библиотека"),
-            generateTabBarController(rootViewController: favoritesVC, image: Assets.TabBar.Image.favorites.image, title: "Избранное"),
+
             generateTabBarController(rootViewController: settingsVC, image: Assets.TabBar.Image.settings.image, title: "Настройки"),
         ]
     }
