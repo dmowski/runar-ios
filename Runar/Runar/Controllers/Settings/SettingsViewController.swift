@@ -12,9 +12,7 @@ final class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.dataSource = self
-        tableView.delegate = self
-        
+        tableViewSetUps()
         configureUI()
         configureNavigationBar()
     }
@@ -35,15 +33,26 @@ final class SettingsViewController: UIViewController {
         return shadow
     }()
     
-    private var tableView: UITableView = {
-        let tableView = UITableView()
-       
-        return tableView
-    }()
+    private var tableView = UITableView()
+    
+    private func tableViewSetUps() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.register(LanguageCell.self, forCellReuseIdentifier: LanguageCell.identifier)
+        tableView.register(SelectedLanguageCell.self, forCellReuseIdentifier: SelectedLanguageCell.identifier)
+        tableView.register(MusicCell.self, forCellReuseIdentifier: MusicCell.identifier)
+        tableView.register(StaticCell.self, forCellReuseIdentifier: StaticCell.identifier)
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .clear
+        tableView.tableFooterView = UIView()
+        tableView.allowsSelection = false
+    }
     
     
     private func configureUI() {
-        view.addSubviews(backgroundImage, backgroundShadow)
+        view.addSubviews(backgroundImage, backgroundShadow, tableView)
         
         NSLayoutConstraint.activate([
             backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
@@ -56,6 +65,10 @@ final class SettingsViewController: UIViewController {
             backgroundShadow.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundShadow.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16.heightDependent()),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
 
@@ -74,7 +87,7 @@ final class SettingsViewController: UIViewController {
 
 extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        4
+        6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -82,20 +95,58 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         switch indexPath.row {
         
         case 0:
-            return tableView.dequeueReusableCell(withIdentifier: LanguageCell.language, for: indexPath) as! LanguageCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: LanguageCell.identifier, for: indexPath)
+            cell.textLabel?.text = .language
+            cell.backgroundColor = .clear
+            return cell
         case 1:
-            return SelectedLanguageCell(language: String.russian)
+            let cell = tableView.dequeueReusableCell(withIdentifier: SelectedLanguageCell.identifier, for: indexPath) as? SelectedLanguageCell
+            cell?.textLabel?.text = .russian
+            cell?.backgroundColor = .clear
+            return cell ?? SelectedLanguageCell()
         case 2:
-            return SelectedLanguageCell(language: String.english)
+            let cell = tableView.dequeueReusableCell(withIdentifier: SelectedLanguageCell.identifier, for: indexPath) as? SelectedLanguageCell
+            cell?.textLabel?.text = .english
+            cell?.backgroundColor = .clear
+            return cell ?? SelectedLanguageCell()
         case 3:
-            return StaticCell(title: .rateApp)
+            let cell = tableView.dequeueReusableCell(withIdentifier: MusicCell.identifier, for: indexPath) as? MusicCell
+            cell?.textLabel?.text = String.music
+            cell?.backgroundColor = .clear
+            return cell ?? SelectedLanguageCell()
         case 4:
-            return StaticCell(title: .aboutApp)
-
+            let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
+            cell?.textLabel?.text = String.rateApp
+            cell?.backgroundColor = .clear
+            return cell ?? SelectedLanguageCell()
+        case 5:
+            let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
+            cell?.textLabel?.text = String.aboutApp
+            cell?.backgroundColor = .clear
+            return cell ?? SelectedLanguageCell()
         default:
             return UITableViewCell()
         }
 
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return 50
+        case 1:
+            return 31
+        case 2:
+            return 31
+        case 3:
+            return 50
+        case 4:
+            return 50
+        case 5:
+            return 50
+        default:
+            return 0
+        }
     }
     
     

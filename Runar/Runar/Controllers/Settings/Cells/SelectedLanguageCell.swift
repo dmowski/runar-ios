@@ -20,15 +20,14 @@ extension String {
 
 class SelectedLanguageCell: UITableViewCell {
     
-    static let selectedLanguage = "selectedLanguage"
+    static let identifier = "SelectedLanguageCell"
     
-    private let language: String?
+    var language: String?
     
-    init(language: String) {
-        super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: SelectedLanguageCell.selectedLanguage)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.language = language
-        
+        separatorInset = UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 0)
         configureUI()
         configureTextLabel()
         checkLocalizedLanguage()
@@ -40,11 +39,6 @@ class SelectedLanguageCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -53,11 +47,9 @@ class SelectedLanguageCell: UITableViewCell {
     
     private func configureTextLabel() {
         
-        textLabel?.text = language
-        translatesAutoresizingMaskIntoConstraints = false
         textLabel?.textAlignment = .left
         textLabel?.textColor = .languageNameText
-        textLabel?.font = FontFamily.SFProDisplay.regular.font(size: 16.heightDependent())
+        textLabel?.font = FontFamily.SFProDisplay.regular.font(size: 16)
     }
     
     private var button: UIButton = {
@@ -81,8 +73,7 @@ class SelectedLanguageCell: UITableViewCell {
         addSubview(button)
         
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+            button.centerYAnchor.constraint(equalTo: centerYAnchor),
             button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18),
             button.widthAnchor.constraint(equalToConstant: 20)
         ])

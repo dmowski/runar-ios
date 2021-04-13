@@ -14,13 +14,14 @@ extension String {
 
 class StaticCell: UITableViewCell {
     
-    static let staticCell = "staticCell"
+    static let identifier = "StaticCell"
     private var title: String?
     
-    init(title: String) {
-        super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: StaticCell.staticCell)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.title = title
+        textLabel?.font = FontFamily.SFProDisplay.regular.font(size: 20)
+        textLabel?.textColor = .settingsWhiteText
         
         configureUI()
     }
@@ -29,11 +30,6 @@ class StaticCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -12,29 +12,35 @@ extension String {
 }
 
 extension UIColor {
-    static let musicIsOn = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
+    static let musicIsOn = UIColor(red: 0.604, green: 0.604, blue: 0.604, alpha: 1)
 }
 
 class MusicCell: UITableViewCell {
     
-    static let musicCell = "musicCell"
+    static let identifier = "MusicCell"
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        switchControl.addTarget(self, action: #selector(switchOnTap), for: .valueChanged)
+        textLabel?.font = FontFamily.SFProDisplay.regular.font(size: 20)
+        textLabel?.textColor = .settingsWhiteText
+        
+        configureUI()
+        checkPlayer()
     }
     
+    required init?(coder: NSCoder) {
+
+        fatalError("init(coder:) has not been implemented")
+    }
+
     private let musicPlayer = MusicViewController.shared.audioPlayer
     private var switchControl: UISwitch = {
         let switchControl = UISwitch()
         switchControl.thumbTintColor = UIColor.musicIsOn
-        switchControl.addTarget(self, action: #selector(switchOnTap), for: .valueChanged)
+        switchControl.translatesAutoresizingMaskIntoConstraints = false
+        
+        switchControl.tag = 200
         return switchControl
     }()
 
@@ -51,6 +57,7 @@ class MusicCell: UITableViewCell {
     }
     
     private func checkPlayer() {
+        
         if ((musicPlayer?.isPlaying) != nil) {
             switchControl.isOn = true
         } else {
@@ -58,11 +65,12 @@ class MusicCell: UITableViewCell {
         }
     }
     
-    @objc private func switchOnTap() {
-        if switchControl.isOn {
+    @objc private func switchOnTap(_ sender: UISwitch) {
+        if sender.tag == 200 {
+        if !switchControl.isOn {
             musicPlayer?.stop()
         } else {
             musicPlayer?.play()
-        }
+        }}
     }
 }
