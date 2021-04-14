@@ -12,7 +12,8 @@ extension String {
 }
 
 extension UIColor {
-    static let musicIsOn = UIColor(red: 0.604, green: 0.604, blue: 0.604, alpha: 1)
+    static let musicIsOn = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
+    static let musicIsOf = UIColor(red: 0.604, green: 0.604, blue: 0.604, alpha: 1)
 }
 
 class MusicCell: UITableViewCell {
@@ -37,7 +38,8 @@ class MusicCell: UITableViewCell {
     private let musicPlayer = MusicViewController.shared.audioPlayer
     private var switchControl: UISwitch = {
         let switchControl = UISwitch()
-        switchControl.thumbTintColor = UIColor.musicIsOn
+        
+        switchControl.onTintColor = .musicIsOn
         switchControl.translatesAutoresizingMaskIntoConstraints = false
         
         switchControl.tag = 200
