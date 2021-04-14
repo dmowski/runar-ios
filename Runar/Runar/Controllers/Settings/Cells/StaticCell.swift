@@ -16,7 +16,6 @@ class StaticCell: UITableViewCell {
     
     var openVC: (()->())?
     static let identifier = "StaticCell"
-    private var title: String?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -33,12 +32,6 @@ class StaticCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     private var arrow: UIButton = {
         let arrow = UIButton()
         arrow.setImage(Assets.settingsArrow.image, for: .normal)
@@ -47,7 +40,9 @@ class StaticCell: UITableViewCell {
     }()
     
     private func configureUI() {
-        textLabel?.text = title
+        backgroundColor = .clear
+        selectionStyle = .none
+        
         addSubview(arrow)
         
         NSLayoutConstraint.activate([

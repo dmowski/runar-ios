@@ -11,6 +11,18 @@ extension UIColor {
    static let linkColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
 }
 
+extension String {
+    static let descriptionAppText = """
+            Версия приложения 1.0
+
+            Runar — это приложение для гадания на скандинавских рунах и изучения скандинавской мифологии и сказок. Содержит 8 видов рунных раскладов, толкования рун. В разделе Библиотека вы можете почитать скандинавские саги и сказки.
+
+            С разрешения правообладателей, в приложении использованы следующие музыкальные композиции:
+            - Лёдъ (использованы композиции - "Черная Ладья", "Мать моя сказала"), https://lyod1.bandcamp.com/releases
+            - Danheim (использованы композиции - "Runar", "Kala"), https://danheimmusic.com
+            """
+}
+
 class AppInfoViewController: UIViewController, UITextViewDelegate {
 
     override func viewDidLoad() {
@@ -45,15 +57,7 @@ class AppInfoViewController: UIViewController, UITextViewDelegate {
         let textView = UITextView()
         textView.backgroundColor = .clear
         
-        let string = """
-            Версия приложения 1.0
-
-            Runar — это приложение для гадания на скандинавских рунах и изучения скандинавской мифологии и сказок. Содержит 8 видов рунных раскладов, толкования рун. В разделе Библиотека вы можете почитать скандинавские саги и сказки.
-
-            С разрешения правообладателей, в приложении использованы следующие музыкальные композиции:
-            - Лёдъ (использованы композиции - "Черная Ладья", "Мать моя сказала"), https://lyod1.bandcamp.com/releases
-            - Danheim (использованы композиции - "Runar", "Kala"), https://danheimmusic.com
-            """
+        let string = String.descriptionAppText
         let firstUrl = "https://lyod1.bandcamp.com/releases"
         let secUrl = "https://danheimmusic.com"
  
@@ -87,7 +91,7 @@ class AppInfoViewController: UIViewController, UITextViewDelegate {
         navigationController?.navigationBar.tintColor = .settingsTitleColor
         navigationController?.navigationBar.backgroundColor = .navBarBackground
         navigationController?.navigationBar.barTintColor = .navBarBackground
-        title = "О приложении"
+        title = .aboutApp
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 17)]
         

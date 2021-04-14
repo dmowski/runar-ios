@@ -90,8 +90,8 @@
 		9BD98B852624AF3C00F3BBD7 /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98B842624AF3C00F3BBD7 /* LanguageCell.swift */; };
 		9BD98B8A2624AF4E00F3BBD7 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98B892624AF4E00F3BBD7 /* MusicCell.swift */; };
 		9BD98B8F2624AF6000F3BBD7 /* StaticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98B8E2624AF6000F3BBD7 /* StaticCell.swift */; };
-		9BD98B942624C67200F3BBD7 /* SelectedLanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98B932624C67200F3BBD7 /* SelectedLanguageCell.swift */; };
 		9BD98BC826262E2400F3BBD7 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98BC726262E2400F3BBD7 /* AppInfoViewController.swift */; };
+		9BD98BDE2627A97F00F3BBD7 /* AlertSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98BDD2627A97E00F3BBD7 /* AlertSettingsViewController.swift */; };
 		D33A65EC2DE4E4D7C3C956F3 /* Pods_Runar_RunarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */; };
 		DB92AEE5E33DCFB508195B8F /* Pods_Runar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */; };
 /* End PBXBuildFile section */
@@ -208,8 +208,8 @@
 		9BD98B842624AF3C00F3BBD7 /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
 		9BD98B892624AF4E00F3BBD7 /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
 		9BD98B8E2624AF6000F3BBD7 /* StaticCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticCell.swift; sourceTree = "<group>"; };
-		9BD98B932624C67200F3BBD7 /* SelectedLanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedLanguageCell.swift; sourceTree = "<group>"; };
 		9BD98BC726262E2400F3BBD7 /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
+		9BD98BDD2627A97E00F3BBD7 /* AlertSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSettingsViewController.swift; sourceTree = "<group>"; };
 		9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.release.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar_RunarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -547,6 +547,7 @@
 				9BD98B6E2624AEB500F3BBD7 /* Cells */,
 				9BD98B5C2624A57400F3BBD7 /* SettingsViewController.swift */,
 				9BD98BC726262E2400F3BBD7 /* AppInfoViewController.swift */,
+				9BD98BDD2627A97E00F3BBD7 /* AlertSettingsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -555,7 +556,6 @@
 			isa = PBXGroup;
 			children = (
 				9BD98B842624AF3C00F3BBD7 /* LanguageCell.swift */,
-				9BD98B932624C67200F3BBD7 /* SelectedLanguageCell.swift */,
 				9BD98B892624AF4E00F3BBD7 /* MusicCell.swift */,
 				9BD98B8E2624AF6000F3BBD7 /* StaticCell.swift */,
 			);
@@ -827,6 +827,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BD98BDE2627A97F00F3BBD7 /* AlertSettingsViewController.swift in Sources */,
 				19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */,
 				9B739DF325CD765800726B30 /* Constants.swift in Sources */,
 				191D32CE25B7C46A001DC210 /* Fonts.swift in Sources */,
@@ -863,7 +864,6 @@
 				9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */,
 				9B739E0625CD77E900726B30 /* ProcessingViewModel.swift in Sources */,
 				9BD98B6A2624ABB500F3BBD7 /* UINavigationController.swift in Sources */,
-				9BD98B942624C67200F3BBD7 /* SelectedLanguageCell.swift in Sources */,
 				9B15E37025FE4BFC00737306 /* TopLineView.swift in Sources */,
 				199A679325F838C10013DE5D /* LibraryViewController.swift in Sources */,
 				19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */,

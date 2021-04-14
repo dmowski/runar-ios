@@ -12,6 +12,10 @@ extension UIColor {
     static let settingsTitleColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
 }
 
+extension String {
+    static let settings = "Настройки"
+}
+
 final class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -19,7 +23,6 @@ final class SettingsViewController: UIViewController {
 
         tableViewSetUps()
         configureUI()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +54,6 @@ final class SettingsViewController: UIViewController {
         tableView.delegate = self
         
         tableView.register(LanguageCell.self, forCellReuseIdentifier: LanguageCell.identifier)
-        tableView.register(SelectedLanguageCell.self, forCellReuseIdentifier: SelectedLanguageCell.identifier)
         tableView.register(MusicCell.self, forCellReuseIdentifier: MusicCell.identifier)
         tableView.register(StaticCell.self, forCellReuseIdentifier: StaticCell.identifier)
         
@@ -83,7 +85,7 @@ final class SettingsViewController: UIViewController {
     }
 
     func configureNavigationBar() {
-        title = "Настройки"
+        title = .settings
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 34.heightDependent())]
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.settingsTitleColor]
@@ -94,7 +96,7 @@ final class SettingsViewController: UIViewController {
 
 extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        6
+        4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,47 +104,32 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         switch indexPath.row {
         
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: LanguageCell.identifier, for: indexPath)
-            cell.textLabel?.text = .language
-            cell.backgroundColor = .clear
-            cell.selectionStyle = .none
-            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: LanguageCell.identifier, for: indexPath) as? LanguageCell
+            cell?.textLabel?.text = .language
+            cell?.openVC = {
+                let alert = AlertSettingsViewController()
+                alert.modalPresentationStyle = .overCurrentContext
+                self.navigationController?.present(alert, animated: true, completion: nil)
+            }
+            return cell ?? LanguageCell()
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: SelectedLanguageCell.identifier, for: indexPath) as? SelectedLanguageCell
-            cell?.textLabel?.text = .russian
-            cell?.backgroundColor = .clear
-            cell?.selectionStyle = .none
-            return cell ?? SelectedLanguageCell()
-        case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: SelectedLanguageCell.identifier, for: indexPath) as? SelectedLanguageCell
-            cell?.textLabel?.text = .english
-            cell?.backgroundColor = .clear
-            cell?.selectionStyle = .none
-            return cell ?? SelectedLanguageCell()
-        case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: MusicCell.identifier, for: indexPath) as? MusicCell
             cell?.textLabel?.text = String.music
-            cell?.backgroundColor = .clear
-            cell?.selectionStyle = .none
-            return cell ?? SelectedLanguageCell()
-        case 4:
+            return cell ?? MusicCell()
+        case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
             cell?.textLabel?.text = String.rateApp
-            cell?.backgroundColor = .clear
-            cell?.selectionStyle = .none
             cell?.openVC = {
                 if let url = URL(string: "itms-apps://apple.com/app/") {
                     UIApplication.shared.open(url)}
             }
-            return cell ?? SelectedLanguageCell()
-        case 5:
+            return cell ?? StaticCell()
+        case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
             cell?.textLabel?.text = String.aboutApp
-            cell?.backgroundColor = .clear
-            cell?.selectionStyle = .none
             cell?.openVC = {
-                self.navigationController?.pushViewController(AppInfoViewController(), animated: true)}
-            return cell ?? SelectedLanguageCell()
+                self.navigationController?.pushViewController(AppInfoViewController(), animated: false)}
+            return cell ?? StaticCell()
             
         default:
             return UITableViewCell()
@@ -150,32 +137,21 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0:
-            return 50
-        case 1:
-            return 31
-        case 2:
-            return 31
-        case 3:
-            return 50
-        case 4:
-            return 50
-        case 5:
-            return 50
-        default:
-            return 0
-        }
+        return 50
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
-        case 4:
+        case 0:
+            let alert = AlertSettingsViewController()
+            alert.modalPresentationStyle = .overCurrentContext
+            self.navigationController?.present(alert, animated: true, completion: nil)
+        case 2:
             if let url = URL(string: "itms-apps://apple.com/app/") {
                 UIApplication.shared.open(url)
             }
-        case 5:
-            self.navigationController?.pushViewController(AppInfoViewController(), animated: true)
+        case 3:
+            self.navigationController?.pushViewController(AppInfoViewController(), animated: false)
         default:
             break
         }

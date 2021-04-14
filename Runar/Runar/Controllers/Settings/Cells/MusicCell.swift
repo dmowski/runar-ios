@@ -45,6 +45,9 @@ class MusicCell: UITableViewCell {
     }()
 
     private func configureUI() {
+        backgroundColor = .clear
+        selectionStyle = .none
+        
         addSubview(switchControl)
         
         NSLayoutConstraint.activate([
