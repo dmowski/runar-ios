@@ -25,7 +25,6 @@
 		199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A678A25F837110013DE5D /* MainTabBarController.swift */; };
 		199A679325F838C10013DE5D /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A679225F838C10013DE5D /* LibraryViewController.swift */; };
 		199A679825F838E50013DE5D /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A679725F838E50013DE5D /* FavoritesViewController.swift */; };
-		199A679D25F8390F0013DE5D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A679C25F8390F0013DE5D /* SettingViewController.swift */; };
 		19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC60225C01A2D000808CF /* ScreenDependent.swift */; };
 		19BDC61225C02EE9000808CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC61125C02EE9000808CF /* SceneDelegate.swift */; };
 		19BDC61B25C030B1000808CF /* UIControlPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC61825C030B1000808CF /* UIControlPublisher.swift */; };
@@ -92,6 +91,7 @@
 		9BD98B8A2624AF4E00F3BBD7 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98B892624AF4E00F3BBD7 /* MusicCell.swift */; };
 		9BD98B8F2624AF6000F3BBD7 /* StaticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98B8E2624AF6000F3BBD7 /* StaticCell.swift */; };
 		9BD98B942624C67200F3BBD7 /* SelectedLanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98B932624C67200F3BBD7 /* SelectedLanguageCell.swift */; };
+		9BD98BC826262E2400F3BBD7 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98BC726262E2400F3BBD7 /* AppInfoViewController.swift */; };
 		D33A65EC2DE4E4D7C3C956F3 /* Pods_Runar_RunarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */; };
 		DB92AEE5E33DCFB508195B8F /* Pods_Runar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */; };
 /* End PBXBuildFile section */
@@ -133,7 +133,6 @@
 		199A678A25F837110013DE5D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		199A679225F838C10013DE5D /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		199A679725F838E50013DE5D /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		199A679C25F8390F0013DE5D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		19BDC60225C01A2D000808CF /* ScreenDependent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDependent.swift; sourceTree = "<group>"; };
 		19BDC61125C02EE9000808CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		19BDC61825C030B1000808CF /* UIControlPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlPublisher.swift; sourceTree = "<group>"; };
@@ -210,6 +209,7 @@
 		9BD98B892624AF4E00F3BBD7 /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
 		9BD98B8E2624AF6000F3BBD7 /* StaticCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticCell.swift; sourceTree = "<group>"; };
 		9BD98B932624C67200F3BBD7 /* SelectedLanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedLanguageCell.swift; sourceTree = "<group>"; };
+		9BD98BC726262E2400F3BBD7 /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.release.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar_RunarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,7 +288,6 @@
 				199A678A25F837110013DE5D /* MainTabBarController.swift */,
 				199A679225F838C10013DE5D /* LibraryViewController.swift */,
 				199A679725F838E50013DE5D /* FavoritesViewController.swift */,
-				199A679C25F8390F0013DE5D /* SettingViewController.swift */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -547,6 +546,7 @@
 			children = (
 				9BD98B6E2624AEB500F3BBD7 /* Cells */,
 				9BD98B5C2624A57400F3BBD7 /* SettingsViewController.swift */,
+				9BD98BC726262E2400F3BBD7 /* AppInfoViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -835,9 +835,9 @@
 				1987AAC525BDCDCA00BB3655 /* SixRuneView.swift in Sources */,
 				19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */,
 				199A679825F838E50013DE5D /* FavoritesViewController.swift in Sources */,
+				9BD98BC826262E2400F3BBD7 /* AppInfoViewController.swift in Sources */,
 				9BD98B852624AF3C00F3BBD7 /* LanguageCell.swift in Sources */,
 				1987AACA25BDCDD500BB3655 /* SevenRuneView.swift in Sources */,
-				199A679D25F8390F0013DE5D /* SettingViewController.swift in Sources */,
 				9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */,
 				195AEDC325B8C3A300180A49 /* AlignmentViewController.swift in Sources */,
 				1907851425C4236000434D57 /* FirstRuneView.swift in Sources */,

@@ -14,11 +14,14 @@ extension String {
 
 class StaticCell: UITableViewCell {
     
+    var openVC: (()->())?
     static let identifier = "StaticCell"
     private var title: String?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        arrow.addTarget(self, action: #selector(openLink), for: .touchUpInside)
         
         textLabel?.font = FontFamily.SFProDisplay.regular.font(size: 20)
         textLabel?.textColor = .settingsWhiteText
@@ -36,9 +39,9 @@ class StaticCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    private var arrow: UIImageView = {
-        let arrow = UIImageView()
-        arrow.image = Assets.settingsArrow.image
+    private var arrow: UIButton = {
+        let arrow = UIButton()
+        arrow.setImage(Assets.settingsArrow.image, for: .normal)
         arrow.translatesAutoresizingMaskIntoConstraints = false
         return arrow
     }()
@@ -53,6 +56,11 @@ class StaticCell: UITableViewCell {
             arrow.heightAnchor.constraint(equalToConstant: 14),
             arrow.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
+    }
+    
+    @objc private func openLink() {
+        guard let openVC = openVC else {return}
+        openVC()
     }
 
 }

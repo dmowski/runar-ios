@@ -7,6 +7,11 @@
 
 import UIKit
 
+extension UIColor {
+    static let navBarBackground = UIColor(red: 0.092, green: 0.092, blue: 0.092, alpha: 0.94)
+    static let settingsTitleColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
+}
+
 final class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -14,6 +19,12 @@ final class SettingsViewController: UIViewController {
 
         tableViewSetUps()
         configureUI()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         configureNavigationBar()
     }
     
@@ -47,7 +58,6 @@ final class SettingsViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
         tableView.tableFooterView = UIView()
-        tableView.allowsSelection = false
     }
     
     
@@ -75,13 +85,10 @@ final class SettingsViewController: UIViewController {
     func configureNavigationBar() {
         title = "Настройки"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.isTranslucent = true
-
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 34.heightDependent())]
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)]
-        navigationController?.navigationBar.barTintColor = UIColor(red: 0.092, green: 0.092, blue: 0.092, alpha: 0.94)
-        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.092, green: 0.092, blue: 0.092, alpha: 0.94)
-        navigationController?.setStatusBar(backgroundColor: UIColor(red: 0.092, green: 0.092, blue: 0.092, alpha: 0.94))
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.settingsTitleColor]
+        navigationController?.navigationBar.backgroundColor = .navBarBackground
+        navigationController?.setStatusBar(backgroundColor: .navBarBackground)
     }
 }
 
@@ -98,36 +105,48 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: LanguageCell.identifier, for: indexPath)
             cell.textLabel?.text = .language
             cell.backgroundColor = .clear
+            cell.selectionStyle = .none
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: SelectedLanguageCell.identifier, for: indexPath) as? SelectedLanguageCell
             cell?.textLabel?.text = .russian
             cell?.backgroundColor = .clear
+            cell?.selectionStyle = .none
             return cell ?? SelectedLanguageCell()
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: SelectedLanguageCell.identifier, for: indexPath) as? SelectedLanguageCell
             cell?.textLabel?.text = .english
             cell?.backgroundColor = .clear
+            cell?.selectionStyle = .none
             return cell ?? SelectedLanguageCell()
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: MusicCell.identifier, for: indexPath) as? MusicCell
             cell?.textLabel?.text = String.music
             cell?.backgroundColor = .clear
+            cell?.selectionStyle = .none
             return cell ?? SelectedLanguageCell()
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
             cell?.textLabel?.text = String.rateApp
             cell?.backgroundColor = .clear
+            cell?.selectionStyle = .none
+            cell?.openVC = {
+                if let url = URL(string: "itms-apps://apple.com/app/") {
+                    UIApplication.shared.open(url)}
+            }
             return cell ?? SelectedLanguageCell()
         case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
             cell?.textLabel?.text = String.aboutApp
             cell?.backgroundColor = .clear
+            cell?.selectionStyle = .none
+            cell?.openVC = {
+                self.navigationController?.pushViewController(AppInfoViewController(), animated: true)}
             return cell ?? SelectedLanguageCell()
+            
         default:
             return UITableViewCell()
         }
-
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -149,5 +168,17 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 4:
+            if let url = URL(string: "itms-apps://apple.com/app/") {
+                UIApplication.shared.open(url)
+            }
+        case 5:
+            self.navigationController?.pushViewController(AppInfoViewController(), animated: true)
+        default:
+            break
+        }
+    }
     
 }
