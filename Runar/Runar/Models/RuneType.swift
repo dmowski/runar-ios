@@ -1,5 +1,29 @@
 import UIKit
 
+extension String {
+    static let present = L10n.present
+    static let strength = L10n.strength
+    static let situation = L10n.situation
+    static let problem = L10n.problem
+    static let solutionProblem = L10n.solutionProblem
+    static let past = L10n.past
+    static let situationInRealTime = L10n.situationInRealTime
+    static let future = L10n.future
+    static let solution = L10n.solution
+    static let result = L10n.result
+    static let help = L10n.help
+    static let irresistibleStrength = L10n.irresistibleStrength
+    static let yuorEssence = L10n.yuorEssence
+    static let probableFuture = L10n.probableFuture
+    static let ourAim = L10n.ourAim
+    static let difficulties = L10n.difficulties
+    static let stateOfAffairs = L10n.difficulties
+    static let conditions = L10n.conditions
+    static let reason = L10n.reason
+    static let theBest = L10n.theBest
+    static let awaitsYou = L10n.awaitsYou
+}
+
 public enum RuneType: Equatable {
     public typealias AllCases = Array<RuneType>
 
@@ -1995,71 +2019,70 @@ public extension RuneType {
         case (.dayRune, 0):
             result = ""
         case (.twoRunes, 0):
-            result = "Настоящее"
+            result = String.present
         case (.twoRunes, 1):
-            result = "Силы, влияющие на вас"
+            result = String.strength
         case (.norns, 0):
-            result = "Общая ситуация"
+            result = String.situation
         case (.norns, 1):
-            result = "Проблема"
+            result = String.problem
         case (.norns, 2):
-            result = "Решение проблемы"
+            result = String.solutionProblem
         case (.shortPrediction, 0):
-            result = "Настоящее"
+            result = String.present
         case (.shortPrediction, 1):
-            result = "Проблема"
+            result = String.problem
         case (.shortPrediction, 2):
-            result = "Решение"
+            result = String.solution
         case (.shortPrediction, 3):
-            result = "Результат"
+            result = String.result
         case (.thorsHummer, 0):
-            result = "Прошлое"
+            result = String.past
         case (.thorsHummer, 1):
-            result = "Ситуация в настоящее время"
+            result = String.situationInRealTime
         case (.thorsHummer, 2):
-            result = "Ситуация в настоящее время"
+            result = String.situationInRealTime
         case (.thorsHummer, 3):
-            result = "Будущее"
+            result = String.future
         case (.cross, 0):
-            result = "Прошлое"
+            result = String.past
         case (.cross, 1):
-            result = "Проблема"
+            result = String.problem
         case (.cross, 2):
-            result = "Результат"
+            result = String.result
         case (.cross, 3):
-            result = "Помощь"
+            result = String.help
         case (.cross, 4):
-            result = "Непреодолимая сила"
+            result = String.irresistibleStrength
         case (.elementsCross, 0):
-            result = "Настоящее"
+            result = String.present
         case (.elementsCross, 1):
-            result = "Ваша сущность"
+            result = String.yuorEssence
         case (.elementsCross, 2):
-            result = "Вероятное будущее"
+            result = String.probableFuture
         case (.elementsCross, 3):
-            result = "Проблема"
+            result = String.problem
         case (.elementsCross, 4):
-            result = "Ваша цель"
+            result = String.ourAim
         case (.elementsCross, 5):
-            result = "Трудности"
+            result = String.difficulties
         case (.keltsCross, 0):
-            result = "Настоящее, истинное положение вещей"
+            result = String.stateOfAffairs
         case (.keltsCross, 1):
-            result = "Прошлое"
+            result = String.past
         case (.keltsCross, 2):
-            result = "Будущее"
+            result = String.future
         case (.keltsCross, 3):
-            result = "Условия, на которые необходимо обратить внимание"
+            result = String.conditions
         case (.keltsCross, 4):
-            result = "Причина трудностей"
+            result = String.reason
         case (.keltsCross, 5):
-            result = "Лучшее, чего можно ожидать"
+            result = String.theBest
         case (.keltsCross, 6):
-            result = ""
+            result = String.awaitsYou
         default: break
         }
         return result
     }
 
 }
-
