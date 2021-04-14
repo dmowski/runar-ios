@@ -23,8 +23,6 @@
 		1987AACF25BDCDF000BB3655 /* EightRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AACE25BDCDF000BB3655 /* EightRuneView.swift */; };
 		198A056925B77BE200FDA485 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 198A056825B77BE200FDA485 /* Localizable.strings */; };
 		199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A678A25F837110013DE5D /* MainTabBarController.swift */; };
-		199A679325F838C10013DE5D /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A679225F838C10013DE5D /* LibraryViewController.swift */; };
-		199A679825F838E50013DE5D /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A679725F838E50013DE5D /* FavoritesViewController.swift */; };
 		19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC60225C01A2D000808CF /* ScreenDependent.swift */; };
 		19BDC61225C02EE9000808CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC61125C02EE9000808CF /* SceneDelegate.swift */; };
 		19BDC61B25C030B1000808CF /* UIControlPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC61825C030B1000808CF /* UIControlPublisher.swift */; };
@@ -123,8 +121,6 @@
 		1987AACE25BDCDF000BB3655 /* EightRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightRuneView.swift; sourceTree = "<group>"; };
 		198A056825B77BE200FDA485 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		199A678A25F837110013DE5D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		199A679225F838C10013DE5D /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
-		199A679725F838E50013DE5D /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		19BDC60225C01A2D000808CF /* ScreenDependent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDependent.swift; sourceTree = "<group>"; };
 		19BDC61125C02EE9000808CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		19BDC61825C030B1000808CF /* UIControlPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlPublisher.swift; sourceTree = "<group>"; };
@@ -270,8 +266,6 @@
 			isa = PBXGroup;
 			children = (
 				199A678A25F837110013DE5D /* MainTabBarController.swift */,
-				199A679225F838C10013DE5D /* LibraryViewController.swift */,
-				199A679725F838E50013DE5D /* FavoritesViewController.swift */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -794,7 +788,6 @@
 				19BDC61D25C030B1000808CF /* PublisherProvider.swift in Sources */,
 				1987AAC525BDCDCA00BB3655 /* SixRuneView.swift in Sources */,
 				19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */,
-				199A679825F838E50013DE5D /* FavoritesViewController.swift in Sources */,
 				1987AACA25BDCDD500BB3655 /* SevenRuneView.swift in Sources */,
 				9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */,
 				195AEDC325B8C3A300180A49 /* AlignmentViewController.swift in Sources */,
@@ -818,7 +811,6 @@
 				9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */,
 				9B739E0625CD77E900726B30 /* ProcessingViewModel.swift in Sources */,
 				9B15E37025FE4BFC00737306 /* TopLineView.swift in Sources */,
-				199A679325F838C10013DE5D /* LibraryViewController.swift in Sources */,
 				19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */,
 				19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */,
 				9B0CB8862607922B00B2AF60 /* DescriptionView.swift in Sources */,

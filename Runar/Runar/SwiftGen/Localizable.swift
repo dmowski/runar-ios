@@ -1767,12 +1767,8 @@ internal enum L10n {
   }
 
   internal enum Tabbar {
-    /// Избранное
-    internal static let favorites = L10n.tr("Localizable", "tabbar.favorites")
     /// Расклады
     internal static let layouts = L10n.tr("Localizable", "tabbar.layouts")
-    /// Библиотека
-    internal static let library = L10n.tr("Localizable", "tabbar.library")
     /// Настройки
     internal static let settings = L10n.tr("Localizable", "tabbar.settings")
   }

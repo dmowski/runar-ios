@@ -20,8 +20,6 @@
 "rune.keltsCross.name" = "Кельтский Крест";
 
 "tabbar.layouts" = "Расклады";
-"tabbar.library" = "Библиотека";
-"tabbar.favorites" = "Избранное";
 "tabbar.settings" = "Настройки";
 
 "luckLevel" = "Уровень удачи - %@ %";
