@@ -7,6 +7,13 @@
 
 import UIKit
 
+extension String {
+    static let layouts = L10n.Tabbar.layouts
+    static let library = L10n.Tabbar.library
+    static let favorites = L10n.Tabbar.favorites
+    static let settings = L10n.Tabbar.settings
+}
+
 class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
@@ -29,13 +36,13 @@ class MainTabBarController: UITabBarController {
         let collectionVC = CollectionViewController(collectionViewLayout: lay)
         let libraryVC = LibraryViewController()
         let favoritesVC = FavoritesViewController()
-        let settingsVC = SettingsViewController()
+//        let settingsVC = SettingsViewController()
         
         viewControllers = [
-            generateTabBarController(rootViewController: collectionVC, image: Assets.TabBar.Image.home.image, title: "Расклады"),
-            generateTabBarController(rootViewController: libraryVC, image: Assets.TabBar.Image.library.image, title: "Библиотека"),
-            generateTabBarController(rootViewController: favoritesVC, image: Assets.TabBar.Image.favorites.image, title: "Избранное"),
-            generateTabBarController(rootViewController: settingsVC, image: Assets.TabBar.Image.settings.image, title: "Настройки"),
+            generateTabBarController(rootViewController: collectionVC, image: Assets.TabBar.Image.home.image, title: String.layouts),
+            generateTabBarController(rootViewController: libraryVC, image: Assets.TabBar.Image.library.image, title: String.library),
+            generateTabBarController(rootViewController: favoritesVC, image: Assets.TabBar.Image.favorites.image, title: String.favorites),
+//            generateTabBarController(rootViewController: settingsVC, image: Assets.TabBar.Image.settings.image, title: String.settings),
         ]
     }
     

@@ -7,6 +7,11 @@
 
 import UIKit
 
+extension String {
+    static let startAlignment = L10n.startAlignment
+    static let showAgain = L10n.showAgain
+}
+
 class AlignmentInfoViewController: UIViewController {
     
     private let nameFontMultiplier = 55/785
@@ -89,7 +94,7 @@ class AlignmentInfoViewController: UIViewController {
         startButton.layer.cornerRadius = radiusConstant
         let borderConstant: CGFloat = DeviceType.iPhoneSE ? 0.82 : 1
         startButton.layer.borderWidth = borderConstant
-        startButton.setTitle("Начать расклад", for: .normal)
+        startButton.setTitle(String.startAlignment, for: .normal)
         
         startButton.addTarget(self, action: #selector(buttomTapped), for: .touchUpInside)
         
@@ -192,7 +197,7 @@ class AlignmentInfoViewController: UIViewController {
     }
     
     func setUpShowLabel() {
-        showLabel.text = "Больше не показывать"
+        showLabel.text = String.showAgain
         showLabel.translatesAutoresizingMaskIntoConstraints = false
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 14 : 16
         showLabel.font = FontFamily.Roboto.light.font(size: fontConstant)

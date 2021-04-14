@@ -7,6 +7,11 @@
 
 import UIKit
 
+extension String {
+    static let interpret = L10n.interpret
+    static let drawRune = L10n.drawRune
+}
+
 class AlignmentViewController: UIViewController {
     
     //-------------------------------------------------
@@ -45,7 +50,7 @@ class AlignmentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         runesViewContainer.update(with: .init(viewController: self, runesLayout: viewModel.runeLayout, didHighlightAllRunes: { [weak self] runes in
-            self?.startButton.setTitle("Толковать", for: .normal)
+            self?.startButton.setTitle(String.interpret, for: .normal)
             self?.startButton.addTarget(self, action: #selector(self?.buttonTaped), for: .touchUpInside)
         }))
         
@@ -220,7 +225,7 @@ class AlignmentViewController: UIViewController {
         startButton.layer.cornerRadius = radiusConstant
         let borderConstant: CGFloat = DeviceType.iPhoneSE ? 0.82 : 1
         startButton.layer.borderWidth = borderConstant
-        startButton.setTitle("Вытянуть руну", for: .normal)
+        startButton.setTitle(String.drawRune, for: .normal)
         startButton.translatesAutoresizingMaskIntoConstraints = false
         
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30

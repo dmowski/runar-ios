@@ -25,7 +25,6 @@
 		199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A678A25F837110013DE5D /* MainTabBarController.swift */; };
 		199A679325F838C10013DE5D /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A679225F838C10013DE5D /* LibraryViewController.swift */; };
 		199A679825F838E50013DE5D /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A679725F838E50013DE5D /* FavoritesViewController.swift */; };
-		199A679D25F8390F0013DE5D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A679C25F8390F0013DE5D /* SettingsViewController.swift */; };
 		19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC60225C01A2D000808CF /* ScreenDependent.swift */; };
 		19BDC61225C02EE9000808CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC61125C02EE9000808CF /* SceneDelegate.swift */; };
 		19BDC61B25C030B1000808CF /* UIControlPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC61825C030B1000808CF /* UIControlPublisher.swift */; };
@@ -126,7 +125,6 @@
 		199A678A25F837110013DE5D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		199A679225F838C10013DE5D /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		199A679725F838E50013DE5D /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		199A679C25F8390F0013DE5D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		19BDC60225C01A2D000808CF /* ScreenDependent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDependent.swift; sourceTree = "<group>"; };
 		19BDC61125C02EE9000808CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		19BDC61825C030B1000808CF /* UIControlPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlPublisher.swift; sourceTree = "<group>"; };
@@ -274,7 +272,6 @@
 				199A678A25F837110013DE5D /* MainTabBarController.swift */,
 				199A679225F838C10013DE5D /* LibraryViewController.swift */,
 				199A679725F838E50013DE5D /* FavoritesViewController.swift */,
-				199A679C25F8390F0013DE5D /* SettingsViewController.swift */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -799,7 +796,6 @@
 				19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */,
 				199A679825F838E50013DE5D /* FavoritesViewController.swift in Sources */,
 				1987AACA25BDCDD500BB3655 /* SevenRuneView.swift in Sources */,
-				199A679D25F8390F0013DE5D /* SettingsViewController.swift in Sources */,
 				9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */,
 				195AEDC325B8C3A300180A49 /* AlignmentViewController.swift in Sources */,
 				1907851425C4236000434D57 /* FirstRuneView.swift in Sources */,
