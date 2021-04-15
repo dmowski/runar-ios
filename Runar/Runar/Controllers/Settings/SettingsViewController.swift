@@ -12,10 +12,6 @@ extension UIColor {
     static let settingsTitleColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
 }
 
-extension String {
-    static let settings = "Настройки"
-}
-
 final class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {

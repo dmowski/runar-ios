@@ -7,6 +7,11 @@
 
 import UIKit
 
+extension String {
+    static let layouts = L10n.Tabbar.layouts
+    static let settings = L10n.Tabbar.settings
+}
+
 class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
@@ -27,12 +32,11 @@ class MainTabBarController: UITabBarController {
         
         let lay = UICollectionViewFlowLayout()
         let collectionVC = CollectionViewController(collectionViewLayout: lay)
-        let settingsVC = SettingsViewController()
+       let settingsVC = SettingsViewController()
         
         viewControllers = [
-            generateTabBarController(rootViewController: collectionVC, image: Assets.TabBar.Image.home.image, title: "Расклады"),
-
-            generateTabBarController(rootViewController: settingsVC, image: Assets.TabBar.Image.settings.image, title: "Настройки"),
+            generateTabBarController(rootViewController: collectionVC, image: Assets.TabBar.Image.home.image, title: String.layouts),
+            generateTabBarController(rootViewController: settingsVC, image: Assets.TabBar.Image.settings.image, title: String.settings),
         ]
     }
     

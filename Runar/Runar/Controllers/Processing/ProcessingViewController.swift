@@ -104,7 +104,7 @@ class ProcessingViewController: UIViewController {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.fromValue = 0
         basicAnimation.toValue = 1
-        basicAnimation.duration = 15
+        basicAnimation.duration = 1
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         shapeLayer.add(basicAnimation, forKey: nil)
@@ -136,7 +136,7 @@ class ProcessingViewController: UIViewController {
         startButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
         startButton.layer.cornerRadius = 8
         startButton.layer.borderWidth = 1
-        startButton.setTitle("Перейти на сайт", for: .normal)
+        startButton.setTitle(L10n.goToTheSite, for: .normal)
         
         vectorImageView.image = Assets.vector.image
         vectorImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -171,7 +171,7 @@ class ProcessingViewController: UIViewController {
     }
     
     func setUpProcessingLabel() {
-        processingLabel.text = "Расклад обрабатывается..."
+        processingLabel.text = L10n.layoutProcessing
         processingLabel.translatesAutoresizingMaskIntoConstraints = false
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 12 : 16
         processingLabel.font = FontFamily.Roboto.light.font(size: fontConstant)
