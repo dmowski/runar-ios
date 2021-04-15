@@ -69,12 +69,12 @@ class ProcessingViewController: UIViewController {
     
     func setUpImageView() {
                 
-        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147
+        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147.heightDependent()
         imageView.layer.cornerRadius = radiusConstant
         imageView.translatesAutoresizingMaskIntoConstraints = false
         backgroundFire.addSubview(imageView)
         
-        let heightConstant: CGFloat = DeviceType.iPhoneSE ? 167 : 294
+        let heightConstant: CGFloat = DeviceType.iPhoneSE ? 167 : 294.heightDependent()
         let topConstant: CGFloat = DeviceType.iPhoneSE ? 70 : 93.heightDependent()
        
         NSLayoutConstraint.activate([
@@ -87,7 +87,7 @@ class ProcessingViewController: UIViewController {
     }
     
     func shapeSetUp() {
-        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147
+        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147.heightDependent()
         let center = CGPoint(x: imageView.frame.midX, y: imageView.frame.midY)
         let startAngle: CGFloat = -0.25 * 2 * .pi
         let endAngle: CGFloat = startAngle + 2 * .pi
@@ -104,7 +104,7 @@ class ProcessingViewController: UIViewController {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.fromValue = 0
         basicAnimation.toValue = 1
-        basicAnimation.duration = 1
+        basicAnimation.duration = 15
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         shapeLayer.add(basicAnimation, forKey: nil)
@@ -121,11 +121,11 @@ class ProcessingViewController: UIViewController {
         nameLabel.textAlignment = .center
         nameLabel.attributedText = NSMutableAttributedString(string: nameLabel.text!, attributes: [NSAttributedString.Key.kern: -1.1])
         backgroundFire.addSubview(nameLabel)
-        let nameLabelTop: CGFloat = DeviceType.iPhoneSE ? 33 : 57
+        let nameLabelTop: CGFloat = DeviceType.iPhoneSE ? 35 : 57.heightDependent()
         let nameLabelHeight: CGFloat = DeviceType.iPhoneSE ? 75 : 90
         
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: backgroundFire.topAnchor, constant: nameLabelTop.heightDependent()),
+            nameLabel.topAnchor.constraint(equalTo: backgroundFire.topAnchor, constant: nameLabelTop),
             nameLabel.heightAnchor.constraint(equalToConstant: nameLabelHeight),
             nameLabel.centerXAnchor.constraint(equalTo: backgroundFire.centerXAnchor)
         ])
@@ -180,24 +180,26 @@ class ProcessingViewController: UIViewController {
         processingLabel.textAlignment = .center
         
         backgroundFire.addSubview(processingLabel)
-        
+        let processingTop: CGFloat = DeviceType.iPhoneSE ? 6 : 15
         NSLayoutConstraint.activate([
             processingLabel.leadingAnchor.constraint(equalTo: backgroundFire.leadingAnchor, constant: 50),
             processingLabel.trailingAnchor.constraint(equalTo: backgroundFire.trailingAnchor, constant: -50),
-            processingLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20.heightDependent()),
+            processingLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: processingTop),
             processingLabel.heightAnchor.constraint(equalToConstant: 17)
         ])
     }
     
     func setUpAdNameAndText () {
         
-        adName.font = FontFamily.SFProDisplay.regular.font(size: 24)
+        let nameFontConstant: CGFloat = DeviceType.iPhoneSE ? 16 : 24
+        adName.font = FontFamily.SFProDisplay.regular.font(size: nameFontConstant)
         
         adName.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         adName.textAlignment = .center
         
         adText.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
-        adText.font = FontFamily.SFProDisplay.light.font(size: 16)
+        let addFontConst: CGFloat =  DeviceType.iPhoneSE ? 11 : 16
+        adText.font = FontFamily.SFProDisplay.light.font(size: addFontConst)
         adText.textAlignment = .center
         
         adName.translatesAutoresizingMaskIntoConstraints = false
@@ -241,8 +243,4 @@ class ProcessingViewController: UIViewController {
         }
     }
 }
-//static let ledFirstSong = "led_Mat moys skazala_master"
-//static let ledSecondSong = "led_chernaya ladya_master"
-//static let danheimFirstSong = "Danheim-Runar_master"
-//static let danheimSecondSong = "Danheim-Kala_master"
 
