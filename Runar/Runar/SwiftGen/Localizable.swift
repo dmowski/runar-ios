@@ -10,1766 +10,1766 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
-  /// 
+  /// С большой вероятностью вас ожидает
   internal static let awaitsYou = L10n.tr("Localizable", "awaitsYou")
-  /// Finish
+  /// Завершить
   internal static let complete = L10n.tr("Localizable", "complete")
-  /// Pay attention to this
+  /// Условия, на которые необходимо обратить внимание
   internal static let conditions = L10n.tr("Localizable", "conditions")
-  /// Difficulties
+  /// Трудности
   internal static let difficulties = L10n.tr("Localizable", "difficulties")
-  /// Pull Out a Rune
+  /// Вытянуть руну
   internal static let drawRune = L10n.tr("Localizable", "drawRune")
-  /// Your future
+  /// Будущее
   internal static let future = L10n.tr("Localizable", "future")
-  /// Check the website
+  /// Перейти на сайт
   internal static let goToTheSite = L10n.tr("Localizable", "goToTheSite")
-  /// Help
+  /// Помощь
   internal static let help = L10n.tr("Localizable", "help")
-  /// Get Interpretation
+  /// Толковать
   internal static let interpret = L10n.tr("Localizable", "interpret")
-  /// Force Majeure
+  /// Неопредолимая сила
   internal static let irresistibleStrength = L10n.tr("Localizable", "irresistibleStrength")
-  /// Processing...
+  /// Расклад обрабатывается...
   internal static let layoutProcessing = L10n.tr("Localizable", "layoutProcessing")
-  /// Luckiness - %@ %
+  /// Уровень удачи - %@ %
   internal static func luckLevel(_ p1: Any) -> String {
     return L10n.tr("Localizable", "luckLevel", String(describing: p1))
   }
-  /// Your goal
+  /// Ваша цель
   internal static let ourAim = L10n.tr("Localizable", "ourAim")
-  /// Your history
+  /// Прошлое
   internal static let past = L10n.tr("Localizable", "past")
-  /// Present one
+  /// Настоящее
   internal static let present = L10n.tr("Localizable", "present")
-  /// Possible future
+  /// Вероятное будущее
   internal static let probableFuture = L10n.tr("Localizable", "probableFuture")
-  /// Problem
+  /// Проблема
   internal static let problem = L10n.tr("Localizable", "problem")
-  /// Cause of difficulties
+  /// Причина трудностей
   internal static let reason = L10n.tr("Localizable", "reason")
-  /// Result
+  /// Результат
   internal static let result = L10n.tr("Localizable", "result")
   /// Сохранить результат
   internal static let saveResult = L10n.tr("Localizable", "saveResult")
-  /// Do not show again
+  /// Больше не показывать
   internal static let showAgain = L10n.tr("Localizable", "showAgain")
-  ///  = Overall situation
+  /// Общая ситуация
   internal static let situation = L10n.tr("Localizable", "situation")
-  /// Present one
+  /// Ситуация в настоящее время
   internal static let situationInRealTime = L10n.tr("Localizable", "situationInRealTime")
-  /// Solution
+  /// Решение
   internal static let solution = L10n.tr("Localizable", "solution")
-  /// Solution
+  /// Решение проблемы
   internal static let solutionProblem = L10n.tr("Localizable", "solutionProblem")
-  /// Start Runic Draw
+  /// Начать расклад
   internal static let startAlignment = L10n.tr("Localizable", "startAlignment")
-  /// Present one, real situation
+  /// Настоящее, истинное положение вещей
   internal static let stateOfAffairs = L10n.tr("Localizable", "stateOfAffairs")
-  /// Forces that affect you
+  /// Силы, влияющие на вас
   internal static let strength = L10n.tr("Localizable", "strength")
-  /// Best to expect
+  /// Лучшее, чего Вы можете ожидать - это
   internal static let theBest = L10n.tr("Localizable", "theBest")
-  /// Your essense
+  /// Ваша сущность
   internal static let yuorEssence = L10n.tr("Localizable", "yuorEssence")
 
   internal enum Affirmation {
-    /// You have a choice every day. And you choose a successful and happy life
+    /// Каждый день у Вас есть выбор. И Вы выбираете успешную и счастливую жизнь
     internal static let _1 = L10n.tr("Localizable", "affirmation.1")
-    /// Love yourself and the rest will fall into place
+    /// Любите себя и остальное встанет на свои места
     internal static let _10 = L10n.tr("Localizable", "affirmation.10")
-    /// Your thoughts are under your control
+    /// Ваши мысли находятся под вашим контролем
     internal static let _11 = L10n.tr("Localizable", "affirmation.11")
-    /// You desrve to be healthy and happy
+    /// Вы заслуживаете быть здоровым и счастливым
     internal static let _12 = L10n.tr("Localizable", "affirmation.12")
-    /// Everything you need comes to you on the right day and hour
+    /// Всё, в чём Вы нуждаетесь, приходит к Вам в нужный день и час
     internal static let _13 = L10n.tr("Localizable", "affirmation.13")
-    /// You enjoy the present and thank yourself for the past
+    /// Вы наслаждаетесь настоящим и благодарите себя за прошлое
     internal static let _14 = L10n.tr("Localizable", "affirmation.14")
-    /// You rejoice in the success of others, knowing that the abundance of the universe is enough for everyone
+    /// Вы радуетесь успехам окружающих, зная, что изобилия Вселенной хватит на всех
     internal static let _15 = L10n.tr("Localizable", "affirmation.15")
-    /// Try to find the right answer to a difficult life question
+    /// Попытайтесь найти правильный ответ на сложный жизненный вопрос
     internal static let _16 = L10n.tr("Localizable", "affirmation.16")
-    /// Your help to other people is rewarded many times over
+    /// Ваша помощь другим людям многократно вознаграждается
     internal static let _17 = L10n.tr("Localizable", "affirmation.17")
-    /// Your destiny is to be happy
+    /// Ваше предназначение - быть счастливым
     internal static let _18 = L10n.tr("Localizable", "affirmation.18")
-    /// Let the good surround you
+    /// Позвольте добру окружить Вас
     internal static let _19 = L10n.tr("Localizable", "affirmation.19")
-    /// You deserve only good things in life
+    /// Вы заслуживаете в жизни только хорошего
     internal static let _2 = L10n.tr("Localizable", "affirmation.2")
-    /// The freedom to choose is your birthright
+    /// Свобода выбирать - Ваше неотъемлемое право
     internal static let _20 = L10n.tr("Localizable", "affirmation.20")
-    /// You love and respect yourself exactly as you are
+    /// Вы любите и уважаете себя именно таким, какой Вы есть
     internal static let _21 = L10n.tr("Localizable", "affirmation.21")
-    /// Every day brings you new opportunities
+    /// Каждый день приносит Вам новые возможности
     internal static let _22 = L10n.tr("Localizable", "affirmation.22")
-    /// You gratefully accept the gifts of Destiny
+    /// Вы с благодарностью принимаете дары Судьбы
     internal static let _23 = L10n.tr("Localizable", "affirmation.23")
-    /// Your strength and self-confidence are constantly growing
+    /// Ваша сила и уверенность в себе постоянно растут
     internal static let _24 = L10n.tr("Localizable", "affirmation.24")
-    /// By discarding the past, you give yourself the opportunity to create the future you deserve.
+    /// Отбрасывая прошлое, Вы даёте себе возможность создать то будущее, которого заслуживаете
     internal static let _25 = L10n.tr("Localizable", "affirmation.25")
-    /// Allow yourself to open up and fully and show your abilities
+    /// Позвольте себе раскрыться и в полной мере и проявить свои способности
     internal static let _26 = L10n.tr("Localizable", "affirmation.26")
-    /// Form a clear and precise idea of your life goals
+    /// Сформируйте чёткое и ясное представление о своих жизненных целях
     internal static let _27 = L10n.tr("Localizable", "affirmation.27")
-    /// Be prepared for any challenge in life
+    /// Будьте готовы к любым сложностям в жизни
     internal static let _28 = L10n.tr("Localizable", "affirmation.28")
-    /// Release the tension
+    /// Освободитесь от напряжения
     internal static let _29 = L10n.tr("Localizable", "affirmation.29")
-    /// You have everything you need to enjoy life here and now
+    /// У Вас есть всё, что нужно, чтобы наслаждаться жизнью здесь и сейчас
     internal static let _3 = L10n.tr("Localizable", "affirmation.3")
-    /// Change your thoughts and then your world will change
+    /// Измени свои мысли и тогда твой мир изменится
     internal static let _30 = L10n.tr("Localizable", "affirmation.30")
-    /// Every day your life is getting better and better in every way
+    /// С каждым днем Ваша жизнь становится все лучше и лучше во всех отношениях
     internal static let _31 = L10n.tr("Localizable", "affirmation.31")
-    /// You will form habits that contribute to your success
+    /// Вы сформируете привычки, способствующие вашему успеху
     internal static let _32 = L10n.tr("Localizable", "affirmation.32")
-    /// You want to change and grow spiritually
+    /// Вы хотите измениться и духовно вырасти
     internal static let _33 = L10n.tr("Localizable", "affirmation.33")
-    /// You cast aside doubts and master all the skills and abilities to achieve what you want
+    /// Вы отбрасываете сомнения и осваиваете все умения и навыки для достижения желаемого
     internal static let _34 = L10n.tr("Localizable", "affirmation.34")
-    /// You are open to support from other people
+    /// Вы открыты для поддержки со стороны других людей
     internal static let _35 = L10n.tr("Localizable", "affirmation.35")
-    /// Thinking of abundance leads you to fulfill your desires
+    /// Мышление изобилия ведет Вас к исполнению желаний
     internal static let _36 = L10n.tr("Localizable", "affirmation.36")
-    /// Let confidence take over your mind
+    /// Позвольте уверености овладеть вашим разумом
     internal static let _37 = L10n.tr("Localizable", "affirmation.37")
-    /// You have more strength to overcome difficulties than you think
+    /// У Вас больше сил для преодоления сложностей, чем Вы думаете
     internal static let _38 = L10n.tr("Localizable", "affirmation.38")
-    /// The 1000-step path starts from the first step. Take action
+    /// Путь в 1000 шагов начинается с 1-го шага. Действуйте
     internal static let _39 = L10n.tr("Localizable", "affirmation.39")
-    /// You see your gorgeous inner self
+    /// Вы видите свою великолепную внутреннюю сущность
     internal static let _4 = L10n.tr("Localizable", "affirmation.4")
-    /// You wait for success in all your deals
+    /// Вы настраиваетесь на благополучный исход всех ваших дел
     internal static let _5 = L10n.tr("Localizable", "affirmation.5")
-    /// Your body and mind are filled with life and energy
+    /// Ваше тело и разум наполнены жизнью и энергией
     internal static let _6 = L10n.tr("Localizable", "affirmation.6")
-    /// Try to concentrate on peace and appeasement
+    /// Попытайтесь сконцентрироваться на покое и умировотрении
     internal static let _7 = L10n.tr("Localizable", "affirmation.7")
-    /// Stay calm and focused in any situation
+    /// Будьте спокойны и сосредоточены в любой ситуации
     internal static let _8 = L10n.tr("Localizable", "affirmation.8")
-    /// Concentrate on positive thoughts
+    /// Концентрируйтесь на позитивных мыслях
     internal static let _9 = L10n.tr("Localizable", "affirmation.9")
   }
 
   internal enum Description {
     internal enum Total {
-      /// The situation you are asking about means a sharp turnaround on your way. It is possible that new perspectives will open up in front of you and a unique opportunity to change your life will be presented. Some kind, powerful and supportive force is an ally at this stage. Perhaps new interesting acquaintances will be made, which will also benefit in spiritual development. However, it must be remembered that caution is required at any bends. In times of dramatic change, it is very important not to succumb to any emotions - neither positive nor negative. Maintain your ability to think soberly and be flexible in all circumstances. It is very important here that with any good impulses of the soul, you should not get off the ground, from your roots.
+      /// Ситуация о которой Вы спрашиваете, означает крутой благоприятный поворот на Вашем пути. Не исключено, что перед Вами откроются новые перспективы и представится уникальная возможность изменить свою жизнь. Некая добрая, мощная и поддерживающая сила является союзником на данном этапе. Возможно завяжутся новые интересные знакомства, которые принесут свою пользу так же в духовном развитии. Однако надо помнить, что на любых поворотах требуется осторожность. Во времена крутых перемен очень важно не поддаваться любым эмоциям - ни положительным, ни отрицательным. Сохраняйте способность трезво мыслить и проявите гибкость ума при любых обстоятельствах. Здесь очень важно, чтобы при любых благих порывах души Вы не должны отрываться от земли, от своих корней.
       internal static let algiz = L10n.tr("Localizable", "description.total.Algiz")
-      /// Good luck or a gift of inspiration awaits you. Moreover, this gift is not material benefit, but spiritual, presented as a gift from the Higher Powers. This is a gift from the Gods, one of the most sacred Runes. It may even be someone's appearance or hearing from someone. It is possible that this is getting the information you need or wisdom or the help of a spiritual teacher. Try to properly dispose of what you received - be sensitive, flexible and wise, otherwise these gifts will be taken away.
+      /// Вас ожидает удача или подарок в виде озарения. Причём этот подарок не материальная польза, а духовная, преподнесённая как дар Высших сил. Это подарок Богов, одна из самых священных Рун. Возможно даже это будет чьё-то появление или получение известия от кого-либо.  Не исключено, что это получение нужной Вам информации или мудрости или помощи духовного учителя.  Постарайтесь правильно распорядиться полученным - быть чутким, гибким и мудрым, иначе эти дары отнимут.
       internal static let ansuz = L10n.tr("Localizable", "description.total.Ansuz")
-      /// You are entering a period of growth in your career and personal life. The rune indicates a joyful relationship for the family, as well as good physical and emotional health. Any of your plans should come true, but you should not think that everything will be presented on a silver platter. Here you should not rely on the will of fate, but rather work hard and look into all the corners of your soul - are there any darkened areas there. If you do not conduct this inventory now, then it is unlikely that the prosperity promised by the Rune will please you. This is something new that builds on the old foundation. Sign advice - that everything you do should be done carefully and with maximum attention to what is happening.
+      /// У Вас наступает период роста в карьере и в личной жизни. Руна указывает на радостные взаимоотношения для семьи, а так же на хорошее физическое и эмоциональное здоровье. Любые Ваши планы должны осуществиться, но не следует думать, что всё будет преподнесено на блюдечке. Здесь не следует уповать на волю судьбы, а наоборот потрудиться и заглянуть во все уголки своей души - нет ли там затемнённых участков. Если не провести эту инвентаризацию сейчас, то вряд ли благоденствия, обещанные Руной порадуют Вас. Это то новое, которое базируется на старом фундаменте. Совет знака - чтобы всё, делаемое Вами, делалось тщательно и с максимальным вниманием к происходящему.
       internal static let berkana = L10n.tr("Localizable", "description.total.Berkana")
-      /// We can say that your life begins literally with a blank slate. It is a symbolic transition from night to day. When, with the arrival of light, fears and ambiguities, hitherto hidden in the darkness of the night, dissipate. This is that long-awaited moment of transformation when you can make a breakthrough in the process of self-change and enlightenment. This bright sign carries a great period of prosperity and happiness. All obstacles and fears have been overcome, and a new light enters your life. The sign indicates that now is the period when the most incredible desires can come true. But for this you need to decide on any serious life changes. All you need to do is to believe in these changes, to believe in your inner strength and your destiny, regardless of external circumstances. All changes will be favorable and you will never be able to live as before.
+      /// Можно сказать, что Ваша жизнь начинается буквально с "чистого листа". Это символический переход из ночи в день. Когда с приходом света, рассеиваются страхи и неясности, доселе скрытые во мраке ночи. Это тот долгожданный момент трансформации, когда можно совершить прорыв в процессе самоизменения и просветления. Этот светлый знак несёт большой период процветания и счастье. Все препятствия и страхи преодолены, и новый свет входит в Вашу жизнь. Знак говорит о том, что сейчас период, когда могут сбыться самые невероятные желания. Но для этого Вам необходимо решиться на любые серьёзные изменения жизни. От Вас требуется только верить этим изменениям, верить в свою внутреннюю силу и в свою судьбу, невзирая на внешние обстоятельства. Все изменения будут благоприятны и Вы уже никогда не сможете жить как прежде.
       internal static let dagaz = L10n.tr("Localizable", "description.total.Dagaz")
-      /// Call of the Rune - do not miss the opportunity to be in the right place at the right time. Get ready for favorable changes and a way out of stagnation, something new is already on the doorstep. This can be a change of place of residence or work. Or maybe a change in your environment, including partners. Or a change in their own views and approaches to ideas and business. But in any context, this sign brings a change for the better. You just need to remember that good changes are possible only when you yourself change.
+      /// Призыв Руны - не упустите возможность оказаться в нужном месте и в нужное время. Готовьтесь к благоприятным переменам и выходу из застоя, нечто новое уже стоит на пороге. Это может быть смена места жительства или работы. А может быть и смена Вашего окружения, включая партнёров. Или смена собственных взглядов и подходов к идеям и бизнесу. Но в любом контексте этот знак несёт перемены к лучшему. Необходимо только помнить, что благие перемены возможны только тогда, когда меняетесь Вы сами.
       internal static let ehwaz = L10n.tr("Localizable", "description.total.Ehwaz")
-      /// You acquire what you aspired to. Whether it is an increase in the material level or the embodiment of pans, ideas and relationships. Now you are attracting good luck and prosperity. Don't forget to share your luck with others and enjoy it. And also take care to properly dispose of the received gift in order to preserve and increase what has been achieved.
+      /// Вы приобретаете то, к чему стремились. Будь это повышение материального уровня или воплощение задумок, идей и взаимоотношений. Сейчас Вы притягиваете удачу и процветание. Не забудьте поделиться своей удачей с другими и насладиться ею. Стоит позаботиться о том, чтобы правильно распорядиться полученным даром для сохранения и преумножени достигнутого.
       internal static let fehu = L10n.tr("Localizable", "description.total.Fehu")
-      /// The appearance of this sign indicates a partnership in any area of ​​your activity, be it marriage or a business venture. At the same time, partners do not suppress each other, respecting the right to personal freedom and their own territory. A constructive partnership will benefit both parties, no matter what area it concerns. Gebo is a very positive sign, foreshadowing a favorable outcome of any business. If you strive for the successful completion of a business that interests you, then success will be associated precisely with joint, partner activities. Give the maximum of your warmth to other people and this will come back to you with a torus.
+      /// Появление данного знака свидетельствует о партнёрстве в любой сфере Вашей деятельности, будь то брак или деловое предприятие. При этом партнёры не подавляют друг друга, уважая право на личную свободу и собственную территорию каждого из них. Конструктивное партнёрство пойдёт на пользу обеим сторонам, какой бы сферы оно не касалось. Гебо очень позитивный знак, предвещающий благоприятный исход любого дела. Если Вы стремитесь к удачному завершению дела, которое Вас интересует, то успех будет связан именно с совместной, партнёрской деятельностью. Отдавайте максимум своего душевного тепла другим людям и к Вам вернётся это с торицей.
       internal static let gebu = L10n.tr("Localizable", "description.total.Gebu")
-      /// Something spontaneous enters your life that is beyond your control. And this force, caused by the energies of the elements, is very powerful. Therefore, do not try to fight fate and circumstances. You can expect anything here - unexpected events, any troubles, breaking ties and destroying plans. The sign indicates that now is not the right time for any new venture. It is necessary to wait until the situation changes for the better. However, with all the negative aspects, the sign can speak not only of destruction, but also of change - both of yourself and the situation in which you are, or of the emergence of something new and liberation from the old.
+      /// В Вашу жизнь входит нечто стихийное, что неподвластно Вашему контролю. И эта сила, вызванная энергиями стихий, весьма могущественна. Поэтому не пытайтесь бороться с судьбой и обстоятельствами. Здесь можно ожидать чего угодно - неожиданных событий, любых неприятностей, разрыва связей и разрушения планов. Знак указывает на то, что сейчас неподходящее время для любого нового начинания. Необходимо выждать, пока ситуация не изменится к лучшему. Однако, при всех негативных аспектах, знак может говорить не только о разрушении, но и об изменении - и Вас самих и ситуации, в которой Вы находитесь или о появлении чего-то нового и об освобождении от старого.
       internal static let hagalaz = L10n.tr("Localizable", "description.total.Hagalaz")
-      /// The business that you are currently engaged in will be completed successfully. You will easily deal with any problems and get rid of them, including unnecessary heart attachments. The sign speaks of the exit from the period of stagnation, the completion of one stage of life and the birth of a new one, which will transfer you to another stage of development - a higher and more favorable one. With the completion of the old, the new will come. But before the onset of a new stage, it is necessary to get rid of old attitudes and views, making room for a new one. This Rune symbolizes fertility and patronizes those who work on the earth. It also helps to get rid of infertility or male impotence. The soft cyclic energy of the Runes is that favorable environment where a systematic exchange of energies takes place, flowing from one state to another and back.
+      /// Дело, которым Вы сейчас заняты завершится успешно. Вы легко расправитесь с любыми проблемами и избавитесь от них, включая ненужные сердечные привязанности. Знак говорит о выходе из периода застоя, о завершении одного этапа жизни и о зарождении нового, который переведёт Вас на другую стадию развития - более высокую и  благоприятную. С завершением  старого, придёт новое. Но перед наступлением нового этапа необходимо избавиться от старых установок и взглядов, расчищая место для нового. Данная Руна символизирует плодородие и покровительствует тем, кто работает на земле. Так же она помогает избавиться от бесплодия или мужского бессилия. Мягкая цикличная энергия Руны - это та благоприятная среда, где происходит планомерный обмен энергиями, перетекая  из одного состояния в другое и обратно.
       internal static let inwaz = L10n.tr("Localizable", "description.total.Inwaz")
-      /// There is stagnation and emptiness in your soul. You feel powerless and cessation of activity. You are confused in the situation, you do not see the meaning and way out of it. Success is now unlikely and the situation is frozen. The sign advises to deliberately stop the situation, not to bang your head on the ice and not to resist the circumstances. Let the desired ripen - what you strive for and you will receive it on time. The stop has been given to you now to replenish strength and energy. Difficult situations will be overcome with the help of internal reserves. Therefore, be patient and accept the need for temporary waiting. This is just a lull before the start of a new phase. A lull that will surely be followed by revival.
+      /// В Вашей душе застой и опустошённость. Вы чувствуете бессилие и прекращение активности. Вы запутались в ситуации, не видите смысла и выхода из неё. Успех сейчас маловероятен и ситуация заморожена. Знак советует сознательно остановить ситуацию, не биться головой о лёд и не сопротивляться обстоятельствам. Дайте созреть желанному - тому, к чему Вы стремитесь и Вы получите его в срок. Остановка дана Вам сейчас для восполнения сил и энергии. Трудные ситуации будут преодолены с помощью внутренних резервов. Поэтому проявите терпение и смиритесь с необходимостью временного ожидания. Это всего лишь затишье перед началом нового этапа. Затишье, за которым непременно последует возрождение.
       internal static let isaz = L10n.tr("Localizable", "description.total.Isaz")
-      /// The appearance of this sign indicates unpleasant delays in the situation about which you asked the question. The rune says that there are or will soon be obstacles in the way of your business. But the difficulties that you are experiencing at the moment can have positive consequences, which will end favorably. The thunderstorm will pass by. It is possible that this sign was given to you now in order to test you, and not to deprive you of your strength. Therefore, one should not get upset and depressed because of a time delay. Just be vigilant and do not get involved in dubious adventures now, calculate your every step, be careful and persistent. Listen to your inner voice, to what your intuition tells you. The inner flame must be kindled through discipline and the realization of this inner strength will protect you from outer dangers. And for this, it is also necessary to connect flexibility and strength of mind here.
+      /// Появление этого знака свидетельствует о неприятных задержках в той ситуации, о которой Вы задавали вопрос. Руна  говорит о том, что на пути Вашего дела есть или скоро будут препятствия. Но затруднения, которые Вы испытываете в данный момент, могут иметь и позитивные последствия, которые закончатся благоприятно. Гроза пройдёт стороной. Не исключено, что этот знак дан Вам сейчас для того, чтобы испытать Вас, а не лишить сил. Поэтому не следует расстраиваться и впадать в депрессию из-за временной задержки. Просто будьте бдительны и не ввязывайтесь сейчас в сомнительные авантюры, просчитывайте каждый свой шаг, будьте осторожны и настойчивы. Прислушайтесь к своему внутреннему голосу, к тому что подсказывает Вам интуиция. Внутреннее пламя должно быть зажжено через дисциплину и реализация этой внутренней силы защитит Вас от внешних опасностей. И для этого здесь так же необходимо подключить гибкость и силу ума.
       internal static let iwaz = L10n.tr("Localizable", "description.total.Iwaz")
-      /// A very positive rune. It is favorable for even the best solution of legal issues and court cases for you. A reward awaits you, a rich harvest for past merits. You walk the right path and get what you sow. And this reward matches the duration of your efforts. The appearance of this sign indicates the approach of a favorable outcome of your activity in any area. However, do not expect quick results and be patient. This Rune is of an annual period, so it takes a certain period of time to implement the plan. You have prepared a fertile ground, sowed the "seed" of your purpose, and have taken good care of the development process. Now just watch out for the right harvest time. If you collect it before the due date, you will not finish the job. Blink - events that did not satisfy you earlier may repeat again.
+      /// Очень позитивная Руна. Она благоприятна даже наилучшему для Вас разрешению правовых вопросов и судебных дел. Вас ждёт награда, богатый урожай за прошлые заслуги. Вы идёте верным путём и получаете то, что сеяли. И это вознаграждение соответствует длительности Ваших усилий. Появление этого знака свидетельствует о приближении благоприятного исхода Вашей деятельности в любой сфере. Однако быстрых результатов не ждите и наберитесь терпения. Эта Руна годового периода, поэтому для осуществления задуманного требуется некоторый промежуток времени. Вы подготовили благоприятную почву, посеяли "семя" своей цели и хорошо позаботились о процессе развития. Теперь только не упустите правильное время сбора урожая. Если соберёте раньше положенного срока - не доведёте дело до конца. Прошляпите - события, которые Вас не удовлетворяли ранее, могут повториться вновь.
       internal static let jara = L10n.tr("Localizable", "description.total.Jara")
-      /// The appearance of this sign indicates a clarification of the situation, the embodiment of the plan and favorable changes. Currently, you are capable of analysis and control, without which a conscious movement forward is impossible. Your thoughts are clear and you feel the strength to reveal not only your creative potential, but also to develop any other abilities - both physical and spiritual. The dropped sign heralds the arrival of something good, new and romantic. It brings liberation from something previously forbidden in your life. Let the light of this Rune into your life and unleash your hidden talents and capabilities, without waiting for them to burn out inside you. Use this moment and trust the world around you. Trust yourself, putting aside fear of past mistakes and misunderstandings.
+      /// Появление этого знака свидетельствует о прояснении ситуации, воплощение задуманного и благоприятные перемены.  В настоящее время Вы способны к анализу и контролю, без которых осознанное движение вперёд невозможно. Ваши мысли ясны и Вы чувствуете в себе силы раскрыть не только свой творческий потенциал, но и развить любые другие способности - и физические и духовные. Выпавший знак возвещает о приходе чего-то хорошего, нового и романтичного. Он несёт освобождение от чего-то ранее запретного в Вашей жизни. Впустите свет этой Руны в свою жизнь и выпустите на волю свои скрытые таланты и возможности, не дожидаясь пока они перегорят внутри Вас. Используйте этот момент и доверьтесь окружающему миру. Доверьтесь самому себе, отбросив страх прошлых ошибок и непонимания.
       internal static let kauna = L10n.tr("Localizable", "description.total.Kauna")
-      /// Trials await you, but you have enough strength to withstand it. External activity should be reduced to zero. You are given a chance to work with your intuition, immerse yourself in your inner world. Now is not the time to resist the flow of life, trust the world flow. Become flexible and fluid, stop the running of thoughts and meditate, listen to yourself. This is the best time to tune into your own voice. If you act according to your own rhythms, it will give you a sense of inner comfort. Otherwise, internal disharmony is inevitable. Sign advice - to achieve prosperity and avoid trouble, listen to your intuition.
+      /// Вас ждут испытания, но У вас достаточно сил, чтобы выдержать его. Внешняя активность должна быть сведена к нулю. Вам дан шанс поработать со своей интуицией, погрузиться в свой внутренний мир. Сейчас не время противиться потоку жизни, доверьтесь мировому течению. Станьте гибким и текучим, остановите бег мыслей и помедитируйте, послушайте себя. Это лучшее время для настройки на собственный голос. Если Вы будете действовать в соответствии в собственными ритмами, это даст Вам ощущение внутреннего комфорта. В противном случае неизбежна внутренняя дисгармония. Совет знака - чтобы достигнуть благосостояния и избежать неприятностей, прислушайтесь к своей интуиции.
       internal static let laguz = L10n.tr("Localizable", "description.total.Laguz")
-      /// At the moment, your merits are unlikely to be appreciated by anyone. Therefore, do not try to artificially attract attention to yourself with your behavior, even if it will hurt you. Don't expect rewards, but rather be flexible and humble. This is not a time for change, but a time for making plans and working with intentions. Everything will come to you in due time. Sign advice - refrain from excessive cash spending, be more modest and less selfish. No frills, and then you will succeed. After all, true happiness in internal and social life, the realization of the truths of human existence.
+      /// В данный момент Ваши заслуги вряд ли будут кем-то оценены. Поэтому не старайтесь искусственно привлечь к себе внимание своим поведением, даже если это будет ранить Вас. Не ждите наград, а наоборот проявите гибкость и смирение. Это не время перемен, но время строить планы и работать с намерениями. Всё придёт к Вам в своё время. Совет знака - воздержитесь от чрезмерных денежных затрат, будьте скромнее и менее эгоистичны. Никаких излишеств, и  тогда у Вас всё получится. Ведь истинное счастье во внутренней и социальной жизни, реализации истин человеческого существования.
       internal static let mannaz = L10n.tr("Localizable", "description.total.Mannaz")
-      /// The appearance of this sign indicates that now you have a time of emotional experiences. You are going through a difficult learning situation where overt growth is not possible. Prepare for a difficult period and submit to the situation. The sign urges you to be patient and wait, not to get out of your skin and not to rush things. This can only harm you. Here it is recommended to conduct some introspection and decide for yourself: do you really need what you so passionately desire and seek. Everybody has failures in life. Here it is necessary not to give up and not despair. Failures and adversities lead to spiritual cleansing. All problems will be resolved in due time and without unnecessary fuss or hasty actions on your part.
+      /// Появление этого знака свидетельствует о том, что сейчас у Вас время эмоциональных переживаний. Вы проходите через трудную обучающую ситуацию, когда явный рост невозможен. Приготовьтесь к сложному периоду и подчинитесь данной ситуации. Знак призывает набраться терпения и выждать, не лезть из кожи и не торопить события. Это может только навредить Вам. Здесь рекомендуется провести некий самоанализ и решить для себя: а действительно ли Вам нужно то, чего Вы тек страстно желаете и добиваетесь.  Неудачи по жизни бывают у всех. Здесь необходимо не опускать руки и не отчаиваться. Неудачи и невзгоды влекут душевное очищение. Все проблемы разрешатся в надлежащее время и без излишней суеты или  спешных действий с Вашей стороны.
       internal static let naudiz = L10n.tr("Localizable", "description.total.Naudiz")
-      /// You now have a wonderful chance to start everything from scratch. You are at the end of one path and the beginning of the next, and your life will never be the same. Something unexpected will happen to you, there will be a moment that will radically change everything in your life. And what exactly this event will be depends on how you deserve it with your past. At the moment it is hidden from your sight and the answer is known only to Fate. But trust your destiny, now you are in harmony with the world and clearly realize your place in life.
+      /// У Вас появился замечательный шанс начать всё с "чистого листа". Вы находитесь в конце одного пути и в начале следующего, и Ваша жизнь никогда не будет такой, как прежде. С Вами произойдёт что-то неожиданное, будет такой момент, который изменит коренным образом всё в Вашей жизни. И каким именно будет это событие, зависит от того, как Вы заслужили это своим прошлым. В данный момент это скрыто от Вашего взора и ответ известен только Судьбе. Но доверьтесь своей судьбе, сейчас Вы находитесь в гармонии с миром и ясно осознаёте своё место в жизни.
       internal static let odin = L10n.tr("Localizable", "description.total.Odin")
-      /// The situation calls for an end to what has already become obsolete. You will only benefit from this. The call of the sign is to shed your old skin and let go of the past. Only under this condition will you receive sustainable prosperity and prosperity, continuous growth of any business you start and true freedom. But this will require submission to the situation and willpower, only with such behavior can you move forward. The sign also indicates that the time has come to develop talents, but at the same time it is necessary to soberly assess your capabilities. This sign also indicates that you have a strong rear - your safe place, which is based on the Family clan or on the support of like-minded people.
+      /// Ситуация требует прекращение того, что уже отжило своё. Вы от этого только выиграете. Призыв знака - сбрось старую кожу и отпусти прошлое. Только при этом условии Вы получите устойчивое процветание и благосостояние, непрерывный рост любого начатого дела и истинную свободу. Но здесь потребуется подчинение ситуации и сила воли, только при таком поведении можно продвинуться в перёд.Знак говорит и о том, что настала пора развивать таланты, но при этом необходимо трезво оценивать свои возможности. Этот знак так же указывает на то, что у Вас есть крепкий тыл - Ваше безопасное место, который базируется на Родовом клане или на поддержке  единомышленников.
       internal static let opila = L10n.tr("Localizable", "description.total.Opila")
-      /// In the business that you are currently busy with, unexpected "surprises" may appear, both pleasant and unpleasant. Soon, something will be discovered, hidden from you for a long time and previously unknown to you. But at the moment it is hidden from you and the situation that interests you now contains a certain secret. But your subconscious mind is quite capable of prompting your further actions. Sign prediction can apply to any field of activity for which a question was asked. Here, monetary gains are also possible, or a return of your debt, or some kind of impetus in the development of new plans and prospects, or in personal relationships. Very often, the appearance of this sign means a radical change in life or an exit from a difficult period. This suggests that you are thinking about the foundation of your destiny and want to renew your personality, get to know yourself and get rid of past misconceptions. Runa advises to let go of your past, let nothing stand between "you are in the past" and "you are in the future".
+      /// В деле, которым Вы сейчас заняты могут появиться неожиданные "сюрпризы", как приятные так и неприятные. Вскоре обнаружится нечто, долгое время скрытое от Вас и ранее неведомое Вам. Но в данный момент это скрыто от Вас и ситуация, интересующая Вас сейчас, содержит некую тайну. Но Ваше подсознание вполне способно подсказать Ваши дальнейшие действия. Предсказание знака может касаться любой сферы деятельности по которой был задан вопрос. Здесь возможны и денежные выигрыши, или возврат Вам долга, или некий толчок в развитии новых планов и перспектив,  или в личных взаимоотношениях. Очень часто появление этого знака означает коренной перелом в жизни или выходе из тяжёлого периода. Это говорит о том, что Вы задумываетесь о фундаменте своей судьбы и хотите обновить свою личность, узнать себя и избавиться от прошлых ошибочных представлений. Руна советует отпустить своё прошлое, пусть ничего не стоит между "Вы в прошлом" и "Вы в будущем".
       internal static let perpu = L10n.tr("Localizable", "description.total.Perpu")
-      /// The critical situation you find yourself in requires careful thought. Therefore, any haste will only bring harm. When this sign falls out, we can say that events await you, the outcome of which is unknown. Rune's advice - reflect and analyze the situation. It is possible that the solution to this problem will occur even through conflict, rupture, or some other extreme measure. Especially if a question was asked in the sphere of feelings, then this is definitely a solution to the situation through a conflict. Here radical changes are needed, a radical revision of the established views and behavior habits. It makes sense to look back at the path traveled, make an analysis and not drag it along. And only after that boldly step into a new reality.
+      /// Критическая ситуация, в которую Вы попали, требует тщательного обдумывания. Поэтому любая спешка принесёт только вред. При выпадении данного знака можно сказать, что Вас ждут события, исход которых неизвестен. Совет Руны - размышляйте и анализируйте ситуацию. Возможно, что разрешение данной проблемы  произойдёт даже через конфликт, разрыв или какие-то другие крайние меры. Особенно, если был задан вопрос в сфере чувств, то это однозначно разрешение ситуации через конфликт.  Здесь необходимы радикальные перемены, коренной пересмотр устоявшихся взглядов и привычек поведения. Имеет смысл оглянуться на пройденный путь, сделать анализ и не тащить его за собой. И только после этого смело шагнуть в новую реальность.
       internal static let purisaz = L10n.tr("Localizable", "description.total.Purisaz")
-      /// Big changes are coming. The sign indicates that your intention is moving in the right direction towards a successful conclusion. It is an impulse of motor energy. Also, a sign may indicate that you have a long journey or a long journey ahead. Or you are already on the way. Perhaps it will be a real journey or an exit on the path of development of your soul - to new knowledge, feelings and relationships. But you have to go through it. And you will be under reliable protection all the way, everything will be under your control. On the road, nothing unexpected will happen to you and this path will be successful. So walk boldly, without looking back and trust the course of events.
+      /// Грядут большие перемены. Знак говорит о том, что Ваше намерение движется в правильном направлении к удачному завершению. Это импульс двигательной энергии. Так же знак может указывать на то, что Вам предстоит дальняя дорога или длительное путешествие. Или Вы уже находитесь в пути.  Возможно это будет реальное путешествие или выход на путь развития Вашей души - к новым знаниям, чувствам и отношениям. Но Вы должны его пройти. И Вы будете находиться под надёжной защитой на всём пути, всё будет под Вашим контролем. В дороге с Вами ничего непредвиденного не произойдёт и путь этот будет удачным. Так что шагайте смело,  без оглядки и доверяйте ходу событий.
       internal static let raidu = L10n.tr("Localizable", "description.total.Raidu")
-      /// If this sign has appeared in the alignment - know that you will win in any enterprise. Any opposition will be quickly eliminated. This is your finest hour. However, this hour will strike only those who clearly understood and realized what he wants. You must clearly choose your position and adhere to it unswervingly. Internal illumination will allow you to release dormant spiritual energy and see future events, as well as tune in to them in accordance with the impulses of the soul. Otherwise, your victory may not please you. This happens if the goals you were working on are not true. Perhaps it was someone else's goals.
+      /// Если этот знак появился в раскладе - знайте, что Вас ждёт победа в любом предприятии. Любое противодействие будет быстро устранено. Это Ваш звёздный час. Однако этот час пробьёт только  тем, кто чётко понял и осознал, чего он хочет. Вы должны чётко выбрать свою позицию и неуклонно следовать ей.  Внутреннее озарение, позволит высвободить дремлющую духовную энергию и увидеть будущие события, а так же настроиться на них в соответствии с порывами души. В противном случае Ваша победа может и не порадовать Вас. Это происходит в том случае, если цели, над которыми Вы работали - не являются истинными. Возможно это были чужие цели.
       internal static let sowilu = L10n.tr("Localizable", "description.total.Sowilu")
-      /// Your goal will be achieved under any circumstances. This arrow, launched from your intention, flies straight to the target. Here you just need to remember that your intentions must be pure and not harmful. And of course, you need determination and perseverance in achieving your goal, but at the same time you need to be able to adequately be responsible for your actions on the way to the goal. Which also helps to form a strong character and a noble soul.
+      /// Ваша цель будет достигнута при любых обстоятельствах. Эта стрела, запущенная из Вашего намерения, летит прямиком в поставленную цель. Здесь надо только помнить, что намерения Ваши должны быть чистыми и не вредоносными. И конечно же Вам  необходима решимость и настойчивость в достижении своей цели, но при этом надо достойно уметь отвечать за свои поступки на пути к цели. Что так же хорошо помогает формировать сильный характер и благородную душу.
       internal static let tiwaz = L10n.tr("Localizable", "description.total.Tiwaz")
-      /// Power from new sources of energy enters your life. Something ends in your life and a new one is born. Be prepared for major life changes and do not cling to old obsolete forms. This is a sign of new strength, new beginnings and changes for the better. For where there is power, there is no stagnation. She carries authority over the situation and power. The loss of the old occurs through the birth of the new. Therefore, you cannot work in the same direction. Your life has grown beyond its form and needs to change old habits and attitudes. Now you are able to destroy all obstacles on the way to the goal. But such overwhelming power can be dangerous. Therefore, one should learn to work with it more subtly. It is necessary to change the intensity of the usual methods and actions and then your discovery will certainly amaze you.
+      /// В Вашу жизнь входит сила от новых источников энергии. Что-то завершается в вашей жизни и зарождается новое. Будьте готовы к крупным жизненным переменам и не цепляйтесь за старые отжившие формы. Это знак новой силы, новых начинаний и перемен к лучшему. Ибо там, где сила, нет застоя. Она несёт власть над ситуацией и могущество. Потеря старого происходит через рождение нового. Поэтому нельзя трудиться в прежнем направлении. Ваша жизнь выросла за пределы своей формы и нуждается в изменении старых привычек и взглядов. Сейчас Вы в состоянии разрушить все преграды на пути к цели. Но такая сокрушающая сила может быть и опасной. Поэтому следует учиться работать с ней тоньше. Необходимо изменить интенсивность привычных методов и действий и тогда Ваше открытие непременно поразит Вас.
       internal static let uruz = L10n.tr("Localizable", "description.total.Uruz")
-      /// Relax, calm down and don't fuss. Everything goes in the direction you need. Good luck, success and fulfillment of desires are already waiting for you. This light and joyful Rune says that the period of failure and darkness in your life is over. It brings a surge of positive energy, good prospects and a shift in the situation for the better. Everything that worried you and worries you now will end happily and you will reap the benefits in any field of activity - material, spiritual or emotional. None of your previous efforts will be in vain and will not be in vain. Joy and happiness will fill your life.
+      /// Расслабьтесь, успокойтесь и не суетитесь. Всё идёт в нужном Вам направлении. Удача, успех и исполнение желаний уже ждут Вас. Эта светлая и радостная Руна говорит о том, что завершён период неудач и тьмы в Вашей жизни. Она несёт прилив позитивной энергии, хорошие перспективы и сдвиг ситуации к лучшему. Всё, что беспокоило Вас и беспокоит сейчас, благополучно завершится и Вы пожнёте благие плоды в любой сфере деятельности - в материальной, духовной или эмоциональной. Никакие Ваши прежние усилия не окажутся напрасными и не пройдут даром. Радость и счастье наполнят Вашу жизнь.
       internal static let wunji = L10n.tr("Localizable", "description.total.Wunji")
       internal enum Reverse {
-        /// You are deceived or deceived, perhaps even by yourself. The advice of the sign may mean rejection of the offer you received, or from some of your plans, or from a person who should be avoided. Take seriously all the connections you are currently forming. What you are striving for at the moment is unlikely to be achieved.
+        /// Вы введены в заблуждение или обмануты, возможно даже самим собой. Совет знака может означать отказ от полученного Вами предложения, или от каких-то своих планов, или от человека, которого стоит избегать. Серьёзно отнеситесь ко всем формируемым в данный момент связям. То, к чему Вы стремитесь в данный момент, вряд ли будет достигнуто.
         internal static let algiz = L10n.tr("Localizable", "description.total.Reverse.Algiz")
-        /// The situation is not clear to you and you are lost, feeling anxiety and despondency. Much that is happening around you do not understand and this dead end seems hopeless. Lie or deception is possible here, so you should be on the lookout. Your soul needs to be renewed, do not be isolated on yourself and your feelings. On the contrary, analyze what is happening from the outside. Treat this situation philosophically and learn from it. After all, any life situation carries a necessary lesson. Therefore, do not panic, but soberly assess the situation and the ways out of it. And also do not forget to mentally thank for the test sent to you.
+        /// Ситуация Вам не ясна и Вы теряетесь, чувствуя тревогу и уныние. Многое, происходящее вокруг, Вам не понятно и этот тупик кажется безвыходным. Здесь возможна ложь или обман, поэтому следует быть на стороже.  Вашей душе необходимо обновиться, не замыкайтесь на себе и своих чувствах. Напротив, проанализируйте происходящее взглядом со стороны. Отнеситесь к данной ситуации философски и извлеките из неё опыт. Ведь любая жизненная ситуация несёт в себе необходимый урок. Поэтому не паникуйте, а трезво оцените ситуацию и пути выхода из неё. А так же не забудьте мысленно поблагодарить за посланное Вам испытание.
         internal static let ansuz = L10n.tr("Localizable", "description.total.Reverse.Ansuz")
-        /// Something is hindering your growth and implementation of your plans. And any venture that is conceived will fail. These can also be external events that are beyond your control. And there may be your character traits that carry negative energies. It is possible that you put your desires above the interests of others. From here, family problems and tensions with business partners can arise. Sign advice - carefully analyze the situation and above all - yourself.
+        /// Что-то препятствует Вашему росту и осуществлению задуманного. И любое задуманное предприятие потерпит неудачу. Это могут быть и внешние события, независящие от Вас. А могут быть и Ваши черты характера, которые несут негативные энергии. Не исключено, что Вы ставите свои желания выше интересов окружающих. Отсюда могут возникнуть семейные проблемы и трениях с партнёрами по бизнесу. Совет знака - тщательно проанализируйте ситуацию и прежде всего - самого себя.
         internal static let berkana = L10n.tr("Localizable", "description.total.Reverse.Berkana")
-        /// Your forward movement is slowed down and bumps into obstacles. Do not blame yourself or others for this, but take it for granted. These obstacles are insignificant. Perhaps now such a delay will be useful in order to retire and rest. Calmly go through the difficulties, and when the moment is right, act. The sign's advice is patience. Occupy yourself at this moment with something else, pleasant and useful.
+        /// Ваше движение вперёд заторможено и натыкается на препятствия. Не вините в этом ни себя ни окружающих, а примите это как данность. Препятствия эти незначительны. Возможно сейчас такая задержка будет полезна, чтобы отойти от дел и отдохнуть. Спокойно переживите трудности, а когда наступит подходящий момент - действуйте. Совет знака - терпение. Займите себя в этот момент чем-нибудь другим, приятным и полезным.
         internal static let ehvaz = L10n.tr("Localizable", "description.total.Reverse.Ehvaz")
-        /// Some disappointment or loss awaits you. Therefore, show wisdom and emotional passivity. Any struggle to get what you want is now useless, you need to wait. Consider the problem from all angles. You must understand what you can do without and what to give up. What you really need will always remain with you. And also take care of if someone needs your help.
+        /// Вас ждёт разочарование или потеря. От вас потребуется проявить мудрость и эмоциональную пассивность. Любая борьба для получения желаемого сейчас бесполезна, необходимо выждать. Рассмотрите проблему со всех сторон. Вы должны понять, без чего можно обойтись и от чего отказаться. То, что Вам действительно нужно, всегда останется при Вас. А так же позаботьтесь и о том, если кто-то нуждается в Вашей помощи.
         internal static let fehu = L10n.tr("Localizable", "description.total.Reverse.Fehu")
-        /// The appearance of this sign indicates some kind of failure or loss of something. It can be your business partner, your love or part of your personality. It can also mean worsening health or job loss. But in any case, take this reality as necessary for you at the moment and learn from what is happening. Give up what has already become obsolete and become unnecessary for you. Deterioration in health indicates that you have neglected yourself and forgot about yourself, have become too carried away in pursuit of goals or relationships that are unnecessary to you at the moment. The rune calls to turn your attention to yourself. And remember that life does not stand still and soon everything will turn out for the best for you.
+        /// Появление данного знака свидетельствует о какой-то неудаче или потере чего-либо. Это может быть Ваш партнёр по бизнесу, Ваша любовь или часть Вашей личности. Она так же может означать ухудшение здоровья или потерю работы. Но в любом случае примите эту данность как необходимое Вам в данный момент и извлеките из происходящего урок. Откажитесь от того, что уже отжило своё и стало Вам ненужным. Ухудшение здоровья свидетельствует о том, что Вы запустили себя и забыли о себе,  слишком увлеклись погоней за ненужными Вам в данный момент целями или отношениями. Руна призывает переключить своё внимание на на себя. И помните, что жизнь не стоит на месте и вскоре всё обернётся к лучшему для Вас.
         internal static let kauna = L10n.tr("Localizable", "description.total.Reverse.Kauna")
-        /// You deny and challenge life itself. This sign is a warning against trying to exceed your capabilities. You are tired and your physical and mental strength is exhausted. It is possible that the reason for this is that you were trying to get what you want at any cost. This kind of idea has completely absorbed your thoughts and soul. It is not surprising that now you feel empty and tired. Do not forget, no matter how great your vital resources are, they are still not unlimited. Here you need to understand your true desires and gravities.
+        /// Вы отрицаете саму жизнь и бросаете ей вызов. Этот знак - предупреждение против попыток превысить свои возможности. Вы устали и Ваши физические и душевные силы истощены. Возможно, что причина этого в том, что Вы пытались заполучить желаемое любой ценой. Эта некая идея поглотила целиком Ваши мысли и душу. Не удивительно, что сейчас Вы чувствуете опустошение и усталость. Не забывайте, как бы ни были велики Ваши жизненные ресурсы, они всё же не безграничны. Здесь необходимо разобраться в своих истинных желаниях и тяготениях.
         internal static let laguz = L10n.tr("Localizable", "description.total.Reverse.Laguz")
-        /// At the moment, you should not count on any outside help. Analyze the circumstances and sort out the situation in order to reach out to yourself. Perhaps you see someone's evil intentions and intrigues on the way to your goals, but in fact, the reason for failure is in you, in the properties of your character and views. Also reconsider your desires and think how important the goal is for you.
+        /// В данный момент Вам не следует рассчитывать на какую-либо помощь со стороны. Проанализируйте обстоятельства и разберитесь в ситуации для того, чтобы обратиться к самому себе. Возможно Вам видятся чьи-то злые намерения и козни на пути к Вашим целям, но на самом деле причина неудач именно в Вас самих, в свойствах Вашего характера и взглядов. Так же пересмотрите свои желания и подумайте насколько важна для Вас поставленная цель.
         internal static let mannaz = L10n.tr("Localizable", "description.total.Reverse.Mannaz")
-        /// You were on the wrong track in your plans and outlined the wrong line of action. And if you continue this movement further, then you will face failure and disappointment. Despair and pessimism are now your companions. The main thing here is to refrain from blaming fate, others or circumstances. After all, the reason for your failures is within you. And perhaps it is she who will lead you to understanding and solving the problem you are faced with. It's not too late to admit and correct your mistakes. It is necessary to understand: what is happening to you now is just a reflection of what is happening inside. So change your subconscious orientations, control your emotions and actions, restrain the flow of negative energy. Maintain faith in yourself, avoid self-flagellation and discouragement.
+        /// Вы оказались на ложном пути в своих планах и наметили неправильную линию действий. И если продолжать это движение дальше, то Вас ждут провал и разочарование. Отчаяние и  пессимизм сейчас являются Вашими спутниками. Главное здесь - воздержаться от обвинения судьбы, окружающих или обстоятельств. Ведь причина Ваших неудач находится внутри Вас. И возможно именно она приведёт Вас к пониманию и решению проблемы, с которой Вы столкнулись. Ещё не поздно признать и исправить свои ошибки. Необходимо понять: то, что происходит сейчас с Вами - это лишь отражение того, что происходит внутри. Так что измените подсознательные ориентации, контролируйте свои эмоции и поступки, сдерживайте поток негативной энергии. Сохраняйте веру в себя,  не допускайте самобичевания и уныния.
         internal static let naudiz = L10n.tr("Localizable", "description.total.Reverse.Naudiz")
-        /// There is a danger of making the wrong decision. Fate gives you a warning through this Rune about the difficulties that you probably already faced or will face in the near future, as a result of trying to progress too quickly. Your business will not go as fast as you would like. Therefore, be patient and do not rush things. Sign advice - be flexible, do not obey conventions and old authorities. Now it is necessary to refrain from risky ventures and act only according to your inner feeling.
+        /// Существует опасность принятия неверного решения. Судьба даёт Вам предостережение через данную Руну о трудностях, с которыми Вы вероятно уже столкнулись или столкнётесь в ближайшее время, в результате попыток слишком быстрого прогресса. Дела Ваши не будут идти столь быстрыми темпами, как Вам бы этого хотелось. Поэтому будьте терпеливы и не торопите события. Совет знака - будь гибким, не подчиняйся условностям и старым авторитетам. Сейчас необходимо воздержаться от рисковых предприятий и действовать только согласно своему внутреннему ощущению.
         internal static let opila = L10n.tr("Localizable", "description.total.Reverse.Opila")
-        /// Your past has died and your future has not yet been born. Events may not develop as you expected. One should not expect too much either from others, or from current events, or from the current situations. So don't torment yourself with memories and let go of the past. Break the old stereotypes and ideas, if you don't, you will steal your future. Live in the here and now, do not dwell on the end result of your current activities and do not cling to the past. The sign's advice is to calm down, do not resist and wait it out. Active actions of transforming your life will not lead to anything at the moment. They will only take a colossal energy consumption.
+        /// Ваше прошлое умерло, а Ваше будущее ещё не родилось. События могут развиваться не так, как Вы рассчитывали. Не следует ждать слишком многого ни от окружающих, ни от происходящих событий, ни от сложившихся ситуаций.   Поэтому не мучайте себя воспоминаниями и отпустите прошлое. Сломайте старые стереотипы и представления, если не сделаете этого, украдёте своё будущее. Живите в здесь и сейчас, не зацикливайтесь на конечном результате вашей нынешней деятельности и не цепляйтесь за прошлое. Совет знака - успокоиться, не противиться и переждать. Активные действия преобразования своей жизни, ни к чему не приведут в данный момент. Только заберут колосальный расход энергии.
         internal static let perpu = L10n.tr("Localizable", "description.total.Reverse.Perpu")
-        /// The situation is complex and it all depends on how wisely and openly you are able to face the truth. The dropped sign indicates that you are afraid to act so as not to create problems for yourself. You don't heed advice and stick to your line of action, absorbed in yourself. It is possible that the reason for this situation lies in the fact that you are clearly exaggerating your importance and ignoring external circumstances. Take a closer look and listen to yourself and your actions. Hasty decisions can only make the situation worse. Because by stubbornly following your own path, you can create even more serious problems..
+        /// Ситуация сложна и всё зависит от того, насколько мудро и открыто Вы способны взглянуть правде в глаза. Выпавший знак  говорит о том, что Вы боитесь действовать, дабы не создавать себе проблем. Вы не прислушиваетесь к советам и придерживаетесь своей линии действия, поглощённым самим собой. Возможно, что причина создавшейся ситуации кроется в том, что Вы явно преувеличиваете свою значимость и игнорируете внешние обстоятельства. Присмотритесь и прислушайтесь к себе и своим действиям. Поспешные решения могут только усугубить ситуацию. Потому что, упрямо следуя по собственному пути, можно создать ещё более  серьёзные проблемы.
         internal static let purisaz = L10n.tr("Localizable", "description.total.Reverse.Purisaz")
-        /// Unexpected events and some changes await you. The situation requires you to be considerate and flexible. The upcoming journey may be with obstacles, and your intentions may not be fulfilled. At the moment, you should also be careful in dealing with loved ones, so as not to injure them inadvertently with an offensive word or deed. But with all this, it is necessary to remain calm and not lose heart..
+        /// Вас ждут неожиданные события и какие-то изменения. Ситуация требует от Вас быть внимательным и гибким. Грядущее путешествие возможно будет с препятствиями, а намерения Ваши могут не исполнятся. В настоящий момент следует так же быть осторожным в общении с близкими, чтобы не ранить их нечаянно обидным словом или поступком. Но при всём этом необходимо сохранять спокойствие и не падать духом.
         internal static let raidu = L10n.tr("Localizable", "description.total.Reverse.Raidu")
-        /// You have a loss of strength and vitality. Your goal has not been achieved, it depresses you and deprives you of strength. Perhaps you have made a mistake in some way and your enthusiasm has dried up. Sign advice - look for the answer within yourself. Analyze the situation. In this case, you need to understand that the most important thing for you is to achieve your goal by any means and methods, going over your head. Or soberly assess the situation and take a different look at the solution to this problem. Find new approaches and ways to achieve the goal. To do this, you need to change your views on the world, without blaming those around you and not "evil" fate.
+        /// У Вас упадок сил и жизненного тонуса. Ваша цель не достигнута, это угнетает Вас и лишает сил. Возможно, в чём-то Вы совершили ошибку и Ваш энтузиазм иссяк. Совет знака - ищи ответ внутри себя. Проанализируйте ситуацию. В данном случае необходимо понять, что важнее всего для Вас - достижение своей цели любыми путями и методами, идя по головам. Или трезво оценить ситуацию и по-иному взглянуть на решение данной проблемы. Найти новые подходы и пути к цели. Для этого  необходимо изменить свои взгляды на мир, не обвиняя при этом не окружающих и не "злую" судьбу.
         internal static let tiwaz = L10n.tr("Localizable", "description.total.Reverse.Tiwaz")
-        /// Stagnation of the situation, disorganization of power. Rune's action is seen as an indication of wrong actions. Perhaps you missed an opportunity or were disappointed. At the moment, the power of your actions is directed in the wrong direction and may turn against you. Here it is necessary to overcome the old clichés of seeing the situation and reacting to it. Try to understand what is hidden and look for a way out in inner transformation through knowing yourself. Whoever hears the alarm will avoid major shocks.
+        /// Застой ситуации, дезорганизация силы. Действие Руны рассматривается как указание на неправильные действия. Возможно Вы упустили какую-то возможность или получили разочарование. В настоящий момент сила Ваших действий направлена в неверное русло и может обернуться против Вас. Здесь  необходимо преодолеть застарелые штампы видения ситуации и реакции на неё. Постарайтесь понять то, что скрыто и ищите выход во внутренней трансформации через познание себя. Тот, кто слышит сигнал тревоги, избежит крупных потрясений.
         internal static let uruz = L10n.tr("Localizable", "description.total.Reverse.Uruz")
-        /// Everything you have planned is moving too slowly towards implementation. Now you are having a difficult time. The situation is complex, but it is not stagnant. And the hitch in the situation indicates that your time has not come yet. Perhaps you are not yet ready internally to accept what you have conceived. However, try not to give in to doubts and keep your personality. The temporary absence of light in your life is just a given opportunity to learn to see in the dark. Do not allow insincerity in relationships with people, so as not to get disappointed and lose allies. The sign advises you to be very careful and not make hasty decisions.
+        /// Всё задуманное Вами, в данный момент движется к осуществлению слишком медленно. Сейчас у Вас трудное время. Ситуация сложна, но это не застой. И заминка ситуации свидетельствует о том, что Ваше время ещё не настало. Возможно Вы внутренне ещё не готовы к принятию задуманного Вами. Однако, постарайтесь не поддаваться сомнениям и сохраните свою индивидуальность. Временное отсутствие света в Вашей жизни, это всего лишь предоставленная возможность научиться видеть в темноте. Не допускайте неискренности в отношениях с людьми, чтобы не получить разочарование и лишиться союзников. Знак советует быть очень осторожным и не принимать поспешных решений.
         internal static let wunji = L10n.tr("Localizable", "description.total.Reverse.Wunji")
       }
     }
     internal enum Value {
-      /// A new perspective
+      /// Новая перспектива
       internal static let algiz = L10n.tr("Localizable", "description.value.Algiz")
-      /// Spiritual insight, the intervention of higher powers
+      /// Духовное озарение, вмешательство высших сил
       internal static let ansuz = L10n.tr("Localizable", "description.value.Ansuz")
-      /// Career and personal growth
+      /// Рост в карьере и личной жизни
       internal static let berkana = L10n.tr("Localizable", "description.value.Berkana")
-      /// A major change in life
+      /// Серьёзное изменение в жизни
       internal static let dagaz = L10n.tr("Localizable", "description.value.Dagaz")
-      /// Change in perception and lifestyle
+      /// Изменение образа жизни и мировосприятия
       internal static let ehwaz = L10n.tr("Localizable", "description.value.Ehwaz")
-      /// Goal achievement, luck
+      /// Достижение цели, удача
       internal static let fehu = L10n.tr("Localizable", "description.value.Fehu")
-      /// Profitable partnership
+      /// Выгодное партнерство
       internal static let gebu = L10n.tr("Localizable", "description.value.Gebu")
-      /// Force majeure
+      /// Непреодолимое обстоятельство
       internal static let hagalaz = L10n.tr("Localizable", "description.value.Hagalaz")
-      /// Movement towards success
+      /// Движение к успеху
       internal static let inwaz = L10n.tr("Localizable", "description.value.Inwaz")
-      /// Powerlessness
+      /// Бессилие
       internal static let isaz = L10n.tr("Localizable", "description.value.Isaz")
-      /// An unpleasant embarrassment
+      /// Неприятное затруднение
       internal static let iwaz = L10n.tr("Localizable", "description.value.Iwaz")
-      /// A reward after much effort
+      /// Награда после долгих усилий
       internal static let jara = L10n.tr("Localizable", "description.value.Jara")
-      /// Unexpected event
+      /// Воплощение задуманного
       internal static let kauna = L10n.tr("Localizable", "description.value.Kauna")
-      /// Immersion in the inner world and trust in intuition
+      /// Погружение во внутренний мир и доверие к интуиции
       internal static let laguz = L10n.tr("Localizable", "description.value.Laguz")
-      /// Calm and stop
+      /// Спокойствие и остановка
       internal static let mannaz = L10n.tr("Localizable", "description.value.Mannaz")
-      /// Emotional experience
+      /// Эмоциональное переживание
       internal static let naudiz = L10n.tr("Localizable", "description.value.Naudiz")
-      /// Global, radical change
+      /// Крупные перемены в жизни и делах
       internal static let odin = L10n.tr("Localizable", "description.value.Odin")
-      /// Break with the past
+      /// Разрыв с прошлым
       internal static let opila = L10n.tr("Localizable", "description.value.Opila")
-      /// Unexpected difficulty
+      /// Неожиданная трудность
       internal static let perpu = L10n.tr("Localizable", "description.value.Perpu")
-      /// Ambiguity
+      /// Неизвестность
       internal static let purisaz = L10n.tr("Localizable", "description.value.Purisaz")
-      /// Сhange for the better
+      /// Перемена к лучшему
       internal static let raidu = L10n.tr("Localizable", "description.value.Raidu")
-      /// Victory in any activity
+      /// Победа в любой деятельности
       internal static let sowilu = L10n.tr("Localizable", "description.value.Sowilu")
-      /// Achievements of goals
+      /// Достижение целей
       internal static let tiwaz = L10n.tr("Localizable", "description.value.Tiwaz")
-      /// Change in life
+      /// Перемена в жизни
       internal static let uruz = L10n.tr("Localizable", "description.value.Uruz")
-      /// The end of the rough patch in life
+      /// Окончание "черной" полосы в жизни
       internal static let wunji = L10n.tr("Localizable", "description.value.Wunji")
       internal enum Reverse {
-        /// Delusion
+        /// Заблуждение
         internal static let algiz = L10n.tr("Localizable", "description.value.Reverse.Algiz")
-        /// Anxiety and discouragement
+        /// Тревога и уныние
         internal static let ansuz = L10n.tr("Localizable", "description.value.Reverse.Ansuz")
-        /// Obstacle
+        /// Препятствие
         internal static let berkana = L10n.tr("Localizable", "description.value.Reverse.Berkana")
-        /// Weak obstacle
+        /// Небольшие препятствия
         internal static let ehvaz = L10n.tr("Localizable", "description.value.Reverse.Ehvaz")
-        /// Disappointment or loss
+        /// Разочарование или потеря
         internal static let fehu = L10n.tr("Localizable", "description.value.Reverse.Fehu")
-        /// Failure or loss
+        /// Неудача или потеря
         internal static let kauna = L10n.tr("Localizable", "description.value.Reverse.Kauna")
-        /// Exhaustion of forces
+        /// Истощение сил
         internal static let laguz = L10n.tr("Localizable", "description.value.Reverse.Laguz")
-        /// Lack of help
+        /// Отсутствие помощи
         internal static let mannaz = L10n.tr("Localizable", "description.value.Reverse.Mannaz")
-        /// Despair
+        /// Отчаяние
         internal static let naudiz = L10n.tr("Localizable", "description.value.Reverse.Naudiz")
-        /// Caution
+        /// Осторожность
         internal static let opila = L10n.tr("Localizable", "description.value.Reverse.Opila")
-        /// Uncertainty
+        /// Неопределенность
         internal static let perpu = L10n.tr("Localizable", "description.value.Reverse.Perpu")
-        /// Fear to act
+        /// Страх действовать
         internal static let purisaz = L10n.tr("Localizable", "description.value.Reverse.Purisaz")
-        /// Unexpected event
+        /// Неожиданное событие
         internal static let raidu = L10n.tr("Localizable", "description.value.Reverse.Raidu")
-        /// Prostration
+        /// Упадок сил
         internal static let tiwaz = L10n.tr("Localizable", "description.value.Reverse.Tiwaz")
-        /// Missed opportunity
+        /// Упущенная возможность
         internal static let uruz = L10n.tr("Localizable", "description.value.Reverse.Uruz")
-        /// Slow movement towards the goal
+        /// Медленное движение к цели
         internal static let wunji = L10n.tr("Localizable", "description.value.Reverse.Wunji")
       }
     }
   }
 
   internal enum InterpretationElementsCross {
-    /// As a person, you have the important trait - %@, and in present one you have %@. The source of your problems may be %@. The most likely future may be described as %@. To archieve this future, your main goal is - %@. If you do not reach the target, you will be %@.
+    /// Вам, как человеку, присуща важная черта - %@, и в настоящее время с Вами происходит %@. Источником Ваших проблем может быть %@. Наиболее вероятное будущее может быть описано как %@. Для достижения этого результата, Ваша главная цель - %@. Если же Вы не достигнете поставленной цели - вас ждет %@.
     internal static func text(_ p1: Any, _ p2: Any, _ p3: Any, _ p4: Any, _ p5: Any, _ p6: Any) -> String {
       return L10n.tr("Localizable", "interpretationElementsCross.text", String(describing: p1), String(describing: p2), String(describing: p3), String(describing: p4), String(describing: p5), String(describing: p6))
     }
   }
 
   internal enum InterpretationForNorns {
-    /// Your life in present one can be characterized as %@. Pay close attention to the problem with your %@. To solve this problem, define with %@.
+    /// Общее положение Ваших дел может быть описано как %@. Вашего особого внимания требует -  %@. Возможное решение в данном случае - это %@.
     internal static func text(_ p1: Any, _ p2: Any, _ p3: Any) -> String {
       return L10n.tr("Localizable", "interpretationForNorns.text", String(describing: p1), String(describing: p2), String(describing: p3))
     }
   }
 
   internal enum InterpretationForShortPrediction {
-    /// In present one your life can be described as %@. Your problem is %@, but to solve it you have to rely on %@. If you persist in your actions, then %@ awaits you.
+    /// Ваше текущее состояние можно описать как %@. Ваша проблема - это %@, и для её решения вашей лучшей опорой будет %@. При настойчивости и благоприятном стечении обстоятельств, вас ожидает %@.
     internal static func text(_ p1: Any, _ p2: Any, _ p3: Any, _ p4: Any) -> String {
       return L10n.tr("Localizable", "interpretationForShortPrediction.text", String(describing: p1), String(describing: p2), String(describing: p3), String(describing: p4))
     }
   }
 
   internal enum InterpretationForThorsHummer {
-    /// In the past you felt the %@, in present one you  feel the %@, in the future you expect the %@.
+    /// Ваши ощущения в прошлом - %@, в настоящее время - %@, в будущем вас ожидает %@.
     internal static func text(_ p1: Any, _ p2: Any, _ p3: Any) -> String {
       return L10n.tr("Localizable", "interpretationForThorsHummer.text", String(describing: p1), String(describing: p2), String(describing: p3))
     }
   }
 
   internal enum InterpretationForTwoRunes {
-    /// Your life in present one can be characterized as %@.
+    /// Ваше настоящее положение дел можно охарактеризовать как %@.
     internal static func text(_ p1: Any) -> String {
       return L10n.tr("Localizable", "interpretationForTwoRunes.text", String(describing: p1))
     }
     internal enum Algiz {
-      /// Clairvoyance, other non-traditional abilities
+      /// Ясновидение, паранормальные способности
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Ansuz")
-      /// Deception with hard consequences
+      /// Обман с тяжелейшими последствиями
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Berkana")
-      /// The missing
+      /// Пропажа
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Dagaz")
-      /// Cooling down in affection
+      /// Охлаждение в привязанностях, новое чувство
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Evaz")
-      /// Problems with tooths
+      /// Проблемы с пониманием
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Eyvaz")
-      /// Raising living standards in general
+      /// Общий расцвет, успех в нескольких сферах
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Fehu")
-      /// Deprivation, retribution for past deeds
+      /// Лишения, расплата за прошлые дела
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Gebo")
-      /// Drug addiction
+      /// Вредные привычки
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Halagaz")
-      /// Vices, negative influence
+      /// Пороки, негативное влияние
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Hyera")
-      /// New family ties
+      /// Укрепление семейных связей
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Inguz")
-      /// Deadly danger
+      /// Смертельная опасность
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Isa")
-      /// Manias, phobias
+      /// Мании, фобии
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Kenaz")
-      /// Administration
+      /// Управление чем или кем-либо
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Laguz")
-      /// Special mission
+      /// Особая миссия
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Mannaz")
-      /// Risky ventures, adventures
+      /// Рискованные предприятия, авантюры
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Nautiz")
-      /// Overdose
+      /// Излишний гедонизм
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Otilla")
-      /// Roperty protection
+      /// Защита собственности
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Perth")
-      /// Love in the distance
+      /// Любовь на расстоянии
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Raido")
-      /// Madness
+      /// Помутнение разума
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.RuneOfOdin")
-      /// Venereal diseases
+      /// Проблемы в сексуальной сфере
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Sovilo")
-      /// Serious illness
+      /// Тяжелая болезнь
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Teyvaz")
-      /// Strengthening positions
+      /// Укрепление позиций
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Turisaz")
-      /// Relief, recovery, finding defenders
+      /// Облегчение, выздоровление, обретение защитников, покровителей, меценатов
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Uruz")
-      /// Parting with loved ones
+      /// Расставание с близкими людьми
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Algiz.Vunyo")
     }
     internal enum Ansuz {
-      /// Clairvoyance, other non-traditional abilities
+      /// Ясновидение, паранормальные способности
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Algiz")
-      /// Dust, growth
+      /// Рост прибыли, преумножение богатства
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Berkana")
-      /// Success in flight, in parachuting
+      /// Успехи в воздушной стихии
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Dagaz")
-      /// Repentance, prayer, fasting
+      /// Раскаяние, молитва
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Evaz")
-      /// Unpredictable situations
+      /// Непредсказуемые ситуации
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Eyvaz")
-      /// Control, subordination
+      /// Подчинение контролю извне
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Fehu")
-      /// Success in intentions, union
+      /// Успехи в ваших намерениях, выгодные союзы
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Gebo")
-      /// Fast, fast troubles, floods, losses
+      /// Неожиданные неприятности, потери
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Halagaz")
-      /// Fasting, abstinence, modesty
+      /// Посты, воздержание, скромность
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Hyera")
-      /// Success in any endeavor
+      /// Успех в любом начинании
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Inguz")
-      /// Inhibition, prohibitions, congenital defects
+      /// Ухудшение здоровья, болезнь напомнит о себе
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Isa")
-      /// Success in publishing and writing
+      /// Успех в издательской и писательской деятельности
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Kenaz")
-      /// Conquering water spaces, swimming successes, records
+      /// Успехи в водной стихии
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Laguz")
-      /// Return of something lost a long time ago
+      /// Возращение давно потерянного
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Mannaz")
-      /// Failed projects, losses
+      /// Несостоявшиеся проекты, уныние
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Nautiz")
-      /// Loss of property
+      /// Потеря собственности
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Otilla")
-      /// Success in gaming, luck
+      /// Успех в игре, везение
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Perth")
-      /// Working with retirees
+      /// Взаимодействие с пенсионерами
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Raido")
-      /// Disastrous electoral failures
+      /// Сокрушительные провалы в выборах
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.RuneOfOdin")
-      /// World-class nuclear and other disasters
+      /// Глобальные катастрофы 
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Sovilo")
-      /// Conquest of powers
+      /// Достижение глобальных целей
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Teyvaz")
-      /// Improving the situation
+      /// Улучшение ситуации
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Turisaz")
-      /// New information, enlightenment
+      /// Получение новой информации, новостей, просветление
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Uruz")
-      /// Supreme gifts of Jupiter, desire and receive
+      /// Обретение желаемого
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Ansuz.Vunyo")
     }
     internal enum Berkana {
-      /// Deception with hard consequences
+      /// Обман с тяжелейшими последствиями
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Algiz")
-      /// Dust, growth
+      /// Рост прибыли, преумножение богатства
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Ansuz")
-      /// Changes in аinance
+      /// Экономическая/денежная реформа
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Dagaz")
-      /// Slander
+      /// Клевета
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Evaz")
-      /// Errors, delusions
+      /// Ошибки, заблуждения
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Eyvaz")
-      /// Family idyll, marriage, preparation for the wedding
+      /// Семейная идиллия, брачные отношения
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Fehu")
-      /// Motivation
+      /// Жизнеутвреждающие мотивы, мотивация
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Gebo")
-      /// Problem with childbirth
+      /// Опасность для детей
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Halagaz")
-      /// Vulgar magic
+      /// Вульгарная магия
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Hyera")
-      /// Actions with land, real estate
+      /// Строительство дома, дачи
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Inguz")
-      /// Invulnerability
+      /// Неуязвимость
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Isa")
-      /// Cheating, get rid of cheating
+      /// Избавление от обмана
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Kenaz")
-      /// Success in any endeavor
+      /// Успехи в любом начинании
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Laguz")
-      /// Unexpected luck
+      /// Неожиданное везение
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Mannaz")
-      /// Loss of investments, deception of partners
+      /// Потеря вложений, обманы партнеров
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Nautiz")
-      /// Advances in chemistry, biology
+      /// Успехи в химии, биологии
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Otilla")
-      /// Bad luck, miscalculations
+      /// Невезение, ошибки, просчеты
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Perth")
-      /// Redefining values
+      /// Пересмотр ценностей
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Raido")
-      /// Ridiculous extravagance
+      /// Неуместная экстравагантность
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.RuneOfOdin")
-      /// Restoring connections
+      /// Восстановление связей
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Sovilo")
-      /// Family reunion
+      /// Воссоединение распавшейся семьи
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Teyvaz")
-      /// Worsening relationships
+      /// Ухудшение отношений
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Turisaz")
-      /// Profits, fertility, loans
+      /// Прибыль, плодородие, успех в малом бизнесе
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Uruz")
-      /// Refusal of material goods
+      /// Отказ от материальных благ, альтруизм
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Berkana.Vunyo")
     }
     internal enum Dagaz {
-      /// The missing
+      /// Пропажа
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Algiz")
-      /// Success in flight, in parachuting
+      /// Успехи в воздушной стихии
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Ansuz")
-      /// Changes in аinance
+      /// Экономическая/денежная реформа
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Berkana")
-      /// Frivolity, dangerous connections
+      /// Легкомыслие, опасные связи
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Evaz")
-      /// Protracted disaster
+      /// Затянувшееся бедствие
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Eyvaz")
-      /// A turn for the better, the beginning of a new story
+      /// Поворот к лучшему, начало новой истории
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Fehu")
-      /// Failure of undertakings, self-doubt
+      /// Безуспешность начинаний, отсутствие веры в себя
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Gebo")
-      /// Long-term misery
+      /// Длительное несчастье
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Halagaz")
-      /// Confession, Repentance
+      /// Время потерь
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Hyera")
-      /// Wellbeing
+      /// Благополучие
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Inguz")
-      /// Long wait for happiness
+      /// Длительное ожидание счастья
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Isa")
-      /// Slow change
+      /// Медленные перемены
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Kenaz")
-      /// Understanding problems, finding a way out
+      /// Осмысление проблем, поиск выхода
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Laguz")
-      /// Patronage of higher powers
+      /// Расположение высших сил
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Mannaz")
-      /// Investigation, problems with law
+      /// Следствие, проблемы с провоохранительной системой
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Nautiz")
-      /// Unnecessary generosity
+      /// Щедрость и расточительность, держите себя в руках
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Otilla")
-      /// Weight change, nutrition
+      /// Работа над своим телом, тренировки
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Perth")
-      /// Mental disorder
+      /// Психическое отклонение
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Raido")
-      /// Punishment
+      /// Жестокость, наказание
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.RuneOfOdin")
-      /// Wandering in the labyrinths of fate
+      /// Блуждание в лабиринтах судьбы
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Sovilo")
-      /// Long quarrel
+      /// Продолжительная ссора
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Teyvaz")
-      /// Drastic change
+      /// Кардинальное изменение
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Turisaz")
-      /// Study, pedagogy, success
+      /// Успехи в образовании
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Uruz")
-      /// Advances for the future
+      /// Авансы на будущее
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Dagaz.Vunyo")
     }
     internal enum Evaz {
-      /// Cooling down in affection
+      /// Охлаждение в привязанностях, новое чувство
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Algiz")
-      /// Repentance, prayer, fasting
+      /// Раскаяние, молитва
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Ansuz")
-      /// Slander
+      /// Клевета
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Berkana")
-      /// Frivolity, dangerous connections
+      /// Легкомыслие, опасные связи
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Dagaz")
-      /// Success in computer science
+      /// Успехи в онлайн сфере
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Eyvaz")
-      /// The embodiment of desires
+      /// Воплощение желаний
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Fehu")
-      /// New connections that often defame you
+      /// Новые связи, часто порочащие вас
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Gebo")
-      /// Discovery of a terrible secret
+      /// Обнаружение страшной тайны
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Halagaz")
-      /// Cardiac problems, arrhythmia
+      /// Кардиологические проблемы
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Hyera")
-      /// Avoiding defeat at the last moment
+      /// Уход от поражения в последний миг
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Inguz")
-      /// Loss of optimism
+      /// Потеря оптимизма, начало тяж заболевания
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Isa")
-      /// Reborn dreams
+      /// Возрожденные мечты
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Kenaz")
-      /// Cleansing with water, holy water
+      /// Духовное очищение
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Laguz")
-      /// Overflow of the karma
+      /// Переполнение сосуда кармы, добрые дела
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Mannaz")
-      /// Violence in any form
+      /// Проявление насилия в разных формах
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Nautiz")
-      /// Pleasant surprises
+      /// Приятные сюрпризы
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Otilla")
-      /// New lucky chances
+      /// Новые счастливые шансы
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Perth")
-      /// Feigned fun
+      /// Напускное веселье
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Raido")
-      /// Problems with brain
+      /// Сложность осознания того, что происходит на самом деле
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.RuneOfOdin")
-      /// Success in directing, in production
+      /// Успех в искусстве
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Sovilo")
-      /// Minor injury
+      /// Легкие травмы
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Teyvaz")
-      /// Coincidence
+      /// Случайное стечение обстоятельств
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Turisaz")
-      /// Slow but sure progress towards the goal
+      /// Медленное, но верное продвижение к цели
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Uruz")
-      /// The hype
+      /// Ажиотаж, борьба с несущественными угрозами
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Evaz.Vunyo")
     }
     internal enum Eyvaz {
-      /// Problems with tooths
+      /// Проблемы с пониманием
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Algiz")
-      /// Unpredictable situations
+      /// Непредсказуемые ситуации
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Ansuz")
-      /// Errors, delusions
+      /// Ошибки, заблуждения
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Berkana")
-      /// Protracted disaster
+      /// Затянувшееся бедствие
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Dagaz")
-      /// Success in computer science
+      /// Успехи в онлайн сфере
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Evaz")
-      /// Necessary activities, problem solving
+      /// Необходимость действовать, решать насущные проблемы
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Fehu")
-      /// New beginnings
+      /// Новые начинания
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Gebo")
-      /// Danger from water
+      /// Опасность исходящая от воды
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Halagaz")
-      /// Delays
+      /// Досадные задержки в делах
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Hyera")
-      /// Financial success
+      /// Финансовые успехи
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Inguz")
-      /// Falling into a trap
+      /// Ловушка, западня
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Isa")
-      /// Long awaited pregnancy, profit
+      /// Крупная прибыль или беременность
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Kenaz")
-      /// Adaptability
+      /// Приспосабливаемость
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Laguz")
-      /// Protracted events
+      /// Затянувшиеся события
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Mannaz")
-      /// Serious danger
+      /// Смертельная опасность
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Nautiz")
-      /// New quality of life
+      /// Новое качество жизни
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Otilla")
-      /// New stages of a happy destiny
+      /// Новые этапы счастливой судьбы
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Perth")
-      /// Feigned fun
+      /// Напускное веселье
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Raido")
-      /// Unconscious desires
+      /// Безотчетные желания
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.RuneOfOdin")
-      /// Nerve problems
+      /// Проблемы с нервной системой
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Sovilo")
-      /// Punishment without guilt
+      /// Наказание без вины
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Teyvaz")
-      /// Fear, danger
+      /// Опасность
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Turisaz")
-      /// Difficult circumstances, consequences of operations
+      /// Ухудшение состояния здоровья, последствия старых ран
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Uruz")
-      /// Transformation
+      /// Изменения внешности
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Eyvaz.Vunyo")
     }
     internal enum Fehu {
-      /// Raising living standards in general
+      /// Общий расцвет, успех в нескольких сферах
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Algiz")
-      /// Control, subordination
+      /// Подчинение контролю извне
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Ansuz")
-      /// Family idyll, marriage, preparation for the wedding
+      /// Семейная идиллия, брачные отношения
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Berkana")
-      /// A turn for the better, the beginning of a new story
+      /// Поворот к лучшему, начало новой истории
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Dagaz")
-      /// The embodiment of desires
+      /// Воплощение желаний
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Evaz")
-      /// Necessary activities, problem solving
+      /// Необходимая деятельность, решение проблем
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Eyvaz")
-      /// Venture
+      /// Авантюра
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Gebo")
-      /// Death by the water element
+      /// Опасность, исходящая от водной стихии
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Halagaz")
-      /// Inability to manage time, unsuccessful work
+      /// Неумение распоряжаться временем, застой
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Hyera")
-      /// Necessary respite, depletion of vital reserves
+      /// Истощение жизненных сил, необходим отдых
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Inguz")
-      /// Job loss, creative crisis, stagnation
+      /// Потеря работы, творческий кризис, застой в делах
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Isa")
-      /// Way out of a difficult situation
+      /// Выход из тяжелого положения
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Kenaz")
-      /// Good luck in your endeavors
+      /// Удача в начинаниях
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Laguz")
-      /// Recommendations, useful tips
+      /// Рекомендации, полезные советы
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Mannaz")
-      /// Poverty, death of a loved one, deterioration of condition, serious illness
+      /// Лишения, болезнь
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Nautiz")
-      /// Emergencies, unexpected situations, troubles
+      /// Неприятности в делах, возможно, экстренные ситуации
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Otilla")
-      /// The birth of a new life, possible profit, good news
+      /// Зарождение новой жизни, возможная прибыль, радостное известие
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Perth")
-      /// Difficult travel
+      /// Долгое путешествие
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Raido")
-      /// Unexpected gifts of fate
+      /// Нежданные дары судьбы
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.RuneOfOdin")
-      /// Successfully overcoming obstacles
+      /// Успешное преодоление препятствий
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Sovilo")
-      /// Lucky coincidence, new acquisitions
+      /// Удачное стечение обстоятельств, новые приобретения
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Teyvaz")
-      /// Compassion, helping others
+      /// Сочувствие, помощь ближним
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Turisaz")
-      /// Property inheritance
+      /// Наследование имущества
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Uruz")
-      /// Successful enrichment
+      /// Преумножение материальных благ
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Fehu.Vunyo")
     }
     internal enum Gebo {
-      /// Deprivation, retribution for past deeds
+      /// Лишения, расплата за прошлые дела
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Algiz")
-      /// Success in intentions, union
+      /// Успехи в ваших намерениях, выгодные союзы
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Ansuz")
-      /// Motivation
+      /// Жизнеутвреждающие мотивы, мотивация
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Berkana")
-      /// Failure of undertakings, self-doubt
+      /// Безуспешность начинаний, отсутствие веры в себя
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Dagaz")
-      /// New connections that often defame you
+      /// Новые связи, часто порочащие вас
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Evaz")
-      /// New beginnings
+      /// Новые начинания
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Eyvaz")
-      /// Venture
+      /// Авантюра
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Fehu")
-      /// Destruction of invisible borders, the path to freedom
+      /// Разрушение невидимых границ, путь к свободе
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Halagaz")
-      /// Time-tested union
+      /// Союз, проверенный временем
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Hyera")
-      /// Fast marriage
+      /// Скорое супружество
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Inguz")
-      /// Outdated relationships
+      /// Прекращение ненужных отношений
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Isa")
-      /// Triumph, awards
+      /// Триумф, премии
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Kenaz")
-      /// Recovery, relief
+      /// Улучшение здоровья, облегчение
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Laguz")
-      /// Unexpected profit
+      /// Неожиданный выйгрыш
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Mannaz")
-      /// Back to basics
+      /// Возможная потеря близких, либо возвращение к истокам
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Nautiz")
-      /// Instability in financial affairs
+      /// Неустойчивость в финансовых делах
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Otilla")
-      /// Finding treasure
+      /// Нахождение клада(в прямом и переносном смысле)
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Perth")
-      /// Opening a new
+      /// Открытие нового
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Raido")
-      /// Gloom, disappointment
+      /// Смертельная опасность
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.RuneOfOdin")
-      /// Purification, test of freedom
+      /// Очищение, испытание свободой
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Sovilo")
-      /// Holiness, wisdom, experience
+      /// Мудрость и опыт
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Teyvaz")
-      /// Disasters, environmental disasters
+      /// Катастрофические последствия, бедствие
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Turisaz")
-      /// Good partnership
+      /// Выгодное партнерство
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Uruz")
-      /// Successful union
+      /// Прекрасный союз
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Gebo.Vunyo")
     }
     internal enum Halagaz {
-      /// Drug addiction
+      /// Вредные привычки
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Algiz")
-      /// Fast, fast troubles, floods, losses
+      /// Неожиданные неприятности, потери
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Ansuz")
-      /// Problem with childbirth
+      /// Опасность для детей
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Berkana")
-      /// Long-term misery
+      /// Длительное несчастье
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Dagaz")
-      /// Discovery of a terrible secret
+      /// Обнаружение страшной тайны
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Evaz")
-      /// Danger from water
+      /// Опасность исходящая от воды
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Eyvaz")
-      /// Death by the water element
+      /// Опасность исходящая от водной стихии
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Fehu")
-      /// Destruction of invisible borders, the path to freedom
+      /// Разрушение невидимых границ, путь к свободе
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Gebo")
-      /// Loss of everything, frustration of hopes
+      /// Потеря всего, крушение надежд
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Hyera")
-      /// Bad harvest
+      /// Неурожай, потери
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Inguz")
-      /// Hopelessness
+      /// Безысходность, серьезные болезни
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Isa")
-      /// Failure of plans
+      /// Провал планов
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Kenaz")
-      /// Problem on the water
+      /// Опасность от водной стихии
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Laguz")
-      /// Revenge
+      /// Месть
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Mannaz")
-      /// Pointless pathos, powerlessness
+      /// Ощущение бессилия, и попытка при этом выглядеть эффектно
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Nautiz")
-      /// Cancellation of plans
+      /// Отказ от планов
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Otilla")
-      /// Addiction
+      /// Навязчивая потребность в повторении определенных действий. Постарайтесь разорвать порочный круг, который ни к чему не ведет
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Perth")
-      /// Career growth
+      /// Карьерный рост
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Raido")
-      /// Serious illness
+      /// Тяжелые болезни
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.RuneOfOdin")
-      /// Vision problems
+      /// Проблемы со зрением
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Sovilo")
-      /// Hard battle
+      /// Долгие споры
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Teyvaz")
-      /// Winning the competition
+      /// Победа над соперниками
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Turisaz")
-      /// Impotence, illness, disability, accidents
+      /// Немощность, инвалидность
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Uruz")
-      /// Running from trouble
+      /// Бегство от проблем
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Halagaz.Vunyo")
     }
     internal enum Hyera {
-      /// Vices, negative influence
+      /// Пороки, негативное влияние
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Algiz")
-      /// Fasting, abstinence, modesty
+      /// Посты, воздержание, скромность
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Ansuz")
-      /// Vulgar magic
+      /// Вульгарная магия
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Berkana")
-      /// Confession, Repentance
+      /// Время потерь
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Dagaz")
-      /// Cardiac problems, arrhythmia
+      /// Кардиологические проблемы
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Evaz")
-      /// Delays
+      /// Досадные задержки в делах
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Eyvaz")
-      /// Inability to manage time, unsuccessful work
+      /// Неумение распоряжаться временем, застой
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Fehu")
-      /// Time-tested union
+      /// Союз, проверенный временем
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Gebo")
-      /// Loss of everything, frustration of hopes
+      /// Потеря всего, крушение надежд
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Halagaz")
-      /// Confession, Repentance
+      /// Исповедь, покаяние
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Inguz")
-      /// Temporary difficulties
+      /// Временнные трудности
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Isa")
-      /// Prostitution, brothel
+      /// Неискренние отношения
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Kenaz")
-      /// Successes, changes for the better
+      /// Успехи, перемены к лучшему
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Laguz")
-      /// Urgent need for help
+      /// Неожиданная помощь
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Mannaz")
-      /// Depravity, lust
+      /// Пресыщение удовольствиями, утопление развратных желаний
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Nautiz")
-      /// Deceptions
+      /// Обманы
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Otilla")
-      /// Receiving less than expected
+      /// Получение меньшего, чем ожидалось
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Perth")
-      /// Passion for something new
+      /// Увлечение чем-то новым
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Raido")
-      /// Torture, capture
+      /// Насильственное ограничение свободы
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.RuneOfOdin")
-      /// Damocles sword of circumstance
+      /// Непреодолимые обстоятельства
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Sovilo")
-      /// Unrealistic dreams
+      /// Бесплодные мечты
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Teyvaz")
-      /// Debts, problems
+      /// Долги, проблемы
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Turisaz")
-      /// Late ripening, delaying in success
+      /// Запаздывание с успехом
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Uruz")
-      /// Long road in uncertainty, danger
+      /// Долгий путь в неизвестности, опасность
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Hyera.Vunyo")
     }
     internal enum Inguz {
-      /// New family ties
+      /// Укрепление семейных связей
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Algiz")
-      /// Success in any endeavor
+      /// Успех в любом начинании
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Ansuz")
-      /// Actions with landб real estate
+      /// Строительство дома, дачи
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Berkana")
-      /// Wellbeing
+      /// Благополучие
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Dagaz")
-      /// Avoiding defeat at the last moment
+      /// Уход от поражения в последний миг
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Evaz")
-      /// Financial success
+      /// Финансовые успехи
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Eyvaz")
-      /// Necessary respite, depletion of vital reserves
+      /// Истощение жизненных сил, необходим отдых
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Fehu")
-      /// Fast marriage
+      /// Скорое супружество
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Gebo")
-      /// Bad harvest
+      /// Неурожай, потери
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Halagaz")
-      /// Confession, Repentance
+      /// Исповедь, покаяние
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Hyera")
-      /// Need for change
+      /// Необходимость перемен
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Isa")
-      /// Successful deals, contracts
+      /// Удачные сделки, контракты с иностранными партнерами
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Kenaz")
-      /// Acquisition of large property
+      /// Приобретение крупной собственности
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Laguz")
-      /// Reward
+      /// Награда
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Mannaz")
-      /// Abyss, fear of heights
+      /// Боязнь опасности, исходящей от высоты
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Nautiz")
-      /// Brilliant execution of the plan
+      /// Блестящее исполнение задуманного
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Otilla")
-      /// Hidden reserves
+      /// Скрытые резервы
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Perth")
-      /// Catastrophe
+      /// Катастрофа
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Raido")
-      /// Infantilism
+      /// Ментальные заболевания, проявление безумия
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.RuneOfOdin")
-      /// Seek the truth
+      /// Поиски истины
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Sovilo")
-      /// Way to victory
+      /// Путь к победе
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Teyvaz")
-      /// End of story
+      /// Окончание истории
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Turisaz")
-      /// Longevity, success
+      /// Долголетие, успех
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Uruz")
-      /// Full implementation of the plan
+      /// Исполнение задуманного в полной мере
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Inguz.Vunyo")
     }
     internal enum Isa {
-      /// Deadly danger
+      /// Смертельная опасность
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Algiz")
-      /// Inhibition, prohibitions, congenital defects
+      /// Ухудшение здоровья, болезнь напомнит о себе
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Ansuz")
-      /// Invulnerability
+      /// Неуязвимость
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Berkana")
-      /// Long wait for happiness
+      /// Длительное ожидание счастья
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Dagaz")
-      /// Loss of optimism
+      /// Потеря оптимизма, начало тяж заболевания
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Evaz")
-      /// Falling into a trap
+      /// Ловушка, западня
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Eyvaz")
-      /// Job loss, creative crisis, stagnation
+      /// Потеря работы, творческий кризис, застой в делах
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Fehu")
-      /// Outdated relationships
+      /// Прекращение ненужных отношений
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Gebo")
-      /// Hopelessness
+      /// Безысходность, серьезные болезни
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Halagaz")
-      /// Temporary difficulties
+      /// Временнные трудности
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Hyera")
-      /// Need for change
+      /// Необходимость перемен
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Inguz")
-      /// Voluntary slavery, submission
+      /// Подчинение более сильному
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Kenaz")
-      /// Viral infections
+      /// Вирусные инфекции
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Laguz")
-      /// Difficult time, trial
+      /// Трудное время, испытание
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Mannaz")
-      /// Prolonged disasters
+      /// Продолжительные бедствия
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Nautiz")
-      /// Scandals, deceptions
+      /// Скандалы, обманы, измены
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Otilla")
-      /// The need for change
+      /// Необходимость перемен, движения
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Perth")
-      /// Truce
+      /// Перемирие
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Raido")
-      /// Outrage
+      /// Вседозволенность, граничащая с безумием
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.RuneOfOdin")
-      /// False vision of the problem
+      /// Ложное видение проблемы
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Sovilo")
-      /// Arrogance
+      /// Переоценка собственных сил
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Teyvaz")
-      /// Difficult situation, difficult recovery
+      /// Трудная ситуация, тяжелое восстановление
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Turisaz")
-      /// Disability, laziness, papatia
+      /// Лень и апатия, влекущие за собой недееспособность
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Uruz")
-      /// Success in power action
+      /// Успех при общении с сильными мира сего
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Isa.Vunyo")
     }
     internal enum Kenaz {
-      /// Manias, phobias
+      /// Мании, фобии
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Algiz")
-      /// Success in publishing and writing
+      /// Успех в издательской и писательской деятельности
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Ansuz")
-      /// Cheating, get rid of cheating
+      /// Избавление от обмана
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Berkana")
-      /// Slow change
+      /// Медленные перемены
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Dagaz")
-      /// Reborn dreams
+      /// Возрожденные мечты
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Evaz")
-      /// Long awaited pregnancy, profit
+      /// Крупная прибыль или беременность
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Eyvaz")
-      /// Way out of a difficult situation
+      /// Выход из тяжелого положения
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Fehu")
-      /// Triumph, awards
+      /// Триумф, премии
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Gebo")
-      /// Failure of plans
+      /// Провал планов
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Halagaz")
-      /// Prostitution, brothel
+      /// Неискренние отношения
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Hyera")
-      /// Successful deals, contracts
+      /// Удачные сделки, контракты с иностранными партнерами
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Inguz")
-      /// Voluntary slavery, submission
+      /// Подчинение более сильному
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Isa")
-      /// Peace, agreement, harmony
+      /// Мир, соглашение, радость, гармония
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Laguz")
-      /// Through hardships to the stars, success in creativity
+      /// Успехи в творчестве
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Mannaz")
-      /// Wish time
+      /// Время желаний
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Nautiz")
-      /// Profits in excess of expected
+      /// Неожиданный доход
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Otilla")
-      /// Freedom, release
+      /// Свобода, освобождение
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Perth")
-      /// Action result
+      /// Результат действий
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Raido")
-      /// Crazy addiction, mania
+      /// Склонность к безумным поступкам, маниакальность
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.RuneOfOdin")
-      /// Time for important decisions ahead
+      /// Принятие важных решений
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Sovilo")
-      /// Hope can easily come true
+      /// Осуществимость надежд
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Teyvaz")
-      /// Quick success, unexpected patronage
+      /// Быстрый успех, неожиданное покровительство
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Turisaz")
-      /// Folk talents, success, luck
+      /// Проявление таланта, успех, везение
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Uruz")
-      /// Victory in any litigation, success
+      /// Победа в любой тяжбе, успех
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Kenaz.Vunyo")
     }
     internal enum Laguz {
-      /// Administration
+      /// Управление чем или кем-либо
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Algiz")
-      /// Conquering water spaces, swimming successes, records
+      /// Успехи в водной стихии
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Ansuz")
-      /// Success in any endeavor
+      /// Успехи в любом начинании
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Berkana")
-      /// Understanding problems, finding a way out
+      /// Осмысление проблем, поиск выхода
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Dagaz")
-      /// Cleansing with water, holy water
+      /// Духовное очищение
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Evaz")
-      /// Adaptability
+      /// Приспосабливаемость
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Eyvaz")
-      /// Good luck in your endeavors
+      /// Удача в начинаниях
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Fehu")
-      /// Recovery, relief
+      /// Улучшение здоровья, облегчение
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Gebo")
-      /// Problem on the water
+      /// Опасность от водной стихии
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Halagaz")
-      /// Successes, changes for the better
+      /// Успехи, перемены к лучшему
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Hyera")
-      /// Acquisition of large property
+      /// Приобретение крупной собственности
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Inguz")
-      /// Viral infections
+      /// Вирусные инфекции
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Isa")
-      /// Peace, agreement, harmony
+      /// Мир, соглашение, радость, гармония
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Kenaz")
-      /// New connection
+      /// Новые связи, знакомства
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Mannaz")
-      /// Competitor activity, failures
+      /// Активность конкурентов, провалы
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Nautiz")
-      /// Waste losses
+      /// Напрасная потеря
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Otilla")
-      /// Success in love
+      /// Успехи в любви
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Perth")
-      /// New adultery
+      /// Измена
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Raido")
-      /// Mania and depression
+      /// Депрессия
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.RuneOfOdin")
-      /// Caution required
+      /// Осторожность, гибкость
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Sovilo")
-      /// Revealing evil intentions
+      /// Раскрытие злых замыслов
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Teyvaz")
-      /// New turn
+      /// Новый поворот
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Turisaz")
-      /// New beginnings, successes
+      /// Новые начинания, успехи
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Uruz")
-      /// Success in the water element
+      /// Успехи в подводных исследованиях
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Laguz.Vunyo")
     }
     internal enum Mannaz {
-      /// Special mission
+      /// Особая миссия
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Algiz")
-      /// Return of something lost a long time ago
+      /// Возращение давно потерянного
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Ansuz")
-      /// Unexpected luck
+      /// Неожиданное везение
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Berkana")
-      /// Patronage of higher powers
+      /// Расположение высших сил
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Dagaz")
-      /// Overflow of the karma
+      /// Переполнение сосуда кармы, добрые дела
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Evaz")
-      /// Protracted events
+      /// Затянувшиеся события
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Eyvaz")
-      /// Recommendations, useful tips
+      /// Рекомендации, полезные советы
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Fehu")
-      /// Unexpected profit
+      /// Неожиданный выигрыш
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Gebo")
-      /// Revenge
+      /// Месть
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Halagaz")
-      /// Urgent need for help
+      /// Неожиданная помощь
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Hyera")
-      /// Reward
+      /// Награда
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Inguz")
-      /// Difficult time, trial
+      /// Трудное время, испытание
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Isa")
-      /// Through hardships to the stars, success in creativity
+      /// Успехи в творчестве
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Kenaz")
-      /// New connection
+      /// Новые связи, знакомства
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Laguz")
-      /// International conflicts
+      /// Крупные конфликты
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Nautiz")
-      /// Receiving an inheritance
+      /// Наследство
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Otilla")
-      /// Spiritual revival
+      /// Духовное возрождение
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Perth")
-      /// Family relationships
+      /// Семейные отношения
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Raido")
-      /// Huge troubles
+      /// Череда крупных неприятностей, стоит проявить внимание и осторожность
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.RuneOfOdin")
-      /// Going beyond what is possible
+      /// Выход за пределы возможного
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Sovilo")
-      /// An insurmountable enmity
+      /// Непреодолимая вражда
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Teyvaz")
-      /// A strange adventure
+      /// Странное приключение
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Turisaz")
-      /// Litigation in your favor
+      /// Судебная тяжба либо спор решится в вашу пользу
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Uruz")
-      /// Revert to previous projects
+      /// Возврат к прежним проектам
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Mannaz.Vunyo")
     }
     internal enum Nautiz {
-      /// Risky ventures, adventures
+      /// Рискованные предприятия, авантюры
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Algiz")
-      /// Failed projects, losses
+      /// Несостоявшиеся проекты, уныние
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Ansuz")
-      /// Loss of investments, deception of partners
+      /// Потеря вложений, обманы партнеров
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Berkana")
-      /// Investigation, problems with law
+      /// Следствие, проблемы с провоохранительной системой
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Dagaz")
-      /// Violence in any form
+      /// Проявление насилия в разных формах
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Evaz")
-      /// Serious danger
+      /// Смертельная опасность
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Eyvaz")
-      /// Poverty, death of a loved one, deterioration of condition, serious illness
+      /// Лишения, болезнь
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Fehu")
-      /// Back to basics
+      /// Возможная потеря близких, либо возвращение к истокам
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Gebo")
-      /// Pointless pathos, powerlessness
+      /// Ощущение бессилия и попытка при этом выглядеть эффектно
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Halagaz")
-      /// Depravity, lust
+      /// Пресыщение удовольствиями, утоплнеие развратных желаний
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Hyera")
-      /// Abyss, fear of heights
+      /// Боязнь опасности, исходящей от высоты
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Inguz")
-      /// Prolonged disasters
+      /// Продолжительные бедствия
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Isa")
-      /// Wish time
+      /// Время желаний
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Kenaz")
-      /// Competitor activity, failures
+      /// Активность конкурентов, провалы
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Laguz")
-      /// International conflicts
+      /// Крупные конфликты
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Mannaz")
-      /// Doubts tormenting the soul, lack of strength
+      /// Сомнения, терзающие душу, отсутствие сил
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Otilla")
-      /// Self-criticism, suspiciousness
+      /// Самоедство, мнительность
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Perth")
-      /// Unexpected travel
+      /// Неожиданные путешествия
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Raido")
-      /// Forbidden temptation, danger
+      /// Запретные плоды, опасность
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.RuneOfOdin")
-      /// Parting forever
+      /// Долгая разлука
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Sovilo")
-      /// Lost battles
+      /// Проигранные сражения
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Teyvaz")
-      /// The collapse of everything
+      /// Крушение всего
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Turisaz")
-      /// Financial crash, stock crash
+      /// Финансовые проблемы
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Uruz")
-      /// Collapse of beginnings
+      /// Возможно крупная неудача в делах
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Nautiz.Vunyo")
     }
     internal enum Otilla {
-      /// Overdose
+      /// Излишний гедонизм
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Algiz")
-      /// Loss of property
+      /// Потеря собственности
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Ansuz")
-      /// Advances in chemistry, biology
+      /// Успехи в химии, биологии
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Berkana")
-      /// Unnecessary generosity
+      /// Щедрость и расточительность, держите себя в руках
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Dagaz")
-      /// Pleasant surprises
+      /// Приятные сюрпризы
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Evaz")
-      /// New quality of life
+      /// Новое качество жизни
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Eyvaz")
-      /// Emergencies, unexpected situations, troubles
+      /// Неприятности в делах возможно, экстренные ситуации
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Fehu")
-      /// Instability in financial affairs
+      /// Неустойчивость в финансовых делах
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Gebo")
-      /// Cancellation of plans
+      /// Отказ от планов
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Halagaz")
-      /// Deceptions
+      /// Обманы
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Hyera")
-      /// Brilliant execution of the plan
+      /// Блестящее исполнение задуманного
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Inguz")
-      /// Scandals, deceptions
+      /// Скандалы, обманы, измены
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Isa")
-      /// Profits in excess of expected
+      /// Неожиданный доход
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Kenaz")
-      /// Waste losses
+      /// Напрасные потери
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Laguz")
-      /// Receiving an inheritance
+      /// Наследство
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Mannaz")
-      /// Doubts tormenting the soul, lack of strength
+      /// Сомнения, терзающие душу, отсутствие сил
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Nautiz")
-      /// Disappointments, vanity
+      /// Разочарования, суета, мелочные порывы
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Perth")
-      /// Successful problem solving
+      /// Удачное разрешение проблем
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Raido")
-      /// Chaos, unpredictability
+      /// Непредсказуемость и хаос
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.RuneOfOdin")
-      /// Emergency situations, danger
+      /// Авральные ситуации, опасность
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Sovilo")
-      /// Success in trading
+      /// Успех в торговле
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Teyvaz")
-      /// Economic well-being
+      /// Экономическое благополучие
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Turisaz")
-      /// Breaking old ties, starting new paths, doubts
+      /// Разрыв старых связей, начало нового пути, сомнения
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Uruz")
-      /// Unexplained healing
+      /// Необъяснимое исцеление
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Otilla.Vunyo")
     }
     internal enum Perth {
-      /// Roperty protection
+      /// Защита собственности
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Algiz")
-      /// Success in gaming, luck
+      /// Успех в игре, везение
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Ansuz")
-      /// Bad luck, miscalculations
+      /// Невезение, ошибки, просчеты
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Berkana")
-      /// Weight change, nutrition
+      /// Работа над своим телом, тренировки
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Dagaz")
-      /// New lucky chances
+      /// Новые счастливые шансы
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Evaz")
-      /// New stages of a happy destiny
+      /// Новые этапы счастливой судьбы
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Eyvaz")
-      /// The birth of a new life, possible profit, good news
+      /// Зарождение новой жизни, возможная прибыль, радостное известие
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Fehu")
-      /// Finding treasure
+      /// Нахождение клада(в прямом и переносном смысле)
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Gebo")
-      /// Addiction
+      /// Навязчивая потребность в повторении определённых действий. Постарайтесь разорвать порочный круг, который ни к чему не ведёт
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Halagaz")
-      /// Receiving less than expected
+      /// Получение меньшего, чем ожидалось
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Hyera")
-      /// Hidden reserves
+      /// Скрытые резервы
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Inguz")
-      /// The need for change
+      /// Необходимость перемен, движения
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Isa")
-      /// Freedom, release
+      /// Свобода, освобождение
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Kenaz")
-      /// Success in love
+      /// Успехи в любви
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Laguz")
-      /// Spiritual revival
+      /// Духовное возрождение
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Mannaz")
-      /// Self-criticism, suspiciousness
+      /// Самоедство, мнительность
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Nautiz")
-      /// Disappointments, vanity
+      /// Разочарования, суета, мелочные порывы
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Otilla")
-      /// Material well-being
+      /// Материальное благополучие
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Raido")
-      /// Wasted efforts
+      /// Напрасные усилия
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.RuneOfOdin")
-      /// Mutiny, gathering
+      /// Собрание, митинг
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Sovilo")
-      /// Successes
+      /// Успехи
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Teyvaz")
-      /// Pregnancy waiting for replenishment
+      /// Беременность, ожидание пополнения
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Turisaz")
-      /// Burden, unwilling pregnancy
+      /// Обуза, нежелательная беременность
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Uruz")
-      /// Stolen detection
+      /// Обнаружение ворованного
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Perth.Vunyo")
     }
     internal enum Raido {
-      /// Love in the distance
+      /// Любовь на расстоянии
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Algiz")
-      /// Working with retirees
+      /// Взаимодействие с пенсионерами
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Ansuz")
-      /// Redefining values
+      /// Пересмотр ценностей
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Berkana")
-      /// Mental disorder
+      /// Психическое отклонение
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Dagaz")
-      /// Feigned fun
+      /// Напускное веселье
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Evaz")
-      /// Feigned fun
+      /// Напускное веселье
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Eyvaz")
-      /// Difficult travel
+      /// Долгое путешествие
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Fehu")
-      /// Opening a new
+      /// Открытие нового
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Gebo")
-      /// Career growth
+      /// Карьерный рост
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Halagaz")
-      /// Passion for something new
+      /// Увлечение чем-то новым
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Hyera")
-      /// Catastrophe
+      /// Катастрофа
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Inguz")
-      /// Truce
+      /// Перемирие
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Isa")
-      /// Action result
+      /// Результат действий
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Kenaz")
-      /// New adultery
+      /// Измена
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Laguz")
-      /// Family relationships
+      /// Семейные отношения
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Mannaz")
-      /// Unexpected travel
+      /// Неожиданные путешествия
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Nautiz")
-      /// Successful problem solving
+      /// Удачное разрешение проблем
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Otilla")
-      /// Material well-being
+      /// Материальное благополучие
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Perth")
-      /// Strong union
+      /// Крепкий союз
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.RuneOfOdin")
-      /// Fake friends
+      /// Неискренние друзья
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Sovilo")
-      /// Longing, apathy
+      /// Тоска, апатия
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Teyvaz")
-      /// Speech, congratulations
+      /// Выступление, поздравление
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Turisaz")
-      /// New information, enlightenment
+      /// Обогащение
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Uruz")
-      /// Health problems
+      /// Ваше здоровье требует особого внимания
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Raido.Vunyo")
     }
     internal enum RuneOfOdin {
-      /// Madness
+      /// Помутнение разума
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Algiz")
-      /// Disastrous electoral failures
+      /// Сокрушительные провалы в выборах
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Ansuz")
-      /// Ridiculous extravagance
+      /// Неуместная экстравагантность
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Berkana")
-      /// Punishment
+      /// Жестокость, наказание
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Dagaz")
-      /// Problems with brain
+      /// Сложность осознания того, что происходит на самом деле
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Evaz")
-      /// Unconscious desires
+      /// Безотчетные желания
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Eyvaz")
-      /// Unexpected gifts of fate
+      /// Нежданные дары судьбы
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Fehu")
-      /// Gloom, disappointment
+      /// Смертельная опасность
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Gebo")
-      /// Serious illness
+      /// Тяжелые болезни
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Halagaz")
-      /// Torture, capture
+      /// Насильственное ограничение свободы
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Hyera")
-      /// Infantilism
+      /// Ментальные заболевания, проявление безумия
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Inguz")
-      /// Outrage
+      /// Вседозволенность, граничащая с безумием
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Isa")
-      /// Crazy addiction, mania
+      /// Склонность к безумным поступкам, маниакальность
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Kenaz")
-      /// Mania and depression
+      /// Депрессия
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Laguz")
-      /// Huge troubles
+      /// Череда крупных неприятностей, стоит проявить внимание и осторожность
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Mannaz")
-      /// Forbidden temptation, danger
+      /// Запретные плоды, опасность
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Nautiz")
-      /// Chaos, unpredictability
+      /// Непредсказуемость и хаос
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Otilla")
-      /// Wasted efforts
+      /// Напрасные усилия
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Perth")
-      /// Strong union
+      /// Крепкий союз
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Raido")
-      /// Obsession
+      /// Прорывная идея
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Sovilo")
-      /// Impossible ambition
+      /// Крушение надежд
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Teyvaz")
-      /// Ill-wishers, evil eye
+      /// Недоброжелатели, сглаз
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Turisaz")
-      /// Old age degradation
+      /// Старость, немощность
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Uruz")
-      /// Ephemeral happiness
+      /// Иллюзорное счастье
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.RuneOfOdin.Vunyo")
     }
     internal enum Sovilo {
-      /// Venereal diseases
+      /// Проблемы в сексуальной сфере
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Algiz")
-      /// World-class nuclear and other disasters
+      /// Глобальные катастрофы 
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Ansuz")
-      /// Restoring connections
+      /// Восстановление связей
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Berkana")
-      /// Wandering in the labyrinths of fate
+      /// Блуждание в лабиринтах судьбы
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Dagaz")
-      /// Success in directing, in production
+      /// Успех в искусстве
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Evaz")
-      /// Nerve problems
+      /// Проблемы с нервной системой
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Eyvaz")
-      /// Successfully overcoming obstacles
+      /// Успешное преодоление препятствий
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Fehu")
-      /// Purification, test of freedom
+      /// Очищение, испытание свободой
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Gebo")
-      /// Vision problems
+      /// Проблемы со зрением
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Halagaz")
-      /// Damocles sword of circumstance
+      /// Непреодолимые обстоятельства
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Hyera")
-      /// Seek the truth
+      /// Поиски истины
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Inguz")
-      /// False vision of the problem
+      /// Ложное видение проблемы
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Isa")
-      /// Time for important decisions ahead
+      /// Принятие важных решений
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Kenaz")
-      /// Caution required
+      /// Осторожность, гибкость
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Laguz")
-      /// Going beyond what is possible
+      /// Выход за пределы возможного
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Mannaz")
-      /// Parting forever
+      /// Долгая разлука
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Nautiz")
-      /// Emergency situations, danger
+      /// Авральные ситуации, опасность
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Otilla")
-      /// Mutiny, gathering
+      /// Собрание, митинг
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Perth")
-      /// Fake friends
+      /// Неискренние друзья
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Raido")
-      /// Obsession
+      /// Прорывная идея
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.RuneOfOdin")
-      /// Highest objectivity, victory over oneself
+      /// Высшая объективность, победа над собой
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Teyvaz")
-      /// Collapse, sadness
+      /// Крах, печаль
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Turisaz")
-      /// Good luck, untying karmic knots
+      /// Удача, развязывание кармических узлов
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Uruz")
-      /// Change of habitats
+      /// Перемена мест обитания, успехи в географии
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Sovilo.Vunyo")
     }
     internal enum Teyvaz {
-      /// Serious illness
+      /// Тяжелая болезнь
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Algiz")
-      /// Conquest of powers
+      /// Достижение глобальных целей
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Ansuz")
-      /// Family reunion
+      /// Воссоединение распавшейся семьи
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Berkana")
-      /// Long quarrel
+      /// Продолжительная ссора
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Dagaz")
-      /// Minor injury
+      /// Легкие травмы
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Evaz")
-      /// Punishment without guilt
+      /// Наказание без вины
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Eyvaz")
-      /// Lucky coincidence, new acquisitions
+      /// Удачное стечение обстоятельств, новые приобретения
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Fehu")
-      /// Holiness, wisdom, experience
+      /// Мудрость и опыт
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Gebo")
-      /// Hard battle
+      /// Долгие споры
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Halagaz")
-      /// Unrealistic dreams
+      /// Бесплодные мечты
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Hyera")
-      /// Way to victory
+      /// Путь к победе
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Inguz")
-      /// Arrogance
+      /// Переоценка собственных сил
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Isa")
-      /// Hope can easily come true
+      /// Осуществимость надежд
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Kenaz")
-      /// Revealing evil intentions
+      /// Раскрытие злых замыслов
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Laguz")
-      /// An insurmountable enmity
+      /// Непреодолимая вражда
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Mannaz")
-      /// Lost battles
+      /// Проигранные сражения
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Nautiz")
-      /// Success in trading
+      /// Успех в торговле
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Otilla")
-      /// Successes
+      /// Успехи
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Perth")
-      /// Longing, apathy
+      /// Тоска, апатия
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Raido")
-      /// Impossible ambition
+      /// Крушение надежд
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.RuneOfOdin")
-      /// Highest objectivity, victory over oneself
+      /// Высшая объективность, победа над собой
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Sovilo")
-      /// Quick success
+      /// Быстрый успех
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Turisaz")
-      /// Victories in any competition
+      /// Победы в любых соревнованиях
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Uruz")
-      /// Self-flagellation
+      /// Истязание плоти, самобичевание
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Teyvaz.Vunyo")
     }
     internal enum Turisaz {
-      /// Strengthening positions
+      /// Укрепление позиций
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Algiz")
-      /// Improving the situation
+      /// Улучшение ситуации
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Ansuz")
-      /// Worsening relationships
+      /// Ухудшение отношений
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Berkana")
-      /// Drastic change
+      /// Кардинальное изменение
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Dagaz")
-      /// Coincidence
+      /// Случайное стечение обстоятельств
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Evaz")
-      /// Fear, danger
+      /// Опасность
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Eyvaz")
-      /// Compassion, helping others
+      /// Сочувствие, помощь ближним
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Fehu")
-      /// Disasters, environmental disasters
+      /// Катастрофические последствия, бедствие
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Gebo")
-      /// Winning the competition
+      /// Победа над соперниками
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Halagaz")
-      /// Debts, problems
+      /// Долги, проблемы
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Hyera")
-      /// End of story
+      /// Окончание истории
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Inguz")
-      /// Difficult situation, difficult recovery
+      /// Трудная ситуация, тяжелое восстановление
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Isa")
-      /// Quick success, unexpected patronage
+      /// Быстрый успех, неожиданное покровительство
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Kenaz")
-      /// New turn
+      /// Новый поворот
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Laguz")
-      /// A strange adventure
+      /// Странное приключение
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Mannaz")
-      /// The collapse of everything
+      /// Крушение всего
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Nautiz")
-      /// Economic well-being
+      /// Экономическое благополучие
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Otilla")
-      /// Pregnancy waiting for replenishment
+      /// Беременность, ожидание пополнения
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Perth")
-      /// Speech, congratulations
+      /// Выступление, поздравление
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Raido")
-      /// Ill-wishers, evil eye
+      /// Недоброжелатели, сглаз
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.RuneOfOdin")
-      /// Collapse, sadness
+      /// Крах, печаль
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Sovilo")
-      /// Quick success
+      /// Быстрый успех
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Teyvaz")
-      /// Stagnation, strengthening ties
+      /// Укрепление связей
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Uruz")
-      /// Rest, recovery
+      /// Отдых, восстановление
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Turisaz.Vunyo")
     }
     internal enum Uruz {
-      /// Relief, recovery, finding defenders
+      /// Облегчение, выздоровление, обретение защитников, покровителей, меценатов
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Algiz")
-      /// New information, enlightenment
+      /// Получение новой информации, новостей, просветление
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Ansuz")
-      /// Profits, fertility, loans
+      /// Прибыль, плодородие, успех в малом бизнесе
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Berkana")
-      /// Study, pedagogy, success
+      /// Успехи в образовании
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Dagaz")
-      /// Slow but sure progress towards the goal
+      /// Медленное, но верное продвижение к цели
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Evaz")
-      /// Difficult circumstances, consequences of operations
+      /// Ухудшение состояния здоровья, последствия старых ран
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Eyvaz")
-      /// Property inheritance
+      /// Наследование имущества
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Fehu")
-      /// Good partnership
+      /// Выгодное партнерство
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Gebo")
-      /// Impotence, illness, disability, accidents
+      /// Немощность, инвалидность
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Halagaz")
-      /// Late ripening, delaying in success
+      /// Запаздывание с успехом
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Hyera")
-      /// Longevity, success
+      /// Долголетие, успех
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Inguz")
-      /// Disability, laziness, papatia
+      /// Лень и апатия, влекущие за собой недееспособность
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Isa")
-      /// Folk talents, success, luck
+      /// Проявление таланта, успех, везение
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Kenaz")
-      /// New beginnings, successes
+      /// Новые начинания, успехи
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Laguz")
-      /// Litigation in your favor
+      /// Судебная тяжба либо спор решится в вашу пользу
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Mannaz")
-      /// Financial crash, stock crash
+      /// Финансовые проблемы
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Nautiz")
-      /// Breaking old ties, starting new paths, doubts
+      /// Разрыв старых связей, начало нового пути, сомнения
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Otilla")
-      /// Burden, unwilling pregnancy
+      /// Обуза, нежелательная беременность
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Perth")
-      /// New information, enlightenment
+      /// Обогащение
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Raido")
-      /// Old age degradation
+      /// Старость, немощность
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.RuneOfOdin")
-      /// Good luck, untying karmic knots
+      /// Удача, развязывание кармических узлов
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Sovilo")
-      /// Victories in any competition
+      /// Победы в любых соревнованиях
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Teyvaz")
-      /// Stagnation, strengthening ties
+      /// Укрепление связей
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Turisaz")
-      /// Harvest failure, hunger, devastation
+      /// Большие проблемы с благосостоянием
       internal static let vunyo = L10n.tr("Localizable", "interpretationForTwoRunes.Uruz.Vunyo")
     }
     internal enum Vunyo {
-      /// Parting with loved ones
+      /// Расставание с близкими людьми
       internal static let algiz = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Algiz")
-      /// Supreme gifts of Jupiter, desire and receive
+      /// Обретение желаемого
       internal static let ansuz = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Ansuz")
-      /// Refusal of material goods
+      /// Отказ от материальных благ, альтруизм
       internal static let berkana = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Berkana")
-      /// Advances for the future
+      /// Авансы на будущее
       internal static let dagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Dagaz")
-      /// The hype
+      /// Ажиотаж, борьба с несущественными угрозами
       internal static let evaz = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Evaz")
-      /// Transformation
+      /// Изменение внешности
       internal static let eyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Eyvaz")
-      /// Successful enrichment
+      /// Преумножение материальных боаг
       internal static let fehu = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Fehu")
-      /// Successful union
+      /// Прекрасный союз
       internal static let gebo = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Gebo")
-      /// Running from trouble
+      /// Бегство от проблем
       internal static let halagaz = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Halagaz")
-      /// Long road in uncertainty, danger
+      /// Долгий путь в неизвестности, опасность
       internal static let hyera = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Hyera")
-      /// Full implementation of the plan
+      /// Исполнение задуманного в полной мере
       internal static let inguz = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Inguz")
-      /// Success in power action
+      /// Успех при общении с сильными мира сего
       internal static let isa = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Isa")
-      /// Victory in any litigation, success
+      /// Победа в любой тяжбе, успех
       internal static let kenaz = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Kenaz")
-      /// Success in the water element
+      /// Успехи в подводных исследованиях
       internal static let laguz = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Laguz")
-      /// Revert to previous projects
+      /// Возврат к прежним проектам
       internal static let mannaz = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Mannaz")
-      /// Сollapse of beginnings
+      /// Возможна крупная неудача в делах
       internal static let nautiz = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Nautiz")
-      /// Unexplained healing
+      /// Необъяснимое исцеление
       internal static let otilla = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Otilla")
-      /// Stolen detection
+      /// Обнаружение ворованного
       internal static let perth = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Perth")
-      /// Health problems
+      /// Ваше здоровье требует особого внимания
       internal static let raido = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Raido")
-      /// Ephemeral happiness
+      /// Иллюзорное счастье
       internal static let runeOfOdin = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.RuneOfOdin")
-      /// Change of habitats
+      /// Перемена мест обитания, успехи в географии
       internal static let sovilo = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Sovilo")
-      /// Self-flagellation
+      /// Истязание плоти, самобичевание
       internal static let teyvaz = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Teyvaz")
-      /// Rest, recovery
+      /// Отдых, восстановление
       internal static let turisaz = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Turisaz")
-      /// Harvest failure, hunger, devastation
+      /// Больште проблемы с благосостоянием
       internal static let uruz = L10n.tr("Localizable", "interpretationForTwoRunes.Vunyo.Uruz")
     }
   }
 
   internal enum InterpretationForСross {
-    /// In the past, you felt the %@, the present one (including the problem) can be described as the %@. If the situation develops naturally, you will find an %@, and there is a power, namely the %@, over which you cannot influence. But if Destiny brings you help - %@, then you will have a better future.
+    /// Ваши ощущения в прошлом %@, настоящее, как и возможная проблема, может быть описано как %@. При естественном развитии ситуации, Вас ожидает %@, также присутствует %@ - это сила, на которую Вы не можете влиять. Есть вероятность, что помощью от Судьбы для вас будет %@, в этом случае Вас определённо ждет лучшее будущее.
     internal static func text(_ p1: Any, _ p2: Any, _ p3: Any, _ p4: Any, _ p5: Any) -> String {
       return L10n.tr("Localizable", "interpretationForСross.text", String(describing: p1), String(describing: p2), String(describing: p3), String(describing: p4), String(describing: p5))
     }
   }
 
   internal enum InterpretationKeltsCross {
-    /// You are currently experiencing the %@, which is a consequence of your past - %@. To reach the %@ in the future, you need to pay attention to the %@. Perhaps the reason for your difficulties is %@. The best you can expect is %@. As a result, you are waiting for %@.
+    /// В настоящее время с Вами происходит %@, причиной этого является ваше прошлое - %@. Если в будущем ваша цель %@, вашего особого внимания требует %@. Возможно, причиной ваших трудностей является %@. Лучшее, чего Вы можете ожидать - это %@. С большой вероятностью вас ожидает %@.
     internal static func text(_ p1: Any, _ p2: Any, _ p3: Any, _ p4: Any, _ p5: Any, _ p6: Any, _ p7: Any) -> String {
       return L10n.tr("Localizable", "interpretationKeltsCross.text", String(describing: p1), String(describing: p2), String(describing: p3), String(describing: p4), String(describing: p5), String(describing: p6), String(describing: p7))
     }
   }
 
   internal enum Name {
-    /// Algiz
+    /// Альгиз
     internal static let algiz = L10n.tr("Localizable", "name.Algiz")
-    /// Ansuz
+    /// Ансуз
     internal static let ansuz = L10n.tr("Localizable", "name.Ansuz")
-    /// Berkana
+    /// Беркана
     internal static let berkana = L10n.tr("Localizable", "name.Berkana")
-    /// Dagaz
+    /// Дагаз
     internal static let dagaz = L10n.tr("Localizable", "name.Dagaz")
-    /// Ehwaz
+    /// Эваз
     internal static let ehwaz = L10n.tr("Localizable", "name.Ehwaz")
-    /// Fehu
+    /// Феху
     internal static let fehu = L10n.tr("Localizable", "name.Fehu")
-    /// Gebu
+    /// Гебо
     internal static let gebu = L10n.tr("Localizable", "name.Gebu")
-    /// Hagalaz
+    /// Хагалаз
     internal static let hagalaz = L10n.tr("Localizable", "name.Hagalaz")
-    /// Inwaz
+    /// Ингуз
     internal static let inwaz = L10n.tr("Localizable", "name.Inwaz")
-    /// Isaz
+    /// Иса
     internal static let isaz = L10n.tr("Localizable", "name.Isaz")
-    /// Iwaz
+    /// Эйваз
     internal static let iwaz = L10n.tr("Localizable", "name.Iwaz")
-    /// Jara
+    /// Йера
     internal static let jara = L10n.tr("Localizable", "name.Jara")
-    /// Kauna
+    /// Кеназ
     internal static let kauna = L10n.tr("Localizable", "name.Kauna")
-    /// Laguz
+    /// Лагуз
     internal static let laguz = L10n.tr("Localizable", "name.Laguz")
-    /// Mannaz
+    /// Манназ
     internal static let mannaz = L10n.tr("Localizable", "name.Mannaz")
-    /// Naudiz
+    /// Наутиз
     internal static let naudiz = L10n.tr("Localizable", "name.Naudiz")
-    /// Odin rune
+    /// Руна Одина
     internal static let odin = L10n.tr("Localizable", "name.Odin")
-    /// Opila
+    /// Отилла
     internal static let opila = L10n.tr("Localizable", "name.Opila")
-    /// Perpu
+    /// Перт
     internal static let perpu = L10n.tr("Localizable", "name.Perpu")
-    /// Purisaz
+    /// Турисаз
     internal static let purisaz = L10n.tr("Localizable", "name.Purisaz")
-    /// Raidu
+    /// Райдо
     internal static let raidu = L10n.tr("Localizable", "name.Raidu")
-    /// Sowilu
+    /// Совило
     internal static let sowilu = L10n.tr("Localizable", "name.Sowilu")
-    /// Tiwaz
+    /// Тейваз
     internal static let tiwaz = L10n.tr("Localizable", "name.Tiwaz")
-    /// Uruz
+    /// Уруз
     internal static let uruz = L10n.tr("Localizable", "name.Uruz")
-    /// Wunji
+    /// Вуньо
     internal static let wunji = L10n.tr("Localizable", "name.Wunji")
     internal enum Reverse {
-      /// Reverse Algiz
+      /// Альгиз обратная
       internal static let algiz = L10n.tr("Localizable", "name.Reverse.Algiz")
-      /// Reverse Ansuz
+      /// Ансуз обратная
       internal static let ansuz = L10n.tr("Localizable", "name.Reverse.Ansuz")
-      /// Reverse Berkana
+      /// Беркана обратная
       internal static let berkana = L10n.tr("Localizable", "name.Reverse.Berkana")
-      /// Reverse Ehvaz
+      /// Эваз обратная
       internal static let ehvaz = L10n.tr("Localizable", "name.Reverse.Ehvaz")
-      /// Reverse Fehu
+      /// Феху обратная
       internal static let fehu = L10n.tr("Localizable", "name.Reverse.Fehu")
-      /// Reverse Kauna
+      /// Кеназ обратная
       internal static let kauna = L10n.tr("Localizable", "name.Reverse.Kauna")
-      /// Reverse Laguz
+      /// Лагуз обратная
       internal static let laguz = L10n.tr("Localizable", "name.Reverse.Laguz")
-      /// Reverse Mannaz
+      /// Манназ обратная
       internal static let mannaz = L10n.tr("Localizable", "name.Reverse.Mannaz")
-      /// Reverse Naudiz
+      /// Наутиз обратная
       internal static let naudiz = L10n.tr("Localizable", "name.Reverse.Naudiz")
-      /// Reverse Opila
+      /// Отилла обратная
       internal static let opila = L10n.tr("Localizable", "name.Reverse.Opila")
-      /// Reverse Perpu
+      /// Перт обратная
       internal static let perpu = L10n.tr("Localizable", "name.Reverse.Perpu")
-      /// Reverse Purisaz
+      /// Турисаз обратная
       internal static let purisaz = L10n.tr("Localizable", "name.Reverse.Purisaz")
-      /// Reverse Raidu
+      /// Райдо обратная
       internal static let raidu = L10n.tr("Localizable", "name.Reverse.Raidu")
-      /// Reverse Tiwaz
+      /// Тейваз обратная
       internal static let tiwaz = L10n.tr("Localizable", "name.Reverse.Tiwaz")
-      /// Reverse Uruz
+      /// Уруз обратная
       internal static let uruz = L10n.tr("Localizable", "name.Reverse.Uruz")
-      /// Reverse Wunji
+      /// Вуньо обратная
       internal static let wunji = L10n.tr("Localizable", "name.Reverse.Wunji")
     }
   }
 
   internal enum Rune {
     internal enum Cross {
-      /// To find out how the situation is (for or against you), use this popular divination. It will help you to coordinate your actions and provide an optimal solution.
+      /// Расклад "Крест" используется для того, чтобы узнать, насколько благоприятно для вас складывается ситуация. Он поможет скоординировать ваши действия и подскажет оптимальное решение проблемы.
       internal static let description = L10n.tr("Localizable", "rune.cross.description")
-      /// CROSS
+      /// Крест
       internal static let name = L10n.tr("Localizable", "rune.cross.name")
     }
     internal enum DayRune {
-      /// Often one rune is the answer to the question. In this case there is no possibility of misinterpretation, because no other runes capable of confusing the Inquirer.
+      /// Расклад "Руна дня" идеально подходит для получения ответа на заданный вопрос. Ведь достаточно взять всего одну руну. Её значение – это и есть ответ на Ваш вопрос. В этом случае исключена вероятность неправильного толкования, так как других рун, способных запутать Вопрошающего, нет.
       internal static let description = L10n.tr("Localizable", "rune.dayRune.description")
-      /// RUNE OF THE DAY
+      /// Руна дня
       internal static let name = L10n.tr("Localizable", "rune.dayRune.name")
     }
     internal enum ElementsCross {
-      /// This is the extended version of the «Cross» divination.
+      /// Расклад "Крест Стихий" — это расширенная версия расклада "Крест". Используется чаще всего для того, чтобы узнать, как складывается ситуация — за или против вас. В предсказании он отталкивается от вашей сущности и возможностей идти к цели.
       internal static let description = L10n.tr("Localizable", "rune.elementsCross.description")
-      /// CROSS OF ELEMENTS
+      /// Крест Стихий
       internal static let name = L10n.tr("Localizable", "rune.elementsCross.name")
     }
     internal enum KeltsCross {
-      /// The fame and popularity of this divination can be explained by the breadth of the interpretation, which can be used as a simple glimpse into one’s future, as well as to find out how to act and what to expect from the particular situation.
+      /// Известность и популярность данного гадания объясняется широтой толкования, с его помощью можно как просто заглянуть в свое будущее, так и узнать, как действовать и чего ожидать от конкретно возникшей затруднительной ситуации.
       internal static let description = L10n.tr("Localizable", "rune.keltsCross.description")
-      /// CELTIC CROSS
+      /// Кельтский Крест
       internal static let name = L10n.tr("Localizable", "rune.keltsCross.name")
     }
     internal enum Norns {
-      /// In German-Scandinavian mythology, there are three women, wizards endowed with the miraculous power to determine the fate of the world, human beings, and even gods. This runaway pattern can be applied in different situations, both to clarify something and to seek advice or answer a question.
+      /// Норны — это три волшебницы в германо-скандинавской мифологии, которые наделены даром определять судьбы мира. Норны отвечают за прошлое, настоящее и будущее. Они ткут нити жизней у корней мирового древа Иггдрасиль. Данный рунический расклад может применяться для получения совета, либо прояснения чего-либо или получения ответа на вопрос, основанного на причинах прошлого, происходящего в настоящем и следствия этих событий в будущем.
       internal static let description = L10n.tr("Localizable", "rune.norns.description")
-      /// NORNS
+      /// Норны
       internal static let name = L10n.tr("Localizable", "rune.norns.name")
     }
     internal enum ShortPrediction {
-      /// This divination helps to understand the causes and find solutions to problems that are not very complicated or neglected.
+      /// Расклад "Краткий прогноз" помогает найти причины и решения для не очень сложных проблем и вопросов. Он вам расскажет о том, что у вас на самом деле происходит в настоящем, обозначит истинную проблему, её решение и возможный результат, последствие Ваших действий.
       internal static let description = L10n.tr("Localizable", "rune.shortPrediction.description")
-      /// BRIEF PROPHECY
+      /// Краткий прогноз
       internal static let name = L10n.tr("Localizable", "rune.shortPrediction.name")
     }
     internal enum ThorsHummer {
-      /// This divination figures out your past, present one, and future.
+      /// Данный расклад символизирует Ваше прошлое, настоящее и будущее.
       internal static let description = L10n.tr("Localizable", "rune.thorsHummer.description")
-      /// THOR’S HAMMER
+      /// Молот Тора
       internal static let name = L10n.tr("Localizable", "rune.thorsHummer.name")
     }
     internal enum TwoRunes {
-      /// The combination of two runes characterizes the present state of affairs and the forces that influence you now, in the present. And so the question must be the present one, or you can even skip the question. Two runes, even without questions, will show the present one.
+      /// Сочетание двух рун расскажет о настоящем положении дел, а также тех сли, которые оказывают влияние на Вас в настоящем. В этом раскладе Ваш вопрос должен касаться настоящего, или можно обойтись без вопроса. Даже без вопроса две руны расскажут Вам о том, что происходит в настоящий момент.
       internal static let description = L10n.tr("Localizable", "rune.twoRunes.description")
-      /// 2 RUNES
+      /// Расклад из 2 рун
       internal static let name = L10n.tr("Localizable", "rune.twoRunes.name")
     }
   }
 
   internal enum Tabbar {
-    /// Runic Draws
+    /// Расклады
     internal static let layouts = L10n.tr("Localizable", "tabbar.layouts")
-    /// Settings
+    /// Настройки
     internal static let settings = L10n.tr("Localizable", "tabbar.settings")
   }
 }
