@@ -85,10 +85,27 @@ final class SettingsViewController: UIViewController {
     }
 
     func configureNavigationBar() {
-        title = .settings
+
+        if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
+            title = .settings
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 34.heightDependent())]
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.settingsTitleColor]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 34), NSAttributedString.Key.foregroundColor: UIColor.settingsTitleColor]
+
+        } else {
+            navigationController?.navigationBar.prefersLargeTitles = false
+            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 20), NSAttributedString.Key.foregroundColor: UIColor.settingsTitleColor]
+            navigationController?.navigationBar.barTintColor = .navBarBackground
+            navigationController?.navigationBar.isTranslucent = false
+            navigationItem.leftBarButtonItem?.title = .settings
+
+            let label = UILabel()
+            label.text = .settings
+            label.textColor = .settingsTitleColor
+            label.font = FontFamily.SFProDisplay.medium.font(size: 20)
+            label.textAlignment = .left
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: label)
+
+        }
         navigationController?.navigationBar.backgroundColor = .navBarBackground
         navigationController?.setStatusBar(backgroundColor: .navBarBackground)
     }

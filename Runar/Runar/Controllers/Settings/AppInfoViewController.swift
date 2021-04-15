@@ -67,7 +67,8 @@ class AppInfoViewController: UIViewController, UITextViewDelegate {
         let firstRange = (string as NSString).range(of: firstUrl)
         let secRange = (string as NSString).range(of: secUrl)
         
-        var attributedText = NSMutableAttributedString(string: string, attributes: [NSMutableAttributedString.Key.paragraphStyle: paragraphStyle,NSMutableAttributedString.Key.font: FontFamily.SFProDisplay.light.font(size: 19), NSMutableAttributedString.Key.foregroundColor: UIColor.settingsWhiteText])
+        let fontSize = DeviceType.iPhoneSE || DeviceType.isIPhone678 ? 16 : 19.heightDependent()
+        var attributedText = NSMutableAttributedString(string: string, attributes: [NSMutableAttributedString.Key.paragraphStyle: paragraphStyle,NSMutableAttributedString.Key.font: FontFamily.SFProDisplay.light.font(size: fontSize), NSMutableAttributedString.Key.foregroundColor: UIColor.settingsWhiteText])
 
         attributedText.addAttribute(.link, value: firstUrl, range: firstRange)
         attributedText.addAttribute(.link, value: secUrl, range: secRange)
@@ -83,7 +84,6 @@ class AppInfoViewController: UIViewController, UITextViewDelegate {
         UIApplication.shared.open(URL)
         return false
     }
-    
     
     private func configureNavigationBar() {
         navigationController?.navigationBar.isTranslucent = false
@@ -117,7 +117,4 @@ class AppInfoViewController: UIViewController, UITextViewDelegate {
             descriptionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
-
-
 }

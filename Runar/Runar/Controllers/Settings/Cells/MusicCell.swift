@@ -23,7 +23,9 @@ class MusicCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         switchControl.addTarget(self, action: #selector(switchOnTap), for: .valueChanged)
-        textLabel?.font = FontFamily.SFProDisplay.regular.font(size: 20)
+        
+        let fontSize = DeviceType.isIPhone678 || DeviceType.iPhoneSE ? 17 : 20.heightDependent()
+        textLabel?.font = FontFamily.SFProDisplay.regular.font(size: fontSize)
         textLabel?.textColor = .settingsWhiteText
         
         configureUI()
