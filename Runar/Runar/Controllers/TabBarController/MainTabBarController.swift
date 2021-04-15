@@ -32,11 +32,11 @@ class MainTabBarController: UITabBarController {
         
         let lay = UICollectionViewFlowLayout()
         let collectionVC = CollectionViewController(collectionViewLayout: lay)
-//        let settingsVC = SettingsViewController()
+       let settingsVC = SettingsViewController()
         
         viewControllers = [
             generateTabBarController(rootViewController: collectionVC, image: Assets.TabBar.Image.home.image, title: String.layouts),
-//            generateTabBarController(rootViewController: settingsVC, image: Assets.TabBar.Image.settings.image, title: String.settings),
+            generateTabBarController(rootViewController: settingsVC, image: Assets.TabBar.Image.settings.image, title: String.settings),
         ]
     }
     
