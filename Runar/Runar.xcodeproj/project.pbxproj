@@ -51,7 +51,6 @@
 		9B739DF325CD765800726B30 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739DF225CD765800726B30 /* Constants.swift */; };
 		9B739E0525CD77E900726B30 /* ProcessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739E0325CD77E900726B30 /* ProcessingViewController.swift */; };
 		9B739E0625CD77E900726B30 /* ProcessingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739E0425CD77E900726B30 /* ProcessingViewModel.swift */; };
-		9B739E0B25CD9B4500726B30 /* RuneDescriptionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739E0A25CD9B4500726B30 /* RuneDescriptionPopUp.swift */; };
 		9B739E1025CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739E0F25CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift */; };
 		9B739E4325D1DCD100726B30 /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B739E4225D1DCD000726B30 /* SFProDisplay-Regular.ttf */; };
 		9B739E4C25D1E99B00726B30 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739E4B25D1E99A00726B30 /* NetworkingManager.swift */; };
@@ -92,6 +91,7 @@
 		9BD98C9F2628A75600F3BBD7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98C9D2628A75600F3BBD7 /* UIView.swift */; };
 		9BD98CA42628A8B800F3BBD7 /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD98CA32628A8B800F3BBD7 /* SFProDisplay-Medium.ttf */; };
 		9BD98CC02628CD1D00F3BBD7 /* EscapePopUpViewVontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpViewVontroller.swift */; };
+		9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */; };
 		D33A65EC2DE4E4D7C3C956F3 /* Pods_Runar_RunarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */; };
 		DB92AEE5E33DCFB508195B8F /* Pods_Runar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */; };
 /* End PBXBuildFile section */
@@ -163,7 +163,6 @@
 		9B739DF225CD765800726B30 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Runar/Support/Constants.swift; sourceTree = SOURCE_ROOT; };
 		9B739E0325CD77E900726B30 /* ProcessingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingViewController.swift; sourceTree = "<group>"; };
 		9B739E0425CD77E900726B30 /* ProcessingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingViewModel.swift; sourceTree = "<group>"; };
-		9B739E0A25CD9B4500726B30 /* RuneDescriptionPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneDescriptionPopUp.swift; sourceTree = "<group>"; };
 		9B739E0F25CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneDescriptionPopUpViewModel.swift; sourceTree = "<group>"; };
 		9B739E4225D1DCD000726B30 /* SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		9B739E4B25D1E99A00726B30 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -211,6 +210,7 @@
 		9BD98C9D2628A75600F3BBD7 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		9BD98CA32628A8B800F3BBD7 /* SFProDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.ttf"; sourceTree = "<group>"; };
 		9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpViewVontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscapePopUpViewVontroller.swift; sourceTree = "<group>"; };
+		9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneDescriptionPopUp.swift; sourceTree = "<group>"; };
 		9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.release.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar_RunarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -286,6 +286,7 @@
 		199A678925F836C20013DE5D /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
+				9BD22959258AB02500E17E98 /* CollectionViewController.swift */,
 				199A678A25F837110013DE5D /* MainTabBarController.swift */,
 			);
 			path = TabBarController;
@@ -403,17 +404,15 @@
 		9B9C25C925993DE000A4E135 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9BD98CDC2628D3BA00F3BBD7 /* RuneDescriptionPopUp */,
 				9BD98CBE2628CD1D00F3BBD7 /* Escape Pop Up */,
 				9BD98C8B2628A74200F3BBD7 /* Settings */,
 				9B5F5BB3261CD58F00A7454F /* Music */,
 				9B15E36625FE461E00737306 /* OneRuneViewController */,
 				199A678925F836C20013DE5D /* TabBarController */,
-				9B739E0A25CD9B4500726B30 /* RuneDescriptionPopUp.swift */,
-				9B739E0F25CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift */,
 				9B739E0225CD77E900726B30 /* Processing */,
 				19C0F20E25BAFDA80027422B /* AligmentInfo */,
 				19C0F1F225BAF0540027422B /* Aligment */,
-				9BD22959258AB02500E17E98 /* CollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -569,6 +568,15 @@
 				9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpViewVontroller.swift */,
 			);
 			path = "Escape Pop Up";
+			sourceTree = "<group>";
+		};
+		9BD98CDC2628D3BA00F3BBD7 /* RuneDescriptionPopUp */ = {
+			isa = PBXGroup;
+			children = (
+				9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */,
+				9B739E0F25CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift */,
+			);
+			path = RuneDescriptionPopUp;
 			sourceTree = "<group>";
 		};
 		A2A5CAEB8FFCA1990E63BEE2 /* Pods */ = {
@@ -876,6 +884,7 @@
 				9BD98C962628A74200F3BBD7 /* LanguageCell.swift in Sources */,
 				9BD98C942628A74200F3BBD7 /* StaticCell.swift in Sources */,
 				9B739E0525CD77E900726B30 /* ProcessingViewController.swift in Sources */,
+				9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */,
 				9B739E4C25D1E99B00726B30 /* NetworkingManager.swift in Sources */,
 				9B739E1025CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift in Sources */,
 				1987AABB25BDCDB400BB3655 /* FourRuneView.swift in Sources */,
@@ -892,7 +901,6 @@
 				193FFB382613319000D60171 /* CustomButton.swift in Sources */,
 				19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */,
 				9BD98C932628A74200F3BBD7 /* AppInfoViewController.swift in Sources */,
-				9B739E0B25CD9B4500726B30 /* RuneDescriptionPopUp.swift in Sources */,
 				9B0CB88B2607B6A000B2AF60 /* TopWithDescriptionView.swift in Sources */,
 				9BD98C982628A74200F3BBD7 /* SettingsViewController.swift in Sources */,
 			);
