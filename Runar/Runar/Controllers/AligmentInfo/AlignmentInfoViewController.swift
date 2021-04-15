@@ -150,8 +150,12 @@ class AlignmentInfoViewController: UIViewController {
     
     
     @objc func escapeOnTap (sender: UIButton!) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
+
+            let viewController = EscapePopUpViewController()
+            viewController.setRoot(root: self)
+            viewController.modalPresentationStyle = .overCurrentContext
+            self.present(viewController, animated: true)
+        }
     
     func setUpDescription() {
         

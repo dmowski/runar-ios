@@ -144,8 +144,12 @@ class AlignmentViewController: UIViewController {
     }
     
     @objc func escapeOnTap (sender: UIButton!) {
-        navigationController?.popToRootViewController(animated: true)
-    }
+
+            let viewController = EscapePopUpViewController()
+            viewController.setRoot(root: self)
+            viewController.modalPresentationStyle = .overCurrentContext
+            self.present(viewController, animated: true)
+        }
     
     // MARK: - NameLabel
     func invisibaleView() {
