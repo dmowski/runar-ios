@@ -237,7 +237,7 @@ class ProcessingViewController: UIViewController {
             adName.text = "Danheim"
             adText.text = "Kala"
         default:
-            imageView.image = Assets.ads.image
+            imageView.image = nil
         }
     }
 }
