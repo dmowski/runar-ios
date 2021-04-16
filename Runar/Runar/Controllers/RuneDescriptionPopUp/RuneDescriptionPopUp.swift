@@ -180,8 +180,6 @@ class RuneDescriptionPopUp: UIViewController {
             messageLabel.topAnchor.constraint(equalTo: scrollView.topAnchor),
             messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24),
             messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
-//            messageLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-//            messageLabel.widthAnchor.constraint(equalToConstant: widthAnchor),
             messageLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
     }

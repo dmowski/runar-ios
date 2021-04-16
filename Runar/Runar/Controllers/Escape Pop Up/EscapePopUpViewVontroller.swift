@@ -159,7 +159,7 @@ class EscapePopUpViewController: UIViewController {
     func configureTitleLabel() {
         titleLabel.text = .stopAlignment
         containerView.addSubview(titleLabel)
-        let topConstant: CGFloat = DeviceType.iPhoneSE ? 35 : 50
+        let topConstant: CGFloat = DeviceType.iPhoneSE ? 30 : 48
         let trailingConstant: CGFloat = DeviceType.iPhoneSE ? -11.5 : -14
         let leadingConstant: CGFloat = DeviceType.iPhoneSE ? 11.5 : 14
 
@@ -168,7 +168,6 @@ class EscapePopUpViewController: UIViewController {
             titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: trailingConstant),
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: leadingConstant),
         ])
-        
     }
     
     func configureActionButtonNo() {
