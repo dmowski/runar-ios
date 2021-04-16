@@ -102,7 +102,7 @@ extension AlignmentViewController {
             let luck2 = runesViewContainer.runesSet[2].luck
             let luck3 = runesViewContainer.runesSet[3].luck
             totalLuck = (luck1 + luck2 + luck3)/3
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
+            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
         case .cross:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             let luck1 = runesViewContainer.runesSet[2].luck
@@ -126,7 +126,7 @@ extension AlignmentViewController {
             luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
         }
         
-        luckLevelLabel.font = FontFamily.SFProDisplay.light.font(size: 20)
+        luckLevelLabel.font = FontFamily.SFProDisplay.light.font(size: 19)
         luckLevelLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         luckLevelLabel.translatesAutoresizingMaskIntoConstraints = false
         contentInterpretationView.addSubview(luckLevelLabel)
@@ -205,8 +205,8 @@ extension AlignmentViewController {
             let seventhRune = runesViewContainer.runesSet[6]
             descriptionLabelString = L10n.InterpretationKeltsCross.text(firstRune.value, secondRune.value, thirdRune.value, fourthRune.value, fifthRune.value, sixthRune.value, seventhRune.value)
         }
-        
-        descriptionLabel.font = FontFamily.SFProDisplay.light.font(size: 19)
+        let font: CGFloat = DeviceType.iPhoneSE ? 16 : 19
+        descriptionLabel.font = FontFamily.SFProDisplay.light.font(size: font)
         descriptionLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         descriptionLabel.numberOfLines = 0
         descriptionLabel.sizeToFit()
@@ -239,8 +239,8 @@ extension AlignmentViewController {
         } else {
             affirmationLabel.isHidden = true
         }
-        
-        affirmationLabel.font = FontFamily.SFProDisplay.light.font(size: 19)
+        let font: CGFloat = DeviceType.iPhoneSE ? 16 : 19
+        affirmationLabel.font = FontFamily.SFProDisplay.light.font(size: font)
         affirmationLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         affirmationLabel.numberOfLines = 0
         affirmationLabel.sizeToFit()

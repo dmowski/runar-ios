@@ -276,8 +276,10 @@ class AlignmentViewController: UIViewController {
         showButton.addTarget(self, action: #selector(self.openDescriptionPopup), for: .touchUpInside)
         contentView.addSubview(showButton)
         
+        let leadingAnchor: CGFloat = DeviceType.iPhoneSE ? 0 : 16.heightDependent()
+        
         NSLayoutConstraint.activate([
-            showButton.leadingAnchor.constraint(equalTo: startButton.trailingAnchor, constant: 16.heightDependent()),
+            showButton.leadingAnchor.constraint(equalTo: startButton.trailingAnchor, constant: leadingAnchor),
             showButton.centerYAnchor.constraint(equalTo: startButton.centerYAnchor),
             showButton.widthAnchor.constraint(equalToConstant: 48),
             showButton.heightAnchor.constraint(equalToConstant: 48),
