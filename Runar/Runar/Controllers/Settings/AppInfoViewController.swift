@@ -48,6 +48,7 @@ class AppInfoViewController: UIViewController, UITextViewDelegate {
     private var descriptionView: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = .clear
+        textView.isEditable = false
         
         let string = String.descriptionAppText
         let firstUrl = "https://lyod1.bandcamp.com/releases"
