@@ -10,7 +10,7 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
-  /// 
+  /// Most likely waiting for you
   internal static let awaitsYou = L10n.tr("Localizable", "awaitsYou")
   /// Finish
   internal static let complete = L10n.tr("Localizable", "complete")
@@ -54,7 +54,7 @@ internal enum L10n {
   internal static let saveResult = L10n.tr("Localizable", "saveResult")
   /// Do not show again
   internal static let showAgain = L10n.tr("Localizable", "showAgain")
-  ///  = Overall situation
+  /// Overall situation
   internal static let situation = L10n.tr("Localizable", "situation")
   /// Present one
   internal static let situationInRealTime = L10n.tr("Localizable", "situationInRealTime")
