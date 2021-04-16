@@ -8,8 +8,8 @@
 import UIKit
 
 extension String {
-    static let rateApp = "Оценить приложение"
-    static let aboutApp = "О приложении"
+    static let rateApp = L10n.Tabbar.rateApp
+    static let aboutApp = L10n.Tabbar.aboutApp
 }
 
 class StaticCell: UITableViewCell {

@@ -8,9 +8,9 @@
 import UIKit
 
 extension String {
-    static let yes = "Да"
-    static let no = "Нет"
-    static let stopAlignment = "Завершить расклад?"
+    static let yes = L10n.PopUp.yes
+    static let no = L10n.PopUp.no
+    static let stopAlignment = L10n.PopUp.stopAlignment
 }
 
 extension UIColor {

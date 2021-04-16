@@ -25,9 +25,9 @@ class DescriptionView: UIView {
         self.runeType = runeType
         let timeParagraphStyle = NSMutableParagraphStyle()
         timeParagraphStyle.lineHeightMultiple = 1.23
-        
+        let font: CGFloat = DeviceType.iPhoneSE ? 16 : 19
         let atributes: [NSAttributedString.Key: Any] = [
-            .font: FontFamily.SFProDisplay.light.font(size: 19),
+            .font: FontFamily.SFProDisplay.light.font(size: font),
             .foregroundColor: UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1),
             .paragraphStyle: timeParagraphStyle,
             .kern: -0.38,

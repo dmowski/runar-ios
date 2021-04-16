@@ -8,7 +8,7 @@
 import UIKit
 
 extension String {
-    static let music = "Музыка"
+    static let music = L10n.Tabbar.music
 }
 
 extension UIColor {

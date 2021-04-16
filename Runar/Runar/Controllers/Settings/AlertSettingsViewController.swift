@@ -8,10 +8,10 @@
 import UIKit
 
 extension String {
-    static let alertTitle = "Настройки"
-    static let alertMessage = "Открыть настройки?"
-    static let alertYes = "Разрешить"
-    static let alertCancel = "Отмена"
+    static let alertTitle = L10n.Tabbar.settings
+    static let alertMessage = L10n.Tabbar.openSettings
+    static let alertYes = L10n.Tabbar.allow
+    static let alertCancel = L10n.Tabbar.cancel
 }
 
 class AlertSettingsViewController: UIViewController {
