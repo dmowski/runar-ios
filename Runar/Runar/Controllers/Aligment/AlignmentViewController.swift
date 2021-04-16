@@ -197,13 +197,12 @@ class AlignmentViewController: UIViewController {
         popapLabel.attributedText = NSMutableAttributedString(string: nameLabel.text!, attributes: [NSAttributedString.Key.kern: -1.1])
         popapLabel.backgroundColor = UIColor(patternImage: Assets.nameLabelGradient.image)
         view.addSubview(popapLabel)
-        
+        let heightAnchor: CGFloat = DeviceType.iPhoneSE ? 65 : 96
         NSLayoutConstraint.activate([
             popapLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 43.heightDependent()),
-            popapLabel.heightAnchor.constraint(equalToConstant: 96.heightDependent()),
+            popapLabel.heightAnchor.constraint(equalToConstant: heightAnchor),
             popapLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             popapLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            popapLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
