@@ -340,7 +340,7 @@ extension AlignmentViewController {
         
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30
         cancelButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
-        cancelButton.addTarget(self, action: #selector(self.escapeOnTap), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(self.exitTapped), for: .touchUpInside)
         cancelButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .normal)
         cancelButton.setTitleColor(UIColor(red: 0.294, green: 0.282, blue: 0.259, alpha: 1), for: .highlighted)
         contentInterpretationView.addSubview(cancelButton)
@@ -359,5 +359,8 @@ extension AlignmentViewController {
             cancelButton.centerXAnchor.constraint(equalTo: contentInterpretationView.centerXAnchor),
             cancelButton.bottomAnchor.constraint(equalTo: contentInterpretationView.bottomAnchor, constant: -50.heightDependent())
         ])
+    }
+    @objc func exitTapped(sender: UIButton) {
+        navigationController?.popToRootViewController(animated: true)
     }
 }
