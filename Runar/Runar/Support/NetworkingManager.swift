@@ -11,7 +11,7 @@ class NetworkingManager {
      func createUser(with id: String, date: Double, os: String){
          let json: [String: Any] = ["userToken" : id, "dataCreated" : date, "OS" : os]
          let jsonData = try? JSONSerialization.data(withJSONObject: json)
-         let url = URL(string: "https://runar-testing.herokuapp.com/api/v1/create-user")!
+        guard let url = URL(string: "https://runar-testing.herokuapp.com/api/v1/create-user") else {return}
          var request = URLRequest(url: url)
          request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
