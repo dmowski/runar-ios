@@ -44,7 +44,8 @@ extension AlignmentViewController {
         runesViewContainer.removeFromSuperview()
         runesViewContainer.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(runesViewContainer)
-        containerTopAnchor = runesViewContainer.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 162)
+        let topAnchor: CGFloat = DeviceType.iPhoneSE ? 117 : 162
+        containerTopAnchor = runesViewContainer.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topAnchor)
         containerTopAnchor!.isActive = true
         NSLayoutConstraint.activate([
             runesViewContainer.centerXAnchor.constraint(equalTo: scrollViewAlignment.centerXAnchor),

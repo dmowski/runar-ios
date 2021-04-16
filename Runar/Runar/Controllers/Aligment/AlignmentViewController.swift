@@ -326,10 +326,11 @@ class AlignmentViewController: UIViewController {
                 controller.view.heightAnchor.constraint(equalToConstant: view.frame.height * 2 / 3)
             ])
             controller.closeVC = { [weak self] in
+                let topAnchor: CGFloat = DeviceType.iPhoneSE ? 117 : 162
                 self?.contentInterpretationView.isHidden = false
-                self?.containerTopAnchor!.constant = 162.heightDependent()
+                self?.containerTopAnchor!.constant = topAnchor
                 self?.containerTopAnchor.isActive = false
-                self?.containerTopAnchor = self?.runesViewContainer.topAnchor.constraint(equalTo: (self?.contentView.topAnchor)!, constant: 162.heightDependent())
+                self?.containerTopAnchor = self?.runesViewContainer.topAnchor.constraint(equalTo: (self?.contentView.topAnchor)!, constant: topAnchor)
                 self?.containerTopAnchor.isActive = true
                 self?.nameLabel.backgroundColor = .clear
                 self?.popapLabel.removeFromSuperview()
