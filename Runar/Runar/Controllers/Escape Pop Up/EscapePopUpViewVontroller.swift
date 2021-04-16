@@ -159,7 +159,7 @@ class EscapePopUpViewController: UIViewController {
     func configureTitleLabel() {
         titleLabel.text = .stopAlignment
         containerView.addSubview(titleLabel)
-        let topConstant: CGFloat = DeviceType.iPhoneSE ? 40.01 : 55
+        let topConstant: CGFloat = DeviceType.iPhoneSE ? 35 : 50
         let trailingConstant: CGFloat = DeviceType.iPhoneSE ? -11.5 : -14
         let leadingConstant: CGFloat = DeviceType.iPhoneSE ? 11.5 : 14
 
@@ -176,14 +176,12 @@ class EscapePopUpViewController: UIViewController {
         actionButtonNo.addTarget(self , action: #selector(dismissVC), for: .touchUpInside)
 
         let heighConstant: CGFloat = DeviceType.iPhoneSE ? 22.3 : 28
-        let trailingConstant: CGFloat = DeviceType.iPhoneSE ? -141.91 : -181.16
-        let leadingConstant: CGFloat = DeviceType.iPhoneSE ? 6.42 : 5.06
         let bottomConstant: CGFloat = DeviceType.iPhoneSE ? -9.37 : -8
         
         NSLayoutConstraint.activate([
             actionButtonNo.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: bottomConstant),
-            actionButtonNo.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: leadingConstant),
-            actionButtonNo.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: trailingConstant),
+            actionButtonNo.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            actionButtonNo.trailingAnchor.constraint(equalTo: containerView.centerXAnchor),
             actionButtonNo.heightAnchor.constraint(equalToConstant: heighConstant)
         ])
     }
@@ -193,14 +191,12 @@ class EscapePopUpViewController: UIViewController {
         actionButtonYes.addTarget(self , action: #selector(self.escapeOnTap), for: .touchUpInside)
 
         let heighConstant: CGFloat = DeviceType.iPhoneSE ? 22.3 : 28
-        let trailingConstant: CGFloat = DeviceType.iPhoneSE ? -6.42 : -11.06
-        let leadingConstant: CGFloat = DeviceType.iPhoneSE ? 141.19 : 175.16
         let bottomConstant: CGFloat = DeviceType.iPhoneSE ? -9.37 : -8
         
         NSLayoutConstraint.activate([
             actionButtonYes.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: bottomConstant),
-            actionButtonYes.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: leadingConstant),
-            actionButtonYes.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: trailingConstant),
+            actionButtonYes.leadingAnchor.constraint(equalTo: containerView.centerXAnchor),
+            actionButtonYes.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             actionButtonYes.heightAnchor.constraint(equalToConstant: heighConstant)
         ])
     }
