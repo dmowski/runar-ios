@@ -12,7 +12,7 @@ extension UIColor {
 }
 
 extension String {
-   static let language = "Язык"
+    static let language = L10n.Tabbar.language
 }
 
 class LanguageCell: UITableViewCell {

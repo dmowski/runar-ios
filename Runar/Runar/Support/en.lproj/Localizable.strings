@@ -21,8 +21,27 @@
 
 "tabbar.layouts" = "Runic Draws";
 "tabbar.settings" = "Settings";
+"tabbar.openSettings" = "In order to change the language in the application, you need to go to the settings of your phone.";
+"tabbar.allow" = "Allow";
+"tabbar.cancel" = "Cancel";
+"tabbar.language" = "Language";
+"tabbar.music" = "Music";
+"tabbar.rateApp" = "Rate the application";
+"tabbar.aboutApp" = "About";
+"tabbar.descriptionAppText" = "Application version 1.0
 
-"luckLevel" = "Luckiness - %@ %";
+Runar is an app for reading Scandinavian runes and studying mythology and fairy tales. Contains 8 types of rune layouts & runes interpretation. In the Library section you can read Scandinavian sagas and fairy tales.
+
+With the permission of the copyright holders, the following musical compositions are used in the application:
+- Lyod (tracks \"Black rook\", \"My mother told\"), https://lyod1.bandcamp.com/releases
+- Danheim (tracks \"Runar\", \"Kala\"), https://danheimmusic.com";
+
+"popUp.yes" = "Yes";
+"popUp.no" = "No";
+"popUp.stopAlignment" = "Do you really want to stop Runic Draw?";
+
+
+"luckLevel" = "Luckiness - %@ %%";
 "goToTheSite" = "Check the website";
 "layoutProcessing" = "Processing...";
 "startAlignment" = "Start Runic Draw";

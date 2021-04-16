@@ -32,7 +32,7 @@ internal enum L10n {
   internal static let irresistibleStrength = L10n.tr("Localizable", "irresistibleStrength")
   /// Processing...
   internal static let layoutProcessing = L10n.tr("Localizable", "layoutProcessing")
-  /// Luckiness - %@ %
+  /// Luckiness - %@ %%
   internal static func luckLevel(_ p1: Any) -> String {
     return L10n.tr("Localizable", "luckLevel", String(describing: p1))
   }
@@ -1715,6 +1715,15 @@ internal enum L10n {
     }
   }
 
+  internal enum PopUp {
+    /// No
+    internal static let no = L10n.tr("Localizable", "popUp.no")
+    /// Do you really want to stop Runic Draw?
+    internal static let stopAlignment = L10n.tr("Localizable", "popUp.stopAlignment")
+    /// Yes
+    internal static let yes = L10n.tr("Localizable", "popUp.yes")
+  }
+
   internal enum Rune {
     internal enum Cross {
       /// To find out how the situation is (for or against you), use this popular divination. It will help you to coordinate your actions and provide an optimal solution.
@@ -1767,8 +1776,24 @@ internal enum L10n {
   }
 
   internal enum Tabbar {
+    /// About
+    internal static let aboutApp = L10n.tr("Localizable", "tabbar.aboutApp")
+    /// Allow
+    internal static let allow = L10n.tr("Localizable", "tabbar.allow")
+    /// Cancel
+    internal static let cancel = L10n.tr("Localizable", "tabbar.cancel")
+    /// Application version 1.0\n\nRunar is an app for reading Scandinavian runes and studying mythology and fairy tales. Contains 8 types of rune layouts & runes interpretation. In the Library section you can read Scandinavian sagas and fairy tales.\n\nWith the permission of the copyright holders, the following musical compositions are used in the application:\n- Lyod (tracks "Black rook", "My mother told"), https://lyod1.bandcamp.com/releases\n- Danheim (tracks "Runar", "Kala"), https://danheimmusic.com
+    internal static let descriptionAppText = L10n.tr("Localizable", "tabbar.descriptionAppText")
+    /// Language
+    internal static let language = L10n.tr("Localizable", "tabbar.language")
     /// Runic Draws
     internal static let layouts = L10n.tr("Localizable", "tabbar.layouts")
+    /// Music
+    internal static let music = L10n.tr("Localizable", "tabbar.music")
+    /// In order to change the language in the application, you need to go to the settings of your phone.
+    internal static let openSettings = L10n.tr("Localizable", "tabbar.openSettings")
+    /// Rate the application
+    internal static let rateApp = L10n.tr("Localizable", "tabbar.rateApp")
     /// Settings
     internal static let settings = L10n.tr("Localizable", "tabbar.settings")
   }
