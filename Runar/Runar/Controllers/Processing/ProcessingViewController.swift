@@ -109,9 +109,14 @@ class ProcessingViewController: UIViewController {
         startButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
         startButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .normal)
         startButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
+        startButton.addTarget(self, action: #selector(startButtonOnTap), for: .touchUpInside)
         return startButton
     }()
     
+    @objc private func startButtonOnTap() {
+        guard let url = URL(string: link) else {return}
+        UIApplication.shared.open(url)
+    }
     private var vectorImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = Assets.vector.image
@@ -123,7 +128,7 @@ class ProcessingViewController: UIViewController {
         var processingLabel = UILabel()
         processingLabel.text = L10n.layoutProcessing
         processingLabel.translatesAutoresizingMaskIntoConstraints = false
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 12 : 16
+        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 14 : 16
         processingLabel.font = FontFamily.Roboto.light.font(size: fontConstant)
         
         processingLabel.textColor = UIColor(red: 0.949, green: 0.949, blue: 0.949, alpha: 1)
@@ -133,7 +138,7 @@ class ProcessingViewController: UIViewController {
 
     private var adName: UILabel = {
         let adName = UILabel()
-        let nameFontConstant: CGFloat = DeviceType.iPhoneSE ? 16 : 24
+        let nameFontConstant: CGFloat = DeviceType.iPhoneSE ? 10 : 24
         adName.font = FontFamily.SFProDisplay.regular.font(size: nameFontConstant)
         adName.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         adName.textAlignment = .center
@@ -144,7 +149,7 @@ class ProcessingViewController: UIViewController {
     private let adText: UILabel = {
         let adText = UILabel()
         adText.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
-        let addFontConst: CGFloat =  DeviceType.iPhoneSE ? 11 : 16
+        let addFontConst: CGFloat =  DeviceType.iPhoneSE ? 14 : 16
         adText.font = FontFamily.SFProDisplay.light.font(size: addFontConst)
         adText.textAlignment = .center
         adText.translatesAutoresizingMaskIntoConstraints = false
@@ -219,6 +224,8 @@ class ProcessingViewController: UIViewController {
         ])
     }
     
+    private var link = ""
+    
     private func fillContent() {
         nameLabel.text = viewModel.name
         
@@ -227,18 +234,22 @@ class ProcessingViewController: UIViewController {
             imageView.image = Assets.led.image
             adName.text = String.lyod
             adText.text = String.myMotherTold
+            link = "https://lyod1.bandcamp.com/releases"
         case 1:
             imageView.image = Assets.led.image
             adName.text = String.lyod
             adText.text = String.blackRook
+            link = "https://lyod1.bandcamp.com/releases"
         case 2:
             imageView.image = Assets.danheim.image
             adName.text = "Danheim"
             adText.text = "Runar"
+            link = "https://danheimmusic.com"
         case 3:
             imageView.image = Assets.danheim.image
             adName.text = "Danheim"
             adText.text = "Kala"
+            link = "https://danheimmusic.com"
         default:
             imageView.image = nil
         }
