@@ -9,8 +9,8 @@ import UIKit
 
 extension UIColor {
     static let popUpLabelTextColour = UIColor(red: 210/255, green: 196/255, blue: 173/255, alpha: 1)
-    static let popupActionButtonBackgroundColor = UIColor(red: 106/255, green: 106/255, blue: 106/255, alpha: 0.36)
-    static let popupActionButonTitleColor = UIColor(red: 210/255, green: 196/255, blue: 173/255, alpha: 1)
+    static let popupActionButtonBackgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
+    static let popupActionButonTitleColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
 }
 
 class RuneDescriptionPopUp: UIViewController {
@@ -65,7 +65,7 @@ class RuneDescriptionPopUp: UIViewController {
     
     //MARK: ActionButton
     let actionButton: UIButton = {
-        let actionButton = UIButton()
+        let actionButton = CustomButton()
         actionButton.frame = .zero
         actionButton.backgroundColor = .popupActionButtonBackgroundColor
         actionButton.setTitle("Ok", for: .normal)
@@ -74,7 +74,7 @@ class RuneDescriptionPopUp: UIViewController {
         actionButton.setTitleColor(.popupActionButonTitleColor, for: .normal)
         actionButton.layer.borderWidth = 1
         actionButton.layer.borderColor = UIColor.popupActionButonTitleColor.cgColor
-        
+        actionButton.setTitleColor(UIColor(red: 0.294, green: 0.282, blue: 0.259, alpha: 1), for: .highlighted)
         actionButton.titleLabel?.font? = DeviceType.iPhoneSE ?
             FontFamily.AmaticSC.bold.font(size: 24) : FontFamily.AmaticSC.bold.font(size: 30)
         
@@ -134,7 +134,7 @@ class RuneDescriptionPopUp: UIViewController {
     
     func configureActionButton() {
         containerView.addSubview(actionButton)
-        actionButton.setTitle("Ok", for: .normal)
+//        actionButton.setTitle("Ok", for: .normal)
         actionButton.addTarget(self , action: #selector(dismissVC), for: .touchUpInside)
 
         let heighConstant: CGFloat = DeviceType.iPhoneSE ? 46 : 56

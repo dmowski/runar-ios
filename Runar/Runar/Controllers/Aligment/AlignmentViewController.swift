@@ -276,7 +276,7 @@ class AlignmentViewController: UIViewController {
         showButton.addTarget(self, action: #selector(self.openDescriptionPopup), for: .touchUpInside)
         contentView.addSubview(showButton)
         
-        let leadingAnchor: CGFloat = DeviceType.iPhoneSE ? 0 : 16.heightDependent()
+        let leadingAnchor: CGFloat = DeviceType.iPhoneSE ? 0 : 14.heightDependent()
         
         NSLayoutConstraint.activate([
             showButton.leadingAnchor.constraint(equalTo: startButton.trailingAnchor, constant: leadingAnchor),
