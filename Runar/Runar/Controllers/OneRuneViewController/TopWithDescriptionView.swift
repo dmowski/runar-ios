@@ -70,8 +70,8 @@ final class TopWithDescriptionView: UIView {
         self.addSubview(closeButton)
         NSLayoutConstraint.activate([
             closeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 10.heightDependent()),
-            closeButton.heightAnchor.constraint(equalToConstant: 48.heightDependent()),
-            closeButton.widthAnchor.constraint(equalToConstant: 48.heightDependent()),
+            closeButton.heightAnchor.constraint(equalToConstant: 48),
+            closeButton.widthAnchor.constraint(equalToConstant: 48),
             closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10.heightDependent())
         ])
     }

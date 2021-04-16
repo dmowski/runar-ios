@@ -66,9 +66,9 @@ final class TopLineView: UIView {
     private func configureNameConstr() {
         self.addSubview(runeNameLabel)
         NSLayoutConstraint.activate([
-            runeNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 37.heightDependent()),
+            runeNameLabel.topAnchor.constraint(equalTo:topAnchor, constant: 37.heightDependent()),
             runeNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            runeNameLabel.bottomAnchor.constraint(equalTo: runeNameLabel.topAnchor, constant: 25.heightDependent())
+//            runeNameLabel.bottomAnchor.constraint(equalTo: runeNameLabel.topAnchor, constant: 25)
         ])
     }
     
