@@ -45,6 +45,13 @@ class AppInfoViewController: UIViewController, UITextViewDelegate {
         return background
     }()
     
+    private let scrollView: UIScrollView = {
+        let scrollview = UIScrollView()
+        scrollview.translatesAutoresizingMaskIntoConstraints = false
+        scrollview.showsVerticalScrollIndicator = false
+        return scrollview
+    }()
+    
     private var descriptionView: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = .clear
@@ -91,7 +98,9 @@ class AppInfoViewController: UIViewController, UITextViewDelegate {
     }
     
     private func configureUI() {
-        view.addSubviews(backgroundImage, backgroundShadow, descriptionView)
+        view.addSubviews(backgroundImage, backgroundShadow, scrollView, descriptionView)
+        
+        let descriptionLeading: CGFloat = DeviceType.iPhoneSE || DeviceType.isIPhone678 ? 16 : 24
         
         NSLayoutConstraint.activate([
             backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
@@ -104,9 +113,14 @@ class AppInfoViewController: UIViewController, UITextViewDelegate {
             backgroundShadow.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundShadow.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            descriptionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 26),
-            descriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:  24),
-            descriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:  -24),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            descriptionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            descriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:  descriptionLeading),
+            descriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:  -descriptionLeading),
             descriptionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }

@@ -55,9 +55,7 @@ class MusicCell: UITableViewCell {
         addSubview(switchControl)
         
         NSLayoutConstraint.activate([
-            switchControl.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18),
-            switchControl.widthAnchor.constraint(equalToConstant: 36),
-            switchControl.heightAnchor.constraint(equalToConstant: 20),
+            switchControl.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             switchControl.centerYAnchor.constraint(equalTo: centerYAnchor)
         ]
         )
