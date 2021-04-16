@@ -63,8 +63,6 @@
 		9BAEB63425F18C3B004B7761 /* Interperitation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAEB63325F18C3B004B7761 /* Interperitation+Ext.swift */; };
 		9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD228FD258A321B00E17E98 /* AppDelegate.swift */; };
 		9BD22907258A321F00E17E98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22906258A321F00E17E98 /* Assets.xcassets */; };
-		9BD22915258A322000E17E98 /* RunarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22914258A322000E17E98 /* RunarTests.swift */; };
-		9BD22920258A322000E17E98 /* RunarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD2291F258A322000E17E98 /* RunarUITests.swift */; };
 		9BD2295A258AB02500E17E98 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22959258AB02500E17E98 /* CollectionViewController.swift */; };
 		9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22971258AD6EF00E17E98 /* MainCell.swift */; };
 		9BD229CA258D776200E17E98 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229BD258D776000E17E98 /* Roboto-MediumItalic.ttf */; };
@@ -178,11 +176,7 @@
 		9BD22906258A321F00E17E98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BD2290B258A321F00E17E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BD22910258A322000E17E98 /* RunarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BD22914258A322000E17E98 /* RunarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunarTests.swift; sourceTree = "<group>"; };
-		9BD22916258A322000E17E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BD2291B258A322000E17E98 /* RunarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BD2291F258A322000E17E98 /* RunarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunarUITests.swift; sourceTree = "<group>"; };
-		9BD22921258A322000E17E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BD22959258AB02500E17E98 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		9BD22971258AD6EF00E17E98 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		9BD229BD258D776000E17E98 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -456,8 +450,6 @@
 			children = (
 				192EF92C25B7AFB70055DB9D /* swiftgen.yml */,
 				9BD228FC258A321B00E17E98 /* Runar */,
-				9BD22913258A322000E17E98 /* RunarTests */,
-				9BD2291E258A322000E17E98 /* RunarUITests */,
 				9BD228FB258A321B00E17E98 /* Products */,
 				A2A5CAEB8FFCA1990E63BEE2 /* Pods */,
 				F845FBB93D424E742E7134D4 /* Frameworks */,
@@ -489,24 +481,6 @@
 				9B9C25C925993DE000A4E135 /* Controllers */,
 			);
 			path = Runar;
-			sourceTree = "<group>";
-		};
-		9BD22913258A322000E17E98 /* RunarTests */ = {
-			isa = PBXGroup;
-			children = (
-				9BD22914258A322000E17E98 /* RunarTests.swift */,
-				9BD22916258A322000E17E98 /* Info.plist */,
-			);
-			path = RunarTests;
-			sourceTree = "<group>";
-		};
-		9BD2291E258A322000E17E98 /* RunarUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9BD2291F258A322000E17E98 /* RunarUITests.swift */,
-				9BD22921258A322000E17E98 /* Info.plist */,
-			);
-			path = RunarUITests;
 			sourceTree = "<group>";
 		};
 		9BD229A8258B7F4F00E17E98 /* Fonts */ = {
@@ -910,7 +884,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BD22915258A322000E17E98 /* RunarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -918,7 +891,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BD22920258A322000E17E98 /* RunarUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
