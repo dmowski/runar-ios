@@ -349,9 +349,9 @@ extension AlignmentViewController {
         let widthConsatnt: CGFloat = DeviceType.iPhoneSE ? 210 : 255
         
         if affirmationLabel.isHidden {
-            cancelButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 115.heightDependent()).isActive = true
+            cancelButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 57.5.heightDependent()).isActive = true
         } else {
-            cancelButton.topAnchor.constraint(equalTo: affirmationLabel.bottomAnchor, constant: 115.heightDependent()).isActive = true
+            cancelButton.topAnchor.constraint(equalTo: affirmationLabel.bottomAnchor, constant: 57.5.heightDependent()).isActive = true
         }
         NSLayoutConstraint.activate([
             cancelButton.heightAnchor.constraint(equalToConstant: heightConstant),
