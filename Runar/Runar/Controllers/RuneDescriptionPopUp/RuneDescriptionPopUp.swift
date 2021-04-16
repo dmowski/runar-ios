@@ -52,7 +52,6 @@ class RuneDescriptionPopUp: UIViewController {
     //MARK: MessageLabel
     let messageLabel: UILabel = {
         let messageLabel = UILabel()
-        messageLabel.frame = .zero
         messageLabel.textAlignment = .left
         
         messageLabel.textColor = UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 1)
@@ -157,14 +156,12 @@ class RuneDescriptionPopUp: UIViewController {
     func configureScrollView(){
         containerView.addSubview(scrollView)
         let topConstant: CGFloat = DeviceType.iPhoneSE ? 20.75 : 26
-        let trailingConstant: CGFloat = DeviceType.iPhoneSE ? -24 : -24
-        let leadingConstant: CGFloat = DeviceType.iPhoneSE ? 17 : 24
         let bottomConstant: CGFloat = DeviceType.iPhoneSE ? -16 : -37
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: topConstant),
-            scrollView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: leadingConstant),
-            scrollView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: trailingConstant),
+            scrollView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: bottomConstant)
         ])
     }
@@ -179,12 +176,14 @@ class RuneDescriptionPopUp: UIViewController {
         messageLabel.numberOfLines = 0
         messageLabel.sizeToFit()
         
-        let widthAnchor: CGFloat = DeviceType.iPhoneSE ? 263 : 334
+       // let widthAnchor: CGFloat = DeviceType.iPhoneSE ? 263 : 334
 
         NSLayoutConstraint.activate([
             messageLabel.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            messageLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            messageLabel.widthAnchor.constraint(equalToConstant: widthAnchor),
+            messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24),
+            messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
+//            messageLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+//            messageLabel.widthAnchor.constraint(equalToConstant: widthAnchor),
             messageLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
     }
