@@ -7,9 +7,13 @@
 
 import UIKit
 
+extension String {
+    static let startAlignment = L10n.startAlignment
+    static let showAgain = L10n.showAgain
+}
+
 class AlignmentInfoViewController: UIViewController {
     
-    private let nameFontMultiplier = 55/785
     var background = UIImageView()
     var backgroundFire = UIImageView()
     var name = String()
@@ -71,13 +75,13 @@ class AlignmentInfoViewController: UIViewController {
         nameLabel.textColor =  UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         nameLabel.textAlignment = .center
         nameLabel.attributedText = NSMutableAttributedString(string: nameLabel.text!, attributes: [NSAttributedString.Key.kern: -1.1])
-        let nameLabelTop: CGFloat = DeviceType.iPhoneSE ? 33 : 57
+        let nameLabelTop: CGFloat = DeviceType.iPhoneSE ? 35 : 57.heightDependent()
         let nameLabelHeight: CGFloat = DeviceType.iPhoneSE ? 75 : 90
         
         background.addSubview(nameLabel)
         
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: background.topAnchor, constant: nameLabelTop.heightDependent()),
+            nameLabel.topAnchor.constraint(equalTo: background.topAnchor, constant: nameLabelTop),
             nameLabel.heightAnchor.constraint(equalToConstant: nameLabelHeight),
             nameLabel.centerXAnchor.constraint(equalTo: background.centerXAnchor)
         ])
@@ -89,7 +93,7 @@ class AlignmentInfoViewController: UIViewController {
         startButton.layer.cornerRadius = radiusConstant
         let borderConstant: CGFloat = DeviceType.iPhoneSE ? 0.82 : 1
         startButton.layer.borderWidth = borderConstant
-        startButton.setTitle("Начать расклад", for: .normal)
+        startButton.setTitle(String.startAlignment, for: .normal)
         
         startButton.addTarget(self, action: #selector(buttomTapped), for: .touchUpInside)
         
@@ -131,22 +135,23 @@ class AlignmentInfoViewController: UIViewController {
         background.addSubview(escape)
         escape.addTarget(self, action: #selector(self.escapeOnTap), for: .touchUpInside)
         let trailingConstant: CGFloat = DeviceType.iPhoneSE ? 0 : -10
-        let widthAnchor: CGFloat = DeviceType.iPhoneSE ? 40 : 48
-        let heightAnchor: CGFloat = DeviceType.iPhoneSE ? 40 : 48
-        let escapeTop: CGFloat = DeviceType.iPhoneSE ? 20 : 54
+        let escapeWidthAnchor: CGFloat = DeviceType.iPhoneSE ? 40 : 48
+        let escapeTop: CGFloat = DeviceType.iPhoneSE ? 20 : 54.heightDependent()
         NSLayoutConstraint.activate([
-            escape.topAnchor.constraint(equalTo: background.topAnchor, constant: escapeTop.heightDependent()),
+            escape.topAnchor.constraint(equalTo: background.topAnchor, constant: escapeTop),
             escape.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: trailingConstant),
-            escape.widthAnchor.constraint(equalToConstant: widthAnchor),
-            escape.heightAnchor.constraint(equalToConstant: heightAnchor)
-
+            escape.widthAnchor.constraint(equalToConstant: escapeWidthAnchor),
+            escape.heightAnchor.constraint(equalToConstant: escapeWidthAnchor)
         ])
     }
-    
-    
+        
     @objc func escapeOnTap (sender: UIButton!) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
+
+            let viewController = EscapePopUpViewController()
+            viewController.setRoot(root: self)
+            viewController.modalPresentationStyle = .overCurrentContext
+            self.present(viewController, animated: true)
+        }
     
     func setUpDescription() {
         
@@ -157,15 +162,15 @@ class AlignmentInfoViewController: UIViewController {
         paragraphStyle.lineHeightMultiple = 1.26
         descriptionLabel.attributedText = NSMutableAttributedString(string: descriptionLabel.text!, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         descriptionLabel.textColor = UIColor(red: 0.913, green: 0.913, blue: 0.913, alpha: 1)
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 17 : 20.heightDependent()
+        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 17 : 20
         descriptionLabel.font = FontFamily.SFProDisplay.light.font(size: fontConstant)
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = .left
         descriptionLabel.sizeToFit()
         background.addSubview(descriptionLabel)
-        let leadingAnchor: CGFloat = DeviceType.iPhoneSE ? 24 : 32
+        let leadingAnchor: CGFloat = DeviceType.iPhoneSE ? 24 : 31
         let trailingAnchor: CGFloat = DeviceType.iPhoneSE ? -24 : -32
-        let topAnchor: CGFloat = DeviceType.iPhoneSE ? 7 : 31
+        let topAnchor: CGFloat = DeviceType.iPhoneSE ? 7 : 31.heightDependent()
         
             NSLayoutConstraint.activate([
                 descriptionLabel.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: leadingAnchor),
@@ -192,7 +197,7 @@ class AlignmentInfoViewController: UIViewController {
     }
     
     func setUpShowLabel() {
-        showLabel.text = "Больше не показывать"
+        showLabel.text = String.showAgain
         showLabel.translatesAutoresizingMaskIntoConstraints = false
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 14 : 16
         showLabel.font = FontFamily.Roboto.light.font(size: fontConstant)

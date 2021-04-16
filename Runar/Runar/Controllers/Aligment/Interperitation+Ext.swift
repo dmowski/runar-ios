@@ -7,6 +7,11 @@
 
 import UIKit
 
+extension String {
+    static let saveResult = L10n.saveResult
+    static let complete = L10n.complete
+}
+
 extension AlignmentViewController {
     
     //-------------------------------------------------
@@ -39,7 +44,8 @@ extension AlignmentViewController {
         runesViewContainer.removeFromSuperview()
         runesViewContainer.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(runesViewContainer)
-        containerTopAnchor = runesViewContainer.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 162.heightDependent())
+        let topAnchor: CGFloat = DeviceType.iPhoneSE ? 117 : 162
+        containerTopAnchor = runesViewContainer.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topAnchor)
         containerTopAnchor!.isActive = true
         NSLayoutConstraint.activate([
             runesViewContainer.centerXAnchor.constraint(equalTo: scrollViewAlignment.centerXAnchor),
@@ -49,12 +55,8 @@ extension AlignmentViewController {
     }
     
     func setUpContentInterpretationView() {
-        let backgroundImage: UIImage = {
-            let image = Assets.interpretationBackground.image
-            return image
-        }()
         
-        contentInterpretationView.backgroundColor = UIColor(patternImage: backgroundImage)
+        contentInterpretationView.layer.contents = UIImage(asset: Assets.interpretationBackground)?.cgImage
         contentInterpretationView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(contentInterpretationView)
         
@@ -74,43 +76,43 @@ extension AlignmentViewController {
         case .dayRune:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             totalLuck = runesViewContainer.runesSet[0].luck
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
+            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
         case .twoRunes:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             let luck1 = runesViewContainer.runesSet[0].luck
             let luck2 = runesViewContainer.runesSet[1].luck
             totalLuck = (luck1 + luck2)/2
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
+            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
         case .norns:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             totalLuck = runesViewContainer.runesSet[2].luck
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
+            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
         case .shortPrediction:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             let luck1 = runesViewContainer.runesSet[2].luck
             let luck2 = runesViewContainer.runesSet[3].luck
             totalLuck = (luck1 + luck2)/2
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
+            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
         case .thorsHummer:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             let luck1 = runesViewContainer.runesSet[1].luck
             let luck2 = runesViewContainer.runesSet[2].luck
             let luck3 = runesViewContainer.runesSet[3].luck
             totalLuck = (luck1 + luck2 + luck3)/3
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
+            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
         case .cross:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             let luck1 = runesViewContainer.runesSet[2].luck
             let luck2 = runesViewContainer.runesSet[3].luck
             let luck3 = runesViewContainer.runesSet[4].luck
             totalLuck = (luck1 + luck2 + luck3)/3
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
+            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
         case .elementsCross:
             let luck1 = runesViewContainer.runesSet[2].luck
             let luck2 = runesViewContainer.runesSet[4].luck
             let luck3 = runesViewContainer.runesSet[5].luck
             totalLuck = (luck1 + luck2 + luck3)/3
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
+            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
         case .keltsCross:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             let luck1 = runesViewContainer.runesSet[2].luck
@@ -118,10 +120,10 @@ extension AlignmentViewController {
             let luck3 = runesViewContainer.runesSet[5].luck
             let luck4 = runesViewContainer.runesSet[5].luck
             totalLuck = (luck1 + luck2 + luck3 + luck4)/4
-            luckLevelLabel.text = "Уровень удачи - \(String(totalLuck)) %"
+            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
         }
         
-        luckLevelLabel.font = FontFamily.SFProDisplay.light.font(size: 20)
+        luckLevelLabel.font = FontFamily.SFProDisplay.light.font(size: 19)
         luckLevelLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         luckLevelLabel.translatesAutoresizingMaskIntoConstraints = false
         contentInterpretationView.addSubview(luckLevelLabel)
@@ -169,7 +171,7 @@ extension AlignmentViewController {
             let secondRune = runesViewContainer.runesSet[1]
             let thirdRune = runesViewContainer.runesSet[2]
             let fourthRune = runesViewContainer.runesSet[3]
-            descriptionLabelString = L10n.InterpretationForShortPrediction.text(firstRune.value, secondRune, thirdRune.value, fourthRune.value)
+            descriptionLabelString = L10n.InterpretationForShortPrediction.text(firstRune.value, secondRune.value, thirdRune.value, fourthRune.value)
         case .thorsHummer:
             let firstRune = runesViewContainer.runesSet[0]
             let secondRune = runesViewContainer.runesSet[1]
@@ -200,8 +202,8 @@ extension AlignmentViewController {
             let seventhRune = runesViewContainer.runesSet[6]
             descriptionLabelString = L10n.InterpretationKeltsCross.text(firstRune.value, secondRune.value, thirdRune.value, fourthRune.value, fifthRune.value, sixthRune.value, seventhRune.value)
         }
-        
-        descriptionLabel.font = FontFamily.SFProDisplay.light.font(size: 19)
+        let font: CGFloat = DeviceType.iPhoneSE ? 16 : 19
+        descriptionLabel.font = FontFamily.SFProDisplay.light.font(size: font)
         descriptionLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         descriptionLabel.numberOfLines = 0
         descriptionLabel.sizeToFit()
@@ -234,8 +236,8 @@ extension AlignmentViewController {
         } else {
             affirmationLabel.isHidden = true
         }
-        
-        affirmationLabel.font = FontFamily.SFProDisplay.light.font(size: 19)
+        let font: CGFloat = DeviceType.iPhoneSE ? 16 : 19
+        affirmationLabel.font = FontFamily.SFProDisplay.light.font(size: font)
         affirmationLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         affirmationLabel.numberOfLines = 0
         affirmationLabel.sizeToFit()
@@ -274,7 +276,7 @@ extension AlignmentViewController {
     }
     
     func setUpCheckLabel() {
-        checkLabel.text = "Сохранить результат"
+        checkLabel.text = String.saveResult
         checkLabel.translatesAutoresizingMaskIntoConstraints = false
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 14 : 16
         checkLabel.font = FontFamily.Roboto.light.font(size: fontConstant)
@@ -330,12 +332,12 @@ extension AlignmentViewController {
         cancelButton.layer.cornerRadius = radiusConstant
         let borderConstant: CGFloat = DeviceType.iPhoneSE ? 0.82 : 1
         cancelButton.layer.borderWidth = borderConstant
-        cancelButton.setTitle("Завершить", for: .normal)
+        cancelButton.setTitle(String.complete, for: .normal)
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30
         cancelButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
-        cancelButton.addTarget(self, action: #selector(self.escapeOnTap), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(self.exitTapped), for: .touchUpInside)
         cancelButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .normal)
         cancelButton.setTitleColor(UIColor(red: 0.294, green: 0.282, blue: 0.259, alpha: 1), for: .highlighted)
         contentInterpretationView.addSubview(cancelButton)
@@ -344,9 +346,9 @@ extension AlignmentViewController {
         let widthConsatnt: CGFloat = DeviceType.iPhoneSE ? 210 : 255
         
         if affirmationLabel.isHidden {
-            cancelButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 115.heightDependent()).isActive = true
+            cancelButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 57.5.heightDependent()).isActive = true
         } else {
-            cancelButton.topAnchor.constraint(equalTo: affirmationLabel.bottomAnchor, constant: 115.heightDependent()).isActive = true
+            cancelButton.topAnchor.constraint(equalTo: affirmationLabel.bottomAnchor, constant: 57.5.heightDependent()).isActive = true
         }
         NSLayoutConstraint.activate([
             cancelButton.heightAnchor.constraint(equalToConstant: heightConstant),
@@ -354,5 +356,8 @@ extension AlignmentViewController {
             cancelButton.centerXAnchor.constraint(equalTo: contentInterpretationView.centerXAnchor),
             cancelButton.bottomAnchor.constraint(equalTo: contentInterpretationView.bottomAnchor, constant: -50.heightDependent())
         ])
+    }
+    @objc func exitTapped(sender: UIButton) {
+        navigationController?.popToRootViewController(animated: true)
     }
 }

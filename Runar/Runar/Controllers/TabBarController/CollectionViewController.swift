@@ -24,8 +24,6 @@ class CollectionViewController: UICollectionViewController {
         collectionView.backgroundView = mainImageView
         navigationController?.navigationBar.isHidden = true
         collectionView.delaysContentTouches = false
-        
-        createFloatingButton()
 
         collectionView.register(MainCell.self, forCellWithReuseIdentifier: MainCell.reuseIdentifier)
         
@@ -42,12 +40,12 @@ class CollectionViewController: UICollectionViewController {
     //-------------------------------------------------
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+
         return 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
+
         return data.count
     }
     
@@ -79,53 +77,6 @@ class CollectionViewController: UICollectionViewController {
             viewController.viewModel = viewModel
             viewController.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(viewController, animated: true)
-        }
-    }
-    
-    //-------------------------------------------------
-    // MARK: - Move Button
-    //-------------------------------------------------
-    
-    var pointingToBottom: Bool = true {
-        didSet {
-            guard oldValue != pointingToBottom else { return }
-            if pointingToBottom {
-                floatingImage.setImage(Assets.floatingDown.image, for: .normal)
-            } else {
-                floatingImage.setImage(Assets.floatingUp.image, for: .normal)
-            }
-        }
-    }
-    
-    private func createFloatingButton() {
-        floatingImage.setImage(Assets.floatingDown.image, for: .normal)
-        floatingImage.addTarget(self, action: #selector(floatingTapped), for: .touchUpInside)
-        floatingImage.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.addSubview(floatingImage)
-        
-        NSLayoutConstraint.activate([
-            floatingImage.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -4),
-            floatingImage.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
-            floatingImage.widthAnchor.constraint(equalToConstant: 77),
-            floatingImage.heightAnchor.constraint(equalToConstant: 24),
-        ])
-    }
-    
-    @objc func floatingTapped (sender: UIButton) {
-        
-        if pointingToBottom == true {
-            collectionView.setContentOffset(CGPoint(x: 0, y: collectionView.contentSize.height - collectionView.bounds.height + collectionView.adjustedContentInset.bottom), animated: true)
-        } else {
-            collectionView.setContentOffset(CGPoint(x: 0, y: -view.safeAreaInsets.top), animated: true)
-        }
-    }
-    
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        if scrollView.contentSize != .zero  && (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)/2) {
-            pointingToBottom = false
-        } else {
-            pointingToBottom = true
         }
     }
 }

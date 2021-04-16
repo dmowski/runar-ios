@@ -22,10 +22,11 @@ class DescriptionView: UIView {
     
     convenience init(runeType: RuneType) {
         self.init(frame: .zero)
+        
         self.runeType = runeType
         let timeParagraphStyle = NSMutableParagraphStyle()
         timeParagraphStyle.lineHeightMultiple = 1.23
-        
+  
         let atributes: [NSAttributedString.Key: Any] = [
             .font: FontFamily.SFProDisplay.light.font(size: 19),
             .foregroundColor: UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1),

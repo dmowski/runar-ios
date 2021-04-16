@@ -26,7 +26,7 @@ final class TopLineView: UIView {
         let timeParagraphStyle = NSMutableParagraphStyle()
         timeParagraphStyle.lineHeightMultiple = 1.4
         timeLabel.attributedText = NSMutableAttributedString(string: runeTime, attributes: [NSAttributedString.Key.paragraphStyle: timeParagraphStyle])
-        luckLevelLabel.attributedText = NSMutableAttributedString(string: "Уровень удачи - \(String(runeType.luck)) %", attributes: [NSAttributedString.Key.paragraphStyle: timeParagraphStyle])
+        luckLevelLabel.attributedText = NSMutableAttributedString(string: L10n.luckLevel(String(runeType.luck)), attributes: [NSAttributedString.Key.paragraphStyle: timeParagraphStyle])
     }
     
     required init?(coder: NSCoder) {
@@ -58,17 +58,18 @@ final class TopLineView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 24.heightDependent())
+        let nameHeight: CGFloat = DeviceType.iPhoneSE || DeviceType.isIPhone678 ? 17 : 24
+        label.font = UIFont(name: "SFProDisplay-Regular", size: nameHeight)
         label.sizeToFit()
         return label
     }()
     
     private func configureNameConstr() {
         self.addSubview(runeNameLabel)
+  
         NSLayoutConstraint.activate([
-            runeNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 37.heightDependent()),
+            runeNameLabel.topAnchor.constraint(equalTo:topAnchor, constant: 37.heightDependent()),
             runeNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            runeNameLabel.bottomAnchor.constraint(equalTo: runeNameLabel.topAnchor, constant: 25.heightDependent())
         ])
     }
     
@@ -78,7 +79,8 @@ final class TopLineView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(red: 0.659, green: 0.651, blue: 0.639, alpha: 1)
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 15.heightDependent())
+        let labelHeight: CGFloat = DeviceType.iPhoneSE || DeviceType.isIPhone678 ? 14 : 15
+        label.font = UIFont(name: "SFProDisplay-Regular", size: labelHeight)
         label.sizeToFit()
         return label
     }()
@@ -88,7 +90,6 @@ final class TopLineView: UIView {
         NSLayoutConstraint.activate([
             timeLabel.topAnchor.constraint(equalTo: runeNameLabel.bottomAnchor, constant: 5.heightDependent()),
             timeLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            timeLabel.heightAnchor.constraint(equalToConstant: 25.heightDependent())
         ])
     }
     

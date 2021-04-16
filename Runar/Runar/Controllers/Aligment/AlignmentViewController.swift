@@ -7,6 +7,11 @@
 
 import UIKit
 
+extension String {
+    static let interpret = L10n.interpret
+    static let drawRune = L10n.drawRune
+}
+
 class AlignmentViewController: UIViewController {
     
     //-------------------------------------------------
@@ -45,7 +50,7 @@ class AlignmentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         runesViewContainer.update(with: .init(viewController: self, runesLayout: viewModel.runeLayout, didHighlightAllRunes: { [weak self] runes in
-            self?.startButton.setTitle("Толковать", for: .normal)
+            self?.startButton.setTitle(String.interpret, for: .normal)
             self?.startButton.addTarget(self, action: #selector(self?.buttonTaped), for: .touchUpInside)
         }))
         
@@ -139,8 +144,12 @@ class AlignmentViewController: UIViewController {
     }
     
     @objc func escapeOnTap (sender: UIButton!) {
-        navigationController?.popToRootViewController(animated: true)
-    }
+
+            let viewController = EscapePopUpViewController()
+            viewController.setRoot(root: self)
+            viewController.modalPresentationStyle = .overCurrentContext
+            self.present(viewController, animated: true)
+        }
     
     // MARK: - NameLabel
     func invisibaleView() {
@@ -188,13 +197,12 @@ class AlignmentViewController: UIViewController {
         popapLabel.attributedText = NSMutableAttributedString(string: nameLabel.text!, attributes: [NSAttributedString.Key.kern: -1.1])
         popapLabel.backgroundColor = UIColor(patternImage: Assets.nameLabelGradient.image)
         view.addSubview(popapLabel)
-        
+        let heightAnchor: CGFloat = DeviceType.iPhoneSE ? 65 : 96
         NSLayoutConstraint.activate([
             popapLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 43.heightDependent()),
-            popapLabel.heightAnchor.constraint(equalToConstant: 96.heightDependent()),
+            popapLabel.heightAnchor.constraint(equalToConstant: heightAnchor),
             popapLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             popapLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            popapLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
@@ -220,7 +228,7 @@ class AlignmentViewController: UIViewController {
         startButton.layer.cornerRadius = radiusConstant
         let borderConstant: CGFloat = DeviceType.iPhoneSE ? 0.82 : 1
         startButton.layer.borderWidth = borderConstant
-        startButton.setTitle("Вытянуть руну", for: .normal)
+        startButton.setTitle(String.drawRune, for: .normal)
         startButton.translatesAutoresizingMaskIntoConstraints = false
         
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30
@@ -266,9 +274,11 @@ class AlignmentViewController: UIViewController {
         showButton.setImage(Assets.learnAboutTheAlignment.image, for: .normal)
         showButton.addTarget(self, action: #selector(self.openDescriptionPopup), for: .touchUpInside)
         contentView.addSubview(showButton)
-
+        
+        let leadingAnchor: CGFloat = DeviceType.iPhoneSE ? 0 : 14.heightDependent()
+        
         NSLayoutConstraint.activate([
-            showButton.leadingAnchor.constraint(equalTo: startButton.trailingAnchor, constant: 16.heightDependent()),
+            showButton.leadingAnchor.constraint(equalTo: startButton.trailingAnchor, constant: leadingAnchor),
             showButton.centerYAnchor.constraint(equalTo: startButton.centerYAnchor),
             showButton.widthAnchor.constraint(equalToConstant: 48),
             showButton.heightAnchor.constraint(equalToConstant: 48),
@@ -279,96 +289,100 @@ class AlignmentViewController: UIViewController {
     // MARK: - Info PopUp
     
     @objc func openDescriptionPopup (sender: UIButton!) {
-            let viewModel = RuneDescriptionPopUpViewModel(runeDescription: self.viewModel.runeDescription)
-            let viewController = RuneDescriptionPopUp()
-            viewController.viewModel = viewModel
-            viewController.modalPresentationStyle = .overCurrentContext
-            self.present(viewController, animated: true)
+        let viewModel = RuneDescriptionPopUpViewModel(runeDescription: self.viewModel.runeDescription)
+        let viewController = RuneDescriptionPopUp()
+        viewController.viewModel = viewModel
+        viewController.modalPresentationStyle = .overCurrentContext
+        self.present(viewController, animated: true)
+    }
+    
+    
+    
+    //-------------------------------------------------
+    // MARK: -
+    //-------------------------------------------------
+    
+    func addOneRuneViewController(controller: OneRuneViewController) {
+        invisibaleView()
+        if runesViewContainer.runeLayout != .dayRune && self.children.isEmpty {
+            self.readyToOpen = false
+            contentInterpretationView.isHidden = true
+            self.addChild(controller)
+            self.view.addSubview(controller.view)
+            controller.didMove(toParent: self)
+            controller.view.translatesAutoresizingMaskIntoConstraints = false
+            nameLabel.removeFromSuperview()
+            popapNameLabel()
+            viewBlackBackground()
+            containerTopAnchor.isActive = false
+            containerTopAnchor = runesViewContainer.topAnchor.constraint(equalTo: invibaleView.centerYAnchor)
+            containerTopAnchor.isActive = true
+            
+            scrollViewAlignment.isScrollEnabled = false
+            NSLayoutConstraint.activate([
+                controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                controller.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                controller.view.widthAnchor.constraint(equalTo: view.widthAnchor),
+                controller.view.heightAnchor.constraint(equalToConstant: view.frame.height * 2 / 3)
+            ])
+            controller.closeVC = { [weak self] in
+                let topAnchor: CGFloat = DeviceType.iPhoneSE ? 117 : 162
+                self?.contentInterpretationView.isHidden = false
+                self?.containerTopAnchor!.constant = topAnchor
+                self?.containerTopAnchor.isActive = false
+                self?.containerTopAnchor = self?.runesViewContainer.topAnchor.constraint(equalTo: (self?.contentView.topAnchor)!, constant: topAnchor)
+                self?.containerTopAnchor.isActive = true
+                self?.nameLabel.backgroundColor = .clear
+                self?.popapLabel.removeFromSuperview()
+                self?.setUpNameLabel()
+                self?.viewBlack.removeFromSuperview()
+                self?.scrollViewAlignment.isScrollEnabled = true
+                self?.invibaleView.removeFromSuperview()
+                self?.readyToOpen = true
+                self?.scrollViewAlignment.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+            }
+            
+            controller.changeContentOffset = { [self]frame in
+                var heightConstant: CGFloat = 0
+                switch (runesViewContainer.runeLayout, DeviceType.iPhoneSE) {
+                case (.dayRune, false):
+                    break
+                case (.twoRunes, false):
+                    heightConstant = 230.heightDependent()
+                case (.norns, false):
+                    heightConstant = 300.heightDependent()
+                case (.shortPrediction, false):
+                    heightConstant = 250.heightDependent()
+                case (.thorsHummer, false):
+                    heightConstant = 60.heightDependent()
+                case (.cross, false):
+                    heightConstant = 230.heightDependent()
+                case (.elementsCross, false):
+                    heightConstant = 100.heightDependent()
+                case (.keltsCross, false):
+                    heightConstant = 120.heightDependent()
+                case (.dayRune, true):
+                    break
+                case (.twoRunes, true):
+                    heightConstant = 200
+                case (.norns, true):
+                    heightConstant = 235
+                case (.shortPrediction, true):
+                    heightConstant = 150
+                case (.thorsHummer, true):
+                    heightConstant = 60
+                case (.cross, true):
+                    heightConstant = 150
+                case (.elementsCross, true):
+                    heightConstant = 50
+                case (.keltsCross, true):
+                    heightConstant = 70
+                }
+                scrollViewAlignment.contentOffset.y = frame.origin.y - heightConstant
+                
+            }
+        } else {
+            self.readyToOpen = false
         }
-
-    
-
-//-------------------------------------------------
-// MARK: -
-//-------------------------------------------------
-
-func addOneRuneViewController(controller: OneRuneViewController) {
-    invisibaleView()
-    if runesViewContainer.runeLayout != .dayRune {
-    contentInterpretationView.isHidden = true
-    self.addChild(controller)
-    self.view.addSubview(controller.view)
-    controller.didMove(toParent: controller)
-    controller.view.translatesAutoresizingMaskIntoConstraints = false
-    nameLabel.removeFromSuperview()
-    popapNameLabel()
-    viewBlackBackground()
-    containerTopAnchor.isActive = false
-    containerTopAnchor = runesViewContainer.topAnchor.constraint(equalTo: invibaleView.centerYAnchor)
-    containerTopAnchor.isActive = true
-    
-    scrollViewAlignment.isScrollEnabled = false
-    NSLayoutConstraint.activate([
-        controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        controller.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        controller.view.widthAnchor.constraint(equalTo: view.widthAnchor),
-        controller.view.heightAnchor.constraint(equalToConstant: view.frame.height * 2 / 3)
-    ])
-    controller.didMove(toParent: self)
-    controller.closeVC = { [weak self] in
-        self?.contentInterpretationView.isHidden = false
-        self?.containerTopAnchor!.constant = 162.heightDependent()
-        self?.containerTopAnchor.isActive = false
-        self?.containerTopAnchor = self?.runesViewContainer.topAnchor.constraint(equalTo: (self?.contentView.topAnchor)!, constant: 162.heightDependent())
-        self?.containerTopAnchor.isActive = true
-        self?.nameLabel.backgroundColor = .clear
-        self?.popapLabel.removeFromSuperview()
-        self?.setUpNameLabel()
-        self?.viewBlack.removeFromSuperview()
-        self?.scrollViewAlignment.isScrollEnabled = true
-        self?.invibaleView.removeFromSuperview()
     }
-    
-    controller.changeContentOffset = { [self]frame in
-        var heightConstant: CGFloat = 0
-        switch (runesViewContainer.runeLayout, DeviceType.iPhoneSE) {
-        case (.dayRune, false):
-            break
-        case (.twoRunes, false):
-            heightConstant = 220.heightDependent()
-        case (.norns, false):
-            heightConstant = 300.heightDependent()
-        case (.shortPrediction, false):
-            heightConstant = 250.heightDependent()
-        case (.thorsHummer, false):
-            heightConstant = 60.heightDependent()
-        case (.cross, false):
-            heightConstant = 230.heightDependent()
-        case (.elementsCross, false):
-            heightConstant = 100.heightDependent()
-        case (.keltsCross, false):
-            heightConstant = 120.heightDependent()
-        case (.dayRune, true):
-            break
-        case (.twoRunes, true):
-            heightConstant = 200
-        case (.norns, true):
-            heightConstant = 235
-        case (.shortPrediction, true):
-            heightConstant = 150
-        case (.thorsHummer, true):
-            heightConstant = 60
-        case (.cross, true):
-            heightConstant = 150
-        case (.elementsCross, true):
-            heightConstant = 50
-        case (.keltsCross, true):
-            heightConstant = 70
-        }
-        scrollViewAlignment.contentOffset.y = frame.origin.y - heightConstant
-
-    }
-    }
-}
-
 }

@@ -14,6 +14,7 @@
 		191D32CF25B7C46A001DC210 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D32CC25B7C46A001DC210 /* Assets.swift */; };
 		191D32D025B7C46A001DC210 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D32CD25B7C46A001DC210 /* Localizable.swift */; };
 		193FFB382613319000D60171 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193FFB372613319000D60171 /* CustomButton.swift */; };
+		1944411326278EA900EAB9F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1944411526278EA900EAB9F3 /* Localizable.strings */; };
 		195AEDC325B8C3A300180A49 /* AlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195AEDC225B8C3A300180A49 /* AlignmentViewController.swift */; };
 		1987AAB625BDCDA400BB3655 /* ThreeRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AAB525BDCDA400BB3655 /* ThreeRuneView.swift */; };
 		1987AABB25BDCDB400BB3655 /* FourRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AABA25BDCDB400BB3655 /* FourRuneView.swift */; };
@@ -21,11 +22,7 @@
 		1987AAC525BDCDCA00BB3655 /* SixRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AAC425BDCDCA00BB3655 /* SixRuneView.swift */; };
 		1987AACA25BDCDD500BB3655 /* SevenRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AAC925BDCDD500BB3655 /* SevenRuneView.swift */; };
 		1987AACF25BDCDF000BB3655 /* EightRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AACE25BDCDF000BB3655 /* EightRuneView.swift */; };
-		198A056925B77BE200FDA485 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 198A056825B77BE200FDA485 /* Localizable.strings */; };
 		199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A678A25F837110013DE5D /* MainTabBarController.swift */; };
-		199A679325F838C10013DE5D /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A679225F838C10013DE5D /* LibraryViewController.swift */; };
-		199A679825F838E50013DE5D /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A679725F838E50013DE5D /* FavoritesViewController.swift */; };
-		199A679D25F8390F0013DE5D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199A679C25F8390F0013DE5D /* SettingsViewController.swift */; };
 		19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC60225C01A2D000808CF /* ScreenDependent.swift */; };
 		19BDC61225C02EE9000808CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC61125C02EE9000808CF /* SceneDelegate.swift */; };
 		19BDC61B25C030B1000808CF /* UIControlPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BDC61825C030B1000808CF /* UIControlPublisher.swift */; };
@@ -49,12 +46,10 @@
 		9B5F5BC1261CE03700A7454F /* led_chernaya ladya_master.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F5BBD261CE03600A7454F /* led_chernaya ladya_master.mp3 */; };
 		9B5F5BC2261CE03700A7454F /* led_Mat moys skazala_master.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F5BBE261CE03600A7454F /* led_Mat moys skazala_master.mp3 */; };
 		9B5F5BC3261CE03700A7454F /* Danheim-Runar_master.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F5BBF261CE03600A7454F /* Danheim-Runar_master.mp3 */; };
-		9B5F5BC4261CE03700A7454F /* Danheim-Kala_master.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F5BC0261CE03700A7454F /* Danheim-Kala_master.mp3 */; };
 		9B739DDC25CC296900726B30 /* RuneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739DDB25CC296900726B30 /* RuneType.swift */; };
 		9B739DF325CD765800726B30 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739DF225CD765800726B30 /* Constants.swift */; };
 		9B739E0525CD77E900726B30 /* ProcessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739E0325CD77E900726B30 /* ProcessingViewController.swift */; };
 		9B739E0625CD77E900726B30 /* ProcessingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739E0425CD77E900726B30 /* ProcessingViewModel.swift */; };
-		9B739E0B25CD9B4500726B30 /* RuneDescriptionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739E0A25CD9B4500726B30 /* RuneDescriptionPopUp.swift */; };
 		9B739E1025CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739E0F25CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift */; };
 		9B739E4325D1DCD100726B30 /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B739E4225D1DCD000726B30 /* SFProDisplay-Regular.ttf */; };
 		9B739E4C25D1E99B00726B30 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739E4B25D1E99A00726B30 /* NetworkingManager.swift */; };
@@ -65,10 +60,9 @@
 		9B9F151D2591499A00062F47 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F151B2591499A00062F47 /* AmaticSC-Bold.ttf */; };
 		9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAEB61C25F13412004B7761 /* Affirmation.swift */; };
 		9BAEB63425F18C3B004B7761 /* Interperitation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAEB63325F18C3B004B7761 /* Interperitation+Ext.swift */; };
+		9BC33722262A4F750042A8BF /* Danheim-Kala_master.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9BC33721262A4F750042A8BF /* Danheim-Kala_master.mp3 */; };
 		9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD228FD258A321B00E17E98 /* AppDelegate.swift */; };
 		9BD22907258A321F00E17E98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22906258A321F00E17E98 /* Assets.xcassets */; };
-		9BD22915258A322000E17E98 /* RunarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22914258A322000E17E98 /* RunarTests.swift */; };
-		9BD22920258A322000E17E98 /* RunarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD2291F258A322000E17E98 /* RunarUITests.swift */; };
 		9BD2295A258AB02500E17E98 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22959258AB02500E17E98 /* CollectionViewController.swift */; };
 		9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22971258AD6EF00E17E98 /* MainCell.swift */; };
 		9BD229CA258D776200E17E98 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229BD258D776000E17E98 /* Roboto-MediumItalic.ttf */; };
@@ -85,6 +79,17 @@
 		9BD229D5258D776200E17E98 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229C8258D776200E17E98 /* Roboto-Black.ttf */; };
 		9BD229D6258D776200E17E98 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD229C9258D776200E17E98 /* Roboto-BoldItalic.ttf */; };
 		9BD229DF258D82DD00E17E98 /* AlignmentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD229DE258D82DD00E17E98 /* AlignmentInfoViewController.swift */; };
+		9BD98C932628A74200F3BBD7 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98C8C2628A74200F3BBD7 /* AppInfoViewController.swift */; };
+		9BD98C942628A74200F3BBD7 /* StaticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98C8E2628A74200F3BBD7 /* StaticCell.swift */; };
+		9BD98C952628A74200F3BBD7 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98C8F2628A74200F3BBD7 /* MusicCell.swift */; };
+		9BD98C962628A74200F3BBD7 /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98C902628A74200F3BBD7 /* LanguageCell.swift */; };
+		9BD98C972628A74200F3BBD7 /* AlertSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98C912628A74200F3BBD7 /* AlertSettingsViewController.swift */; };
+		9BD98C982628A74200F3BBD7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98C922628A74200F3BBD7 /* SettingsViewController.swift */; };
+		9BD98C9E2628A75600F3BBD7 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98C9C2628A75600F3BBD7 /* UINavigationController.swift */; };
+		9BD98C9F2628A75600F3BBD7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98C9D2628A75600F3BBD7 /* UIView.swift */; };
+		9BD98CA42628A8B800F3BBD7 /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD98CA32628A8B800F3BBD7 /* SFProDisplay-Medium.ttf */; };
+		9BD98CC02628CD1D00F3BBD7 /* EscapePopUpViewVontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpViewVontroller.swift */; };
+		9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */; };
 		D33A65EC2DE4E4D7C3C956F3 /* Pods_Runar_RunarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */; };
 		DB92AEE5E33DCFB508195B8F /* Pods_Runar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */; };
 /* End PBXBuildFile section */
@@ -115,6 +120,8 @@
 		191D32CD25B7C46A001DC210 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localizable.swift; path = Runar/SwiftGen/Localizable.swift; sourceTree = SOURCE_ROOT; };
 		192EF92C25B7AFB70055DB9D /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		193FFB372613319000D60171 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		1944411426278EA900EAB9F3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1944411626278EAE00EAB9F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		195AEDC225B8C3A300180A49 /* AlignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentViewController.swift; sourceTree = "<group>"; };
 		1987AAB525BDCDA400BB3655 /* ThreeRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeRuneView.swift; sourceTree = "<group>"; };
 		1987AABA25BDCDB400BB3655 /* FourRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourRuneView.swift; sourceTree = "<group>"; };
@@ -122,11 +129,7 @@
 		1987AAC425BDCDCA00BB3655 /* SixRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixRuneView.swift; sourceTree = "<group>"; };
 		1987AAC925BDCDD500BB3655 /* SevenRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenRuneView.swift; sourceTree = "<group>"; };
 		1987AACE25BDCDF000BB3655 /* EightRuneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightRuneView.swift; sourceTree = "<group>"; };
-		198A056825B77BE200FDA485 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		199A678A25F837110013DE5D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		199A679225F838C10013DE5D /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
-		199A679725F838E50013DE5D /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		199A679C25F8390F0013DE5D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		19BDC60225C01A2D000808CF /* ScreenDependent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDependent.swift; sourceTree = "<group>"; };
 		19BDC61125C02EE9000808CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		19BDC61825C030B1000808CF /* UIControlPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlPublisher.swift; sourceTree = "<group>"; };
@@ -153,12 +156,10 @@
 		9B5F5BBD261CE03600A7454F /* led_chernaya ladya_master.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "led_chernaya ladya_master.mp3"; sourceTree = "<group>"; };
 		9B5F5BBE261CE03600A7454F /* led_Mat moys skazala_master.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "led_Mat moys skazala_master.mp3"; sourceTree = "<group>"; };
 		9B5F5BBF261CE03600A7454F /* Danheim-Runar_master.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Danheim-Runar_master.mp3"; sourceTree = "<group>"; };
-		9B5F5BC0261CE03700A7454F /* Danheim-Kala_master.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Danheim-Kala_master.mp3"; sourceTree = "<group>"; };
 		9B739DDB25CC296900726B30 /* RuneType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneType.swift; sourceTree = "<group>"; };
 		9B739DF225CD765800726B30 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Runar/Support/Constants.swift; sourceTree = SOURCE_ROOT; };
 		9B739E0325CD77E900726B30 /* ProcessingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingViewController.swift; sourceTree = "<group>"; };
 		9B739E0425CD77E900726B30 /* ProcessingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingViewModel.swift; sourceTree = "<group>"; };
-		9B739E0A25CD9B4500726B30 /* RuneDescriptionPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneDescriptionPopUp.swift; sourceTree = "<group>"; };
 		9B739E0F25CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneDescriptionPopUpViewModel.swift; sourceTree = "<group>"; };
 		9B739E4225D1DCD000726B30 /* SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		9B739E4B25D1E99A00726B30 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -169,16 +170,13 @@
 		9B9F151B2591499A00062F47 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
 		9BAEB61C25F13412004B7761 /* Affirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Affirmation.swift; sourceTree = "<group>"; };
 		9BAEB63325F18C3B004B7761 /* Interperitation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interperitation+Ext.swift"; sourceTree = "<group>"; };
+		9BC33721262A4F750042A8BF /* Danheim-Kala_master.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Danheim-Kala_master.mp3"; sourceTree = "<group>"; };
 		9BD228FA258A321B00E17E98 /* Runar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD228FD258A321B00E17E98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BD22906258A321F00E17E98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BD2290B258A321F00E17E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BD22910258A322000E17E98 /* RunarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BD22914258A322000E17E98 /* RunarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunarTests.swift; sourceTree = "<group>"; };
-		9BD22916258A322000E17E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BD2291B258A322000E17E98 /* RunarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BD2291F258A322000E17E98 /* RunarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunarUITests.swift; sourceTree = "<group>"; };
-		9BD22921258A322000E17E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BD22959258AB02500E17E98 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		9BD22971258AD6EF00E17E98 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		9BD229BD258D776000E17E98 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -196,6 +194,17 @@
 		9BD229C9258D776200E17E98 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
 		9BD229DA258D7BD400E17E98 /* PoiretOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PoiretOne-Regular.ttf"; sourceTree = "<group>"; };
 		9BD229DE258D82DD00E17E98 /* AlignmentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentInfoViewController.swift; sourceTree = "<group>"; };
+		9BD98C8C2628A74200F3BBD7 /* AppInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
+		9BD98C8E2628A74200F3BBD7 /* StaticCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticCell.swift; sourceTree = "<group>"; };
+		9BD98C8F2628A74200F3BBD7 /* MusicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
+		9BD98C902628A74200F3BBD7 /* LanguageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
+		9BD98C912628A74200F3BBD7 /* AlertSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertSettingsViewController.swift; sourceTree = "<group>"; };
+		9BD98C922628A74200F3BBD7 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9BD98C9C2628A75600F3BBD7 /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		9BD98C9D2628A75600F3BBD7 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		9BD98CA32628A8B800F3BBD7 /* SFProDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.ttf"; sourceTree = "<group>"; };
+		9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpViewVontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscapePopUpViewVontroller.swift; sourceTree = "<group>"; };
+		9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneDescriptionPopUp.swift; sourceTree = "<group>"; };
 		9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.release.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar_RunarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -271,10 +280,8 @@
 		199A678925F836C20013DE5D /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
+				9BD22959258AB02500E17E98 /* CollectionViewController.swift */,
 				199A678A25F837110013DE5D /* MainTabBarController.swift */,
-				199A679225F838C10013DE5D /* LibraryViewController.swift */,
-				199A679725F838E50013DE5D /* FavoritesViewController.swift */,
-				199A679C25F8390F0013DE5D /* SettingsViewController.swift */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -311,6 +318,8 @@
 		19C0F20025BAFC830027422B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9BD98C9C2628A75600F3BBD7 /* UINavigationController.swift */,
+				9BD98C9D2628A75600F3BBD7 /* UIView.swift */,
 				19C0F20925BAFCB20027422B /* Array+Extensions.swift */,
 			);
 			path = Extensions;
@@ -359,7 +368,7 @@
 		9B5F5BBC261CE02300A7454F /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				9B5F5BC0261CE03700A7454F /* Danheim-Kala_master.mp3 */,
+				9BC33721262A4F750042A8BF /* Danheim-Kala_master.mp3 */,
 				9B5F5BBF261CE03600A7454F /* Danheim-Runar_master.mp3 */,
 				9B5F5BBD261CE03600A7454F /* led_chernaya ladya_master.mp3 */,
 				9B5F5BBE261CE03600A7454F /* led_Mat moys skazala_master.mp3 */,
@@ -380,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				9B739E4225D1DCD000726B30 /* SFProDisplay-Regular.ttf */,
+				9BD98CA32628A8B800F3BBD7 /* SFProDisplay-Medium.ttf */,
 				9B97AC7E25AE6E81008FFF3F /* SFProDisplay-Light.ttf */,
 			);
 			path = SFProDisplay;
@@ -388,15 +398,15 @@
 		9B9C25C925993DE000A4E135 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9BD98CDC2628D3BA00F3BBD7 /* RuneDescriptionPopUp */,
+				9BD98CBE2628CD1D00F3BBD7 /* Escape Pop Up */,
+				9BD98C8B2628A74200F3BBD7 /* Settings */,
 				9B5F5BB3261CD58F00A7454F /* Music */,
 				9B15E36625FE461E00737306 /* OneRuneViewController */,
 				199A678925F836C20013DE5D /* TabBarController */,
-				9B739E0A25CD9B4500726B30 /* RuneDescriptionPopUp.swift */,
-				9B739E0F25CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift */,
 				9B739E0225CD77E900726B30 /* Processing */,
 				19C0F20E25BAFDA80027422B /* AligmentInfo */,
 				19C0F1F225BAF0540027422B /* Aligment */,
-				9BD22959258AB02500E17E98 /* CollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -409,7 +419,7 @@
 				19BDC60225C01A2D000808CF /* ScreenDependent.swift */,
 				9BD229A8258B7F4F00E17E98 /* Fonts */,
 				9BD22906258A321F00E17E98 /* Assets.xcassets */,
-				198A056825B77BE200FDA485 /* Localizable.strings */,
+				1944411526278EA900EAB9F3 /* Localizable.strings */,
 				9B9C266E25A2173100A4E135 /* DataBase.swift */,
 				9BD228FD258A321B00E17E98 /* AppDelegate.swift */,
 				19BDC61125C02EE9000808CF /* SceneDelegate.swift */,
@@ -440,8 +450,6 @@
 			children = (
 				192EF92C25B7AFB70055DB9D /* swiftgen.yml */,
 				9BD228FC258A321B00E17E98 /* Runar */,
-				9BD22913258A322000E17E98 /* RunarTests */,
-				9BD2291E258A322000E17E98 /* RunarUITests */,
 				9BD228FB258A321B00E17E98 /* Products */,
 				A2A5CAEB8FFCA1990E63BEE2 /* Pods */,
 				F845FBB93D424E742E7134D4 /* Frameworks */,
@@ -475,24 +483,6 @@
 			path = Runar;
 			sourceTree = "<group>";
 		};
-		9BD22913258A322000E17E98 /* RunarTests */ = {
-			isa = PBXGroup;
-			children = (
-				9BD22914258A322000E17E98 /* RunarTests.swift */,
-				9BD22916258A322000E17E98 /* Info.plist */,
-			);
-			path = RunarTests;
-			sourceTree = "<group>";
-		};
-		9BD2291E258A322000E17E98 /* RunarUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9BD2291F258A322000E17E98 /* RunarUITests.swift */,
-				9BD22921258A322000E17E98 /* Info.plist */,
-			);
-			path = RunarUITests;
-			sourceTree = "<group>";
-		};
 		9BD229A8258B7F4F00E17E98 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,6 +513,44 @@
 				9BD229C7258D776200E17E98 /* Roboto-ThinItalic.ttf */,
 			);
 			path = Roboto;
+			sourceTree = "<group>";
+		};
+		9BD98C8B2628A74200F3BBD7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9BD98C8C2628A74200F3BBD7 /* AppInfoViewController.swift */,
+				9BD98C8D2628A74200F3BBD7 /* Cells */,
+				9BD98C912628A74200F3BBD7 /* AlertSettingsViewController.swift */,
+				9BD98C922628A74200F3BBD7 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		9BD98C8D2628A74200F3BBD7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9BD98C8E2628A74200F3BBD7 /* StaticCell.swift */,
+				9BD98C8F2628A74200F3BBD7 /* MusicCell.swift */,
+				9BD98C902628A74200F3BBD7 /* LanguageCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9BD98CBE2628CD1D00F3BBD7 /* Escape Pop Up */ = {
+			isa = PBXGroup;
+			children = (
+				9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpViewVontroller.swift */,
+			);
+			path = "Escape Pop Up";
+			sourceTree = "<group>";
+		};
+		9BD98CDC2628D3BA00F3BBD7 /* RuneDescriptionPopUp */ = {
+			isa = PBXGroup;
+			children = (
+				9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */,
+				9B739E0F25CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift */,
+			);
+			path = RuneDescriptionPopUp;
 			sourceTree = "<group>";
 		};
 		A2A5CAEB8FFCA1990E63BEE2 /* Pods */ = {
@@ -637,6 +665,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 9BD228F1258A321B00E17E98;
 			productRefGroup = 9BD228FB258A321B00E17E98 /* Products */;
@@ -661,6 +690,7 @@
 				9B5F5BC3261CE03700A7454F /* Danheim-Runar_master.mp3 in Resources */,
 				9B5F5BC1261CE03700A7454F /* led_chernaya ladya_master.mp3 in Resources */,
 				9BD229CA258D776200E17E98 /* Roboto-MediumItalic.ttf in Resources */,
+				9BC33722262A4F750042A8BF /* Danheim-Kala_master.mp3 in Resources */,
 				9BD229CE258D776200E17E98 /* Roboto-BlackItalic.ttf in Resources */,
 				9BD229D0258D776200E17E98 /* Roboto-Medium.ttf in Resources */,
 				9BD22907258A321F00E17E98 /* Assets.xcassets in Resources */,
@@ -675,10 +705,10 @@
 				9B9F151C2591499A00062F47 /* AmaticSC-Regular.ttf in Resources */,
 				9BD229D2258D776200E17E98 /* Apache License.txt in Resources */,
 				9BD229D5258D776200E17E98 /* Roboto-Black.ttf in Resources */,
-				9B5F5BC4261CE03700A7454F /* Danheim-Kala_master.mp3 in Resources */,
 				9B739E4325D1DCD100726B30 /* SFProDisplay-Regular.ttf in Resources */,
-				198A056925B77BE200FDA485 /* Localizable.strings in Resources */,
+				1944411326278EA900EAB9F3 /* Localizable.strings in Resources */,
 				9B97AC7F25AE6E81008FFF3F /* SFProDisplay-Light.ttf in Resources */,
+				9BD98CA42628A8B800F3BBD7 /* SFProDisplay-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -797,11 +827,10 @@
 				19BDC61D25C030B1000808CF /* PublisherProvider.swift in Sources */,
 				1987AAC525BDCDCA00BB3655 /* SixRuneView.swift in Sources */,
 				19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */,
-				199A679825F838E50013DE5D /* FavoritesViewController.swift in Sources */,
 				1987AACA25BDCDD500BB3655 /* SevenRuneView.swift in Sources */,
-				199A679D25F8390F0013DE5D /* SettingsViewController.swift in Sources */,
 				9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */,
 				195AEDC325B8C3A300180A49 /* AlignmentViewController.swift in Sources */,
+				9BD98C972628A74200F3BBD7 /* AlertSettingsViewController.swift in Sources */,
 				1907851425C4236000434D57 /* FirstRuneView.swift in Sources */,
 				19C0F1FC25BAF9D00027422B /* MainCellModel.swift in Sources */,
 				19C0F21025BAFDCB0027422B /* AlignmentInfoViewModel.swift in Sources */,
@@ -815,6 +844,7 @@
 				9B15E37625FE548400737306 /* BottomLineView.swift in Sources */,
 				19BDC61225C02EE9000808CF /* SceneDelegate.swift in Sources */,
 				19BDC61B25C030B1000808CF /* UIControlPublisher.swift in Sources */,
+				9BD98C9F2628A75600F3BBD7 /* UIView.swift in Sources */,
 				9B739DDC25CC296900726B30 /* RuneType.swift in Sources */,
 				1907850C25C4235000434D57 /* RuneButton.swift in Sources */,
 				19C0F20A25BAFCB20027422B /* Array+Extensions.swift in Sources */,
@@ -822,11 +852,13 @@
 				9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */,
 				9B739E0625CD77E900726B30 /* ProcessingViewModel.swift in Sources */,
 				9B15E37025FE4BFC00737306 /* TopLineView.swift in Sources */,
-				199A679325F838C10013DE5D /* LibraryViewController.swift in Sources */,
 				19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */,
 				19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */,
 				9B0CB8862607922B00B2AF60 /* DescriptionView.swift in Sources */,
+				9BD98C962628A74200F3BBD7 /* LanguageCell.swift in Sources */,
+				9BD98C942628A74200F3BBD7 /* StaticCell.swift in Sources */,
 				9B739E0525CD77E900726B30 /* ProcessingViewController.swift in Sources */,
+				9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */,
 				9B739E4C25D1E99B00726B30 /* NetworkingManager.swift in Sources */,
 				9B739E1025CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift in Sources */,
 				1987AABB25BDCDB400BB3655 /* FourRuneView.swift in Sources */,
@@ -834,13 +866,17 @@
 				1987AACF25BDCDF000BB3655 /* EightRuneView.swift in Sources */,
 				191D32D025B7C46A001DC210 /* Localizable.swift in Sources */,
 				1987AAC025BDCDBF00BB3655 /* FiveRuneView.swift in Sources */,
+				9BD98CC02628CD1D00F3BBD7 /* EscapePopUpViewVontroller.swift in Sources */,
 				199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */,
 				9B5F5BB5261CD5A500A7454F /* MusicViewController.swift in Sources */,
+				9BD98C9E2628A75600F3BBD7 /* UINavigationController.swift in Sources */,
+				9BD98C952628A74200F3BBD7 /* MusicCell.swift in Sources */,
 				9BAEB63425F18C3B004B7761 /* Interperitation+Ext.swift in Sources */,
 				193FFB382613319000D60171 /* CustomButton.swift in Sources */,
 				19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */,
-				9B739E0B25CD9B4500726B30 /* RuneDescriptionPopUp.swift in Sources */,
+				9BD98C932628A74200F3BBD7 /* AppInfoViewController.swift in Sources */,
 				9B0CB88B2607B6A000B2AF60 /* TopWithDescriptionView.swift in Sources */,
+				9BD98C982628A74200F3BBD7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -848,7 +884,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BD22915258A322000E17E98 /* RunarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -856,7 +891,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BD22920258A322000E17E98 /* RunarUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -874,6 +908,18 @@
 			targetProxy = 9BD2291C258A322000E17E98 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1944411526278EA900EAB9F3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1944411426278EA900EAB9F3 /* ru */,
+				1944411626278EAE00EAB9F3 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9BD22922258A322000E17E98 /* Debug */ = {

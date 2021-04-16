@@ -7,149 +7,165 @@
 
 import UIKit
 
+extension String {
+    static let lyod = L10n.Music.lyod
+    static let blackRook = L10n.Music.blackRook
+    static let myMotherTold = L10n.Music.myMotherTold
+}
+
 class ProcessingViewController: UIViewController {
-    
-    var backgroundFire = UIImageView()
-    let shapeLayer = CAShapeLayer()
-    let imageView = UIImageView()
-    var name = String()
-    var nameLabel = UILabel()
-    var startButton = UIButton()
-    var vectorImageView = UIImageView()
-    var processingLabel = UILabel()
-    var adName = UILabel()
-    var adText = UILabel()
     
     var viewModel: ProcessingViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundSetup()
-        
-        setUpNameLabel()
-        setUpStart()
-        setUpProcessingLabel()
-        setUpImageView()
-        setUpAdNameAndText()
-        fillContent()
-        
-        CATransaction.begin()
 
+        configureUI()
+        fillContent()
+        doAnimation()
+    }
+    
+    private func doAnimation() {
+        view.layoutIfNeeded()
+
+        CATransaction.begin()
         CATransaction.setCompletionBlock({
             self.viewModel.closeTransition()
         })
-        shapeSetUp()
-        animationSetUp()
-      CATransaction.commit()
+        configureShapeLayer()
+        backgroundFire.layer.addSublayer(shapeLayer)
+        shapeLayer.add(basicAnimation, forKey: nil)
+        CATransaction.commit()
         
     }
-
-    func setUpNextController()-> AlignmentViewController {
-        let viewModel = AlignmentViewModel(runeDescription: self.viewModel.runeDescription)
-        let viewController = AlignmentViewController()
-        viewController.viewModel = viewModel
-        viewController.hidesBottomBarWhenPushed = true
-        return viewController
-    }
     
-    func backgroundSetup() {
-        backgroundFire.image = Assets.mainFire.image
-        backgroundFire.translatesAutoresizingMaskIntoConstraints = false
-        backgroundFire.contentMode = .scaleAspectFill
-        backgroundFire.isUserInteractionEnabled = true
-        self.view.addSubview(backgroundFire)
-        NSLayoutConstraint.activate([
-            backgroundFire.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundFire.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            backgroundFire.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundFire.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ])
-    }
+    private var backgroundFire: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = Assets.mainFire.image
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.isUserInteractionEnabled = true
+        return imageView
+    }()
     
-    
-    func setUpImageView() {
-                
-        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147
+    private var imageView: UIImageView = {
+        let imageView = UIImageView()
+        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147.heightDependent()
         imageView.layer.cornerRadius = radiusConstant
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundFire.addSubview(imageView)
-        
-        let heightConstant: CGFloat = DeviceType.iPhoneSE ? 167 : 294
-        let topConstant: CGFloat = DeviceType.iPhoneSE ? 70 : 93.heightDependent()
-       
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: processingLabel.bottomAnchor, constant: topConstant),
-            imageView.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: heightConstant),
-            imageView.centerXAnchor.constraint(equalTo: backgroundFire.centerXAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: heightConstant)
-        ])
-        view.layoutIfNeeded()
-    }
+        return imageView
+    }()
     
-    func shapeSetUp() {
-        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147
+
+    private func configureShapeLayer() {
+        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147.heightDependent()
         let center = CGPoint(x: imageView.frame.midX, y: imageView.frame.midY)
         let startAngle: CGFloat = -0.25 * 2 * .pi
         let endAngle: CGFloat = startAngle + 2 * .pi
         let circularPath = UIBezierPath(arcCenter: center, radius: radiusConstant, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         shapeLayer.path = circularPath.cgPath
+    }
+    
+    private var shapeLayer: CAShapeLayer = {
+        let shapeLayer = CAShapeLayer()
         shapeLayer.strokeEnd = 0
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1).cgColor
         shapeLayer.lineWidth = 2
-        backgroundFire.layer.addSublayer(shapeLayer)
-    }
+        return shapeLayer
+    }()
     
-    func animationSetUp () {
+    private var basicAnimation: CABasicAnimation = {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.fromValue = 0
         basicAnimation.toValue = 1
-        basicAnimation.duration = 15
+        basicAnimation.duration = 1
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
-        shapeLayer.add(basicAnimation, forKey: nil)
-        
-    }
+        return basicAnimation
+    }()
 
     
-    func setUpNameLabel() {
-        nameLabel.text = viewModel.name
+    private var nameLabel: UILabel = {
+        let label = UILabel()
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 45 : 55
-        nameLabel.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.textColor =  UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
-        nameLabel.textAlignment = .center
-        nameLabel.attributedText = NSMutableAttributedString(string: nameLabel.text!, attributes: [NSAttributedString.Key.kern: -1.1])
-        backgroundFire.addSubview(nameLabel)
-        let nameLabelTop: CGFloat = DeviceType.iPhoneSE ? 33 : 57
-        let nameLabelHeight: CGFloat = DeviceType.iPhoneSE ? 75 : 90
-        
-        NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: backgroundFire.topAnchor, constant: nameLabelTop.heightDependent()),
-            nameLabel.heightAnchor.constraint(equalToConstant: nameLabelHeight),
-            nameLabel.centerXAnchor.constraint(equalTo: backgroundFire.centerXAnchor)
-        ])
-    }
+        label.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor =  UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
+        label.textAlignment = .center
+        label.attributedText = NSMutableAttributedString(string: label.text ?? "", attributes: [NSAttributedString.Key.kern: -1.1])
+        return label
+    }()
     
-    func setUpStart() {
+    private var startButton: UIButton = {
+        let startButton = UIButton()
         startButton.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
         startButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
         startButton.layer.cornerRadius = 8
         startButton.layer.borderWidth = 1
-        startButton.setTitle("Перейти на сайт", for: .normal)
-        
-        vectorImageView.image = Assets.vector.image
-        vectorImageView.translatesAutoresizingMaskIntoConstraints = false
-        startButton.addSubview(vectorImageView)
-        
+        startButton.setTitle(L10n.goToTheSite, for: .normal)
         startButton.translatesAutoresizingMaskIntoConstraints = false
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30
         startButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
         startButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .normal)
         startButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
-        backgroundFire.addSubview(startButton)
+        startButton.addTarget(self, action: #selector(startButtonOnTap), for: .touchUpInside)
+        return startButton
+    }()
+    
+    @objc private func startButtonOnTap() {
+        guard let url = URL(string: link) else {return}
+        UIApplication.shared.open(url)
+    }
+    private var vectorImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = Assets.vector.image
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private let processingLabel: UILabel = {
+        var processingLabel = UILabel()
+        processingLabel.text = L10n.layoutProcessing
+        processingLabel.translatesAutoresizingMaskIntoConstraints = false
+        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 14 : 16
+        processingLabel.font = FontFamily.Roboto.light.font(size: fontConstant)
         
-        let heightConstant: CGFloat = DeviceType.iPhoneSE ? 46 : 56
+        processingLabel.textColor = UIColor(red: 0.949, green: 0.949, blue: 0.949, alpha: 1)
+        processingLabel.textAlignment = .center
+        return processingLabel
+    }()
+
+    private var adName: UILabel = {
+        let adName = UILabel()
+        let nameFontConstant: CGFloat = DeviceType.iPhoneSE ? 10 : 24
+        adName.font = FontFamily.SFProDisplay.regular.font(size: nameFontConstant)
+        adName.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
+        adName.textAlignment = .center
+        adName.translatesAutoresizingMaskIntoConstraints = false
+        return adName
+    }()
+    
+    private let adText: UILabel = {
+        let adText = UILabel()
+        adText.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
+        let addFontConst: CGFloat =  DeviceType.iPhoneSE ? 14 : 16
+        adText.font = FontFamily.SFProDisplay.light.font(size: addFontConst)
+        adText.textAlignment = .center
+        adText.translatesAutoresizingMaskIntoConstraints = false
+        return adText
+    }()
+    
+    private func configureUI() {
+        view.addSubviews(backgroundFire, nameLabel, startButton, vectorImageView, processingLabel, imageView, adName, adText)
+        
+        let imageViewHeightConstant: CGFloat = DeviceType.iPhoneSE ? 167 : 294.heightDependent()
+        let imageViewTopConstant: CGFloat = DeviceType.iPhoneSE ? 70 : 93.heightDependent()
+        
+        let nameLabelTop: CGFloat = DeviceType.iPhoneSE ? 35 : 57.heightDependent()
+        let nameLabelHeight: CGFloat = DeviceType.iPhoneSE ? 75 : 90
+        
+        let startHeightConstant: CGFloat = DeviceType.iPhoneSE ? 46 : 56
         let buttonWidthConsatnt: CGFloat = DeviceType.iPhoneSE ? 210 : 255
         
         let vectorTop: CGFloat = DeviceType.iPhoneSE ? 17.25 : 21
@@ -157,92 +173,86 @@ class ProcessingViewController: UIViewController {
         let vectorWidth: CGFloat = DeviceType.iPhoneSE ? 15.74 : 19.16
         let vectorHeight: CGFloat = DeviceType.iPhoneSE ? 10.68 : 13
         
+        let processingTop: CGFloat = DeviceType.iPhoneSE ? 6 : 15.heightDependent()
+        
+        let adNameTop: CGFloat = DeviceType.iPhoneSE ? 16 : 24.heightDependent()
+        let adTextTop: CGFloat = DeviceType.iPhoneSE ? 0 : 4.heightDependent()
+        let adHeight: CGFloat = DeviceType.iPhoneSE ? 17 : 25
+        
         NSLayoutConstraint.activate([
+            backgroundFire.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundFire.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundFire.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundFire.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            nameLabel.topAnchor.constraint(equalTo: backgroundFire.topAnchor, constant: nameLabelTop),
+            nameLabel.heightAnchor.constraint(equalToConstant: nameLabelHeight),
+            nameLabel.centerXAnchor.constraint(equalTo: backgroundFire.centerXAnchor),
+            
             startButton.bottomAnchor.constraint(equalTo: backgroundFire.bottomAnchor, constant: -40.heightDependent()),
             startButton.widthAnchor.constraint(equalToConstant: buttonWidthConsatnt),
-            startButton.heightAnchor.constraint(equalToConstant: heightConstant),
+            startButton.heightAnchor.constraint(equalToConstant: startHeightConstant),
             startButton.centerXAnchor.constraint(equalTo: backgroundFire.centerXAnchor),
-       
+            
             vectorImageView.topAnchor.constraint(equalTo: startButton.topAnchor, constant: vectorTop),
             vectorImageView.trailingAnchor.constraint(equalTo: startButton.trailingAnchor, constant: vectorTrailing),
             vectorImageView.widthAnchor.constraint(equalToConstant: vectorWidth),
             vectorImageView.heightAnchor.constraint(equalToConstant: vectorHeight),
-        ])
-    }
-    
-    func setUpProcessingLabel() {
-        processingLabel.text = "Расклад обрабатывается..."
-        processingLabel.translatesAutoresizingMaskIntoConstraints = false
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 12 : 16
-        processingLabel.font = FontFamily.Roboto.light.font(size: fontConstant)
-        
-        processingLabel.textColor = UIColor(red: 0.949, green: 0.949, blue: 0.949, alpha: 1)
-        processingLabel.textAlignment = .center
-        
-        backgroundFire.addSubview(processingLabel)
-        
-        NSLayoutConstraint.activate([
+            
             processingLabel.leadingAnchor.constraint(equalTo: backgroundFire.leadingAnchor, constant: 50),
             processingLabel.trailingAnchor.constraint(equalTo: backgroundFire.trailingAnchor, constant: -50),
-            processingLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20.heightDependent()),
-            processingLabel.heightAnchor.constraint(equalToConstant: 17)
-        ])
-    }
+            processingLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: processingTop),
+            processingLabel.heightAnchor.constraint(equalToConstant: 17),
     
-    func setUpAdNameAndText () {
-        
-        adName.font = FontFamily.SFProDisplay.regular.font(size: 24)
-        
-        adName.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
-        adName.textAlignment = .center
-        
-        adText.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
-        adText.font = FontFamily.SFProDisplay.light.font(size: 16)
-        adText.textAlignment = .center
-        
-        adName.translatesAutoresizingMaskIntoConstraints = false
-        adText.translatesAutoresizingMaskIntoConstraints = false
-        backgroundFire.addSubview(adName)
-        backgroundFire.addSubview(adText)
-        
-        NSLayoutConstraint.activate([
+            
+            imageView.topAnchor.constraint(equalTo: processingLabel.bottomAnchor, constant: imageViewTopConstant),
+            imageView.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: imageViewHeightConstant),
+            imageView.centerXAnchor.constraint(equalTo: backgroundFire.centerXAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: imageViewHeightConstant),
+            
             adName.leadingAnchor.constraint(equalTo: backgroundFire.leadingAnchor, constant: 60),
             adName.trailingAnchor.constraint(equalTo: backgroundFire.trailingAnchor, constant: -60),
-            adName.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 24.heightDependent()),
-            adName.bottomAnchor.constraint(equalTo: adName.topAnchor, constant: 25),
+            adName.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: adNameTop),
+            adName.bottomAnchor.constraint(equalTo: adName.topAnchor, constant: adHeight),
             
             adText.leadingAnchor.constraint(equalTo: backgroundFire.leadingAnchor, constant: 60),
             adText.trailingAnchor.constraint(equalTo: backgroundFire.trailingAnchor, constant: -60),
-            adText.topAnchor.constraint(equalTo: adName.bottomAnchor, constant: 4),
-            adText.bottomAnchor.constraint(equalTo: adText.topAnchor, constant: 25),
+            adText.topAnchor.constraint(equalTo: adName.bottomAnchor, constant: adTextTop),
+            adText.bottomAnchor.constraint(equalTo: adText.topAnchor, constant: adHeight)
+            
+            
         ])
     }
     
+    private var link = ""
+    
     private func fillContent() {
+        nameLabel.text = viewModel.name
+        
         switch MusicViewController.shared.currentSoundsIndex {
         case 0:
             imageView.image = Assets.led.image
-            adName.text = "Лёдъ"
-            adText.text = "Мать моя сказала"
+            adName.text = String.lyod
+            adText.text = String.myMotherTold
+            link = "https://lyod1.bandcamp.com/releases"
         case 1:
             imageView.image = Assets.led.image
-            adName.text = "Лёдъ"
-            adText.text = "Чёрная ладья"
+            adName.text = String.lyod
+            adText.text = String.blackRook
+            link = "https://lyod1.bandcamp.com/releases"
         case 2:
             imageView.image = Assets.danheim.image
             adName.text = "Danheim"
             adText.text = "Runar"
+            link = "https://danheimmusic.com"
         case 3:
             imageView.image = Assets.danheim.image
             adName.text = "Danheim"
             adText.text = "Kala"
+            link = "https://danheimmusic.com"
         default:
-            imageView.image = Assets.ads.image
+            imageView.image = nil
         }
     }
 }
-//static let ledFirstSong = "led_Mat moys skazala_master"
-//static let ledSecondSong = "led_chernaya ladya_master"
-//static let danheimFirstSong = "Danheim-Runar_master"
-//static let danheimSecondSong = "Danheim-Kala_master"
 

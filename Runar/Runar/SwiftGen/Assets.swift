@@ -21,7 +21,6 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Assets {
-  internal static let accentColor = ColorAsset(name: "AccentColor")
   internal enum Background {
     internal static let backgroundShadowSetting = ImageAsset(name: "Background/backgroundShadowSetting")
     internal static let main = ImageAsset(name: "Background/main")
@@ -106,6 +105,7 @@ internal enum Assets {
     internal static let wunji = ImageAsset(name: "LayoutsRunes/Wunji")
   }
   internal static let led = ImageAsset(name: "Led")
+  internal static let settingsArrow = ImageAsset(name: "Settings-arrow")
   internal enum TabBar {
     internal enum Image {
       internal static let favorites = ImageAsset(name: "TabBar/Image/Favorites")
@@ -115,13 +115,14 @@ internal enum Assets {
     }
     internal static let pushColor = ColorAsset(name: "TabBar/pushColor")
   }
-  internal static let ads = ImageAsset(name: "ads")
   internal static let backgroundDown = ImageAsset(name: "backgroundDown")
   internal static let bottomBlackGradient = ImageAsset(name: "bottomBlackGradient")
   internal static let darkRune = ImageAsset(name: "darkRune")
   internal static let escape = ImageAsset(name: "escape")
   internal static let floatingDown = ImageAsset(name: "floatingDown")
   internal static let floatingUp = ImageAsset(name: "floatingUp")
+  internal static let languageSelected = ImageAsset(name: "language-selected")
+  internal static let languageUnselected = ImageAsset(name: "language-unselected")
   internal static let launchRunar = ImageAsset(name: "launchRunar")
   internal static let launchScreen = ImageAsset(name: "launchScreen")
   internal static let learnAboutTheAlignment = ImageAsset(name: "learnAboutTheAlignment")
