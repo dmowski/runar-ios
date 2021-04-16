@@ -53,7 +53,6 @@ class RuneDescriptionPopUp: UIViewController {
     let messageLabel: UILabel = {
         let messageLabel = UILabel()
         messageLabel.textAlignment = .left
-        
         messageLabel.textColor = UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 1)
         
         messageLabel.font = DeviceType.iPhoneSE ?

@@ -40,7 +40,7 @@ class EscapePopUpViewController: UIViewController {
         
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 17 : 20
         titlelabel.font = FontFamily.SFProDisplay.regular.font(size: fontConstant)
-        
+        titlelabel.numberOfLines = 0
         titlelabel.adjustsFontSizeToFitWidth = true
         titlelabel.minimumScaleFactor = 0.9
         titlelabel.lineBreakMode = .byTruncatingTail
@@ -162,13 +162,11 @@ class EscapePopUpViewController: UIViewController {
         let topConstant: CGFloat = DeviceType.iPhoneSE ? 40.01 : 55
         let trailingConstant: CGFloat = DeviceType.iPhoneSE ? -11.5 : -14
         let leadingConstant: CGFloat = DeviceType.iPhoneSE ? 11.5 : 14
-        let bottomConstant: CGFloat = DeviceType.iPhoneSE ? -72.3 : -87
 
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: topConstant),
             titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: trailingConstant),
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: leadingConstant),
-            titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: bottomConstant)
         ])
         
     }
