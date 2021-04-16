@@ -99,16 +99,15 @@ class RuneDescriptionPopUp: UIViewController {
     
     func configureContainerView() {
         view.addSubview(containerView)
-        let topConstant: CGFloat = DeviceType.iPhoneSE ? 60 : 156
+        let height: CGFloat = DeviceType.iPhoneSE ? 448 : 565.heightDependent()
         let trailingConstant: CGFloat = DeviceType.iPhoneSE ? -8 : -16
         let leadingConstant: CGFloat = DeviceType.iPhoneSE ? 8 : 16
-        let bottomConstant: CGFloat = DeviceType.iPhoneSE ? -60 : -175
         
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: topConstant),
+            containerView.heightAnchor.constraint(equalToConstant: height),
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: trailingConstant),
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingConstant),
-            containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: bottomConstant)
+            containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
     }
     
