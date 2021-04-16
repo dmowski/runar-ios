@@ -79,16 +79,18 @@ final class BottomLineView: UIView {
         tapGestureRight.addTarget(self, action: #selector(rightVectorTap))
         self.addSubview(leftVectror)
         self.addSubview(rightVectror)
+        
+        let vectorSize: CGFloat = DeviceType.isIPhone678 || DeviceType.iPhoneSE ? 48 : 40
         NSLayoutConstraint.activate([
             leftVectror.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24.heightDependent()),
-            leftVectror.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30.heightDependent()),
-            leftVectror.heightAnchor.constraint(equalToConstant: 12.heightDependent()),
-            leftVectror.widthAnchor.constraint(equalToConstant: 22.heightDependent()),
+            leftVectror.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            leftVectror.heightAnchor.constraint(equalToConstant: vectorSize),
+            leftVectror.widthAnchor.constraint(equalToConstant: vectorSize),
             
-            rightVectror.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
-            rightVectror.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30.heightDependent()),
-            rightVectror.heightAnchor.constraint(equalToConstant: 12.heightDependent()),
-            rightVectror.widthAnchor.constraint(equalToConstant: 22.heightDependent())
+            rightVectror.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24.heightDependent()),
+            rightVectror.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            rightVectror.heightAnchor.constraint(equalToConstant: vectorSize),
+            rightVectror.widthAnchor.constraint(equalToConstant: vectorSize)
         ])
     }
     

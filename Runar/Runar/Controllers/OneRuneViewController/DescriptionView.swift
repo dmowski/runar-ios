@@ -22,6 +22,7 @@ class DescriptionView: UIView {
     
     convenience init(runeType: RuneType) {
         self.init(frame: .zero)
+        
         self.runeType = runeType
         let timeParagraphStyle = NSMutableParagraphStyle()
         timeParagraphStyle.lineHeightMultiple = 1.23
