@@ -80,15 +80,16 @@ final class BottomLineView: UIView {
         self.addSubview(leftVectror)
         self.addSubview(rightVectror)
         
-        let vectorSize: CGFloat = DeviceType.isIPhone678 || DeviceType.iPhoneSE ? 48 : 40
+        let vectorSize: CGFloat = DeviceType.iPhoneSE ? 40 : 48
+        let vectorBottom: CGFloat = DeviceType.isIPhone678 || DeviceType.iPhoneSE ? 0 : -15
         NSLayoutConstraint.activate([
             leftVectror.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24.heightDependent()),
-            leftVectror.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            leftVectror.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: vectorBottom),
             leftVectror.heightAnchor.constraint(equalToConstant: vectorSize),
             leftVectror.widthAnchor.constraint(equalToConstant: vectorSize),
             
             rightVectror.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24.heightDependent()),
-            rightVectror.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            rightVectror.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: vectorBottom),
             rightVectror.heightAnchor.constraint(equalToConstant: vectorSize),
             rightVectror.widthAnchor.constraint(equalToConstant: vectorSize)
         ])
@@ -120,7 +121,7 @@ final class BottomLineView: UIView {
         
         self.addSubview(pageControl)
         NSLayoutConstraint.activate([
-            pageControl.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15.heightDependent()),
+            pageControl.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
             pageControl.heightAnchor.constraint(equalToConstant: 45.heightDependent()),
             pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
