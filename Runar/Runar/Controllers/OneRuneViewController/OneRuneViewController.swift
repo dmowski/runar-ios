@@ -38,7 +38,7 @@ class OneRuneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setView()
+
         setUpBottomConstr()
         configurePageScroll()
         
@@ -53,19 +53,6 @@ class OneRuneViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         openCurrentPage()
-    }
-    
-    private func setView() {
-        view.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6).cgColor
-        let stroke = UIView()
-        stroke.bounds = view.bounds.insetBy(dx: -1, dy: -1)
-        stroke.center = view.center
-        view.addSubview(stroke)
-        view.bounds = view.bounds.insetBy(dx: -1, dy: -1)
-        stroke.layer.borderWidth = 1
-        stroke.layer.borderColor = UIColor(red: 0.329, green: 0.329, blue: 0.345, alpha: 0.65).cgColor
-        stroke.layer.cornerRadius = 20
-        
     }
     
     private func setUpBottomConstr() {
