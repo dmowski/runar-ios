@@ -7,6 +7,12 @@
 
 import UIKit
 
+extension String {
+    static let lyod = L10n.Music.lyod
+    static let blackRook = L10n.Music.blackRook
+    static let myMotherTold = L10n.Music.myMotherTold
+}
+
 class ProcessingViewController: UIViewController {
     
     var backgroundFire = UIImageView()
@@ -222,12 +228,12 @@ class ProcessingViewController: UIViewController {
         switch MusicViewController.shared.currentSoundsIndex {
         case 0:
             imageView.image = Assets.led.image
-            adName.text = "Лёдъ"
-            adText.text = "Мать моя сказала"
+            adName.text = String.lyod
+            adText.text = String.myMotherTold
         case 1:
             imageView.image = Assets.led.image
-            adName.text = "Лёдъ"
-            adText.text = "Чёрная ладья"
+            adName.text = String.lyod
+            adText.text = String.blackRook
         case 2:
             imageView.image = Assets.danheim.image
             adName.text = "Danheim"

@@ -1628,6 +1628,15 @@ internal enum L10n {
     }
   }
 
+  internal enum Music {
+    /// Black rook
+    internal static let blackRook = L10n.tr("Localizable", "music.blackRook")
+    /// Lyod
+    internal static let lyod = L10n.tr("Localizable", "music.lyod")
+    /// My mother told
+    internal static let myMotherTold = L10n.tr("Localizable", "music.myMotherTold")
+  }
+
   internal enum Name {
     /// Algiz
     internal static let algiz = L10n.tr("Localizable", "name.Algiz")
