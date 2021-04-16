@@ -46,7 +46,6 @@
 		9B5F5BC1261CE03700A7454F /* led_chernaya ladya_master.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F5BBD261CE03600A7454F /* led_chernaya ladya_master.mp3 */; };
 		9B5F5BC2261CE03700A7454F /* led_Mat moys skazala_master.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F5BBE261CE03600A7454F /* led_Mat moys skazala_master.mp3 */; };
 		9B5F5BC3261CE03700A7454F /* Danheim-Runar_master.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F5BBF261CE03600A7454F /* Danheim-Runar_master.mp3 */; };
-		9B5F5BC4261CE03700A7454F /* Danheim-Kala_master.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F5BC0261CE03700A7454F /* Danheim-Kala_master.mp3 */; };
 		9B739DDC25CC296900726B30 /* RuneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739DDB25CC296900726B30 /* RuneType.swift */; };
 		9B739DF325CD765800726B30 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739DF225CD765800726B30 /* Constants.swift */; };
 		9B739E0525CD77E900726B30 /* ProcessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B739E0325CD77E900726B30 /* ProcessingViewController.swift */; };
@@ -61,6 +60,7 @@
 		9B9F151D2591499A00062F47 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F151B2591499A00062F47 /* AmaticSC-Bold.ttf */; };
 		9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAEB61C25F13412004B7761 /* Affirmation.swift */; };
 		9BAEB63425F18C3B004B7761 /* Interperitation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAEB63325F18C3B004B7761 /* Interperitation+Ext.swift */; };
+		9BC33722262A4F750042A8BF /* Danheim-Kala_master.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9BC33721262A4F750042A8BF /* Danheim-Kala_master.mp3 */; };
 		9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD228FD258A321B00E17E98 /* AppDelegate.swift */; };
 		9BD22907258A321F00E17E98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD22906258A321F00E17E98 /* Assets.xcassets */; };
 		9BD2295A258AB02500E17E98 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD22959258AB02500E17E98 /* CollectionViewController.swift */; };
@@ -156,7 +156,6 @@
 		9B5F5BBD261CE03600A7454F /* led_chernaya ladya_master.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "led_chernaya ladya_master.mp3"; sourceTree = "<group>"; };
 		9B5F5BBE261CE03600A7454F /* led_Mat moys skazala_master.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "led_Mat moys skazala_master.mp3"; sourceTree = "<group>"; };
 		9B5F5BBF261CE03600A7454F /* Danheim-Runar_master.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Danheim-Runar_master.mp3"; sourceTree = "<group>"; };
-		9B5F5BC0261CE03700A7454F /* Danheim-Kala_master.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Danheim-Kala_master.mp3"; sourceTree = "<group>"; };
 		9B739DDB25CC296900726B30 /* RuneType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneType.swift; sourceTree = "<group>"; };
 		9B739DF225CD765800726B30 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Runar/Support/Constants.swift; sourceTree = SOURCE_ROOT; };
 		9B739E0325CD77E900726B30 /* ProcessingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessingViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +170,7 @@
 		9B9F151B2591499A00062F47 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
 		9BAEB61C25F13412004B7761 /* Affirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Affirmation.swift; sourceTree = "<group>"; };
 		9BAEB63325F18C3B004B7761 /* Interperitation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interperitation+Ext.swift"; sourceTree = "<group>"; };
+		9BC33721262A4F750042A8BF /* Danheim-Kala_master.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Danheim-Kala_master.mp3"; sourceTree = "<group>"; };
 		9BD228FA258A321B00E17E98 /* Runar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD228FD258A321B00E17E98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BD22906258A321F00E17E98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -368,7 +368,7 @@
 		9B5F5BBC261CE02300A7454F /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				9B5F5BC0261CE03700A7454F /* Danheim-Kala_master.mp3 */,
+				9BC33721262A4F750042A8BF /* Danheim-Kala_master.mp3 */,
 				9B5F5BBF261CE03600A7454F /* Danheim-Runar_master.mp3 */,
 				9B5F5BBD261CE03600A7454F /* led_chernaya ladya_master.mp3 */,
 				9B5F5BBE261CE03600A7454F /* led_Mat moys skazala_master.mp3 */,
@@ -690,6 +690,7 @@
 				9B5F5BC3261CE03700A7454F /* Danheim-Runar_master.mp3 in Resources */,
 				9B5F5BC1261CE03700A7454F /* led_chernaya ladya_master.mp3 in Resources */,
 				9BD229CA258D776200E17E98 /* Roboto-MediumItalic.ttf in Resources */,
+				9BC33722262A4F750042A8BF /* Danheim-Kala_master.mp3 in Resources */,
 				9BD229CE258D776200E17E98 /* Roboto-BlackItalic.ttf in Resources */,
 				9BD229D0258D776200E17E98 /* Roboto-Medium.ttf in Resources */,
 				9BD22907258A321F00E17E98 /* Assets.xcassets in Resources */,
@@ -704,7 +705,6 @@
 				9B9F151C2591499A00062F47 /* AmaticSC-Regular.ttf in Resources */,
 				9BD229D2258D776200E17E98 /* Apache License.txt in Resources */,
 				9BD229D5258D776200E17E98 /* Roboto-Black.ttf in Resources */,
-				9B5F5BC4261CE03700A7454F /* Danheim-Kala_master.mp3 in Resources */,
 				9B739E4325D1DCD100726B30 /* SFProDisplay-Regular.ttf in Resources */,
 				1944411326278EA900EAB9F3 /* Localizable.strings in Resources */,
 				9B97AC7F25AE6E81008FFF3F /* SFProDisplay-Light.ttf in Resources */,
