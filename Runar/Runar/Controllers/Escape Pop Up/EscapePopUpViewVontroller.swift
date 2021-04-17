@@ -15,6 +15,7 @@ extension String {
 
 extension UIColor {
     static let alertActionButonTitleColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
+    static let popUpContainer = UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 0.75)
 }
 
 class EscapePopUpViewController: UIViewController {
@@ -23,7 +24,7 @@ class EscapePopUpViewController: UIViewController {
     let containerView: UIView = {
         let containerView = UIView()
         
-        containerView.backgroundColor = UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 0.75)
+        containerView.backgroundColor = .popUpContainer
         containerView.layer.cornerRadius = 20
         containerView.layer.borderWidth = 1
         containerView.layer.borderColor = UIColor(red: 0.329, green: 0.329, blue: 0.345, alpha: 0.65).cgColor
@@ -49,13 +50,14 @@ class EscapePopUpViewController: UIViewController {
     }()
     
     //MARK: ActionButtons
-    let actionButtonNo: UIButton = {
-        let actionButton = UIButton()
-        actionButton.frame = .zero
+    let actionButtonNo: CustomButton = {
+        let actionButton = CustomButton()
+        actionButton.layer.cornerRadius = 20
+        actionButton.layer.maskedCorners = [.layerMinXMaxYCorner]
+        actionButton.setTitleColor(.popUpContainer, for: .highlighted)
         actionButton.backgroundColor = .none
         actionButton.setTitle(.no, for: .normal)
         actionButton.setTitleColor(.alertActionButonTitleColor, for: .normal)
-        
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 14 : 17
         actionButton.titleLabel?.font = FontFamily.SFProDisplay.regular.font(size: fontConstant)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
@@ -63,12 +65,14 @@ class EscapePopUpViewController: UIViewController {
         return actionButton
     }()
     
-    let actionButtonYes: UIButton = {
-        let actionButton = UIButton()
-        actionButton.frame = .zero
+    let actionButtonYes: CustomButton = {
+        let actionButton = CustomButton()
+        actionButton.layer.cornerRadius = 20
+        actionButton.layer.maskedCorners = [.layerMaxXMaxYCorner]
         actionButton.backgroundColor = .none
         actionButton.setTitle(.yes, for: .normal)
         actionButton.setTitleColor(.alertActionButonTitleColor, for: .normal)
+        actionButton.setTitleColor(.popUpContainer, for: .highlighted)
         
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 14 : 17
         actionButton.titleLabel?.font = FontFamily.SFProDisplay.regular.font(size: fontConstant)
@@ -76,7 +80,6 @@ class EscapePopUpViewController: UIViewController {
         
         return actionButton
     }()
-    
     
     var alertTitle: String?
     var message: String?
@@ -102,7 +105,6 @@ class EscapePopUpViewController: UIViewController {
         view.addSubview(containerView)
         let heightConstant: CGFloat = DeviceType.iPhoneSE ? 137 : 173
         let leadingConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 36
-        
         
         NSLayoutConstraint.activate([
             containerView.heightAnchor.constraint(equalToConstant: heightConstant),
@@ -145,7 +147,7 @@ class EscapePopUpViewController: UIViewController {
             return stroke
         }()
         
-        let strokeVerticalHeighConstant: CGFloat = DeviceType.iPhoneSE ? 39 : 42
+        let strokeVerticalHeighConstant: CGFloat = DeviceType.iPhoneSE ? 40 : 43
 
 
         NSLayoutConstraint.activate([
@@ -174,11 +176,10 @@ class EscapePopUpViewController: UIViewController {
         containerView.addSubview(actionButtonNo)
         actionButtonNo.addTarget(self , action: #selector(dismissVC), for: .touchUpInside)
 
-        let heighConstant: CGFloat = DeviceType.iPhoneSE ? 22.3 : 28
-        let bottomConstant: CGFloat = DeviceType.iPhoneSE ? -9.37 : -8
+        let heighConstant: CGFloat = DeviceType.iPhoneSE ? 40 : 43
         
         NSLayoutConstraint.activate([
-            actionButtonNo.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: bottomConstant),
+            actionButtonNo.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             actionButtonNo.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             actionButtonNo.trailingAnchor.constraint(equalTo: containerView.centerXAnchor),
             actionButtonNo.heightAnchor.constraint(equalToConstant: heighConstant)
@@ -189,11 +190,10 @@ class EscapePopUpViewController: UIViewController {
         containerView.addSubview(actionButtonYes)
         actionButtonYes.addTarget(self , action: #selector(self.escapeOnTap), for: .touchUpInside)
 
-        let heighConstant: CGFloat = DeviceType.iPhoneSE ? 22.3 : 28
-        let bottomConstant: CGFloat = DeviceType.iPhoneSE ? -9.37 : -8
-        
+        let heighConstant: CGFloat = DeviceType.iPhoneSE ? 40 : 43
+
         NSLayoutConstraint.activate([
-            actionButtonYes.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: bottomConstant),
+            actionButtonYes.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             actionButtonYes.leadingAnchor.constraint(equalTo: containerView.centerXAnchor),
             actionButtonYes.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             actionButtonYes.heightAnchor.constraint(equalToConstant: heighConstant)
