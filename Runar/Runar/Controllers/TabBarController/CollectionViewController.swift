@@ -29,6 +29,8 @@ class CollectionViewController: UICollectionViewController {
         
         MusicViewController.shared.playCurrentSong()
         
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
