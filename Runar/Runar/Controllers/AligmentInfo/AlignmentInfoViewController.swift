@@ -38,7 +38,7 @@ class AlignmentInfoViewController: UIViewController {
         setUpShowLabel()
         setUpShowButton()
         setUpStack()
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
     }
     
     func backgroundSetup() {
