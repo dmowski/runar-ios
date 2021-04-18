@@ -17,7 +17,7 @@ extension String {
     static let probableFuture = L10n.probableFuture
     static let ourAim = L10n.ourAim
     static let difficulties = L10n.difficulties
-    static let stateOfAffairs = L10n.difficulties
+    static let stateOfAffairs = L10n.stateOfAffairs
     static let conditions = L10n.conditions
     static let reason = L10n.reason
     static let theBest = L10n.theBest
