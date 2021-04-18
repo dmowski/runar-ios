@@ -53,21 +53,20 @@ class TwoRuneView: UIView, RuneViewProtocol {
         }
         
         NSLayoutConstraint.activate([
-
-            buttonOne.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 12.heightDependent()),
-            buttonOne.centerYAnchor.constraint(equalTo: centerYAnchor),
-            buttonOne.widthAnchor.constraint(equalToConstant: 76.heightDependent()),
-            buttonOne.heightAnchor.constraint(equalToConstant: 100.heightDependent()),
-
-            buttonTwo.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -12.heightDependent()),
+            buttonTwo.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 12.heightDependent()),
             buttonTwo.centerYAnchor.constraint(equalTo: centerYAnchor),
             buttonTwo.widthAnchor.constraint(equalToConstant: 76.heightDependent()),
             buttonTwo.heightAnchor.constraint(equalToConstant: 100.heightDependent()),
+
+            buttonOne.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -12.heightDependent()),
+            buttonOne.centerYAnchor.constraint(equalTo: centerYAnchor),
+            buttonOne.widthAnchor.constraint(equalToConstant: 76.heightDependent()),
+            buttonOne.heightAnchor.constraint(equalToConstant: 100.heightDependent()),
             
-            buttonOne.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor),
-            buttonOne.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor),
-            buttonOne.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor),
-            buttonOne.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor)
+            buttonTwo.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor),
+            buttonTwo.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor),
+            buttonTwo.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor),
+            buttonTwo.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor)
         ])
     }
 
