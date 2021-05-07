@@ -37,6 +37,7 @@
 		19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BAFD25C9874200418CE7 /* RuneViewProtocol.swift */; };
 		19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BB0525C9874E00418CE7 /* RunesView.swift */; };
 		1A04A48091973E2F0EB04A65 /* Pods_RunarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */; };
+		8477222E2643C9CA001C280D /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477222D2643C9CA001C280D /* LocalStorage.swift */; };
 		9B0CB8862607922B00B2AF60 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0CB8852607922B00B2AF60 /* DescriptionView.swift */; };
 		9B0CB88B2607B6A000B2AF60 /* TopWithDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0CB88A2607B6A000B2AF60 /* TopWithDescriptionView.swift */; };
 		9B15E36825FE465400737306 /* OneRuneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B15E36725FE465400737306 /* OneRuneViewController.swift */; };
@@ -146,6 +147,7 @@
 		1A56DC55326BF359E39532FA /* Pods-Runar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar.release.xcconfig"; path = "Target Support Files/Pods-Runar/Pods-Runar.release.xcconfig"; sourceTree = "<group>"; };
 		29AD0AF3F59DE1B0E9AF6F8D /* Pods-RunarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.release.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.release.xcconfig"; sourceTree = "<group>"; };
 		7187BE777607C9CC2B878552 /* Pods-RunarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.debug.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8477222D2643C9CA001C280D /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0CB8852607922B00B2AF60 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		9B0CB88A2607B6A000B2AF60 /* TopWithDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopWithDescriptionView.swift; sourceTree = "<group>"; };
@@ -345,6 +347,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		8477222C2643C9AB001C280D /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				8477222D2643C9CA001C280D /* LocalStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		9B15E36625FE461E00737306 /* OneRuneViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +424,7 @@
 		9B9C25CA25993DF800A4E135 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				8477222C2643C9AB001C280D /* Storage */,
 				9B5F5BBC261CE02300A7454F /* Music */,
 				9B739DF225CD765800726B30 /* Constants.swift */,
 				19BDC60225C01A2D000808CF /* ScreenDependent.swift */,
@@ -860,6 +871,7 @@
 				9B739E0525CD77E900726B30 /* ProcessingViewController.swift in Sources */,
 				9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */,
 				9B739E4C25D1E99B00726B30 /* NetworkingManager.swift in Sources */,
+				8477222E2643C9CA001C280D /* LocalStorage.swift in Sources */,
 				9B739E1025CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift in Sources */,
 				1987AABB25BDCDB400BB3655 /* FourRuneView.swift in Sources */,
 				1907850425C4232F00434D57 /* RuneLayout.swift in Sources */,

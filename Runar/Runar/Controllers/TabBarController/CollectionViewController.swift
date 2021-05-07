@@ -67,7 +67,7 @@ class CollectionViewController: UICollectionViewController {
         guard let runeDescription = DataBase.runes.first(where: {
             $0.id == data[safe: indexPath.row]?.runeId
         }) else { return }
-        if UserDefaults.standard.bool(forKey: runeDescription.name) == true {
+        if LocalStorage.pull(forKey: runeDescription.name) == true {
             let viewModel = AlignmentViewModel(runeDescription: runeDescription)
             let viewController = AlignmentViewController()
             viewController.viewModel = viewModel
