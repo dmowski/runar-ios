@@ -17,8 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if isFirstLaunch(){
             signIn()
         }
+                
+        loadLibrary()
+        
         return true
     }
+    
     @available(iOS 13.0, *)
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
@@ -47,18 +51,36 @@ extension AppDelegate {
         
         return isFirstLaunch
     }
-    
-    func randomString(length: Int) -> String {
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        return String((0..<length).map{ _ in letters.randomElement()! })
-    }
-    
+       
     func signIn() {
-        let id = randomString(length: 32)
+        let id = String.random(withLength: 32)
         let created = NSDate().timeIntervalSince1970
         let systemVersion = "IOS " + UIDevice.current.systemVersion
-        NetworkingManager().createUser(with: id, date: created, os: systemVersion)
+        RunarApi.createUser(with: id, date: created, os: systemVersion)
         print(id, created, systemVersion)
+    }
+   
+    func loadLibrary() -> Void {
+        let storedLibraryHash: String? = LocalStorage.pull(forKey: .libraryHash, withLocalization: true)
+        guard let actualLibraryHash = RunarApi.getLibratyHash() else {
+            fatalError("Library hash is empty")
+        }
+        
+        if storedLibraryHash == nil || actualLibraryHash != storedLibraryHash {
+            guard let libraryData = RunarApi.getLibratyData() else {
+                fatalError("Library is empty")
+            }
+
+            LocalStorage.push(libraryData, forKey: .libraryData, withLocalization: true)
+            LocalStorage.push(actualLibraryHash, forKey: .libraryHash, withLocalization: true)
+        }
+    }
+}
+
+extension String {
+    static func random(withLength length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map{ _ in letters.randomElement()! })
     }
 }
 
