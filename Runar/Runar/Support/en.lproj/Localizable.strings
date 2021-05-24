@@ -24,8 +24,11 @@
 "rune.elementsCross.name" = "CROSS OF ELEMENTS";
 "rune.keltsCross.name" = "CELTIC CROSS";
 
+"navbar.title.back" = "Back";
+
 "tabbar.layouts" = "Runic Draws";
 "tabbar.settings" = "Settings";
+"tabbar.library" = "Library";
 "tabbar.openSettings" = "In order to change the language in the application, you need to go to the settings of your phone.";
 "tabbar.allow" = "Allow";
 "tabbar.cancel" = "Cancel";

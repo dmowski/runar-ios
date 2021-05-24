@@ -37,6 +37,10 @@
 		19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BAFD25C9874200418CE7 /* RuneViewProtocol.swift */; };
 		19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BB0525C9874E00418CE7 /* RunesView.swift */; };
 		1A04A48091973E2F0EB04A65 /* Pods_RunarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */; };
+		843DFF33265248B900D6DFE5 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF32265248B900D6DFE5 /* LibraryViewController.swift */; };
+		843DFF4D2653FB5400D6DFE5 /* LibraryNodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF4C2653FB5400D6DFE5 /* LibraryNodeCell.swift */; };
+		843DFF72265BC50800D6DFE5 /* LibraryNodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF71265BC50800D6DFE5 /* LibraryNodeViewController.swift */; };
+		844BF4D626501A81002C7596 /* RunarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF4D526501A81002C7596 /* RunarLayout.swift */; };
 		8477222E2643C9CA001C280D /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477222D2643C9CA001C280D /* LocalStorage.swift */; };
 		8477224326458020001C280D /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477224226458020001C280D /* Route.swift */; };
 		8477224F26458882001C280D /* CreateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477224E26458882001C280D /* CreateUserRequest.swift */; };
@@ -152,6 +156,10 @@
 		1A56DC55326BF359E39532FA /* Pods-Runar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar.release.xcconfig"; path = "Target Support Files/Pods-Runar/Pods-Runar.release.xcconfig"; sourceTree = "<group>"; };
 		29AD0AF3F59DE1B0E9AF6F8D /* Pods-RunarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.release.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.release.xcconfig"; sourceTree = "<group>"; };
 		7187BE777607C9CC2B878552 /* Pods-RunarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.debug.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		843DFF32265248B900D6DFE5 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		843DFF4C2653FB5400D6DFE5 /* LibraryNodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNodeCell.swift; sourceTree = "<group>"; };
+		843DFF71265BC50800D6DFE5 /* LibraryNodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNodeViewController.swift; sourceTree = "<group>"; };
+		844BF4D526501A81002C7596 /* RunarLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunarLayout.swift; sourceTree = "<group>"; };
 		8477222D2643C9CA001C280D /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		8477224226458020001C280D /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		8477224E26458882001C280D /* CreateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserRequest.swift; sourceTree = "<group>"; };
@@ -358,6 +366,32 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		843DFF452653969C00D6DFE5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				843DFF4C2653FB5400D6DFE5 /* LibraryNodeCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		844BF4C9264FE551002C7596 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				843DFF452653969C00D6DFE5 /* Cells */,
+				843DFF32265248B900D6DFE5 /* LibraryViewController.swift */,
+				843DFF71265BC50800D6DFE5 /* LibraryNodeViewController.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		844BF4D426501A6F002C7596 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				844BF4D526501A81002C7596 /* RunarLayout.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		8477222C2643C9AB001C280D /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +488,7 @@
 		9B9C25C925993DE000A4E135 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				844BF4C9264FE551002C7596 /* Library */,
 				9BD98CDC2628D3BA00F3BBD7 /* RuneDescriptionPopUp */,
 				9BD98CBE2628CD1D00F3BBD7 /* Escape Pop Up */,
 				9BD98C8B2628A74200F3BBD7 /* Settings */,
@@ -488,6 +523,7 @@
 		9B9C25CB25993E0900A4E135 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				844BF4D426501A6F002C7596 /* Common */,
 				9B9C25CC25993E1100A4E135 /* Cells */,
 			);
 			path = Views;
@@ -880,6 +916,7 @@
 			files = (
 				19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */,
 				9B739DF325CD765800726B30 /* Constants.swift in Sources */,
+				843DFF4D2653FB5400D6DFE5 /* LibraryNodeCell.swift in Sources */,
 				84D7E5F02649EC6700772EE3 /* LibraryData.swift in Sources */,
 				191D32CE25B7C46A001DC210 /* Fonts.swift in Sources */,
 				9B15E36825FE465400737306 /* OneRuneViewController.swift in Sources */,
@@ -908,11 +945,13 @@
 				8477224F26458882001C280D /* CreateUserRequest.swift in Sources */,
 				9B739DDC25CC296900726B30 /* RuneType.swift in Sources */,
 				1907850C25C4235000434D57 /* RuneButton.swift in Sources */,
+				843DFF72265BC50800D6DFE5 /* LibraryNodeViewController.swift in Sources */,
 				19C0F20A25BAFCB20027422B /* Array+Extensions.swift in Sources */,
 				84D7E60B264BAED300772EE3 /* Environment.swift in Sources */,
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
 				9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */,
 				9B739E0625CD77E900726B30 /* ProcessingViewModel.swift in Sources */,
+				843DFF33265248B900D6DFE5 /* LibraryViewController.swift in Sources */,
 				9B15E37025FE4BFC00737306 /* TopLineView.swift in Sources */,
 				19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */,
 				19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */,
@@ -941,6 +980,7 @@
 				9BD98C932628A74200F3BBD7 /* AppInfoViewController.swift in Sources */,
 				9B0CB88B2607B6A000B2AF60 /* TopWithDescriptionView.swift in Sources */,
 				9BD98C982628A74200F3BBD7 /* SettingsViewController.swift in Sources */,
+				844BF4D626501A81002C7596 /* RunarLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

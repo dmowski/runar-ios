@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LibraryNode {
+public class LibraryNode {
     let id: String
     let imageUrl: String?
     let linkTitle: String?
