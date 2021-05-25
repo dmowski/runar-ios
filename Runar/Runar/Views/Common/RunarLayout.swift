@@ -7,10 +7,7 @@
 
 import UIKit
 
-public class RunarLayout {
-    public static let backgroundImage: UIImageView = createBackground(with: Assets.Background.main)
-    public static let backgroundShadow: UIImageView = createBackground(with: Assets.Background.backgroundShadowSetting)
-    
+public class RunarLayout {    
     private static func createBackground(with asset: ImageAsset) -> UIImageView {
         let background = UIImageView()
         background.translatesAutoresizingMaskIntoConstraints = false
@@ -20,6 +17,9 @@ public class RunarLayout {
     }
     
     public static func initBackground(for view: UIView) {
+        let backgroundImage: UIImageView = createBackground(with: Assets.Background.main)
+        let backgroundShadow: UIImageView = createBackground(with: Assets.Background.backgroundShadowSetting)
+        
         view.addSubviews(backgroundImage, backgroundShadow)
         
         addConstraints(for: backgroundImage, to: view)
