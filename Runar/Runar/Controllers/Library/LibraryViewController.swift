@@ -8,14 +8,8 @@
 import UIKit
 
 public class LibraryViewController: LibraryNodeViewController {
-    public override func viewDidLoad() {
-        guard let data: Data = LocalStorage.pull(forKey: .libraryData, withLocalization: true) else {
-            fatalError("No data to display")
-        }
-                
-        let root: LibraryNode = LibraryNode.create(fromData: data)
-        
-        set(root)
+    public override func viewDidLoad() {        
+        set(MemoryStorage.Library)
                 
         super.viewDidLoad()
     }

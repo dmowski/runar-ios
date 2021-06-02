@@ -73,7 +73,17 @@ extension AppDelegate {
 
             LocalStorage.push(libraryData, forKey: .libraryData, withLocalization: true)
             LocalStorage.push(actualLibraryHash, forKey: .libraryHash, withLocalization: true)
+            
+            MemoryStorage.Library = LibraryNode.create(fromData: libraryData)
+            
+            return
         }
+        
+        guard let data: Data = LocalStorage.pull(forKey: .libraryData, withLocalization: true) else {
+            fatalError("No data to display")
+        }
+                
+        MemoryStorage.Library = LibraryNode.create(fromData: data)
     }
 }
 
