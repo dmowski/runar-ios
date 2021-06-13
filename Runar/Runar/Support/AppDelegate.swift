@@ -60,6 +60,7 @@ extension AppDelegate {
         print(id, created, systemVersion)
     }
    
+    // MARK: - Load library
     func loadLibrary() -> Void {
         let storedLibraryHash: String? = LocalStorage.pull(forKey: .libraryHash, withLocalization: true)
         guard let actualLibraryHash = RunarApi.getLibratyHash() else {
@@ -93,5 +94,3 @@ extension String {
         return String((0..<length).map{ _ in letters.randomElement()! })
     }
 }
-
-

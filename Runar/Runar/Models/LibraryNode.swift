@@ -8,6 +8,8 @@
 import Foundation
 
 public class LibraryNode {
+    
+    // MARK: - Init props
     let id: String
     let imageUrl: String?
     let linkTitle: String?
@@ -16,9 +18,11 @@ public class LibraryNode {
     let content: String?
     let type: LibraryNodeType
     
+    // MARK: - Mutable props
     weak var parent: LibraryNode?
     var children: [LibraryNode] = []
     
+    // MARK: - Inits
     init(item: LibraryData) {
         self.id = item.id
         self.imageUrl = item.imageUrl
@@ -39,12 +43,14 @@ public class LibraryNode {
         self.type = LibraryNodeType.core
     }
     
+    // MARK: - Funcs
     func add(child: LibraryNode){
         self.children.append(child)
         child.parent = self
     }
 }
 
+// MARK: - Types
 enum LibraryNodeType: String, CaseIterable {
     case undefined = "undefined"
     case core = "core"
@@ -55,6 +61,7 @@ enum LibraryNodeType: String, CaseIterable {
     case text = "plainText"
 }
 
+// MARK: - Extensions
 extension LibraryNode {
     static func create(fromData data: Data) -> LibraryNode {
         guard let libraryData = try? JSONDecoder().decode([LibraryData].self, from: data) else {

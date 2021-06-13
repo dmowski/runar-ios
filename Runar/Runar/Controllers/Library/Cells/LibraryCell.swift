@@ -8,6 +8,8 @@
 import UIKit
 
 public class LibraryCell: UITableViewCell, LibraryCellProtocol {
+    
+    // MARK: - Props
     public var arrow: UIButton = {
         let arrow = UIButton()
         arrow.setImage(Assets.settingsArrow.image, for: .normal)
@@ -15,6 +17,7 @@ public class LibraryCell: UITableViewCell, LibraryCellProtocol {
         return arrow
     }()
     
+    // MARK: - Inits
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         
@@ -26,6 +29,7 @@ public class LibraryCell: UITableViewCell, LibraryCellProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Funcs
     func addArrow(){
         addSubview(arrow)
         
@@ -57,6 +61,7 @@ public class LibraryCell: UITableViewCell, LibraryCellProtocol {
     }
 }
 
+// MARK: - Extensions
 public extension UIImage {
     static func create(fromUrl url: String) -> UIImage? {
         let imageUrl: URL = URL(string: url)!

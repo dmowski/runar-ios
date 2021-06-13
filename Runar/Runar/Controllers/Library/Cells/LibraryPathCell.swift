@@ -8,6 +8,8 @@
 import UIKit
 
 public class LibraryPathCell: LibraryCell {
+    
+    // MARK: - Funcs
     public override func bind(node: LibraryNode) -> Void {
         self.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
         
@@ -52,6 +54,7 @@ public class LibraryPathCell: LibraryCell {
     }
 }
 
+// MARK: - Extensions
 private extension LibraryNode {
     func getParentTitles() -> [String] {
         var titles: [String] = []

@@ -7,18 +7,23 @@
 
 import UIKit
 
+// MARK: Localizations
 extension String {
     static let back = L10n.Navbar.Title.back
 }
 
+// MARK: - Protocols
 public protocol LibraryCellProtocol {
     func bind(node: LibraryNode) -> Void
 }
 
 public class LibraryNodeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // MARK: - Mutable props
     var node: LibraryNode = LibraryNode()
     private var nodeView: UITableView = UITableView()
     
+    // MARK: - Override funcs
     public override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +37,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     
         configureNavigationBar()
     }
-    
+        
     func set(_ node: LibraryNode){
         self.node = node
     }
@@ -51,6 +56,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         self.navigationController?.navigationBar.configure()
     }
               
+    // MARK: - Delegate funcs
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) -> Void {
         guard indexPath.row > 0 else {
             return
@@ -95,6 +101,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     }
 }
 
+// MARK: - Extensions
 public extension LibraryNodeViewController {
     static func create(withNode node: LibraryNode) -> LibraryNodeViewController {
         let controller = LibraryNodeViewController()

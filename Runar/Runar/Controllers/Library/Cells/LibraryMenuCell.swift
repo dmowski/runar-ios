@@ -8,6 +8,8 @@
 import UIKit
 
 public class LibraryMenuCell: LibraryCell{
+    
+    //MARK: - Funcs
     public override func bind(node: LibraryNode) -> Void {
         addArrow()
         bindTextLabel(text: node.title, font: UIFont.create(withLowSize: 17, withHighSize: 22))

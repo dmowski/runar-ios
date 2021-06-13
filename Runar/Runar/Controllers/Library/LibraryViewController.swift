@@ -8,7 +8,9 @@
 import UIKit
 
 public class LibraryViewController: LibraryNodeViewController {
-    public override func viewDidLoad() {        
+    
+    // MARK: - Override funcs
+    public override func viewDidLoad() {
         set(MemoryStorage.Library)
                 
         super.viewDidLoad()
@@ -28,6 +30,7 @@ public class LibraryViewController: LibraryNodeViewController {
     }
 }
 
+// MARK: - Extensions
 private extension UINavigationBar {
     func configure(prefersLargeTitles: Bool, titleFontSize: CGFloat) -> Void {
         self.backgroundColor = .navBarBackground

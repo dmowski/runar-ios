@@ -8,6 +8,8 @@
 import Foundation
 
 class RunarApi {
+    
+    // MARK: - Static funcs
     static func createUser(with id: String, date: Double, os: String) -> Void {
         let request = CreateUserRequest(userToken: id, dataCreated: date, OS: os)
         
@@ -33,6 +35,7 @@ class RunarApi {
     }
 }
 
+// MARK: - Api extensions
 extension RunarApi {
     private static func post(_ data: Data, to route: String) -> Void {
         guard let request = URLRequest.createPost(jsonData: data, to: route) else {
@@ -72,6 +75,7 @@ extension RunarApi {
     }
 }
 
+// MARK: - Request extensions
 extension URLRequest {
     static func createGet(from: String) -> URLRequest? {
         return create(string: from, withMethod: .get)
@@ -97,6 +101,7 @@ extension URLRequest {
         return request
     }
     
+    // MARK: - Http methods
     enum HttpMthod: String, CaseIterable {
         case post = "POST"
         case get = "GET"

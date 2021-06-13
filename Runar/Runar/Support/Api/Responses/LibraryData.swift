@@ -8,6 +8,8 @@
 import Foundation
 
 struct LibraryData: Codable {
+    
+    // MARK: - Props
     var childIds: [String]
     var id: String
     var imageUrl: String?
@@ -19,6 +21,7 @@ struct LibraryData: Codable {
     var type: String
 }
 
+// MARK: - Types
 extension LibraryData {
     enum CodingKeys: String, CodingKey {
         case id = "_id"

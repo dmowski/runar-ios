@@ -7,7 +7,9 @@
 
 import UIKit
 
-public class RunarLayout {    
+public class RunarLayout {
+    
+    // MARK: - Static funcs
     private static func createBackground(with asset: ImageAsset) -> UIImageView {
         let background = UIImageView()
         background.translatesAutoresizingMaskIntoConstraints = false
