@@ -38,6 +38,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     }
     
     private func configureNodeView() -> Void {
+        
         nodeView.dataSource = self
         nodeView.delegate = self
         
@@ -49,12 +50,16 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         title = node.title
         self.navigationController?.navigationBar.configure()
     }
-          
+              
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) -> Void {
-        let child = node.children[indexPath.row]
+        guard indexPath.row > 0 else {
+            return
+        }
+        
+        let child = node.children[indexPath.row - 1]
         
         switch child.type {
-        case .root, .menu, .rune:
+        case .root, .menu:
             self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: false)
             break
         default:
@@ -63,11 +68,15 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return node.children.count
+        return node.children.count + 1
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch node.children[indexPath.row].type {
+        if (indexPath.row == 0){
+            return node.type == .core ? CGFloat.leastNormalMagnitude : 42
+        }
+        
+        switch node.children[indexPath.row - 1].type {
         case .root:
             return 108
         case .menu:
@@ -76,41 +85,13 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
             return UITableView.automaticDimension
         }
     }
-    
+        
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return tableView.getCell(node: node, index: indexPath)
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
-    }
-    
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return node.type == .core ? CGFloat.leastNormalMagnitude : 52
-    }
-    
-    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let section = UIView()
-        
-        section.backgroundColor = .clear
-        
-        guard node.type != .core else {
-            return section
-        }
-        
-        let label = UILabel.create(for: node)
-                       
-        section.addSubview(label)
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            label.widthAnchor.constraint(equalTo: section.widthAnchor),
-            label.leftAnchor.constraint(equalTo: section.leftAnchor, constant: 16),
-            label.rightAnchor.constraint(equalTo: section.rightAnchor, constant: -16),
-            label.centerYAnchor.constraint(equalTo: section.centerYAnchor)
-        ])
-        
-        return section
     }
 }
 
@@ -123,15 +104,23 @@ public extension LibraryNodeViewController {
 }
 
 private extension UITableView {
+    static let cellTypes: [LibraryNodeType: AnyClass?] = [
+        .root: LibraryRootCell.self,
+        .rune: LibraryRuneCell.self,
+        .poem: LibraryPoemCell.self,
+        .text: LibraryTextCell.self,
+        .menu: LibraryMenuCell.self
+    ]
+    
     func register(node: LibraryNode) -> Void {
+        self.register(LibraryPathCell.self, forCellReuseIdentifier: node.id)
+        
         for child in node.children {
-            switch child.type {
-            case .rune:
-                self.register(LibraryRuneCell.self, forCellReuseIdentifier: child.id)
-                break
-            default:
-                self.register(LibraryNodeCell.self, forCellReuseIdentifier: child.id)
+            guard let type: AnyClass? = UITableView.cellTypes[child.type] else {
+                fatalError("cell type '\(child.type.rawValue)' is not implemented")
             }
+            
+            self.register(type, forCellReuseIdentifier: child.id)
         }
     }
     
@@ -152,7 +141,7 @@ private extension UITableView {
     }
     
     func getCell(node: LibraryNode, index indexPath: IndexPath) -> UITableViewCell {
-        let child = node.children[indexPath.row]
+        let child = indexPath.row == 0 ? node : node.children[indexPath.row - 1]
         let cell = self.dequeueReusableCell(withIdentifier: child.id, for: indexPath)
         
         (cell as! LibraryCellProtocol).bind(node: child)
@@ -172,50 +161,5 @@ private extension UINavigationBar {
                                          NSAttributedString.Key.foregroundColor: UIColor.white]
         
         self.backItem?.backButtonTitle = .back
-    }
-}
-
-private extension UILabel {
-    static func create(for node: LibraryNode) -> UILabel {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 118, height: 20))
-        
-        label.textColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 0.65)
-        label.font = UIFont(name: "SFProText-Regular", size: 15)
-        label.lineBreakMode = .byTruncatingTail
-                
-        let titles: [String] = node.getParentTitles()
-        
-        if (titles.count == 0){
-            label.text = "> \(node.title!)"
-        } else {
-            let header: String = titles.joined(separator: " > ")
-            
-            let formatedHeader = NSMutableAttributedString(string: "> \(header) > \(titles.count == 1 ? node.title! : "...")")
-            formatedHeader.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 0.659, green: 0.651, blue: 0.639, alpha: 0.38),
-                                        range: NSRange(location: 0, length: header.count + 2))
-            label.attributedText = formatedHeader
-        }
-        
-        return label
-    }
-}
-
-private extension LibraryNode {
-    func getParentTitles() -> [String] {
-        var titles: [String] = []
-        
-        self.parent!.fillTitles(&titles)
-        
-        return titles
-    }
-    
-    func fillTitles(_ titles: inout [String]) -> Void{
-        guard self.type != .core else {
-            return
-        }
-        
-        self.parent!.fillTitles(&titles)
-        
-        titles.append(self.title!)
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class LibraryNodeCell: UITableViewCell, LibraryCellProtocol {
+public class LibraryCell: UITableViewCell, LibraryCellProtocol {
     public var arrow: UIButton = {
         let arrow = UIButton()
         arrow.setImage(Assets.settingsArrow.image, for: .normal)
@@ -37,15 +37,14 @@ public class LibraryNodeCell: UITableViewCell, LibraryCellProtocol {
         ])
     }
     
-    func bindTextLabel(text: String?, font: UIFont, alignment: NSTextAlignment = .left) -> Void {
-        let color = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
-        textLabel.bind(text: text, font: font, color: color)
+    func bindTextLabel(text: String?, font: UIFont, color: UIColor? = nil, alignment: NSTextAlignment = .left, contentMode: UIView.ContentMode = .left) -> Void {
+        textLabel.bind(text: text, font: font, color: color ?? UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1))
         textLabel?.textAlignment = alignment
+        textLabel?.contentMode = contentMode
     }
     
-    func bindDetailTextLabel(text: String?, font: UIFont, alignment: NSTextAlignment = .left) -> Void {
-        let color = UIColor(red: 235, green: 235, blue: 245, alpha: 0.6)
-        detailTextLabel.bind(text: text, font: font, color: color)
+    func bindDetailTextLabel(text: String?, font: UIFont, color: UIColor? = nil, alignment: NSTextAlignment = .left, frame: CGRect = CGRect.zero) -> Void {
+        detailTextLabel.bind(text: text, font: font, color: color ?? UIColor(red: 235, green: 235, blue: 245, alpha: 0.6))
         detailTextLabel?.textAlignment = alignment
     }
     
@@ -54,24 +53,7 @@ public class LibraryNodeCell: UITableViewCell, LibraryCellProtocol {
     }
     
     public func bind(node: LibraryNode) -> Void {
-        switch node.type {
-        case .root:
-            addArrow()
-            bindTextLabel(text: node.title, font: UIFont.create(withLowSize: 17, withHighSize: 20))
-            bindDetailTextLabel(text: node.content, font: UIFont.create(withLowSize: 15, withHighSize: 16))
-            bindImageView(url: node.imageUrl!)
-            break
-        case .text:
-            bindTextLabel(text: node.content, font: UIFont.create(withLowSize: 17, withHighSize: 19))
-            self.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
-        case .poem:
-            bindTextLabel(text: node.title, font: UIFont.create(withLowSize: 17, withHighSize: 20), alignment: .center)
-            bindDetailTextLabel(text: node.content, font: UIFont.create(withLowSize: 15, withHighSize: 16), alignment: .center)
-            break
-        default:
-            addArrow()
-            bindTextLabel(text: node.title, font: UIFont.create(withLowSize: 17, withHighSize: 20))
-        }
+        fatalError("bind method should be overriden!")
     }
 }
 

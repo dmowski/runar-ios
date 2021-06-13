@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class LibraryRuneCell: LibraryNodeCell {
+public class LibraryRuneCell: LibraryCell {
     public override func bind(node: LibraryNode) -> Void {
         let runeTitle: UILabel = bindRuneTitle(title: node.title!)
         let runeImage: UIImageView = bindRuneImage(url: node.imageUrl!)

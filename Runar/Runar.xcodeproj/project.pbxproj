@@ -38,7 +38,7 @@
 		19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BB0525C9874E00418CE7 /* RunesView.swift */; };
 		1A04A48091973E2F0EB04A65 /* Pods_RunarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */; };
 		843DFF33265248B900D6DFE5 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF32265248B900D6DFE5 /* LibraryViewController.swift */; };
-		843DFF4D2653FB5400D6DFE5 /* LibraryNodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF4C2653FB5400D6DFE5 /* LibraryNodeCell.swift */; };
+		843DFF4D2653FB5400D6DFE5 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF4C2653FB5400D6DFE5 /* LibraryCell.swift */; };
 		843DFF72265BC50800D6DFE5 /* LibraryNodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF71265BC50800D6DFE5 /* LibraryNodeViewController.swift */; };
 		843DFF7D265D66ED00D6DFE5 /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF7C265D66ED00D6DFE5 /* MemoryStorage.swift */; };
 		84468380266392F900A0790B /* LibraryRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446837F266392F900A0790B /* LibraryRuneCell.swift */; };
@@ -46,6 +46,11 @@
 		8477222E2643C9CA001C280D /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477222D2643C9CA001C280D /* LocalStorage.swift */; };
 		8477224326458020001C280D /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477224226458020001C280D /* Route.swift */; };
 		8477224F26458882001C280D /* CreateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477224E26458882001C280D /* CreateUserRequest.swift */; };
+		849ED285266E3251006E557A /* LibraryPoemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED284266E3251006E557A /* LibraryPoemCell.swift */; };
+		849ED28A266E33D4006E557A /* LibraryTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED289266E33D4006E557A /* LibraryTextCell.swift */; };
+		849ED28F266E3457006E557A /* LibraryRootCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED28E266E3457006E557A /* LibraryRootCell.swift */; };
+		849ED294266E74B9006E557A /* LibraryMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED293266E74B9006E557A /* LibraryMenuCell.swift */; };
+		849ED29C26710C0B006E557A /* LibraryPathCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED29B26710C0A006E557A /* LibraryPathCell.swift */; };
 		84D7E5F02649EC6700772EE3 /* LibraryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E5EF2649EC6700772EE3 /* LibraryData.swift */; };
 		84D7E6022649F37700772EE3 /* LibraryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E6012649F37700772EE3 /* LibraryNode.swift */; };
 		84D7E60B264BAED300772EE3 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E60A264BAED300772EE3 /* Environment.swift */; };
@@ -159,7 +164,7 @@
 		29AD0AF3F59DE1B0E9AF6F8D /* Pods-RunarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.release.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.release.xcconfig"; sourceTree = "<group>"; };
 		7187BE777607C9CC2B878552 /* Pods-RunarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.debug.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		843DFF32265248B900D6DFE5 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
-		843DFF4C2653FB5400D6DFE5 /* LibraryNodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNodeCell.swift; sourceTree = "<group>"; };
+		843DFF4C2653FB5400D6DFE5 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		843DFF71265BC50800D6DFE5 /* LibraryNodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNodeViewController.swift; sourceTree = "<group>"; };
 		843DFF7C265D66ED00D6DFE5 /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
 		8446837F266392F900A0790B /* LibraryRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRuneCell.swift; sourceTree = "<group>"; };
@@ -167,6 +172,11 @@
 		8477222D2643C9CA001C280D /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		8477224226458020001C280D /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		8477224E26458882001C280D /* CreateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserRequest.swift; sourceTree = "<group>"; };
+		849ED284266E3251006E557A /* LibraryPoemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPoemCell.swift; sourceTree = "<group>"; };
+		849ED289266E33D4006E557A /* LibraryTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTextCell.swift; sourceTree = "<group>"; };
+		849ED28E266E3457006E557A /* LibraryRootCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRootCell.swift; sourceTree = "<group>"; };
+		849ED293266E74B9006E557A /* LibraryMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryMenuCell.swift; sourceTree = "<group>"; };
+		849ED29B26710C0A006E557A /* LibraryPathCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPathCell.swift; sourceTree = "<group>"; };
 		84D7E5EF2649EC6700772EE3 /* LibraryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryData.swift; sourceTree = "<group>"; };
 		84D7E6012649F37700772EE3 /* LibraryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNode.swift; sourceTree = "<group>"; };
 		84D7E60A264BAED300772EE3 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -373,8 +383,13 @@
 		843DFF452653969C00D6DFE5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				843DFF4C2653FB5400D6DFE5 /* LibraryNodeCell.swift */,
+				843DFF4C2653FB5400D6DFE5 /* LibraryCell.swift */,
 				8446837F266392F900A0790B /* LibraryRuneCell.swift */,
+				849ED284266E3251006E557A /* LibraryPoemCell.swift */,
+				849ED289266E33D4006E557A /* LibraryTextCell.swift */,
+				849ED28E266E3457006E557A /* LibraryRootCell.swift */,
+				849ED293266E74B9006E557A /* LibraryMenuCell.swift */,
+				849ED29B26710C0A006E557A /* LibraryPathCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -920,10 +935,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849ED285266E3251006E557A /* LibraryPoemCell.swift in Sources */,
+				849ED294266E74B9006E557A /* LibraryMenuCell.swift in Sources */,
 				843DFF7D265D66ED00D6DFE5 /* MemoryStorage.swift in Sources */,
 				19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */,
 				9B739DF325CD765800726B30 /* Constants.swift in Sources */,
-				843DFF4D2653FB5400D6DFE5 /* LibraryNodeCell.swift in Sources */,
+				843DFF4D2653FB5400D6DFE5 /* LibraryCell.swift in Sources */,
 				84D7E5F02649EC6700772EE3 /* LibraryData.swift in Sources */,
 				191D32CE25B7C46A001DC210 /* Fonts.swift in Sources */,
 				9B15E36825FE465400737306 /* OneRuneViewController.swift in Sources */,
@@ -940,6 +957,7 @@
 				191D32CF25B7C46A001DC210 /* Assets.swift in Sources */,
 				19D9BAD625C9765C00418CE7 /* TwoRuneView.swift in Sources */,
 				9BD2295A258AB02500E17E98 /* CollectionViewController.swift in Sources */,
+				849ED29C26710C0B006E557A /* LibraryPathCell.swift in Sources */,
 				19C0F1F425BAF07E0027422B /* AligmentViewModel.swift in Sources */,
 				9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */,
 				1987AAB625BDCDA400BB3655 /* ThreeRuneView.swift in Sources */,
@@ -963,6 +981,7 @@
 				19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */,
 				19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */,
 				9B0CB8862607922B00B2AF60 /* DescriptionView.swift in Sources */,
+				849ED28A266E33D4006E557A /* LibraryTextCell.swift in Sources */,
 				9BD98C962628A74200F3BBD7 /* LanguageCell.swift in Sources */,
 				9BD98C942628A74200F3BBD7 /* StaticCell.swift in Sources */,
 				9B739E0525CD77E900726B30 /* ProcessingViewController.swift in Sources */,
@@ -975,6 +994,7 @@
 				84D7E6022649F37700772EE3 /* LibraryNode.swift in Sources */,
 				1987AACF25BDCDF000BB3655 /* EightRuneView.swift in Sources */,
 				191D32D025B7C46A001DC210 /* Localizable.swift in Sources */,
+				849ED28F266E3457006E557A /* LibraryRootCell.swift in Sources */,
 				1987AAC025BDCDBF00BB3655 /* FiveRuneView.swift in Sources */,
 				9BD98CC02628CD1D00F3BBD7 /* EscapePopUpViewVontroller.swift in Sources */,
 				199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */,
@@ -1288,7 +1308,7 @@
 				9BD22923258A322000E17E98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		9BD22924258A322000E17E98 /* Build configuration list for PBXNativeTarget "Runar" */ = {
 			isa = XCConfigurationList;
@@ -1297,7 +1317,7 @@
 				9BD22926258A322000E17E98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		9BD22927258A322000E17E98 /* Build configuration list for PBXNativeTarget "RunarTests" */ = {
 			isa = XCConfigurationList;
@@ -1306,7 +1326,7 @@
 				9BD22929258A322000E17E98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		9BD2292A258A322000E17E98 /* Build configuration list for PBXNativeTarget "RunarUITests" */ = {
 			isa = XCConfigurationList;
@@ -1315,7 +1335,7 @@
 				9BD2292C258A322000E17E98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
