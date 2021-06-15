@@ -1628,6 +1628,11 @@ internal enum L10n {
     }
   }
 
+  internal enum Language {
+    /// en
+    internal static let name = L10n.tr("Localizable", "language.name")
+  }
+
   internal enum Music {
     /// Black rook
     internal static let blackRook = L10n.tr("Localizable", "music.blackRook")
@@ -1724,6 +1729,13 @@ internal enum L10n {
     }
   }
 
+  internal enum Navbar {
+    internal enum Title {
+      /// Back
+      internal static let back = L10n.tr("Localizable", "navbar.title.back")
+    }
+  }
+
   internal enum PopUp {
     /// No
     internal static let no = L10n.tr("Localizable", "popUp.no")
@@ -1797,6 +1809,8 @@ internal enum L10n {
     internal static let language = L10n.tr("Localizable", "tabbar.language")
     /// Runic Draws
     internal static let layouts = L10n.tr("Localizable", "tabbar.layouts")
+    /// Library
+    internal static let library = L10n.tr("Localizable", "tabbar.library")
     /// Music
     internal static let music = L10n.tr("Localizable", "tabbar.music")
     /// In order to change the language in the application, you need to go to the settings of your phone.

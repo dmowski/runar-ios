@@ -14,11 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        if UserDefaults.isFirstLaunch(){
+        if isFirstLaunch(){
             signIn()
         }
+                
+        loadLibrary()
+        
         return true
     }
+    
     @available(iOS 13.0, *)
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
@@ -32,36 +36,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-}
-extension UserDefaults {
-    // check for is first launch - only true on first invocation after app install, false on all further invocations
-    // Note: Store this value in AppDelegate if you have multiple places where you are checking for this flag
-    static func isFirstLaunch() -> Bool {
-        let hasBeenLaunchedBeforeFlag = "hasBeenLaunchedBeforeFlag"
-        let isFirstLaunch = !UserDefaults.standard.bool(forKey: hasBeenLaunchedBeforeFlag)
-        if (isFirstLaunch) {
-            UserDefaults.standard.set(true, forKey: hasBeenLaunchedBeforeFlag)
-            UserDefaults.standard.synchronize()
-        }
-        return isFirstLaunch
-    }
 }
 
 extension AppDelegate {
     
-    func randomString(length: Int) -> String {
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        return String((0..<length).map{ _ in letters.randomElement()! })
+    // check for is first launch - only true on first invocation after app install, false on all further invocations
+    // Note: Store this value in AppDelegate if you have multiple places where you are checking for this flag
+    func isFirstLaunch() -> Bool {
+        let isFirstLaunch = !LocalStorage.contains(key: .firstLaunch)
+                
+        if (isFirstLaunch) {
+            LocalStorage.push(true, forKey: .firstLaunch)
+        }
+        
+        return isFirstLaunch
     }
-    
+       
     func signIn() {
-        let id = randomString(length: 32)
+        let id = String.random(withLength: 32)
         let created = NSDate().timeIntervalSince1970
         let systemVersion = "IOS " + UIDevice.current.systemVersion
-        NetworkingManager().createUser(with: id, date: created, os: systemVersion)
+        RunarApi.createUser(with: id, date: created, os: systemVersion)
         print(id, created, systemVersion)
+    }
+   
+    // MARK: - Load library
+    func loadLibrary() -> Void {
+        let storedLibraryHash: String? = LocalStorage.pull(forKey: .libraryHash, withLocalization: true)
+        guard let actualLibraryHash = RunarApi.getLibratyHash() else {
+            fatalError("Library hash is empty")
+        }
+        
+        if storedLibraryHash == nil || actualLibraryHash != storedLibraryHash {
+            guard let libraryData = RunarApi.getLibratyData() else {
+                fatalError("Library is empty")
+            }
+
+            LocalStorage.push(libraryData, forKey: .libraryData, withLocalization: true)
+            LocalStorage.push(actualLibraryHash, forKey: .libraryHash, withLocalization: true)
+            
+            MemoryStorage.Library = LibraryNode.create(fromData: libraryData)
+            
+            return
+        }
+        
+        guard let data: Data = LocalStorage.pull(forKey: .libraryData, withLocalization: true) else {
+            fatalError("No data to display")
+        }
+                
+        MemoryStorage.Library = LibraryNode.create(fromData: data)
     }
 }
 
-
+extension String {
+    static func random(withLength length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map{ _ in letters.randomElement()! })
+    }
+}

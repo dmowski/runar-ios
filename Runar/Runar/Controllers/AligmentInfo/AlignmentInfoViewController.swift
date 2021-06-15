@@ -234,15 +234,15 @@ class AlignmentInfoViewController: UIViewController {
     
     @objc func select(sender: UIButton!) {
         if let button = sender {
-                   if button.isSelected {
-                    showButton.setImage(Assets.unselected.image, for: .normal)
-                       button.isSelected = false
-                    UserDefaults.standard.set(false, forKey: viewModel.name)
-                      } else {
-                        showButton.setImage(Assets.selected.image, for: .selected)
-                       button.isSelected = true
-                        UserDefaults.standard.set(true, forKey: viewModel.name)
-                      }
-                  }
+            if button.isSelected {
+                showButton.setImage(Assets.unselected.image, for: .normal)
+                button.isSelected = false
+                LocalStorage.push(false, forKey: viewModel.name)
+            } else {
+                showButton.setImage(Assets.selected.image, for: .selected)
+                button.isSelected = true
+                LocalStorage.push(true, forKey: viewModel.name)
+            }
+        }
     }
 }
