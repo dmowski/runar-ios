@@ -46,7 +46,7 @@ public class LibraryRuneCell: LibraryCell {
         let runeTitle = UILabel()
         
         runeTitle.text = title
-        runeTitle.font = UIFont.create(withLowSize: 20, withHighSize: 24)
+        runeTitle.font = UIFont.create(withLowSize: 24, withHighSize: 24)
         runeTitle.textColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
         runeTitle.contentMode = .center
         

@@ -46,6 +46,8 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         
         nodeView.dataSource = self
         nodeView.delegate = self
+        nodeView.separatorColor = UIColor(red: 0.329, green: 0.329, blue: 0.345, alpha: 0.65)
+        nodeView.separatorStyle = .singleLine
         
         nodeView.register(node: node)
         nodeView.add(to: view)
