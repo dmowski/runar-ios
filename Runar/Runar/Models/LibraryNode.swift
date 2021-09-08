@@ -16,6 +16,7 @@ public class LibraryNode {
     let linkUrl: String?
     let title: String?
     let content: String?
+    let order: Int?
     let type: LibraryNodeType
     
     // MARK: - Mutable props
@@ -30,6 +31,7 @@ public class LibraryNode {
         self.linkUrl = item.linkUrl
         self.title = item.title
         self.content = item.content
+        self.order = item.sortOrder
         self.type = LibraryNodeType(rawValue: item.type) ?? LibraryNodeType.undefined
     }
     
@@ -40,6 +42,7 @@ public class LibraryNode {
         self.linkUrl = nil
         self.title = nil
         self.content = nil
+        self.order = nil
         self.type = LibraryNodeType.core
     }
     
@@ -69,8 +72,8 @@ extension LibraryNode {
         }
         
         let libraryTree = LibraryNode()
-        
-        for item in libraryData.filter({ (item) -> Bool in
+                
+        for item in libraryData.sorted(by: {$0.sortOrder < $1.sortOrder}).filter({ (item) -> Bool in
             return item.type == LibraryNodeType.root.rawValue
         }) {
             libraryTree.add(child: createNode(libraryItem: item, libraryData: libraryData))
@@ -86,7 +89,7 @@ extension LibraryNode {
             return node
         }
         
-        for item in libraryData.filter({ (item) -> Bool in
+        for item in libraryData.sorted(by: {$0.sortOrder < $1.sortOrder}).filter({ (item) -> Bool in
             return libraryItem.childIds.contains(item.id)
         }) {
             node.add(child: createNode(libraryItem: item, libraryData: libraryData))
