@@ -79,6 +79,9 @@ Carthage/Build
 Pods/
 *.xcworkspace
 
+# CocoaPods configuration files should be stored in repository to manage settings 
+!Pods/*.xcconfig
+
 ### Xcode ###
 # Xcode
 #
