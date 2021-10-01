@@ -105,10 +105,14 @@ internal enum Assets {
     internal static let wunji = ImageAsset(name: "LayoutsRunes/Wunji")
   }
   internal static let led = ImageAsset(name: "Led")
+  internal static let runeFormula = ImageAsset(name: "RuneFormula")
+  internal static let runePattern = ImageAsset(name: "RunePattern")
+  internal static let runeStaves = ImageAsset(name: "RuneStaves")
   internal static let settingsArrow = ImageAsset(name: "Settings-arrow")
   internal enum TabBar {
     internal enum Image {
       internal static let favorites = ImageAsset(name: "TabBar/Image/Favorites")
+      internal static let generator = ImageAsset(name: "TabBar/Image/Generator")
       internal static let home = ImageAsset(name: "TabBar/Image/Home")
       internal static let library = ImageAsset(name: "TabBar/Image/Library")
       internal static let settings = ImageAsset(name: "TabBar/Image/Settings")

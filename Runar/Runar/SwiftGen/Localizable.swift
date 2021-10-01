@@ -329,6 +329,31 @@ internal enum L10n {
     }
   }
 
+  internal enum Generator {
+    /// Comming soon
+    internal static let commingSoon = L10n.tr("Localizable", "generator.commingSoon")
+    /// Select
+    internal static let select = L10n.tr("Localizable", "generator.select")
+    internal enum RuneFormula {
+      /// 
+      internal static let description = L10n.tr("Localizable", "generator.runeFormula.description")
+      /// Formula
+      internal static let title = L10n.tr("Localizable", "generator.runeFormula.title")
+    }
+    internal enum RunePattern {
+      /// 
+      internal static let description = L10n.tr("Localizable", "generator.runePattern.description")
+      /// Rune pattern
+      internal static let title = L10n.tr("Localizable", "generator.runePattern.title")
+    }
+    internal enum RuneStaves {
+      /// 
+      internal static let description = L10n.tr("Localizable", "generator.runeStaves.description")
+      /// Staves
+      internal static let title = L10n.tr("Localizable", "generator.runeStaves.title")
+    }
+  }
+
   internal enum InterpretationElementsCross {
     /// As a person, you have the important trait - %@, and in present one you have %@. The source of your problems may be %@. The most likely future may be described as %@. To archieve this future, your main goal is - %@. If you do not reach the target, you will be %@.
     internal static func text(_ p1: Any, _ p2: Any, _ p3: Any, _ p4: Any, _ p5: Any, _ p6: Any) -> String {
@@ -1805,6 +1830,8 @@ internal enum L10n {
     internal static let cancel = L10n.tr("Localizable", "tabbar.cancel")
     /// Application version 1.0\n\nRunar is an app for reading Scandinavian runes and studying mythology and fairy tales. Contains 8 types of rune layouts & runes interpretation.\n\nWith the permission of the copyright holders, the following musical compositions are used in the application:\n- Lyod (tracks "Black rook", "My mother told"), https://lyod1.bandcamp.com/releases\n- Danheim (tracks "Runar", "Kala"), https://danheimmusic.com
     internal static let descriptionAppText = L10n.tr("Localizable", "tabbar.descriptionAppText")
+    /// Generator
+    internal static let generator = L10n.tr("Localizable", "tabbar.generator")
     /// Language
     internal static let language = L10n.tr("Localizable", "tabbar.language")
     /// Runic Draws
