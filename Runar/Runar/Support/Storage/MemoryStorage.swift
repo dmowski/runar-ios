@@ -10,4 +10,5 @@ import Foundation
 public class MemoryStorage {
     // MARK: Props
     public static var Library: LibraryNode = LibraryNode()
+    public static var GenerationRunes: [GenerationRuneModel] = []
 }

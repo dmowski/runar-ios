@@ -8,3 +8,4 @@ PODS_ROOT = ${SRCROOT}/Pods
 PODS_XCFRAMEWORKS_BUILD_DIR = $(PODS_CONFIGURATION_BUILD_DIR)/XCFrameworkIntermediates
 USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES
 API_URL = https:/$()/runar-main.herokuapp.com/api/v1
+GENERATOR_API_URL = https:/$()/runar-generator-api.herokuapp.com/api/v1

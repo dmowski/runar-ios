@@ -33,6 +33,10 @@ class RunarApi {
     static func getLibratyData() -> Data? {
         return get(from: Route.getLibrary)
     }
+    
+    static func getRunesData() -> Data? {
+        return get(from: Route.getRunes)
+    }
 }
 
 // MARK: - Api extensions

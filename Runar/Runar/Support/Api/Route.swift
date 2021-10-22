@@ -17,4 +17,5 @@ enum Route {
     static let createUser = "\(Environment.apiUrl)/create-user"
     static let getLibraryHash = "\(Environment.apiUrl)/library-hash/\(String.lang)"
     static let getLibrary = "\(Environment.apiUrl)/library/\(String.lang)"
+    static let getRunes = "\(Environment.generatorApiUrl)/runes"
 }

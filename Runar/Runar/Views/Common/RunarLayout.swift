@@ -10,13 +10,13 @@ import UIKit
 // MARK: - Types
 public enum BackgroundType {
     case main
-    case mainFile
+    case mainFire
     
     var image: ImageAsset {
         switch self {
         case .main:
             return Assets.Background.main
-        case .mainFile:
+        case .mainFire:
             return Assets.mainFire
         }
     }

@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
                 
         loadLibrary()
+        loadRunes()
         
         return true
     }
@@ -85,6 +86,22 @@ extension AppDelegate {
         }
                 
         MemoryStorage.Library = LibraryNode.create(fromData: data)
+    }
+    
+    func loadRunes() -> Void {
+        var runesData: Data? = LocalStorage.pull(forKey: .runesData)
+        
+        if (runesData == nil){
+            guard let _runesData = RunarApi.getRunesData() else {
+                fatalError("Runes is empty")
+            }
+            
+            LocalStorage.push(_runesData, forKey: .runesData)
+            
+            runesData = _runesData
+        }
+        
+        MemoryStorage.GenerationRunes = GenerationRuneModel.create(fromData: runesData!)
     }
 }
 

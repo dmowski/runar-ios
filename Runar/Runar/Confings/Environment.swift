@@ -12,6 +12,7 @@ public enum Environment{
     enum Keys {
         enum Plist {
             static let apiUrl = "API_URL"
+            static let generatorApiUrl = "GENERATOR_API_URL"
         }
     }
     
@@ -27,6 +28,13 @@ public enum Environment{
     static let apiUrl: String = {
         guard let url = Environment.infoDictionary[Keys.Plist.apiUrl] as? String else {
             fatalError("Api Url is not set in plist fot this environment")
+        }
+        return url
+    }()
+    
+    static let generatorApiUrl: String = {
+        guard let url = Environment.infoDictionary[Keys.Plist.generatorApiUrl] as? String else {
+            fatalError("Generator Api Url is not set in plist fot this environment")
         }
         return url
     }()

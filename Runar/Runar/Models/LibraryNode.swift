@@ -72,13 +72,13 @@ extension LibraryNode {
         }
         
         let libraryTree = LibraryNode()
-                
+        /*
         for item in libraryData.sorted(by: {$0.sortOrder < $1.sortOrder}).filter({ (item) -> Bool in
             return item.type == LibraryNodeType.root.rawValue
         }) {
             libraryTree.add(child: createNode(libraryItem: item, libraryData: libraryData))
         }
-        
+        */
         return libraryTree
     }
     

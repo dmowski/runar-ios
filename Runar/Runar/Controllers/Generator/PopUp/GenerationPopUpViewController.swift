@@ -7,8 +7,10 @@
 
 import UIKit
 
+
 public class GenerationPopUpViewController : UIViewController {
     var runeModel: GenerationRuneModel?
+    var runeView: UIView?
     var action: Dictionary<String, Selector>.Element?
         
     let containerView: UIView = {
@@ -16,9 +18,61 @@ public class GenerationPopUpViewController : UIViewController {
                 
         containerView.backgroundColor = UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 0.75)
         containerView.layer.cornerRadius = 20
-        containerView.translatesAutoresizingMaskIntoConstraints = false
         
         return containerView
+    }()
+    
+    let escapeButton: UIButton = {
+        let escapeButton = UIButton()
+        
+        let image = Assets.escape.image
+        escapeButton.setImage(image, for: .normal)
+        
+        return escapeButton
+    }()
+    
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        
+        imageView.contentMode = .scaleAspectFill
+        
+        return imageView
+    }()
+    
+    let header: UILabel = {
+        let header = UILabel()
+               
+        header.font = FontFamily.AmaticSC.bold.font(size: 36)
+        header.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
+        header.textAlignment = .center
+        header.contentMode = .center
+        
+        return header
+    }()
+    
+    let desc: UILabel = {
+        let desc = UILabel()
+               
+        desc.font = FontFamily.SFProDisplay.regular.font(size: 15)
+        desc.textColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
+        desc.textAlignment = .left
+        desc.contentMode = .scaleToFill
+        desc.numberOfLines = 0
+        desc.lineBreakMode = .byWordWrapping
+        
+        return desc
+    }()
+    
+    let submitButton: UIButton = {
+        let submitButton = UIButton()
+        
+        submitButton.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
+        submitButton.layer.cornerRadius = 10
+        submitButton.layer.borderWidth = 1
+        submitButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
+        submitButton.isHidden = true
+        
+        return submitButton
     }()
     
     public override func viewDidLoad() {
@@ -27,7 +81,6 @@ public class GenerationPopUpViewController : UIViewController {
         configureView()
         
         self.view.backgroundColor = .clear
-        self.tabBarController?.tabBar.isHidden = true
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -35,12 +88,30 @@ public class GenerationPopUpViewController : UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    public func setupView(view: UIView){
+        self.runeView = view
+    }
+    
     public func setupModel(_ model: GenerationRuneModel?){
         self.runeModel = model
+        
+        self.imageView.image = model?.image.image
+        self.header.attributedText = UILabel.getAttributedText(text: model!.title, lineHeight: 0.7)
+        self.desc.attributedText = UILabel.getAttributedText(text: model!.description, lineHeight: 1.12)
     }
     
     public func setupAction(_ title: String, _ action: Selector){
         self.action = (key: title, value: action)
+        
+        self.submitButton.setTitle(title: title)
+        
+        self.submitButton.removeTarget(self.parent, action: action, for: .touchUpInside)
+        self.submitButton.addTarget(self.parent, action: action, for: .touchUpInside)
     }
     
     private func configureBlure() -> Void {
@@ -54,30 +125,28 @@ public class GenerationPopUpViewController : UIViewController {
         view.insertSubview(blurView, at: 0)
     }
     
-    private func configureView() -> Void{
+    private func configureView() -> Void{       
         view.addSubview(containerView)
         
+        containerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             containerView.leftAnchor.constraint(equalTo: view.leftAnchor),
             containerView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            containerView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -314),
+            containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             containerView.heightAnchor.constraint(equalToConstant: 314)
         ])
-        
-        let escapeButton = createEscapeBtn()
         
         escapeButton.addTarget(self, action: #selector(self.closeOnTap), for: .touchUpInside)
         
         containerView.addSubview(escapeButton)
         
+        escapeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             escapeButton.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 18),
             escapeButton.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -18),
             escapeButton.widthAnchor.constraint(equalToConstant: 48),
             escapeButton.heightAnchor.constraint(equalToConstant: 48)
         ])
-        
-        let imageView = createImage(image: runeModel!.image.image)
         
         containerView.addSubview(imageView)
         
@@ -89,121 +158,68 @@ public class GenerationPopUpViewController : UIViewController {
             imageView.widthAnchor.constraint(equalToConstant: 80)
         ])
         
-        let title = createTitle(title: runeModel!.title, size: 36, lineHeight: 0.7)
+        containerView.addSubview(header)
         
-        containerView.addSubview(title)
-        
-        title.translatesAutoresizingMaskIntoConstraints = false
+        header.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            title.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 40),
-            title.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 26),
-            title.heightAnchor.constraint(equalToConstant: 42)
+            header.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 40),
+            header.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 26),
+            header.heightAnchor.constraint(equalToConstant: 42)
         ])
         
-        let description = createDesc(desc: runeModel!.description)
+        containerView.addSubview(desc)
         
-        containerView.addSubview(description)
-        
-        description.translatesAutoresizingMaskIntoConstraints = false
+        desc.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            description.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 100),
-            description.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 30),
-            description.widthAnchor.constraint(equalToConstant: 300)
+            desc.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 100),
+            desc.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 30),
+            desc.widthAnchor.constraint(equalToConstant: 300),
+            desc.heightAnchor.constraint(equalToConstant: 130)
         ])
         
-        if (self.action != nil){
-            let submitBtn = createSubmitBtn()
-            
-            containerView.addSubview(submitBtn)
-            
-            submitBtn.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                submitBtn.topAnchor.constraint(equalTo: description.bottomAnchor, constant: 24),
-                submitBtn.heightAnchor.constraint(equalToConstant: 48),
-                submitBtn.widthAnchor.constraint(equalToConstant: 156),
-                submitBtn.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
-            ])
-        }
+        containerView.addSubview(submitButton)
+    
+        submitButton.addTarget(self, action: #selector(self.closeOnTap), for: .touchUpInside)
+        
+        submitButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            submitButton.topAnchor.constraint(equalTo: desc.bottomAnchor, constant: 14),
+            submitButton.heightAnchor.constraint(equalToConstant: 48),
+            submitButton.widthAnchor.constraint(equalToConstant: 156),
+            submitButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
+        ])
     }
     
-    private func createEscapeBtn() -> UIButton {
-        let escapeButton = UIButton()
-        escapeButton.translatesAutoresizingMaskIntoConstraints = false
-        let image = Assets.escape.image
-        escapeButton.setImage(image, for: .normal)
-        
-        return escapeButton
+    @IBAction func closeOnTap (sender: UIButton!) {
+        self.close()
     }
     
-    private func createImage(image: UIImage) -> UIImageView {
-        let imageView = UIImageView(image: runeModel?.image.image)
-        
-        imageView.contentMode = .scaleAspectFill
-        
-        return imageView
+    public func close() {
+        self.view.removeFromSuperview()
     }
-    
-    private func createTitle(title: String, size: CGFloat, lineHeight: CGFloat) -> UILabel {
-        let label = UILabel()
-               
-        label.font = FontFamily.AmaticSC.bold.font(size: size)
-        label.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
-        label.textAlignment = .center
-        label.contentMode = .center
-        
+}
+
+public extension UILabel {
+    static func getAttributedText(text: String, lineHeight: CGFloat) -> NSAttributedString{
         let prgph = NSMutableParagraphStyle()
         
         prgph.lineHeightMultiple = lineHeight
         
-        label.attributedText = NSMutableAttributedString(string: title, attributes: [NSAttributedString.Key.paragraphStyle: prgph])
-        
-        return label
+        return NSMutableAttributedString(string: text, attributes: [NSAttributedString.Key.paragraphStyle: prgph])
     }
-    
-    private func createDesc(desc: String) -> UILabel {
-        let label = UILabel()
-               
-        label.font = FontFamily.SFProDisplay.regular.font(size: 15)
-        label.textColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
-        label.textAlignment = .left
-        label.contentMode = .scaleToFill
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        
-        let prgph = NSMutableParagraphStyle()
-        
-        prgph.lineHeightMultiple = 1.12
-        
-        label.attributedText = NSMutableAttributedString(string: desc, attributes: [NSAttributedString.Key.paragraphStyle: prgph])
-        
-        return label
-    }
-    
-    private func createSubmitBtn() -> UIButton {
-        let submitBtn = UIButton()
-        
-        submitBtn.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
-        submitBtn.layer.cornerRadius = 10
-        submitBtn.layer.borderWidth = 1
-        submitBtn.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
-        
+}
+
+public extension UIButton {
+    func setTitle(title: String, color: UIColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)){
         let paragraphStyle = NSMutableParagraphStyle()
+        
         paragraphStyle.lineHeightMultiple = 0.79
         
-        let attributedText = NSMutableAttributedString(string: self.action!.key, attributes: [
+        let attributedText = NSMutableAttributedString(string: title, attributes: [
                                                         NSMutableAttributedString.Key.paragraphStyle: paragraphStyle,
                                                         NSMutableAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 24),
-                                                        NSMutableAttributedString.Key.foregroundColor: UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)])
+                                                        NSMutableAttributedString.Key.foregroundColor: color])
         
-        submitBtn.setAttributedTitle(attributedText, for: .normal)
-        
-        submitBtn.addTarget(self, action: #selector(self.closeOnTap), for: .touchUpInside)
-        submitBtn.addTarget(self.parent, action: self.action!.value, for: .touchUpInside)
-        
-        return submitBtn
-    }
-    
-    @IBAction func closeOnTap (sender: UIButton!) {
-        self.view.removeFromSuperview()
+        self.setAttributedTitle(attributedText, for: .normal)
     }
 }

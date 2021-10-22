@@ -118,8 +118,8 @@ public extension GenerationRuneCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         
-        imageView.heightAnchor.constraint(equalToConstant: runeImage.height).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: runeImage.width).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: runeImage.height!).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: runeImage.width!).isActive = true
         
         return imageView
     }

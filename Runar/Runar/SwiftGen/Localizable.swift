@@ -334,6 +334,18 @@ internal enum L10n {
     internal static let commingSoon = L10n.tr("Localizable", "generator.commingSoon")
     /// Select
     internal static let select = L10n.tr("Localizable", "generator.select")
+    internal enum GenerateButton {
+      /// Generate
+      internal static let title = L10n.tr("Localizable", "generator.generateButton.title")
+    }
+    internal enum GenerateRunes {
+      /// Runes selection
+      internal static let title = L10n.tr("Localizable", "generator.generateRunes.title")
+    }
+    internal enum RandomButton {
+      /// Select random runes
+      internal static let title = L10n.tr("Localizable", "generator.randomButton.title")
+    }
     internal enum RuneFormula {
       /// 
       internal static let description = L10n.tr("Localizable", "generator.runeFormula.description")
@@ -351,6 +363,10 @@ internal enum L10n {
       internal static let description = L10n.tr("Localizable", "generator.runeStaves.description")
       /// Staves
       internal static let title = L10n.tr("Localizable", "generator.runeStaves.title")
+    }
+    internal enum SelectedRunes {
+      /// Collect your rune formula after select from 1 to 3 runes
+      internal static let title = L10n.tr("Localizable", "generator.selectedRunes.title")
     }
   }
 

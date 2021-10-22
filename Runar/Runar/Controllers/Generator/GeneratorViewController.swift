@@ -23,15 +23,19 @@ public class GeneratorViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        RunarLayout.initBackground(for: view, with: .mainFile)
+        RunarLayout.initBackground(for: view, with: .mainFire)
+
+        configureView()
+    }
+        
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         title = .generator
         navigationController?.navigationBar.configure(prefersLargeTitles: true, titleFontSize: 34)
         navigationController?.setStatusBar(backgroundColor: .navBarBackground)
-        
-        configureView()
     }
-    
+
     private func configureView(){
         
         let mainCell = renderMainCell()
@@ -42,7 +46,7 @@ public class GeneratorViewController: UIViewController {
 
         mainCell.translatesAutoresizingMaskIntoConstraints = false
         mainCell.centerXAnchor.constraint(equalTo: self.view!.centerXAnchor).isActive = true
-        mainCell.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 181).isActive = true
+        mainCell.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 42).isActive = true
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.heightAnchor.constraint(equalToConstant: 24).isActive = true
@@ -99,24 +103,28 @@ public class GeneratorViewController: UIViewController {
         return groupCell
     }
     
-    @IBAction func showOnTap (sender: GenerationRuneCell!) {
-                
+    let popupVC: GenerationPopUpViewController = {
         let viewController = GenerationPopUpViewController()
+        viewController.modalPresentationStyle = .overCurrentContext
+        return viewController
+    }()
+    
+    @IBAction func showOnTap (sender: GenerationRuneCell!) {
+        popupVC.setupModel(sender.runeModel)
+        popupVC.submitButton.isHidden = !sender.canGenerate
         
-        viewController.setupModel(sender.runeModel)
+        self.addChild(popupVC)
+        self.view.addSubview(popupVC.view)
+        popupVC.view.frame = self.view.bounds
         
         if (sender.canGenerate){
-            viewController.setupAction(.runeSelectTitle, #selector(self.selectOnTap))
+            popupVC.setupAction(.runeSelectTitle, #selector(self.selectOnTap))
         }
         
-        self.addChild(viewController)
-        viewController.view.frame = self.view.frame
-        self.view.addSubview(viewController.view)
-        viewController.modalPresentationStyle = .overCurrentContext
-        viewController.didMove(toParent: self)
+        popupVC.didMove(toParent: self)
     }
     
     @IBAction func selectOnTap () {
-        
+        self.navigationController?.pushViewController(SelectionRuneController(), animated: false)
     }
 }
