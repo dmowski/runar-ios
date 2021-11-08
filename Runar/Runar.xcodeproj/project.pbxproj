@@ -51,6 +51,8 @@
 		84468380266392F900A0790B /* LibraryRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446837F266392F900A0790B /* LibraryRuneCell.swift */; };
 		844BF4D626501A81002C7596 /* RunarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF4D526501A81002C7596 /* RunarLayout.swift */; };
 		8452A5F726F3A3700069DEE5 /* GeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452A5F626F3A3700069DEE5 /* GeneratorViewController.swift */; };
+		845D26DF272C3C8900449D34 /* SelectWallpapersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D26DE272C3C8900449D34 /* SelectWallpapersViewController.swift */; };
+		845D26E42738259E00449D34 /* WallpaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D26E32738259E00449D34 /* WallpaperViewController.swift */; };
 		8477222E2643C9CA001C280D /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477222D2643C9CA001C280D /* LocalStorage.swift */; };
 		8477224326458020001C280D /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477224226458020001C280D /* Route.swift */; };
 		8477224F26458882001C280D /* CreateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477224E26458882001C280D /* CreateUserRequest.swift */; };
@@ -59,6 +61,8 @@
 		849ED28F266E3457006E557A /* LibraryRootCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED28E266E3457006E557A /* LibraryRootCell.swift */; };
 		849ED294266E74B9006E557A /* LibraryMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED293266E74B9006E557A /* LibraryMenuCell.swift */; };
 		849ED29C26710C0B006E557A /* LibraryPathCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED29B26710C0A006E557A /* LibraryPathCell.swift */; };
+		84B1C4D62724D825007865CF /* SelectWallpaperStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1C4D52724D825007865CF /* SelectWallpaperStyleViewController.swift */; };
+		84B1C4DB2727184B007865CF /* WallpapperStyleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1C4DA2727184B007865CF /* WallpapperStyleData.swift */; };
 		84D7E5F02649EC6700772EE3 /* LibraryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E5EF2649EC6700772EE3 /* LibraryData.swift */; };
 		84D7E6022649F37700772EE3 /* LibraryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E6012649F37700772EE3 /* LibraryNode.swift */; };
 		84D7E60B264BAED300772EE3 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E60A264BAED300772EE3 /* Environment.swift */; };
@@ -185,6 +189,8 @@
 		8446837F266392F900A0790B /* LibraryRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRuneCell.swift; sourceTree = "<group>"; };
 		844BF4D526501A81002C7596 /* RunarLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunarLayout.swift; sourceTree = "<group>"; };
 		8452A5F626F3A3700069DEE5 /* GeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorViewController.swift; sourceTree = "<group>"; };
+		845D26DE272C3C8900449D34 /* SelectWallpapersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWallpapersViewController.swift; sourceTree = "<group>"; };
+		845D26E32738259E00449D34 /* WallpaperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperViewController.swift; sourceTree = "<group>"; };
 		8477222D2643C9CA001C280D /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		8477224226458020001C280D /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		8477224E26458882001C280D /* CreateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserRequest.swift; sourceTree = "<group>"; };
@@ -193,6 +199,8 @@
 		849ED28E266E3457006E557A /* LibraryRootCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRootCell.swift; sourceTree = "<group>"; };
 		849ED293266E74B9006E557A /* LibraryMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryMenuCell.swift; sourceTree = "<group>"; };
 		849ED29B26710C0A006E557A /* LibraryPathCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPathCell.swift; sourceTree = "<group>"; };
+		84B1C4D52724D825007865CF /* SelectWallpaperStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWallpaperStyleViewController.swift; sourceTree = "<group>"; };
+		84B1C4DA2727184B007865CF /* WallpapperStyleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpapperStyleData.swift; sourceTree = "<group>"; };
 		84D7E5EF2649EC6700772EE3 /* LibraryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryData.swift; sourceTree = "<group>"; };
 		84D7E6012649F37700772EE3 /* LibraryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNode.swift; sourceTree = "<group>"; };
 		84D7E60A264BAED300772EE3 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -454,6 +462,9 @@
 				843DAB9126F9B94C009548D8 /* Views */,
 				8452A5F626F3A3700069DEE5 /* GeneratorViewController.swift */,
 				8441066C27077A2700CD8B56 /* SelectionRuneController.swift */,
+				84B1C4D52724D825007865CF /* SelectWallpaperStyleViewController.swift */,
+				845D26DE272C3C8900449D34 /* SelectWallpapersViewController.swift */,
+				845D26E32738259E00449D34 /* WallpaperViewController.swift */,
 			);
 			path = Generator;
 			sourceTree = "<group>";
@@ -491,6 +502,7 @@
 			children = (
 				84D7E5EF2649EC6700772EE3 /* LibraryData.swift */,
 				8440C513272016FD003D6B3C /* RuneData.swift */,
+				84B1C4DA2727184B007865CF /* WallpapperStyleData.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -1010,6 +1022,7 @@
 				9BD2295A258AB02500E17E98 /* CollectionViewController.swift in Sources */,
 				849ED29C26710C0B006E557A /* LibraryPathCell.swift in Sources */,
 				19C0F1F425BAF07E0027422B /* AligmentViewModel.swift in Sources */,
+				84B1C4DB2727184B007865CF /* WallpapperStyleData.swift in Sources */,
 				9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */,
 				1987AAB625BDCDA400BB3655 /* ThreeRuneView.swift in Sources */,
 				8477224326458020001C280D /* Route.swift in Sources */,
@@ -1027,11 +1040,13 @@
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
 				9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */,
 				8441066D27077A2700CD8B56 /* SelectionRuneController.swift in Sources */,
+				845D26E42738259E00449D34 /* WallpaperViewController.swift in Sources */,
 				9B739E0625CD77E900726B30 /* ProcessingViewModel.swift in Sources */,
 				843DFF33265248B900D6DFE5 /* LibraryViewController.swift in Sources */,
 				9B15E37025FE4BFC00737306 /* TopLineView.swift in Sources */,
 				19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */,
 				19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */,
+				84B1C4D62724D825007865CF /* SelectWallpaperStyleViewController.swift in Sources */,
 				9B0CB8862607922B00B2AF60 /* DescriptionView.swift in Sources */,
 				8452A5F726F3A3700069DEE5 /* GeneratorViewController.swift in Sources */,
 				844106602705B43E00CD8B56 /* GenerationPopUpViewController.swift in Sources */,
@@ -1061,6 +1076,7 @@
 				84468380266392F900A0790B /* LibraryRuneCell.swift in Sources */,
 				193FFB382613319000D60171 /* CustomButton.swift in Sources */,
 				19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */,
+				845D26DF272C3C8900449D34 /* SelectWallpapersViewController.swift in Sources */,
 				9BD98C932628A74200F3BBD7 /* AppInfoViewController.swift in Sources */,
 				9B0CB88B2607B6A000B2AF60 /* TopWithDescriptionView.swift in Sources */,
 				9BD98C982628A74200F3BBD7 /* SettingsViewController.swift in Sources */,

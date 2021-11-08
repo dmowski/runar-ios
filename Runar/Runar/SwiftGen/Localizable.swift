@@ -334,6 +334,14 @@ internal enum L10n {
     internal static let commingSoon = L10n.tr("Localizable", "generator.commingSoon")
     /// Select
     internal static let select = L10n.tr("Localizable", "generator.select")
+    internal enum AlertAction {
+      /// Ok
+      internal static let titile = L10n.tr("Localizable", "generator.alertAction.titile")
+    }
+    internal enum AlertHeader {
+      /// Runar image has been saved.
+      internal static let titile = L10n.tr("Localizable", "generator.alertHeader.titile")
+    }
     internal enum GenerateButton {
       /// Generate
       internal static let title = L10n.tr("Localizable", "generator.generateButton.title")
@@ -341,6 +349,16 @@ internal enum L10n {
     internal enum GenerateRunes {
       /// Runes selection
       internal static let title = L10n.tr("Localizable", "generator.generateRunes.title")
+    }
+    internal enum NextButton {
+      /// Next
+      internal static let title = L10n.tr("Localizable", "generator.nextButton.title")
+    }
+    internal enum Progress {
+      /// Pattern generation
+      internal static let name = L10n.tr("Localizable", "generator.progress.name")
+      /// Image is creating...
+      internal static let title = L10n.tr("Localizable", "generator.progress.title")
     }
     internal enum RandomButton {
       /// Select random runes
@@ -364,9 +382,29 @@ internal enum L10n {
       /// Staves
       internal static let title = L10n.tr("Localizable", "generator.runeStaves.title")
     }
+    internal enum SelectWallpaperHeader {
+      /// Rune pattern
+      internal static let titile = L10n.tr("Localizable", "generator.selectWallpaperHeader.titile")
+    }
+    internal enum SelectWallpapersHeader {
+      /// Picture selection
+      internal static let titile = L10n.tr("Localizable", "generator.selectWallpapersHeader.titile")
+    }
     internal enum SelectedRunes {
       /// Collect your rune formula after select from 1 to 3 runes
       internal static let title = L10n.tr("Localizable", "generator.selectedRunes.title")
+    }
+    internal enum ShareWallpaperHeader {
+      /// Rurar wallpaper image
+      internal static let titile = L10n.tr("Localizable", "generator.shareWallpaperHeader.titile")
+    }
+    internal enum Wallpapers {
+      /// Wallpaper selection
+      internal static let title = L10n.tr("Localizable", "generator.wallpapers.title")
+    }
+    internal enum WallpapersHeader {
+      /// First, select the picture you like
+      internal static let title = L10n.tr("Localizable", "generator.wallpapersHeader.title")
     }
   }
 

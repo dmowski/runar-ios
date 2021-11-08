@@ -130,7 +130,7 @@ class AlignmentViewController: UIViewController {
     
     @objc func buttonTaped (sender: UIButton!) {
         let runeDescription = viewModel.runeDescription
-        let viewModel = ProcessingViewModel(runeDescription: runeDescription) { [weak self] in
+        let viewModel = ProcessingViewModel(name: runeDescription.name, title: nil) { [weak self] in
             
             self?.setUpContentAfterAdvertising()
             self?.navigationController?.popViewController(animated: true)

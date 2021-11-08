@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             signIn()
         }
                 
-        loadLibrary()
-        loadRunes()
+        loadLibraryData()
+        loadGeneratorData()
         
         return true
     }
@@ -62,7 +62,7 @@ extension AppDelegate {
     }
    
     // MARK: - Load library
-    func loadLibrary() -> Void {
+    func loadLibraryData() -> Void {
         let storedLibraryHash: String? = LocalStorage.pull(forKey: .libraryHash, withLocalization: true)
         guard let actualLibraryHash = RunarApi.getLibratyHash() else {
             fatalError("Library hash is empty")
@@ -88,7 +88,12 @@ extension AppDelegate {
         MemoryStorage.Library = LibraryNode.create(fromData: data)
     }
     
-    func loadRunes() -> Void {
+    func loadGeneratorData() -> Void {
+        loadRues()
+        loadWallpapers()
+    }
+    
+    func loadRues(){
         var runesData: Data? = LocalStorage.pull(forKey: .runesData)
         
         if (runesData == nil){
@@ -102,6 +107,22 @@ extension AppDelegate {
         }
         
         MemoryStorage.GenerationRunes = GenerationRuneModel.create(fromData: runesData!)
+    }
+    
+    func loadWallpapers(){
+        var wallpapersStylesData: Data? = LocalStorage.pull(forKey: .wallpapersStylesData)
+        
+        if (wallpapersStylesData == nil){
+            guard let _wallpapersStylesData = RunarApi.getWallpapersStylesData()else {
+                fatalError("Runes is empty")
+            }
+            
+            LocalStorage.push(_wallpapersStylesData, forKey: .wallpapersStylesData)
+            
+            wallpapersStylesData = _wallpapersStylesData
+        }
+        
+        MemoryStorage.GenerationWallpapertsStyles = WallpapperStyleData.create(from: wallpapersStylesData!)
     }
 }
 

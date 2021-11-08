@@ -64,8 +64,7 @@ public class LibraryCell: UITableViewCell, LibraryCellProtocol {
 // MARK: - Extensions
 public extension UIImage {
     static func create(fromUrl url: String) -> UIImage? {
-        let imageUrl: URL = URL(string: url)!
-        let imageData =  try! Data(contentsOf: imageUrl)
+        let imageData: Data = RunarApi.getData(byUrl: url)!
         
         return UIImage(data: imageData)
     }

@@ -53,7 +53,7 @@ public extension GenerationRuneModel {
         var runes: [GenerationRuneModel] = []
         
         for rune in runesData {
-            runes.append(create(id: String(rune.id), runeInfo: rune.getInfo(), image: Assets.LayoutsRunes.fehu.image))
+            runes.append(create(id: String(rune.id), runeInfo: rune.getInfo(), image: UIImage.create(fromUrl: rune.imageUrl)!))
         }
         
         return runes

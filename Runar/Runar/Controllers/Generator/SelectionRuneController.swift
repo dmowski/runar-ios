@@ -145,6 +145,8 @@ public class SelectionRuneController: UIViewController{
         ])
         
         self.view.addSubview(generateButton)
+        
+        generateButton.addTarget(self, action: #selector(self.generateOnTap), for: .touchUpInside)
 
         generateButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -181,7 +183,7 @@ public class SelectionRuneController: UIViewController{
         
         for cell in (self.selectedRunesView.visibleCells as! [SelectedRuneCell]).sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
             if !cell.isSelected {
-                cell.selectRune(SelectedRuneModel(title: rune.model!.title, image: rune.model!.image.image, index: rune.indexPath))
+                cell.selectRune(SelectedRuneModel(title: rune.model!.title, image: rune.model!.image.image, index: rune.indexPath, id: rune.model!.id))
                 break
             }
         }
@@ -209,7 +211,7 @@ public class SelectionRuneController: UIViewController{
             
             for cell in (self.selectedRunesView.visibleCells as! [SelectedRuneCell]).sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
                 if !cell.isSelected {
-                    cell.selectRune(SelectedRuneModel(title: rune.model!.title, image: rune.model!.image.image, index: rune.indexPath))
+                    cell.selectRune(SelectedRuneModel(title: rune.model!.title, image: rune.model!.image.image, index: rune.indexPath, id: rune.model!.id))
                     break
                 }
             }
@@ -220,6 +222,25 @@ public class SelectionRuneController: UIViewController{
         }
         
         generateButton.isHidden = false
+    }
+    
+    @IBAction func generateOnTap() {
+        let runesIds = (self.selectedRunesView.visibleCells as! [SelectedRuneCell])
+            .filter({ (rune) -> Bool in
+                return rune.selectedRune != nil
+            })
+            .sorted(by: { (rune1, rune2) -> Bool in
+                return Int(rune1.selectedRune!.id)! < Int(rune2.selectedRune!.id)!
+            })
+            .map { (rune) -> String in
+                return rune.selectedRune!.id
+        }
+        
+        let selectWallpaperStyleVC = SelectWallpaperStyleViewController()
+        
+        selectWallpaperStyleVC.selectedRunesIds = runesIds
+        
+        self.navigationController?.pushViewController(selectWallpaperStyleVC, animated: false)
     }
 }
 

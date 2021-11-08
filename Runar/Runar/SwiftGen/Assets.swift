@@ -135,6 +135,7 @@ internal enum Assets {
   internal static let person2 = ImageAsset(name: "person 2")
   internal static let popUpVectorLeft = ImageAsset(name: "popUpVectorLeft")
   internal static let popUpVectorRight = ImageAsset(name: "popUpVectorRight")
+  internal static let selectedCircle = ImageAsset(name: "selected-circle")
   internal static let selected = ImageAsset(name: "selected")
   internal static let topBlackGradient = ImageAsset(name: "topBlackGradient")
   internal static let unselected = ImageAsset(name: "unselected")
