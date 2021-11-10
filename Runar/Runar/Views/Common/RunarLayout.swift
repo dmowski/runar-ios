@@ -7,6 +7,21 @@
 
 import UIKit
 
+// MARK: - Types
+public enum BackgroundType {
+    case main
+    case mainFire
+    
+    var image: ImageAsset {
+        switch self {
+        case .main:
+            return Assets.Background.main
+        case .mainFire:
+            return Assets.mainFire
+        }
+    }
+}
+
 public class RunarLayout {
     
     // MARK: - Static funcs
@@ -18,8 +33,8 @@ public class RunarLayout {
         return background
     }
     
-    public static func initBackground(for view: UIView) {
-        let backgroundImage: UIImageView = createBackground(with: Assets.Background.main)
+    public static func initBackground(for view: UIView, with background: BackgroundType = .main) {
+        let backgroundImage: UIImageView = createBackground(with: background.image)
         let backgroundShadow: UIImageView = createBackground(with: Assets.Background.backgroundShadowSetting)
         
         view.addSubviews(backgroundImage, backgroundShadow)

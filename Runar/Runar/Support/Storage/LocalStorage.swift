@@ -55,6 +55,8 @@ public enum LocalStorageKey: String, CaseIterable {
     case firstLaunch = "hasBeenLaunchedBeforeFlag"
     case libraryHash = "LocalStorageKey.libraryHash"
     case libraryData = "LocalStorageKey.libraryData"
+    case runesData = "Generator.Runes"
+    case wallpapersStylesData = "Generator.WallpapersStyles"
     
     func localizeRawValue() -> String {
         return "\(self.rawValue)-\(String.lang)"

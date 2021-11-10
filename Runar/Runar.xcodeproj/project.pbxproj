@@ -37,12 +37,22 @@
 		19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BAFD25C9874200418CE7 /* RuneViewProtocol.swift */; };
 		19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BB0525C9874E00418CE7 /* RunesView.swift */; };
 		1A04A48091973E2F0EB04A65 /* Pods_RunarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */; };
+		843DAB9326F9BA9C009548D8 /* GenerationRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DAB9226F9BA9C009548D8 /* GenerationRuneCell.swift */; };
 		843DFF33265248B900D6DFE5 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF32265248B900D6DFE5 /* LibraryViewController.swift */; };
 		843DFF4D2653FB5400D6DFE5 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF4C2653FB5400D6DFE5 /* LibraryCell.swift */; };
 		843DFF72265BC50800D6DFE5 /* LibraryNodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF71265BC50800D6DFE5 /* LibraryNodeViewController.swift */; };
 		843DFF7D265D66ED00D6DFE5 /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF7C265D66ED00D6DFE5 /* MemoryStorage.swift */; };
+		8440C514272016FD003D6B3C /* RuneData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440C513272016FD003D6B3C /* RuneData.swift */; };
+		844106602705B43E00CD8B56 /* GenerationPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441065F2705B43E00CD8B56 /* GenerationPopUpViewController.swift */; };
+		8441066827063C5400CD8B56 /* GenerationRuneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441066727063C5400CD8B56 /* GenerationRuneModel.swift */; };
+		8441066D27077A2700CD8B56 /* SelectionRuneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441066C27077A2700CD8B56 /* SelectionRuneController.swift */; };
+		84410672270ADA0400CD8B56 /* SelectedRuneCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84410671270ADA0400CD8B56 /* SelectedRuneCollectionView.swift */; };
+		84410677270CC7E500CD8B56 /* SelectRuneCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84410676270CC7E500CD8B56 /* SelectRuneCollectionView.swift */; };
 		84468380266392F900A0790B /* LibraryRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446837F266392F900A0790B /* LibraryRuneCell.swift */; };
 		844BF4D626501A81002C7596 /* RunarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF4D526501A81002C7596 /* RunarLayout.swift */; };
+		8452A5F726F3A3700069DEE5 /* GeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452A5F626F3A3700069DEE5 /* GeneratorViewController.swift */; };
+		845D26DF272C3C8900449D34 /* SelectWallpapersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D26DE272C3C8900449D34 /* SelectWallpapersViewController.swift */; };
+		845D26E42738259E00449D34 /* WallpaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D26E32738259E00449D34 /* WallpaperViewController.swift */; };
 		8477222E2643C9CA001C280D /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477222D2643C9CA001C280D /* LocalStorage.swift */; };
 		8477224326458020001C280D /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477224226458020001C280D /* Route.swift */; };
 		8477224F26458882001C280D /* CreateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477224E26458882001C280D /* CreateUserRequest.swift */; };
@@ -51,6 +61,8 @@
 		849ED28F266E3457006E557A /* LibraryRootCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED28E266E3457006E557A /* LibraryRootCell.swift */; };
 		849ED294266E74B9006E557A /* LibraryMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED293266E74B9006E557A /* LibraryMenuCell.swift */; };
 		849ED29C26710C0B006E557A /* LibraryPathCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED29B26710C0A006E557A /* LibraryPathCell.swift */; };
+		84B1C4D62724D825007865CF /* SelectWallpaperStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1C4D52724D825007865CF /* SelectWallpaperStyleViewController.swift */; };
+		84B1C4DB2727184B007865CF /* WallpapperStyleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1C4DA2727184B007865CF /* WallpapperStyleData.swift */; };
 		84D7E5F02649EC6700772EE3 /* LibraryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E5EF2649EC6700772EE3 /* LibraryData.swift */; };
 		84D7E6022649F37700772EE3 /* LibraryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E6012649F37700772EE3 /* LibraryNode.swift */; };
 		84D7E60B264BAED300772EE3 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E60A264BAED300772EE3 /* Environment.swift */; };
@@ -163,12 +175,22 @@
 		1A56DC55326BF359E39532FA /* Pods-Runar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar.release.xcconfig"; path = "Target Support Files/Pods-Runar/Pods-Runar.release.xcconfig"; sourceTree = "<group>"; };
 		29AD0AF3F59DE1B0E9AF6F8D /* Pods-RunarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.release.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.release.xcconfig"; sourceTree = "<group>"; };
 		7187BE777607C9CC2B878552 /* Pods-RunarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.debug.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		843DAB9226F9BA9C009548D8 /* GenerationRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationRuneCell.swift; sourceTree = "<group>"; };
 		843DFF32265248B900D6DFE5 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		843DFF4C2653FB5400D6DFE5 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		843DFF71265BC50800D6DFE5 /* LibraryNodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNodeViewController.swift; sourceTree = "<group>"; };
 		843DFF7C265D66ED00D6DFE5 /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
+		8440C513272016FD003D6B3C /* RuneData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneData.swift; sourceTree = "<group>"; };
+		8441065F2705B43E00CD8B56 /* GenerationPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationPopUpViewController.swift; sourceTree = "<group>"; };
+		8441066727063C5400CD8B56 /* GenerationRuneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationRuneModel.swift; sourceTree = "<group>"; };
+		8441066C27077A2700CD8B56 /* SelectionRuneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRuneController.swift; sourceTree = "<group>"; };
+		84410671270ADA0400CD8B56 /* SelectedRuneCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRuneCollectionView.swift; sourceTree = "<group>"; };
+		84410676270CC7E500CD8B56 /* SelectRuneCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRuneCollectionView.swift; sourceTree = "<group>"; };
 		8446837F266392F900A0790B /* LibraryRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRuneCell.swift; sourceTree = "<group>"; };
 		844BF4D526501A81002C7596 /* RunarLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunarLayout.swift; sourceTree = "<group>"; };
+		8452A5F626F3A3700069DEE5 /* GeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorViewController.swift; sourceTree = "<group>"; };
+		845D26DE272C3C8900449D34 /* SelectWallpapersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWallpapersViewController.swift; sourceTree = "<group>"; };
+		845D26E32738259E00449D34 /* WallpaperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperViewController.swift; sourceTree = "<group>"; };
 		8477222D2643C9CA001C280D /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		8477224226458020001C280D /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		8477224E26458882001C280D /* CreateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserRequest.swift; sourceTree = "<group>"; };
@@ -177,6 +199,8 @@
 		849ED28E266E3457006E557A /* LibraryRootCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRootCell.swift; sourceTree = "<group>"; };
 		849ED293266E74B9006E557A /* LibraryMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryMenuCell.swift; sourceTree = "<group>"; };
 		849ED29B26710C0A006E557A /* LibraryPathCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPathCell.swift; sourceTree = "<group>"; };
+		84B1C4D52724D825007865CF /* SelectWallpaperStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWallpaperStyleViewController.swift; sourceTree = "<group>"; };
+		84B1C4DA2727184B007865CF /* WallpapperStyleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpapperStyleData.swift; sourceTree = "<group>"; };
 		84D7E5EF2649EC6700772EE3 /* LibraryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryData.swift; sourceTree = "<group>"; };
 		84D7E6012649F37700772EE3 /* LibraryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNode.swift; sourceTree = "<group>"; };
 		84D7E60A264BAED300772EE3 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -376,8 +400,19 @@
 				19C0F21A25BAFEFE0027422B /* RuneDescription.swift */,
 				9BAEB61C25F13412004B7761 /* Affirmation.swift */,
 				84D7E6012649F37700772EE3 /* LibraryNode.swift */,
+				8441066727063C5400CD8B56 /* GenerationRuneModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		843DAB9126F9B94C009548D8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				843DAB9226F9BA9C009548D8 /* GenerationRuneCell.swift */,
+				84410671270ADA0400CD8B56 /* SelectedRuneCollectionView.swift */,
+				84410676270CC7E500CD8B56 /* SelectRuneCollectionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		843DFF452653969C00D6DFE5 /* Cells */ = {
@@ -392,6 +427,14 @@
 				849ED29B26710C0A006E557A /* LibraryPathCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		8441065E2704ECFD00CD8B56 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				8441065F2705B43E00CD8B56 /* GenerationPopUpViewController.swift */,
+			);
+			path = PopUp;
 			sourceTree = "<group>";
 		};
 		844BF4C9264FE551002C7596 /* Library */ = {
@@ -410,6 +453,20 @@
 				844BF4D526501A81002C7596 /* RunarLayout.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		8452A5F526F3A3240069DEE5 /* Generator */ = {
+			isa = PBXGroup;
+			children = (
+				8441065E2704ECFD00CD8B56 /* PopUp */,
+				843DAB9126F9B94C009548D8 /* Views */,
+				8452A5F626F3A3700069DEE5 /* GeneratorViewController.swift */,
+				8441066C27077A2700CD8B56 /* SelectionRuneController.swift */,
+				84B1C4D52724D825007865CF /* SelectWallpaperStyleViewController.swift */,
+				845D26DE272C3C8900449D34 /* SelectWallpapersViewController.swift */,
+				845D26E32738259E00449D34 /* WallpaperViewController.swift */,
+			);
+			path = Generator;
 			sourceTree = "<group>";
 		};
 		8477222C2643C9AB001C280D /* Storage */ = {
@@ -444,6 +501,8 @@
 			isa = PBXGroup;
 			children = (
 				84D7E5EF2649EC6700772EE3 /* LibraryData.swift */,
+				8440C513272016FD003D6B3C /* RuneData.swift */,
+				84B1C4DA2727184B007865CF /* WallpapperStyleData.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -509,6 +568,7 @@
 		9B9C25C925993DE000A4E135 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8452A5F526F3A3240069DEE5 /* Generator */,
 				844BF4C9264FE551002C7596 /* Library */,
 				9BD98CDC2628D3BA00F3BBD7 /* RuneDescriptionPopUp */,
 				9BD98CBE2628CD1D00F3BBD7 /* Escape Pop Up */,
@@ -938,6 +998,7 @@
 				849ED285266E3251006E557A /* LibraryPoemCell.swift in Sources */,
 				849ED294266E74B9006E557A /* LibraryMenuCell.swift in Sources */,
 				843DFF7D265D66ED00D6DFE5 /* MemoryStorage.swift in Sources */,
+				84410672270ADA0400CD8B56 /* SelectedRuneCollectionView.swift in Sources */,
 				19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */,
 				9B739DF325CD765800726B30 /* Constants.swift in Sources */,
 				843DFF4D2653FB5400D6DFE5 /* LibraryCell.swift in Sources */,
@@ -947,6 +1008,7 @@
 				19BDC61D25C030B1000808CF /* PublisherProvider.swift in Sources */,
 				1987AAC525BDCDCA00BB3655 /* SixRuneView.swift in Sources */,
 				19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */,
+				843DAB9326F9BA9C009548D8 /* GenerationRuneCell.swift in Sources */,
 				1987AACA25BDCDD500BB3655 /* SevenRuneView.swift in Sources */,
 				9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */,
 				195AEDC325B8C3A300180A49 /* AlignmentViewController.swift in Sources */,
@@ -956,9 +1018,11 @@
 				19C0F21025BAFDCB0027422B /* AlignmentInfoViewModel.swift in Sources */,
 				191D32CF25B7C46A001DC210 /* Assets.swift in Sources */,
 				19D9BAD625C9765C00418CE7 /* TwoRuneView.swift in Sources */,
+				84410677270CC7E500CD8B56 /* SelectRuneCollectionView.swift in Sources */,
 				9BD2295A258AB02500E17E98 /* CollectionViewController.swift in Sources */,
 				849ED29C26710C0B006E557A /* LibraryPathCell.swift in Sources */,
 				19C0F1F425BAF07E0027422B /* AligmentViewModel.swift in Sources */,
+				84B1C4DB2727184B007865CF /* WallpapperStyleData.swift in Sources */,
 				9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */,
 				1987AAB625BDCDA400BB3655 /* ThreeRuneView.swift in Sources */,
 				8477224326458020001C280D /* Route.swift in Sources */,
@@ -975,13 +1039,19 @@
 				84D7E60B264BAED300772EE3 /* Environment.swift in Sources */,
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
 				9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */,
+				8441066D27077A2700CD8B56 /* SelectionRuneController.swift in Sources */,
+				845D26E42738259E00449D34 /* WallpaperViewController.swift in Sources */,
 				9B739E0625CD77E900726B30 /* ProcessingViewModel.swift in Sources */,
 				843DFF33265248B900D6DFE5 /* LibraryViewController.swift in Sources */,
 				9B15E37025FE4BFC00737306 /* TopLineView.swift in Sources */,
 				19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */,
 				19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */,
+				84B1C4D62724D825007865CF /* SelectWallpaperStyleViewController.swift in Sources */,
 				9B0CB8862607922B00B2AF60 /* DescriptionView.swift in Sources */,
+				8452A5F726F3A3700069DEE5 /* GeneratorViewController.swift in Sources */,
+				844106602705B43E00CD8B56 /* GenerationPopUpViewController.swift in Sources */,
 				849ED28A266E33D4006E557A /* LibraryTextCell.swift in Sources */,
+				8440C514272016FD003D6B3C /* RuneData.swift in Sources */,
 				9BD98C962628A74200F3BBD7 /* LanguageCell.swift in Sources */,
 				9BD98C942628A74200F3BBD7 /* StaticCell.swift in Sources */,
 				9B739E0525CD77E900726B30 /* ProcessingViewController.swift in Sources */,
@@ -999,12 +1069,14 @@
 				9BD98CC02628CD1D00F3BBD7 /* EscapePopUpViewVontroller.swift in Sources */,
 				199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */,
 				9B5F5BB5261CD5A500A7454F /* MusicViewController.swift in Sources */,
+				8441066827063C5400CD8B56 /* GenerationRuneModel.swift in Sources */,
 				9BD98C9E2628A75600F3BBD7 /* UINavigationController.swift in Sources */,
 				9BD98C952628A74200F3BBD7 /* MusicCell.swift in Sources */,
 				9BAEB63425F18C3B004B7761 /* Interperitation+Ext.swift in Sources */,
 				84468380266392F900A0790B /* LibraryRuneCell.swift in Sources */,
 				193FFB382613319000D60171 /* CustomButton.swift in Sources */,
 				19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */,
+				845D26DF272C3C8900449D34 /* SelectWallpapersViewController.swift in Sources */,
 				9BD98C932628A74200F3BBD7 /* AppInfoViewController.swift in Sources */,
 				9B0CB88B2607B6A000B2AF60 /* TopWithDescriptionView.swift in Sources */,
 				9BD98C982628A74200F3BBD7 /* SettingsViewController.swift in Sources */,

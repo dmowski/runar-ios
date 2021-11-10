@@ -31,7 +31,7 @@ public class LibraryViewController: LibraryNodeViewController {
 }
 
 // MARK: - Extensions
-private extension UINavigationBar {
+public extension UINavigationBar {
     func configure(prefersLargeTitles: Bool, titleFontSize: CGFloat) -> Void {
         self.backgroundColor = .navBarBackground
         

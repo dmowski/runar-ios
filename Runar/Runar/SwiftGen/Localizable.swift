@@ -329,6 +329,85 @@ internal enum L10n {
     }
   }
 
+  internal enum Generator {
+    /// Comming soon
+    internal static let commingSoon = L10n.tr("Localizable", "generator.commingSoon")
+    /// Select
+    internal static let select = L10n.tr("Localizable", "generator.select")
+    internal enum AlertAction {
+      /// Ok
+      internal static let titile = L10n.tr("Localizable", "generator.alertAction.titile")
+    }
+    internal enum AlertHeader {
+      /// Runic image has been saved.
+      internal static let titile = L10n.tr("Localizable", "generator.alertHeader.titile")
+    }
+    internal enum GenerateButton {
+      /// Generate
+      internal static let title = L10n.tr("Localizable", "generator.generateButton.title")
+    }
+    internal enum GenerateRunes {
+      /// Runes selection
+      internal static let title = L10n.tr("Localizable", "generator.generateRunes.title")
+    }
+    internal enum NextButton {
+      /// Next
+      internal static let title = L10n.tr("Localizable", "generator.nextButton.title")
+    }
+    internal enum Progress {
+      /// Pattern generation
+      internal static let name = L10n.tr("Localizable", "generator.progress.name")
+      /// Runic image is creating...
+      internal static let title = L10n.tr("Localizable", "generator.progress.title")
+    }
+    internal enum RandomButton {
+      /// Select random runes
+      internal static let title = L10n.tr("Localizable", "generator.randomButton.title")
+    }
+    internal enum RuneFormula {
+      /// 
+      internal static let description = L10n.tr("Localizable", "generator.runeFormula.description")
+      /// Formula
+      internal static let title = L10n.tr("Localizable", "generator.runeFormula.title")
+    }
+    internal enum RunePattern {
+      /// 
+      internal static let description = L10n.tr("Localizable", "generator.runePattern.description")
+      /// Runic pattern
+      internal static let title = L10n.tr("Localizable", "generator.runePattern.title")
+    }
+    internal enum RuneStaves {
+      /// 
+      internal static let description = L10n.tr("Localizable", "generator.runeStaves.description")
+      /// Staves
+      internal static let title = L10n.tr("Localizable", "generator.runeStaves.title")
+    }
+    internal enum SelectWallpaperHeader {
+      /// Runic pattern
+      internal static let titile = L10n.tr("Localizable", "generator.selectWallpaperHeader.titile")
+    }
+    internal enum SelectWallpapersHeader {
+      /// Picture selection
+      internal static let titile = L10n.tr("Localizable", "generator.selectWallpapersHeader.titile")
+    }
+    internal enum SelectedRunes {
+      /// Collect your rune formula after select from 1 to 3 runes
+      internal static let title = L10n.tr("Localizable", "generator.selectedRunes.title")
+    }
+    internal enum ShareWallpaperHeader {
+      /// Runic wallpaper image
+      internal static let titile = L10n.tr("Localizable", "generator.shareWallpaperHeader.titile")
+    }
+    internal enum Wallpapers {
+      /// Wallpaper selection
+      internal static let title = L10n.tr("Localizable", "generator.wallpapers.title")
+    }
+    internal enum WallpapersHeader {
+      /// First, select the picture you like
+      internal static let title = L10n.tr("Localizable", "generator.wallpapersHeader.title")
+    }
+  }
+
   internal enum InterpretationElementsCross {
     /// As a person, you have the important trait - %@, and in present one you have %@. The source of your problems may be %@. The most likely future may be described as %@. To archieve this future, your main goal is - %@. If you do not reach the target, you will be %@.
     internal static func text(_ p1: Any, _ p2: Any, _ p3: Any, _ p4: Any, _ p5: Any, _ p6: Any) -> String {
@@ -1633,6 +1712,17 @@ internal enum L10n {
     internal static let name = L10n.tr("Localizable", "language.name")
   }
 
+  internal enum Layouts {
+    /// Runic Draws
+    internal static let title = L10n.tr("Localizable", "layouts.title")
+    internal enum Generator {
+      /// Gnomes generate runic pattern and share the result each other
+      internal static let description = L10n.tr("Localizable", "layouts.generator.description")
+      /// Runic patterns
+      internal static let title = L10n.tr("Localizable", "layouts.generator.title")
+    }
+  }
+
   internal enum Music {
     /// Black rook
     internal static let blackRook = L10n.tr("Localizable", "music.blackRook")
@@ -1805,6 +1895,8 @@ internal enum L10n {
     internal static let cancel = L10n.tr("Localizable", "tabbar.cancel")
     /// Application version 1.0\n\nRunar is an app for reading Scandinavian runes and studying mythology and fairy tales. Contains 8 types of rune layouts & runes interpretation.\n\nWith the permission of the copyright holders, the following musical compositions are used in the application:\n- Lyod (tracks "Black rook", "My mother told"), https://lyod1.bandcamp.com/releases\n- Danheim (tracks "Runar", "Kala"), https://danheimmusic.com
     internal static let descriptionAppText = L10n.tr("Localizable", "tabbar.descriptionAppText")
+    /// Generator
+    internal static let generator = L10n.tr("Localizable", "tabbar.generator")
     /// Language
     internal static let language = L10n.tr("Localizable", "tabbar.language")
     /// Runic Draws

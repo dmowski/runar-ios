@@ -10,6 +10,10 @@ import Foundation
 class RunarApi {
     
     // MARK: - Static funcs
+    static func getData(byUrl url: String) -> Data? {       
+        return send(request: URLRequest(url: URL(string: url)!))
+    }
+    
     static func createUser(with id: String, date: Double, os: String) -> Void {
         let request = CreateUserRequest(userToken: id, dataCreated: date, OS: os)
         
@@ -33,6 +37,19 @@ class RunarApi {
     static func getLibratyData() -> Data? {
         return get(from: Route.getLibrary)
     }
+    
+    static func getRunesData() -> Data? {
+        return get(from: Route.getRunes)
+    }
+    
+    static func getWallpapersStylesData() -> Data? {
+        return get(from: Route.getWallpapersStyles)
+    }
+    
+    static func getWallpapersData(runsIds: [String], style: String) -> Data? {
+        let ids: String = runsIds.joined(separator: "_")
+        return get(from: "\(Route.getWallpapers)/\(ids)?width=180&height=320&style=\(style)")
+    }
 }
 
 // MARK: - Api extensions
@@ -46,6 +63,8 @@ extension RunarApi {
     }
     
     private static func get(from route: String) -> Data? {
+        print("RunarApi/get \(route)")
+        
         guard let request = URLRequest.createGet(from: route) else {
             return nil
         }
