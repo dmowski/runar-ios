@@ -339,7 +339,7 @@ internal enum L10n {
       internal static let titile = L10n.tr("Localizable", "generator.alertAction.titile")
     }
     internal enum AlertHeader {
-      /// Runar image has been saved.
+      /// Runic image has been saved.
       internal static let titile = L10n.tr("Localizable", "generator.alertHeader.titile")
     }
     internal enum GenerateButton {
@@ -357,7 +357,7 @@ internal enum L10n {
     internal enum Progress {
       /// Pattern generation
       internal static let name = L10n.tr("Localizable", "generator.progress.name")
-      /// Image is creating...
+      /// Runic image is creating...
       internal static let title = L10n.tr("Localizable", "generator.progress.title")
     }
     internal enum RandomButton {
@@ -373,7 +373,7 @@ internal enum L10n {
     internal enum RunePattern {
       /// 
       internal static let description = L10n.tr("Localizable", "generator.runePattern.description")
-      /// Rune pattern
+      /// Runic pattern
       internal static let title = L10n.tr("Localizable", "generator.runePattern.title")
     }
     internal enum RuneStaves {
@@ -383,7 +383,7 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "generator.runeStaves.title")
     }
     internal enum SelectWallpaperHeader {
-      /// Rune pattern
+      /// Runic pattern
       internal static let titile = L10n.tr("Localizable", "generator.selectWallpaperHeader.titile")
     }
     internal enum SelectWallpapersHeader {
@@ -395,7 +395,7 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "generator.selectedRunes.title")
     }
     internal enum ShareWallpaperHeader {
-      /// Rurar wallpaper image
+      /// Runic wallpaper image
       internal static let titile = L10n.tr("Localizable", "generator.shareWallpaperHeader.titile")
     }
     internal enum Wallpapers {
@@ -1710,6 +1710,17 @@ internal enum L10n {
   internal enum Language {
     /// en
     internal static let name = L10n.tr("Localizable", "language.name")
+  }
+
+  internal enum Layouts {
+    /// Runic Draws
+    internal static let title = L10n.tr("Localizable", "layouts.title")
+    internal enum Generator {
+      /// Gnomes generate runic pattern and share the result each other
+      internal static let description = L10n.tr("Localizable", "layouts.generator.description")
+      /// Runic patterns
+      internal static let title = L10n.tr("Localizable", "layouts.generator.title")
+    }
   }
 
   internal enum Music {

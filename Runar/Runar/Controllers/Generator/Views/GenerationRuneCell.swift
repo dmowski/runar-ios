@@ -93,6 +93,24 @@ public extension GenerationRuneCell {
     }
     
     private static func createLabel(title: String, size: CGFloat, lineHeight: CGFloat, height: CGFloat) -> UILabel {
+        return UILabel.createAmatic(title: title, size: size, lineHeight: lineHeight, height: height)
+    }
+    
+    private static func createImage(runeImage: GenerationRuneImage) -> UIImageView {
+        let imageView = UIImageView(image: runeImage.image)
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        
+        imageView.heightAnchor.constraint(equalToConstant: runeImage.height!).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: runeImage.width!).isActive = true
+        
+        return imageView
+    }
+}
+
+extension UILabel {
+    static func createAmatic(title: String, size: CGFloat, lineHeight: CGFloat, height: CGFloat) -> UILabel{
         let label = UILabel()
                
         label.font = FontFamily.AmaticSC.bold.font(size: size)
@@ -110,17 +128,5 @@ public extension GenerationRuneCell {
         label.heightAnchor.constraint(equalToConstant: height).isActive = true
         
         return label
-    }
-    
-    private static func createImage(runeImage: GenerationRuneImage) -> UIImageView {
-        let imageView = UIImageView(image: runeImage.image)
-        
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
-        
-        imageView.heightAnchor.constraint(equalToConstant: runeImage.height!).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: runeImage.width!).isActive = true
-        
-        return imageView
     }
 }

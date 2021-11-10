@@ -7,6 +7,12 @@
 
 import UIKit
 
+extension String {
+    static let layoutTitle = L10n.Layouts.title
+    static let layoutGeneratorTitle = L10n.Layouts.Generator.title
+    static let layoutGeneratorDesc = L10n.Layouts.Generator.description
+}
+
 private let reuseIdentifier = "Cell"
 
 class CollectionViewController: UICollectionViewController {
@@ -31,11 +37,119 @@ class CollectionViewController: UICollectionViewController {
         
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
+        collectionView.addSubview(generatorView)
+        
+        NSLayoutConstraint.activate([
+            generatorView.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 8),
+            generatorView.leftAnchor.constraint(equalTo: collectionView.leftAnchor, constant: 16),
+            generatorView.rightAnchor.constraint(equalTo: collectionView.rightAnchor, constant: 16),
+            generatorView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
+            generatorView.heightAnchor.constraint(equalToConstant: 120)
+        ])
+        
+        collectionView.addSubview(generatorButton)
+
+        generatorButton.addTarget(self, action: #selector(self.goToGeneratorTab), for: .touchUpInside)
+        
+        NSLayoutConstraint.activate([
+            generatorButton.topAnchor.constraint(equalTo: generatorView.topAnchor),
+            generatorButton.leftAnchor.constraint(equalTo: generatorView.leftAnchor),
+            generatorButton.rightAnchor.constraint(equalTo: generatorView.rightAnchor),
+            generatorButton.bottomAnchor.constraint(equalTo: generatorView.bottomAnchor)
+        ])
+        
+        generatorView.addSubview(generatorImage)
+        
+        NSLayoutConstraint.activate([
+            generatorImage.topAnchor.constraint(equalTo: generatorView.topAnchor, constant: 8),
+            generatorImage.leftAnchor.constraint(equalTo: generatorView.leftAnchor),
+            generatorImage.bottomAnchor.constraint(equalTo: generatorView.bottomAnchor, constant: -8),
+            generatorImage.widthAnchor.constraint(equalToConstant: 120)
+        ])
+        
+        generatorView.addSubview(generatorHeader)
+        
+        NSLayoutConstraint.activate([
+            generatorHeader.topAnchor.constraint(equalTo: generatorView.topAnchor, constant: 25),
+            generatorHeader.leftAnchor.constraint(equalTo: generatorImage.rightAnchor),
+            generatorHeader.rightAnchor.constraint(equalTo: generatorView.rightAnchor)
+        ])
+        
+        generatorView.addSubview(generatorDesc)
+        
+        NSLayoutConstraint.activate([
+            generatorDesc.topAnchor.constraint(equalTo: generatorView.topAnchor, constant: 50),
+            generatorDesc.leftAnchor.constraint(equalTo: generatorImage.rightAnchor),
+            generatorDesc.rightAnchor.constraint(equalTo: generatorView.rightAnchor, constant: -8)
+        ])
+        
+        collectionView.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: generatorView.bottomAnchor, constant: 38),
+            label.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
+            label.heightAnchor.constraint(equalToConstant: 42)
+        ])
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false 
     }
+    
+    let label: UILabel = {
+        return UILabel.createAmatic(title: .layoutTitle, size: 36, lineHeight: 0.7, height: 42)
+    }()
+    
+    let generatorView: UIView = {
+        let generatorView = UIView()
+        
+        generatorView.layer.cornerRadius = 8
+        generatorView.layer.borderWidth = 1
+        generatorView.layer.borderColor = UIColor(red: 0.824, green: 0.769, blue: 0.678, alpha: 0.6).cgColor
+        generatorView.layer.backgroundColor = UIColor(red: 0.063, green: 0.063, blue: 0.063, alpha: 0.35).cgColor
+        
+        generatorView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return generatorView
+    }()
+    
+    let generatorImage: UIImageView = {
+        let generatorImage = UIImageView(image: Assets.runePattern.image)
+        
+        generatorImage.translatesAutoresizingMaskIntoConstraints = false
+        generatorImage.contentMode = .scaleAspectFill
+        
+        return generatorImage
+    }()
+    
+    let generatorHeader: UILabel = {
+        let generatorHeader = UILabel.createAmatic(title: .layoutGeneratorTitle, size: 24, lineHeight: 0.79, height: 24)
+        
+        generatorHeader.textColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
+        
+        return generatorHeader
+    }()
+    
+    let generatorDesc: UILabel = {
+        let generatorDesc = UILabel.createAmatic(title: .layoutGeneratorDesc, size: 15, lineHeight: 1.14, height: 50)
+        
+        generatorDesc.font = FontFamily.SFProDisplay.regular.font(size: 15)
+        generatorDesc.textColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
+        generatorDesc.textAlignment = .left
+        generatorDesc.contentMode = .scaleToFill
+        generatorDesc.numberOfLines = 0
+        generatorDesc.lineBreakMode = .byWordWrapping
+        
+        return generatorDesc
+    }()
+    
+    let generatorButton: UIButton = {
+        let generatorButton = UIButton()
+        
+        generatorButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        return generatorButton
+    }()
     
     //-------------------------------------------------
     // MARK: - UICollectionViewDataSource
@@ -81,6 +195,10 @@ class CollectionViewController: UICollectionViewController {
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
+    
+    @IBAction func goToGeneratorTab() {
+        self.tabBarController?.selectedIndex = 2
+    }
 }
 
 //-------------------------------------------------
@@ -100,7 +218,7 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 25, left: 16, bottom: 16, right: 16)
+        return UIEdgeInsets(top: 230, left: 16, bottom: 16, right: 16)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

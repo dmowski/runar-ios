@@ -49,6 +49,9 @@ With the permission of the copyright holders, the following musical compositions
 "popUp.no" = "No";
 "popUp.stopAlignment" = "Do you really want to stop Runic Draw?";
 
+"layouts.title" = "Runic Draws";
+"layouts.generator.title" = "Runic patterns";
+"layouts.generator.description" = "Gnomes generate runic pattern and share the result each other";
 
 "luckLevel" = "Luckiness - %@ %%";
 "goToTheSite" = "Check the website";
@@ -86,7 +89,7 @@ With the permission of the copyright holders, the following musical compositions
 "music.blackRook" = "Black rook";
 "music.myMotherTold" = "My mother told";
 
-"generator.runePattern.title" = "Rune pattern";
+"generator.runePattern.title" = "Runic pattern";
 "generator.runeFormula.title" = "Formula";
 "generator.runeStaves.title" = "Staves";
 "generator.commingSoon" = "Comming soon";
@@ -99,11 +102,11 @@ With the permission of the copyright holders, the following musical compositions
 "generator.wallpapers.title" = "Wallpaper selection";
 "generator.nextButton.title" = "Next";
 "generator.progress.name" = "Pattern generation";
-"generator.progress.title" = "Image is creating...";
+"generator.progress.title" = "Runic image is creating...";
 "generator.selectWallpapersHeader.titile" = "Picture selection";
-"generator.selectWallpaperHeader.titile" = "Rune pattern";
-"generator.shareWallpaperHeader.titile" = "Rurar wallpaper image";
-"generator.alertHeader.titile" = "Runar image has been saved.";
+"generator.selectWallpaperHeader.titile" = "Runic pattern";
+"generator.shareWallpaperHeader.titile" = "Runic wallpaper image";
+"generator.alertHeader.titile" = "Runic image has been saved.";
 "generator.alertAction.titile" = "Ok";
 
 //-------------------------------------------------
