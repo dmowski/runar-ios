@@ -12,6 +12,7 @@ extension String {
     static let library = L10n.Tabbar.library
     static let settings = L10n.Tabbar.settings
     static let generator = L10n.Tabbar.generator
+    static let favourite = L10n.Tabbar.favourite
 }
 
 class MainTabBarController: UITabBarController {
@@ -37,11 +38,13 @@ class MainTabBarController: UITabBarController {
         let settingsVC = SettingsViewController()
         let libraryVC = LibraryViewController()
         let generatorVC = GeneratorViewController()
+        let favouriteVC = FavouriteViewController()
         
         viewControllers = [
             generateTabBarController(rootViewController: collectionVC, image: Assets.TabBar.Image.home.image, title: String.layouts),
             generateTabBarController(rootViewController: libraryVC, image: Assets.TabBar.Image.library.image, title: String.library),
             generateTabBarController(rootViewController: generatorVC, image: Assets.TabBar.Image.generator.image, title: String.generator),
+            generateTabBarController(rootViewController: favouriteVC, image: Assets.TabBar.Image.favorites.image, title: String.favourite),
             generateTabBarController(rootViewController: settingsVC, image: Assets.TabBar.Image.settings.image, title: String.settings)
         ]
     }

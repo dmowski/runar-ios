@@ -30,6 +30,7 @@
 "tabbar.settings" = "Settings";
 "tabbar.library" = "Library";
 "tabbar.generator" = "Generator";
+"tabbar.favourite" = "Favourite";
 "tabbar.openSettings" = "In order to change the language in the application, you need to go to the settings of your phone.";
 "tabbar.allow" = "Allow";
 "tabbar.cancel" = "Cancel";

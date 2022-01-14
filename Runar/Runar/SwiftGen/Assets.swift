@@ -59,6 +59,8 @@ internal enum Assets {
     }
   }
   internal static let danheim = ImageAsset(name: "Danheim")
+  internal static let favouriteUnselected = ImageAsset(name: "Favourite-unselected")
+  internal static let i = ImageAsset(name: "I")
   internal static let interpretationBackground = ImageAsset(name: "InterpretationBackground")
   internal enum LayoutsRunes {
     internal static let algiz = ImageAsset(name: "LayoutsRunes/Algiz")

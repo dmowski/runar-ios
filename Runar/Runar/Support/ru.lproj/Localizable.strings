@@ -30,6 +30,7 @@
 "tabbar.settings" = "Настройки";
 "tabbar.library" = "Библиотека";
 "tabbar.generator" = "Генератор";
+"tabbar.favourite" = "Избранное";
 "tabbar.openSettings" = "Для того, чтобы изменить язык в приложении, необходимо перейти в настройки вашего телефона.";
 "tabbar.allow" = "Разрешить";
 "tabbar.cancel" = "Отмена";

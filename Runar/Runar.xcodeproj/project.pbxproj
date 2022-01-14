@@ -49,6 +49,7 @@
 		84410672270ADA0400CD8B56 /* SelectedRuneCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84410671270ADA0400CD8B56 /* SelectedRuneCollectionView.swift */; };
 		84410677270CC7E500CD8B56 /* SelectRuneCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84410676270CC7E500CD8B56 /* SelectRuneCollectionView.swift */; };
 		84468380266392F900A0790B /* LibraryRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446837F266392F900A0790B /* LibraryRuneCell.swift */; };
+		8449E96D2774CFCD00EC411F /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8449E96C2774CFCD00EC411F /* FavouriteViewController.swift */; };
 		844BF4D626501A81002C7596 /* RunarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF4D526501A81002C7596 /* RunarLayout.swift */; };
 		8452A5F726F3A3700069DEE5 /* GeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452A5F626F3A3700069DEE5 /* GeneratorViewController.swift */; };
 		845D26DF272C3C8900449D34 /* SelectWallpapersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D26DE272C3C8900449D34 /* SelectWallpapersViewController.swift */; };
@@ -187,6 +188,7 @@
 		84410671270ADA0400CD8B56 /* SelectedRuneCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRuneCollectionView.swift; sourceTree = "<group>"; };
 		84410676270CC7E500CD8B56 /* SelectRuneCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRuneCollectionView.swift; sourceTree = "<group>"; };
 		8446837F266392F900A0790B /* LibraryRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRuneCell.swift; sourceTree = "<group>"; };
+		8449E96C2774CFCD00EC411F /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		844BF4D526501A81002C7596 /* RunarLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunarLayout.swift; sourceTree = "<group>"; };
 		8452A5F626F3A3700069DEE5 /* GeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorViewController.swift; sourceTree = "<group>"; };
 		845D26DE272C3C8900449D34 /* SelectWallpapersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWallpapersViewController.swift; sourceTree = "<group>"; };
@@ -437,6 +439,14 @@
 			path = PopUp;
 			sourceTree = "<group>";
 		};
+		8449E96B2774CF8A00EC411F /* Favourite */ = {
+			isa = PBXGroup;
+			children = (
+				8449E96C2774CFCD00EC411F /* FavouriteViewController.swift */,
+			);
+			path = Favourite;
+			sourceTree = "<group>";
+		};
 		844BF4C9264FE551002C7596 /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,6 +578,7 @@
 		9B9C25C925993DE000A4E135 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8449E96B2774CF8A00EC411F /* Favourite */,
 				8452A5F526F3A3240069DEE5 /* Generator */,
 				844BF4C9264FE551002C7596 /* Library */,
 				9BD98CDC2628D3BA00F3BBD7 /* RuneDescriptionPopUp */,
@@ -1011,6 +1022,7 @@
 				843DAB9326F9BA9C009548D8 /* GenerationRuneCell.swift in Sources */,
 				1987AACA25BDCDD500BB3655 /* SevenRuneView.swift in Sources */,
 				9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */,
+				8449E96D2774CFCD00EC411F /* FavouriteViewController.swift in Sources */,
 				195AEDC325B8C3A300180A49 /* AlignmentViewController.swift in Sources */,
 				9BD98C972628A74200F3BBD7 /* AlertSettingsViewController.swift in Sources */,
 				1907851425C4236000434D57 /* FirstRuneView.swift in Sources */,
@@ -1249,7 +1261,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FR3LN29YUF;
 				INFOPLIST_FILE = Runar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1271,7 +1283,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FR3LN29YUF;
 				INFOPLIST_FILE = Runar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
