@@ -68,6 +68,8 @@ public class SelectionRuneController: UIViewController{
     let selectRunesView: SelectRuneCollectionView = {
         let layout2 = UICollectionViewFlowLayout()
         
+        print("strat selectRunesView")
+        
         layout2.itemSize = CGSize(width: 66, height: 78)
         layout2.minimumInteritemSpacing = 2
         layout2.minimumLineSpacing = 2
@@ -91,6 +93,9 @@ public class SelectionRuneController: UIViewController{
     }()
     
     let popupVC: GenerationPopUpViewController = {
+        
+        print("popUp start")
+        
         let viewController = GenerationPopUpViewController()
         viewController.modalPresentationStyle = .overCurrentContext
         return viewController
@@ -162,7 +167,10 @@ public class SelectionRuneController: UIViewController{
         self.navigationController?.navigationBar.configure()
     }
     
-    private func selectRune(_ rune: SelectRuneCell){
+    private func selectRune(_ rune: SelectRuneCell) {
+        
+        print("Нажал выбрать руну")
+        
         popupVC.setupView(view: rune)
         popupVC.setupModel(rune.model)
         popupVC.submitButton.isHidden = false
@@ -178,6 +186,8 @@ public class SelectionRuneController: UIViewController{
     
     @IBAction func selectOnTap() {
         let rune = popupVC.runeView as! SelectRuneCell
+        
+        print("Нажал выбрать на поп апе")
         
         selectRunesView.selectRune(rune: rune)
         

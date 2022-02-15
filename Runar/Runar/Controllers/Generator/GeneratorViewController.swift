@@ -117,7 +117,7 @@ public class GeneratorViewController: UIViewController {
         self.view.addSubview(popupVC.view)
         popupVC.view.frame = self.view.bounds
         
-        if (sender.canGenerate){
+        if (sender.canGenerate) {
             popupVC.setupAction(.runeSelectTitle, #selector(self.selectOnTap))
         }
         
