@@ -30,7 +30,7 @@ public class LibraryCell: UITableViewCell, LibraryCellProtocol {
     }
     
     // MARK: - Funcs
-    func addArrow(){
+    func addArrow() {
         addSubview(arrow)
         
         NSLayoutConstraint.activate([
