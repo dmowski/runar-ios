@@ -9,7 +9,9 @@ import UIKit
 
 extension String {
     static let layouts = L10n.Tabbar.layouts
+    static let library = L10n.Tabbar.library
     static let settings = L10n.Tabbar.settings
+    static let generator = L10n.Tabbar.generator
 }
 
 class MainTabBarController: UITabBarController {
@@ -32,11 +34,15 @@ class MainTabBarController: UITabBarController {
         
         let lay = UICollectionViewFlowLayout()
         let collectionVC = CollectionViewController(collectionViewLayout: lay)
-       let settingsVC = SettingsViewController()
+        let settingsVC = SettingsViewController()
+        let libraryVC = LibraryViewController()
+        let generatorVC = GeneratorViewController()
         
         viewControllers = [
             generateTabBarController(rootViewController: collectionVC, image: Assets.TabBar.Image.home.image, title: String.layouts),
-            generateTabBarController(rootViewController: settingsVC, image: Assets.TabBar.Image.settings.image, title: String.settings),
+            generateTabBarController(rootViewController: libraryVC, image: Assets.TabBar.Image.library.image, title: String.library),
+            generateTabBarController(rootViewController: generatorVC, image: Assets.TabBar.Image.generator.image, title: String.generator),
+            generateTabBarController(rootViewController: settingsVC, image: Assets.TabBar.Image.settings.image, title: String.settings)
         ]
     }
     

@@ -33,7 +33,7 @@ class ProcessingViewController: UIViewController {
             self.viewModel.closeTransition()
         })
         configureShapeLayer()
-        backgroundFire.layer.addSublayer(shapeLayer)
+        backgroundLayer.layer.addSublayer(shapeLayer)
         shapeLayer.add(basicAnimation, forKey: nil)
         CATransaction.commit()
         
@@ -48,6 +48,26 @@ class ProcessingViewController: UIViewController {
         return imageView
     }()
     
+    private var backgroundLayer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        view.isUserInteractionEnabled = true
+        return view
+    }()
+    
+    var container: UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        container.clipsToBounds = false
+        container.layer.backgroundColor = UIColor(red: 0.078, green: 0.078, blue: 0.078, alpha: 1).cgColor
+        container.layer.cornerRadius = 5
+        container.layer.bounds = container.bounds
+        container.layer.position = container.center
+        container.isHidden = true
+        return container
+    }()
+    
     private var imageView: UIImageView = {
         let imageView = UIImageView()
         let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147.heightDependent()
@@ -59,10 +79,9 @@ class ProcessingViewController: UIViewController {
 
     private func configureShapeLayer() {
         let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147.heightDependent()
-        let center = CGPoint(x: imageView.frame.midX, y: imageView.frame.midY)
         let startAngle: CGFloat = -0.25 * 2 * .pi
         let endAngle: CGFloat = startAngle + 2 * .pi
-        let circularPath = UIBezierPath(arcCenter: center, radius: radiusConstant, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        let circularPath = UIBezierPath(arcCenter: imageView.center, radius: radiusConstant, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         shapeLayer.path = circularPath.cgPath
     }
     
@@ -157,7 +176,7 @@ class ProcessingViewController: UIViewController {
     }()
     
     private func configureUI() {
-        view.addSubviews(backgroundFire, nameLabel, startButton, vectorImageView, processingLabel, imageView, adName, adText)
+        view.addSubviews(backgroundFire, container, backgroundLayer, nameLabel, startButton, vectorImageView, processingLabel, imageView, adName, adText)
         
         let imageViewHeightConstant: CGFloat = DeviceType.iPhoneSE ? 167 : 294.heightDependent()
         let imageViewTopConstant: CGFloat = DeviceType.iPhoneSE ? 70 : 93.heightDependent()
@@ -185,6 +204,11 @@ class ProcessingViewController: UIViewController {
             backgroundFire.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundFire.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
+            backgroundLayer.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundLayer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundLayer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundLayer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
             nameLabel.topAnchor.constraint(equalTo: backgroundFire.topAnchor, constant: nameLabelTop),
             nameLabel.heightAnchor.constraint(equalToConstant: nameLabelHeight),
             nameLabel.centerXAnchor.constraint(equalTo: backgroundFire.centerXAnchor),
@@ -203,7 +227,11 @@ class ProcessingViewController: UIViewController {
             processingLabel.trailingAnchor.constraint(equalTo: backgroundFire.trailingAnchor, constant: -50),
             processingLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: processingTop),
             processingLabel.heightAnchor.constraint(equalToConstant: 17),
-    
+            
+            container.topAnchor.constraint(equalTo: processingLabel.bottomAnchor, constant: 10),
+            container.rightAnchor.constraint(equalTo: backgroundFire.rightAnchor, constant: -16),
+            container.bottomAnchor.constraint(equalTo: backgroundFire.bottomAnchor, constant: -18),
+            container.leftAnchor.constraint(equalTo: backgroundFire.leftAnchor, constant: 16),
             
             imageView.topAnchor.constraint(equalTo: processingLabel.bottomAnchor, constant: imageViewTopConstant),
             imageView.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: imageViewHeightConstant),
@@ -219,8 +247,6 @@ class ProcessingViewController: UIViewController {
             adText.trailingAnchor.constraint(equalTo: backgroundFire.trailingAnchor, constant: -60),
             adText.topAnchor.constraint(equalTo: adName.bottomAnchor, constant: adTextTop),
             adText.bottomAnchor.constraint(equalTo: adText.topAnchor, constant: adHeight)
-            
-            
         ])
     }
     
@@ -228,6 +254,10 @@ class ProcessingViewController: UIViewController {
     
     private func fillContent() {
         nameLabel.text = viewModel.name
+        
+        if (viewModel.title != nil){
+            processingLabel.text = viewModel.title
+        }
         
         switch MusicViewController.shared.currentSoundsIndex {
         case 0:
@@ -253,6 +283,10 @@ class ProcessingViewController: UIViewController {
         default:
             imageView.image = nil
         }
+    }
+    
+    func changeAnimationDuration(duration: Int) {
+        basicAnimation.duration = CFTimeInterval(duration)
     }
 }
 

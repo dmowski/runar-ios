@@ -160,7 +160,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             alert.modalPresentationStyle = .overCurrentContext
             self.navigationController?.present(alert, animated: true, completion: nil)
         case 2:
-            if let url = URL(string: "itms-apps://apple.com/app/") {
+            if let url = URL(string: "itms-apps://apple.com/app/1562025468") {
                 UIApplication.shared.open(url)
             }
         case 3:
