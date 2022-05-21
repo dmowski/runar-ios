@@ -102,6 +102,8 @@ With the permission of the copyright holders, the following musical compositions
 "generator.wallpapers.title" = "Wallpaper selection";
 "generator.nextButton.title" = "Next";
 "generator.progress.name" = "Pattern generation";
+"generator.emptyWallpapers.subtitle" = "Next, choose the background for it, Viking";
+"generator.emptyWallpapersNewVariant.btnTitle" = "New version";
 "generator.progress.title" = "Runic image is creating...";
 "generator.selectWallpapersHeader.titile" = "Picture selection";
 "generator.selectWallpaperHeader.titile" = "Runic pattern";

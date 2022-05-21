@@ -19,12 +19,11 @@ extension String {
 }
 
 public class GeneratorViewController: UIViewController {
-    // MARK: - Override funcs
+
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         RunarLayout.initBackground(for: view, with: .mainFire)
-
         configureView()
     }
         
@@ -36,8 +35,7 @@ public class GeneratorViewController: UIViewController {
         navigationController?.setStatusBar(backgroundColor: .navBarBackground)
     }
 
-    private func configureView(){
-        
+    private func configureView() {
         let mainCell = renderMainCell()
         let label = renderLabel()
         let subCells = renderSubCells()
@@ -109,11 +107,11 @@ public class GeneratorViewController: UIViewController {
         return viewController
     }()
     
-    @IBAction func tapWithoutPopUp(sender: GenerationRuneCell!){
+    @IBAction func tapWithoutPopUp() {
         self.navigationController?.pushViewController(SelectionRuneController(), animated: false)
     }
     
-    @IBAction func showOnTap(sender: GenerationRuneCell!) {
+    @IBAction func showOnTap(sender: GenerationRuneCell) {
         
         popupVC.setupModel(sender.runeModel)
         popupVC.submitButton.isHidden = !sender.canGenerate

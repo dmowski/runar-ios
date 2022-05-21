@@ -97,7 +97,7 @@ class SelectedRuneCell: UICollectionViewCell {
     }
     
     let cell: UILabel = {
-        let cell: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 45, height: 63))
+        let cell: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 57, height: 77))
         cell.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 14
@@ -108,7 +108,7 @@ class SelectedRuneCell: UICollectionViewCell {
     let cellIndex: UILabel = {
         let cellIndex: UILabel = UILabel()
         cellIndex.textColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 1)
-        cellIndex.font = FontFamily.AmaticSC.bold.font(size: 36)
+        cellIndex.font = FontFamily.AmaticSC.bold.font(size: 38)
         cellIndex.textAlignment = .center
         return cellIndex
     }()
@@ -137,37 +137,33 @@ class SelectedRuneCell: UICollectionViewCell {
         backgroundColor = .clear
         
         addSubview(cell)
-        
         cell.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             cell.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            cell.heightAnchor.constraint(equalToConstant: 63),
-            cell.widthAnchor.constraint(equalToConstant: 45),
+            cell.heightAnchor.constraint(equalToConstant: 77),
+            cell.widthAnchor.constraint(equalToConstant: 57),
             cell.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
         cell.addSubview(cellIndex)
-        
         cellIndex.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            cellIndex.widthAnchor.constraint(equalToConstant: 9),
-            cellIndex.topAnchor.constraint(equalTo: cell.topAnchor, constant: 10),
+            cellIndex.widthAnchor.constraint(equalToConstant: 14),
+            cellIndex.topAnchor.constraint(equalTo: cell.topAnchor, constant: 14),
             cellIndex.bottomAnchor.constraint(equalTo: cell.bottomAnchor),
             cellIndex.centerXAnchor.constraint(equalTo: cell.centerXAnchor)
         ])
         
         addSubview(runeImage)
-        
         runeImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             runeImage.topAnchor.constraint(equalTo: topAnchor),
-            runeImage.heightAnchor.constraint(equalToConstant: 86),
-            runeImage.widthAnchor.constraint(equalToConstant: 67),
+            runeImage.heightAnchor.constraint(equalToConstant: 102),
+            runeImage.widthAnchor.constraint(equalToConstant: 81),
             runeImage.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
         addSubview(runeName)
-        
         runeName.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             runeName.topAnchor.constraint(equalTo: runeImage.bottomAnchor),

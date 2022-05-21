@@ -33,7 +33,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
         register(SelectRuneCell.self, forCellWithReuseIdentifier: cellId)
     }
     
-    private func setupRunes(){
+    private func setupRunes() {
         for (index, rune) in MemoryStorage.GenerationRunes.enumerated() {
             let indexPath = IndexPath(row: index, section: 1)
             let cell = self.dequeueReusableCell(withReuseIdentifier: self.cellId, for: indexPath) as! SelectRuneCell
@@ -47,7 +47,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
         }
     }
     
-    func setSelectHandler(_ action: @escaping (SelectRuneCell) -> Void){
+    func setSelectHandler(_ action: @escaping (SelectRuneCell) -> Void) {
         self.selectDeligate = action
     }
         
@@ -63,7 +63,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
         return self.runes[indexPath.row]
     }
     
-    public func deselectRune(at index: IndexPath){
+    public func deselectRune(at index: IndexPath) {
         let cell = self.runes[index.row]
         
         cell.deselectRune()
@@ -117,8 +117,8 @@ class SelectRuneCell: UICollectionViewCell {
         
         runeImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            runeImage.heightAnchor.constraint(equalToConstant: 85), // было 55 - 78
-            runeImage.widthAnchor.constraint(equalToConstant: 100), // было 55 - 78
+            runeImage.heightAnchor.constraint(equalToConstant: 97), // 78
+            runeImage.widthAnchor.constraint(equalToConstant: 78), //66
             runeImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             runeImage.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
