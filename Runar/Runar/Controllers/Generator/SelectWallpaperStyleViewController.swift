@@ -8,9 +8,9 @@
 import UIKit
 
 extension String {
-    static let wallpapersTitile = L10n.Generator.Wallpapers.title
+    
     static let wallpapersHeader = L10n.Generator.WallpapersHeader.title
-    static let nextButtonTitle = L10n.Generator.NextButton.title
+    //static let nextButtonTitle = L10n.Generator.NextButton.title
     static let progressName = L10n.Generator.Progress.name
     static let progressTitle = L10n.Generator.Progress.title
 }
@@ -103,7 +103,7 @@ public class SelectWallpaperStyleViewController: UIViewController, UICollectionV
     }()
     
     private func configureNavigationBar() {
-        title = .wallpapersTitile
+        title = .wallpapersTitele
         self.navigationController?.navigationBar.configure()
     }
     
@@ -303,7 +303,7 @@ class SelectWallpaperSyleCell: UICollectionViewCell {
         return wallpaperImage
     }()
     
-    func setupViews(){
+    func setupViews() {
         self.addSubview(wallpaperImage)
         
         self.wallpaperImage.translatesAutoresizingMaskIntoConstraints = false

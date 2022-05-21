@@ -19,12 +19,11 @@ extension String {
 }
 
 public class GeneratorViewController: UIViewController {
-    // MARK: - Override funcs
+
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         RunarLayout.initBackground(for: view, with: .mainFire)
-
         configureView()
     }
         
@@ -36,8 +35,7 @@ public class GeneratorViewController: UIViewController {
         navigationController?.setStatusBar(backgroundColor: .navBarBackground)
     }
 
-    private func configureView(){
-        
+    private func configureView() {
         let mainCell = renderMainCell()
         let label = renderLabel()
         let subCells = renderSubCells()
@@ -62,12 +60,12 @@ public class GeneratorViewController: UIViewController {
     private func renderMainCell() -> UIView {
         let mainCell = GenerationRuneCell.createMain(withTitle: .runePatternTitle, withDescription: .runePatternDesc)
         
-        mainCell.addTarget(self, action: #selector(self.showOnTap), for: .touchUpInside)
+        mainCell.addTarget(self, action: #selector(tapWithoutPopUp), for: .touchUpInside)
         
         return mainCell
     }
     
-    private func renderLabel() -> UIView{
+    private func renderLabel() -> UIView {
         let label = UILabel()
                
         label.font = FontFamily.AmaticSC.bold.font(size: 24)
@@ -96,7 +94,7 @@ public class GeneratorViewController: UIViewController {
         
         subCell1.leftAnchor.constraint(equalTo: groupCell.leftAnchor).isActive = true
         subCell2.rightAnchor.constraint(equalTo: groupCell.rightAnchor).isActive = true
-                
+        
         subCell1.addTarget(self, action: #selector(self.showOnTap), for: .touchUpInside)
         subCell2.addTarget(self, action: #selector(self.showOnTap), for: .touchUpInside)
                 
@@ -109,22 +107,28 @@ public class GeneratorViewController: UIViewController {
         return viewController
     }()
     
-    @IBAction func showOnTap (sender: GenerationRuneCell!) {
+    @IBAction func tapWithoutPopUp() {
+        self.navigationController?.pushViewController(SelectionRuneController(), animated: false)
+    }
+    
+    @IBAction func showOnTap(sender: GenerationRuneCell) {
+        
         popupVC.setupModel(sender.runeModel)
         popupVC.submitButton.isHidden = !sender.canGenerate
-        
+
         self.addChild(popupVC)
         self.view.addSubview(popupVC.view)
         popupVC.view.frame = self.view.bounds
         
-        if (sender.canGenerate){
+        if (sender.canGenerate) {
             popupVC.setupAction(.runeSelectTitle, #selector(self.selectOnTap))
         }
-        
+
         popupVC.didMove(toParent: self)
     }
-    
-    @IBAction func selectOnTap () {
+
+    @IBAction func selectOnTap() {
         self.navigationController?.pushViewController(SelectionRuneController(), animated: false)
     }
+    
 }

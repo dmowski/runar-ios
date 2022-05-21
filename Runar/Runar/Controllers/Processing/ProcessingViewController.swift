@@ -24,6 +24,18 @@ class ProcessingViewController: UIViewController {
         fillContent()
         doAnimation()
     }
+
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
     
     private func doAnimation() {
         view.layoutIfNeeded()
@@ -76,7 +88,6 @@ class ProcessingViewController: UIViewController {
         return imageView
     }()
     
-
     private func configureShapeLayer() {
         let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147.heightDependent()
         let startAngle: CGFloat = -0.25 * 2 * .pi
@@ -104,7 +115,6 @@ class ProcessingViewController: UIViewController {
         return basicAnimation
     }()
 
-    
     private var nameLabel: UILabel = {
         let label = UILabel()
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 45 : 55
@@ -136,14 +146,15 @@ class ProcessingViewController: UIViewController {
         guard let url = URL(string: link) else {return}
         UIApplication.shared.open(url)
     }
+    
     private var vectorImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = Assets.vector.image
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
-    private let processingLabel: UILabel = {
+
+    private var processingLabel: UILabel = {
         var processingLabel = UILabel()
         processingLabel.text = L10n.layoutProcessing
         processingLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -165,7 +176,7 @@ class ProcessingViewController: UIViewController {
         return adName
     }()
     
-    private let adText: UILabel = {
+    private var adText: UILabel = {
         let adText = UILabel()
         adText.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         let addFontConst: CGFloat =  DeviceType.iPhoneSE ? 14 : 16

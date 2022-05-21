@@ -342,6 +342,14 @@ internal enum L10n {
       /// Runic image has been saved.
       internal static let titile = L10n.tr("Localizable", "generator.alertHeader.titile")
     }
+    internal enum EmptyWallpapers {
+      /// Next, choose the background for it, Viking
+      internal static let subtitle = L10n.tr("Localizable", "generator.emptyWallpapers.subtitle")
+    }
+    internal enum EmptyWallpapersNewVariant {
+      /// New version
+      internal static let btnTitle = L10n.tr("Localizable", "generator.emptyWallpapersNewVariant.btnTitle")
+    }
     internal enum GenerateButton {
       /// Generate
       internal static let title = L10n.tr("Localizable", "generator.generateButton.title")

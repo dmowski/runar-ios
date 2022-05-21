@@ -34,7 +34,15 @@ class CollectionViewController: UICollectionViewController {
         collectionView.register(MainCell.self, forCellWithReuseIdentifier: MainCell.reuseIdentifier)
         
         MusicViewController.shared.playCurrentSong()
-        
+
+// TODO: - No Internet
+//        //NetworkMonitor
+//        if NetworkMonitor.shared.isConnected {
+//
+//        } else {
+//            showAllert()
+//        }
+//
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
         collectionView.addSubview(generatorView)
@@ -199,6 +207,15 @@ class CollectionViewController: UICollectionViewController {
     @IBAction func goToGeneratorTab() {
         self.tabBarController?.selectedIndex = 2
     }
+//TODO: - No Internet
+//    private func showAllert() {
+//        let alert = UIAlertController(title: "No Internet", message: "Runar app Requires wifi/internet connection!", preferredStyle: .alert)
+//        let action = UIAlertAction(title: "Ok", style: .default)
+//        alert.addAction(action)
+//
+//        self.present(alert, animated: true, completion: nil)
+//
+//    }
 }
 
 //-------------------------------------------------

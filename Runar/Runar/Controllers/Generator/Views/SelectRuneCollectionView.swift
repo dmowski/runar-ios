@@ -10,7 +10,7 @@ import UIKit
 public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
     private let cellId = "existingCellId"
     private var selectDeligate: ((SelectRuneCell) -> Void)?
-    private var selectedRunesCount: Int = 0
+    var selectedRunesCount: Int = 0
     private var runes: [SelectRuneCell] = []
     
     override public init(frame: CGRect, collectionViewLayout: UICollectionViewLayout) {
@@ -33,7 +33,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
         register(SelectRuneCell.self, forCellWithReuseIdentifier: cellId)
     }
     
-    private func setupRunes(){
+    private func setupRunes() {
         for (index, rune) in MemoryStorage.GenerationRunes.enumerated() {
             let indexPath = IndexPath(row: index, section: 1)
             let cell = self.dequeueReusableCell(withReuseIdentifier: self.cellId, for: indexPath) as! SelectRuneCell
@@ -47,7 +47,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
         }
     }
     
-    func setSelectHandler(_ action: @escaping (SelectRuneCell) -> Void){
+    func setSelectHandler(_ action: @escaping (SelectRuneCell) -> Void) {
         self.selectDeligate = action
     }
         
@@ -63,7 +63,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
         return self.runes[indexPath.row]
     }
     
-    public func deselectRune(at index: IndexPath){
+    public func deselectRune(at index: IndexPath) {
         let cell = self.runes[index.row]
         
         cell.deselectRune()
@@ -72,7 +72,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     }
     
     @IBAction func selectRune(runeImage: UIButton){
-        if (self.selectedRunesCount < 3){
+        if (self.selectedRunesCount < 3) {
             let cell = runeImage.superview as! SelectRuneCell
             
             self.selectDeligate!(cell)
@@ -117,8 +117,8 @@ class SelectRuneCell: UICollectionViewCell {
         
         runeImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            runeImage.heightAnchor.constraint(equalToConstant: 78),
-            runeImage.widthAnchor.constraint(equalToConstant: 66),
+            runeImage.heightAnchor.constraint(equalToConstant: 97), // 78
+            runeImage.widthAnchor.constraint(equalToConstant: 78), //66
             runeImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             runeImage.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
@@ -131,12 +131,12 @@ class SelectRuneCell: UICollectionViewCell {
         runeImage.setBackgroundImage(rune.image.image, for: .normal)
     }
     
-    public func selectRune(){
+    public func selectRune() {
         self.isSelected = true
         self.toggleState()
     }
     
-    public func deselectRune(){
+    public func deselectRune() {
         self.isSelected = false
         self.toggleState()
     }
