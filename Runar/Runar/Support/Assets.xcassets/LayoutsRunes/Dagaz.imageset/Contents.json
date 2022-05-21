@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "dagaz.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
