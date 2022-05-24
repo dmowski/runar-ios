@@ -7,12 +7,14 @@
 
 import UIKit
 
-
 public class GenerationPopUpViewController : UIViewController {
+    
     var runeModel: GenerationRuneModel?
     var runeView: UIView?
     var action: Dictionary<String, Selector>.Element?
-        
+    
+    var isHiddenTabBar: Bool = false
+    
     let containerView: UIView = {
         let containerView = UIView()
                 
@@ -85,7 +87,11 @@ public class GenerationPopUpViewController : UIViewController {
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.isHidden = false
+        if isHiddenTabBar == false {
+            self.tabBarController?.tabBar.isHidden = false
+        } else {
+            self.tabBarController?.tabBar.isHidden = true
+        }
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -190,7 +196,7 @@ public class GenerationPopUpViewController : UIViewController {
         ])
     }
     
-    @IBAction func closeOnTap (sender: UIButton!) {
+    @objc func closeOnTap (sender: UIButton!) {
         self.close()
     }
     

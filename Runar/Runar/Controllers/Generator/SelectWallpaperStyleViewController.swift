@@ -88,6 +88,16 @@ public class SelectWallpaperStyleViewController: UIViewController {
         setupWallpapers()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     private func setupBindings() {
         self.selectWallpaperView.delegate = self
         self.selectWallpaperView.dataSource = self
