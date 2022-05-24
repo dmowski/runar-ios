@@ -51,7 +51,6 @@
 		84468380266392F900A0790B /* LibraryRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446837F266392F900A0790B /* LibraryRuneCell.swift */; };
 		844BF4D626501A81002C7596 /* RunarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF4D526501A81002C7596 /* RunarLayout.swift */; };
 		8452A5F726F3A3700069DEE5 /* GeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452A5F626F3A3700069DEE5 /* GeneratorViewController.swift */; };
-		845D26DF272C3C8900449D34 /* SelectWallpapersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D26DE272C3C8900449D34 /* SelectWallpapersViewController.swift */; };
 		845D26E42738259E00449D34 /* WallpaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D26E32738259E00449D34 /* WallpaperViewController.swift */; };
 		8477222E2643C9CA001C280D /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477222D2643C9CA001C280D /* LocalStorage.swift */; };
 		8477224326458020001C280D /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477224226458020001C280D /* Route.swift */; };
@@ -194,7 +193,6 @@
 		8446837F266392F900A0790B /* LibraryRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRuneCell.swift; sourceTree = "<group>"; };
 		844BF4D526501A81002C7596 /* RunarLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunarLayout.swift; sourceTree = "<group>"; };
 		8452A5F626F3A3700069DEE5 /* GeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorViewController.swift; sourceTree = "<group>"; };
-		845D26DE272C3C8900449D34 /* SelectWallpapersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWallpapersViewController.swift; sourceTree = "<group>"; };
 		845D26E32738259E00449D34 /* WallpaperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperViewController.swift; sourceTree = "<group>"; };
 		8477222D2643C9CA001C280D /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		8477224226458020001C280D /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -477,7 +475,6 @@
 				8441066C27077A2700CD8B56 /* SelectionRuneController.swift */,
 				C22F6E4027C3CEFF005F8B66 /* CreatedEmptyWallpaperViewController.swift */,
 				84B1C4D52724D825007865CF /* SelectWallpaperStyleViewController.swift */,
-				845D26DE272C3C8900449D34 /* SelectWallpapersViewController.swift */,
 				845D26E32738259E00449D34 /* WallpaperViewController.swift */,
 			);
 			path = Generator;
@@ -1140,7 +1137,6 @@
 				84468380266392F900A0790B /* LibraryRuneCell.swift in Sources */,
 				193FFB382613319000D60171 /* CustomButton.swift in Sources */,
 				19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */,
-				845D26DF272C3C8900449D34 /* SelectWallpapersViewController.swift in Sources */,
 				9BD98C932628A74200F3BBD7 /* AppInfoViewController.swift in Sources */,
 				9B0CB88B2607B6A000B2AF60 /* TopWithDescriptionView.swift in Sources */,
 				9BD98C982628A74200F3BBD7 /* SettingsViewController.swift in Sources */,

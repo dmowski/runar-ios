@@ -8,8 +8,6 @@
 import UIKit
 
 class SelectWallpaperStyleCell: UICollectionViewCell {
-
-    public var wallpaperName: String!
     
     let selectedCheckbox: UIImageView = {
         let check = UIImageView(image: Assets.selectedCircle.image)
@@ -77,8 +75,7 @@ class SelectWallpaperStyleCell: UICollectionViewCell {
         selectedCheckbox.isHidden = true
     }
     
-    func setup(name: String, image: UIImage?) {
-        self.wallpaperName = name
+    func setup(image: UIImage?) {
         self.wallpaperImage.image = image
     }
 }

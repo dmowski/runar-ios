@@ -16,6 +16,7 @@ extension String {
 }
 
 public class WallpaperViewController : UIViewController, UIActivityItemSource {
+    
     var selectedImage: UIImage!
     
     public override func viewDidLoad() {

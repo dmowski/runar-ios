@@ -16,16 +16,13 @@ extension String {
     static let progressTitle = L10n.Generator.Progress.title
 }
 
-public class SelectWallpaperStyleViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+public class SelectWallpaperStyleViewController: UIViewController {
+
     let cellId = "wallpaperCellId"
     
     var wallpapers: [SelectWallpaperStyleCell] = []
-    var wallpapersUrls: [String] = []
-    var wallpapersImages: [UIImage] = []
-    var isProcessFinished: Bool = false
-    var isImagesCreated: Bool = false
-    var selectedRunesIds: [String] = []
-    var selectedWallpaperName: String!
+    var imagesWithBackground: [UIImage?]
+    var selectedImage: UIImage?
     
     let subTitle: UILabel = {
         let title = UILabel()
@@ -70,23 +67,25 @@ public class SelectWallpaperStyleViewController: UIViewController, UICollectionV
         nextButton.setTitle(title: .nextButtonTitle, color: UIColor(red: 0.165, green: 0.165, blue: 0.165, alpha: 1))
         return nextButton
     }()
+    
+    init(imagesWithBackground: [UIImage?]) {
+        self.imagesWithBackground = imagesWithBackground
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
         
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         RunarLayout.initBackground(for: view, with: .mainFire)
         title = .wallpapersHeader
-                
+        print("imagesWithBackground === \(imagesWithBackground)") // TODO: - delete print
         setupBindings()
         setupViews()
         setupWallpapers()
-    }
-    
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.isProcessFinished = false
-        self.isImagesCreated = false
     }
     
     private func setupBindings() {
@@ -129,46 +128,13 @@ public class SelectWallpaperStyleViewController: UIViewController, UICollectionV
     }
     
     func setupWallpapers() {
-        for (index, wallpaper) in MemoryStorage.GenerationWallpapertsStyles.enumerated() {
-            let wallpaperCell = self.selectWallpaperView.dequeueReusableCell(withReuseIdentifier: cellId, for: IndexPath(row: index, section: 1)) as! SelectWallpaperStyleCell
-            
-            wallpaperCell.setup(name: wallpaper.name, image: UIImage.create(fromUrl: wallpaper.imageUrl))
-            
-            self.wallpapers.append(wallpaperCell)
+        
+        for (index, wallpaper) in imagesWithBackground.enumerated() {
+            let wallpaperCell = self.selectWallpaperView.dequeueReusableCell(withReuseIdentifier: cellId,
+                                                                             for: IndexPath(row: index, section: 1)) as! SelectWallpaperStyleCell
+            wallpaperCell.setup(image: wallpaper)
+            wallpapers.append(wallpaperCell)
         }
-    }
-    
-    public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return self.wallpapers[indexPath.row]
-    }
-       
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.wallpapers[indexPath.row].selectImage()
-        self.selectedWallpaperName = self.wallpapers[indexPath.row].wallpaperName
-        self.nextButton.isHidden = false
-        self.wallpapersUrls = []
-        self.wallpapersImages = []
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        self.wallpapers[indexPath.row].deselectImage()
-        self.nextButton.isHidden = true
-    }
-            
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.pageControl.currentPage = getPageNumber(by: scrollView.contentOffset.x)
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: selectWallpaperView.bounds.width * 0.7, height: selectWallpaperView.bounds.height)
     }
 
     private func getPageNumber(by position: CGFloat) -> Int {
@@ -185,93 +151,50 @@ public class SelectWallpaperStyleViewController: UIViewController, UICollectionV
     }
     
     @objc func nextButtonTapped() {
-        
+        let wallpaperVC = WallpaperViewController()
+        wallpaperVC.selectedImage = selectedImage
+        self.navigationController?.pushViewController(wallpaperVC, animated: true)
     }
 }
-    
-//    @IBAction func nextOnTap() {
-//        let viewModel = ProcessingViewModel(name: .progressName, title: .progressTitle) { [weak self] in
-//            self?.isProcessFinished = true
-//            if (self?.navigationController?.topViewController is ProcessingViewController) {
-//                if (!self!.wallpapersImages.isEmpty) {
-//                    self?.goToSelectWallpapers()
-//                } else if(self!.isImagesCreated){
-//                    self!.navigationController?.popViewController(animated: false)
-//                }
-//            }
-//        }
-//
-//        let data = RunarApi.getWallpapersData(runsIds: self.selectedRunesIds, style: self.selectedWallpaperName)
-//        guard let _wallpapersUrls = try? JSONDecoder().decode([String].self, from: data!) else {
-//            fatalError("Runes is empty")
-//        }
-//
-//        self.wallpapersUrls = _wallpapersUrls
-//
-//        let processCV = ProcessingViewController()
-//        processCV.viewModel = viewModel
-//        processCV.hidesBottomBarWhenPushed = true
-//        processCV.navigationController?.navigationBar.configure()
-//        processCV.container.isHidden = false
-//
-//        let duration = Int(Double(_wallpapersUrls.count) * 0.65)
-//        if (duration > 15) {
-//            processCV.changeAnimationDuration(duration: duration)
-//        }
-//
-//        self.navigationController?.pushViewController(processCV, animated: true)
-//
-//        if (self.wallpapersImages.isEmpty) {
-//            self.isImagesCreated = self.wallpapersUrls.count == 0
-//            if (!self.isImagesCreated) {
-//                DispatchQueue.bacground(task: {
-//                    return _wallpapersUrls.map({ (url) -> UIImage in
-//                        return UIImage.create(fromUrl: url)!
-//                    })
-//                }, withCompletion: { (images) in
-//                    self.wallpapersImages = images!
-//                    self.isImagesCreated = true
-//
-//                    if (self.isProcessFinished) {
-//                        self.goToSelectWallpapers()
-//                    }
-//                })
-//            }
-//        }
-//    }
-    
-//    func goToSelectWallpapers() -> Void {
-//        self.navigationController?.popViewController(animated: false)
-//        let selectWallpapersController = SelectWallpapersViewController()
-//
-//        selectWallpapersController.wallpapersUrls = self.wallpapersUrls
-//        selectWallpapersController.wallpaperImages = self.wallpapersImages
-//
-//        self.navigationController?.pushViewController(selectWallpapersController, animated: false)
-//    }
 
-//private extension UINavigationBar {
-//    func configure() -> Void {
-//        self.isTranslucent = false
-//        self.prefersLargeTitles = false
-//        self.tintColor = .libraryTitleColor
-//        self.backgroundColor = .navBarBackground
-//        self.barTintColor = .navBarBackground
-//        self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 20),
-//                                         NSAttributedString.Key.foregroundColor: UIColor.white]
-//        self.backItem?.backButtonTitle = .back
-//    }
-//}
+extension SelectWallpaperStyleViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return wallpapers[indexPath.row]
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        wallpapers[indexPath.row].selectImage()
+        nextButton.isHidden = false
+        selectedImage = wallpapers[indexPath.row].wallpaperImage.image
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        wallpapers[indexPath.row].deselectImage()
+        nextButton.isHidden = true
+    }
+            
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.pageControl.currentPage = getPageNumber(by: scrollView.contentOffset.x)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: selectWallpaperView.bounds.width * 0.8, height: selectWallpaperView.bounds.height)
+    }
+}
 
-//extension DispatchQueue {
-//    static func bacground(task action: @escaping ()-> [UIImage]?, withCompletion completion: (([UIImage]?)-> Void)? = nil){
-//        DispatchQueue.global(qos: .background).async {
-//            let data = action()
-//            if let completion = completion {
-//                DispatchQueue.main.asyncAfter(deadline: .now()) {
-//                    completion(data)
-//                }
-//            }
-//        }
-//    }
-//}
+private extension URL {
+    static func resize(url: String, width: Int, height: Int) -> String {
+        let urlOptions = url.split(separator: "&")
+        
+        return "\(urlOptions.first!)&width=\(width)&height=\(height)"
+    }
+}
