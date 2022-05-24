@@ -273,6 +273,6 @@ private extension UINavigationBar {
         self.barTintColor = .navBarBackground
         self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 20),
                                     NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.backItem?.backButtonTitle = .back
+        self.backItem?.backButtonTitle = .none
     }
 }

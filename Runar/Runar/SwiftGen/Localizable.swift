@@ -336,11 +336,11 @@ internal enum L10n {
     internal static let select = L10n.tr("Localizable", "generator.select")
     internal enum AlertAction {
       /// Ok
-      internal static let titile = L10n.tr("Localizable", "generator.alertAction.titile")
+      internal static let title = L10n.tr("Localizable", "generator.alertAction.title")
     }
     internal enum AlertHeader {
       /// Runic image has been saved.
-      internal static let titile = L10n.tr("Localizable", "generator.alertHeader.titile")
+      internal static let title = L10n.tr("Localizable", "generator.alertHeader.title")
     }
     internal enum EmptyWallpapers {
       /// Next, choose the background for it, Viking
@@ -392,11 +392,11 @@ internal enum L10n {
     }
     internal enum SelectWallpaperHeader {
       /// Runic pattern
-      internal static let titile = L10n.tr("Localizable", "generator.selectWallpaperHeader.titile")
+      internal static let title = L10n.tr("Localizable", "generator.selectWallpaperHeader.title")
     }
     internal enum SelectWallpapersHeader {
       /// Picture selection
-      internal static let titile = L10n.tr("Localizable", "generator.selectWallpapersHeader.titile")
+      internal static let title = L10n.tr("Localizable", "generator.selectWallpapersHeader.title")
     }
     internal enum SelectedRunes {
       /// Collect your rune formula after select from 1 to 3 runes
@@ -404,7 +404,7 @@ internal enum L10n {
     }
     internal enum ShareWallpaperHeader {
       /// Runic wallpaper image
-      internal static let titile = L10n.tr("Localizable", "generator.shareWallpaperHeader.titile")
+      internal static let title = L10n.tr("Localizable", "generator.shareWallpaperHeader.title")
     }
     internal enum Wallpapers {
       /// Wallpaper selection
