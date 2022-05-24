@@ -339,7 +339,7 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "generator.alertAction.title")
     }
     internal enum AlertHeader {
-      /// Runic image has been saved.
+      /// Runic image has been saved
       internal static let title = L10n.tr("Localizable", "generator.alertHeader.title")
     }
     internal enum EmptyWallpapers {

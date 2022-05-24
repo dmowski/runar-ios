@@ -74,13 +74,14 @@ public class SelectionRuneController: UIViewController, UIGestureRecognizerDeleg
     
     let popupVC: GenerationPopUpViewController = {        
         let viewController = GenerationPopUpViewController()
+        viewController.isHiddenTabBar = true
         viewController.modalPresentationStyle = .overCurrentContext
         return viewController
     }()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         RunarLayout.initBackground(for: view, with: .mainFire)
         setupViews()
         configureNavigationBar()
