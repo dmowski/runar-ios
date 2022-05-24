@@ -7,7 +7,8 @@
 
 import UIKit
 
-public class GenerationRuneCell : UIControl {
+public class GenerationRuneCell: UIControl {
+
     var runeModel: GenerationRuneModel?
     var canGenerate: Bool = true
     
@@ -49,7 +50,8 @@ public class GenerationRuneCell : UIControl {
     }
 }
 
-public extension GenerationRuneCell {
+extension GenerationRuneCell {
+
     static func createMain(withTitle title: String, withDescription description: String, withType type: GenerationRuneType = .pattern) -> GenerationRuneCell {
         
         let cell = GenerationRuneCell(withheight: 260, withWidth: 260)
@@ -106,27 +108,5 @@ public extension GenerationRuneCell {
         imageView.widthAnchor.constraint(equalToConstant: runeImage.width!).isActive = true
         
         return imageView
-    }
-}
-
-extension UILabel {
-    static func createAmatic(title: String, size: CGFloat, lineHeight: CGFloat, height: CGFloat) -> UILabel{
-        let label = UILabel()
-               
-        label.font = FontFamily.AmaticSC.bold.font(size: size)
-        label.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
-        label.textAlignment = .center
-        label.contentMode = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        let prgph = NSMutableParagraphStyle()
-        
-        prgph.lineHeightMultiple = lineHeight
-        
-        label.attributedText = NSMutableAttributedString(string: title, attributes: [NSAttributedString.Key.paragraphStyle: prgph])
-        
-        label.heightAnchor.constraint(equalToConstant: height).isActive = true
-        
-        return label
     }
 }

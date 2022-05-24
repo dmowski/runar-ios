@@ -9,7 +9,7 @@ import UIKit
 
 struct ApiGeneratorModel {
     
-    static func generateRandomeWallpapersModel(vc: UIViewController, runesIds: [String]) {
+    static func showProcessingVCandGenerateImagesModel(vc: UIViewController, runesIds: [String]) {
         let viewModel = ProcessingViewModel(name: .progressName, title: .progressTitle) {
             if vc.navigationController?.topViewController is ProcessingViewController {
                 vc.navigationController?.popViewController(animated: true)

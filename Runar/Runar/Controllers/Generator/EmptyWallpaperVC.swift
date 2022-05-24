@@ -1,5 +1,5 @@
 //
-//  CreatedEmptyWallpaperViewController.swift
+//  EmptyWallpaperVC.swift
 //  Runar
 //
 //  Created by Георгий Ступаков on 2/21/22.
@@ -15,7 +15,7 @@ extension String {
     static let nextButtonTitle = L10n.Generator.NextButton.title
 }
 
-public class CreatedEmptyWallpaperViewController: UIViewController {
+public class EmptyWallpaperVC: UIViewController {
     
     var wallpaperImagesModel: RuneImages
     var runesIds: [String]
@@ -161,7 +161,7 @@ public class CreatedEmptyWallpaperViewController: UIViewController {
     }
     
     @objc func generateNewVariant() {
-        ApiGeneratorModel.generateRandomeWallpapersModel(vc: self, runesIds: runesIds)
+        ApiGeneratorModel.showProcessingVCandGenerateImagesModel(vc: self, runesIds: runesIds)
     }
     
     @objc func nextButtonTapped() {
@@ -172,7 +172,7 @@ public class CreatedEmptyWallpaperViewController: UIViewController {
                                                  wallpaperImagesModel.choosedWallpapersWithWpBark,
                                                  wallpaperImagesModel.choosedWallpapersWithWpForest])
         
-        let selectWallpaperStyleVC = SelectWallpaperStyleViewController(imagesWithBackground: imagesWithBackground)
+        let selectWallpaperStyleVC = WallpaperWithBackgroundVC(imagesWithBackground: imagesWithBackground)
         self.navigationController?.pushViewController(selectWallpaperStyleVC, animated: false)
     }
 }

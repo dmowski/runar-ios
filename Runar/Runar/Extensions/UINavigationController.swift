@@ -8,7 +8,7 @@
 import UIKit
 
 extension UINavigationController {
-
+    
     func setStatusBar(backgroundColor: UIColor) {
         let statusBarFrame: CGRect
         if #available(iOS 13.0, *) {
@@ -19,5 +19,11 @@ extension UINavigationController {
         let statusBarView = UIView(frame: statusBarFrame)
         statusBarView.backgroundColor = backgroundColor
         view.addSubview(statusBarView)
+    }
+    
+    func popToViewController(ofClass: AnyClass, animated: Bool = false) {
+        if let vc = viewControllers.last(where: { $0.isKind(of: ofClass) }) {
+            popToViewController(vc, animated: animated)
+        }
     }
 }

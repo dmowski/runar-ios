@@ -1,5 +1,5 @@
 //
-//  WallpaperViewController.swift
+//  ChoosedWallpaperVC.swift
 //  Runar
 //
 //  Created by Maksim Harbatsevich on 11/7/21.
@@ -10,13 +10,14 @@ import LinkPresentation
 import SnapKit
 
 extension String {
+
     static let selectWallpaperTitile = L10n.Generator.SelectWallpaperHeader.title
     static let shareWallpaperTitle = L10n.Generator.ShareWallpaperHeader.title
     static let downloadAlertTitle = L10n.Generator.AlertHeader.title
     static let downloadAlertActionTitile = L10n.Generator.AlertAction.title
 }
 
-public class WallpaperViewController : UIViewController, UIActivityItemSource {
+public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
     
     var selectedImage: UIImage!
     

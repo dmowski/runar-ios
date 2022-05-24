@@ -102,7 +102,7 @@ class ProcessingViewController: UIViewController {
                                          choosedWallpapersWithWpBark: choosedWallpapersWithWpBark)
         
         self.delegate?.navigationController?.popViewController(animated: false)
-        let emptyWallpaperViewController = CreatedEmptyWallpaperViewController(wallpaperImagesModel: runeImagesModel,
+        let emptyWallpaperViewController = EmptyWallpaperVC(wallpaperImagesModel: runeImagesModel,
                                                                                runesIds: runesIds,
                                                                                wallpapersUrl: emptyWallpapersUrl)
         self.delegate?.navigationController?.pushViewController(emptyWallpaperViewController, animated: false)

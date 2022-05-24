@@ -1,5 +1,5 @@
 //
-//  GeneratorViewController.swift
+//  GeneratorVC.swift
 //  Runar
 //
 //  Created by Maksim Harbatsevich on 9/16/21.
@@ -19,7 +19,7 @@ extension String {
     static let runeSelectTitle = L10n.Generator.select
 }
 
-public class GeneratorViewController: UIViewController {
+public class GeneratorVC: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,7 +110,7 @@ public class GeneratorViewController: UIViewController {
     }()
     
     @objc func tapWithoutPopUp() {
-        self.navigationController?.pushViewController(SelectionRuneController(), animated: false)
+        self.navigationController?.pushViewController(SelectionRuneVC(), animated: false)
     }
     
     @objc func showOnTap(sender: GenerationRuneCell) {
@@ -130,6 +130,6 @@ public class GeneratorViewController: UIViewController {
     }
 
     @objc func selectOnTap() {
-        self.navigationController?.pushViewController(SelectionRuneController(), animated: false)
+        self.navigationController?.pushViewController(SelectionRuneVC(), animated: false)
     }
 }
