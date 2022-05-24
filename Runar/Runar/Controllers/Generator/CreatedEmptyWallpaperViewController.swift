@@ -17,8 +17,9 @@ extension String {
 
 public class CreatedEmptyWallpaperViewController: UIViewController {
     
-    var wallpaperImage: UIImage?
-    var wallpapersUrl: String?
+    var wallpaperImagesModel: RuneImages
+    var runesIds: [String]
+    var wallpapersUrl: String
     
     let mainTitle: UILabel = {
         let title = UILabel()
@@ -45,7 +46,7 @@ public class CreatedEmptyWallpaperViewController: UIViewController {
     
     let contentView: UIView = {
         let contentView = UIView()
-        contentView.layer.backgroundColor = UIColor(red: 0.063, green: 0.063, blue: 0.063, alpha: 0.5).cgColor
+        contentView.layer.backgroundColor = UIColor(red: 0.143, green: 0.142, blue: 0.143, alpha: 0.5).cgColor
         contentView.layer.cornerRadius = 16
         return contentView
     }()
@@ -77,25 +78,38 @@ public class CreatedEmptyWallpaperViewController: UIViewController {
         nextButton.contentHorizontalAlignment = .center
         return nextButton
     }()
+
+    init(wallpaperImagesModel: RuneImages, runesIds: [String], wallpapersUrl: String) {
+        self.wallpaperImagesModel = wallpaperImagesModel
+        self.runesIds = runesIds
+        self.wallpapersUrl = wallpapersUrl
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         RunarLayout.initBackground(for: view, with: .mainFire)
-
-        imageView.image = wallpaperImage
+        print("wallpaperImagesModel === \(wallpaperImagesModel)") // TODO: - delete print
+        imageView.image = wallpaperImagesModel.emptyWallpapersImage ?? Assets.emptyErrorImage.image
         setupViews()
-    }
-    
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.isHidden = true
     }
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true
     }
     
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = false
+    }
+
     private func setupViews() {
         view.addSubviews(mainTitle)
         mainTitle.snp.makeConstraints { make in
@@ -141,16 +155,17 @@ public class CreatedEmptyWallpaperViewController: UIViewController {
             make.top.equalTo(contentView.snp.bottom).offset(32)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.bottom.equalToSuperview().offset(-52)
+            make.bottom.equalToSuperview().offset(-40)
             make.height.equalTo(50)
         }
     }
     
     @objc func generateNewVariant() {
-        
+        ApiGeneratorModel.generateRandomeWallpapersModel(vc: self, runesIds: runesIds)
     }
     
     @objc func nextButtonTapped() {
-        
+        let selectWallpaperStyleVC = SelectWallpaperStyleViewController()
+        self.navigationController?.pushViewController(selectWallpaperStyleVC, animated: false)
     }
 }

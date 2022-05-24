@@ -8,6 +8,7 @@
 import UIKit
 
 extension String {
+
     static let runePatternTitle = L10n.Generator.RunePattern.title
     static let runePatternDesc = L10n.Generator.RunePattern.description
     static let runeFormulaTitle = L10n.Generator.RuneFormula.title
@@ -36,6 +37,7 @@ public class GeneratorViewController: UIViewController {
     }
 
     private func configureView() {
+
         let mainCell = renderMainCell()
         let label = renderLabel()
         let subCells = renderSubCells()
@@ -107,11 +109,11 @@ public class GeneratorViewController: UIViewController {
         return viewController
     }()
     
-    @IBAction func tapWithoutPopUp() {
+    @objc func tapWithoutPopUp() {
         self.navigationController?.pushViewController(SelectionRuneController(), animated: false)
     }
     
-    @IBAction func showOnTap(sender: GenerationRuneCell) {
+    @objc func showOnTap(sender: GenerationRuneCell) {
         
         popupVC.setupModel(sender.runeModel)
         popupVC.submitButton.isHidden = !sender.canGenerate
@@ -127,8 +129,7 @@ public class GeneratorViewController: UIViewController {
         popupVC.didMove(toParent: self)
     }
 
-    @IBAction func selectOnTap() {
+    @objc func selectOnTap() {
         self.navigationController?.pushViewController(SelectionRuneController(), animated: false)
     }
-    
 }

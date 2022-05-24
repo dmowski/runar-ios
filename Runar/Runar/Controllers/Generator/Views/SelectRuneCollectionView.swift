@@ -10,7 +10,7 @@ import UIKit
 public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
     private let cellId = "existingCellId"
     private var selectDeligate: ((SelectRuneCell) -> Void)?
-    var selectedRunesCount: Int = 0
+    internal var selectedRunesCount: Int = 0
     private var runes: [SelectRuneCell] = []
     
     override public init(frame: CGRect, collectionViewLayout: UICollectionViewLayout) {
@@ -117,7 +117,7 @@ class SelectRuneCell: UICollectionViewCell {
         
         runeImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            runeImage.heightAnchor.constraint(equalToConstant: 97), // 78
+            runeImage.heightAnchor.constraint(equalToConstant: 97), //78
             runeImage.widthAnchor.constraint(equalToConstant: 78), //66
             runeImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             runeImage.centerYAnchor.constraint(equalTo: centerYAnchor)

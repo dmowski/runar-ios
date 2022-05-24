@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 private extension String {
+
     static let selectedRunesTitle = L10n.Generator.SelectedRunes.title
     static let randomButtonTitle = L10n.Generator.RandomButton.title
     static let generateButtonTitle = L10n.Generator.GenerateButton.title
@@ -16,11 +17,6 @@ private extension String {
 }
 
 public class SelectionRuneController: UIViewController, UIGestureRecognizerDelegate {
-
-    var emptyWallpapersUrl: String?
-    var emptyWallpapersImage: UIImage?
-    var isProcessFinished: Bool = false
-    var isImagesCreated: Bool = false
     
     let header: UILabel = {
         let title = UILabel()
@@ -84,16 +80,20 @@ public class SelectionRuneController: UIViewController, UIGestureRecognizerDeleg
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        print("Колличество рун - \(MemoryStorage.GenerationRunes.count)")
+
         RunarLayout.initBackground(for: view, with: .mainFire)
         setupViews()
+        configureNavigationBar()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.isProcessFinished = false
-        self.isImagesCreated = false
-        configureNavigationBar()
+        self.tabBarController?.tabBar.isHidden = true
+    }
+
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.tabBarController?.tabBar.isHidden = false
     }
 
     private func configureNavigationBar() {
@@ -157,16 +157,12 @@ public class SelectionRuneController: UIViewController, UIGestureRecognizerDeleg
     }
     
     private func selectRune(_ rune: SelectRuneCell) {
-        print("Нажал выбрать руну \(rune.model?.title ?? "Error")")
         selectOnTapBut(rune: rune)
     }
     
     @objc func longTap(_ sender: UIGestureRecognizer) {
-        if sender.state == .ended {
-           // popupVC.close() //первый вариант
-        }
-        else if sender.state == .began {
-            
+        
+        if sender.state == .began {
             let point = sender.location(in: self.selectRunesView)
             let indexPath = self.selectRunesView.indexPathForItem(at: point)
             
@@ -175,10 +171,8 @@ public class SelectionRuneController: UIViewController, UIGestureRecognizerDeleg
                 
                 popupVC.setupView(view: rune)
                 popupVC.setupModel(rune.model)
-                //popupVC.submitButton.isHidden = true //первый вариант
-                //popupVC.escapeButton.isHidden = true
                 
-                if !rune.isSelected && selectRunesView.selectedRunesCount < 3 { //второй вариант
+                if !rune.isSelected && selectRunesView.selectedRunesCount < 3 {
                     popupVC.submitButton.isHidden = false
                 } else {
                     popupVC.submitButton.isHidden = true
@@ -189,7 +183,7 @@ public class SelectionRuneController: UIViewController, UIGestureRecognizerDeleg
                 self.view.addSubview(popupVC.view)
                 popupVC.view.frame = self.view.bounds
                 
-                popupVC.setupAction(.runeSelectTitle, #selector(self.selectOnTap)) //второй вариант
+                popupVC.setupAction(.runeSelectTitle, #selector(self.selectOnTap))
                 
                 popupVC.didMove(toParent: self)
             } else {
@@ -198,7 +192,7 @@ public class SelectionRuneController: UIViewController, UIGestureRecognizerDeleg
         }
     }
     
-    @IBAction func selectOnTap() { //второй вариант
+    @objc func selectOnTap() {
         let rune = popupVC.runeView as! SelectRuneCell
         selectOnTapBut(rune: rune)
     }
@@ -225,7 +219,7 @@ public class SelectionRuneController: UIViewController, UIGestureRecognizerDeleg
         randomButton.isHidden = selectedRunesView.hasSelectedRunes()
     }
     
-    @IBAction func selectRandomRunesOnTap() {
+    @objc func selectRandomRunesOnTap() {
         self.selectedRunesView.deselectAll()
         
         var indexes = [Int](0..<MemoryStorage.GenerationRunes.count)
@@ -253,8 +247,7 @@ public class SelectionRuneController: UIViewController, UIGestureRecognizerDeleg
         randomButton.isHidden = selectedRunesView.hasSelectedRunes()
     }
     
-    @IBAction func generateOnTap() {
-        
+    @objc func generateOnTap() {
         let runesIds = (self.selectedRunesView.visibleCells as! [SelectedRuneCell])
             .filter({ (rune) -> Bool in
                 return rune.selectedRune != nil
@@ -266,69 +259,8 @@ public class SelectionRuneController: UIViewController, UIGestureRecognizerDeleg
                 return rune.selectedRune!.id
             }
         
-        print("runes id - \(runesIds)")
-        //let selectWallpaperStyleVC = SelectWallpaperStyleViewController()
-        //selectWallpaperStyleVC.selectedRunesIds = runesIds
-        //self.navigationController?.pushViewController(selectWallpaperStyleVC, animated: false)
-        
-        let viewModel = ProcessingViewModel(name: .progressName, title: .progressTitle) { [weak self] in
-            self?.isProcessFinished = true
-            if (self?.navigationController?.topViewController is ProcessingViewController) {
-                if (self!.emptyWallpapersImage != nil) {
-                    self?.goToSelectWallpapers()
-                } else if (self!.isImagesCreated) {
-                    self!.navigationController?.popViewController(animated: false)
-                }
-            }
-        }
-        
-        let data = RunarApi.getEmptyWallpapersData(runsIds: runesIds)
-        guard let _emptyWallpapersUrls = try? JSONDecoder().decode([String].self, from: data!) else {
-            fatalError("Runes is empty")
-        }
-        
-        if let url = _emptyWallpapersUrls.randomElement() {
-            emptyWallpapersUrl = url
-        } else {
-            fatalError("emptyWallpapersUrl is empty")
-        }
-        
-        let processCV = ProcessingViewController()
-        processCV.viewModel = viewModel
-        processCV.navigationController?.navigationBar.configure()
-        processCV.container.isHidden = false
-        let duration = 7
-        processCV.changeAnimationDuration(duration: duration)
-        
-        self.navigationController?.pushViewController(processCV, animated: true)
-        
-        if (self.emptyWallpapersImage == nil) {
-            
-            self.isImagesCreated = self.emptyWallpapersUrl == nil
-
-            if (!self.isImagesCreated) {
-                DispatchQueue.bacgroundRandomeImage(task: {
-                    return UIImage.create(fromUrl: self.emptyWallpapersUrl!)
-                }, withCompletion: { image in
-                    self.emptyWallpapersImage = image!
-                    self.isImagesCreated = true
-                    
-                    if (self.isProcessFinished) {
-                        self.goToSelectWallpapers()
-                    }
-                })
-            }
-        }
-    }
-    
-    func goToSelectWallpapers() -> Void {
-        self.navigationController?.popViewController(animated: false)
-        let emptyWallpaperViewController = CreatedEmptyWallpaperViewController()
-        
-        emptyWallpaperViewController.wallpapersUrl = self.emptyWallpapersUrl
-        emptyWallpaperViewController.wallpaperImage = self.emptyWallpapersImage
-        
-        self.navigationController?.pushViewController(emptyWallpaperViewController, animated: false)
+        print("runes id - \(runesIds)") // TODO: - delete print
+        ApiGeneratorModel.generateRandomeWallpapersModel(vc: self, runesIds: runesIds)
     }
 }
 
@@ -339,23 +271,8 @@ private extension UINavigationBar {
         self.tintColor = .libraryTitleColor
         self.backgroundColor = .navBarBackground
         self.barTintColor = .navBarBackground
-        self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 17),
+        self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 20),
                                     NSAttributedString.Key.foregroundColor: UIColor.white]
-        
         self.backItem?.backButtonTitle = .back
     }
 }
-
-private extension DispatchQueue {
-    static func bacgroundRandomeImage(task action: @escaping() -> UIImage?, withCompletion completion: ((UIImage?) -> ())? = nil) {
-        DispatchQueue.global(qos: .background).async {
-            let data = action()
-            if let completion = completion {
-                DispatchQueue.main.asyncAfter(deadline: .now()) {
-                    completion(data)
-                }
-            }
-        }
-    }
-}
-

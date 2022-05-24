@@ -61,6 +61,7 @@ internal enum Assets {
   internal static let danheim = ImageAsset(name: "Danheim")
   internal static let favouriteSelected = ImageAsset(name: "Favourite-selected")
   internal static let favouriteUnselected = ImageAsset(name: "Favourite-unselected")
+  internal static let emptyErrorImage = ImageAsset(name: "emptyErrorImage")
   internal static let interpretationBackground = ImageAsset(name: "InterpretationBackground")
   internal enum LayoutsRunes {
     internal static let algiz = ImageAsset(name: "LayoutsRunes/Algiz")

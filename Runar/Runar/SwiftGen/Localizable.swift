@@ -410,8 +410,12 @@ internal enum L10n {
       /// Wallpaper selection
       internal static let title = L10n.tr("Localizable", "generator.wallpapers.title")
     }
+    internal enum WallpapersDescription {
+      /// Sealed forever and ever your pattern in the sky
+      internal static let subtitle = L10n.tr("Localizable", "generator.wallpapersDescription.subtitle")
+    }
     internal enum WallpapersHeader {
-      /// First, select the picture you like
+      /// Wallpaper selection
       internal static let title = L10n.tr("Localizable", "generator.wallpapersHeader.title")
     }
   }

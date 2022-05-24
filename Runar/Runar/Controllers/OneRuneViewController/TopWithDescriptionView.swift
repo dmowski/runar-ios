@@ -9,6 +9,19 @@ import UIKit
 
 final class TopWithDescriptionView: UIView {
 
+    private var topLineView: TopLineView?
+    private var descriptionView: DescriptionView?
+    private var runeType: RuneType?
+    private var runeTime: String?
+    var close: (()->())?
+    
+    private var closeButton: UIButton = {
+        let button = UIButton()
+        button.setImage(Assets.escape.image, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
     override init(frame: CGRect) {
         super.init(frame:frame)
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -24,14 +37,7 @@ final class TopWithDescriptionView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-        
     }
-    
-    private var topLineView: TopLineView?
-    private var descriptionView: DescriptionView?
-    private var runeType: RuneType?
-    private var runeTime: String?
-    var close: (()->())?
 
     private func configureView() {
         guard let topLineView = topLineView,
@@ -51,28 +57,19 @@ final class TopWithDescriptionView: UIView {
         ])
     }
     
-    //MARK: - CloseButton
-    
-    private var closeButton: UIButton = {
-        let button = UIButton()
-        button.setImage(Assets.escape.image, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(buttonOnClose), for: .touchUpInside)
-        return button
-    }()
-    
-    @objc private func buttonOnClose() {
-        guard let close = close else {return}
-        close()
-    }
-    
     private func setUpCloseConstr() {
         self.addSubview(closeButton)
+        closeButton.addTarget(self, action: #selector(buttonOnClose), for: .touchUpInside)
         NSLayoutConstraint.activate([
             closeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 10.heightDependent()),
             closeButton.heightAnchor.constraint(equalToConstant: 48),
             closeButton.widthAnchor.constraint(equalToConstant: 48),
             closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10.heightDependent())
         ])
+    }
+    
+    @objc private func buttonOnClose() {
+        guard let close = close else {return}
+        close()
     }
 }
