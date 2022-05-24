@@ -468,7 +468,7 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		8452A5F526F3A3240069DEE5 /* Generator */ = {
+		8452A5F526F3A3240069DEE5 /* Generator flow */ = {
 			isa = PBXGroup;
 			children = (
 				C2C55850283DA077006B053C /* GeneratorVC */,
@@ -479,7 +479,7 @@
 				C2C55842283A9F53006B053C /* ApiGeneratorModel.swift */,
 				8441065F2705B43E00CD8B56 /* GenerationPopUpViewController.swift */,
 			);
-			path = Generator;
+			path = "Generator flow";
 			sourceTree = "<group>";
 		};
 		8477222C2643C9AB001C280D /* Storage */ = {
@@ -582,7 +582,7 @@
 		9B9C25C925993DE000A4E135 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8452A5F526F3A3240069DEE5 /* Generator */,
+				8452A5F526F3A3240069DEE5 /* Generator flow */,
 				844BF4C9264FE551002C7596 /* Library */,
 				9BD98CDC2628D3BA00F3BBD7 /* RuneDescriptionPopUp */,
 				9BD98CBE2628CD1D00F3BBD7 /* Escape Pop Up */,
