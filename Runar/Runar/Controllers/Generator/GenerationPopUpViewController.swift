@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class GenerationPopUpViewController : UIViewController {
+public class GenerationPopUpViewController: UIViewController {
     
     var runeModel: GenerationRuneModel?
     var runeView: UIView?
@@ -202,30 +202,5 @@ public class GenerationPopUpViewController : UIViewController {
     
     public func close() {
         self.view.removeFromSuperview()
-    }
-}
-
-public extension UILabel {
-    static func getAttributedText(text: String, lineHeight: CGFloat) -> NSAttributedString{
-        let prgph = NSMutableParagraphStyle()
-        
-        prgph.lineHeightMultiple = lineHeight
-        
-        return NSMutableAttributedString(string: text, attributes: [NSAttributedString.Key.paragraphStyle: prgph])
-    }
-}
-
-public extension UIButton {
-    func setTitle(title: String, color: UIColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)){
-        let paragraphStyle = NSMutableParagraphStyle()
-        
-        paragraphStyle.lineHeightMultiple = 0.79
-        
-        let attributedText = NSMutableAttributedString(string: title, attributes: [
-                                                        NSMutableAttributedString.Key.paragraphStyle: paragraphStyle,
-                                                        NSMutableAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 24),
-                                                        NSMutableAttributedString.Key.foregroundColor: color])
-        
-        self.setAttributedTitle(attributedText, for: .normal)
     }
 }

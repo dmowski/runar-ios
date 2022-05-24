@@ -1,5 +1,5 @@
 //
-//  SelectionRuneController.swift
+//  SelectionRuneVC.swift
 //  Runar
 //
 //  Created by Maksim Harbatsevich on 10/1/21.
@@ -16,7 +16,7 @@ private extension String {
     static let generateRunesTitle = L10n.Generator.GenerateRunes.title
 }
 
-public class SelectionRuneController: UIViewController, UIGestureRecognizerDelegate {
+public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     let header: UILabel = {
         let title = UILabel()
@@ -50,9 +50,9 @@ public class SelectionRuneController: UIViewController, UIGestureRecognizerDeleg
     
     let selectRunesView: SelectRuneCollectionView = {
         let layout2 = UICollectionViewFlowLayout()
-        layout2.itemSize = CGSize(width: 78, height: 97) //66 78
-        layout2.minimumInteritemSpacing = 7 //1
-        layout2.minimumLineSpacing = 7 //1
+        layout2.itemSize = CGSize(width: 78, height: 97)
+        layout2.minimumInteritemSpacing = 7
+        layout2.minimumLineSpacing = 7
         layout2.scrollDirection = .vertical
         layout2.sectionInset = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
         
@@ -261,7 +261,7 @@ public class SelectionRuneController: UIViewController, UIGestureRecognizerDeleg
             }
         
         print("runes id - \(runesIds)") // TODO: - delete print
-        ApiGeneratorModel.generateRandomeWallpapersModel(vc: self, runesIds: runesIds)
+        ApiGeneratorModel.showProcessingVCandGenerateImagesModel(vc: self, runesIds: runesIds)
     }
 }
 
@@ -274,6 +274,6 @@ private extension UINavigationBar {
         self.barTintColor = .navBarBackground
         self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 20),
                                     NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.backItem?.backButtonTitle = .none
+        self.backItem?.backButtonTitle = .back
     }
 }

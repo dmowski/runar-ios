@@ -1,5 +1,5 @@
 //
-//  SelectWallpaperStyleCell.swift
+//  WallpaperWithBackgroundCell.swift
 //  Runar
 //
 //  Created by George Stupakov on 22/05/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelectWallpaperStyleCell: UICollectionViewCell {
+class WallpaperWithBackgroundCell: UICollectionViewCell {
     
     let selectedCheckbox: UIImageView = {
         let check = UIImageView(image: Assets.selectedCircle.image)

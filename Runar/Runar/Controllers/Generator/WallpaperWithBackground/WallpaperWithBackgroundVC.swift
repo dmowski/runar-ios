@@ -1,5 +1,5 @@
 //
-//  SelectWallpaperViewController.swift
+//  WallpaperWithBackgroundVC.swift
 //  Runar
 //
 //  Created by Maksim Harbatsevich on 10/23/21.
@@ -16,11 +16,11 @@ extension String {
     static let progressTitle = L10n.Generator.Progress.title
 }
 
-public class SelectWallpaperStyleViewController: UIViewController {
+public class WallpaperWithBackgroundVC: UIViewController {
 
     let cellId = "wallpaperCellId"
     
-    var wallpapers: [SelectWallpaperStyleCell] = []
+    var wallpapers: [WallpaperWithBackgroundCell] = []
     var imagesWithBackground: [UIImage?]
     var selectedImage: UIImage?
     
@@ -96,12 +96,16 @@ public class SelectWallpaperStyleViewController: UIViewController {
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        
+        if self.isMovingFromParent {
+            navigationController?.popToViewController(ofClass: SelectionRuneVC.self)
+        }
     }
     
     private func setupBindings() {
         self.selectWallpaperView.delegate = self
         self.selectWallpaperView.dataSource = self
-        self.selectWallpaperView.register(SelectWallpaperStyleCell.self, forCellWithReuseIdentifier: cellId)
+        self.selectWallpaperView.register(WallpaperWithBackgroundCell.self, forCellWithReuseIdentifier: cellId)
     }
 
     private func setupViews() {
@@ -141,7 +145,7 @@ public class SelectWallpaperStyleViewController: UIViewController {
         
         for (index, wallpaper) in imagesWithBackground.enumerated() {
             let wallpaperCell = self.selectWallpaperView.dequeueReusableCell(withReuseIdentifier: cellId,
-                                                                             for: IndexPath(row: index, section: 1)) as! SelectWallpaperStyleCell
+                                                                             for: IndexPath(row: index, section: 1)) as! WallpaperWithBackgroundCell
             wallpaperCell.setup(image: wallpaper)
             wallpapers.append(wallpaperCell)
         }
@@ -161,13 +165,13 @@ public class SelectWallpaperStyleViewController: UIViewController {
     }
     
     @objc func nextButtonTapped() {
-        let wallpaperVC = WallpaperViewController()
+        let wallpaperVC = ChoosedWallpaperVC()
         wallpaperVC.selectedImage = selectedImage
         self.navigationController?.pushViewController(wallpaperVC, animated: true)
     }
 }
 
-extension SelectWallpaperStyleViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension WallpaperWithBackgroundVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
