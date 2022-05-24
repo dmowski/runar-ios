@@ -40,7 +40,6 @@ class ProcessingViewController: UIViewController {
                 fatalError("RunesIds is empty")
             }
         }
-        
     }
 
     public override func viewWillAppear(_ animated: Bool) {
@@ -85,10 +84,10 @@ class ProcessingViewController: UIViewController {
         print("url ======= \(emptyWallpapersUrl)") // TODO: - delete print
         
         let wallpapersURL = emptyWallpapersUrl.replacingOccurrences(of: "empty-wallpapers", with: "wallpapers")
-        let wallpapersURLblackHorizontal = wallpapersURL + String(".png?style=blackHorizontal&width=180&height=320")
-        let wallpapersURLdarkVertical = wallpapersURL + String(".png?style=darkVertical&width=180&height=320")
-        let wallpapersURLwpForest = wallpapersURL + String(".png?style=wpForest&width=180&height=320")
-        let wallpapersURLwpBark = wallpapersURL + String(".png?style=wpBark&width=180&height=320")
+        let wallpapersURLblackHorizontal = wallpapersURL + String(".png?style=blackHorizontal&width=720&height=1280")
+        let wallpapersURLdarkVertical = wallpapersURL + String(".png?style=darkVertical&width=720&height=1280")
+        let wallpapersURLwpForest = wallpapersURL + String(".png?style=wpForest&width=720&height=1280")
+        let wallpapersURLwpBark = wallpapersURL + String(".png?style=wpBark&width=720&height=1280")
         
         choosedWallpapersWithBlackHorizontal = UIImage.create(fromUrl: wallpapersURLblackHorizontal)
         choosedWallpapersWithDarkVertical = UIImage.create(fromUrl: wallpapersURLdarkVertical)

@@ -93,7 +93,7 @@ public class CreatedEmptyWallpaperViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         RunarLayout.initBackground(for: view, with: .mainFire)
-        print("wallpaperImagesModel === \(wallpaperImagesModel)") // TODO: - delete print
+
         imageView.image = wallpaperImagesModel.emptyWallpapersImage ?? Assets.emptyErrorImage.image
         setupViews()
     }
@@ -165,7 +165,14 @@ public class CreatedEmptyWallpaperViewController: UIViewController {
     }
     
     @objc func nextButtonTapped() {
-        let selectWallpaperStyleVC = SelectWallpaperStyleViewController()
+        
+        var imagesWithBackground = [UIImage?]()
+        imagesWithBackground.append(contentsOf: [wallpaperImagesModel.choosedWallpapersWithBlackHorizontal,
+                                                 wallpaperImagesModel.choosedWallpapersWithDarkVertical,
+                                                 wallpaperImagesModel.choosedWallpapersWithWpBark,
+                                                 wallpaperImagesModel.choosedWallpapersWithWpForest])
+        
+        let selectWallpaperStyleVC = SelectWallpaperStyleViewController(imagesWithBackground: imagesWithBackground)
         self.navigationController?.pushViewController(selectWallpaperStyleVC, animated: false)
     }
 }
