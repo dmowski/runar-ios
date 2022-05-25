@@ -42,7 +42,7 @@ class AlignmentInfoViewController: UIViewController {
     }
     
     func backgroundSetup() {
-        backgroundFire.image = Assets.mainFire.image
+        backgroundFire.image = Assets.Background.mainFire.image
         backgroundFire.translatesAutoresizingMaskIntoConstraints = false
         backgroundFire.contentMode = .scaleAspectFill
         backgroundFire.isUserInteractionEnabled = true
@@ -54,7 +54,7 @@ class AlignmentInfoViewController: UIViewController {
             backgroundFire.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         
-        background.image = Assets.backgroundDown.image
+        background.image = Assets.Background.backgroundDown.image
         background.translatesAutoresizingMaskIntoConstraints = false
         background.contentMode = .scaleAspectFill
         background.isUserInteractionEnabled = true

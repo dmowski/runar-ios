@@ -100,6 +100,17 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     private func configureNavigationBar() {
         title = .generateRunesTitle
         self.navigationController?.navigationBar.configure()
+        
+        self.navigationItem.hidesBackButton = true
+        let customBackButton = UIBarButtonItem(image: Assets.backIcon.image,
+                                               style: .plain, target: self,
+                                               action: #selector(self.backToInitial))
+        customBackButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        navigationItem.leftBarButtonItem = customBackButton
+    }
+
+    @objc func backToInitial(sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
     }
     
     private func setupViews() {
@@ -274,6 +285,5 @@ private extension UINavigationBar {
         self.barTintColor = .navBarBackground
         self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 20),
                                     NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.backItem?.backButtonTitle = .back
     }
 }

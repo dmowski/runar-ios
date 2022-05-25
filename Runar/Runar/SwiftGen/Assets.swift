@@ -22,9 +22,15 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Assets {
   internal enum Background {
+    internal static let interpretationBackground = ImageAsset(name: "Background/InterpretationBackground")
+    internal static let backgroundDown = ImageAsset(name: "Background/backgroundDown")
     internal static let backgroundShadowSetting = ImageAsset(name: "Background/backgroundShadowSetting")
+    internal static let bottomBlackGradient = ImageAsset(name: "Background/bottomBlackGradient")
     internal static let generator = ImageAsset(name: "Background/generator")
     internal static let main = ImageAsset(name: "Background/main")
+    internal static let mainFire = ImageAsset(name: "Background/main_fire")
+    internal static let nameLabelGradient = ImageAsset(name: "Background/nameLabelGradient")
+    internal static let topBlackGradient = ImageAsset(name: "Background/topBlackGradient")
   }
   internal enum CellSettings {
     internal enum Colors {
@@ -58,11 +64,16 @@ internal enum Assets {
       internal static let text = ColorAsset(name: "Colors/UnTouch/text")
     }
   }
-  internal static let danheim = ImageAsset(name: "Danheim")
   internal static let favouriteSelected = ImageAsset(name: "Favourite-selected")
   internal static let favouriteUnselected = ImageAsset(name: "Favourite-unselected")
+  internal static let runeFormula = ImageAsset(name: "RuneFormula")
+  internal static let runePattern = ImageAsset(name: "RunePattern")
+  internal static let runeStaves = ImageAsset(name: "RuneStaves")
+  internal static let darkRune = ImageAsset(name: "darkRune")
   internal static let emptyErrorImage = ImageAsset(name: "emptyErrorImage")
-  internal static let interpretationBackground = ImageAsset(name: "InterpretationBackground")
+  internal static let selectedCircle = ImageAsset(name: "selected-circle")
+  internal static let launchRunar = ImageAsset(name: "launchRunar")
+  internal static let launchScreen = ImageAsset(name: "launchScreen")
   internal enum LayoutsRunes {
     internal static let algiz = ImageAsset(name: "LayoutsRunes/Algiz")
     internal static let ansuz = ImageAsset(name: "LayoutsRunes/Ansuz")
@@ -108,10 +119,10 @@ internal enum Assets {
     internal static let uruz = ImageAsset(name: "LayoutsRunes/Uruz")
     internal static let wunji = ImageAsset(name: "LayoutsRunes/Wunji")
   }
+  internal static let backIcon = ImageAsset(name: "backIcon")
+  internal static let danheim = ImageAsset(name: "Danheim")
   internal static let led = ImageAsset(name: "Led")
-  internal static let runeFormula = ImageAsset(name: "RuneFormula")
-  internal static let runePattern = ImageAsset(name: "RunePattern")
-  internal static let runeStaves = ImageAsset(name: "RuneStaves")
+  internal static let vector = ImageAsset(name: "vector")
   internal static let settingsArrow = ImageAsset(name: "Settings-arrow")
   internal enum TabBar {
     internal enum Image {
@@ -123,27 +134,17 @@ internal enum Assets {
     }
     internal static let pushColor = ColorAsset(name: "TabBar/pushColor")
   }
-  internal static let backgroundDown = ImageAsset(name: "backgroundDown")
-  internal static let bottomBlackGradient = ImageAsset(name: "bottomBlackGradient")
-  internal static let darkRune = ImageAsset(name: "darkRune")
   internal static let escape = ImageAsset(name: "escape")
   internal static let floatingDown = ImageAsset(name: "floatingDown")
   internal static let floatingUp = ImageAsset(name: "floatingUp")
   internal static let languageSelected = ImageAsset(name: "language-selected")
   internal static let languageUnselected = ImageAsset(name: "language-unselected")
-  internal static let launchRunar = ImageAsset(name: "launchRunar")
-  internal static let launchScreen = ImageAsset(name: "launchScreen")
   internal static let learnAboutTheAlignment = ImageAsset(name: "learnAboutTheAlignment")
-  internal static let mainFire = ImageAsset(name: "main_fire")
-  internal static let nameLabelGradient = ImageAsset(name: "nameLabelGradient")
   internal static let person2 = ImageAsset(name: "person 2")
   internal static let popUpVectorLeft = ImageAsset(name: "popUpVectorLeft")
   internal static let popUpVectorRight = ImageAsset(name: "popUpVectorRight")
-  internal static let selectedCircle = ImageAsset(name: "selected-circle")
   internal static let selected = ImageAsset(name: "selected")
-  internal static let topBlackGradient = ImageAsset(name: "topBlackGradient")
   internal static let unselected = ImageAsset(name: "unselected")
-  internal static let vector = ImageAsset(name: "vector")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

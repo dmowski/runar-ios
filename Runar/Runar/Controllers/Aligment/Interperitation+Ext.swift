@@ -56,7 +56,7 @@ extension AlignmentViewController {
     
     func setUpContentInterpretationView() {
         
-        contentInterpretationView.layer.contents = UIImage(asset: Assets.interpretationBackground)?.cgImage
+        contentInterpretationView.layer.contents = UIImage(asset: Assets.Background.interpretationBackground)?.cgImage
         contentInterpretationView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(contentInterpretationView)
         
