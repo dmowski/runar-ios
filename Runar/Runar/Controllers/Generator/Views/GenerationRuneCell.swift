@@ -24,7 +24,7 @@ public class GenerationRuneCell : UIControl {
         self.runeModel = model
     }
     
-    public func readOnly(){
+    public func readOnly() {
         self.canGenerate = false
     }
     

@@ -6,179 +6,199 @@
 //
 
 import UIKit
+import SnapKit
 
 private extension String {
+
     static let selectedRunesTitle = L10n.Generator.SelectedRunes.title
     static let randomButtonTitle = L10n.Generator.RandomButton.title
     static let generateButtonTitle = L10n.Generator.GenerateButton.title
     static let generateRunesTitle = L10n.Generator.GenerateRunes.title
 }
 
-public class SelectionRuneController: UIViewController{
-    
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        RunarLayout.initBackground(for: view, with: .mainFire)
-        
-        setupViews()
-    }
-    
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    
-        configureNavigationBar()
-    }
+public class SelectionRuneController: UIViewController, UIGestureRecognizerDelegate {
     
     let header: UILabel = {
-        let title = UILabel(frame: CGRect(x: 0, y: 0, width: 252, height: 44))
-        
+        let title = UILabel()
         title.textColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
         title.textAlignment = .center
         title.numberOfLines = 0
         title.lineBreakMode = .byWordWrapping
         title.text = .selectedRunesTitle
-        title.font = FontFamily.SFProDisplay.regular.font(size: 17)
+        title.font = FontFamily.Roboto.light.font(size: 18)
         title.backgroundColor = .clear
-        
         return title
     }()
     
     let selectedRunesView: SelectedRuneCollectionView = {
         let layout = UICollectionViewFlowLayout()
-        
-        layout.itemSize = CGSize(width: 67, height: 110)
-        layout.minimumInteritemSpacing = 1
-        
+        layout.itemSize = CGSize(width: 67, height: 120)
+        layout.minimumInteritemSpacing = 7
         return SelectedRuneCollectionView(frame: .zero, collectionViewLayout: layout)
     }()
-        
+    
     let randomButton: UIButton = {
         let randomButton = UIButton()
-        
         randomButton.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
         randomButton.layer.cornerRadius = 10
         randomButton.layer.borderWidth = 1
+        randomButton.contentHorizontalAlignment = .center
         randomButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
         randomButton.setTitle(title: .randomButtonTitle)
-        
         return randomButton
     }()
     
     let selectRunesView: SelectRuneCollectionView = {
         let layout2 = UICollectionViewFlowLayout()
-        
-        layout2.itemSize = CGSize(width: 66, height: 78)
-        layout2.minimumInteritemSpacing = 2
-        layout2.minimumLineSpacing = 2
-        layout2.scrollDirection = .horizontal
+        layout2.itemSize = CGSize(width: 78, height: 97) //66 78
+        layout2.minimumInteritemSpacing = 7 //1
+        layout2.minimumLineSpacing = 7 //1
+        layout2.scrollDirection = .vertical
         layout2.sectionInset = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
         
         let selectRunesView = SelectRuneCollectionView(frame: .zero, collectionViewLayout: layout2)
-        
+        selectRunesView.showsHorizontalScrollIndicator = false
+        selectRunesView.showsVerticalScrollIndicator = false
         return selectRunesView
     }()
     
     let generateButton: UIButton = {
         let generateButton = UIButton()
-        
         generateButton.layer.backgroundColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
         generateButton.layer.cornerRadius = 10
+        generateButton.contentHorizontalAlignment = .center
         generateButton.isHidden = true
         generateButton.setTitle(title: .generateButtonTitle, color: UIColor(red: 0.165, green: 0.165, blue: 0.165, alpha: 1))
-        
         return generateButton
     }()
     
-    let popupVC: GenerationPopUpViewController = {
+    let popupVC: GenerationPopUpViewController = {        
         let viewController = GenerationPopUpViewController()
         viewController.modalPresentationStyle = .overCurrentContext
         return viewController
     }()
     
-    private func setupViews() {
-        self.view.addSubview(header)
-        
-        header.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            header.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
-            header.heightAnchor.constraint(equalToConstant: 50),
-            header.widthAnchor.constraint(equalToConstant: 252),
-            header.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-                                
-        self.view.addSubview(selectedRunesView)
+    public override func viewDidLoad() {
+        super.viewDidLoad()
 
-        selectedRunesView.setDeselectHandler(self.deselectRune(_:))
-        
-        selectedRunesView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            selectedRunesView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            selectedRunesView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 10),
-            selectedRunesView.heightAnchor.constraint(equalToConstant: 140),
-            selectedRunesView.widthAnchor.constraint(equalToConstant: 69*3)
-        ])
-        
-        self.view.addSubview(randomButton)
-        
-        randomButton.addTarget(self, action: #selector(self.selectRandomRunesOnTap), for: .touchUpInside)
-        
-        randomButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            randomButton.topAnchor.constraint(equalTo: selectedRunesView.bottomAnchor),
-            randomButton.heightAnchor.constraint(equalToConstant: 48),
-            randomButton.widthAnchor.constraint(equalToConstant: 181),
-            randomButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-        
-        self.selectRunesView.setSelectHandler(self.selectRune(_:))
-        
-        self.view.addSubview(selectRunesView)
-
-        selectRunesView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            selectRunesView.topAnchor.constraint(equalTo: randomButton.bottomAnchor, constant: 25),
-            selectRunesView.heightAnchor.constraint(equalToConstant: 240),
-            selectRunesView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -16),
-            selectRunesView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8),
-            selectRunesView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -8)
-        ])
-        
-        self.view.addSubview(generateButton)
-        
-        generateButton.addTarget(self, action: #selector(self.generateOnTap), for: .touchUpInside)
-
-        generateButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            generateButton.topAnchor.constraint(equalTo: selectRunesView.bottomAnchor, constant: 10),
-            generateButton.heightAnchor.constraint(equalToConstant: 50),
-            generateButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-            generateButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
-        ])
+        RunarLayout.initBackground(for: view, with: .mainFire)
+        setupViews()
+        configureNavigationBar()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+
     private func configureNavigationBar() {
         title = .generateRunesTitle
         self.navigationController?.navigationBar.configure()
     }
     
-    private func selectRune(_ rune: SelectRuneCell){
-        popupVC.setupView(view: rune)
-        popupVC.setupModel(rune.model)
-        popupVC.submitButton.isHidden = false
+    private func setupViews() {
+        self.view.addSubview(header)
+        header.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(48)
+            make.leading.equalToSuperview().offset(60)
+            make.trailing.equalToSuperview().offset(-60)
+        }
         
-        self.addChild(popupVC)
-        self.view.addSubview(popupVC.view)
-        popupVC.view.frame = self.view.bounds
+        self.view.addSubview(selectedRunesView)
+        selectedRunesView.setDeselectHandler(self.deselectRune(_:))
+        selectedRunesView.snp.makeConstraints { make in
+            make.top.equalTo(header.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(120)
+            make.leading.equalToSuperview().offset(70)
+            make.trailing.equalToSuperview().offset(-70)
+        }
         
-        popupVC.setupAction(.runeSelectTitle, #selector(self.selectOnTap))
+        self.view.addSubview(randomButton)
+        randomButton.addTarget(self, action: #selector(self.selectRandomRunesOnTap), for: .touchUpInside)
+        randomButton.snp.makeConstraints { make in
+            make.top.equalTo(selectedRunesView.snp.bottom).offset(35)
+            make.leading.equalToSuperview().offset(70)
+            make.trailing.equalToSuperview().offset(-70)
+            make.height.equalTo(50)
+        }
         
-        popupVC.didMove(toParent: self)
+        self.view.addSubview(selectRunesView)
+        self.selectRunesView.setSelectHandler(self.selectRune(_:))
+        tapedLongGesture(runesView: selectRunesView)
+        selectRunesView.snp.makeConstraints { make in
+            make.top.equalTo(selectedRunesView.snp.bottom).offset(110)
+            make.left.equalTo(self.view.snp.left).offset(20)
+            make.right.equalTo(self.view.snp.right).offset(-20)
+            make.bottom.equalToSuperview()
+        }
+
+        self.view.addSubview(generateButton)
+        generateButton.addTarget(self, action: #selector(self.generateOnTap), for: .touchUpInside)
+        generateButton.snp.makeConstraints { make in
+            make.top.equalTo(selectedRunesView.snp.bottom).offset(35)
+            make.leading.equalToSuperview().offset(70)
+            make.trailing.equalToSuperview().offset(-70)
+            make.height.equalTo(50)
+        }
     }
     
-    @IBAction func selectOnTap() {
-        let rune = popupVC.runeView as! SelectRuneCell
+    private func tapedLongGesture(runesView: SelectRuneCollectionView) {
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap))
+        longGesture.minimumPressDuration = 1
+        longGesture.delaysTouchesBegan = true
+        longGesture.delegate = self
+        runesView.addGestureRecognizer(longGesture)
+    }
+    
+    private func selectRune(_ rune: SelectRuneCell) {
+        selectOnTapBut(rune: rune)
+    }
+    
+    @objc func longTap(_ sender: UIGestureRecognizer) {
         
+        if sender.state == .began {
+            let point = sender.location(in: self.selectRunesView)
+            let indexPath = self.selectRunesView.indexPathForItem(at: point)
+            
+            if let index = indexPath {
+                let rune = self.selectRunesView.cellForItem(at: index) as! SelectRuneCell
+                
+                popupVC.setupView(view: rune)
+                popupVC.setupModel(rune.model)
+                
+                if !rune.isSelected && selectRunesView.selectedRunesCount < 3 {
+                    popupVC.submitButton.isHidden = false
+                } else {
+                    popupVC.submitButton.isHidden = true
+                }
+                popupVC.escapeButton.isHidden = false
+                
+                self.addChild(popupVC)
+                self.view.addSubview(popupVC.view)
+                popupVC.view.frame = self.view.bounds
+                
+                popupVC.setupAction(.runeSelectTitle, #selector(self.selectOnTap))
+                
+                popupVC.didMove(toParent: self)
+            } else {
+                print("Could not find index path")
+            }
+        }
+    }
+    
+    @objc func selectOnTap() {
+        let rune = popupVC.runeView as! SelectRuneCell
+        selectOnTapBut(rune: rune)
+    }
+    
+    func selectOnTapBut(rune: SelectRuneCell) {
+
         selectRunesView.selectRune(rune: rune)
         
         for cell in (self.selectedRunesView.visibleCells as! [SelectedRuneCell]).sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
@@ -189,15 +209,17 @@ public class SelectionRuneController: UIViewController{
         }
         
         generateButton.isHidden = !selectedRunesView.hasSelectedRunes()
+        randomButton.isHidden = selectedRunesView.hasSelectedRunes()
     }
     
     private func deselectRune(_ index: IndexPath){
         self.selectRunesView.deselectRune(at: index)
         
         generateButton.isHidden = !selectedRunesView.hasSelectedRunes()
+        randomButton.isHidden = selectedRunesView.hasSelectedRunes()
     }
     
-    @IBAction func selectRandomRunesOnTap() {
+    @objc func selectRandomRunesOnTap() {
         self.selectedRunesView.deselectAll()
         
         var indexes = [Int](0..<MemoryStorage.GenerationRunes.count)
@@ -221,10 +243,11 @@ public class SelectionRuneController: UIViewController{
             }
         }
         
-        generateButton.isHidden = false
+        generateButton.isHidden = !selectedRunesView.hasSelectedRunes()
+        randomButton.isHidden = selectedRunesView.hasSelectedRunes()
     }
     
-    @IBAction func generateOnTap() {
+    @objc func generateOnTap() {
         let runesIds = (self.selectedRunesView.visibleCells as! [SelectedRuneCell])
             .filter({ (rune) -> Bool in
                 return rune.selectedRune != nil
@@ -234,13 +257,10 @@ public class SelectionRuneController: UIViewController{
             })
             .map { (rune) -> String in
                 return rune.selectedRune!.id
-        }
+            }
         
-        let selectWallpaperStyleVC = SelectWallpaperStyleViewController()
-        
-        selectWallpaperStyleVC.selectedRunesIds = runesIds
-        
-        self.navigationController?.pushViewController(selectWallpaperStyleVC, animated: false)
+        print("runes id - \(runesIds)") // TODO: - delete print
+        ApiGeneratorModel.generateRandomeWallpapersModel(vc: self, runesIds: runesIds)
     }
 }
 
@@ -251,9 +271,8 @@ private extension UINavigationBar {
         self.tintColor = .libraryTitleColor
         self.backgroundColor = .navBarBackground
         self.barTintColor = .navBarBackground
-        self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 17),
-                                         NSAttributedString.Key.foregroundColor: UIColor.white]
-        
+        self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 20),
+                                    NSAttributedString.Key.foregroundColor: UIColor.white]
         self.backItem?.backButtonTitle = .back
     }
 }

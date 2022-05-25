@@ -17,14 +17,98 @@ class ProcessingViewController: UIViewController {
     
     var viewModel: ProcessingViewModel!
     
+    var ifGenerateWallpapers: Bool?
+    var runesIds: [String]?
+    var delegate: UIViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureUI()
         fillContent()
         doAnimation()
+        
+        if ifGenerateWallpapers == true {
+//            startButton.isHidden = true
+//            vectorImageView.isHidden = true
+            
+            if let runesIds = runesIds {
+                DispatchQueue.main.async {
+                    self.generateWallpapers(runesIds: runesIds)
+                }
+            } else {
+                fatalError("RunesIds is empty")
+            }
+        }
+        
+    }
+
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+    }
+
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = true
     }
     
+    private func generateWallpapers(runesIds: [String]) {
+        
+        var emptyWallpapersImage: UIImage?
+        var choosedWallpapersWithBlackHorizontal: UIImage?
+        var choosedWallpapersWithDarkVertical: UIImage?
+        var choosedWallpapersWithWpForest: UIImage?
+        var choosedWallpapersWithWpBark: UIImage?
+        
+        var emptyWallpapersUrl: String
+        
+        guard let data = RunarApi.getEmptyWallpapersData(runsIds: runesIds) else {
+            fatalError("Data of runes is empty")
+        }
+        guard let _emptyWallpapersUrls = try? JSONDecoder().decode([String].self, from: data) else {
+            fatalError("Runes is empty")
+        }
+        if let url = _emptyWallpapersUrls.randomElement() {
+            emptyWallpapersUrl = url
+        } else {
+            fatalError("EmptyWallpapersUrl is empty")
+        }
+        
+        print("url ======= \(emptyWallpapersUrl)") // TODO: - delete print
+        
+        let wallpapersURL = emptyWallpapersUrl.replacingOccurrences(of: "empty-wallpapers", with: "wallpapers")
+        let wallpapersURLblackHorizontal = wallpapersURL + String(".png?style=blackHorizontal&width=180&height=320")
+        let wallpapersURLdarkVertical = wallpapersURL + String(".png?style=darkVertical&width=180&height=320")
+        let wallpapersURLwpForest = wallpapersURL + String(".png?style=wpForest&width=180&height=320")
+        let wallpapersURLwpBark = wallpapersURL + String(".png?style=wpBark&width=180&height=320")
+        
+        choosedWallpapersWithBlackHorizontal = UIImage.create(fromUrl: wallpapersURLblackHorizontal)
+        choosedWallpapersWithDarkVertical = UIImage.create(fromUrl: wallpapersURLdarkVertical)
+        choosedWallpapersWithWpForest = UIImage.create(fromUrl: wallpapersURLwpForest)
+        choosedWallpapersWithWpBark = UIImage.create(fromUrl: wallpapersURLwpBark)
+        emptyWallpapersImage = UIImage.create(fromUrl: emptyWallpapersUrl)
+        
+        let runeImagesModel = RuneImages(emptyWallpapersImage: emptyWallpapersImage,
+                                         choosedWallpapersWithBlackHorizontal: choosedWallpapersWithBlackHorizontal,
+                                         choosedWallpapersWithDarkVertical: choosedWallpapersWithDarkVertical,
+                                         choosedWallpapersWithWpForest: choosedWallpapersWithWpForest,
+                                         choosedWallpapersWithWpBark: choosedWallpapersWithWpBark)
+        
+        self.delegate?.navigationController?.popViewController(animated: false)
+        let emptyWallpaperViewController = CreatedEmptyWallpaperViewController(wallpaperImagesModel: runeImagesModel,
+                                                                               runesIds: runesIds,
+                                                                               wallpapersUrl: emptyWallpapersUrl)
+        self.delegate?.navigationController?.pushViewController(emptyWallpaperViewController, animated: false)
+    }
+
     private func doAnimation() {
         view.layoutIfNeeded()
 
@@ -36,7 +120,6 @@ class ProcessingViewController: UIViewController {
         backgroundLayer.layer.addSublayer(shapeLayer)
         shapeLayer.add(basicAnimation, forKey: nil)
         CATransaction.commit()
-        
     }
     
     private var backgroundFire: UIImageView = {
@@ -76,7 +159,6 @@ class ProcessingViewController: UIViewController {
         return imageView
     }()
     
-
     private func configureShapeLayer() {
         let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147.heightDependent()
         let startAngle: CGFloat = -0.25 * 2 * .pi
@@ -98,13 +180,12 @@ class ProcessingViewController: UIViewController {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.fromValue = 0
         basicAnimation.toValue = 1
-        basicAnimation.duration = 15
+        basicAnimation.duration = 7
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         return basicAnimation
     }()
 
-    
     private var nameLabel: UILabel = {
         let label = UILabel()
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 45 : 55
@@ -128,7 +209,6 @@ class ProcessingViewController: UIViewController {
         startButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
         startButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .normal)
         startButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
-        startButton.addTarget(self, action: #selector(startButtonOnTap), for: .touchUpInside)
         return startButton
     }()
     
@@ -136,14 +216,15 @@ class ProcessingViewController: UIViewController {
         guard let url = URL(string: link) else {return}
         UIApplication.shared.open(url)
     }
+    
     private var vectorImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = Assets.vector.image
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
-    private let processingLabel: UILabel = {
+
+    private var processingLabel: UILabel = {
         var processingLabel = UILabel()
         processingLabel.text = L10n.layoutProcessing
         processingLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -165,7 +246,7 @@ class ProcessingViewController: UIViewController {
         return adName
     }()
     
-    private let adText: UILabel = {
+    private var adText: UILabel = {
         let adText = UILabel()
         adText.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         let addFontConst: CGFloat =  DeviceType.iPhoneSE ? 14 : 16
@@ -177,6 +258,7 @@ class ProcessingViewController: UIViewController {
     
     private func configureUI() {
         view.addSubviews(backgroundFire, container, backgroundLayer, nameLabel, startButton, vectorImageView, processingLabel, imageView, adName, adText)
+        startButton.addTarget(self, action: #selector(startButtonOnTap), for: .touchUpInside)
         
         let imageViewHeightConstant: CGFloat = DeviceType.iPhoneSE ? 167 : 294.heightDependent()
         let imageViewTopConstant: CGFloat = DeviceType.iPhoneSE ? 70 : 93.heightDependent()
@@ -289,4 +371,3 @@ class ProcessingViewController: UIViewController {
         basicAnimation.duration = CFTimeInterval(duration)
     }
 }
-

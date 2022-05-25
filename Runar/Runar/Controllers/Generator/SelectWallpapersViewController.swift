@@ -19,7 +19,7 @@ public class SelectWallpapersViewController: UIViewController, UICollectionViewD
     var wallpaperImages: [UIImage] = []
     var selectedIndex: Int!
     var selectedImage: UIImage!
-        
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         

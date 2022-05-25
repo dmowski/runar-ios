@@ -50,6 +50,11 @@ class RunarApi {
         let ids: String = runsIds.joined(separator: "_")
         return get(from: "\(Route.getWallpapers)/\(ids)?width=180&height=320&style=\(style)")
     }
+    
+    static func getEmptyWallpapersData(runsIds: [String]) -> Data? {
+        let ids: String = runsIds.joined(separator: "_")
+        return get(from: "\(Route.getEmptyWallpapers)/\(ids)")
+    }
 }
 
 // MARK: - Api extensions

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -119,6 +119,11 @@
 		9BD98CA42628A8B800F3BBD7 /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD98CA32628A8B800F3BBD7 /* SFProDisplay-Medium.ttf */; };
 		9BD98CC02628CD1D00F3BBD7 /* EscapePopUpViewVontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpViewVontroller.swift */; };
 		9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */; };
+		C22F6E4127C3CEFF005F8B66 /* CreatedEmptyWallpaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F6E4027C3CEFF005F8B66 /* CreatedEmptyWallpaperViewController.swift */; };
+		C278B66127C43FAB00EFBD2C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */; };
+		C2C55840283A4823006B053C /* SelectWallpaperStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5583F283A4823006B053C /* SelectWallpaperStyleCell.swift */; };
+		C2C55843283A9F53006B053C /* ApiGeneratorWallpapersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C55842283A9F53006B053C /* ApiGeneratorWallpapersModel.swift */; };
+		C2C55845283AA013006B053C /* RuneImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C55844283AA013006B053C /* RuneImages.swift */; };
 		D33A65EC2DE4E4D7C3C956F3 /* Pods_Runar_RunarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */; };
 		DB92AEE5E33DCFB508195B8F /* Pods_Runar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */; };
 /* End PBXBuildFile section */
@@ -264,6 +269,11 @@
 		9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpViewVontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscapePopUpViewVontroller.swift; sourceTree = "<group>"; };
 		9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneDescriptionPopUp.swift; sourceTree = "<group>"; };
 		9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C22F6E4027C3CEFF005F8B66 /* CreatedEmptyWallpaperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedEmptyWallpaperViewController.swift; sourceTree = "<group>"; };
+		C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		C2C5583F283A4823006B053C /* SelectWallpaperStyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWallpaperStyleCell.swift; sourceTree = "<group>"; };
+		C2C55842283A9F53006B053C /* ApiGeneratorWallpapersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGeneratorWallpapersModel.swift; sourceTree = "<group>"; };
+		C2C55844283AA013006B053C /* RuneImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneImages.swift; sourceTree = "<group>"; };
 		C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.release.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar_RunarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B75E01B5066B4D9AE555E1 /* Pods-Runar-RunarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -396,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				9B739DDB25CC296900726B30 /* RuneType.swift */,
+				C2C55844283AA013006B053C /* RuneImages.swift */,
 				1907850325C4232E00434D57 /* RuneLayout.swift */,
 				19C0F21A25BAFEFE0027422B /* RuneDescription.swift */,
 				9BAEB61C25F13412004B7761 /* Affirmation.swift */,
@@ -411,6 +422,7 @@
 				843DAB9226F9BA9C009548D8 /* GenerationRuneCell.swift */,
 				84410671270ADA0400CD8B56 /* SelectedRuneCollectionView.swift */,
 				84410676270CC7E500CD8B56 /* SelectRuneCollectionView.swift */,
+				C2C5583F283A4823006B053C /* SelectWallpaperStyleCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -458,10 +470,12 @@
 		8452A5F526F3A3240069DEE5 /* Generator */ = {
 			isa = PBXGroup;
 			children = (
+				C2C55841283A9EC7006B053C /* Model */,
 				8441065E2704ECFD00CD8B56 /* PopUp */,
 				843DAB9126F9B94C009548D8 /* Views */,
 				8452A5F626F3A3700069DEE5 /* GeneratorViewController.swift */,
 				8441066C27077A2700CD8B56 /* SelectionRuneController.swift */,
+				C22F6E4027C3CEFF005F8B66 /* CreatedEmptyWallpaperViewController.swift */,
 				84B1C4D52724D825007865CF /* SelectWallpaperStyleViewController.swift */,
 				845D26DE272C3C8900449D34 /* SelectWallpapersViewController.swift */,
 				845D26E32738259E00449D34 /* WallpaperViewController.swift */,
@@ -485,6 +499,7 @@
 				8477224D2645886C001C280D /* Requests */,
 				9B739E4B25D1E99A00726B30 /* RunarApi.swift */,
 				8477224226458020001C280D /* Route.swift */,
+				C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -741,6 +756,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C2C55841283A9EC7006B053C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C2C55842283A9F53006B053C /* ApiGeneratorWallpapersModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F845FBB93D424E742E7134D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -763,6 +786,7 @@
 				9BD228F6258A321B00E17E98 /* Sources */,
 				9BD228F7258A321B00E17E98 /* Frameworks */,
 				9BD228F8258A321B00E17E98 /* Resources */,
+				E53E211FCEE4CA2FD61612A4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -800,6 +824,7 @@
 				9BD22917258A322000E17E98 /* Sources */,
 				9BD22918258A322000E17E98 /* Frameworks */,
 				9BD22919258A322000E17E98 /* Resources */,
+				9806CC12029B95E8DACDF316 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -944,6 +969,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9806CC12029B95E8DACDF316 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		ABF78A6E3A36E16A0AC5CE23 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -988,6 +1030,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E53E211FCEE4CA2FD61612A4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Runar/Pods-Runar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Runar/Pods-Runar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runar/Pods-Runar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1008,6 +1067,7 @@
 				19BDC61D25C030B1000808CF /* PublisherProvider.swift in Sources */,
 				1987AAC525BDCDCA00BB3655 /* SixRuneView.swift in Sources */,
 				19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */,
+				C2C55845283AA013006B053C /* RuneImages.swift in Sources */,
 				843DAB9326F9BA9C009548D8 /* GenerationRuneCell.swift in Sources */,
 				1987AACA25BDCDD500BB3655 /* SevenRuneView.swift in Sources */,
 				9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */,
@@ -1027,7 +1087,9 @@
 				1987AAB625BDCDA400BB3655 /* ThreeRuneView.swift in Sources */,
 				8477224326458020001C280D /* Route.swift in Sources */,
 				9BD229DF258D82DD00E17E98 /* AlignmentInfoViewController.swift in Sources */,
+				C2C55843283A9F53006B053C /* ApiGeneratorWallpapersModel.swift in Sources */,
 				9B15E37625FE548400737306 /* BottomLineView.swift in Sources */,
+				C278B66127C43FAB00EFBD2C /* NetworkMonitor.swift in Sources */,
 				19BDC61225C02EE9000808CF /* SceneDelegate.swift in Sources */,
 				19BDC61B25C030B1000808CF /* UIControlPublisher.swift in Sources */,
 				9BD98C9F2628A75600F3BBD7 /* UIView.swift in Sources */,
@@ -1035,6 +1097,7 @@
 				9B739DDC25CC296900726B30 /* RuneType.swift in Sources */,
 				1907850C25C4235000434D57 /* RuneButton.swift in Sources */,
 				843DFF72265BC50800D6DFE5 /* LibraryNodeViewController.swift in Sources */,
+				C2C55840283A4823006B053C /* SelectWallpaperStyleCell.swift in Sources */,
 				19C0F20A25BAFCB20027422B /* Array+Extensions.swift in Sources */,
 				84D7E60B264BAED300772EE3 /* Environment.swift in Sources */,
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
@@ -1056,6 +1119,7 @@
 				9BD98C942628A74200F3BBD7 /* StaticCell.swift in Sources */,
 				9B739E0525CD77E900726B30 /* ProcessingViewController.swift in Sources */,
 				9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */,
+				C22F6E4127C3CEFF005F8B66 /* CreatedEmptyWallpaperViewController.swift in Sources */,
 				9B739E4C25D1E99B00726B30 /* RunarApi.swift in Sources */,
 				8477222E2643C9CA001C280D /* LocalStorage.swift in Sources */,
 				9B739E1025CD9B9800726B30 /* RuneDescriptionPopUpViewModel.swift in Sources */,

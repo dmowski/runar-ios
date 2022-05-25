@@ -20,4 +20,5 @@ enum Route {
     static let getRunes = "\(Environment.generatorApiUrl)/runes"
     static let getWallpapersStyles = "\(Environment.generatorApiUrl)/wallpapersStyles"
     static let getWallpapers = "\(Environment.generatorApiUrl)/wallpapers"
+    static let getEmptyWallpapers = "\(Environment.generatorApiUrl)/empty-wallpapers"
 }

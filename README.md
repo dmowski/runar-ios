@@ -30,9 +30,12 @@ After that (based on the `Podfile` file) necessary files and directories will be
 To open Runar mobile application in XCode you should use **Runar.xcworkspace** (not Runar.xcodeproject). 
 
 ### Add urls for debug
+
 Then add two urls (which are below) TO THE END in file **Pods-Runar.debug.xcconfig**  in the folder **Pods**.
 Urls:
+
 `API_URL = https:/$()/runar-testing.herokuapp.com/api/v1`
+
 `GENERATOR_API_URL = https:/$()/runar-generator-api.herokuapp.com/api/v1`
 
 ### Run the project

@@ -98,10 +98,13 @@ With the permission of the copyright holders, the following musical compositions
 "generator.randomButton.title" = "Select random runes";
 "generator.generateButton.title" = "Generate";
 "generator.generateRunes.title" = "Runes selection";
-"generator.wallpapersHeader.title" = "First, select the picture you like";
+"generator.wallpapersHeader.title" = "Wallpaper selection";
+"generator.wallpapersDescription.subtitle" = "Sealed forever and ever your pattern in the sky";
 "generator.wallpapers.title" = "Wallpaper selection";
 "generator.nextButton.title" = "Next";
 "generator.progress.name" = "Pattern generation";
+"generator.emptyWallpapers.subtitle" = "Next, choose the background for it, Viking";
+"generator.emptyWallpapersNewVariant.btnTitle" = "New version";
 "generator.progress.title" = "Runic image is creating...";
 "generator.selectWallpapersHeader.titile" = "Picture selection";
 "generator.selectWallpaperHeader.titile" = "Runic pattern";

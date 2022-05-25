@@ -93,11 +93,11 @@ public class GenerationPopUpViewController : UIViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
-    public func setupView(view: UIView){
+    public func setupView(view: UIView) {
         self.runeView = view
     }
     
-    public func setupModel(_ model: GenerationRuneModel?){
+    public func setupModel(_ model: GenerationRuneModel?) {
         self.runeModel = model
         
         self.imageView.image = model?.image.image
@@ -105,7 +105,7 @@ public class GenerationPopUpViewController : UIViewController {
         self.desc.attributedText = UILabel.getAttributedText(text: model!.description, lineHeight: 1.12)
     }
     
-    public func setupAction(_ title: String, _ action: Selector){
+    public func setupAction(_ title: String, _ action: Selector) {
         self.action = (key: title, value: action)
         
         self.submitButton.setTitle(title: title)
