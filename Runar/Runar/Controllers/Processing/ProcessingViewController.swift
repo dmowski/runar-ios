@@ -100,6 +100,8 @@ class ProcessingViewController: UIViewController {
                                          choosedWallpapersWithDarkVertical: choosedWallpapersWithDarkVertical,
                                          choosedWallpapersWithWpForest: choosedWallpapersWithWpForest,
                                          choosedWallpapersWithWpBark: choosedWallpapersWithWpBark)
+
+        print("runeImagesModel === \(runeImagesModel)") // TODO: - delete print
         
         self.delegate?.navigationController?.popViewController(animated: false)
         let emptyWallpaperViewController = EmptyWallpaperVC(wallpaperImagesModel: runeImagesModel,
@@ -123,7 +125,7 @@ class ProcessingViewController: UIViewController {
     
     private var backgroundFire: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = Assets.mainFire.image
+        imageView.image = Assets.Background.mainFire.image
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.isUserInteractionEnabled = true

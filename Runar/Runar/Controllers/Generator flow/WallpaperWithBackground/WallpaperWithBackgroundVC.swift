@@ -78,14 +78,27 @@ public class WallpaperWithBackgroundVC: UIViewController {
     }
         
     public override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        super.viewDidLoad()        
         RunarLayout.initBackground(for: view, with: .mainFire)
-        title = .wallpapersHeader
-        print("imagesWithBackground === \(imagesWithBackground)") // TODO: - delete print
+
         setupBindings()
         setupViews()
+        configureNavBar()
         setupWallpapers()
+    }
+    
+    private func configureNavBar() {
+        title = .wallpapersHeader
+        self.navigationItem.hidesBackButton = true
+        let customBackButton = UIBarButtonItem(image: Assets.backIcon.image,
+                                               style: .plain, target: self,
+                                               action: #selector(self.backToInitial))
+        customBackButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        navigationItem.leftBarButtonItem = customBackButton
+    }
+
+    @objc func backToInitial(sender: UIBarButtonItem) {
+        navigationController?.popToViewController(ofClass: SelectionRuneVC.self, animated: true)
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -96,10 +109,6 @@ public class WallpaperWithBackgroundVC: UIViewController {
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = true
-        
-        if self.isMovingFromParent {
-            navigationController?.popToViewController(ofClass: SelectionRuneVC.self)
-        }
     }
     
     private func setupBindings() {

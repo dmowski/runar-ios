@@ -52,10 +52,10 @@ public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
     public override func viewDidLoad() {
         super.viewDidLoad()
         RunarLayout.initBackground(for: view, with: .mainFire)
-        title = .selectWallpaperTitile
         wallpaperImage.image = self.selectedImage
 
         setupViews()
+        configureNavBar()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +66,21 @@ public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    private func configureNavBar() {
+        title = .selectWallpaperTitile
+        self.navigationItem.hidesBackButton = true
+        let customBackButton = UIBarButtonItem(image: Assets.backIcon.image,
+                                               style: .plain, target: self,
+                                               action: #selector(self.backToInitial))
+        customBackButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        navigationItem.leftBarButtonItem = customBackButton
+    }
+
+    @objc func backToInitial(sender: UIBarButtonItem) {
+        //navigationController?.popToViewController(ofClass: SelectionRuneVC.self, animated: true) // TODO: choose
+        navigationController?.popViewController(animated: true)
     }
     
     private func setupViews() {
