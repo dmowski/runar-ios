@@ -125,7 +125,7 @@ class CollectionViewController: UICollectionViewController {
         let generatorImage = UIImageView(image: Assets.runePattern.image)
         
         generatorImage.translatesAutoresizingMaskIntoConstraints = false
-        generatorImage.contentMode = .scaleAspectFill
+        generatorImage.contentMode = .scaleAspectFit
         
         return generatorImage
     }()

@@ -111,6 +111,13 @@ public class GenerationPopUpViewController: UIViewController {
         self.desc.attributedText = UILabel.getAttributedText(text: model!.description, lineHeight: 1.12)
     }
     
+    public func setupPopUp(image: UIImage, header: String, description: String) {
+        
+        self.imageView.image = image
+        self.header.attributedText = UILabel.getAttributedText(text: header, lineHeight: 0.7)
+        self.desc.attributedText = UILabel.getAttributedText(text: description, lineHeight: 1.12)
+    }
+    
     public func setupAction(_ title: String, _ action: Selector) {
         self.action = (key: title, value: action)
         
