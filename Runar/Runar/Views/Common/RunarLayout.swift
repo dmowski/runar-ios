@@ -35,12 +35,10 @@ public class RunarLayout {
     
     public static func initBackground(for view: UIView, with background: BackgroundType = .main) {
         let backgroundImage: UIImageView = createBackground(with: background.image)
-        let backgroundShadow: UIImageView = createBackground(with: Assets.Background.backgroundShadowSetting)
         
-        view.addSubviews(backgroundImage, backgroundShadow)
+        view.addSubviews(backgroundImage)
         
         addConstraints(for: backgroundImage, to: view)
-        addConstraints(for: backgroundShadow, to: view)
     }
     
     private static func addConstraints(for imageView: UIImageView, to view: UIView){
