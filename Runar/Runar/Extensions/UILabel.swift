@@ -36,4 +36,14 @@ extension UILabel {
         
         return label
     }
+    
+    static func create(withText text: String, fontSize: CGFloat) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.textColor = .libraryTitleColor
+        label.font = FontFamily.SFProDisplay.medium.font(size: fontSize)
+        label.textAlignment = .left
+        
+        return label
+    }
 }

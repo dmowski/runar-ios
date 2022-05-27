@@ -41,9 +41,18 @@ class GeneratorVC: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        title = .generator
-        navigationController?.navigationBar.configure(prefersLargeTitles: true, titleFontSize: 34)
+        configureNavigationBar()
+    }
+    
+    private func configureNavigationBar() {
+
+        if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
+            title = .generator
+            navigationController?.navigationBar.configure(prefersLargeTitles: true, titleFontSize: 34)
+        } else {
+            navigationController?.navigationBar.configure(prefersLargeTitles: false, titleFontSize: 20)
+            navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UILabel.create(withText: .generator, fontSize: 20))
+        }
         navigationController?.setStatusBar(backgroundColor: .navBarBackground)
     }
     
