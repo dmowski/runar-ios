@@ -36,7 +36,7 @@ class MainTabBarController: UITabBarController {
         let collectionVC = CollectionViewController(collectionViewLayout: lay)
         let settingsVC = SettingsViewController()
         let libraryVC = LibraryViewController()
-        let generatorVC = GeneratorViewController()
+        let generatorVC = GeneratorVC()
         
         viewControllers = [
             generateTabBarController(rootViewController: collectionVC, image: Assets.TabBar.Image.home.image, title: String.layouts),

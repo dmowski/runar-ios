@@ -107,11 +107,11 @@ Runar — это приложение для гадания на скандин�
 "generator.nextButton.title" = "Далее";
 "generator.progress.name" = "Происходит магия";
 "generator.progress.title" = "Создаётся судьба...";
-"generator.selectWallpapersHeader.titile" = "Выбор рисунка";
-"generator.selectWallpaperHeader.titile" = "Рунический узор";
-"generator.shareWallpaperHeader.titile" = "Runar изображение для обоев";
-"generator.alertHeader.titile" = "Runar изображение сохранено.";
-"generator.alertAction.titile" = "Хорошо";
+"generator.selectWallpapersHeader.title" = "Выбор рисунка";
+"generator.selectWallpaperHeader.title" = "Рунический узор";
+"generator.shareWallpaperHeader.title" = "Runar изображение для обоев";
+"generator.alertHeader.title" = "Runar изображение сохранено";
+"generator.alertAction.title" = "Хорошо";
 
 //-------------------------------------------------
 // MARK: - Localizable text

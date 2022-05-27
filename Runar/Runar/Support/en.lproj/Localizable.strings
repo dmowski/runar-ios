@@ -106,11 +106,11 @@ With the permission of the copyright holders, the following musical compositions
 "generator.emptyWallpapers.subtitle" = "Next, choose the background for it, Viking";
 "generator.emptyWallpapersNewVariant.btnTitle" = "New version";
 "generator.progress.title" = "Runic image is creating...";
-"generator.selectWallpapersHeader.titile" = "Picture selection";
-"generator.selectWallpaperHeader.titile" = "Runic pattern";
-"generator.shareWallpaperHeader.titile" = "Runic wallpaper image";
-"generator.alertHeader.titile" = "Runic image has been saved.";
-"generator.alertAction.titile" = "Ok";
+"generator.selectWallpapersHeader.title" = "Picture selection";
+"generator.selectWallpaperHeader.title" = "Runic pattern";
+"generator.shareWallpaperHeader.title" = "Runic wallpaper image";
+"generator.alertHeader.title" = "Runic image has been saved";
+"generator.alertAction.title" = "Ok";
 
 //-------------------------------------------------
 // MARK: - Localizable text

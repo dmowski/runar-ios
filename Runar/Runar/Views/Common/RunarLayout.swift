@@ -17,7 +17,7 @@ public enum BackgroundType {
         case .main:
             return Assets.Background.main
         case .mainFire:
-            return Assets.mainFire
+            return Assets.Background.mainFire
         }
     }
 }

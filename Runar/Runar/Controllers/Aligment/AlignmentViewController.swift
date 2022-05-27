@@ -93,7 +93,7 @@ class AlignmentViewController: UIViewController {
     // MARK: - Background
     
     func backgroundViewSetup() {
-        backgroundView.image = Assets.mainFire.image
+        backgroundView.image = Assets.Background.mainFire.image
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.contentMode = .scaleAspectFill
         backgroundView.isUserInteractionEnabled = true
@@ -195,7 +195,7 @@ class AlignmentViewController: UIViewController {
         popapLabel.textColor = Assets.Colors.textColor.color
         popapLabel.textAlignment = .center
         popapLabel.attributedText = NSMutableAttributedString(string: nameLabel.text!, attributes: [NSAttributedString.Key.kern: -1.1])
-        popapLabel.backgroundColor = UIColor(patternImage: Assets.nameLabelGradient.image)
+        popapLabel.backgroundColor = UIColor(patternImage: Assets.Background.nameLabelGradient.image)
         view.addSubview(popapLabel)
         let heightAnchor: CGFloat = DeviceType.iPhoneSE ? 65 : 96
         NSLayoutConstraint.activate([
