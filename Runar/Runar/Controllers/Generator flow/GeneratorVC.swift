@@ -66,10 +66,17 @@ class GeneratorVC: UIViewController {
         runicPatternView.addTarget(self, action: #selector(tapWithoutPopUp), for: .touchUpInside)
         view.addSubviews(runicPatternView)
         runicPatternView.snp.makeConstraints { make in
-            make.topMargin.equalToSuperview().offset(55)
-            make.leading.equalToSuperview().offset(60)
-            make.trailing.equalToSuperview().offset(-60)
-            make.size.equalTo(self.view.bounds.width - 120)
+            if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
+                make.topMargin.equalToSuperview().offset(52)
+                make.leading.equalToSuperview().offset(36)
+                make.trailing.equalToSuperview().offset(-36)
+                make.height.equalTo(self.view.bounds.height * 0.28)
+            } else {
+                make.topMargin.equalToSuperview().offset(32)
+                make.leading.equalToSuperview().offset(27)
+                make.trailing.equalToSuperview().offset(-27)
+                make.height.equalTo(self.view.bounds.height * 0.32)
+            }
         }
         
         runicPatternLabel.font = FontFamily.AmaticSC.bold.font(size: 36)
@@ -83,18 +90,17 @@ class GeneratorVC: UIViewController {
         runicPatternView.addSubviews(runicPatternLabel)
         runicPatternLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(26)
+            make.top.equalToSuperview().offset(16)
             make.height.equalTo(42)
         }
         
-        runicPatternImageView.clipsToBounds = true
-        runicPatternImageView.contentMode = .scaleAspectFill
+        runicPatternImageView.contentMode = .scaleAspectFit
         runicPatternImageView.image = Assets.runePattern.image
         runicPatternView.addSubviews(runicPatternImageView)
         runicPatternImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(runicPatternLabel.snp.bottom).offset(10)
-            make.bottom.equalToSuperview().offset(-42)
+            make.top.equalTo(runicPatternLabel.snp.bottom).offset(8)
+            make.bottom.equalToSuperview()
         }
     }
     
@@ -111,7 +117,11 @@ class GeneratorVC: UIViewController {
         view.addSubviews(commingSoonLabel)
         commingSoonLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(runicPatternView.snp.bottom).offset(32)
+            if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
+                make.top.equalTo(runicPatternView.snp.bottom).offset(38)
+            } else {
+                make.top.equalTo(runicPatternView.snp.bottom).offset(28)
+            }
             make.height.equalTo(24)
         }
     }
@@ -126,13 +136,20 @@ class GeneratorVC: UIViewController {
         formulaView.addTarget(self, action: #selector(self.showFormulaPopupTap), for: .touchUpInside)
         view.addSubviews(formulaView)
         formulaView.snp.makeConstraints { make in
-            make.top.equalTo(commingSoonLabel.snp.bottom).offset(24)
-            make.leading.equalToSuperview().offset(60)
-            make.width.equalTo(((self.view.bounds.width - 120) / 2) - 8)
-            make.height.equalTo((((self.view.bounds.width - 120) / 2) - 8)  * 0.85)
+            if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
+                make.top.equalTo(commingSoonLabel.snp.bottom).offset(10)
+                make.leading.equalToSuperview().offset(107)
+                make.trailing.equalToSuperview().offset(-107)
+                make.height.equalTo(self.view.bounds.height * 0.13)
+            } else {
+                make.top.equalTo(commingSoonLabel.snp.bottom).offset(4)
+                make.leading.equalToSuperview().offset(80)
+                make.trailing.equalToSuperview().offset(-80)
+                make.height.equalTo(self.view.bounds.height * 0.17)
+            }
         }
         
-        formulaLabel.font = FontFamily.AmaticSC.bold.font(size: 16)
+        formulaLabel.font = FontFamily.AmaticSC.bold.font(size: 20)
         formulaLabel.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         formulaLabel.textAlignment = .center
         formulaLabel.contentMode = .center
@@ -147,14 +164,13 @@ class GeneratorVC: UIViewController {
             make.height.equalTo(20)
         }
         
-        formulaImageView.clipsToBounds = true
-        formulaImageView.contentMode = .scaleAspectFill
+        formulaImageView.contentMode = .scaleAspectFit
         formulaImageView.image = Assets.runeFormula.image
         formulaView.addSubviews(formulaImageView)
         formulaImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(formulaLabel.snp.bottom).offset(0)
-            make.bottom.equalToSuperview().offset(0)
+            make.top.equalTo(formulaLabel.snp.bottom)
+            make.bottom.equalToSuperview()
         }
     }
     
@@ -168,13 +184,20 @@ class GeneratorVC: UIViewController {
         stavesView.addTarget(self, action: #selector(self.showStavesPopupTap), for: .touchUpInside)
         view.addSubviews(stavesView)
         stavesView.snp.makeConstraints { make in
-            make.top.equalTo(commingSoonLabel.snp.bottom).offset(24)
-            make.trailing.equalToSuperview().offset(-60)
-            make.width.equalTo(((self.view.bounds.width - 120) / 2) - 8)
-            make.height.equalTo((((self.view.bounds.width - 120) / 2) - 8)  * 0.85)
+            if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
+                make.top.equalTo(formulaView.snp.bottom).offset(18)
+                make.leading.equalToSuperview().offset(107)
+                make.trailing.equalToSuperview().offset(-107)
+                make.height.equalTo(self.view.bounds.height * 0.13)
+            } else {
+                make.top.equalTo(formulaView.snp.bottom).offset(12)
+                make.leading.equalToSuperview().offset(80)
+                make.trailing.equalToSuperview().offset(-80)
+                make.height.equalTo(self.view.bounds.height * 0.17)
+            }
         }
         
-        stavesLabel.font = FontFamily.AmaticSC.bold.font(size: 16)
+        stavesLabel.font = FontFamily.AmaticSC.bold.font(size: 20)
         stavesLabel.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         stavesLabel.textAlignment = .center
         stavesLabel.contentMode = .center
@@ -189,14 +212,13 @@ class GeneratorVC: UIViewController {
             make.height.equalTo(20)
         }
         
-        stavesImageView.clipsToBounds = true
-        stavesImageView.contentMode = .scaleAspectFill
+        stavesImageView.contentMode = .scaleAspectFit
         stavesImageView.image = Assets.runeStaves.image
         stavesView.addSubviews(stavesImageView)
         stavesImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(stavesLabel.snp.bottom).offset(0)
-            make.bottom.equalToSuperview().offset(0)
+            make.top.equalTo(stavesLabel.snp.bottom)
+            make.bottom.equalToSuperview()
         }
     }
 
