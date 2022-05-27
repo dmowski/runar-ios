@@ -35,14 +35,6 @@ final class SettingsViewController: UIViewController {
         return background
     }()
     
-    private var backgroundShadow: UIImageView = {
-        let shadow = UIImageView()
-        shadow.translatesAutoresizingMaskIntoConstraints = false
-        shadow.image = Assets.Background.backgroundShadowSetting.image
-        shadow.contentMode = .scaleAspectFill
-        return shadow
-    }()
-    
     private var tableView = UITableView()
     
     private func tableViewSetUps() {
@@ -60,18 +52,13 @@ final class SettingsViewController: UIViewController {
     
     
     private func configureUI() {
-        view.addSubviews(backgroundImage, backgroundShadow, tableView)
+        view.addSubviews(backgroundImage, tableView)
         
         NSLayoutConstraint.activate([
             backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            backgroundShadow.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundShadow.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            backgroundShadow.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundShadow.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16.heightDependent()),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),

@@ -29,14 +29,6 @@ class AppInfoViewController: UIViewController, UITextViewDelegate {
         configureNavigationBar()
     }
     
-    private var backgroundShadow: UIImageView = {
-        let shadow = UIImageView()
-        shadow.translatesAutoresizingMaskIntoConstraints = false
-        shadow.image = Assets.Background.backgroundShadowSetting.image
-        shadow.contentMode = .scaleAspectFill
-        return shadow
-    }()
-    
     private var backgroundImage: UIImageView = {
         let background = UIImageView()
         background.translatesAutoresizingMaskIntoConstraints = false
@@ -98,7 +90,7 @@ class AppInfoViewController: UIViewController, UITextViewDelegate {
     }
     
     private func configureUI() {
-        view.addSubviews(backgroundImage, backgroundShadow, scrollView, descriptionView)
+        view.addSubviews(backgroundImage, scrollView, descriptionView)
         
         let descriptionLeading: CGFloat = DeviceType.iPhoneSE || DeviceType.isIPhone678 ? 16 : 24
         
@@ -107,11 +99,6 @@ class AppInfoViewController: UIViewController, UITextViewDelegate {
             backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            backgroundShadow.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundShadow.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            backgroundShadow.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundShadow.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
