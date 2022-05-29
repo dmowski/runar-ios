@@ -14,6 +14,7 @@ private extension String {
     static let randomButtonTitle = L10n.Generator.RandomButton.title
     static let generateButtonTitle = L10n.Generator.GenerateButton.title
     static let generateRunesTitle = L10n.Generator.GenerateRunes.title
+    static let runeSelectTitle = L10n.Generator.select
 }
 
 public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {

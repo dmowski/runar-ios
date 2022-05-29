@@ -51,18 +51,6 @@ public extension UINavigationBar {
     }
 }
 
-private extension UILabel {
-    static func create(withText text: String, fontSize: CGFloat) -> UILabel {
-        let label = UILabel()
-        label.text = text
-        label.textColor = .libraryTitleColor
-        label.font = FontFamily.SFProDisplay.medium.font(size: fontSize)
-        label.textAlignment = .left
-        
-        return label
-    }
-}
-
 public extension UIColor {
     static let libraryTitleColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
 }

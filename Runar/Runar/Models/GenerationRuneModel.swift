@@ -7,6 +7,12 @@
 
 import UIKit
 
+struct GenerationRuneImage {
+    var image: UIImage
+    var height: CGFloat?
+    var width: CGFloat?
+}
+
 public class GenerationRuneModel {
     let id: String
     let title: String
@@ -29,9 +35,6 @@ public class GenerationRuneModel {
 }
 
 public extension GenerationRuneModel {
-    static func create(title: String, description: String, type: GenerationRuneType) -> GenerationRuneModel {
-        return GenerationRuneModel(title: title, description: description, image: type.image)
-    }
     
     static func create(title: String, description: String, image: UIImage) -> GenerationRuneModel {
         let image: GenerationRuneImage = GenerationRuneImage(image: image, height: 70, width: 56)
@@ -57,30 +60,5 @@ public extension GenerationRuneModel {
         }
         
         return runes
-    }
-}
-
-// MARK: - Structs
-struct GenerationRuneImage {
-    var image: UIImage
-    var height: CGFloat?
-    var width: CGFloat?
-}
-
-// MARK: - Types
-public enum GenerationRuneType {
-    case pattern
-    case formula
-    case staves
-    
-    var image: GenerationRuneImage {
-        switch self {
-        case .pattern:
-            return GenerationRuneImage(image: Assets.runePattern.image, height: 160, width: 254)
-        case .formula:
-            return GenerationRuneImage(image: Assets.runeFormula.image, height: 74, width: 78)
-        case .staves:
-            return GenerationRuneImage(image: Assets.runeStaves.image, height: 65, width: 56)
-        }
     }
 }
