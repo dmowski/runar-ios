@@ -162,11 +162,11 @@ public class WallpaperWithBackgroundVC: UIViewController {
 
     private func getPageNumber(by position: CGFloat) -> Int {
         switch Int(position) {
-        case 0..<35:
+        case 0..<235:
             return 0
-        case 35..<246:
+        case 235..<446:
             return 1
-        case 246..<461:
+        case 446..<661:
             return 2
         default:
             return Int(position / 123.25)
