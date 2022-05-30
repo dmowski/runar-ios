@@ -42,6 +42,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
         layout.scrollDirection = .horizontal
         
         let selectWallpaperView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        selectWallpaperView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         selectWallpaperView.showsHorizontalScrollIndicator = false
         selectWallpaperView.allowsMultipleSelection = false
         selectWallpaperView.isPagingEnabled = false
@@ -128,8 +129,8 @@ public class WallpaperWithBackgroundVC: UIViewController {
         self.view.addSubview(selectWallpaperView)
         selectWallpaperView.snp.makeConstraints { make in
             make.top.equalTo(subTitle.snp.bottom).offset(40)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
             make.bottom.equalToSuperview().offset(-144)
         }
 
