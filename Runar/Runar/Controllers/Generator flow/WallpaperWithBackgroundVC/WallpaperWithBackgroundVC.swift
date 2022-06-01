@@ -23,6 +23,8 @@ public class WallpaperWithBackgroundVC: UIViewController {
     var wallpapers: [WallpaperWithBackgroundCell] = []
     var imagesWithBackground: [UIImage?]
     var selectedImage: UIImage?
+    var isSelected: Bool = false
+    var indexPath: Int?
     
     let subTitle: UILabel = {
         let title = UILabel()
@@ -91,11 +93,27 @@ public class WallpaperWithBackgroundVC: UIViewController {
     private func configureNavBar() {
         title = .wallpapersHeader
         self.navigationItem.hidesBackButton = true
-        let customBackButton = UIBarButtonItem(image: Assets.backIcon.image,
-                                               style: .plain, target: self,
-                                               action: #selector(self.backToInitial))
-        customBackButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        navigationItem.leftBarButtonItem = customBackButton
+        if isSelected == true {
+            let customBackButton = UIBarButtonItem(image: Assets.unselect.image,
+                                                   style: .plain, target: self,
+                                                   action: #selector(self.unSelectedTapped))
+            customBackButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            navigationItem.leftBarButtonItem = customBackButton
+        } else {
+            let customBackButton = UIBarButtonItem(image: Assets.backIcon.image,
+                                                   style: .plain, target: self,
+                                                   action: #selector(self.backToInitial))
+            customBackButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            navigationItem.leftBarButtonItem = customBackButton
+        }
+    }
+    
+    @objc func unSelectedTapped(sender: UIBarButtonItem) {
+        guard let indexPath = self.indexPath else { return }
+        wallpapers[indexPath].deselectImage()
+        isSelected = false
+        nextButton.isHidden = true
+        configureNavBar()
     }
 
     @objc func backToInitial(sender: UIBarButtonItem) {
@@ -197,8 +215,11 @@ extension WallpaperWithBackgroundVC: UICollectionViewDataSource, UICollectionVie
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         wallpapers[indexPath.row].selectImage()
+        self.indexPath = indexPath.row
         nextButton.isHidden = false
         selectedImage = wallpapers[indexPath.row].wallpaperImage.image
+        isSelected = true
+        configureNavBar()
     }
     
     public func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
