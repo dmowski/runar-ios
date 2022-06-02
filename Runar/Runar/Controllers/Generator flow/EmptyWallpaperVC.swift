@@ -64,6 +64,7 @@ public class EmptyWallpaperVC: UIViewController {
         newVariantButton.layer.cornerRadius = 8
         newVariantButton.layer.borderWidth = 1
         newVariantButton.contentHorizontalAlignment = .center
+        newVariantButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         newVariantButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
         newVariantButton.setTitle(title: .newVariant)
         return newVariantButton
@@ -76,6 +77,7 @@ public class EmptyWallpaperVC: UIViewController {
         nextButton.setTitle(title: .nextButtonTitle)
         nextButton.setTitle(title: .nextButtonTitle, color: UIColor(red: 0.165, green: 0.165, blue: 0.165, alpha: 1))
         nextButton.contentHorizontalAlignment = .center
+        nextButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         return nextButton
     }()
 
