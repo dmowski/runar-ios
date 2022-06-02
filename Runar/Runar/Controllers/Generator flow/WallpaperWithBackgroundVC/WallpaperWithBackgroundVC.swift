@@ -13,7 +13,7 @@ extension String {
     static let wallpapersHeader = L10n.Generator.WallpapersHeader.title
     static let wallpapersDescription = L10n.Generator.WallpapersDescription.subtitle
     static let progressName = L10n.Generator.Progress.name
-    static let progressTitle = L10n.Generator.Progress.title
+    static let generateProgressTitle = L10n.Generator.ProgressGenerator.title
 }
 
 public class WallpaperWithBackgroundVC: UIViewController {
@@ -90,36 +90,6 @@ public class WallpaperWithBackgroundVC: UIViewController {
         setupWallpapers()
     }
     
-    private func configureNavBar() {
-        title = .wallpapersHeader
-        self.navigationItem.hidesBackButton = true
-        if isSelected == true {
-            let customBackButton = UIBarButtonItem(image: Assets.unselect.image,
-                                                   style: .plain, target: self,
-                                                   action: #selector(self.unSelectedTapped))
-            customBackButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            navigationItem.leftBarButtonItem = customBackButton
-        } else {
-            let customBackButton = UIBarButtonItem(image: Assets.backIcon.image,
-                                                   style: .plain, target: self,
-                                                   action: #selector(self.backToInitial))
-            customBackButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            navigationItem.leftBarButtonItem = customBackButton
-        }
-    }
-    
-    @objc func unSelectedTapped(sender: UIBarButtonItem) {
-        guard let indexPath = self.indexPath else { return }
-        wallpapers[indexPath].deselectImage()
-        isSelected = false
-        nextButton.isHidden = true
-        configureNavBar()
-    }
-
-    @objc func backToInitial(sender: UIBarButtonItem) {
-        navigationController?.popToViewController(ofClass: SelectionRuneVC.self, animated: true)
-    }
-    
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
@@ -128,6 +98,29 @@ public class WallpaperWithBackgroundVC: UIViewController {
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unselectedSet()
+    }
+    
+    private func configureNavBar() {
+        title = .wallpapersHeader
+        self.navigationItem.hidesBackButton = true
+        if isSelected == true {
+            let customBackLabel = UIBarButtonItem(title: L10n.Tabbar.cancel,
+                                                  style: .done, target: self,
+                                                  action: #selector(self.unselectedTapped))
+            customBackLabel.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            navigationItem.leftBarButtonItem = customBackLabel
+        } else {
+            let customBackButton = UIBarButtonItem(image: Assets.backIcon.image,
+                                                   style: .plain, target: self,
+                                                   action: #selector(self.backToInitial))
+            customBackButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            navigationItem.leftBarButtonItem = customBackButton
+        }
     }
     
     private func setupBindings() {
@@ -167,6 +160,22 @@ public class WallpaperWithBackgroundVC: UIViewController {
             make.bottom.equalToSuperview().offset(-40)
             make.height.equalTo(50)
         }
+    }
+    
+    @objc func unselectedTapped(sender: UIBarButtonItem) {
+        unselectedSet()
+    }
+    
+    func unselectedSet() {
+        guard let indexPath = self.indexPath else { return }
+        wallpapers[indexPath].deselectImage()
+        isSelected = false
+        nextButton.isHidden = true
+        configureNavBar()
+    }
+
+    @objc func backToInitial(sender: UIBarButtonItem) {
+        navigationController?.popToViewController(ofClass: SelectionRuneVC.self, animated: true)
     }
     
     func setupWallpapers() {

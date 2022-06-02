@@ -29,9 +29,6 @@ class ProcessingViewController: UIViewController {
         doAnimation()
         
         if ifGenerateWallpapers == true {
-//            startButton.isHidden = true
-//            vectorImageView.isHidden = true
-            
             if let runesIds = runesIds {
                 DispatchQueue.main.async {
                     self.generateWallpapers(runesIds: runesIds)
@@ -69,6 +66,8 @@ class ProcessingViewController: UIViewController {
         
         var emptyWallpapersUrl: String
         
+        
+        
         guard let data = RunarApi.getEmptyWallpapersData(runsIds: runesIds) else {
             fatalError("Data of runes is empty")
         }
@@ -80,9 +79,7 @@ class ProcessingViewController: UIViewController {
         } else {
             fatalError("EmptyWallpapersUrl is empty")
         }
-        
-        print("url ======= \(emptyWallpapersUrl)") // TODO: - delete print
-        
+
         let wallpapersURL = emptyWallpapersUrl.replacingOccurrences(of: "empty-wallpapers", with: "wallpapers")
         let wallpapersURLblackHorizontal = wallpapersURL + String(".png?style=blackHorizontal&width=720&height=1280")
         let wallpapersURLdarkVertical = wallpapersURL + String(".png?style=darkVertical&width=720&height=1280")
@@ -100,8 +97,6 @@ class ProcessingViewController: UIViewController {
                                          choosedWallpapersWithDarkVertical: choosedWallpapersWithDarkVertical,
                                          choosedWallpapersWithWpForest: choosedWallpapersWithWpForest,
                                          choosedWallpapersWithWpBark: choosedWallpapersWithWpBark)
-
-        print("runeImagesModel === \(runeImagesModel)") // TODO: - delete print
         
         self.delegate?.navigationController?.popViewController(animated: false)
         let emptyWallpaperViewController = EmptyWallpaperVC(wallpaperImagesModel: runeImagesModel,
