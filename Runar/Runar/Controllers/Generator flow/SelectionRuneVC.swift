@@ -45,6 +45,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         randomButton.layer.cornerRadius = 10
         randomButton.layer.borderWidth = 1
         randomButton.contentHorizontalAlignment = .center
+        randomButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         randomButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
         randomButton.setTitle(title: .randomButtonTitle)
         return randomButton
@@ -68,6 +69,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         generateButton.layer.backgroundColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
         generateButton.layer.cornerRadius = 10
         generateButton.contentHorizontalAlignment = .center
+        generateButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         generateButton.isHidden = true
         generateButton.setTitle(title: .generateButtonTitle, color: UIColor(red: 0.165, green: 0.165, blue: 0.165, alpha: 1))
         return generateButton
@@ -270,8 +272,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             .map { (rune) -> String in
                 return rune.selectedRune!.id
             }
-        
-        print("runes id - \(runesIds)") // TODO: - delete print
+
         ApiGeneratorModel.showProcessingVCandGenerateImagesModel(vc: self, runesIds: runesIds)
     }
 }

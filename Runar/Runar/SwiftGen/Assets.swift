@@ -71,7 +71,6 @@ internal enum Assets {
   internal static let darkRune = ImageAsset(name: "darkRune")
   internal static let emptyErrorImage = ImageAsset(name: "emptyErrorImage")
   internal static let selectedCircle = ImageAsset(name: "selected-circle")
-  internal static let unselect = ImageAsset(name: "unselect")
   internal static let launchRunar = ImageAsset(name: "launchRunar")
   internal static let launchScreen = ImageAsset(name: "launchScreen")
   internal enum LayoutsRunes {

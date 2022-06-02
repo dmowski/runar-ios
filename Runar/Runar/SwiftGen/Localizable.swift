@@ -339,7 +339,7 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "generator.alertAction.title")
     }
     internal enum AlertHeader {
-      /// Runic image has been saved
+      /// Runic pattern has been saved
       internal static let title = L10n.tr("Localizable", "generator.alertHeader.title")
     }
     internal enum EmptyWallpapers {
@@ -347,7 +347,7 @@ internal enum L10n {
       internal static let subtitle = L10n.tr("Localizable", "generator.emptyWallpapers.subtitle")
     }
     internal enum EmptyWallpapersNewVariant {
-      /// New version
+      /// Watch more
       internal static let btnTitle = L10n.tr("Localizable", "generator.emptyWallpapersNewVariant.btnTitle")
     }
     internal enum GenerateButton {
@@ -365,8 +365,10 @@ internal enum L10n {
     internal enum Progress {
       /// Pattern generation
       internal static let name = L10n.tr("Localizable", "generator.progress.name")
-      /// Runic image is creating...
-      internal static let title = L10n.tr("Localizable", "generator.progress.title")
+    }
+    internal enum ProgressGenerator {
+      /// Runic pattern is creating...
+      internal static let title = L10n.tr("Localizable", "generator.progressGenerator.title")
     }
     internal enum RandomButton {
       /// Select random runes
@@ -375,7 +377,7 @@ internal enum L10n {
     internal enum RuneFormula {
       /// 
       internal static let description = L10n.tr("Localizable", "generator.runeFormula.description")
-      /// Formula
+      /// Runic formula
       internal static let title = L10n.tr("Localizable", "generator.runeFormula.title")
     }
     internal enum RunePattern {
@@ -387,7 +389,7 @@ internal enum L10n {
     internal enum RuneStaves {
       /// 
       internal static let description = L10n.tr("Localizable", "generator.runeStaves.description")
-      /// Staves
+      /// Runic staves
       internal static let title = L10n.tr("Localizable", "generator.runeStaves.title")
     }
     internal enum SelectWallpaperHeader {
@@ -399,7 +401,7 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "generator.selectWallpapersHeader.title")
     }
     internal enum SelectedRunes {
-      /// Collect your rune formula after select from 1 to 3 runes
+      /// Collect your runic pattern after select from 1 to 3 runes
       internal static let title = L10n.tr("Localizable", "generator.selectedRunes.title")
     }
     internal enum ShareWallpaperHeader {
