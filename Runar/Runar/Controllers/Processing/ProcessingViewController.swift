@@ -279,7 +279,7 @@ class ProcessingViewController: UIViewController {
         NSLayoutConstraint.activate([
             backgroundFire.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundFire.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            backgroundFire.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundFire.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -1),
             backgroundFire.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             backgroundLayer.topAnchor.constraint(equalTo: view.topAnchor),

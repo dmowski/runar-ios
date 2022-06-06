@@ -33,7 +33,12 @@ class CollectionViewController: UICollectionViewController {
 
         collectionView.register(MainCell.self, forCellWithReuseIdentifier: MainCell.reuseIdentifier)
         
-        MusicViewController.shared.playCurrentSong()
+        MusicViewController.shared.initBackgroundMusic()
+        if !UserDefaults.standard.bool(forKey: "is_off_music") {
+            MusicViewController.shared.playBackgroundMusic()
+        } else {
+            MusicViewController.shared.stopBackgroundMusic()
+        }
 
 // TODO: - No Internet
 //        //NetworkMonitor
