@@ -1,5 +1,5 @@
 //
-//  AlertSettingsViewController.swift
+//  AlertSettingsVC.swift
 //  Runar
 //
 //  Created by Юлия Лопатина on 15.04.21.
@@ -14,7 +14,7 @@ extension String {
     static let alertCancel = L10n.Tabbar.cancel
 }
 
-class AlertSettingsViewController: UIViewController {
+class AlertSettingsVC: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         let alertController = UIAlertController (title: .alertTitle, message: .alertMessage, preferredStyle: .alert)

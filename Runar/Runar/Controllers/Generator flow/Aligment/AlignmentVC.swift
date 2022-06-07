@@ -280,7 +280,7 @@ class AlignmentVC: UIViewController {
         self.present(viewController, animated: true)
     }
     
-    func addOneRuneViewController(controller: OneRuneViewController) {
+    func addOneRuneViewController(controller: OneRuneVC) {
         invisibaleView()
         if runesViewContainer.runeLayout != .dayRune && self.children.isEmpty {
             self.readyToOpen = false

@@ -34,7 +34,7 @@ class MainTabBarController: UITabBarController {
         
         let lay = UICollectionViewFlowLayout()
         let runicDrawsVC = RunicDrawsCollectionVC(collectionViewLayout: lay)
-        let settingsVC = SettingsViewController()
+        let settingsVC = SettingsVC()
         let libraryVC = LibraryViewController()
         let generatorVC = GeneratorVC()
         

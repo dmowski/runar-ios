@@ -19,7 +19,3 @@ public class AlignmentVM {
         self.runeDescription = runeDescription
     }
 }
-
-
-
-

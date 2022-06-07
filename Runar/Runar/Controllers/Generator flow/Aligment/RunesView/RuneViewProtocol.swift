@@ -96,7 +96,7 @@ public extension RuneViewProtocol where Self: UIView {
                                         self.verifyDidHighlightAllButtons()
                                       }, runeInfo: { [self] (runeType, frame) in
                                         
-                                        let oneRune = OneRuneViewController(runeType: runeType,runeLayout: self.viewModel!.runeLayout, runesSet: self.runesSet, index: index)
+                                        let oneRune = OneRuneVC(runeType: runeType,runeLayout: self.viewModel!.runeLayout, runesSet: self.runesSet, index: index)
                                         oneRune.leaveLightAndMakeDark = {index in
                                             self.addDarkFor(index: index)
                                         }

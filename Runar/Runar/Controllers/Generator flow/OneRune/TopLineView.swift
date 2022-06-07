@@ -49,11 +49,9 @@ final class TopLineView: UIView {
             blackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             blackView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
-        
     }
     
     //MARK: - NameLabel
-    
     private var runeNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -66,7 +64,6 @@ final class TopLineView: UIView {
     
     private func configureNameConstr() {
         self.addSubview(runeNameLabel)
-  
         NSLayoutConstraint.activate([
             runeNameLabel.topAnchor.constraint(equalTo:topAnchor, constant: 37.heightDependent()),
             runeNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
@@ -74,7 +71,6 @@ final class TopLineView: UIView {
     }
     
     //MARK: - TimeLabel
-    
     private var timeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -94,7 +90,6 @@ final class TopLineView: UIView {
     }
     
     //MARK: - LuckLabel
-    
     private var luckLevelLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false

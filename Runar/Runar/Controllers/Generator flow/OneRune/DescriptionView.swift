@@ -8,6 +8,17 @@
 import UIKit
 
 class DescriptionView: UIView {
+    
+    private var scrollViewDescription = UIScrollView()
+    private var runeType: RuneType?
+
+    private let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.sizeToFit()
+        return label
+    }()
 
     override init(frame: CGRect) {
         super.init(frame:frame)
@@ -36,20 +47,7 @@ class DescriptionView: UIView {
         descriptionLabel.attributedText = NSMutableAttributedString(string: runeType.description, attributes: atributes)
     }
 
-    private var runeType: RuneType?
-
-    private let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.sizeToFit()
-        return label
-    }()
-    
-    private var scrollViewDescription = UIScrollView()
-    
     private func setUpScrollViewDescription() {
-        
         scrollViewDescription.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(scrollViewDescription)
@@ -63,7 +61,6 @@ class DescriptionView: UIView {
     }
 
     private func setUpDescriptionLabel() {
-    
         scrollViewDescription.addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: scrollViewDescription.topAnchor),

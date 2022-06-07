@@ -8,7 +8,7 @@
 import UIKit
 
 final class TopWithDescriptionView: UIView {
-
+    
     private var topLineView: TopLineView?
     private var descriptionView: DescriptionView?
     private var runeType: RuneType?
@@ -21,7 +21,7 @@ final class TopWithDescriptionView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame:frame)
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +38,7 @@ final class TopWithDescriptionView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func configureView() {
         guard let topLineView = topLineView,
               let descriptionView = descriptionView else {return}

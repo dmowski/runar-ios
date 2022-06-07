@@ -1,5 +1,5 @@
 //
-//  AppInfoViewController.swift
+//  AppInfoVC.swift
 //  Runar
 //
 //  Created by Юлия Лопатина on 13.04.21.
@@ -15,19 +15,7 @@ extension String {
     static let descriptionAppText = L10n.Tabbar.descriptionAppText
 }
 
-class AppInfoViewController: UIViewController, UITextViewDelegate {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        descriptionView.delegate = self
-        configureUI()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        configureNavigationBar()
-    }
+class AppInfoVC: UIViewController, UITextViewDelegate {
     
     private var backgroundImage: UIImageView = {
         let background = UIImageView()
@@ -67,10 +55,22 @@ class AppInfoViewController: UIViewController, UITextViewDelegate {
 
         textView.tintColor = .linkColor
         textView.attributedText = attributedText
-        
 
         return textView
     }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        descriptionView.delegate = self
+        configureUI()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        configureNavigationBar()
+    }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         UIApplication.shared.open(URL)
@@ -86,7 +86,6 @@ class AppInfoViewController: UIViewController, UITextViewDelegate {
         title = .aboutApp
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 17)]
-        
     }
     
     private func configureUI() {
