@@ -1,5 +1,5 @@
 //
-//  AlignmentViewController.swift
+//  AlignmentVC.swift
 //  Runar
 //
 //  Created by Oleg Kanatov on 20.01.21.
@@ -12,11 +12,7 @@ extension String {
     static let drawRune = L10n.drawRune
 }
 
-class AlignmentViewController: UIViewController {
-    
-    //-------------------------------------------------
-    // MARK: - Variables
-    //-------------------------------------------------
+class AlignmentVC: UIViewController {
     
     private let backgroundView = UIImageView()
     let escapeButton = UIButton()
@@ -24,11 +20,9 @@ class AlignmentViewController: UIViewController {
     let startButton = CustomButton()
     var runesViewContainer = RunesView()
     let showButton = UIButton()
-    
-    
     let scrollViewAlignment = UIScrollView()
     let contentView = UIView()
-    public var viewModel: AlignmentViewModel!
+    public var viewModel: AlignmentVM!
     let contentInterpretationView = UIView()
     let luckLevelLabel = UILabel()
     let descriptionLabel = UILabel()
@@ -67,8 +61,8 @@ class AlignmentViewController: UIViewController {
         setUpContainerView()
         setUpShowButton()
     }
+
     // MARK: -ScrollView
-    
     func setUpScrollView() {
         scrollViewAlignment.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -91,7 +85,6 @@ class AlignmentViewController: UIViewController {
     }
     
     // MARK: - Background
-    
     func backgroundViewSetup() {
         backgroundView.image = Assets.Background.mainFire.image
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
@@ -107,7 +100,6 @@ class AlignmentViewController: UIViewController {
     }
     
     // MARK: - EscapeButton
-    
     func setUpEscape() {
         escapeButton.translatesAutoresizingMaskIntoConstraints = false
         let image = Assets.escape.image
@@ -124,19 +116,18 @@ class AlignmentViewController: UIViewController {
             escapeButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: trailingConstant),
             escapeButton.widthAnchor.constraint(equalToConstant: widthAnchor),
             escapeButton.heightAnchor.constraint(equalToConstant: widthAnchor)
-            
         ])
     }
     
     @objc func buttonTaped (sender: UIButton!) {
         let runeDescription = viewModel.runeDescription
-        let viewModel = ProcessingViewModel(name: runeDescription.name, title: nil) { [weak self] in
+        let viewModel = ProcessingVM(name: runeDescription.name, title: nil) { [weak self] in
             
             self?.setUpContentAfterAdvertising()
             self?.navigationController?.popViewController(animated: true)
         }
         
-        let viewController = ProcessingViewController()
+        let viewController = ProcessingVC()
         viewController.viewModel = viewModel
         viewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(viewController, animated: true)
@@ -144,12 +135,11 @@ class AlignmentViewController: UIViewController {
     }
     
     @objc func escapeOnTap (sender: UIButton!) {
-
-            let viewController = EscapePopUpViewController()
-            viewController.setRoot(root: self)
-            viewController.modalPresentationStyle = .overCurrentContext
-            self.present(viewController, animated: true)
-        }
+        let viewController = EscapePopUpVC()
+        viewController.setRoot(root: self)
+        viewController.modalPresentationStyle = .overCurrentContext
+        self.present(viewController, animated: true)
+    }
     
     // MARK: - NameLabel
     func invisibaleView() {
@@ -162,7 +152,6 @@ class AlignmentViewController: UIViewController {
             invibaleView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             invibaleView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         ])
-        
     }
     
     func setUpNameLabel() {
@@ -219,7 +208,6 @@ class AlignmentViewController: UIViewController {
     }
     
     // MARK: - StartButton
-    
     func setUpStart() {
         startButton.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
         startButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
@@ -249,13 +237,11 @@ class AlignmentViewController: UIViewController {
         ])
     }
     
-    
     @objc func openButton (sender: UIButton!) {
         self.runesViewContainer.openHighlightedButton()
     }
     
     // MARK: - ContainerView
-    
     func setUpContainerView() {
         runesViewContainer.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(runesViewContainer)
@@ -285,22 +271,14 @@ class AlignmentViewController: UIViewController {
         ])
     }
     
-    
     // MARK: - Info PopUp
-    
     @objc func openDescriptionPopup (sender: UIButton!) {
-        let viewModel = RuneDescriptionPopUpViewModel(runeDescription: self.viewModel.runeDescription)
+        let viewModel = RuneDescriptionPopUpVM(runeDescription: self.viewModel.runeDescription)
         let viewController = RuneDescriptionPopUp()
         viewController.viewModel = viewModel
         viewController.modalPresentationStyle = .overCurrentContext
         self.present(viewController, animated: true)
     }
-    
-    
-    
-    //-------------------------------------------------
-    // MARK: -
-    //-------------------------------------------------
     
     func addOneRuneViewController(controller: OneRuneViewController) {
         invisibaleView()
@@ -379,7 +357,6 @@ class AlignmentViewController: UIViewController {
                     heightConstant = 70
                 }
                 scrollViewAlignment.contentOffset.y = frame.origin.y - heightConstant
-                
             }
         } else {
             self.readyToOpen = false

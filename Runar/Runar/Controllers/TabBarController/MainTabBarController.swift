@@ -33,13 +33,13 @@ class MainTabBarController: UITabBarController {
         tabBar.barTintColor = .clear
         
         let lay = UICollectionViewFlowLayout()
-        let collectionVC = CollectionViewController(collectionViewLayout: lay)
+        let runicDrawsVC = RunicDrawsCollectionVC(collectionViewLayout: lay)
         let settingsVC = SettingsViewController()
         let libraryVC = LibraryViewController()
         let generatorVC = GeneratorVC()
         
         viewControllers = [
-            generateTabBarController(rootViewController: collectionVC, image: Assets.TabBar.Image.home.image, title: String.layouts),
+            generateTabBarController(rootViewController: runicDrawsVC, image: Assets.TabBar.Image.home.image, title: String.layouts),
             generateTabBarController(rootViewController: libraryVC, image: Assets.TabBar.Image.library.image, title: String.library),
             generateTabBarController(rootViewController: generatorVC, image: Assets.TabBar.Image.generator.image, title: String.generator),
             generateTabBarController(rootViewController: settingsVC, image: Assets.TabBar.Image.settings.image, title: String.settings)

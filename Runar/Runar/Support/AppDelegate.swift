@@ -28,6 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        } else {
         //            print("No internet")
         //        }
+
+        MusicViewController.shared.initBackgroundMusic()
+        if !UserDefaults.standard.bool(forKey: "is_off_music") {
+            MusicViewController.shared.playBackgroundMusic()
+        } else {
+            MusicViewController.shared.stopBackgroundMusic()
+        }
+
         return true
     }
     

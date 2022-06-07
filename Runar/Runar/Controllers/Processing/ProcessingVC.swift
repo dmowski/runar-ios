@@ -1,5 +1,5 @@
 //
-//  ProcessingViewController.swift
+//  ProcessingVC.swift
 //  Runar
 //
 //  Created by Юлия Лопатина on 5.02.21.
@@ -13,9 +13,9 @@ extension String {
     static let myMotherTold = L10n.Music.myMotherTold
 }
 
-class ProcessingViewController: UIViewController {
+class ProcessingVC: UIViewController {
     
-    var viewModel: ProcessingViewModel!
+    var viewModel: ProcessingVM!
     
     var ifGenerateWallpapers: Bool?
     var runesIds: [String]?

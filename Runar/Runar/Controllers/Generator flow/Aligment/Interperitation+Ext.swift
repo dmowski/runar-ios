@@ -12,7 +12,7 @@ extension String {
     static let complete = L10n.complete
 }
 
-extension AlignmentViewController {
+extension AlignmentVC {
     
     //-------------------------------------------------
     // MARK: - After advertising
@@ -39,7 +39,6 @@ extension AlignmentViewController {
 //        setUpCheckStack()
     }
     
-    
     func removeConstant() {
         runesViewContainer.removeFromSuperview()
         runesViewContainer.translatesAutoresizingMaskIntoConstraints = false
@@ -55,22 +54,19 @@ extension AlignmentViewController {
     }
     
     func setUpContentInterpretationView() {
-        
         contentInterpretationView.layer.contents = UIImage(asset: Assets.Background.interpretationBackground)?.cgImage
         contentInterpretationView.translatesAutoresizingMaskIntoConstraints = false
+
         contentView.addSubview(contentInterpretationView)
-        
         NSLayoutConstraint.activate([
             contentInterpretationView.topAnchor.constraint(equalTo: runesViewContainer.bottomAnchor),
             contentInterpretationView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             contentInterpretationView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             contentInterpretationView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor),
-            
         ])
     }
     
     // MARK: - Luck Label
-    
     func setUpLuckLevelLabel() {
         switch runesViewContainer.runeLayout {
         case .dayRune:
@@ -137,19 +133,17 @@ extension AlignmentViewController {
     func setUpDividingLine() {
         dividingLine.backgroundColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 0.3)
         dividingLine.translatesAutoresizingMaskIntoConstraints = false
-        contentInterpretationView.addSubview(dividingLine)
         
+        contentInterpretationView.addSubview(dividingLine)
         NSLayoutConstraint.activate([
             dividingLine.topAnchor.constraint(equalTo: luckLevelLabel.bottomAnchor, constant: 27),
             dividingLine.leadingAnchor.constraint(equalTo: contentInterpretationView.leadingAnchor, constant: 24),
             dividingLine.trailingAnchor.constraint(equalTo: contentInterpretationView.trailingAnchor, constant: -24),
             dividingLine.heightAnchor.constraint(equalToConstant: 1)
         ])
-        
     }
     
     // MARK: - DescriptionLabel
-    
     func setUpDescriptionLabel() {
         var descriptionLabelString = String()
         
@@ -222,7 +216,6 @@ extension AlignmentViewController {
     }
     
     // MARK: - AffirmationLabel
-    
     func setUpAffirmationLabel() {
         var affirmationText = String()
         if totalLuck>39 && totalLuck<=50 {
@@ -254,7 +247,6 @@ extension AlignmentViewController {
         ])
     }
     
-    
     //-------------------------------------------------
     // MARK: - CheckBox
     //-------------------------------------------------
@@ -262,17 +254,15 @@ extension AlignmentViewController {
     func setUpCheckBox(){
         checkButton.translatesAutoresizingMaskIntoConstraints = false
         checkButton.setImage(UIImage(named: "unselected"), for: .normal)
+
         checkButton.addTarget(self, action: #selector(select), for: .touchUpInside)
         
         let widthContant: CGFloat = DeviceType.iPhoneSE ? 16.44 : 20
         let heightConstant: CGFloat = DeviceType.iPhoneSE ? 16.44 : 20
-        
         NSLayoutConstraint.activate([
-            
             checkButton.widthAnchor.constraint(equalToConstant: widthContant),
             checkButton.heightAnchor.constraint(equalToConstant: heightConstant),
         ])
-        
     }
     
     func setUpCheckLabel() {
@@ -284,9 +274,7 @@ extension AlignmentViewController {
         checkLabel.textAlignment = .left
         let heightAnchor: CGFloat = DeviceType.iPhoneSE ? 23.02 : 28
         NSLayoutConstraint.activate([
-            
             checkLabel.heightAnchor.constraint(equalToConstant: heightAnchor)
-            
         ])
     }
     
@@ -302,11 +290,9 @@ extension AlignmentViewController {
         checkStack.addArrangedSubview(checkLabel)
         
         let bottomAnchor: CGFloat = DeviceType.iPhoneSE ? -13.15 : -27
-        
         NSLayoutConstraint.activate([
             checkStack.centerXAnchor.constraint(equalTo: contentInterpretationView.centerXAnchor),
             checkStack.bottomAnchor.constraint(equalTo: cancelButton.topAnchor, constant: bottomAnchor)
-            
         ])
     }
     
@@ -323,7 +309,6 @@ extension AlignmentViewController {
     }
     
     // MARK: - CompleteButton
-    
     func setUpCancel() {
         cancelButton.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
         cancelButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
@@ -357,6 +342,7 @@ extension AlignmentViewController {
             cancelButton.bottomAnchor.constraint(equalTo: contentInterpretationView.bottomAnchor, constant: -50.heightDependent())
         ])
     }
+    
     @objc func exitTapped(sender: UIButton) {
         navigationController?.popToRootViewController(animated: true)
     }

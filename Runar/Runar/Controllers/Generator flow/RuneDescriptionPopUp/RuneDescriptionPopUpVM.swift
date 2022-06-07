@@ -1,13 +1,13 @@
 //
-//  AlignmentInfoViewModel.swift
+//  RuneDescriptionPopUpVM.swift
 //  Runar
 //
-//  Created by Oleg Kanatov on 22.01.21.
+//  Created by Юлия Лопатина on 5.02.21.
 //
 
 import Foundation
 
-public class AlignmentInfoViewModel {
+public class RuneDescriptionPopUpVM {
     public let runeDescription: RuneDescription
     public var name: String {
         runeDescription.name
