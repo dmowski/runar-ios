@@ -12,7 +12,17 @@ extension UIColor {
     static let settingsTitleColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
 }
 
-final class SettingsViewController: UIViewController {
+final class SettingsVC: UIViewController {
+    
+    private var tableView = UITableView()
+    
+    private var backgroundImage: UIImageView = {
+        let background = UIImageView()
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.image = Assets.Background.main.image
+        background.contentMode = .scaleAspectFill
+        return background
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +37,6 @@ final class SettingsViewController: UIViewController {
         configureNavigationBar()
     }
     
-    private var backgroundImage: UIImageView = {
-        let background = UIImageView()
-        background.translatesAutoresizingMaskIntoConstraints = false
-        background.image = Assets.Background.main.image
-        background.contentMode = .scaleAspectFill
-        return background
-    }()
-    
-    private var tableView = UITableView()
-    
     private func tableViewSetUps() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -49,7 +49,6 @@ final class SettingsViewController: UIViewController {
         tableView.backgroundColor = .clear
         tableView.tableFooterView = UIView()
     }
-    
     
     private func configureUI() {
         view.addSubviews(backgroundImage, tableView)
@@ -94,7 +93,8 @@ final class SettingsViewController: UIViewController {
     }
 }
 
-extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
+extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         4
     }
@@ -107,7 +107,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: LanguageCell.identifier, for: indexPath) as? LanguageCell
             cell?.textLabel?.text = .language
             cell?.openVC = {
-                let alert = AlertSettingsViewController()
+                let alert = AlertSettingsVC()
                 alert.modalPresentationStyle = .overCurrentContext
                 self.navigationController?.present(alert, animated: true, completion: nil)
             }
@@ -128,7 +128,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
             cell?.textLabel?.text = String.aboutApp
             cell?.openVC = {
-                self.navigationController?.pushViewController(AppInfoViewController(), animated: false)}
+                self.navigationController?.pushViewController(AppInfoVC(), animated: false)}
             return cell ?? StaticCell()
             
         default:
@@ -143,7 +143,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            let alert = AlertSettingsViewController()
+            let alert = AlertSettingsVC()
             alert.modalPresentationStyle = .overCurrentContext
             self.navigationController?.present(alert, animated: true, completion: nil)
         case 2:
@@ -151,10 +151,9 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
                 UIApplication.shared.open(url)
             }
         case 3:
-            self.navigationController?.pushViewController(AppInfoViewController(), animated: false)
+            self.navigationController?.pushViewController(AppInfoVC(), animated: false)
         default:
             break
         }
     }
-    
 }

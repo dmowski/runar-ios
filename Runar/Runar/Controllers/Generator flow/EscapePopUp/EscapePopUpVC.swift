@@ -1,5 +1,5 @@
 //
-//  EscapePopUpViewVontroller.swift
+//  EscapePopUpVC.swift
 //  Runar
 //
 //  Created by Roman Kovtun on 29.03.21.
@@ -18,7 +18,7 @@ extension UIColor {
     static let popUpContainer = UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 0.75)
 }
 
-class EscapePopUpViewController: UIViewController {
+class EscapePopUpVC: UIViewController {
     
     //MARK: Containerview
     let containerView: UIView = {
@@ -98,7 +98,6 @@ class EscapePopUpViewController: UIViewController {
         configureTitleLabel()
         configureActionButtonNo()
         configureActionButtonYes()
-        
     }
     
     func configureContainerView() {

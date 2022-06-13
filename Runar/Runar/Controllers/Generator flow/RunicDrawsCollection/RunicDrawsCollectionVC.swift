@@ -1,5 +1,5 @@
 //
-//  CollectionViewController.swift
+//  RunicDrawsCollectionVC.swift
 //  Runar
 //
 //  Created by Юлия Лопатина on 17.12.20.
@@ -13,45 +13,92 @@ extension String {
     static let layoutGeneratorDesc = L10n.Layouts.Generator.description
 }
 
-private let reuseIdentifier = "Cell"
-
-class CollectionViewController: UICollectionViewController {
+class RunicDrawsCollectionVC: UICollectionViewController {
     
-    private let floatingImage = UIButton()
     private let data = DataBase.runes.map {
         MainCellModel(runeId: $0.id, name: $0.name, image: $0.image)
     }
     
+    let label: UILabel = {
+        return UILabel.createAmatic(title: .layoutTitle, size: 36, lineHeight: 0.7, height: 42)
+    }()
+    
+    let generatorView: UIView = {
+        let generatorView = UIView()
+        generatorView.layer.cornerRadius = 8
+        generatorView.layer.borderWidth = 1
+        generatorView.layer.borderColor = UIColor(red: 0.824, green: 0.769, blue: 0.678, alpha: 0.6).cgColor
+        generatorView.layer.backgroundColor = UIColor(red: 0.063, green: 0.063, blue: 0.063, alpha: 0.35).cgColor
+        generatorView.translatesAutoresizingMaskIntoConstraints = false
+        return generatorView
+    }()
+    
+    let generatorImage: UIImageView = {
+        let generatorImage = UIImageView(image: Assets.runePattern.image)
+        generatorImage.translatesAutoresizingMaskIntoConstraints = false
+        generatorImage.contentMode = .scaleAspectFit
+        return generatorImage
+    }()
+    
+    let generatorHeader: UILabel = {
+        let generatorHeader = UILabel.createAmatic(title: .layoutGeneratorTitle, size: 24, lineHeight: 0.79, height: 24)
+        generatorHeader.textColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
+        return generatorHeader
+    }()
+    
+    let generatorDesc: UILabel = {
+        let generatorDesc = UILabel.createAmatic(title: .layoutGeneratorDesc, size: 15, lineHeight: 1.14, height: 50)
+        generatorDesc.font = FontFamily.SFProDisplay.regular.font(size: 15)
+        generatorDesc.textColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
+        generatorDesc.textAlignment = .left
+        generatorDesc.contentMode = .scaleToFill
+        generatorDesc.numberOfLines = 0
+        generatorDesc.lineBreakMode = .byWordWrapping
+        return generatorDesc
+    }()
+    
+    let generatorButton: UIButton = {
+        let generatorButton = UIButton()
+        generatorButton.translatesAutoresizingMaskIntoConstraints = false
+        return generatorButton
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let mainImage: UIImage? = Assets.Background.main.image
-        let mainImageView: UIImageView = UIImageView(image: mainImage)
-        mainImageView.contentMode = .scaleAspectFill
-        collectionView.backgroundView = mainImageView
-        navigationController?.navigationBar.isHidden = true
-        collectionView.delaysContentTouches = false
-
-        collectionView.register(MainCell.self, forCellWithReuseIdentifier: MainCell.reuseIdentifier)
         
-        MusicViewController.shared.initBackgroundMusic()
-        if !UserDefaults.standard.bool(forKey: "is_off_music") {
-            MusicViewController.shared.playBackgroundMusic()
-        } else {
-            MusicViewController.shared.stopBackgroundMusic()
-        }
-
-// TODO: - No Internet
-//        //NetworkMonitor
-//        if NetworkMonitor.shared.isConnected {
-//
-//        } else {
-//            showAllert()
-//        }
-//
+        navigationController?.navigationBar.isHidden = true
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
-        collectionView.addSubview(generatorView)
+        configureCollectionView()
+        configureConstraints()
         
+        // TODO: - No Internet
+        //        //NetworkMonitor
+        //        if NetworkMonitor.shared.isConnected {
+        //
+        //        } else {
+        //            showAllert()
+        //        }
+        //
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    func configureCollectionView() {
+        
+        let mainImageView: UIImageView = UIImageView(image: Assets.Background.main.image)
+        mainImageView.contentMode = .scaleAspectFill
+        collectionView.backgroundView = mainImageView
+        collectionView.delaysContentTouches = false
+        collectionView.register(MainCell.self, forCellWithReuseIdentifier: MainCell.reuseIdentifier)
+    }
+    
+    func configureConstraints() {
+        
+        collectionView.addSubview(generatorView)
         NSLayoutConstraint.activate([
             generatorView.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 8),
             generatorView.leftAnchor.constraint(equalTo: collectionView.leftAnchor, constant: 16),
@@ -61,9 +108,7 @@ class CollectionViewController: UICollectionViewController {
         ])
         
         collectionView.addSubview(generatorButton)
-
         generatorButton.addTarget(self, action: #selector(self.goToGeneratorTab), for: .touchUpInside)
-        
         NSLayoutConstraint.activate([
             generatorButton.topAnchor.constraint(equalTo: generatorView.topAnchor),
             generatorButton.leftAnchor.constraint(equalTo: generatorView.leftAnchor),
@@ -72,7 +117,6 @@ class CollectionViewController: UICollectionViewController {
         ])
         
         generatorView.addSubview(generatorImage)
-        
         NSLayoutConstraint.activate([
             generatorImage.topAnchor.constraint(equalTo: generatorView.topAnchor, constant: 8),
             generatorImage.leftAnchor.constraint(equalTo: generatorView.leftAnchor),
@@ -81,7 +125,6 @@ class CollectionViewController: UICollectionViewController {
         ])
         
         generatorView.addSubview(generatorHeader)
-        
         NSLayoutConstraint.activate([
             generatorHeader.topAnchor.constraint(equalTo: generatorView.topAnchor, constant: 25),
             generatorHeader.leftAnchor.constraint(equalTo: generatorImage.rightAnchor),
@@ -89,7 +132,6 @@ class CollectionViewController: UICollectionViewController {
         ])
         
         generatorView.addSubview(generatorDesc)
-        
         NSLayoutConstraint.activate([
             generatorDesc.topAnchor.constraint(equalTo: generatorView.topAnchor, constant: 50),
             generatorDesc.leftAnchor.constraint(equalTo: generatorImage.rightAnchor),
@@ -97,7 +139,6 @@ class CollectionViewController: UICollectionViewController {
         ])
         
         collectionView.addSubview(label)
-        
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: generatorView.bottomAnchor, constant: 38),
             label.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
@@ -105,129 +146,56 @@ class CollectionViewController: UICollectionViewController {
         ])
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false 
+    @IBAction func goToGeneratorTab() {
+        self.tabBarController?.selectedIndex = 2
     }
     
-    let label: UILabel = {
-        return UILabel.createAmatic(title: .layoutTitle, size: 36, lineHeight: 0.7, height: 42)
-    }()
+    //TODO: - No Internet
+    //    private func showAllert() {
+    //        let alert = UIAlertController(title: "No Internet", message: "Runar app Requires wifi/internet connection!", preferredStyle: .alert)
+    //        let action = UIAlertAction(title: "Ok", style: .default)
+    //        alert.addAction(action)
+    //
+    //        self.present(alert, animated: true, completion: nil)
+    //
+    //    }
     
-    let generatorView: UIView = {
-        let generatorView = UIView()
-        
-        generatorView.layer.cornerRadius = 8
-        generatorView.layer.borderWidth = 1
-        generatorView.layer.borderColor = UIColor(red: 0.824, green: 0.769, blue: 0.678, alpha: 0.6).cgColor
-        generatorView.layer.backgroundColor = UIColor(red: 0.063, green: 0.063, blue: 0.063, alpha: 0.35).cgColor
-        
-        generatorView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return generatorView
-    }()
-    
-    let generatorImage: UIImageView = {
-        let generatorImage = UIImageView(image: Assets.runePattern.image)
-        
-        generatorImage.translatesAutoresizingMaskIntoConstraints = false
-        generatorImage.contentMode = .scaleAspectFit
-        
-        return generatorImage
-    }()
-    
-    let generatorHeader: UILabel = {
-        let generatorHeader = UILabel.createAmatic(title: .layoutGeneratorTitle, size: 24, lineHeight: 0.79, height: 24)
-        
-        generatorHeader.textColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
-        
-        return generatorHeader
-    }()
-    
-    let generatorDesc: UILabel = {
-        let generatorDesc = UILabel.createAmatic(title: .layoutGeneratorDesc, size: 15, lineHeight: 1.14, height: 50)
-        
-        generatorDesc.font = FontFamily.SFProDisplay.regular.font(size: 15)
-        generatorDesc.textColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
-        generatorDesc.textAlignment = .left
-        generatorDesc.contentMode = .scaleToFill
-        generatorDesc.numberOfLines = 0
-        generatorDesc.lineBreakMode = .byWordWrapping
-        
-        return generatorDesc
-    }()
-    
-    let generatorButton: UIButton = {
-        let generatorButton = UIButton()
-        
-        generatorButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        return generatorButton
-    }()
-    
-    //-------------------------------------------------
-    // MARK: - UICollectionViewDataSource
-    //-------------------------------------------------
+}
+
+extension RunicDrawsCollectionVC: UICollectionViewDelegateFlowLayout {
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-
         return 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
         return data.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCell.reuseIdentifier, for: indexPath) as! MainCell
         cell.update(with: data[safe: indexPath.row])
-        
         return cell
     }
-    
-    //-------------------------------------------------
-    // MARK: - UICollectionViewDelegate
-    //-------------------------------------------------
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let runeDescription = DataBase.runes.first(where: {
             $0.id == data[safe: indexPath.row]?.runeId
         }) else { return }
         if LocalStorage.pull(forKey: runeDescription.name) == true {
-            let viewModel = AlignmentViewModel(runeDescription: runeDescription)
-            let viewController = AlignmentViewController()
+            let viewModel = AlignmentVM(runeDescription: runeDescription)
+            let viewController = AlignmentVC()
             viewController.viewModel = viewModel
             viewController.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(viewController, animated: true)
         } else {
-            let viewModel = AlignmentInfoViewModel(runeDescription: runeDescription)
-            let viewController = AlignmentInfoViewController()
+            let viewModel = AlignmentInfoVM(runeDescription: runeDescription)
+            let viewController = AlignmentInfoVC()
             viewController.viewModel = viewModel
             viewController.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
-    
-    @IBAction func goToGeneratorTab() {
-        self.tabBarController?.selectedIndex = 2
-    }
-//TODO: - No Internet
-//    private func showAllert() {
-//        let alert = UIAlertController(title: "No Internet", message: "Runar app Requires wifi/internet connection!", preferredStyle: .alert)
-//        let action = UIAlertAction(title: "Ok", style: .default)
-//        alert.addAction(action)
-//
-//        self.present(alert, animated: true, completion: nil)
-//
-//    }
-}
-
-//-------------------------------------------------
-// MARK: - Extension
-//-------------------------------------------------
-
-extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.bounds.width

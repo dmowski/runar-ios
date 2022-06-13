@@ -1,5 +1,5 @@
 //
-//  OneRuneViewController.swift
+//  OneRuneVC.swift
 //  Runar
 //
 //  Created by Юлия Лопатина on 14.03.21.
@@ -7,8 +7,7 @@
 
 import UIKit
 
-
-class OneRuneViewController: UIViewController {
+class OneRuneVC: UIViewController {
     
     var closeVC = {() -> () in return }
     var runesSet = [RuneType]()
@@ -70,7 +69,7 @@ class OneRuneViewController: UIViewController {
     }
     
     private var pageScroll = UIScrollView()
-
+    
     private func configurePageScroll() {
         pageScroll.translatesAutoresizingMaskIntoConstraints = false
         guard let bottomLine = bottomLine else {return}
@@ -87,9 +86,9 @@ class OneRuneViewController: UIViewController {
             guard let runeLayout = runeLayout else {return}
             let page = TopWithDescriptionView(runeType: runesSet[index], runeTime: runesSet[index].configureRuneTime(runeLayout: runeLayout, index: index))
             page.close = { [self] in
-            self.willMove(toParent: nil)
-            self.view.removeFromSuperview()
-            self.removeFromParent()
+                self.willMove(toParent: nil)
+                self.view.removeFromSuperview()
+                self.removeFromParent()
                 closeVC()
                 removeAllDark!()
             }
@@ -104,14 +103,14 @@ class OneRuneViewController: UIViewController {
             
         }
         previousAnchor.constraint(equalTo: pageScroll.trailingAnchor).isActive = true
-        }
+    }
     
     private func openCurrentPage() {
         self.pageScroll.setContentOffset(CGPoint(x: view.frame.size.width * CGFloat(self.index!), y: 0.0), animated: false)
     }
 }
 
-extension OneRuneViewController: UIScrollViewDelegate {
+extension OneRuneVC: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let changeContentOffset = changeContentOffset else {return}
         bottomLine?.pageControl.currentPage = Int(floorf(Float(pageScroll.contentOffset.x) / Float(view.frame.size.width)))

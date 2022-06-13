@@ -85,7 +85,7 @@ class RuneDescriptionPopUp: UIViewController {
     var message: String?
     var buttonTitle: String?
     
-    var viewModel: RuneDescriptionPopUpViewModel!
+    var viewModel: RuneDescriptionPopUpVM!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,7 +126,6 @@ class RuneDescriptionPopUp: UIViewController {
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: leadingConstant),
             titleLabel.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: bottomConstant)
         ])
-        
     }
     
     func configureActionButton() {

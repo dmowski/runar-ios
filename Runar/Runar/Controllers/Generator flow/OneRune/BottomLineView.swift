@@ -116,7 +116,7 @@ final class BottomLineView: UIView {
     private func setUpPageControl()  {
         pageControl.currentPageIndicatorTintColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         pageControl.pageIndicatorTintColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 0.3)
-       pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.addTarget(self, action: #selector(pageControlDidChange(_:)), for: .valueChanged)
         
         self.addSubview(pageControl)
@@ -125,11 +125,11 @@ final class BottomLineView: UIView {
             pageControl.heightAnchor.constraint(equalToConstant: 45.heightDependent()),
             pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
-}
+    }
+    
     @objc private func pageControlDidChange(_ sender: UIPageControl) {
         let current = sender.currentPage
         guard let movePage = movePage else {return}
         movePage(CGFloat(current))
     }
-    
 }
