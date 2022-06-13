@@ -425,13 +425,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		843DAB9126F9B94C009548D8 /* WallpaperWithBackground */ = {
+		843DAB9126F9B94C009548D8 /* WallpaperWithBackgroundVC */ = {
 			isa = PBXGroup;
 			children = (
 				84B1C4D52724D825007865CF /* WallpaperWithBackgroundVC.swift */,
 				C2C5583F283A4823006B053C /* WallpaperWithBackgroundCell.swift */,
 			);
-			path = WallpaperWithBackground;
+			path = WallpaperWithBackgroundVC;
 			sourceTree = "<group>";
 		};
 		843DFF452653969C00D6DFE5 /* Cells */ = {
@@ -472,7 +472,7 @@
 				C2C55850283DA077006B053C /* GeneratorVC */,
 				C2C55851283DA115006B053C /* SelectionRuneVC */,
 				C2C55854283DA323006B053C /* EmptyWallpaperVC */,
-				843DAB9126F9B94C009548D8 /* WallpaperWithBackground */,
+				843DAB9126F9B94C009548D8 /* WallpaperWithBackgroundVC */,
 				C2C55855283DA4F2006B053C /* ChoosedWallpaperVC */,
 				C2C55842283A9F53006B053C /* ApiGeneratorModel.swift */,
 				8441065F2705B43E00CD8B56 /* GenerationPopUpViewController.swift */,

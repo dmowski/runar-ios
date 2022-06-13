@@ -36,8 +36,8 @@ class SelectRuneCell: UICollectionViewCell {
         
         runeImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            runeImage.heightAnchor.constraint(equalToConstant: 97),
-            runeImage.widthAnchor.constraint(equalToConstant: 78),
+            runeImage.heightAnchor.constraint(equalToConstant: 78),
+            runeImage.widthAnchor.constraint(equalToConstant: 66),
             runeImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             runeImage.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])

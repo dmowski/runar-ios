@@ -13,7 +13,7 @@ extension String {
     static let wallpapersHeader = L10n.Generator.WallpapersHeader.title
     static let wallpapersDescription = L10n.Generator.WallpapersDescription.subtitle
     static let progressName = L10n.Generator.Progress.name
-    static let progressTitle = L10n.Generator.Progress.title
+    static let generateProgressTitle = L10n.Generator.ProgressGenerator.title
 }
 
 public class WallpaperWithBackgroundVC: UIViewController {
@@ -23,6 +23,8 @@ public class WallpaperWithBackgroundVC: UIViewController {
     var wallpapers: [WallpaperWithBackgroundCell] = []
     var imagesWithBackground: [UIImage?]
     var selectedImage: UIImage?
+    var isSelected: Bool = false
+    var indexPath: Int?
     
     let subTitle: UILabel = {
         let title = UILabel()
@@ -88,20 +90,6 @@ public class WallpaperWithBackgroundVC: UIViewController {
         setupWallpapers()
     }
     
-    private func configureNavBar() {
-        title = .wallpapersHeader
-        self.navigationItem.hidesBackButton = true
-        let customBackButton = UIBarButtonItem(image: Assets.backIcon.image,
-                                               style: .plain, target: self,
-                                               action: #selector(self.backToInitial))
-        customBackButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        navigationItem.leftBarButtonItem = customBackButton
-    }
-
-    @objc func backToInitial(sender: UIBarButtonItem) {
-        navigationController?.popToViewController(ofClass: SelectionRuneVC.self, animated: true)
-    }
-    
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
@@ -110,6 +98,29 @@ public class WallpaperWithBackgroundVC: UIViewController {
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unselectedSet()
+    }
+    
+    private func configureNavBar() {
+        title = .wallpapersHeader
+        self.navigationItem.hidesBackButton = true
+        if isSelected == true {
+            let customBackLabel = UIBarButtonItem(title: L10n.Tabbar.cancel,
+                                                  style: .done, target: self,
+                                                  action: #selector(self.unselectedTapped))
+            customBackLabel.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            navigationItem.leftBarButtonItem = customBackLabel
+        } else {
+            let customBackButton = UIBarButtonItem(image: Assets.backIcon.image,
+                                                   style: .plain, target: self,
+                                                   action: #selector(self.backToInitial))
+            customBackButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            navigationItem.leftBarButtonItem = customBackButton
+        }
     }
     
     private func setupBindings() {
@@ -151,6 +162,22 @@ public class WallpaperWithBackgroundVC: UIViewController {
         }
     }
     
+    @objc func unselectedTapped(sender: UIBarButtonItem) {
+        unselectedSet()
+    }
+    
+    func unselectedSet() {
+        guard let indexPath = self.indexPath else { return }
+        wallpapers[indexPath].deselectImage()
+        isSelected = false
+        nextButton.isHidden = true
+        configureNavBar()
+    }
+
+    @objc func backToInitial(sender: UIBarButtonItem) {
+        navigationController?.popToViewController(ofClass: SelectionRuneVC.self, animated: true)
+    }
+    
     func setupWallpapers() {
         
         for (index, wallpaper) in imagesWithBackground.enumerated() {
@@ -163,11 +190,11 @@ public class WallpaperWithBackgroundVC: UIViewController {
 
     private func getPageNumber(by position: CGFloat) -> Int {
         switch Int(position) {
-        case 0..<35:
+        case 0..<235:
             return 0
-        case 35..<246:
+        case 235..<446:
             return 1
-        case 246..<461:
+        case 446..<661:
             return 2
         default:
             return Int(position / 123.25)
@@ -197,8 +224,11 @@ extension WallpaperWithBackgroundVC: UICollectionViewDataSource, UICollectionVie
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         wallpapers[indexPath.row].selectImage()
+        self.indexPath = indexPath.row
         nextButton.isHidden = false
         selectedImage = wallpapers[indexPath.row].wallpaperImage.image
+        isSelected = true
+        configureNavBar()
     }
     
     public func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

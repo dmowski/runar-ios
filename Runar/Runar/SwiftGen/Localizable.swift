@@ -339,7 +339,7 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "generator.alertAction.title")
     }
     internal enum AlertHeader {
-      /// Runic image has been saved
+      /// Runic pattern has been saved
       internal static let title = L10n.tr("Localizable", "generator.alertHeader.title")
     }
     internal enum EmptyWallpapers {
@@ -347,7 +347,7 @@ internal enum L10n {
       internal static let subtitle = L10n.tr("Localizable", "generator.emptyWallpapers.subtitle")
     }
     internal enum EmptyWallpapersNewVariant {
-      /// New version
+      /// See more
       internal static let btnTitle = L10n.tr("Localizable", "generator.emptyWallpapersNewVariant.btnTitle")
     }
     internal enum GenerateButton {
@@ -365,17 +365,19 @@ internal enum L10n {
     internal enum Progress {
       /// Pattern generation
       internal static let name = L10n.tr("Localizable", "generator.progress.name")
-      /// Runic image is creating...
-      internal static let title = L10n.tr("Localizable", "generator.progress.title")
+    }
+    internal enum ProgressGenerator {
+      /// Runic pattern is creating...
+      internal static let title = L10n.tr("Localizable", "generator.progressGenerator.title")
     }
     internal enum RandomButton {
       /// Select random runes
       internal static let title = L10n.tr("Localizable", "generator.randomButton.title")
     }
     internal enum RuneFormula {
-      /// 
+      /// Choose a few runes, and we will offer runic formulas which are made from them. Runic formula can be used as a mascot or a guard.
       internal static let description = L10n.tr("Localizable", "generator.runeFormula.description")
-      /// Formula
+      /// Runic formula
       internal static let title = L10n.tr("Localizable", "generator.runeFormula.title")
     }
     internal enum RunePattern {
@@ -385,9 +387,9 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "generator.runePattern.title")
     }
     internal enum RuneStaves {
-      /// 
+      /// Choose a few runes, and we will offer runic staves which are made from them. Runic staves can be used as a mascot or a guard.
       internal static let description = L10n.tr("Localizable", "generator.runeStaves.description")
-      /// Staves
+      /// Runic staves
       internal static let title = L10n.tr("Localizable", "generator.runeStaves.title")
     }
     internal enum SelectWallpaperHeader {
@@ -399,7 +401,7 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "generator.selectWallpapersHeader.title")
     }
     internal enum SelectedRunes {
-      /// Collect your rune formula after select from 1 to 3 runes
+      /// Select 1 to 3 runes and collect your rune draw
       internal static let title = L10n.tr("Localizable", "generator.selectedRunes.title")
     }
     internal enum ShareWallpaperHeader {
@@ -1728,7 +1730,7 @@ internal enum L10n {
     /// Runic Draws
     internal static let title = L10n.tr("Localizable", "layouts.title")
     internal enum Generator {
-      /// Gnomes generate runic pattern and share the result each other
+      /// Create your runic pattern by selecting a few runes
       internal static let description = L10n.tr("Localizable", "layouts.generator.description")
       /// Runic patterns
       internal static let title = L10n.tr("Localizable", "layouts.generator.title")

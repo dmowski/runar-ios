@@ -10,7 +10,7 @@ import UIKit
 struct ApiGeneratorModel {
     
     static func showProcessingVCandGenerateImagesModel(vc: UIViewController, runesIds: [String]) {
-        let viewModel = ProcessingViewModel(name: .progressName, title: .progressTitle) {
+        let viewModel = ProcessingViewModel(name: .progressName, title: .generateProgressTitle) {
             if vc.navigationController?.topViewController is ProcessingViewController {
                 vc.navigationController?.popViewController(animated: true)
             }

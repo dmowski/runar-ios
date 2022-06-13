@@ -79,7 +79,6 @@ public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
     }
 
     @objc func backToInitial(sender: UIBarButtonItem) {
-        //navigationController?.popToViewController(ofClass: SelectionRuneVC.self, animated: true) // TODO: choose
         navigationController?.popViewController(animated: true)
     }
     
@@ -87,16 +86,16 @@ public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
         
         self.view.addSubview(wallpaperImage)
         wallpaperImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(32)
-            make.leading.equalToSuperview().offset(50)
-            make.trailing.equalToSuperview().offset(-50)
-            make.bottom.equalToSuperview().offset(-110)
+            make.top.equalToSuperview().offset(40)
+            make.leading.equalToSuperview().offset(40)
+            make.trailing.equalToSuperview().offset(-40)
+            make.bottom.equalToSuperview().offset(-120)
         }
         
         self.view.addSubview(downloadButton)
         downloadButton.addTarget(self, action: #selector(self.downloadOnTap), for: .touchUpInside)
         downloadButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(50)
+            make.leading.equalToSuperview().offset(40)
             make.bottom.equalToSuperview().offset(-40)
             make.height.width.equalTo(50)
         }
