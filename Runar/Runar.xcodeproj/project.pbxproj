@@ -314,12 +314,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		193FFB362613316100D60171 /* Custom Class */ = {
+		193FFB362613316100D60171 /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
 				193FFB372613319000D60171 /* CustomButton.swift */,
 			);
-			path = "Custom Class";
+			path = "Custom Classes";
 			sourceTree = "<group>";
 		};
 		1987AAB425BDCD8600BB3655 /* RunesView */ = {
@@ -583,9 +583,7 @@
 				844BF4C9264FE551002C7596 /* Library flow */,
 				8452A5F526F3A3240069DEE5 /* Generator flow */,
 				9BD98C8B2628A74200F3BBD7 /* Settings flow */,
-				9B5F5BB3261CD58F00A7454F /* Music */,
-				199A678925F836C20013DE5D /* TabBarController */,
-				9B739E0225CD77E900726B30 /* Processing */,
+				C22B4DB02858A86C00F6245C /* Misc */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -593,7 +591,6 @@
 		9B9C25CA25993DF800A4E135 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				8477223B26457435001C280D /* Api */,
 				8477222C2643C9AB001C280D /* Storage */,
 				9B5F5BBC261CE02300A7454F /* Music */,
 				9B739DF225CD765800726B30 /* Constants.swift */,
@@ -602,8 +599,6 @@
 				9BD22906258A321F00E17E98 /* Assets.xcassets */,
 				1944411526278EA900EAB9F3 /* Localizable.strings */,
 				9B9C266E25A2173100A4E135 /* DataBase.swift */,
-				9BD228FD258A321B00E17E98 /* AppDelegate.swift */,
-				19BDC61125C02EE9000808CF /* SceneDelegate.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -611,6 +606,7 @@
 		9B9C25CB25993E0900A4E135 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				193FFB362613316100D60171 /* Custom Classes */,
 				844BF4D426501A6F002C7596 /* Common */,
 				9B9C25CC25993E1100A4E135 /* Cells */,
 			);
@@ -650,15 +646,14 @@
 		9BD228FC258A321B00E17E98 /* Runar */ = {
 			isa = PBXGroup;
 			children = (
-				84D7E609264BAEBC00772EE3 /* Confings */,
-				9B94A4ED261BB0310001A858 /* LaunchScreen.storyboard */,
-				193FFB362613316100D60171 /* Custom Class */,
-				19BDC61625C0306E000808CF /* Base */,
-				19C0F21425BAFE9B0027422B /* Models */,
-				19C0F20025BAFC830027422B /* Extensions */,
-				198A056725B77B9B00FDA485 /* SwiftGen */,
 				9BD2290B258A321F00E17E98 /* Info.plist */,
+				C22B4DB12858A8CC00F6245C /* Application */,
+				19C0F20025BAFC830027422B /* Extensions */,
+				C22B4DB22858A8F600F6245C /* Services */,
+				84D7E609264BAEBC00772EE3 /* Confings */,
+				19C0F21425BAFE9B0027422B /* Models */,
 				9B9C25CB25993E0900A4E135 /* Views */,
+				198A056725B77B9B00FDA485 /* SwiftGen */,
 				9B9C25CA25993DF800A4E135 /* Support */,
 				9B9C25C925993DE000A4E135 /* Controllers */,
 			);
@@ -746,6 +741,35 @@
 				29AD0AF3F59DE1B0E9AF6F8D /* Pods-RunarTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C22B4DB02858A86C00F6245C /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F5BB3261CD58F00A7454F /* Music */,
+				199A678925F836C20013DE5D /* TabBarController */,
+				9B739E0225CD77E900726B30 /* Processing */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		C22B4DB12858A8CC00F6245C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				9BD228FD258A321B00E17E98 /* AppDelegate.swift */,
+				19BDC61125C02EE9000808CF /* SceneDelegate.swift */,
+				9B94A4ED261BB0310001A858 /* LaunchScreen.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		C22B4DB22858A8F600F6245C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8477223B26457435001C280D /* Api */,
+				19BDC61625C0306E000808CF /* Base */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		C2BFDEA8284F6DED00D079E3 /* RunicDraws flow */ = {
