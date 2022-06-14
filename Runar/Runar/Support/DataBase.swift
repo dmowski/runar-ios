@@ -20,4 +20,3 @@ struct DataBase {
         RuneDescription(id: UUID().uuidString, name: L10n.Rune.KeltsCross.name, layout: .keltsCross, description: L10n.Rune.KeltsCross.description)
     ]
 }
-

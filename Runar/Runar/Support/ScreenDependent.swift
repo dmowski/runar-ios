@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 private extension CGFloat {
     static let canonicalHeight: CGFloat = 896
     static let canonicalWidth: CGFloat = 414
@@ -81,4 +79,3 @@ infix operator ^^
 private func ^^ (radix: CGFloat, power: Int) -> CGFloat {
     pow(radix, CGFloat(power))
 }
-
