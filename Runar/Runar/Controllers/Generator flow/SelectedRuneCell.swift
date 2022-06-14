@@ -52,7 +52,7 @@ class SelectedRuneCell: UICollectionViewCell {
     let runeName: UILabel = {
         let runeName = UILabel()
         
-        runeName.textColor = UIColor(red: 1, green: 0.817, blue: 0.792, alpha: 1)
+        runeName.textColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 1)
         runeName.font = FontFamily.SFProDisplay.regular.font(size: 12)
         runeName.isHidden = true
         
