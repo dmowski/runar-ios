@@ -5,8 +5,6 @@
 //  Created by Юлия Лопатина on 16.12.20.
 //
 
-
-
 import UIKit
 
 @main
@@ -138,12 +136,5 @@ extension AppDelegate {
         }
         
         MemoryStorage.GenerationWallpapertsStyles = WallpapperStyleData.create(from: wallpapersStylesData!)
-    }
-}
-
-extension String {
-    static func random(withLength length: Int) -> String {
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        return String((0..<length).map{ _ in letters.randomElement()! })
     }
 }

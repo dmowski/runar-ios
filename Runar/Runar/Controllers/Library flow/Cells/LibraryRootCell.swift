@@ -12,15 +12,15 @@ public class LibraryRootCell: LibraryCell {
     // MARK: - Funcs
     public override func bind(node: LibraryNode) -> Void {
         addArrow()
-        bindTextLabel(text: node.title, font: UIFont.create(withLowSize: 17, withHighSize: 22))
-        bindDetailTextLabel(text: node.content, font: UIFont.create(withLowSize: 11, withHighSize: 13), frame: CGRect.create())
+        bindTextLabel(text: node.title, font: UIFont.create(withLowSize: 20, withHighSize: 26))
+        bindDetailTextLabel(text: node.content, font: UIFont.create(withLowSize: 13, withHighSize: 17), frame: CGRect.create())
         bindImageView(url: node.imageUrl!)
     }
 }
 
 // MARK: - Fxtensions
 private extension CGRect {
-    static func create() -> CGRect{
-       return CGRect(x: 0, y: 0, width: 156, height: 36)
+    static func create() -> CGRect {
+       return CGRect(x: 0, y: 0, width: 256, height: 36)
     }
 }

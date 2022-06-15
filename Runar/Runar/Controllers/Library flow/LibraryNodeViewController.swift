@@ -46,7 +46,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         
         nodeView.dataSource = self
         nodeView.delegate = self
-        nodeView.separatorColor = UIColor(red: 0.329, green: 0.329, blue: 0.345, alpha: 0.65)
+        nodeView.separatorColor = UIColor(red: 0.329, green: 0.329, blue: 0.329, alpha: 1)
         nodeView.separatorStyle = .singleLine
         
         nodeView.register(node: node)
@@ -80,7 +80,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (indexPath.row == 0){
+        if (indexPath.row == 0) {
             return node.type == .core ? CGFloat.leastNormalMagnitude : 42
         }
         
@@ -136,13 +136,13 @@ private extension UITableView {
     func add(to view: UIView) -> Void {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .clear
-        self.separatorInset = UIEdgeInsets(top: 0, left: 17, bottom: 0, right: 0)
+        self.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
         self.tableFooterView = UIView()
         
         view.addSubview(self)
         
         NSLayoutConstraint.activate([
-            self.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            self.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             self.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             self.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             self.trailingAnchor.constraint(equalTo: view.trailingAnchor)
