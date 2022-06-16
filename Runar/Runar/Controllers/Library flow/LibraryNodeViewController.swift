@@ -86,9 +86,13 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         
         switch node.children[indexPath.row - 1].type {
         case .root:
-            return 108
+            return 112
         case .menu:
-            return 66
+            if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
+                return 112
+            } else {
+                return 90
+            }
         default:
             return UITableView.automaticDimension
         }
@@ -140,9 +144,9 @@ private extension UITableView {
         self.tableFooterView = UIView()
         
         view.addSubview(self)
-        
+
         NSLayoutConstraint.activate([
-            self.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            self.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             self.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             self.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             self.trailingAnchor.constraint(equalTo: view.trailingAnchor)
@@ -166,7 +170,7 @@ private extension UINavigationBar {
         self.tintColor = .libraryTitleColor
         self.backgroundColor = .navBarBackground
         self.barTintColor = .navBarBackground
-        self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 17),
+        self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 17),
                                          NSAttributedString.Key.foregroundColor: UIColor.white]
         
         self.backItem?.backButtonTitle = .back

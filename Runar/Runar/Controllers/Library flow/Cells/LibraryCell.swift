@@ -34,7 +34,7 @@ public class LibraryCell: UITableViewCell, LibraryCellProtocol {
         addSubview(arrow)
         
         NSLayoutConstraint.activate([
-            arrow.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -21),
+            arrow.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             arrow.widthAnchor.constraint(equalToConstant: 8),
             arrow.heightAnchor.constraint(equalToConstant: 14),
             arrow.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -50,7 +50,6 @@ public class LibraryCell: UITableViewCell, LibraryCellProtocol {
     func bindDetailTextLabel(text: String?, font: UIFont, color: UIColor? = nil, alignment: NSTextAlignment = .left, frame: CGRect = CGRect.zero) -> Void {
         detailTextLabel.bind(text: text, font: font, color: color ?? UIColor(red: 0.569, green: 0.569, blue: 0.569, alpha: 1))
         detailTextLabel?.textAlignment = alignment
-        detailTextLabel?.frame = frame
     }
     
     func bindImageView(url: String) -> Void {
@@ -63,14 +62,6 @@ public class LibraryCell: UITableViewCell, LibraryCellProtocol {
 }
 
 // MARK: - Extensions
-public extension UIImage {
-    static func create(fromUrl url: String) -> UIImage? {
-        let imageData: Data = RunarApi.getData(byUrl: url)!
-        
-        return UIImage(data: imageData)
-    }
-}
-
 private extension Optional where Wrapped == UILabel {
     func bind(text: String?, font: UIFont, color: UIColor) -> Void {
         self?.font = font
@@ -86,5 +77,11 @@ public extension UIFont {
         let size = DeviceType.isIPhone678 || DeviceType.iPhoneSE ? lowSize : highSize.heightDependent()
         
         return FontFamily.SFProDisplay.regular.font(size: size)
+    }
+    
+    static func createMedium(withLowSize lowSize: CGFloat, withHighSize highSize: CGFloat) -> UIFont{
+        let size = DeviceType.isIPhone678 || DeviceType.iPhoneSE ? lowSize : highSize.heightDependent()
+        
+        return FontFamily.SFProDisplay.medium.font(size: size)
     }
 }
