@@ -64,6 +64,8 @@
 		84D7E5F02649EC6700772EE3 /* LibraryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E5EF2649EC6700772EE3 /* LibraryData.swift */; };
 		84D7E6022649F37700772EE3 /* LibraryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E6012649F37700772EE3 /* LibraryNode.swift */; };
 		84D7E60B264BAED300772EE3 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E60A264BAED300772EE3 /* Environment.swift */; };
+		9911206C2861107B001B8FCC /* TagsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9911206B2861107B001B8FCC /* TagsCollectionView.swift */; };
+		9911206E28611139001B8FCC /* TagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9911206D28611139001B8FCC /* TagsCell.swift */; };
 		9B0CB8862607922B00B2AF60 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0CB8852607922B00B2AF60 /* DescriptionView.swift */; };
 		9B0CB88B2607B6A000B2AF60 /* TopWithDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0CB88A2607B6A000B2AF60 /* TopWithDescriptionView.swift */; };
 		9B15E36825FE465400737306 /* OneRuneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B15E36725FE465400737306 /* OneRuneVC.swift */; };
@@ -211,6 +213,8 @@
 		84D7E6012649F37700772EE3 /* LibraryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNode.swift; sourceTree = "<group>"; };
 		84D7E60A264BAED300772EE3 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9911206B2861107B001B8FCC /* TagsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionView.swift; sourceTree = "<group>"; };
+		9911206D28611139001B8FCC /* TagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCell.swift; sourceTree = "<group>"; };
 		9B0CB8852607922B00B2AF60 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		9B0CB88A2607B6A000B2AF60 /* TopWithDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopWithDescriptionView.swift; sourceTree = "<group>"; };
 		9B15E36725FE465400737306 /* OneRuneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRuneVC.swift; sourceTree = "<group>"; };
@@ -450,6 +454,7 @@
 		844BF4C9264FE551002C7596 /* Library flow */ = {
 			isa = PBXGroup;
 			children = (
+				9911206A28611036001B8FCC /* TagsCV */,
 				843DFF452653969C00D6DFE5 /* Cells */,
 				843DFF32265248B900D6DFE5 /* LibraryViewController.swift */,
 				843DFF71265BC50800D6DFE5 /* LibraryNodeViewController.swift */,
@@ -524,6 +529,15 @@
 				84D7E60A264BAED300772EE3 /* Environment.swift */,
 			);
 			path = Confings;
+			sourceTree = "<group>";
+		};
+		9911206A28611036001B8FCC /* TagsCV */ = {
+			isa = PBXGroup;
+			children = (
+				9911206B2861107B001B8FCC /* TagsCollectionView.swift */,
+				9911206D28611139001B8FCC /* TagsCell.swift */,
+			);
+			path = TagsCV;
 			sourceTree = "<group>";
 		};
 		9B15E36625FE461E00737306 /* OneRune */ = {
@@ -1160,6 +1174,7 @@
 				1907851425C4236000434D57 /* FirstRuneView.swift in Sources */,
 				19C0F1FC25BAF9D00027422B /* MainCellModel.swift in Sources */,
 				19C0F21025BAFDCB0027422B /* AlignmentInfoVM.swift in Sources */,
+				9911206E28611139001B8FCC /* TagsCell.swift in Sources */,
 				191D32CF25B7C46A001DC210 /* Assets.swift in Sources */,
 				19D9BAD625C9765C00418CE7 /* TwoRuneView.swift in Sources */,
 				84410677270CC7E500CD8B56 /* SelectRuneCollectionView.swift in Sources */,
@@ -1172,6 +1187,7 @@
 				8477224326458020001C280D /* Route.swift in Sources */,
 				9BD229DF258D82DD00E17E98 /* AlignmentInfoVC.swift in Sources */,
 				C2C55843283A9F53006B053C /* ApiGeneratorModel.swift in Sources */,
+				9911206C2861107B001B8FCC /* TagsCollectionView.swift in Sources */,
 				9B15E37625FE548400737306 /* BottomLineView.swift in Sources */,
 				C278B66127C43FAB00EFBD2C /* NetworkMonitor.swift in Sources */,
 				19BDC61225C02EE9000808CF /* SceneDelegate.swift in Sources */,
@@ -1398,9 +1414,10 @@
 			baseConfigurationReference = F9215007654A411DBEF358A7 /* Pods-Runar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = FR3LN29YUF;
+				DEVELOPMENT_TEAM = X68879DLV5;
 				INFOPLIST_FILE = Runar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1409,6 +1426,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tnco.runar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1419,9 +1437,10 @@
 			baseConfigurationReference = 1A56DC55326BF359E39532FA /* Pods-Runar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = FR3LN29YUF;
+				DEVELOPMENT_TEAM = X68879DLV5;
 				INFOPLIST_FILE = Runar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1430,6 +1449,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tnco.runar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

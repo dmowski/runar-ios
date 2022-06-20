@@ -16,6 +16,7 @@ struct LibraryData: Codable {
     var linkTitle: String?
     var linkUrl: String?
     var title: String?
+    var tags: [String]?
     var content: String?
     var sortOrder: Int
     var type: String
@@ -31,6 +32,7 @@ extension LibraryData {
         case linkTitle
         case linkUrl
         case title
+        case tags
         case content
         case sortOrder
         case type
