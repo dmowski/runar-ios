@@ -51,7 +51,7 @@ With the permission of the copyright holders, the following musical compositions
 
 "layouts.title" = "Runic Draws";
 "layouts.generator.title" = "Runic patterns";
-"layouts.generator.description" = "Gnomes generate runic pattern and share the result each other";
+"layouts.generator.description" = "Create your runic pattern by selecting a few runes";
 
 "luckLevel" = "Luckiness - %@ %%";
 "goToTheSite" = "Check the website";
@@ -94,7 +94,7 @@ With the permission of the copyright holders, the following musical compositions
 "generator.runeStaves.title" = "Runic staves";
 "generator.commingSoon" = "Comming soon";
 "generator.select" = "Select";
-"generator.selectedRunes.title" = "Collect your runic pattern after select from 1 to 3 runes";
+"generator.selectedRunes.title" = "Select 1 to 3 runes and collect your rune draw";
 "generator.randomButton.title" = "Select random runes";
 "generator.generateButton.title" = "Generate";
 "generator.generateRunes.title" = "Runes selection";
@@ -104,7 +104,7 @@ With the permission of the copyright holders, the following musical compositions
 "generator.nextButton.title" = "Next";
 "generator.progress.name" = "Pattern generation";
 "generator.emptyWallpapers.subtitle" = "Next, choose the background for it, Viking";
-"generator.emptyWallpapersNewVariant.btnTitle" = "Watch more";
+"generator.emptyWallpapersNewVariant.btnTitle" = "See more";
 "generator.progressGenerator.title" = "Runic pattern is creating...";
 "generator.selectWallpapersHeader.title" = "Picture selection";
 "generator.selectWallpaperHeader.title" = "Runic pattern";
@@ -953,5 +953,5 @@ With the permission of the copyright holders, the following musical compositions
 "name.Odin" = "Odin rune";
 
 "generator.runePattern.description" = "";
-"generator.runeFormula.description" = "";
-"generator.runeStaves.description" = "";
+"generator.runeFormula.description" = "Choose a few runes, and we will offer runic formulas which are made from them. Runic formula can be used as a mascot or a guard.";
+"generator.runeStaves.description" = "Choose a few runes, and we will offer runic staves which are made from them. Runic staves can be used as a mascot or a guard.";
