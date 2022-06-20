@@ -13,8 +13,9 @@ public class LibraryRuneCell: LibraryCell {
     public override func bind(node: LibraryNode) -> Void {
         let runeTitle: UILabel = bindRuneTitle(title: node.title!)
         let runeImage: UIImageView = bindRuneImage(url: node.imageUrl!)
+        let tagsCV: UICollectionView = bindTagsCV(with: node.tags!)
         let runeDesc: UILabel = bindRunDescription(description: node.content!)
-                
+        
         self.separatorInset = UIEdgeInsets(top: 0, left: 26, bottom: 0, right: 26)
         
         runeTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -32,10 +33,19 @@ public class LibraryRuneCell: LibraryCell {
             runeImage.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
         
+        tagsCV.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tagsCV.centerXAnchor.constraint(equalTo: centerXAnchor),
+            tagsCV.topAnchor.constraint(equalTo: runeImage.bottomAnchor, constant: 10),
+            tagsCV.leftAnchor.constraint(equalTo: leftAnchor),
+            tagsCV.rightAnchor.constraint(equalTo: rightAnchor),
+            tagsCV.heightAnchor.constraint(equalToConstant: node.tags!.isEmpty ? 0 : (node.tags!.count <= 3) ? 32 : 72)
+        ])
+        
         runeDesc.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             runeDesc.centerXAnchor.constraint(equalTo: centerXAnchor),
-            runeDesc.topAnchor.constraint(equalTo: runeImage.bottomAnchor, constant: 10),
+            runeDesc.topAnchor.constraint(equalTo: tagsCV.bottomAnchor, constant: 10),
             runeDesc.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -26),
             runeDesc.leftAnchor.constraint(equalTo: leftAnchor, constant: 24),
             runeDesc.rightAnchor.constraint(equalTo: rightAnchor, constant: -24)
@@ -51,13 +61,13 @@ public class LibraryRuneCell: LibraryCell {
         runeTitle.contentMode = .center
         
         addSubview(runeTitle)
-                
+        
         return runeTitle
     }
     
     func bindRuneImage(url: String) -> UIImageView {
         let image = UIImage.create(fromUrl: url)
-                
+        
         let size: CGSize = CGSize(width: 109, height: 129)
         let render: UIGraphicsImageRenderer = UIGraphicsImageRenderer(size: size)
         
@@ -74,18 +84,27 @@ public class LibraryRuneCell: LibraryCell {
         return runeImage
     }
     
+    func bindTagsCV(with tags: [String]) -> UICollectionView {
+        let tagsCV = TagsCollectionView()
+        tagsCV.cells = tags
+        
+        addSubview(tagsCV)
+        
+        return tagsCV
+    }
+    
     func bindRunDescription(description: String) -> UILabel {
         let runeDescription = UILabel()
-                 
+        
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.23
         
         let fontSize = DeviceType.iPhoneSE || DeviceType.isIPhone678 ? 16 : 19.heightDependent()
         let attributedText = NSMutableAttributedString(string: description, attributes: [
-                                                        NSMutableAttributedString.Key.paragraphStyle: paragraphStyle,
-                                                        NSMutableAttributedString.Key.font: FontFamily.SFProDisplay.light.font(size: fontSize),
-                                                        NSMutableAttributedString.Key.foregroundColor: UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)])
-
+            NSMutableAttributedString.Key.paragraphStyle: paragraphStyle,
+            NSMutableAttributedString.Key.font: FontFamily.SFProDisplay.light.font(size: fontSize),
+            NSMutableAttributedString.Key.foregroundColor: UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)])
+        
         runeDescription.attributedText = attributedText
         runeDescription.contentMode = .scaleToFill
         runeDescription.numberOfLines = 0
