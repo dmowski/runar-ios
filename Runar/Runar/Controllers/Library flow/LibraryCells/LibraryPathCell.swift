@@ -21,13 +21,11 @@ public class LibraryPathCell: LibraryCell {
                        
         self.addSubview(label)
         
-        label.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            label.widthAnchor.constraint(equalTo: widthAnchor),
-            label.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
-            label.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            label.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
+        label.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(16)
+            make.top.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
     }
     
     private func createLabel(for node: LibraryNode) -> UILabel {
