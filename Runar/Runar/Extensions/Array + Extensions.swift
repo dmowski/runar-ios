@@ -1,3 +1,10 @@
+//
+//  Array + extension.swift
+//  Runar
+//
+//  Created by Runar iOS team
+//
+
 import Foundation
 
 extension Array {

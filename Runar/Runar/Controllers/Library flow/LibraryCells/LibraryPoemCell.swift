@@ -11,6 +11,7 @@ public class LibraryPoemCell: LibraryCell {
     
     // MARK: - Funcs
     public override func bind(node: LibraryNode) -> Void {
+        
         bindTextLabel(text: node.title,
                       font: UIFont.create(withLowSize: 20, withHighSize: 24),
                       color: UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 1),
@@ -21,6 +22,7 @@ public class LibraryPoemCell: LibraryCell {
             textLabel!.widthAnchor.constraint(equalToConstant: 70),
             textLabel!.topAnchor.constraint(equalTo: topAnchor)
         ])
+        
         bindDetailTextLabel(text: node.content, font: UIFont.create(withLowSize: 17, withHighSize: 19), alignment: .center)
         detailTextLabel?.numberOfLines = 0
         detailTextLabel?.lineBreakMode = .byWordWrapping
