@@ -78,7 +78,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return node.children.count + 1
     }
-    
+
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (indexPath.row == 0) {
             return node.type == .core ? CGFloat.leastNormalMagnitude : 42
@@ -86,12 +86,19 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         
         switch node.children[indexPath.row - 1].type {
         case .root:
-            return 112
-        case .menu:
-            if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
-                return 112
+            if node.imageUrl == "" {
+                return 66
             } else {
-                return 90
+                return 112
+            }
+        case .menu:
+            if node.imageUrl == "" {
+                return 66
+            } else {
+                if node.imageUrl == "https://s3.eu-west-2.amazonaws.com/lineform/rnnr_1632491694931_613_(starshaya).png" { return 66 }
+                if node.imageUrl == "https://s3.eu-west-2.amazonaws.com/lineform/rnnr_1632491699913_795_(mlad).png" { return 66 }
+                if node.imageUrl == "https://s3.eu-west-2.amazonaws.com/lineform/rnnr_1632491704338_218_(skazki).png" { return 66 }
+                return 112
             }
         default:
             return UITableView.automaticDimension

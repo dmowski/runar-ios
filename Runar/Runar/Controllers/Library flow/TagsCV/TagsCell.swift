@@ -8,7 +8,9 @@
 import UIKit
 
 class TagsViewCell: UICollectionViewCell {
+
     static let reuseId = "TagsViewCell"
+
     let tagCell: UIView = {
         let tagCell = UIView()
         
@@ -20,6 +22,7 @@ class TagsViewCell: UICollectionViewCell {
         
         return tagCell
     }()
+
     let runeTag: UILabel = {
         let runeTag = UILabel()
         
@@ -29,13 +32,13 @@ class TagsViewCell: UICollectionViewCell {
         
         return runeTag
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         addSubview(tagCell)
         
-        tagCell.widthAnchor.constraint(equalToConstant: 89).isActive = true
+        tagCell.widthAnchor.constraint(equalToConstant: 100).isActive = true
         tagCell.heightAnchor.constraint(equalToConstant: 32).isActive = true
         tagCell.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         tagCell.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -47,9 +50,8 @@ class TagsViewCell: UICollectionViewCell {
         runeTag.centerXAnchor.constraint(equalTo: tagCell.centerXAnchor).isActive = true
         runeTag.centerYAnchor.constraint(equalTo: tagCell.centerYAnchor).isActive = true
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
