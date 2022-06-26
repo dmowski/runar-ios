@@ -12,8 +12,6 @@ public class LibraryRuneCell: LibraryCell {
     // MARK: - Funcs
     public override func bind(node: LibraryNode) -> Void {
         
-        print("====== \(node.tags)")
-        
         let runeTitle: UILabel = bindRuneTitle(title: node.title!)
         let runeImage: UIImageView = bindRuneImage(url: node.imageUrl!)
         let tagsCV: UICollectionView = bindTagsCV(with: node.tags!)

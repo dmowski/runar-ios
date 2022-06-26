@@ -92,13 +92,24 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
                 return 112
             }
         case .menu:
-            if node.imageUrl == "" {
-                return 66
+            if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
+                if node.imageUrl == "" {
+                    return 66
+                } else {
+                    if node.imageUrl == "https://s3.eu-west-2.amazonaws.com/lineform/rnnr_1632491694931_613_(starshaya).png" { return 66 }
+                    if node.imageUrl == "https://s3.eu-west-2.amazonaws.com/lineform/rnnr_1632491699913_795_(mlad).png" { return 66 }
+                    if node.imageUrl == "https://s3.eu-west-2.amazonaws.com/lineform/rnnr_1632491704338_218_(skazki).png" { return 66 }
+                    return 112
+                }
             } else {
-                if node.imageUrl == "https://s3.eu-west-2.amazonaws.com/lineform/rnnr_1632491694931_613_(starshaya).png" { return 66 }
-                if node.imageUrl == "https://s3.eu-west-2.amazonaws.com/lineform/rnnr_1632491699913_795_(mlad).png" { return 66 }
-                if node.imageUrl == "https://s3.eu-west-2.amazonaws.com/lineform/rnnr_1632491704338_218_(skazki).png" { return 66 }
-                return 112
+                if node.imageUrl == "" {
+                    return 66
+                } else {
+                    if node.imageUrl == "https://s3.eu-west-2.amazonaws.com/lineform/rnnr_1632491694931_613_(starshaya).png" { return 66 }
+                    if node.imageUrl == "https://s3.eu-west-2.amazonaws.com/lineform/rnnr_1632491699913_795_(mlad).png" { return 66 }
+                    if node.imageUrl == "https://s3.eu-west-2.amazonaws.com/lineform/rnnr_1632491704338_218_(skazki).png" { return 66 }
+                    return 90
+                }
             }
         default:
             return UITableView.automaticDimension

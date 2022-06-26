@@ -7,9 +7,9 @@
 
 import UIKit
 
-class TagsViewCell: UICollectionViewCell {
+class TagsCell: UICollectionViewCell {
 
-    static let reuseId = "TagsViewCell"
+    static let reuseId = "TagsCell"
 
     let tagCell: UIView = {
         let tagCell = UIView()
@@ -18,7 +18,6 @@ class TagsViewCell: UICollectionViewCell {
         tagCell.layer.cornerRadius = 8
         tagCell.layer.borderWidth = 1
         tagCell.layer.borderColor = UIColor(red: 0.329, green: 0.329, blue: 0.345, alpha: 0.65).cgColor
-        tagCell.translatesAutoresizingMaskIntoConstraints = false
         
         return tagCell
     }()
@@ -35,23 +34,25 @@ class TagsViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        addSubview(tagCell)
-        
-        tagCell.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        tagCell.heightAnchor.constraint(equalToConstant: 32).isActive = true
-        tagCell.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        tagCell.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        
-        tagCell.addSubview(runeTag)
-        
-        runeTag.translatesAutoresizingMaskIntoConstraints = false
-        runeTag.heightAnchor.constraint(equalToConstant: 14).isActive = true
-        runeTag.centerXAnchor.constraint(equalTo: tagCell.centerXAnchor).isActive = true
-        runeTag.centerYAnchor.constraint(equalTo: tagCell.centerYAnchor).isActive = true
+        setupViews()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupViews() {
+        addSubview(tagCell)
+        tagCell.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+            make.width.equalTo(100)
+            make.height.equalTo(32)
+        }
+        
+        tagCell.addSubview(runeTag)
+        runeTag.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+            make.height.equalTo(14)
+        }
     }
 }

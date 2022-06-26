@@ -443,7 +443,7 @@
 			path = WallpaperWithBackground;
 			sourceTree = "<group>";
 		};
-		843DFF452653969C00D6DFE5 /* Cells */ = {
+		843DFF452653969C00D6DFE5 /* LibraryCells */ = {
 			isa = PBXGroup;
 			children = (
 				843DFF4C2653FB5400D6DFE5 /* LibraryCell.swift */,
@@ -454,14 +454,14 @@
 				849ED293266E74B9006E557A /* LibraryMenuCell.swift */,
 				849ED29B26710C0A006E557A /* LibraryPathCell.swift */,
 			);
-			path = Cells;
+			path = LibraryCells;
 			sourceTree = "<group>";
 		};
 		844BF4C9264FE551002C7596 /* Library flow */ = {
 			isa = PBXGroup;
 			children = (
-				9911206A28611036001B8FCC /* TagsCV */,
-				843DFF452653969C00D6DFE5 /* Cells */,
+				9911206A28611036001B8FCC /* TagsCollection */,
+				843DFF452653969C00D6DFE5 /* LibraryCells */,
 				843DFF32265248B900D6DFE5 /* LibraryViewController.swift */,
 				843DFF71265BC50800D6DFE5 /* LibraryNodeViewController.swift */,
 			);
@@ -537,13 +537,13 @@
 			path = Confings;
 			sourceTree = "<group>";
 		};
-		9911206A28611036001B8FCC /* TagsCV */ = {
+		9911206A28611036001B8FCC /* TagsCollection */ = {
 			isa = PBXGroup;
 			children = (
 				9911206B2861107B001B8FCC /* TagsCollectionView.swift */,
 				9911206D28611139001B8FCC /* TagsCell.swift */,
 			);
-			path = TagsCV;
+			path = TagsCollection;
 			sourceTree = "<group>";
 		};
 		9B15E36625FE461E00737306 /* OneRune */ = {
@@ -1425,7 +1425,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = X68879DLV5;
+				DEVELOPMENT_TEAM = FR3LN29YUF;
 				INFOPLIST_FILE = Runar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1448,7 +1448,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = X68879DLV5;
+				DEVELOPMENT_TEAM = FR3LN29YUF;
 				INFOPLIST_FILE = Runar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
