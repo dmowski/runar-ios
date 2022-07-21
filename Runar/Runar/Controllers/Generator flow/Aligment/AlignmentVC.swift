@@ -41,13 +41,17 @@ class AlignmentVC: UIViewController {
     let checkLabel = UILabel()
     let checkStack = UIStackView()
     
+    var isFirstRuneOpen: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         runesViewContainer.update(with: .init(viewController: self, runesLayout: viewModel.runeLayout, didHighlightAllRunes: { [weak self] runes in
             self?.startButton.setTitle(String.interpret, for: .normal)
             self?.startButton.addTarget(self, action: #selector(self?.buttonTaped), for: .touchUpInside)
+            self?.isFirstRuneOpen = true
+        }, firstRuneOpened: {
+            self.isFirstRuneOpen = true
         }))
-        
         scrollViewAlignment.isScrollEnabled = false
         scrollViewAlignment.showsVerticalScrollIndicator = false
         
@@ -135,10 +139,14 @@ class AlignmentVC: UIViewController {
     }
     
     @objc func escapeOnTap (sender: UIButton!) {
-        let viewController = EscapePopUpVC()
-        viewController.setRoot(root: self)
-        viewController.modalPresentationStyle = .overCurrentContext
-        self.present(viewController, animated: true)
+        if isFirstRuneOpen == true {
+            let viewController = EscapePopUpVC()
+            viewController.setRoot(root: self)
+            viewController.modalPresentationStyle = .overCurrentContext
+            self.present(viewController, animated: true)
+        } else {
+            navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     // MARK: - NameLabel
@@ -239,6 +247,7 @@ class AlignmentVC: UIViewController {
     
     @objc func openButton (sender: UIButton!) {
         self.runesViewContainer.openHighlightedButton()
+        isFirstRuneOpen = true
     }
     
     // MARK: - ContainerView
@@ -255,7 +264,7 @@ class AlignmentVC: UIViewController {
     }
     
     // MARK: - ShowButton and label
-    func setUpShowButton(){
+    func setUpShowButton() {
         showButton.translatesAutoresizingMaskIntoConstraints = false
         showButton.setImage(Assets.learnAboutTheAlignment.image, for: .normal)
         showButton.addTarget(self, action: #selector(self.openDescriptionPopup), for: .touchUpInside)

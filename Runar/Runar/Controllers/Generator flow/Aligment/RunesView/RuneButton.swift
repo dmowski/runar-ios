@@ -8,7 +8,7 @@
 import UIKit
 
 public class RuneButton: UIButton {
-    
+        
     //-------------------------------------------------
     // MARK: - Nested types
     //-------------------------------------------------
@@ -107,39 +107,36 @@ public class RuneButton: UIButton {
     
     
     private func animateButtonTap(completion: @escaping (Bool) -> ()) {
-            UIView.animate(withDuration: 0.05, delay: 0.0, options: [.allowUserInteraction, .curveEaseIn], animations: {
-                self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-            }, completion: {
-                (value: Bool) in
-                completion(value)
-            })
-        }
-        
-        private func animateButtonDown(completion: @escaping (Bool) -> ()) {
-            
-            UIView.animate(withDuration: 0.25, delay: 0.0, options: [.allowUserInteraction, .curveEaseOut], animations: {
-                self.transform = CGAffineTransform.identity
-            }, completion: {
-                (value: Bool) in
-                completion(value)
-            })
-        }
-        
-        public func animateButton(completion: @escaping (Bool) -> ())  {
-            animateButtonTap(completion: { [weak self] _ in
-                self?.animateButtonDown(completion: completion)
-            })
-        }
+        UIView.animate(withDuration: 0.05, delay: 0.0, options: [.allowUserInteraction, .curveEaseIn], animations: {
+            self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        }, completion: {
+            (value: Bool) in
+            completion(value)
+        })
+    }
+    
+    private func animateButtonDown(completion: @escaping (Bool) -> ()) {
+        UIView.animate(withDuration: 0.25, delay: 0.0, options: [.allowUserInteraction, .curveEaseOut], animations: {
+            self.transform = CGAffineTransform.identity
+        }, completion: {
+            (value: Bool) in
+            completion(value)
+        })
+    }
+    
+    public func animateButton(completion: @escaping (Bool) -> ()) {
+        animateButtonTap(completion: { [weak self] _ in
+            self?.animateButtonDown(completion: completion)
+        })
+    }
     
     func addDark() {
         darkImage = UIImageView(frame: CGRect(x: -20, y: -20, width: self.frame.size.width + 40, height: self.frame.size.height + 36))
         darkImage.image = UIImage(named: "darkRune")
         self.addSubview(darkImage)
-
     }
     
-    
-    func removeDark(){
+    func removeDark() {
         darkImage.removeFromSuperview()
     }
     
@@ -150,9 +147,8 @@ public class RuneButton: UIButton {
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
-
     }
-    
+
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         switch self.runeState {
@@ -161,25 +157,18 @@ public class RuneButton: UIButton {
         case .rune:
             guard let runeType = runeType else {return }
             self.viewModel?.runeInfo(runeType, self.frame.origin)
-
         default:
              break
         }
-    
-        transform = .identity
 
+        transform = .identity
     }
-    
+
     public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
         transform = .identity
-
-
     }
-
-    }
-
-
+}
 
     //-------------------------------------------------
     // MARK: - Constants
@@ -205,5 +194,3 @@ private extension RuneButton {
         }
     }
 }
-
-
