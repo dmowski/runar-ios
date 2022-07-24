@@ -58,6 +58,8 @@ internal enum L10n {
   internal static let situation = L10n.tr("Localizable", "situation")
   /// Present one
   internal static let situationInRealTime = L10n.tr("Localizable", "situationInRealTime")
+  /// Skip
+  internal static let skip = L10n.tr("Localizable", "skip")
   /// Solution
   internal static let solution = L10n.tr("Localizable", "solution")
   /// Solution
@@ -1735,6 +1737,31 @@ internal enum L10n {
       /// Runic patterns
       internal static let title = L10n.tr("Localizable", "layouts.generator.title")
     }
+  }
+
+  internal enum Monetization {
+    /// 8 types of rune layouts
+    internal static let firstDescriptionTitle = L10n.tr("Localizable", "monetization.firstDescriptionTitle")
+    /// Runway pattern generator
+    internal static let fourthDescriptionTitle = L10n.tr("Localizable", "monetization.fourthDescriptionTitle")
+    /// Go premium
+    internal static let goPremiumButton = L10n.tr("Localizable", "monetization.goPremiumButton")
+    /// Premium status
+    internal static let mainTitleMonetization = L10n.tr("Localizable", "monetization.mainTitleMonetization")
+    /// Privacy Policy
+    internal static let privacyPolicyButton = L10n.tr("Localizable", "monetization.privacyPolicyButton")
+    /// Restore
+    internal static let restoreButton = L10n.tr("Localizable", "monetization.restoreButton")
+    /// Description of all runes
+    internal static let secondDescriptionTitle = L10n.tr("Localizable", "monetization.secondDescriptionTitle")
+    /// Get full access to Runar
+    internal static let subTitle = L10n.tr("Localizable", "monetization.subTitle")
+    /// Terms of use
+    internal static let termsOfUseButton = L10n.tr("Localizable", "monetization.termsOfUseButton")
+    /// library
+    internal static let thirdDescriptionTitle = L10n.tr("Localizable", "monetization.thirdDescriptionTitle")
+    /// Runar premium
+    internal static let title = L10n.tr("Localizable", "monetization.title")
   }
 
   internal enum Music {
