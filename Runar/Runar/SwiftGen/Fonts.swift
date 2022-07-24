@@ -43,10 +43,11 @@ internal enum FontFamily {
     internal static let all: [FontConvertible] = [black, blackItalic, bold, boldItalic, italic, light, lightItalic, medium, mediumItalic, regular, thin, thinItalic]
   }
   internal enum SFProDisplay {
+    internal static let bold = FontConvertible(name: "SFProDisplay-Bold", family: "SF Pro Display", path: "SFProDisplay-Bold.ttf")
     internal static let light = FontConvertible(name: "SFProDisplay-Light", family: "SF Pro Display", path: "SFProDisplay-Light.ttf")
     internal static let medium = FontConvertible(name: "SFProDisplay-Medium", family: "SF Pro Display", path: "SFProDisplay-Medium.ttf")
     internal static let regular = FontConvertible(name: "SFProDisplay-Regular", family: "SF Pro Display", path: "SFProDisplay-Regular.ttf")
-    internal static let all: [FontConvertible] = [light, medium, regular]
+    internal static let all: [FontConvertible] = [bold, light, medium, regular]
   }
   internal static let allCustomFonts: [FontConvertible] = [AmaticSC.all, PoiretOne.all, Roboto.all, SFProDisplay.all].flatMap { $0 }
   internal static func registerAllCustomFonts() {

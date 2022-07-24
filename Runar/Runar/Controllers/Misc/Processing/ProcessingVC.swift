@@ -66,8 +66,6 @@ class ProcessingVC: UIViewController {
         
         var emptyWallpapersUrl: String
         
-        
-        
         guard let data = RunarApi.getEmptyWallpapersData(runsIds: runesIds) else {
             fatalError("Data of runes is empty")
         }

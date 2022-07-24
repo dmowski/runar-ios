@@ -118,6 +118,8 @@ internal enum Assets {
     internal static let uruz = ImageAsset(name: "LayoutsRunes/Uruz")
     internal static let wunji = ImageAsset(name: "LayoutsRunes/Wunji")
   }
+  internal static let checkBox = ImageAsset(name: "checkBox")
+  internal static let mainMonetizationImage = ImageAsset(name: "mainMonetizationImage")
   internal static let backIcon = ImageAsset(name: "backIcon")
   internal static let danheim = ImageAsset(name: "Danheim")
   internal static let led = ImageAsset(name: "Led")

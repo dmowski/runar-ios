@@ -63,6 +63,7 @@ Runar — это приложение для гадания на скандин�
 "drawRune" = "Вытянуть руну";
 "saveResult" = "Сохранить результат";
 "complete" = "Завершить";
+"skip" = "Пропустить";
 
 "present" = "Настоящее";
 "strength" = "Силы, влияющие на вас";
@@ -112,6 +113,20 @@ Runar — это приложение для гадания на скандин�
 "generator.shareWallpaperHeader.title" = "Runar изображение для обоев";
 "generator.alertHeader.title" = "Рунный узор сохранен";
 "generator.alertAction.title" = "Хорошо";
+
+"monetization.title" = "Runar премиум";
+"monetization.subTitle" = "Получи полный доступ к Runar";
+"monetization.firstDescriptionTitle" = "8 видов раскладов рун";
+"monetization.secondDescriptionTitle" = "Описанию всех рун";
+"monetization.thirdDescriptionTitle" = "Библиотека";
+"monetization.fourthDescriptionTitle" = "Генератор рунных узоров";
+"monetization.mainTitleMonetization" = "Premium status";
+
+"monetization.goPremiumButton" = "Go premium";
+"monetization.termsOfUseButton" = "Terms of use";
+"monetization.privacyPolicyButton" = "Privacy Policy";
+"monetization.restoreButton" = "Restore";
+
 
 //-------------------------------------------------
 // MARK: - Localizable text
