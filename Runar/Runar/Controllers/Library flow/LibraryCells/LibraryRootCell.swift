@@ -28,7 +28,7 @@ public class LibraryRootCell: LibraryCell {
             make.trailing.equalToSuperview().offset(-56)
             make.bottom.equalToSuperview().offset(-19)
         })
-        
+
         bindImageView(url: node.imageUrl!)
         imageView?.snp.makeConstraints({ make in
             make.leading.equalToSuperview().offset(16)

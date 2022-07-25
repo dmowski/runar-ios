@@ -9,7 +9,6 @@ import UIKit
 import Combine
 
 class TwoRuneView: UIView, RuneViewProtocol {
-   
     
     //-------------------------------------------------
     // MARK: - Variables
@@ -29,6 +28,7 @@ class TwoRuneView: UIView, RuneViewProtocol {
         
         setUpContent()
     }
+
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
         
@@ -69,5 +69,4 @@ class TwoRuneView: UIView, RuneViewProtocol {
             buttonTwo.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor)
         ])
     }
-
 }

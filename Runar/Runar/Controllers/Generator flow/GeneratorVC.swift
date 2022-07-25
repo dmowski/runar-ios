@@ -8,27 +8,27 @@
 import UIKit
 
 class GeneratorVC: UIViewController {
-    
+
     let runicPatternView = UIControl()
     let runicPatternLabel = UILabel()
     let runicPatternImageView = UIImageView()
-    
+
     let commingSoonLabel = UILabel()
-    
+
     let formulaView = UIControl()
     let formulaLabel = UILabel()
     let formulaImageView = UIImageView()
-    
+
     let stavesView = UIControl()
     let stavesLabel = UILabel()
     let stavesImageView = UIImageView()
-    
+
     let popupVC: GenerationPopUpViewController = {
         let viewController = GenerationPopUpViewController()
         viewController.modalPresentationStyle = .overCurrentContext
         return viewController
     }()
-    
+
     public override func viewDidLoad() {
         super.viewDidLoad()
         RunarLayout.initBackground(for: view, with: .mainFire)
@@ -38,12 +38,12 @@ class GeneratorVC: UIViewController {
         configureFormulaView()
         configureStavesView()
     }
-    
+
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureNavigationBar()
     }
-    
+
     private func configureNavigationBar() {
 
         if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
@@ -55,9 +55,9 @@ class GeneratorVC: UIViewController {
         }
         navigationController?.setStatusBar(backgroundColor: .navBarBackground)
     }
-    
+
     private func configureRunicPatternView() {
-        
+
         runicPatternView.clipsToBounds = true
         runicPatternView.layer.cornerRadius = 16
         runicPatternView.layer.borderWidth = 1
@@ -78,7 +78,7 @@ class GeneratorVC: UIViewController {
                 make.height.equalTo(self.view.bounds.height * 0.32)
             }
         }
-        
+
         runicPatternLabel.font = FontFamily.AmaticSC.bold.font(size: 36)
         runicPatternLabel.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         runicPatternLabel.textAlignment = .center
@@ -93,7 +93,7 @@ class GeneratorVC: UIViewController {
             make.top.equalToSuperview().offset(16)
             make.height.equalTo(42)
         }
-        
+
         runicPatternImageView.contentMode = .scaleAspectFit
         runicPatternImageView.image = Assets.runePattern.image
         runicPatternView.addSubviews(runicPatternImageView)
@@ -103,7 +103,7 @@ class GeneratorVC: UIViewController {
             make.bottom.equalToSuperview()
         }
     }
-    
+
     private func configureCommingSoonLabel() {
 
         commingSoonLabel.font = FontFamily.AmaticSC.bold.font(size: 24)
@@ -125,7 +125,7 @@ class GeneratorVC: UIViewController {
             make.height.equalTo(24)
         }
     }
-    
+
     private func configureFormulaView() {
 
         formulaView.clipsToBounds = true

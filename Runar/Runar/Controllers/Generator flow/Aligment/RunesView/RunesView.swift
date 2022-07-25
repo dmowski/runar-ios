@@ -18,11 +18,14 @@ public class RunesView: UIView {
     
     public class ViewModel {
         public let didHighlightAllRunes: ([RuneType]) -> Void
+        public let firstRuneOpened: () -> Void
         public var buttonFrames: [CGRect] = []
-        public init(viewController: UIViewController, runesLayout: RuneLayout, didHighlightAllRunes: @escaping ([RuneType]) -> Void) {
+        public init(viewController: UIViewController, runesLayout: RuneLayout, didHighlightAllRunes: @escaping ([RuneType]) -> Void,
+                    firstRuneOpened: @escaping () -> Void) {
             self.didHighlightAllRunes = didHighlightAllRunes
             self.viewController = viewController as? AlignmentVC
             self.runeLayout = runesLayout
+            self.firstRuneOpened = firstRuneOpened
         }
         
         internal var viewController: AlignmentVC?
@@ -97,17 +100,17 @@ public class RunesView: UIView {
     }
     
     public func openHighlightedButton() {
-            guard let selectedRuneView = enumeratedRuneViews[runeLayout] else {
-                assertionFailure("There is no selected RuneView with layout: \(runeLayout)")
-                return
-            }
-            
+        guard let selectedRuneView = enumeratedRuneViews[runeLayout] else {
+            assertionFailure("There is no selected RuneView with layout: \(runeLayout)")
+            return
+        }
+        
         guard let (_, highlightedButton) = selectedRuneView.highlightedIndexAndButton else { return }
-
-            highlightedButton.animateButton(completion: { [weak selectedRuneView] _ in
+        
+        highlightedButton.animateButton(completion: { [weak selectedRuneView] _ in
             selectedRuneView?.openHighlightedButton()
             selectedRuneView?.highlightNextButton()
             selectedRuneView?.verifyDidHighlightAllButtons()
-            })
-        }
+        })
+    }
 }
