@@ -8,10 +8,8 @@
 import Combine
 import UIKit
 
-public class FirstRuneView: UIView, RuneViewProtocol {
-    
-    
-    
+public class FirstRuneView: UIView, RuneViewProtocol {    
+
     //-------------------------------------------------
     // MARK: - Variables
     //-------------------------------------------------
@@ -30,6 +28,7 @@ public class FirstRuneView: UIView, RuneViewProtocol {
         
         setUpContent()
     }
+    
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
         
@@ -37,7 +36,6 @@ public class FirstRuneView: UIView, RuneViewProtocol {
     }
     
     private func setUpContent() {
-        
         configureIndexesAndButtons(count: 1, availableRunes: RuneType.allCases(subtype: .random))
         addButtons()
         setupViewConstraints()
