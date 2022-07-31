@@ -1962,7 +1962,13 @@ internal enum L10n {
     internal static let allow = L10n.tr("Localizable", "tabbar.allow")
     /// Cancel
     internal static let cancel = L10n.tr("Localizable", "tabbar.cancel")
-    /// Application version 1.0\n\nRunar is an app for reading Scandinavian runes and studying mythology and fairy tales. Contains 8 types of rune layouts & runes interpretation.\n\nWith the permission of the copyright holders, the following musical compositions are used in the application:\n- Lyod (tracks "Black rook", "My mother told"), https://lyod1.bandcamp.com/releases\n- Danheim (tracks "Runar", "Kala"), https://danheimmusic.com
+    /// Application version 1.0
+    /// 
+    /// Runar is an app for reading Scandinavian runes and studying mythology and fairy tales. Contains 8 types of rune layouts & runes interpretation.
+    /// 
+    /// With the permission of the copyright holders, the following musical compositions are used in the application:
+    /// - Lyod (tracks "Black rook", "My mother told"), https://lyod1.bandcamp.com/releases
+    /// - Danheim (tracks "Runar", "Kala"), https://danheimmusic.com
     internal static let descriptionAppText = L10n.tr("Localizable", "tabbar.descriptionAppText")
     /// Generator
     internal static let generator = L10n.tr("Localizable", "tabbar.generator")
