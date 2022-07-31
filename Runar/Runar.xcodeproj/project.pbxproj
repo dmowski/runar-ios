@@ -65,6 +65,9 @@
 		84D7E5F02649EC6700772EE3 /* LibraryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E5EF2649EC6700772EE3 /* LibraryData.swift */; };
 		84D7E6022649F37700772EE3 /* LibraryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E6012649F37700772EE3 /* LibraryNode.swift */; };
 		84D7E60B264BAED300772EE3 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E60A264BAED300772EE3 /* Environment.swift */; };
+		96BC4A62289150E5004D706E /* OnboardingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BC4A61289150E5004D706E /* OnboardingScreenVC.swift */; };
+		96BC4A642891778A004D706E /* OnboardingScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BC4A632891778A004D706E /* OnboardingScreenCell.swift */; };
+		96E0AC852891D180003FF83B /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E0AC842891D180003FF83B /* OnboardingScreen.swift */; };
 		9911206C2861107B001B8FCC /* TagsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9911206B2861107B001B8FCC /* TagsCollectionView.swift */; };
 		9911206E28611139001B8FCC /* TagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9911206D28611139001B8FCC /* TagsCell.swift */; };
 		9B0CB8862607922B00B2AF60 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0CB8852607922B00B2AF60 /* DescriptionView.swift */; };
@@ -223,6 +226,9 @@
 		84D7E6012649F37700772EE3 /* LibraryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNode.swift; sourceTree = "<group>"; };
 		84D7E60A264BAED300772EE3 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96BC4A61289150E5004D706E /* OnboardingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreenVC.swift; sourceTree = "<group>"; };
+		96BC4A632891778A004D706E /* OnboardingScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreenCell.swift; sourceTree = "<group>"; };
+		96E0AC842891D180003FF83B /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		9911206B2861107B001B8FCC /* TagsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionView.swift; sourceTree = "<group>"; };
 		9911206D28611139001B8FCC /* TagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCell.swift; sourceTree = "<group>"; };
 		9B0CB8852607922B00B2AF60 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
@@ -445,7 +451,11 @@
 				84D7E6012649F37700772EE3 /* LibraryNode.swift */,
 				8441066727063C5400CD8B56 /* GenerationRuneModel.swift */,
 				C2C5584A283D9E33006B053C /* SlectedRuneModel.swift */,
+<<<<<<< HEAD
 				C2B10B0628C4D58600F9BCF0 /* BindableGestureRecognizer.swift */,
+=======
+				96E0AC842891D180003FF83B /* OnboardingScreen.swift */,
+>>>>>>> 0fc3605 (Added Onboarding Screen UI)
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -559,6 +569,15 @@
 				84D7E60A264BAED300772EE3 /* Environment.swift */,
 			);
 			path = Confings;
+			sourceTree = "<group>";
+		};
+		96BC4A6028915088004D706E /* OnboardingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				96BC4A61289150E5004D706E /* OnboardingScreenVC.swift */,
+				96BC4A632891778A004D706E /* OnboardingScreenCell.swift */,
+			);
+			path = OnboardingScreen;
 			sourceTree = "<group>";
 		};
 		9911206A28611036001B8FCC /* TagsCollection */ = {
@@ -792,7 +811,11 @@
 		C22B4DB02858A86C00F6245C /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				C2953E5B28896AFB00EA297D /* Monetization */,
+=======
+				96BC4A6028915088004D706E /* OnboardingScreen */,
+>>>>>>> 0fc3605 (Added Onboarding Screen UI)
 				9B5F5BB3261CD58F00A7454F /* Music */,
 				199A678925F836C20013DE5D /* TabBarController */,
 				9B739E0225CD77E900726B30 /* Processing */,
@@ -1198,6 +1221,7 @@
 				849ED294266E74B9006E557A /* LibraryMenuCell.swift in Sources */,
 				843DFF7D265D66ED00D6DFE5 /* MemoryStorage.swift in Sources */,
 				C2C5584F283D9F59006B053C /* SelectedRuneCell.swift in Sources */,
+				96BC4A62289150E5004D706E /* OnboardingScreenVC.swift in Sources */,
 				84410672270ADA0400CD8B56 /* SelectedRuneCollectionView.swift in Sources */,
 				19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */,
 				C2953E5D2889736400EA297D /* MonetizationVC.swift in Sources */,
@@ -1254,6 +1278,7 @@
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
 				9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */,
 				8441066D27077A2700CD8B56 /* SelectionRuneVC.swift in Sources */,
+				96BC4A642891778A004D706E /* OnboardingScreenCell.swift in Sources */,
 				845D26E42738259E00449D34 /* ChoosedWallpaperVC.swift in Sources */,
 				9B739E0625CD77E900726B30 /* ProcessingVM.swift in Sources */,
 				843DFF33265248B900D6DFE5 /* LibraryViewController.swift in Sources */,
@@ -1282,6 +1307,7 @@
 				1987AACF25BDCDF000BB3655 /* EightRuneView.swift in Sources */,
 				191D32D025B7C46A001DC210 /* Localizable.swift in Sources */,
 				849ED28F266E3457006E557A /* LibraryRootCell.swift in Sources */,
+				96E0AC852891D180003FF83B /* OnboardingScreen.swift in Sources */,
 				1987AAC025BDCDBF00BB3655 /* FiveRuneView.swift in Sources */,
 				9BD98CC02628CD1D00F3BBD7 /* EscapePopUpVC.swift in Sources */,
 				199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */,
