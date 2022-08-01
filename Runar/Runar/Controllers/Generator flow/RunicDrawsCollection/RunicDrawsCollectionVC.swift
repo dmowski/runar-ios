@@ -111,7 +111,7 @@ class RunicDrawsCollectionVC: UICollectionViewController {
         
         // Change to ..action: #selector(self.goToGeneratorTab)
         
-        generatorButton.addTarget(self, action: #selector(self.goToOnboardingScreen), for: .touchUpInside)
+        generatorButton.addTarget(self, action: #selector(self.goToGeneratorTab), for: .touchUpInside)
         NSLayoutConstraint.activate([
             generatorButton.topAnchor.constraint(equalTo: generatorView.topAnchor),
             generatorButton.leftAnchor.constraint(equalTo: generatorView.leftAnchor),
@@ -157,9 +157,9 @@ class RunicDrawsCollectionVC: UICollectionViewController {
     //MARK: - Onboarding Test reference
     
     
-    @IBAction func goToOnboardingScreen() {
-        self.navigationController?.pushViewController(OnboardingScreenVC(), animated: true)
-    }
+//    @IBAction func goToOnboardingScreen() {
+//        self.navigationController?.pushViewController(OnboardingScreenVC(), animated: true)
+//    }
     
     //TODO: - No Internet
     //    private func showAllert() {

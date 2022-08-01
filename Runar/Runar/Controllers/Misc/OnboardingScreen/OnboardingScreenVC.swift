@@ -111,7 +111,6 @@ class OnboardingScreenVC: UIViewController {
         onboardingPageControl.numberOfPages = 6
         onboardingPageControl.currentPageIndicatorTintColor = UIColor(red: 1, green: 0.753, blue: 0.275, alpha: 1)
         onboardingPageControl.isUserInteractionEnabled = false
-        
         self.view.addSubview(onboardingPageControl)
         onboardingPageControl.snp.makeConstraints { make in
             make.top.equalTo(onboardingNextSlideButton.snp.bottom).offset(60)
@@ -142,7 +141,7 @@ class OnboardingScreenVC: UIViewController {
 extension OnboardingScreenVC: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return onboardingSlides.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -157,7 +156,7 @@ extension OnboardingScreenVC: UICollectionViewDelegate,UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
+        return 0
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let width = scrollView.frame.width
