@@ -62,12 +62,12 @@ class GeneratorView: UIView {
                 make.topMargin.equalToSuperview().offset(52)
                 make.leading.equalToSuperview().offset(36)
                 make.trailing.equalToSuperview().offset(-36)
-                make.height.equalTo(self).multipliedBy(0.28)
+                make.height.equalTo(self.bounds.height).multipliedBy(0.28)
             } else {
                 make.topMargin.equalToSuperview().offset(32)
                 make.leading.equalToSuperview().offset(27)
                 make.trailing.equalToSuperview().offset(-27)
-                make.height.equalTo(self).multipliedBy(0.32)
+                make.height.equalTo(self.bounds.height).multipliedBy(0.32)
             }
         }
         
@@ -131,12 +131,12 @@ class GeneratorView: UIView {
                 make.top.equalTo(commingSoonLabel.snp.bottom).offset(10)
                 make.leading.equalToSuperview().offset(107)
                 make.trailing.equalToSuperview().offset(-107)
-                make.height.equalTo(self).multipliedBy(0.13)
+                make.height.equalTo(self.bounds.height).multipliedBy(0.13)
             } else {
                 make.top.equalTo(commingSoonLabel.snp.bottom).offset(7)
                 make.leading.equalToSuperview().offset(80)
                 make.trailing.equalToSuperview().offset(-80)
-                make.height.equalTo(self).multipliedBy(0.17)
+                make.height.equalTo(self.bounds.height).multipliedBy(0.17)
             }
         }
         
@@ -179,12 +179,12 @@ class GeneratorView: UIView {
                 make.top.equalTo(formulaView.snp.bottom).offset(18)
                 make.leading.equalToSuperview().offset(107)
                 make.trailing.equalToSuperview().offset(-107)
-                make.height.equalTo(self).multipliedBy(0.13)
+                make.height.equalTo(self.bounds.height).multipliedBy(0.13)
             } else {
                 make.top.equalTo(formulaView.snp.bottom).offset(12)
                 make.leading.equalToSuperview().offset(80)
                 make.trailing.equalToSuperview().offset(-80)
-                make.height.equalTo(self).multipliedBy(0.17)
+                make.height.equalTo(self.bounds.height).multipliedBy(0.17)
             }
         }
         
