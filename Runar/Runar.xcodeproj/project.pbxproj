@@ -119,6 +119,8 @@
 		9BD98CA42628A8B800F3BBD7 /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD98CA32628A8B800F3BBD7 /* SFProDisplay-Medium.ttf */; };
 		9BD98CC02628CD1D00F3BBD7 /* EscapePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpVC.swift */; };
 		9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */; };
+		C21EA5A52898789B00ADFDED /* GeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21EA5A42898789B00ADFDED /* GeneratorView.swift */; };
+		C21EA5A7289878AF00ADFDED /* GeneratorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21EA5A6289878AF00ADFDED /* GeneratorModel.swift */; };
 		C22B4DB42858AD2800F6245C /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B4DB32858AD2800F6245C /* String + Extensions.swift */; };
 		C22F6E4127C3CEFF005F8B66 /* EmptyWallpaperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */; };
 		C278B66127C43FAB00EFBD2C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */; };
@@ -276,6 +278,8 @@
 		9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscapePopUpVC.swift; sourceTree = "<group>"; };
 		9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneDescriptionPopUp.swift; sourceTree = "<group>"; };
 		9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C21EA5A42898789B00ADFDED /* GeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorView.swift; sourceTree = "<group>"; };
+		C21EA5A6289878AF00ADFDED /* GeneratorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorModel.swift; sourceTree = "<group>"; };
 		C22B4DB32858AD2800F6245C /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyWallpaperVC.swift; sourceTree = "<group>"; };
 		C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
@@ -818,6 +822,8 @@
 			isa = PBXGroup;
 			children = (
 				8452A5F626F3A3700069DEE5 /* GeneratorVC.swift */,
+				C21EA5A42898789B00ADFDED /* GeneratorView.swift */,
+				C21EA5A6289878AF00ADFDED /* GeneratorModel.swift */,
 			);
 			name = Generator;
 			sourceTree = "<group>";
@@ -944,7 +950,6 @@
 		9BD228F2258A321B00E17E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = NO;
 				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
@@ -1214,6 +1219,7 @@
 				8441066D27077A2700CD8B56 /* SelectionRuneVC.swift in Sources */,
 				845D26E42738259E00449D34 /* ChoosedWallpaperVC.swift in Sources */,
 				9B739E0625CD77E900726B30 /* ProcessingVM.swift in Sources */,
+				C21EA5A52898789B00ADFDED /* GeneratorView.swift in Sources */,
 				843DFF33265248B900D6DFE5 /* LibraryViewController.swift in Sources */,
 				9B15E37025FE4BFC00737306 /* TopLineView.swift in Sources */,
 				C2C55847283D9CEE006B053C /* UIButton.swift in Sources */,
@@ -1239,6 +1245,7 @@
 				84D7E6022649F37700772EE3 /* LibraryNode.swift in Sources */,
 				1987AACF25BDCDF000BB3655 /* EightRuneView.swift in Sources */,
 				191D32D025B7C46A001DC210 /* Localizable.swift in Sources */,
+				C21EA5A7289878AF00ADFDED /* GeneratorModel.swift in Sources */,
 				849ED28F266E3457006E557A /* LibraryRootCell.swift in Sources */,
 				1987AAC025BDCDBF00BB3655 /* FiveRuneView.swift in Sources */,
 				9BD98CC02628CD1D00F3BBD7 /* EscapePopUpVC.swift in Sources */,
