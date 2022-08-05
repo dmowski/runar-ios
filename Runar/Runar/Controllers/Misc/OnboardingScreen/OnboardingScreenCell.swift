@@ -8,9 +8,7 @@
 import UIKit
 
 class OnboardingScreenCell: UICollectionViewCell {
-    
-    static let cellIdentifier = "cell"
-    
+        
     let onboardingSlideTitle = UILabel()
     let onboardingDescription = UILabel()
     let onboardingImageView = UIImageView()

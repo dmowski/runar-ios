@@ -152,14 +152,7 @@ class RunicDrawsCollectionVC: UICollectionViewController {
     @IBAction func goToGeneratorTab() {
         self.tabBarController?.selectedIndex = 2
     }
-    
-    
-    //MARK: - Onboarding Test reference
-    
-    
-//    @IBAction func goToOnboardingScreen() {
-//        self.navigationController?.pushViewController(OnboardingScreenVC(), animated: true)
-//    }
+
     
     //TODO: - No Internet
     //    private func showAllert() {

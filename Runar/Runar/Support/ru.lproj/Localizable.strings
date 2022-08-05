@@ -91,6 +91,10 @@ Runar — это приложение для гадания на скандин�
 "music.blackRook" = "Черная Ладья";
 "music.myMotherTold" = "Мать моя сказала";
 
+"onboarding.nextScreen" = "Далее";
+"onboarding.start" = "Начать";
+"onboarding.skip" = "Пропустить";
+
 "generator.runePattern.title" = "Рунный узор";
 "generator.runeFormula.title" = "Рунная Формула";
 "generator.runeStaves.title" = "Рунный Став";
