@@ -18,9 +18,9 @@ class OnboardingScreenVC: UIViewController {
         didSet {
             onboardingPageControl.currentPage = currentPage
             if currentPage == onboardingSlides.count - 1 {
-                onboardingNextSlideButton.setTitle("Начать", for: .normal)
+                onboardingNextSlideButton.setTitle(L10n.Onboarding.skip, for: .normal)
             } else {
-                onboardingNextSlideButton.setTitle("Далее", for: .normal)
+                onboardingNextSlideButton.setTitle(L10n.Onboarding.nextScreen, for: .normal)
             }
         }
     }
@@ -54,7 +54,7 @@ class OnboardingScreenVC: UIViewController {
     
     private func configureSkipButton() {
         onboardingSkipButton.backgroundColor = .clear
-        onboardingSkipButton.setTitle("Пропустить", for: .normal)
+        onboardingSkipButton.setTitle(L10n.Onboarding.skip, for: .normal)
         onboardingSkipButton.titleLabel?.font = UIFont(name: "SFProText-Regular", size: 15)
         onboardingSkipButton.titleLabel?.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.7)
         self.view.addSubview(onboardingSkipButton)
@@ -68,7 +68,7 @@ class OnboardingScreenVC: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        collectionView.register(OnboardingScreenCell.self, forCellWithReuseIdentifier: OnboardingScreenCell.cellIdentifier)
+        collectionView.register(OnboardingScreenCell.self, forCellWithReuseIdentifier: String(describing: OnboardingScreenCell.self))
         collectionView.backgroundColor = .clear
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
@@ -88,7 +88,7 @@ class OnboardingScreenVC: UIViewController {
         onboardingNextSlideButton.layer.cornerRadius = radiusConstant
         let borderConstant: CGFloat = DeviceType.iPhoneSE ? 0.82 : 1
         onboardingNextSlideButton.layer.borderWidth = borderConstant
-        onboardingNextSlideButton.setTitle("Далее", for: .normal)
+        onboardingNextSlideButton.setTitle(L10n.Onboarding.nextScreen, for: .normal)
         onboardingNextSlideButton.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
         onboardingNextSlideButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
         onboardingNextSlideButton.translatesAutoresizingMaskIntoConstraints = false
@@ -145,7 +145,7 @@ extension OnboardingScreenVC: UICollectionViewDelegate,UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingScreenCell.cellIdentifier, for: indexPath) as! OnboardingScreenCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OnboardingScreenCell.self), for: indexPath) as! OnboardingScreenCell
         let slides = onboardingSlides[indexPath.item]
         cell.configureOnboardingCell(with: slides)
         return cell

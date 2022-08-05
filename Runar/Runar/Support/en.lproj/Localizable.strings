@@ -90,6 +90,10 @@ With the permission of the copyright holders, the following musical compositions
 "music.blackRook" = "Black rook";
 "music.myMotherTold" = "My mother told";
 
+"onboarding.nextScreen" = "Next";
+"onboarding.start" = "Start";
+"onboarding.skip" = "Skip";
+
 "generator.runePattern.title" = "Runic pattern";
 "generator.runeFormula.title" = "Runic formula";
 "generator.runeStaves.title" = "Runic staves";

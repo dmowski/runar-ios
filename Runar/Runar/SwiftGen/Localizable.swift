@@ -1895,6 +1895,15 @@ internal enum L10n {
     }
   }
 
+  internal enum Onboarding {
+    /// Next
+    internal static let nextScreen = L10n.tr("Localizable", "onboarding.nextScreen")
+    /// Skip
+    internal static let skip = L10n.tr("Localizable", "onboarding.skip")
+    /// Start
+    internal static let start = L10n.tr("Localizable", "onboarding.start")
+  }
+
   internal enum PopUp {
     /// No
     internal static let no = L10n.tr("Localizable", "popUp.no")
