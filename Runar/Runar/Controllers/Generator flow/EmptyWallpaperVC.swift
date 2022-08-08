@@ -16,10 +16,8 @@ extension String {
 }
 
 public class EmptyWallpaperVC: UIViewController {
-    
-    var wallpaperImagesModel: RuneImages
+
     var runesIds: [String]
-    var wallpapersUrl: String
     
     let mainTitle: UILabel = {
         let title = UILabel()
@@ -81,10 +79,8 @@ public class EmptyWallpaperVC: UIViewController {
         return nextButton
     }()
 
-    init(wallpaperImagesModel: RuneImages, runesIds: [String], wallpapersUrl: String) {
-        self.wallpaperImagesModel = wallpaperImagesModel
+    init(runesIds: [String]) {
         self.runesIds = runesIds
-        self.wallpapersUrl = wallpapersUrl
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -96,8 +92,9 @@ public class EmptyWallpaperVC: UIViewController {
         super.viewDidLoad()
         RunarLayout.initBackground(for: view, with: .mainFire)
 
-        imageView.image = wallpaperImagesModel.emptyWallpapersImage ?? Assets.emptyErrorImage.image
+        imageView.image = ImageFileManager.shared.readImageFromFile(Images.emptyWallpapersImage.rawValue)
         setupViews()
+        updateEmptyVC()
     }
 
     public override func viewWillAppear(_ animated: Bool) {
@@ -161,20 +158,30 @@ public class EmptyWallpaperVC: UIViewController {
             make.height.equalTo(50)
         }
     }
+
+    private func updateEmptyVC() {
+        if let navContrl = self.navigationController {
+
+            var indexArray: [Int] = []
+
+            for (index, vc) in navContrl.viewControllers.enumerated() {
+                if String(describing: vc).contains("Empty") {
+                    indexArray.append(index)
+                }
+            }
+
+            if indexArray.count > 1 {
+                navContrl.viewControllers.remove(at: indexArray[0])
+            }
+        }
+    }
     
     @objc func generateNewVariant() {
         ApiGeneratorModel.showProcessingVCandGenerateImagesModel(vc: self, runesIds: runesIds)
     }
     
     @objc func nextButtonTapped() {
-        
-        var imagesWithBackground = [UIImage?]()
-        imagesWithBackground.append(contentsOf: [wallpaperImagesModel.choosedWallpapersWithBlackHorizontal,
-                                                 wallpaperImagesModel.choosedWallpapersWithDarkVertical,
-                                                 wallpaperImagesModel.choosedWallpapersWithWpBark,
-                                                 wallpaperImagesModel.choosedWallpapersWithWpForest])
-        
-        let selectWallpaperStyleVC = WallpaperWithBackgroundVC(imagesWithBackground: imagesWithBackground)
+        let selectWallpaperStyleVC = WallpaperWithBackgroundVC()
         self.navigationController?.pushViewController(selectWallpaperStyleVC, animated: false)
     }
 }
