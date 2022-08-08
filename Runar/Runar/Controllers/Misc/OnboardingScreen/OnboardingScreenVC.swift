@@ -18,7 +18,7 @@ class OnboardingScreenVC: UIViewController {
         didSet {
             onboardingPageControl.currentPage = currentPage
             if currentPage == onboardingSlides.count - 1 {
-                onboardingNextSlideButton.setTitle(L10n.Onboarding.skip, for: .normal)
+                onboardingNextSlideButton.setTitle(L10n.Onboarding.start, for: .normal)
             } else {
                 onboardingNextSlideButton.setTitle(L10n.Onboarding.nextScreen, for: .normal)
             }
@@ -76,10 +76,17 @@ class OnboardingScreenVC: UIViewController {
         collectionView.delegate = self
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(onboardingSkipButton.snp.bottom).offset(114)
-            make.height.equalTo(350)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
+            if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
+                make.top.equalTo(onboardingSkipButton.snp.bottom).offset(114)
+                make.height.equalTo(350)
+                make.leading.trailing.equalToSuperview()
+                
+                
+            } else {
+                make.top.equalTo(onboardingSkipButton.snp.bottom).offset(50)
+                make.height.equalTo(350)
+                make.leading.trailing.equalToSuperview()
+            }
         }
         self.onboardingCollectionView = collectionView
     }
@@ -96,15 +103,20 @@ class OnboardingScreenVC: UIViewController {
         onboardingNextSlideButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
         onboardingNextSlideButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .normal)
         onboardingNextSlideButton.setTitleColor(UIColor(red: 0.294, green: 0.282, blue: 0.259, alpha: 1), for: .highlighted)
-        
         self.view.addSubview(onboardingNextSlideButton)
         onboardingNextSlideButton.addTarget(self, action: #selector(goToNextSlide), for: .touchUpInside)
-        
         onboardingNextSlideButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(184)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(264)
-            make.height.equalTo(48)
+            if DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
+                make.bottom.equalToSuperview().inset(184)
+                make.centerX.equalToSuperview()
+                make.width.equalTo(264)
+                make.height.equalTo(48)
+            } else {
+                make.bottom.equalToSuperview().inset(130)
+                make.centerX.equalToSuperview()
+                make.width.equalTo(264)
+                make.height.equalTo(48)
+            }
         }
     }
     private func configureOnboardingPageControll() {
@@ -113,8 +125,8 @@ class OnboardingScreenVC: UIViewController {
         onboardingPageControl.isUserInteractionEnabled = false
         self.view.addSubview(onboardingPageControl)
         onboardingPageControl.snp.makeConstraints { make in
-            make.top.equalTo(onboardingNextSlideButton.snp.bottom).offset(60)
-            make.centerX.equalToSuperview()
+                make.top.equalTo(onboardingNextSlideButton.snp.bottom).offset(60)
+                make.centerX.equalToSuperview()
         }
     }
     
@@ -123,7 +135,6 @@ class OnboardingScreenVC: UIViewController {
     }
     @objc func goToNextSlide() {
         onboardingCollectionView.isPagingEnabled = false
-        
         if currentPage == onboardingSlides.count - 1 {
             self.navigationController?.popViewController(animated: true)
         } else {
@@ -133,7 +144,6 @@ class OnboardingScreenVC: UIViewController {
                 at: indexPath,
                 at: .centeredHorizontally,
                 animated: true)
-            print("slide to \(currentPage)")
         }
         onboardingCollectionView.isPagingEnabled = true
     }
@@ -161,9 +171,7 @@ extension OnboardingScreenVC: UICollectionViewDelegate,UICollectionViewDataSourc
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let width = scrollView.frame.width
         currentPage = Int(scrollView.contentOffset.x / width)
-        print("now you're on slide \(currentPage)")
     }
     
     
 }
-
