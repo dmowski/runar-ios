@@ -33,7 +33,6 @@ class OnboardingScreenCell: UICollectionViewCell {
     }
     
     private func configureOnboardingSlideTitle() {
-        
         onboardingSlideTitle.font = FontFamily.AmaticSC.bold.font(size: 36)
         onboardingSlideTitle.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         onboardingSlideTitle.textAlignment = .center
