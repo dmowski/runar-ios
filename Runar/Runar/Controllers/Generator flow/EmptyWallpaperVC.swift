@@ -16,7 +16,7 @@ extension String {
 }
 
 public class EmptyWallpaperVC: UIViewController {
-
+    
     var runesIds: [String]
     
     let mainTitle: UILabel = {
@@ -78,7 +78,7 @@ public class EmptyWallpaperVC: UIViewController {
         nextButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         return nextButton
     }()
-
+    
     init(runesIds: [String]) {
         self.runesIds = runesIds
         super.init(nibName: nil, bundle: nil)
@@ -91,12 +91,12 @@ public class EmptyWallpaperVC: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         RunarLayout.initBackground(for: view, with: .mainFire)
-
+        
         imageView.image = ImageFileManager.shared.readImageFromFile(Images.emptyWallpapersImage.rawValue)
         setupViews()
         updateEmptyVC()
     }
-
+    
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
@@ -108,7 +108,7 @@ public class EmptyWallpaperVC: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.isHidden = false
     }
-
+    
     private func setupViews() {
         view.addSubviews(mainTitle)
         mainTitle.snp.makeConstraints { make in
@@ -130,7 +130,7 @@ public class EmptyWallpaperVC: UIViewController {
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
         }
-
+        
         contentView.addSubviews(imageView)
         imageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
@@ -147,7 +147,7 @@ public class EmptyWallpaperVC: UIViewController {
             make.trailing.equalToSuperview().offset(-90)
             make.height.equalTo(50)
         }
-    
+        
         view.addSubviews(nextButton)
         nextButton.addTarget(self, action: #selector(self.nextButtonTapped), for: .touchUpInside)
         nextButton.snp.makeConstraints { make in
@@ -158,22 +158,23 @@ public class EmptyWallpaperVC: UIViewController {
             make.height.equalTo(50)
         }
     }
-
+    
     private func updateEmptyVC() {
-        if let navContrl = self.navigationController {
-
-            var indexArray: [Int] = []
-
-            for (index, vc) in navContrl.viewControllers.enumerated() {
-                if String(describing: vc).contains("Empty") {
-                    indexArray.append(index)
-                }
-            }
-
-            if indexArray.count > 1 {
-                navContrl.viewControllers.remove(at: indexArray[0])
-            }
+        guard let navContrl = self.navigationController else {
+            return
         }
+        var indexArray: [Int] = []
+        navContrl.viewControllers.enumerated().forEach { (index, vc) in
+            guard String(describing: vc).contains(String(describing: Self.self))  else {
+                return
+            }
+            indexArray.append(index)
+        }
+        
+        guard indexArray.count > 1 else {
+            return
+        }
+        navContrl.viewControllers.remove(at: indexArray[0])
     }
     
     @objc func generateNewVariant() {
