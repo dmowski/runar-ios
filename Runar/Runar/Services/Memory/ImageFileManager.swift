@@ -38,9 +38,10 @@ class ImageFileManager {
 
         do {
             let savedData = try Data(contentsOf: fileURL)
-            if let savedImage = UIImage(data: savedData) {
-                image = savedImage
+            guard let savedImage = UIImage(data: savedData) else {
+            return image
             }
+            image = savedImage
         } catch {
             print("Reading file resulted with error: \(error.localizedDescription)")
         }
@@ -54,11 +55,11 @@ class ImageFileManager {
         do {
             let imagesNames = try FileManager.default.contentsOfDirectory(atPath: directoryURL.path)
 
-            for imageName in imagesNames {
-                if !imageName.contains("empty"),
-                   !imageName.contains("Store") {
-                    returnArrayOfImages.append(self.readImageFromFile(imageName))
+            imagesNames.forEach {
+                guard $0 != Images.emptyWallpapersImage.rawValue else {
+                    return
                 }
+                returnArrayOfImages.append(self.readImageFromFile($0))
             }
         } catch {
             print(error.localizedDescription)
@@ -70,9 +71,9 @@ class ImageFileManager {
     func removeImagesFromMemory() {
         do {
             let imageNames = try FileManager.default.contentsOfDirectory(atPath: directoryURL.path)
-            for imageName in imageNames {
-                let imagePath = directoryURL.path + "/" + imageName
-                try FileManager.default.removeItem(atPath: imagePath)
+            imageNames.forEach {
+                let imagePath = directoryURL.path + "/" + $0
+                try? FileManager.default.removeItem(atPath: imagePath)
             }
         } catch {
             print("Could not clear temp folder: \(error.localizedDescription)")
