@@ -160,21 +160,18 @@ public class EmptyWallpaperVC: UIViewController {
     }
     
     private func updateEmptyVC() {
-        guard let navContrl = self.navigationController else {
-            return
-        }
+        guard let navigationController = self.navigationController else { return }
+
         var indexArray: [Int] = []
-        navContrl.viewControllers.enumerated().forEach { (index, vc) in
-            guard String(describing: vc).contains(String(describing: Self.self))  else {
-                return
-            }
+
+        navigationController.viewControllers.enumerated().forEach { (index, vc) in
+            guard String(describing: vc).contains(String(describing: Self.self)) else { return }
             indexArray.append(index)
         }
-        
-        guard indexArray.count > 1 else {
-            return
-        }
-        navContrl.viewControllers.remove(at: indexArray[0])
+
+        guard indexArray.count > 1 else { return }
+
+        navigationController.viewControllers.remove(at: indexArray[0])
     }
     
     @objc func generateNewVariant() {

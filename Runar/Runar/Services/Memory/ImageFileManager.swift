@@ -38,9 +38,7 @@ class ImageFileManager {
 
         do {
             let savedData = try Data(contentsOf: fileURL)
-            guard let savedImage = UIImage(data: savedData) else {
-            return image
-            }
+            guard let savedImage = UIImage(data: savedData) else { return image }
             image = savedImage
         } catch {
             print("Reading file resulted with error: \(error.localizedDescription)")
@@ -56,9 +54,7 @@ class ImageFileManager {
             let imagesNames = try FileManager.default.contentsOfDirectory(atPath: directoryURL.path)
 
             imagesNames.forEach {
-                guard $0 != Images.emptyWallpapersImage.rawValue else {
-                    return
-                }
+                guard $0 != Images.emptyWallpapersImage.rawValue else { return }
                 returnArrayOfImages.append(self.readImageFromFile($0))
             }
         } catch {
