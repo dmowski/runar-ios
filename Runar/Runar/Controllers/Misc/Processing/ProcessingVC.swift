@@ -13,6 +13,14 @@ extension String {
     static let myMotherTold = L10n.Music.myMotherTold
 }
 
+enum Images: String {
+    case emptyWallpapersImage
+    case choosedWallpapersWithBlackHorizontal
+    case choosedWallpapersWithDarkVertical
+    case choosedWallpapersWithWpForest
+    case choosedWallpapersWithWpBark
+}
+
 class ProcessingVC: UIViewController {
     
     var viewModel: ProcessingVM!
@@ -57,17 +65,9 @@ class ProcessingVC: UIViewController {
     }
     
     private func generateWallpapers(runesIds: [String]) {
-        
-        var emptyWallpapersImage: UIImage?
-        var choosedWallpapersWithBlackHorizontal: UIImage?
-        var choosedWallpapersWithDarkVertical: UIImage?
-        var choosedWallpapersWithWpForest: UIImage?
-        var choosedWallpapersWithWpBark: UIImage?
-        
+
         var emptyWallpapersUrl: String
-        
-        
-        
+
         guard let data = RunarApi.getEmptyWallpapersData(runsIds: runesIds) else {
             fatalError("Data of runes is empty")
         }
@@ -80,28 +80,10 @@ class ProcessingVC: UIViewController {
             fatalError("EmptyWallpapersUrl is empty")
         }
 
-        let wallpapersURL = emptyWallpapersUrl.replacingOccurrences(of: "empty-wallpapers", with: "wallpapers")
-        let wallpapersURLblackHorizontal = wallpapersURL + String(".png?style=blackHorizontal&width=720&height=1280")
-        let wallpapersURLdarkVertical = wallpapersURL + String(".png?style=darkVertical&width=720&height=1280")
-        let wallpapersURLwpForest = wallpapersURL + String(".png?style=wpForest&width=720&height=1280")
-        let wallpapersURLwpBark = wallpapersURL + String(".png?style=wpBark&width=720&height=1280")
-        
-        choosedWallpapersWithBlackHorizontal = UIImage.create(fromUrl: wallpapersURLblackHorizontal)
-        choosedWallpapersWithDarkVertical = UIImage.create(fromUrl: wallpapersURLdarkVertical)
-        choosedWallpapersWithWpForest = UIImage.create(fromUrl: wallpapersURLwpForest)
-        choosedWallpapersWithWpBark = UIImage.create(fromUrl: wallpapersURLwpBark)
-        emptyWallpapersImage = UIImage.create(fromUrl: emptyWallpapersUrl)
-        
-        let runeImagesModel = RuneImages(emptyWallpapersImage: emptyWallpapersImage,
-                                         choosedWallpapersWithBlackHorizontal: choosedWallpapersWithBlackHorizontal,
-                                         choosedWallpapersWithDarkVertical: choosedWallpapersWithDarkVertical,
-                                         choosedWallpapersWithWpForest: choosedWallpapersWithWpForest,
-                                         choosedWallpapersWithWpBark: choosedWallpapersWithWpBark)
+        downloadImages(emptyWallpapersUrl: emptyWallpapersUrl)
         
         self.delegate?.navigationController?.popViewController(animated: false)
-        let emptyWallpaperViewController = EmptyWallpaperVC(wallpaperImagesModel: runeImagesModel,
-                                                                               runesIds: runesIds,
-                                                                               wallpapersUrl: emptyWallpapersUrl)
+        let emptyWallpaperViewController = EmptyWallpaperVC(runesIds: runesIds)
         self.delegate?.navigationController?.pushViewController(emptyWallpaperViewController, animated: false)
     }
 
@@ -365,5 +347,36 @@ class ProcessingVC: UIViewController {
     
     func changeAnimationDuration(duration: Int) {
         basicAnimation.duration = CFTimeInterval(duration)
+    }
+
+    private func downloadImages(emptyWallpapersUrl: String) {
+        let wallpapersURL = emptyWallpapersUrl.replacingOccurrences(of: "empty-wallpapers", with: "wallpapers")
+        let wallpapersURLblackHorizontal = wallpapersURL + String(".png?style=blackHorizontal&width=720&height=1280")
+        let wallpapersURLdarkVertical = wallpapersURL + String(".png?style=darkVertical&width=720&height=1280")
+        let wallpapersURLwpForest = wallpapersURL + String(".png?style=wpForest&width=720&height=1280")
+        let wallpapersURLwpBark = wallpapersURL + String(".png?style=wpBark&width=720&height=1280")
+
+        var emptyWallpapersImage: UIImage?
+        var choosedWallpapersWithBlackHorizontal: UIImage?
+        var choosedWallpapersWithDarkVertical: UIImage?
+        var choosedWallpapersWithWpForest: UIImage?
+        var choosedWallpapersWithWpBark: UIImage?
+
+        choosedWallpapersWithBlackHorizontal = UIImage.create(fromUrl: wallpapersURLblackHorizontal)
+        choosedWallpapersWithDarkVertical = UIImage.create(fromUrl: wallpapersURLdarkVertical)
+        choosedWallpapersWithWpForest = UIImage.create(fromUrl: wallpapersURLwpForest)
+        choosedWallpapersWithWpBark = UIImage.create(fromUrl: wallpapersURLwpBark)
+        emptyWallpapersImage = UIImage.create(fromUrl: emptyWallpapersUrl)
+
+        ImageFileManager.shared.writeImageToFile(image: choosedWallpapersWithBlackHorizontal,
+                                                 fileName: Images.choosedWallpapersWithBlackHorizontal.rawValue)
+        ImageFileManager.shared.writeImageToFile(image: choosedWallpapersWithDarkVertical,
+                                                 fileName: Images.choosedWallpapersWithDarkVertical.rawValue)
+        ImageFileManager.shared.writeImageToFile(image: choosedWallpapersWithWpForest,
+                                                 fileName: Images.choosedWallpapersWithWpForest.rawValue)
+        ImageFileManager.shared.writeImageToFile(image: choosedWallpapersWithWpBark,
+                                                 fileName: Images.choosedWallpapersWithWpBark.rawValue)
+        ImageFileManager.shared.writeImageToFile(image: emptyWallpapersImage,
+                                                 fileName: Images.emptyWallpapersImage.rawValue)
     }
 }
