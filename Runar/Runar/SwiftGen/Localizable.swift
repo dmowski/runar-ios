@@ -1740,28 +1740,56 @@ internal enum L10n {
   }
 
   internal enum Monetization {
-    /// 8 types of rune layouts
+    /// Сhoose a payment plan
+    internal static let chooseTitleMonetization = L10n.tr("Localizable", "monetization.chooseTitleMonetization")
+    /// Get a full access to Runar
+    internal static let descriptionMainTitle = L10n.tr("Localizable", "monetization.descriptionMainTitle")
+    /// 8 runic draws
     internal static let firstDescriptionTitle = L10n.tr("Localizable", "monetization.firstDescriptionTitle")
-    /// Runway pattern generator
+    /// Runic patterns generator
     internal static let fourthDescriptionTitle = L10n.tr("Localizable", "monetization.fourthDescriptionTitle")
-    /// Go premium
-    internal static let goPremiumButton = L10n.tr("Localizable", "monetization.goPremiumButton")
-    /// Premium status
-    internal static let mainTitleMonetization = L10n.tr("Localizable", "monetization.mainTitleMonetization")
-    /// Privacy Policy
+    /// Forever
+    internal static let goEternalPeriod = L10n.tr("Localizable", "monetization.goEternalPeriod")
+    /// $29,99
+    internal static let goEternalPrice = L10n.tr("Localizable", "monetization.goEternalPrice")
+    /// Eternal
+    internal static let goEternalTitle = L10n.tr("Localizable", "monetization.goEternalTitle")
+    /// Pay the plan
+    internal static let goPay = L10n.tr("Localizable", "monetization.goPay")
+    /// Annually
+    internal static let goPopularPeriod = L10n.tr("Localizable", "monetization.goPopularPeriod")
+    /// $11,99
+    internal static let goPopularPrice = L10n.tr("Localizable", "monetization.goPopularPrice")
+    /// Popular
+    internal static let goPopularTitle = L10n.tr("Localizable", "monetization.goPopularTitle")
+    /// Monthly
+    internal static let goPremiumPeriod = L10n.tr("Localizable", "monetization.goPremiumPeriod")
+    /// $1,99
+    internal static let goPremiumPrice = L10n.tr("Localizable", "monetization.goPremiumPrice")
+    /// Premium
+    internal static let goPremiumTitle = L10n.tr("Localizable", "monetization.goPremiumTitle")
+    /// pay once
+    internal static let goSubEternalPrice = L10n.tr("Localizable", "monetization.goSubEternalPrice")
+    /// $23,88/year
+    internal static let goSubPopularPrice = L10n.tr("Localizable", "monetization.goSubPopularPrice")
+    /// $23,88/year
+    internal static let goSubPremiumPrice = L10n.tr("Localizable", "monetization.goSubPremiumPrice")
+    /// Privacy policy
     internal static let privacyPolicyButton = L10n.tr("Localizable", "monetization.privacyPolicyButton")
-    /// Restore
+    /// Restore\npurchase
     internal static let restoreButton = L10n.tr("Localizable", "monetization.restoreButton")
-    /// Description of all runes
+    /// All runes description
     internal static let secondDescriptionTitle = L10n.tr("Localizable", "monetization.secondDescriptionTitle")
-    /// Get full access to Runar
-    internal static let subTitle = L10n.tr("Localizable", "monetization.subTitle")
     /// Terms of use
     internal static let termsOfUseButton = L10n.tr("Localizable", "monetization.termsOfUseButton")
-    /// library
+    /// Audio library
     internal static let thirdDescriptionTitle = L10n.tr("Localizable", "monetization.thirdDescriptionTitle")
+    /// Runar eternal
+    internal static let titleSubscriptionEternal = L10n.tr("Localizable", "monetization.titleSubscriptionEternal")
+    /// Runar popular
+    internal static let titleSubscriptionPopular = L10n.tr("Localizable", "monetization.titleSubscriptionPopular")
     /// Runar premium
-    internal static let title = L10n.tr("Localizable", "monetization.title")
+    internal static let titleSubscriptionPremium = L10n.tr("Localizable", "monetization.titleSubscriptionPremium")
   }
 
   internal enum Music {

@@ -15,8 +15,9 @@ public class MonetizationDescriptionViewBox: UIView {
     
     init(text: String) {
         super.init(frame: .zero)
-        setupUI()
+
         self.label.text = text
+        setupUI()
     }
     
     required init?(coder: NSCoder) {
@@ -24,14 +25,15 @@ public class MonetizationDescriptionViewBox: UIView {
     }
     
     private func setupUI() {
+
         setupImageCheckbox()
         setupLabel()
     }
 
     private func setupImageCheckbox() {
+
         checkbox.image = Assets.checkBox.image
         checkbox.contentMode = .scaleAspectFill
-
         addSubview(checkbox)
         checkbox.snp.makeConstraints { make in
             make.size.equalTo(22)
@@ -39,8 +41,9 @@ public class MonetizationDescriptionViewBox: UIView {
     }
     
     private func setupLabel() {
-        label.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
-        label.font = FontFamily.SFProDisplay.regular.font(size: 17)
+
+        label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        label.font = FontFamily.SFProDisplay.regular.font(size: 15)
         label.textAlignment = .left
         addSubview(label)
         label.snp.makeConstraints { make in

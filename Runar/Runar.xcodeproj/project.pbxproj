@@ -129,6 +129,7 @@
 		C2953E652889C33A00EA297D /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2953E642889C2C200EA297D /* SFProDisplay-Bold.ttf */; };
 		C2953E67288A8BB900EA297D /* MonetizationStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2953E66288A8BB900EA297D /* MonetizationStatusView.swift */; };
 		C2AF4B33285AA66000976992 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AF4B32285AA66000976992 /* UIImage.swift */; };
+		C2B10B0728C4D58600F9BCF0 /* BindableGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B10B0628C4D58600F9BCF0 /* BindableGestureRecognizer.swift */; };
 		C2C55840283A4823006B053C /* WallpaperWithBackgroundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5583F283A4823006B053C /* WallpaperWithBackgroundCell.swift */; };
 		C2C55843283A9F53006B053C /* ApiGeneratorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C55842283A9F53006B053C /* ApiGeneratorModel.swift */; };
 		C2C55845283AA013006B053C /* RuneImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C55844283AA013006B053C /* RuneImages.swift */; };
@@ -292,6 +293,7 @@
 		C2953E642889C2C200EA297D /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		C2953E66288A8BB900EA297D /* MonetizationStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationStatusView.swift; sourceTree = "<group>"; };
 		C2AF4B32285AA66000976992 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		C2B10B0628C4D58600F9BCF0 /* BindableGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableGestureRecognizer.swift; sourceTree = "<group>"; };
 		C2C5583F283A4823006B053C /* WallpaperWithBackgroundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWithBackgroundCell.swift; sourceTree = "<group>"; };
 		C2C55842283A9F53006B053C /* ApiGeneratorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGeneratorModel.swift; sourceTree = "<group>"; };
 		C2C55844283AA013006B053C /* RuneImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneImages.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				84D7E6012649F37700772EE3 /* LibraryNode.swift */,
 				8441066727063C5400CD8B56 /* GenerationRuneModel.swift */,
 				C2C5584A283D9E33006B053C /* SlectedRuneModel.swift */,
+				C2B10B0628C4D58600F9BCF0 /* BindableGestureRecognizer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1201,6 +1204,7 @@
 				19BDC61D25C030B1000808CF /* PublisherProvider.swift in Sources */,
 				1987AAC525BDCDCA00BB3655 /* SixRuneView.swift in Sources */,
 				19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */,
+				C2B10B0728C4D58600F9BCF0 /* BindableGestureRecognizer.swift in Sources */,
 				C2C55845283AA013006B053C /* RuneImages.swift in Sources */,
 				C2C55849283D9D26006B053C /* UILabel.swift in Sources */,
 				1987AACA25BDCDD500BB3655 /* SevenRuneView.swift in Sources */,

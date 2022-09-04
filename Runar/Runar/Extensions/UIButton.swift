@@ -21,18 +21,4 @@ extension UIButton {
         
         self.setAttributedTitle(attributedText, for: .normal)
     }
-    
-    func setMonetizationTitle(title: String,
-                              color: UIColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)) {
-        let paragraphStyle = NSMutableParagraphStyle()
-        
-        paragraphStyle.lineHeightMultiple = 1.08
-        
-        let attributedText = NSMutableAttributedString(string: title, attributes: [
-            NSMutableAttributedString.Key.paragraphStyle: paragraphStyle,
-            NSMutableAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 17),
-            NSMutableAttributedString.Key.foregroundColor: color])
-        
-        self.setAttributedTitle(attributedText, for: .normal)
-    }
 }

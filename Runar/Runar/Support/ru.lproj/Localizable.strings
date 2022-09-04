@@ -114,18 +114,31 @@ Runar — это приложение для гадания на скандин�
 "generator.alertHeader.title" = "Рунный узор сохранен";
 "generator.alertAction.title" = "Хорошо";
 
-"monetization.title" = "Runar премиум";
-"monetization.subTitle" = "Получи полный доступ к Runar";
-"monetization.firstDescriptionTitle" = "8 видов раскладов рун";
-"monetization.secondDescriptionTitle" = "Описанию всех рун";
-"monetization.thirdDescriptionTitle" = "Библиотека";
+"monetization.titleSubscriptionPremium" = "Runar премиум";
+"monetization.titleSubscriptionPopular" = "Runar популярный";
+"monetization.titleSubscriptionEternal" = "Runar вечный";
+"monetization.descriptionMainTitle" = "Включи все функции Runar";
+"monetization.firstDescriptionTitle" = "8 рунных раскладов";
+"monetization.secondDescriptionTitle" = "Все описания рун";
+"monetization.thirdDescriptionTitle" = "Аудио библиотека";
 "monetization.fourthDescriptionTitle" = "Генератор рунных узоров";
-"monetization.mainTitleMonetization" = "Premium status";
-
-"monetization.goPremiumButton" = "Go premium";
-"monetization.termsOfUseButton" = "Terms of use";
-"monetization.privacyPolicyButton" = "Privacy Policy";
-"monetization.restoreButton" = "Restore";
+"monetization.chooseTitleMonetization" = "Выбери план платежей";
+"monetization.goPremiumTitle" = "Премиум";
+"monetization.goPopularTitle" = "Популярный";
+"monetization.goEternalTitle" = "Вечный";
+"monetization.goPremiumPeriod" = "Месячный";
+"monetization.goPopularPeriod" = "Годовой";
+"monetization.goEternalPeriod" = "Навсегда";
+"monetization.goPremiumPrice" = "$1,99";
+"monetization.goPopularPrice" = "$11,99";
+"monetization.goEternalPrice" = "$29,99";
+"monetization.goSubPremiumPrice" = "$23,88/year";
+"monetization.goSubPopularPrice" = "$23,88/year";
+"monetization.goSubEternalPrice" = "одним платежом";
+"monetization.goPay" = "Оплатить";
+"monetization.termsOfUseButton" = "Условия\nиспользования";
+"monetization.privacyPolicyButton" = "Политика\nконфиденциальности";
+"monetization.restoreButton" = "Восстановить\nпокупку";
 
 
 //-------------------------------------------------
