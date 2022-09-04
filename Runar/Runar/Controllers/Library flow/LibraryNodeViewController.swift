@@ -22,14 +22,29 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     // MARK: - Mutable props
     var node: LibraryNode = LibraryNode()
     private var nodeView: UITableView = UITableView()
+
+    // MARK: - UI elements
+    let activityIndicatorView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        view.style = .large
+        view.color = .white
+        view.isHidden = true
+        return view
+    }()
     
     // MARK: - Override funcs
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         RunarLayout.initBackground(for: view)
+
+        if MemoryStorage.Library.children.isEmpty {
+            startActivityIndicator()
+        } else {
+            configureNodeView()
+        }
         
-        configureNodeView()
+        setupViews()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +55,11 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         
     func set(_ node: LibraryNode){
         self.node = node
+    }
+
+    private func setupViews() {
+        self.view.addSubviews(activityIndicatorView)
+        activityIndicatorView.center = self.view.center
     }
     
     private func configureNodeView() -> Void {
@@ -56,6 +76,18 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     func configureNavigationBar() {
         title = node.title
         self.navigationController?.navigationBar.configure()
+    }
+
+    func startActivityIndicator() {
+        activityIndicatorView.startAnimating()
+        activityIndicatorView.isHidden = false
+    }
+
+    func update() {
+        activityIndicatorView.isHidden = true
+        activityIndicatorView.stopAnimating()
+        set(MemoryStorage.Library)
+        configureNodeView()
     }
               
     // MARK: - Delegate funcs

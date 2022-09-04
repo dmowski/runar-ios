@@ -50,6 +50,14 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         randomButton.setTitle(title: .randomButtonTitle)
         return randomButton
     }()
+
+    let activityIndicatorView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        view.style = .large
+        view.color = .white
+        view.isHidden = true
+        return view
+    }()
     
     let selectRunesView: SelectRuneCollectionView = {
         let layout2 = UICollectionViewFlowLayout()
@@ -141,6 +149,16 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             make.width.equalTo(184)
             make.height.equalTo(50)
         }
+
+        self.view.addSubviews(activityIndicatorView)
+        if MemoryStorage.GenerationRunes.isEmpty {
+            activityIndicatorView.startAnimating()
+            activityIndicatorView.isHidden = false
+        }
+        activityIndicatorView.snp.makeConstraints { make in
+            make.top.equalTo(selectedRunesView.snp.bottom).offset(130)
+            make.centerX.equalToSuperview()
+        }
         
         self.view.addSubview(selectRunesView)
         self.selectRunesView.setSelectHandler(self.selectRune(_:))
@@ -231,6 +249,13 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         
         generateButton.isHidden = !selectedRunesView.hasSelectedRunes()
         randomButton.isHidden = selectedRunesView.hasSelectedRunes()
+    }
+
+    func update() {
+        activityIndicatorView.isHidden = true
+        activityIndicatorView.stopAnimating()
+        selectRunesView.setupRunes()
+        selectRunesView.reloadData()
     }
     
     @objc func selectRandomRunesOnTap() {

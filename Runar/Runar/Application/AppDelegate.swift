@@ -21,8 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //NetworkMonitor
         //        if NetworkMonitor.shared.isConnected {
-        loadLibraryData()
+
+        DispatchQueue.main.async {
+            let libraryNodeVC = self.getLibraryNodeVC()
+            self.loadLibraryData()
+            if let libraryVC = libraryNodeVC, !libraryVC.activityIndicatorView.isHidden {
+                libraryVC.update()
+            }
+        }
         loadGeneratorData()
+
         //        } else {
         //            print("No internet")
         //        }
@@ -88,9 +96,7 @@ extension AppDelegate {
 
             LocalStorage.push(libraryData, forKey: .libraryData, withLocalization: true)
             LocalStorage.push(actualLibraryHash, forKey: .libraryHash, withLocalization: true)
-            
             MemoryStorage.Library = LibraryNode.create(fromData: libraryData)
-            
             return
         }
         
@@ -102,8 +108,19 @@ extension AppDelegate {
     }
     
     func loadGeneratorData() -> Void {
-        loadRues()
-        loadWallpapers()
+        // Get data on background queue
+        DispatchQueue.global(qos: .background).async {
+            
+            self.loadRues()
+
+            // Update SelectionRuneVC on main queue
+            DispatchQueue.main.async {
+                let selectionRuneVC = self.getSelectionRuneVC()
+                selectionRuneVC?.update()
+            }
+
+            self.loadWallpapers()
+        }
     }
     
     func loadRues(){
@@ -124,7 +141,6 @@ extension AppDelegate {
     
     func loadWallpapers(){
         var wallpapersStylesData: Data? = LocalStorage.pull(forKey: .wallpapersStylesData)
-        
         if (wallpapersStylesData == nil){
             guard let _wallpapersStylesData = RunarApi.getWallpapersStylesData()else {
                 fatalError("Runes is empty")
@@ -136,5 +152,33 @@ extension AppDelegate {
         }
         
         MemoryStorage.GenerationWallpapertsStyles = WallpapperStyleData.create(from: wallpapersStylesData!)
+    }
+
+    // Get LibraryNodeViewController
+    func getLibraryNodeVC() -> LibraryNodeViewController? {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        let tabBarVC = sceneDelegate?.window?.rootViewController as? MainTabBarController
+        let navigationVC = tabBarVC?.viewControllers?.first {
+            guard let navVC = $0 as? UINavigationController else { return false }
+            return navVC.viewControllers.first is LibraryNodeViewController
+        } as? UINavigationController
+
+        let libraryNodeVC: LibraryNodeViewController? = navigationVC?.viewControllers.first { $0 is LibraryNodeViewController} as? LibraryNodeViewController
+
+        return libraryNodeVC
+    }
+
+    // Get SelectionRuneVC
+    func getSelectionRuneVC() -> SelectionRuneVC? {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        let tabBarVC = sceneDelegate?.window?.rootViewController as? MainTabBarController
+        let navigationVC = tabBarVC?.viewControllers?.first {
+            guard let navVC = $0 as? UINavigationController else { return false }
+            return navVC.viewControllers.first is GeneratorVC
+        } as? UINavigationController
+
+        let selectionRuneVC: SelectionRuneVC? = navigationVC?.viewControllers.first { $0 is SelectionRuneVC } as? SelectionRuneVC
+
+        return selectionRuneVC
     }
 }

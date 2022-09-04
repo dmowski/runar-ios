@@ -33,7 +33,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
         register(SelectRuneCell.self, forCellWithReuseIdentifier: cellId)
     }
     
-    private func setupRunes() {
+    func setupRunes() {
         for (index, rune) in MemoryStorage.GenerationRunes.enumerated() {
             let indexPath = IndexPath(row: index, section: 1)
             let cell = self.dequeueReusableCell(withReuseIdentifier: self.cellId, for: indexPath) as! SelectRuneCell
