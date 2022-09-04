@@ -113,18 +113,31 @@ With the permission of the copyright holders, the following musical compositions
 "generator.alertHeader.title" = "Runic pattern has been saved";
 "generator.alertAction.title" = "Ok";
 
-"monetization.title" = "Runar premium";
-"monetization.subTitle" = "Get full access to Runar";
-"monetization.firstDescriptionTitle" = "8 types of rune layouts";
-"monetization.secondDescriptionTitle" = "Description of all runes";
-"monetization.thirdDescriptionTitle" = "library";
-"monetization.fourthDescriptionTitle" = "Runway pattern generator";
-"monetization.mainTitleMonetization" = "Premium status";
-
-"monetization.goPremiumButton" = "Go premium";
+"monetization.titleSubscriptionPremium" = "Runar premium";
+"monetization.titleSubscriptionPopular" = "Runar popular";
+"monetization.titleSubscriptionEternal" = "Runar eternal";
+"monetization.descriptionMainTitle" = "Get a full access to Runar";
+"monetization.firstDescriptionTitle" = "8 runic draws";
+"monetization.secondDescriptionTitle" = "All runes description";
+"monetization.thirdDescriptionTitle" = "Audio library";
+"monetization.fourthDescriptionTitle" = "Runic patterns generator";
+"monetization.chooseTitleMonetization" = "Сhoose a payment plan";
+"monetization.goPremiumTitle" = "Premium";
+"monetization.goPopularTitle" = "Popular";
+"monetization.goEternalTitle" = "Eternal";
+"monetization.goPremiumPeriod" = "Monthly";
+"monetization.goPopularPeriod" = "Annually";
+"monetization.goEternalPeriod" = "Forever";
+"monetization.goPremiumPrice" = "$1,99";
+"monetization.goPopularPrice" = "$11,99";
+"monetization.goEternalPrice" = "$29,99";
+"monetization.goSubPremiumPrice" = "$23,88/year";
+"monetization.goSubPopularPrice" = "$23,88/year";
+"monetization.goSubEternalPrice" = "pay once";
+"monetization.goPay" = "Pay the plan";
 "monetization.termsOfUseButton" = "Terms of use";
-"monetization.privacyPolicyButton" = "Privacy Policy";
-"monetization.restoreButton" = "Restore";
+"monetization.privacyPolicyButton" = "Privacy policy";
+"monetization.restoreButton" = "Restore\npurchase";
 
 
 //-------------------------------------------------

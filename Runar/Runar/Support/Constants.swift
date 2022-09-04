@@ -17,4 +17,5 @@ enum ScreenSize {
 enum DeviceType {
     static let iPhoneSE = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 568.0
     static let isIPhone678 = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 667.0
+    static let isIphone78Plus = UIDevice.current.userInterfaceIdiom == .phone && ScreenSize.maxLength == 736.0
 }

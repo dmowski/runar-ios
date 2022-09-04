@@ -37,8 +37,20 @@ class MonetizationVC: UIViewController {
 
 
 extension MonetizationVC: MonetizationViewDelegateProtocol {
-    
+
     // TODO: -
+    func didTapPremiumView() {
+        print("didTapPremiumView")
+    }
+    
+    func didTapPopularView() {
+        print("didTapPopularView")
+    }
+    
+    func didTapEternalView() {
+        print("didTapEternalView")
+    }
+    
     func didTapTermsOfUseButton() {
         print("didTapTermsOfUseButton")
     }
@@ -51,7 +63,7 @@ extension MonetizationVC: MonetizationViewDelegateProtocol {
         print("didTapRestoreButton")
     }
     
-    func didTapGoPremiumButton() {
+    func didTapPayButton() {
         print("didTapGoPremiumButton")
     }
 
