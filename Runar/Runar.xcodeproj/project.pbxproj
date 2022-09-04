@@ -37,6 +37,7 @@
 		19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BAFD25C9874200418CE7 /* RuneViewProtocol.swift */; };
 		19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BB0525C9874E00418CE7 /* RunesView.swift */; };
 		1A04A48091973E2F0EB04A65 /* Pods_RunarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */; };
+		677C11E8289C726900CEA5D2 /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677C11E7289C726900CEA5D2 /* ImageFileManager.swift */; };
 		843DFF33265248B900D6DFE5 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF32265248B900D6DFE5 /* LibraryViewController.swift */; };
 		843DFF4D2653FB5400D6DFE5 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF4C2653FB5400D6DFE5 /* LibraryCell.swift */; };
 		843DFF72265BC50800D6DFE5 /* LibraryNodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF71265BC50800D6DFE5 /* LibraryNodeViewController.swift */; };
@@ -132,7 +133,6 @@
 		C2B10B0728C4D58600F9BCF0 /* BindableGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B10B0628C4D58600F9BCF0 /* BindableGestureRecognizer.swift */; };
 		C2C55840283A4823006B053C /* WallpaperWithBackgroundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5583F283A4823006B053C /* WallpaperWithBackgroundCell.swift */; };
 		C2C55843283A9F53006B053C /* ApiGeneratorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C55842283A9F53006B053C /* ApiGeneratorModel.swift */; };
-		C2C55845283AA013006B053C /* RuneImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C55844283AA013006B053C /* RuneImages.swift */; };
 		C2C55847283D9CEE006B053C /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C55846283D9CEE006B053C /* UIButton.swift */; };
 		C2C55849283D9D26006B053C /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C55848283D9D26006B053C /* UILabel.swift */; };
 		C2C5584B283D9E33006B053C /* SlectedRuneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584A283D9E33006B053C /* SlectedRuneModel.swift */; };
@@ -193,6 +193,7 @@
 		19D9BB0525C9874E00418CE7 /* RunesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunesView.swift; sourceTree = "<group>"; };
 		1A56DC55326BF359E39532FA /* Pods-Runar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar.release.xcconfig"; path = "Target Support Files/Pods-Runar/Pods-Runar.release.xcconfig"; sourceTree = "<group>"; };
 		29AD0AF3F59DE1B0E9AF6F8D /* Pods-RunarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.release.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.release.xcconfig"; sourceTree = "<group>"; };
+		677C11E7289C726900CEA5D2 /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
 		7187BE777607C9CC2B878552 /* Pods-RunarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.debug.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		843DFF32265248B900D6DFE5 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		843DFF4C2653FB5400D6DFE5 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
@@ -296,7 +297,6 @@
 		C2B10B0628C4D58600F9BCF0 /* BindableGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableGestureRecognizer.swift; sourceTree = "<group>"; };
 		C2C5583F283A4823006B053C /* WallpaperWithBackgroundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWithBackgroundCell.swift; sourceTree = "<group>"; };
 		C2C55842283A9F53006B053C /* ApiGeneratorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGeneratorModel.swift; sourceTree = "<group>"; };
-		C2C55844283AA013006B053C /* RuneImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneImages.swift; sourceTree = "<group>"; };
 		C2C55846283D9CEE006B053C /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		C2C55848283D9D26006B053C /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		C2C5584A283D9E33006B053C /* SlectedRuneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlectedRuneModel.swift; sourceTree = "<group>"; };
@@ -439,7 +439,6 @@
 			isa = PBXGroup;
 			children = (
 				9B739DDB25CC296900726B30 /* RuneType.swift */,
-				C2C55844283AA013006B053C /* RuneImages.swift */,
 				1907850325C4232E00434D57 /* RuneLayout.swift */,
 				19C0F21A25BAFEFE0027422B /* RuneDescription.swift */,
 				9BAEB61C25F13412004B7761 /* Affirmation.swift */,
@@ -449,6 +448,14 @@
 				C2B10B0628C4D58600F9BCF0 /* BindableGestureRecognizer.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		677C11E6289C71F400CEA5D2 /* Memory */ = {
+			isa = PBXGroup;
+			children = (
+				677C11E7289C726900CEA5D2 /* ImageFileManager.swift */,
+			);
+			path = Memory;
 			sourceTree = "<group>";
 		};
 		843DAB9126F9B94C009548D8 /* WallpaperWithBackground */ = {
@@ -805,6 +812,7 @@
 		C22B4DB22858A8F600F6245C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				677C11E6289C71F400CEA5D2 /* Memory */,
 				8477223B26457435001C280D /* Api */,
 				19BDC61625C0306E000808CF /* Base */,
 			);
@@ -973,7 +981,6 @@
 		9BD228F2258A321B00E17E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = NO;
 				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
@@ -1234,6 +1241,7 @@
 				C278B66127C43FAB00EFBD2C /* NetworkMonitor.swift in Sources */,
 				19BDC61225C02EE9000808CF /* SceneDelegate.swift in Sources */,
 				19BDC61B25C030B1000808CF /* UIControlPublisher.swift in Sources */,
+				677C11E8289C726900CEA5D2 /* ImageFileManager.swift in Sources */,
 				9BD98C9F2628A75600F3BBD7 /* UIView.swift in Sources */,
 				8477224F26458882001C280D /* CreateUserRequest.swift in Sources */,
 				9B739DDC25CC296900726B30 /* RuneType.swift in Sources */,
