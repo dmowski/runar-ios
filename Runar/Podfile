@@ -6,6 +6,7 @@ target 'Runar' do
   use_frameworks!
   pod 'SwiftGen'
   pod 'SnapKit'
+  pod 'KTCenterFlowLayout'
 
   target 'RunarTests' do
     inherit! :search_paths

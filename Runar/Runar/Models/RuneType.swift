@@ -156,7 +156,6 @@ public enum RuneType: Equatable {
     }
 }
 
-
 public extension RuneType {
     
     var image: UIImage {

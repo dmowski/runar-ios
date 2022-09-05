@@ -33,8 +33,9 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     let selectedRunesView: SelectedRuneCollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 67, height: 120)
-        layout.minimumInteritemSpacing = 7
+        layout.itemSize = CGSize(width: 63, height: 110)
+        layout.minimumInteritemSpacing = 0
+        
         return SelectedRuneCollectionView(frame: .zero, collectionViewLayout: layout)
     }()
     
@@ -44,6 +45,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         randomButton.layer.cornerRadius = 10
         randomButton.layer.borderWidth = 1
         randomButton.contentHorizontalAlignment = .center
+        randomButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         randomButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
         randomButton.setTitle(title: .randomButtonTitle)
         return randomButton
@@ -51,11 +53,10 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     let selectRunesView: SelectRuneCollectionView = {
         let layout2 = UICollectionViewFlowLayout()
-        layout2.itemSize = CGSize(width: 78, height: 97)
-        layout2.minimumInteritemSpacing = 7
-        layout2.minimumLineSpacing = 7
+        layout2.itemSize = CGSize(width: 66, height: 78)
+        layout2.minimumInteritemSpacing = 4
+        layout2.minimumLineSpacing = 0
         layout2.scrollDirection = .vertical
-        layout2.sectionInset = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
         
         let selectRunesView = SelectRuneCollectionView(frame: .zero, collectionViewLayout: layout2)
         selectRunesView.showsHorizontalScrollIndicator = false
@@ -68,6 +69,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         generateButton.layer.backgroundColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
         generateButton.layer.cornerRadius = 10
         generateButton.contentHorizontalAlignment = .center
+        generateButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         generateButton.isHidden = true
         generateButton.setTitle(title: .generateButtonTitle, color: UIColor(red: 0.165, green: 0.165, blue: 0.165, alpha: 1))
         return generateButton
@@ -127,17 +129,16 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         selectedRunesView.snp.makeConstraints { make in
             make.top.equalTo(header.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
-            make.height.equalTo(120)
-            make.leading.equalToSuperview().offset(70)
-            make.trailing.equalToSuperview().offset(-70)
+            make.height.equalTo(110)
+            make.width.equalTo(200)
         }
         
         self.view.addSubview(randomButton)
         randomButton.addTarget(self, action: #selector(self.selectRandomRunesOnTap), for: .touchUpInside)
         randomButton.snp.makeConstraints { make in
             make.top.equalTo(selectedRunesView.snp.bottom).offset(35)
-            make.leading.equalToSuperview().offset(70)
-            make.trailing.equalToSuperview().offset(-70)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(184)
             make.height.equalTo(50)
         }
         
@@ -145,9 +146,9 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         self.selectRunesView.setSelectHandler(self.selectRune(_:))
         tapedLongGesture(runesView: selectRunesView)
         selectRunesView.snp.makeConstraints { make in
-            make.top.equalTo(selectedRunesView.snp.bottom).offset(110)
-            make.left.equalTo(self.view.snp.left).offset(20)
-            make.right.equalTo(self.view.snp.right).offset(-20)
+            make.top.equalTo(selectedRunesView.snp.bottom).offset(130)
+            make.left.equalTo(self.view.snp.left).offset(41)
+            make.right.equalTo(self.view.snp.right).offset(-41)
             make.bottom.equalToSuperview()
         }
 
@@ -155,8 +156,8 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         generateButton.addTarget(self, action: #selector(self.generateOnTap), for: .touchUpInside)
         generateButton.snp.makeConstraints { make in
             make.top.equalTo(selectedRunesView.snp.bottom).offset(35)
-            make.leading.equalToSuperview().offset(70)
-            make.trailing.equalToSuperview().offset(-70)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(184)
             make.height.equalTo(50)
         }
     }
@@ -271,8 +272,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             .map { (rune) -> String in
                 return rune.selectedRune!.id
             }
-        
-        print("runes id - \(runesIds)") // TODO: - delete print
+
         ApiGeneratorModel.showProcessingVCandGenerateImagesModel(vc: self, runesIds: runesIds)
     }
 }
@@ -284,7 +284,7 @@ private extension UINavigationBar {
         self.tintColor = .libraryTitleColor
         self.backgroundColor = .navBarBackground
         self.barTintColor = .navBarBackground
-        self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 20),
+        self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 17),
                                     NSAttributedString.Key.foregroundColor: UIColor.white]
     }
 }

@@ -23,7 +23,7 @@ class SelectedRuneCell: UICollectionViewCell {
     }
     
     let cell: UILabel = {
-        let cell: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 57, height: 77))
+        let cell: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 45, height: 63))
         cell.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 14
@@ -34,7 +34,7 @@ class SelectedRuneCell: UICollectionViewCell {
     let cellIndex: UILabel = {
         let cellIndex: UILabel = UILabel()
         cellIndex.textColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 1)
-        cellIndex.font = FontFamily.AmaticSC.bold.font(size: 38)
+        cellIndex.font = FontFamily.AmaticSC.bold.font(size: 36)
         cellIndex.textAlignment = .center
         return cellIndex
     }()
@@ -52,7 +52,7 @@ class SelectedRuneCell: UICollectionViewCell {
     let runeName: UILabel = {
         let runeName = UILabel()
         
-        runeName.textColor = UIColor(red: 1, green: 0.817, blue: 0.792, alpha: 1)
+        runeName.textColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 1)
         runeName.font = FontFamily.SFProDisplay.regular.font(size: 12)
         runeName.isHidden = true
         
@@ -66,8 +66,8 @@ class SelectedRuneCell: UICollectionViewCell {
         cell.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             cell.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            cell.heightAnchor.constraint(equalToConstant: 77),
-            cell.widthAnchor.constraint(equalToConstant: 57),
+            cell.heightAnchor.constraint(equalToConstant: 63),
+            cell.widthAnchor.constraint(equalToConstant: 45),
             cell.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
@@ -84,8 +84,8 @@ class SelectedRuneCell: UICollectionViewCell {
         runeImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             runeImage.topAnchor.constraint(equalTo: topAnchor),
-            runeImage.heightAnchor.constraint(equalToConstant: 102),
-            runeImage.widthAnchor.constraint(equalToConstant: 81),
+            runeImage.heightAnchor.constraint(equalToConstant: 83),
+            runeImage.widthAnchor.constraint(equalToConstant: 70),
             runeImage.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         

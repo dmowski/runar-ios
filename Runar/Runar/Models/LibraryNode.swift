@@ -15,6 +15,7 @@ public class LibraryNode {
     let linkTitle: String?
     let linkUrl: String?
     let title: String?
+    let tags: [String]?
     let content: String?
     let order: Int?
     let type: LibraryNodeType
@@ -30,6 +31,7 @@ public class LibraryNode {
         self.linkTitle = item.linkTitle
         self.linkUrl = item.linkUrl
         self.title = item.title
+        self.tags = item.tags
         self.content = item.content
         self.order = item.sortOrder
         self.type = LibraryNodeType(rawValue: item.type) ?? LibraryNodeType.undefined
@@ -41,6 +43,7 @@ public class LibraryNode {
         self.linkTitle = nil
         self.linkUrl = nil
         self.title = nil
+        self.tags = nil
         self.content = nil
         self.order = nil
         self.type = LibraryNodeType.core

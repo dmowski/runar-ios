@@ -100,4 +100,12 @@ Pods/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 
+*~head
+*~head*
+*~main
+*~main*
+*~HEAD
+*~HEAD*
+*~MAIN
+*~MAIN*
 # End of https://www.gitignore.io/api/swift,xcode

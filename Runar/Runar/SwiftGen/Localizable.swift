@@ -58,6 +58,8 @@ internal enum L10n {
   internal static let situation = L10n.tr("Localizable", "situation")
   /// Present one
   internal static let situationInRealTime = L10n.tr("Localizable", "situationInRealTime")
+  /// Skip
+  internal static let skip = L10n.tr("Localizable", "skip")
   /// Solution
   internal static let solution = L10n.tr("Localizable", "solution")
   /// Solution
@@ -339,7 +341,7 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "generator.alertAction.title")
     }
     internal enum AlertHeader {
-      /// Runic image has been saved
+      /// Runic pattern has been saved
       internal static let title = L10n.tr("Localizable", "generator.alertHeader.title")
     }
     internal enum EmptyWallpapers {
@@ -347,7 +349,7 @@ internal enum L10n {
       internal static let subtitle = L10n.tr("Localizable", "generator.emptyWallpapers.subtitle")
     }
     internal enum EmptyWallpapersNewVariant {
-      /// New version
+      /// See more
       internal static let btnTitle = L10n.tr("Localizable", "generator.emptyWallpapersNewVariant.btnTitle")
     }
     internal enum GenerateButton {
@@ -365,17 +367,19 @@ internal enum L10n {
     internal enum Progress {
       /// Pattern generation
       internal static let name = L10n.tr("Localizable", "generator.progress.name")
-      /// Runic image is creating...
-      internal static let title = L10n.tr("Localizable", "generator.progress.title")
+    }
+    internal enum ProgressGenerator {
+      /// Runic pattern is creating...
+      internal static let title = L10n.tr("Localizable", "generator.progressGenerator.title")
     }
     internal enum RandomButton {
       /// Select random runes
       internal static let title = L10n.tr("Localizable", "generator.randomButton.title")
     }
     internal enum RuneFormula {
-      /// 
+      /// Choose a few runes, and we will offer runic formulas which are made from them. Runic formula can be used as a mascot or a guard.
       internal static let description = L10n.tr("Localizable", "generator.runeFormula.description")
-      /// Formula
+      /// Runic formula
       internal static let title = L10n.tr("Localizable", "generator.runeFormula.title")
     }
     internal enum RunePattern {
@@ -385,9 +389,9 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "generator.runePattern.title")
     }
     internal enum RuneStaves {
-      /// 
+      /// Choose a few runes, and we will offer runic staves which are made from them. Runic staves can be used as a mascot or a guard.
       internal static let description = L10n.tr("Localizable", "generator.runeStaves.description")
-      /// Staves
+      /// Runic staves
       internal static let title = L10n.tr("Localizable", "generator.runeStaves.title")
     }
     internal enum SelectWallpaperHeader {
@@ -399,7 +403,7 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "generator.selectWallpapersHeader.title")
     }
     internal enum SelectedRunes {
-      /// Collect your rune formula after select from 1 to 3 runes
+      /// Select 1 to 3 runes and collect your rune draw
       internal static let title = L10n.tr("Localizable", "generator.selectedRunes.title")
     }
     internal enum ShareWallpaperHeader {
@@ -1728,11 +1732,64 @@ internal enum L10n {
     /// Runic Draws
     internal static let title = L10n.tr("Localizable", "layouts.title")
     internal enum Generator {
-      /// Gnomes generate runic pattern and share the result each other
+      /// Create your runic pattern by selecting a few runes
       internal static let description = L10n.tr("Localizable", "layouts.generator.description")
       /// Runic patterns
       internal static let title = L10n.tr("Localizable", "layouts.generator.title")
     }
+  }
+
+  internal enum Monetization {
+    /// Сhoose a payment plan
+    internal static let chooseTitleMonetization = L10n.tr("Localizable", "monetization.chooseTitleMonetization")
+    /// Get a full access to Runar
+    internal static let descriptionMainTitle = L10n.tr("Localizable", "monetization.descriptionMainTitle")
+    /// 8 runic draws
+    internal static let firstDescriptionTitle = L10n.tr("Localizable", "monetization.firstDescriptionTitle")
+    /// Runic patterns generator
+    internal static let fourthDescriptionTitle = L10n.tr("Localizable", "monetization.fourthDescriptionTitle")
+    /// Forever
+    internal static let goEternalPeriod = L10n.tr("Localizable", "monetization.goEternalPeriod")
+    /// $29,99
+    internal static let goEternalPrice = L10n.tr("Localizable", "monetization.goEternalPrice")
+    /// Eternal
+    internal static let goEternalTitle = L10n.tr("Localizable", "monetization.goEternalTitle")
+    /// Pay the plan
+    internal static let goPay = L10n.tr("Localizable", "monetization.goPay")
+    /// Annually
+    internal static let goPopularPeriod = L10n.tr("Localizable", "monetization.goPopularPeriod")
+    /// $11,99
+    internal static let goPopularPrice = L10n.tr("Localizable", "monetization.goPopularPrice")
+    /// Popular
+    internal static let goPopularTitle = L10n.tr("Localizable", "monetization.goPopularTitle")
+    /// Monthly
+    internal static let goPremiumPeriod = L10n.tr("Localizable", "monetization.goPremiumPeriod")
+    /// $1,99
+    internal static let goPremiumPrice = L10n.tr("Localizable", "monetization.goPremiumPrice")
+    /// Premium
+    internal static let goPremiumTitle = L10n.tr("Localizable", "monetization.goPremiumTitle")
+    /// pay once
+    internal static let goSubEternalPrice = L10n.tr("Localizable", "monetization.goSubEternalPrice")
+    /// $23,88/year
+    internal static let goSubPopularPrice = L10n.tr("Localizable", "monetization.goSubPopularPrice")
+    /// $23,88/year
+    internal static let goSubPremiumPrice = L10n.tr("Localizable", "monetization.goSubPremiumPrice")
+    /// Privacy policy
+    internal static let privacyPolicyButton = L10n.tr("Localizable", "monetization.privacyPolicyButton")
+    /// Restore\npurchase
+    internal static let restoreButton = L10n.tr("Localizable", "monetization.restoreButton")
+    /// All runes description
+    internal static let secondDescriptionTitle = L10n.tr("Localizable", "monetization.secondDescriptionTitle")
+    /// Terms of use
+    internal static let termsOfUseButton = L10n.tr("Localizable", "monetization.termsOfUseButton")
+    /// Audio library
+    internal static let thirdDescriptionTitle = L10n.tr("Localizable", "monetization.thirdDescriptionTitle")
+    /// Runar eternal
+    internal static let titleSubscriptionEternal = L10n.tr("Localizable", "monetization.titleSubscriptionEternal")
+    /// Runar popular
+    internal static let titleSubscriptionPopular = L10n.tr("Localizable", "monetization.titleSubscriptionPopular")
+    /// Runar premium
+    internal static let titleSubscriptionPremium = L10n.tr("Localizable", "monetization.titleSubscriptionPremium")
   }
 
   internal enum Music {
