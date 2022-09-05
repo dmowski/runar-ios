@@ -21,7 +21,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
     let cellId = "wallpaperCellId"
     
     var wallpapers: [WallpaperWithBackgroundCell] = []
-    var imagesWithBackground: [UIImage?]
+    var imagesWithBackground: [UIImage?] = ImageFileManager.shared.getImagesWithBackground()
     var selectedImage: UIImage?
     var isSelected: Bool = false
     var indexPath: Int?
@@ -70,15 +70,6 @@ public class WallpaperWithBackgroundVC: UIViewController {
         nextButton.setTitle(title: .nextButtonTitle, color: UIColor(red: 0.165, green: 0.165, blue: 0.165, alpha: 1))
         return nextButton
     }()
-    
-    init(imagesWithBackground: [UIImage?]) {
-        self.imagesWithBackground = imagesWithBackground
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
         
     public override func viewDidLoad() {
         super.viewDidLoad()        
@@ -175,6 +166,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
     }
 
     @objc func backToInitial(sender: UIBarButtonItem) {
+        ImageFileManager.shared.removeImagesFromMemory()
         navigationController?.popToViewController(ofClass: SelectionRuneVC.self, animated: true)
     }
     
