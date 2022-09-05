@@ -62,6 +62,7 @@ With the permission of the copyright holders, the following musical compositions
 "drawRune" = "Pull Out a Rune";
 "saveResult" = "Сохранить результат";
 "complete" = "Finish";
+"skip" = "Skip";
 
 "present" = "Present one";
 "strength" = "Forces that affect you";
@@ -111,6 +112,33 @@ With the permission of the copyright holders, the following musical compositions
 "generator.shareWallpaperHeader.title" = "Runic wallpaper image";
 "generator.alertHeader.title" = "Runic pattern has been saved";
 "generator.alertAction.title" = "Ok";
+
+"monetization.titleSubscriptionPremium" = "Runar premium";
+"monetization.titleSubscriptionPopular" = "Runar popular";
+"monetization.titleSubscriptionEternal" = "Runar eternal";
+"monetization.descriptionMainTitle" = "Get a full access to Runar";
+"monetization.firstDescriptionTitle" = "8 runic draws";
+"monetization.secondDescriptionTitle" = "All runes description";
+"monetization.thirdDescriptionTitle" = "Audio library";
+"monetization.fourthDescriptionTitle" = "Runic patterns generator";
+"monetization.chooseTitleMonetization" = "Сhoose a payment plan";
+"monetization.goPremiumTitle" = "Premium";
+"monetization.goPopularTitle" = "Popular";
+"monetization.goEternalTitle" = "Eternal";
+"monetization.goPremiumPeriod" = "Monthly";
+"monetization.goPopularPeriod" = "Annually";
+"monetization.goEternalPeriod" = "Forever";
+"monetization.goPremiumPrice" = "$1,99";
+"monetization.goPopularPrice" = "$11,99";
+"monetization.goEternalPrice" = "$29,99";
+"monetization.goSubPremiumPrice" = "$23,88/year";
+"monetization.goSubPopularPrice" = "$23,88/year";
+"monetization.goSubEternalPrice" = "pay once";
+"monetization.goPay" = "Pay the plan";
+"monetization.termsOfUseButton" = "Terms of use";
+"monetization.privacyPolicyButton" = "Privacy policy";
+"monetization.restoreButton" = "Restore\npurchase";
+
 
 //-------------------------------------------------
 // MARK: - Localizable text
