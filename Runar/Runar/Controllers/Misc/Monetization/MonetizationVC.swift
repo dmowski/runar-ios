@@ -52,11 +52,15 @@ extension MonetizationVC: MonetizationViewDelegateProtocol {
     }
     
     func didTapTermsOfUseButton() {
-        print("didTapTermsOfUseButton")
+        if let urlTermsOfUse = URL(string: "https://runar.app/privacy#!/tab/487213487-2") {
+            UIApplication.shared.open(urlTermsOfUse)
+        }
     }
     
     func didTapPrivacyPolicyButton() {
-        print("didTapPrivacyPolicyButton")
+        if let urlPrivacyPolicy = URL(string: "https://runar.app/privacy") {
+            UIApplication.shared.open(urlPrivacyPolicy)
+        }
     }
     
     func didTapRestoreButton() {

@@ -164,7 +164,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     private func tapedLongGesture(runesView: SelectRuneCollectionView) {
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap))
-        longGesture.minimumPressDuration = 1
+        longGesture.minimumPressDuration = 0.5
         longGesture.delaysTouchesBegan = true
         longGesture.delegate = self
         runesView.addGestureRecognizer(longGesture)
