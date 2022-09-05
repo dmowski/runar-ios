@@ -68,6 +68,6 @@ extension MonetizationVC: MonetizationViewDelegateProtocol {
     }
 
     func didTapSkipkButton() {
-        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
 }

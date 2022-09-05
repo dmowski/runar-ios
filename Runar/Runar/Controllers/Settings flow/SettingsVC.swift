@@ -126,14 +126,10 @@ extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
             cell?.textLabel?.text = String.aboutApp
-            cell?.openVC = {
-                self.navigationController?.pushViewController(AppInfoVC(), animated: false)}
             return cell ?? StaticCell()
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
             cell?.textLabel?.text = "Monetization"
-            cell?.openVC = {
-                self.navigationController?.pushViewController(MonetizationVC(), animated: true)}
             return cell ?? StaticCell()
         default:
             return UITableViewCell()
@@ -155,9 +151,11 @@ extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
                 UIApplication.shared.open(url)
             }
         case 3:
-            self.navigationController?.pushViewController(AppInfoVC(), animated: false)
+            self.navigationController?.pushViewController(AppInfoVC(), animated: true)
         case 4:
-            self.navigationController?.pushViewController(MonetizationVC(), animated: true)
+            let monetizationVC = MonetizationVC()
+            monetizationVC.modalPresentationStyle = .fullScreen
+            self.present(monetizationVC, animated: true, completion: nil)
         default:
             break
         }
