@@ -24,14 +24,11 @@ class OnboardingScreenCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
     func configureOnboardingCell(with slides: OnboardingSlide) {
         onboardingSlideTitle.text = slides.title
         onboardingImageView.image = slides.image
         onboardingDescription.text = slides.description
     }
-    
     private func configureOnboardingSlideTitle() {
         onboardingSlideTitle.font = FontFamily.AmaticSC.bold.font(size: 36)
         onboardingSlideTitle.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
@@ -63,7 +60,6 @@ class OnboardingScreenCell: UICollectionViewCell {
     private func configureOnboardingImageView() {
         onboardingImageView.backgroundColor = .clear
         onboardingImageView.contentMode = .scaleAspectFit
-        onboardingImageView.backgroundColor = .clear
         contentView.addSubview(onboardingImageView)
         onboardingImageView.snp.makeConstraints { make in
             make.top.equalTo(onboardingDescription.snp.bottom).offset(32)
@@ -71,6 +67,4 @@ class OnboardingScreenCell: UICollectionViewCell {
             make.height.width.equalTo(148)
         }
     }
-    
-   
 }

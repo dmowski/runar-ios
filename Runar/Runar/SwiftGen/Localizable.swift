@@ -1896,6 +1896,30 @@ internal enum L10n {
   }
 
   internal enum Onboarding {
+    /// Получай ответы на волнующие вопросы с помощью рун
+    internal static let aboutDescription = L10n.tr("Localizable", "onboarding.aboutDescription")
+    /// About
+    internal static let aboutTitle = L10n.tr("Localizable", "onboarding.aboutTitle")
+    /// Смотри интерпретацию каждого расклада с указанием уровня удачи
+    internal static let explanationDescription = L10n.tr("Localizable", "onboarding.explanationDescription")
+    /// Interpretation
+    internal static let explanationTitle = L10n.tr("Localizable", "onboarding.explanationTitle")
+    /// Сохраняй понравившиеся толкования и значения рун в Избранное
+    internal static let favoritesDescription = L10n.tr("Localizable", "onboarding.favoritesDescription")
+    /// Favorites
+    internal static let favoritesTitle = L10n.tr("Localizable", "onboarding.favoritesTitle")
+    /// Куй свою судьбу сам, собери рунный узор и наложи его на классную картинку
+    internal static let generatorDescription = L10n.tr("Localizable", "onboarding.generatorDescription")
+    /// Generator
+    internal static let generatorTitle = L10n.tr("Localizable", "onboarding.generatorTitle")
+    /// Выбирай один из восьми раскладов и смотри толкование своей судьбы
+    internal static let howToDescription = L10n.tr("Localizable", "onboarding.howToDescription")
+    /// How To
+    internal static let howToTitle = L10n.tr("Localizable", "onboarding.howToTitle")
+    /// Заходи в Библиотеку знаний, изучай сказки, мифологию и историю рун
+    internal static let libraryDescription = L10n.tr("Localizable", "onboarding.libraryDescription")
+    /// Library
+    internal static let libraryTitle = L10n.tr("Localizable", "onboarding.libraryTitle")
     /// Next
     internal static let nextScreen = L10n.tr("Localizable", "onboarding.nextScreen")
     /// Skip
