@@ -85,6 +85,10 @@ class RunicDrawsCollectionVC: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        if UserDefaults.standard.bool(forKey: "hasViewedOnboardingScreen") {
+            return
+        }
+        self.navigationController?.pushViewController(OnboardingScreenVC(), animated: true)
     }
     
     func configureCollectionView() {
