@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import StoreKit
 
 class MonetizationVC: UIViewController {
-    
+
     private let contentView = MonetizationView()
     private let viewModel = MonetizationModel()
     
@@ -35,20 +36,18 @@ class MonetizationVC: UIViewController {
     }
 }
 
-
 extension MonetizationVC: MonetizationViewDelegateProtocol {
 
-    // TODO: -
     func didTapPremiumView() {
-        print("didTapPremiumView")
+        viewModel.subscription = [IAPSubscriptions.premiumSubscription.rawValue]
     }
     
     func didTapPopularView() {
-        print("didTapPopularView")
+        viewModel.subscription = [IAPSubscriptions.popularSubscription.rawValue]
     }
     
     func didTapEternalView() {
-        print("didTapEternalView")
+        viewModel.subscription = [IAPSubscriptions.eternalSubscription.rawValue]
     }
     
     func didTapTermsOfUseButton() {
@@ -68,7 +67,7 @@ extension MonetizationVC: MonetizationViewDelegateProtocol {
     }
     
     func didTapPayButton() {
-        print("didTapGoPremiumButton")
+        viewModel.getSubscription()
     }
 
     func didTapSkipkButton() {
