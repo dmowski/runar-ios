@@ -1896,15 +1896,15 @@ internal enum L10n {
   }
 
   internal enum Onboarding {
-    /// Получай ответы на волнующие вопросы с помощью рун
+    /// Get answers to exciting questions with the help of runes
     internal static let aboutDescription = L10n.tr("Localizable", "onboarding.aboutDescription")
-    /// About
+    /// What the app is about
     internal static let aboutTitle = L10n.tr("Localizable", "onboarding.aboutTitle")
-    /// Смотри интерпретацию каждого расклада с указанием уровня удачи
+    /// See the interpretation of each divination with the luckiness level
     internal static let explanationDescription = L10n.tr("Localizable", "onboarding.explanationDescription")
     /// Interpretation
     internal static let explanationTitle = L10n.tr("Localizable", "onboarding.explanationTitle")
-    /// Сохраняй понравившиеся толкования и значения рун в Избранное
+    /// Save your favorites interpretations and meanings of runes to your Favorites
     internal static let favoritesDescription = L10n.tr("Localizable", "onboarding.favoritesDescription")
     /// Favorites
     internal static let favoritesTitle = L10n.tr("Localizable", "onboarding.favoritesTitle")
@@ -1912,11 +1912,11 @@ internal enum L10n {
     internal static let generatorDescription = L10n.tr("Localizable", "onboarding.generatorDescription")
     /// Generator
     internal static let generatorTitle = L10n.tr("Localizable", "onboarding.generatorTitle")
-    /// Выбирай один из восьми раскладов и смотри толкование своей судьбы
+    /// Choose one of the eight divinations and see the interpretation of your fate
     internal static let howToDescription = L10n.tr("Localizable", "onboarding.howToDescription")
-    /// How To
+    /// How to read runes
     internal static let howToTitle = L10n.tr("Localizable", "onboarding.howToTitle")
-    /// Заходи в Библиотеку знаний, изучай сказки, мифологию и историю рун
+    /// Go to the Library of Knowledge, learn fairy tales, mythology and the history of runes
     internal static let libraryDescription = L10n.tr("Localizable", "onboarding.libraryDescription")
     /// Library
     internal static let libraryTitle = L10n.tr("Localizable", "onboarding.libraryTitle")

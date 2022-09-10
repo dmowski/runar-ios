@@ -25,6 +25,7 @@ class OnboardingScreenVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view = contentView
         contentView.onboardingCollectionView.dataSource = self
         contentView.onboardingCollectionView.delegate = self
@@ -43,32 +44,40 @@ extension OnboardingScreenVC: UICollectionViewDelegate,UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return onboardingModel.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OnboardingScreenCell.self), for: indexPath) as! OnboardingScreenCell
         let slides = onboardingModel[indexPath.item]
         cell.configureOnboardingCell(with: slides)
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 350)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let width = scrollView.frame.width
         currentPage = Int(scrollView.contentOffset.x / width)
     }
-    
-    
 }
+
 extension OnboardingScreenVC: OnboardingViewDelegateProtocol {
+    
     func skipButton() {
+        
         UserDefaults.standard.set(true, forKey: "hasViewedOnboardingScreen")
         self.navigationController?.popViewController(animated: true)
     }
+    
     func nextSlideButton() {
+        
         contentView.onboardingCollectionView.isPagingEnabled = false
+        
         if currentPage == onboardingModel.count - 1 {
             self.navigationController?.popViewController(animated: true)
             UserDefaults.standard.set(true, forKey: "hasViewedOnboardingScreen")
@@ -80,11 +89,7 @@ extension OnboardingScreenVC: OnboardingViewDelegateProtocol {
                 at: .centeredHorizontally,
                 animated: true)
         }
+        
         contentView.onboardingCollectionView.isPagingEnabled = true
     }
-    func reset() {
-        UserDefaults.standard.set(false, forKey: "hasViewedOnboardingScreen")
-        self.navigationController?.popViewController(animated: true)
-    }
 }
-

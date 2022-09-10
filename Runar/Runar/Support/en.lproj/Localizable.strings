@@ -93,18 +93,18 @@ With the permission of the copyright holders, the following musical compositions
 "onboarding.nextScreen" = "Next";
 "onboarding.start" = "Start";
 "onboarding.skip" = "Skip";
-"onboarding.aboutTitle" = "About";
-"onboarding.aboutDescription" = "Получай ответы на волнующие вопросы с помощью рун";
-"onboarding.howToTitle" = "How To";
-"onboarding.howToDescription" = "Выбирай один из восьми раскладов и смотри толкование своей судьбы";
+"onboarding.aboutTitle" = "What the app is about";
+"onboarding.aboutDescription" = "Get answers to exciting questions with the help of runes";
+"onboarding.howToTitle" = "How to read runes";
+"onboarding.howToDescription" = "Choose one of the eight divinations and see the interpretation of your fate";
 "onboarding.explanationTitle" = "Interpretation";
-"onboarding.explanationDescription" = "Смотри интерпретацию каждого расклада с указанием уровня удачи";
+"onboarding.explanationDescription" = "See the interpretation of each divination with the luckiness level";
 "onboarding.favoritesTitle" = "Favorites";
-"onboarding.favoritesDescription" = "Сохраняй понравившиеся толкования и значения рун в Избранное";
+"onboarding.favoritesDescription" = "Save your favorites interpretations and meanings of runes to your Favorites";
 "onboarding.generatorTitle" = "Generator";
 "onboarding.generatorDescription" = "Куй свою судьбу сам, собери рунный узор и наложи его на классную картинку";
 "onboarding.libraryTitle" = "Library";
-"onboarding.libraryDescription" = "Заходи в Библиотеку знаний, изучай сказки, мифологию и историю рун";
+"onboarding.libraryDescription" = "Go to the Library of Knowledge, learn fairy tales, mythology and the history of runes";
 
 "generator.runePattern.title" = "Runic pattern";
 "generator.runeFormula.title" = "Runic formula";

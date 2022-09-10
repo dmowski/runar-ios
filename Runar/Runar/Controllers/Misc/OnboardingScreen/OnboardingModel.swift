@@ -13,8 +13,8 @@ struct OnboardingSlide {
     let image: UIImage
 }
 
-
 extension OnboardingSlide {
+
     public static func slides() -> [OnboardingSlide] {
         let onboardingSlides: [OnboardingSlide] = [
             OnboardingSlide(title: L10n.Onboarding.aboutTitle, description: L10n.Onboarding.aboutDescription, image: Assets.about.image),
@@ -25,7 +25,6 @@ extension OnboardingSlide {
             OnboardingSlide(title: L10n.Onboarding.libraryTitle, description: L10n.Onboarding.libraryDescription, image: Assets.library.image)
         ]
         return onboardingSlides
-    }    
+    }
 }
-
 
