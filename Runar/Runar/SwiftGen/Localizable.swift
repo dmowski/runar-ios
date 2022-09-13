@@ -1776,7 +1776,8 @@ internal enum L10n {
     internal static let goSubPremiumPrice = L10n.tr("Localizable", "monetization.goSubPremiumPrice")
     /// Privacy policy
     internal static let privacyPolicyButton = L10n.tr("Localizable", "monetization.privacyPolicyButton")
-    /// Restore\npurchase
+    /// Restore
+    /// purchase
     internal static let restoreButton = L10n.tr("Localizable", "monetization.restoreButton")
     /// All runes description
     internal static let secondDescriptionTitle = L10n.tr("Localizable", "monetization.secondDescriptionTitle")
