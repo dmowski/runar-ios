@@ -65,9 +65,9 @@
 		84D7E5F02649EC6700772EE3 /* LibraryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E5EF2649EC6700772EE3 /* LibraryData.swift */; };
 		84D7E6022649F37700772EE3 /* LibraryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E6012649F37700772EE3 /* LibraryNode.swift */; };
 		84D7E60B264BAED300772EE3 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E60A264BAED300772EE3 /* Environment.swift */; };
+		96899D8A28D07FB300F84CB1 /* OnboardingSlideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96899D8928D07FB300F84CB1 /* OnboardingSlideModel.swift */; };
 		96BC4A62289150E5004D706E /* OnboardingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BC4A61289150E5004D706E /* OnboardingScreenVC.swift */; };
 		96BC4A642891778A004D706E /* OnboardingScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BC4A632891778A004D706E /* OnboardingScreenCell.swift */; };
-		96E0AC852891D180003FF83B /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E0AC842891D180003FF83B /* OnboardingModel.swift */; };
 		96ED7F9528C5F2C3003EE72F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED7F9428C5F2C3003EE72F /* OnboardingView.swift */; };
 		9911206C2861107B001B8FCC /* TagsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9911206B2861107B001B8FCC /* TagsCollectionView.swift */; };
 		9911206E28611139001B8FCC /* TagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9911206D28611139001B8FCC /* TagsCell.swift */; };
@@ -227,9 +227,9 @@
 		84D7E6012649F37700772EE3 /* LibraryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNode.swift; sourceTree = "<group>"; };
 		84D7E60A264BAED300772EE3 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96899D8928D07FB300F84CB1 /* OnboardingSlideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlideModel.swift; sourceTree = "<group>"; };
 		96BC4A61289150E5004D706E /* OnboardingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreenVC.swift; sourceTree = "<group>"; };
 		96BC4A632891778A004D706E /* OnboardingScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreenCell.swift; sourceTree = "<group>"; };
-		96E0AC842891D180003FF83B /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
 		96ED7F9428C5F2C3003EE72F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9911206B2861107B001B8FCC /* TagsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionView.swift; sourceTree = "<group>"; };
 		9911206D28611139001B8FCC /* TagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCell.swift; sourceTree = "<group>"; };
@@ -580,7 +580,7 @@
 			isa = PBXGroup;
 			children = (
 				96BC4A61289150E5004D706E /* OnboardingScreenVC.swift */,
-				96E0AC842891D180003FF83B /* OnboardingModel.swift */,
+				96899D8928D07FB300F84CB1 /* OnboardingSlideModel.swift */,
 				96ED7F9428C5F2C3003EE72F /* OnboardingView.swift */,
 				96BC4A632891778A004D706E /* OnboardingScreenCell.swift */,
 			);
@@ -1242,6 +1242,7 @@
 				9B15E36825FE465400737306 /* OneRuneVC.swift in Sources */,
 				19BDC61D25C030B1000808CF /* PublisherProvider.swift in Sources */,
 				96ED7F9528C5F2C3003EE72F /* OnboardingView.swift in Sources */,
+				96899D8A28D07FB300F84CB1 /* OnboardingSlideModel.swift in Sources */,
 				1987AAC525BDCDCA00BB3655 /* SixRuneView.swift in Sources */,
 				19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */,
 				C2B10B0728C4D58600F9BCF0 /* BindableGestureRecognizer.swift in Sources */,
@@ -1315,7 +1316,6 @@
 				1987AACF25BDCDF000BB3655 /* EightRuneView.swift in Sources */,
 				191D32D025B7C46A001DC210 /* Localizable.swift in Sources */,
 				849ED28F266E3457006E557A /* LibraryRootCell.swift in Sources */,
-				96E0AC852891D180003FF83B /* OnboardingModel.swift in Sources */,
 				1987AAC025BDCDBF00BB3655 /* FiveRuneView.swift in Sources */,
 				9BD98CC02628CD1D00F3BBD7 /* EscapePopUpVC.swift in Sources */,
 				199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */,

@@ -1,10 +1,11 @@
 //
-//  OnboardingModel.swift
+//  OnboardingSlideModel.swift
 //  Runar
 //
-//  Created by Виталий Татун on 27.07.22.
+//  Created by Виталий Татун on 13.09.22.
 //
 
+import Foundation
 import UIKit
 
 struct OnboardingSlide {
@@ -12,7 +13,6 @@ struct OnboardingSlide {
     let description: String
     let image: UIImage
 }
-
 extension OnboardingSlide {
 
     public static func slides() -> [OnboardingSlide] {
@@ -27,4 +27,3 @@ extension OnboardingSlide {
         return onboardingSlides
     }
 }
-
