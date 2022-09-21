@@ -71,7 +71,8 @@ extension OnboardingScreenVC: OnboardingViewDelegateProtocol {
     func skipButton() {
         
         UserDefaults.standard.set(true, forKey: "hasViewedOnboardingScreen")
-        self.navigationController?.popViewController(animated: true)
+        let mainVC = MainTabBarController()
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainVC)
     }
     
     func nextSlideButton() {
@@ -79,7 +80,8 @@ extension OnboardingScreenVC: OnboardingViewDelegateProtocol {
         contentView.onboardingCollectionView.isPagingEnabled = false
         
         if currentPage == onboardingModel.count - 1 {
-            self.navigationController?.popViewController(animated: true)
+            let mainVC = MainTabBarController()
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainVC)
             UserDefaults.standard.set(true, forKey: "hasViewedOnboardingScreen")
         } else {
             currentPage += 1
