@@ -11,7 +11,7 @@ public class LibraryViewController: LibraryNodeViewController {
     
     // MARK: - Override funcs
     public override func viewDidLoad() {
-        set(MemoryStorage.Library)
+        set(MemoryStorage.library)
                 
         super.viewDidLoad()
     }

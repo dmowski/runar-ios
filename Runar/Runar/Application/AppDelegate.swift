@@ -89,7 +89,7 @@ extension AppDelegate {
             LocalStorage.push(libraryData, forKey: .libraryData, withLocalization: true)
             LocalStorage.push(actualLibraryHash, forKey: .libraryHash, withLocalization: true)
             
-            MemoryStorage.Library = LibraryNode.create(fromData: libraryData)
+            MemoryStorage.library = LibraryNode.create(fromData: libraryData)
             
             return
         }
@@ -98,7 +98,7 @@ extension AppDelegate {
             fatalError("No data to display")
         }
                 
-        MemoryStorage.Library = LibraryNode.create(fromData: data)
+        MemoryStorage.library = LibraryNode.create(fromData: data)
     }
     
     func loadGeneratorData() -> Void {
@@ -119,7 +119,7 @@ extension AppDelegate {
             runesData = _runesData
         }
         
-        MemoryStorage.GenerationRunes = GenerationRuneModel.create(fromData: runesData!)
+        MemoryStorage.generationRunes = GenerationRuneModel.create(fromData: runesData!)
     }
     
     func loadWallpapers(){
@@ -135,6 +135,6 @@ extension AppDelegate {
             wallpapersStylesData = _wallpapersStylesData
         }
         
-        MemoryStorage.GenerationWallpapertsStyles = WallpapperStyleData.create(from: wallpapersStylesData!)
+        MemoryStorage.generationWallpapertsStyles = WallpapperStyleData.create(from: wallpapersStylesData!)
     }
 }

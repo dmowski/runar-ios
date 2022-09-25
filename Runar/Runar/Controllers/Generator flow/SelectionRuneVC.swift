@@ -181,7 +181,9 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             let indexPath = self.selectRunesView.indexPathForItem(at: point)
             
             if let index = indexPath {
+                
                 let rune = self.selectRunesView.cellForItem(at: index) as! SelectRuneCell
+                guard rune.isUnavailableRune == false else { return }
                 
                 popupVC.setupView(view: rune)
                 popupVC.setupModel(rune.model)
@@ -213,17 +215,25 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     func selectOnTapBut(rune: SelectRuneCell) {
 
-        selectRunesView.selectRune(rune: rune)
-        
-        for cell in (self.selectedRunesView.visibleCells as! [SelectedRuneCell]).sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
-            if !cell.isSelected {
-                cell.selectRune(SelectedRuneModel(title: rune.model!.title, image: rune.model!.image.image, index: rune.indexPath, id: rune.model!.id))
-                break
+        if rune.isUnavailableRune == true {
+
+            let monetizationVC = MonetizationVC()
+            monetizationVC.modalPresentationStyle = .fullScreen
+            self.present(monetizationVC, animated: true, completion: nil)
+        } else {
+
+            selectRunesView.selectRune(rune: rune)
+            
+            for cell in (self.selectedRunesView.visibleCells as! [SelectedRuneCell]).sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
+                if !cell.isSelected {
+                    cell.selectRune(SelectedRuneModel(title: rune.model!.title, image: rune.model!.image.image, index: rune.indexPath, id: rune.model!.id))
+                    break
+                }
             }
+            
+            generateButton.isHidden = !selectedRunesView.hasSelectedRunes()
+            randomButton.isHidden = selectedRunesView.hasSelectedRunes()
         }
-        
-        generateButton.isHidden = !selectedRunesView.hasSelectedRunes()
-        randomButton.isHidden = selectedRunesView.hasSelectedRunes()
     }
     
     private func deselectRune(_ index: IndexPath){
@@ -235,9 +245,15 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func selectRandomRunesOnTap() {
         self.selectedRunesView.deselectAll()
-        
-        var indexes = [Int](0..<MemoryStorage.GenerationRunes.count)
-        
+
+        var maxRunes = MemoryStorage.generationRunes.count
+
+        if SubscriptionManager.freeSubscription == true {
+            maxRunes = 7
+        }
+
+        var indexes = [Int](0..<maxRunes)
+
         for _ in 0..<3 {
             let index = indexes.randomElement()!
             

@@ -8,6 +8,7 @@
 import UIKit
 
 public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
+    
     private let cellId = "existingCellId"
     private var selectDeligate: ((SelectRuneCell) -> Void)?
     internal var selectedRunesCount: Int = 0
@@ -34,15 +35,25 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     }
     
     private func setupRunes() {
-        for (index, rune) in MemoryStorage.GenerationRunes.enumerated() {
+
+        for (index, rune) in MemoryStorage.generationRunes.enumerated() {
+
             let indexPath = IndexPath(row: index, section: 1)
             let cell = self.dequeueReusableCell(withReuseIdentifier: self.cellId, for: indexPath) as! SelectRuneCell
             
-            if (cell.model == nil){
+            if (cell.model == nil) {
                 cell.setRune(rune, indexPath)
                 cell.runeImage.addTarget(self, action: #selector(self.selectRune(runeImage:)), for: .touchUpInside)
             }
             
+            if SubscriptionManager.freeSubscription == true {
+                for indexUnavailable in 8..<MemoryStorage.generationRunes.count {
+                    if indexPath == IndexPath(row: indexUnavailable, section: 1) {
+                        cell.unavailableRune()
+                    }
+                }
+            }
+
             runes.append(cell)
         }
     }
@@ -56,7 +67,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return MemoryStorage.GenerationRunes.count
+        return MemoryStorage.generationRunes.count
     }
                 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
