@@ -129,7 +129,7 @@ extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
             return cell ?? StaticCell()
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
-            cell?.textLabel?.text = "Monetization"
+            cell?.textLabel?.text = L10n.Monetization.titleSubscriptionSettings
             return cell ?? StaticCell()
         default:
             return UITableViewCell()
