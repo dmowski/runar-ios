@@ -106,7 +106,7 @@ class OneRuneVC: UIViewController {
     }
     
     private func openCurrentPage() {
-        self.pageScroll.setContentOffset(CGPoint(x: view.frame.size.width * CGFloat(self.index!), y: 0.0), animated: false)
+        self.pageScroll.setContentOffset(CGPoint(x: view.frame.size.width * CGFloat(self.index!), y: 0.0), animated: true)
     }
 }
 

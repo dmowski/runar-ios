@@ -223,7 +223,7 @@ class GeneratorVC: UIViewController {
     }
 
     @objc private func tapWithoutPopUp() {
-        self.navigationController?.pushViewController(SelectionRuneVC(), animated: false)
+        self.navigationController?.pushViewController(SelectionRuneVC(), animated: true)
     }
 
     @objc private func showFormulaPopupTap() {
