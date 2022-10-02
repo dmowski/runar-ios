@@ -47,7 +47,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
             }
             
             if SubscriptionManager.freeSubscription == true {
-                for indexUnavailable in 8..<MemoryStorage.generationRunes.count {
+                for indexUnavailable in 7..<MemoryStorage.generationRunes.count {
                     if indexPath == IndexPath(row: indexUnavailable, section: 1) {
                         cell.unavailableRune()
                     }
@@ -90,7 +90,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
         }
     }
     
-    func selectRune(rune: SelectRuneCell){
+    func selectRune(rune: SelectRuneCell) {
         rune.selectRune()
         self.selectedRunesCount += 1
     }

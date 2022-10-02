@@ -38,7 +38,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         configureNavigationBar()
     }
         
-    func set(_ node: LibraryNode){
+    func set(_ node: LibraryNode) {
         self.node = node
     }
     
@@ -176,6 +176,12 @@ private extension UITableView {
         let cell = self.dequeueReusableCell(withIdentifier: child.id, for: indexPath)
         
         (cell as! LibraryCellProtocol).bind(node: child)
+        
+//        if SubscriptionManager.freeSubscription == true {
+//            if indexPath.row >= 3 {
+//                cell.
+//            }
+//        }
         
         return cell
     }

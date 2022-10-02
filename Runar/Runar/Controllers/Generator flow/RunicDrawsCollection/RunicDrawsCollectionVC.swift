@@ -197,10 +197,10 @@ extension RunicDrawsCollectionVC: UICollectionViewDelegateFlowLayout {
                 monetizationVC.modalPresentationStyle = .fullScreen
                 self.present(monetizationVC, animated: true, completion: nil)
             } else {
-                tappedRunicDraw(runeDescription: runeDescription)
+                tapRunicDrawCell(runeDescription: runeDescription)
             }
         } else {
-            tappedRunicDraw(runeDescription: runeDescription)
+            tapRunicDrawCell(runeDescription: runeDescription)
         }
     }
     
@@ -226,7 +226,7 @@ extension RunicDrawsCollectionVC: UICollectionViewDelegateFlowLayout {
         return 16
     }
     
-    private func tappedRunicDraw(runeDescription: RuneDescription) {
+    private func tapRunicDrawCell(runeDescription: RuneDescription) {
         if LocalStorage.pull(forKey: runeDescription.name) == true {
             let viewModel = AlignmentVM(runeDescription: runeDescription)
             let viewController = AlignmentVC()
