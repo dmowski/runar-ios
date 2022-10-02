@@ -1776,7 +1776,8 @@ internal enum L10n {
     internal static let goSubPremiumPrice = L10n.tr("Localizable", "monetization.goSubPremiumPrice")
     /// Privacy policy
     internal static let privacyPolicyButton = L10n.tr("Localizable", "monetization.privacyPolicyButton")
-    /// Restore\npurchase
+    /// Restore
+    /// purchase
     internal static let restoreButton = L10n.tr("Localizable", "monetization.restoreButton")
     /// All runes description
     internal static let secondDescriptionTitle = L10n.tr("Localizable", "monetization.secondDescriptionTitle")
@@ -1897,6 +1898,39 @@ internal enum L10n {
     }
   }
 
+  internal enum Onboarding {
+    /// Get answers to exciting questions with the help of runes
+    internal static let aboutDescription = L10n.tr("Localizable", "onboarding.aboutDescription")
+    /// What the app is about
+    internal static let aboutTitle = L10n.tr("Localizable", "onboarding.aboutTitle")
+    /// See the interpretation of each divination with the luckiness level
+    internal static let explanationDescription = L10n.tr("Localizable", "onboarding.explanationDescription")
+    /// Interpretation
+    internal static let explanationTitle = L10n.tr("Localizable", "onboarding.explanationTitle")
+    /// Save your favorites interpretations and meanings of runes to your Favorites
+    internal static let favoritesDescription = L10n.tr("Localizable", "onboarding.favoritesDescription")
+    /// Favorites
+    internal static let favoritesTitle = L10n.tr("Localizable", "onboarding.favoritesTitle")
+    /// Куй свою судьбу сам, собери рунный узор и наложи его на классную картинку
+    internal static let generatorDescription = L10n.tr("Localizable", "onboarding.generatorDescription")
+    /// Generator
+    internal static let generatorTitle = L10n.tr("Localizable", "onboarding.generatorTitle")
+    /// Choose one of the eight divinations and see the interpretation of your fate
+    internal static let howToDescription = L10n.tr("Localizable", "onboarding.howToDescription")
+    /// How to read runes
+    internal static let howToTitle = L10n.tr("Localizable", "onboarding.howToTitle")
+    /// Go to the Library of Knowledge, learn fairy tales, mythology and the history of runes
+    internal static let libraryDescription = L10n.tr("Localizable", "onboarding.libraryDescription")
+    /// Library
+    internal static let libraryTitle = L10n.tr("Localizable", "onboarding.libraryTitle")
+    /// Next
+    internal static let nextScreen = L10n.tr("Localizable", "onboarding.nextScreen")
+    /// Skip
+    internal static let skip = L10n.tr("Localizable", "onboarding.skip")
+    /// Start
+    internal static let start = L10n.tr("Localizable", "onboarding.start")
+  }
+
   internal enum PopUp {
     /// No
     internal static let no = L10n.tr("Localizable", "popUp.no")
@@ -1964,7 +1998,13 @@ internal enum L10n {
     internal static let allow = L10n.tr("Localizable", "tabbar.allow")
     /// Cancel
     internal static let cancel = L10n.tr("Localizable", "tabbar.cancel")
-    /// Application version 1.0\n\nRunar is an app for reading Scandinavian runes and studying mythology and fairy tales. Contains 8 types of rune layouts & runes interpretation.\n\nWith the permission of the copyright holders, the following musical compositions are used in the application:\n- Lyod (tracks "Black rook", "My mother told"), https://lyod1.bandcamp.com/releases\n- Danheim (tracks "Runar", "Kala"), https://danheimmusic.com
+    /// Application version 1.0
+    /// 
+    /// Runar is an app for reading Scandinavian runes and studying mythology and fairy tales. Contains 8 types of rune layouts & runes interpretation.
+    /// 
+    /// With the permission of the copyright holders, the following musical compositions are used in the application:
+    /// - Lyod (tracks "Black rook", "My mother told"), https://lyod1.bandcamp.com/releases
+    /// - Danheim (tracks "Runar", "Kala"), https://danheimmusic.com
     internal static let descriptionAppText = L10n.tr("Localizable", "tabbar.descriptionAppText")
     /// Generator
     internal static let generator = L10n.tr("Localizable", "tabbar.generator")

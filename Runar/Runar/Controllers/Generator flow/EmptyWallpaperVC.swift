@@ -180,6 +180,6 @@ public class EmptyWallpaperVC: UIViewController {
     
     @objc func nextButtonTapped() {
         let selectWallpaperStyleVC = WallpaperWithBackgroundVC()
-        self.navigationController?.pushViewController(selectWallpaperStyleVC, animated: false)
+        self.navigationController?.pushViewController(selectWallpaperStyleVC, animated: true)
     }
 }

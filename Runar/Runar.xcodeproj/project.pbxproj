@@ -65,6 +65,10 @@
 		84D7E5F02649EC6700772EE3 /* LibraryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E5EF2649EC6700772EE3 /* LibraryData.swift */; };
 		84D7E6022649F37700772EE3 /* LibraryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E6012649F37700772EE3 /* LibraryNode.swift */; };
 		84D7E60B264BAED300772EE3 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E60A264BAED300772EE3 /* Environment.swift */; };
+		968939D828D094FB00057D2A /* OnboardingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968939D428D094FA00057D2A /* OnboardingScreenVC.swift */; };
+		968939D928D094FB00057D2A /* OnboardingScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968939D528D094FA00057D2A /* OnboardingScreenCell.swift */; };
+		968939DA28D094FB00057D2A /* OnboardingSlideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968939D628D094FA00057D2A /* OnboardingSlideModel.swift */; };
+		968939DB28D094FB00057D2A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968939D728D094FB00057D2A /* OnboardingView.swift */; };
 		9911206C2861107B001B8FCC /* TagsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9911206B2861107B001B8FCC /* TagsCollectionView.swift */; };
 		9911206E28611139001B8FCC /* TagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9911206D28611139001B8FCC /* TagsCell.swift */; };
 		9B0CB8862607922B00B2AF60 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0CB8852607922B00B2AF60 /* DescriptionView.swift */; };
@@ -225,6 +229,10 @@
 		84D7E6012649F37700772EE3 /* LibraryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNode.swift; sourceTree = "<group>"; };
 		84D7E60A264BAED300772EE3 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		968939D428D094FA00057D2A /* OnboardingScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingScreenVC.swift; sourceTree = "<group>"; };
+		968939D528D094FA00057D2A /* OnboardingScreenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingScreenCell.swift; sourceTree = "<group>"; };
+		968939D628D094FA00057D2A /* OnboardingSlideModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSlideModel.swift; sourceTree = "<group>"; };
+		968939D728D094FB00057D2A /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9911206B2861107B001B8FCC /* TagsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionView.swift; sourceTree = "<group>"; };
 		9911206D28611139001B8FCC /* TagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCell.swift; sourceTree = "<group>"; };
 		9B0CB8852607922B00B2AF60 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
@@ -566,6 +574,17 @@
 			path = Confings;
 			sourceTree = "<group>";
 		};
+		968939D328D094C200057D2A /* OnboardingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				968939D528D094FA00057D2A /* OnboardingScreenCell.swift */,
+				968939D428D094FA00057D2A /* OnboardingScreenVC.swift */,
+				968939D628D094FA00057D2A /* OnboardingSlideModel.swift */,
+				968939D728D094FB00057D2A /* OnboardingView.swift */,
+			);
+			path = OnboardingScreen;
+			sourceTree = "<group>";
+		};
 		9911206A28611036001B8FCC /* TagsCollection */ = {
 			isa = PBXGroup;
 			children = (
@@ -797,6 +816,7 @@
 		C22B4DB02858A86C00F6245C /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				968939D328D094C200057D2A /* OnboardingScreen */,
 				C2953E5B28896AFB00EA297D /* Monetization */,
 				9B5F5BB3261CD58F00A7454F /* Music */,
 				199A678925F836C20013DE5D /* TabBarController */,
@@ -1219,6 +1239,7 @@
 				9B739DF325CD765800726B30 /* Constants.swift in Sources */,
 				843DFF4D2653FB5400D6DFE5 /* LibraryCell.swift in Sources */,
 				C2C5584D283D9EE9006B053C /* SelectRuneCell.swift in Sources */,
+				968939D828D094FB00057D2A /* OnboardingScreenVC.swift in Sources */,
 				C2AF4B33285AA66000976992 /* UIImage.swift in Sources */,
 				84D7E5F02649EC6700772EE3 /* LibraryData.swift in Sources */,
 				191D32CE25B7C46A001DC210 /* Fonts.swift in Sources */,
@@ -1235,6 +1256,7 @@
 				9BD98C972628A74200F3BBD7 /* AlertSettingsVC.swift in Sources */,
 				1907851425C4236000434D57 /* FirstRuneView.swift in Sources */,
 				19C0F1FC25BAF9D00027422B /* MainCellModel.swift in Sources */,
+				968939DA28D094FB00057D2A /* OnboardingSlideModel.swift in Sources */,
 				19C0F21025BAFDCB0027422B /* AlignmentInfoVM.swift in Sources */,
 				9911206E28611139001B8FCC /* TagsCell.swift in Sources */,
 				191D32CF25B7C46A001DC210 /* Assets.swift in Sources */,
@@ -1242,6 +1264,7 @@
 				84410677270CC7E500CD8B56 /* SelectRuneCollectionView.swift in Sources */,
 				9BD2295A258AB02500E17E98 /* RunicDrawsCollectionVC.swift in Sources */,
 				849ED29C26710C0B006E557A /* LibraryPathCell.swift in Sources */,
+				968939D928D094FB00057D2A /* OnboardingScreenCell.swift in Sources */,
 				19C0F1F425BAF07E0027422B /* AlignmentVM.swift in Sources */,
 				84B1C4DB2727184B007865CF /* WallpapperStyleData.swift in Sources */,
 				9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */,
@@ -1299,6 +1322,7 @@
 				1987AAC025BDCDBF00BB3655 /* FiveRuneView.swift in Sources */,
 				9BD98CC02628CD1D00F3BBD7 /* EscapePopUpVC.swift in Sources */,
 				199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */,
+				968939DB28D094FB00057D2A /* OnboardingView.swift in Sources */,
 				C2953E612889739000EA297D /* MonetizationModel.swift in Sources */,
 				9B5F5BB5261CD5A500A7454F /* MusicViewController.swift in Sources */,
 				8441066827063C5400CD8B56 /* GenerationRuneModel.swift in Sources */,

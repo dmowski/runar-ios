@@ -68,7 +68,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         
         switch child.type {
         case .root, .menu:
-            self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: false)
+            self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
             break
         default:
             print(child.title ?? "No Data")

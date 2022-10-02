@@ -326,7 +326,7 @@ class AlignmentVC: UIViewController {
                 self?.scrollViewAlignment.isScrollEnabled = true
                 self?.invibaleView.removeFromSuperview()
                 self?.readyToOpen = true
-                self?.scrollViewAlignment.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+                self?.scrollViewAlignment.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             }
             
             controller.changeContentOffset = { [self]frame in

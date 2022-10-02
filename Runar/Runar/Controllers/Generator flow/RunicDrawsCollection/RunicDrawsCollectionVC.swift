@@ -85,6 +85,10 @@ class RunicDrawsCollectionVC: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        if UserDefaults.standard.bool(forKey: "hasViewedOnboardingScreen") {
+            return
+        }
+        self.navigationController?.pushViewController(OnboardingScreenVC(), animated: true)
     }
     
     func configureCollectionView() {
@@ -108,6 +112,7 @@ class RunicDrawsCollectionVC: UICollectionViewController {
         ])
         
         collectionView.addSubview(generatorButton)
+        
         generatorButton.addTarget(self, action: #selector(self.goToGeneratorTab), for: .touchUpInside)
         NSLayoutConstraint.activate([
             generatorButton.topAnchor.constraint(equalTo: generatorView.topAnchor),
@@ -149,7 +154,7 @@ class RunicDrawsCollectionVC: UICollectionViewController {
     @IBAction func goToGeneratorTab() {
         self.tabBarController?.selectedIndex = 2
     }
-    
+
     //TODO: - No Internet
     //    private func showAllert() {
     //        let alert = UIAlertController(title: "No Internet", message: "Runar app Requires wifi/internet connection!", preferredStyle: .alert)
@@ -159,7 +164,6 @@ class RunicDrawsCollectionVC: UICollectionViewController {
     //        self.present(alert, animated: true, completion: nil)
     //
     //    }
-    
 }
 
 extension RunicDrawsCollectionVC: UICollectionViewDelegateFlowLayout {
