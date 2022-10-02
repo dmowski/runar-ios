@@ -151,6 +151,7 @@ internal enum Assets {
   internal static let popUpVectorLeft = ImageAsset(name: "popUpVectorLeft")
   internal static let popUpVectorRight = ImageAsset(name: "popUpVectorRight")
   internal static let selected = ImageAsset(name: "selected")
+  internal static let spark = ImageAsset(name: "spark")
   internal static let unselected = ImageAsset(name: "unselected")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
