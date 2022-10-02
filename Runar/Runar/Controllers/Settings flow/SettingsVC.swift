@@ -127,7 +127,7 @@ extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
             cell?.textLabel?.text = String.aboutApp
             cell?.openVC = {
-                self.navigationController?.pushViewController(AppInfoVC(), animated: false)}
+                self.navigationController?.pushViewController(AppInfoVC(), animated: true)}
             return cell ?? StaticCell()
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
@@ -155,7 +155,7 @@ extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
                 UIApplication.shared.open(url)
             }
         case 3:
-            self.navigationController?.pushViewController(AppInfoVC(), animated: false)
+            self.navigationController?.pushViewController(AppInfoVC(), animated: true)
         case 4:
             self.navigationController?.pushViewController(MonetizationVC(), animated: true)
         default:
