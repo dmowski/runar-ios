@@ -134,7 +134,7 @@ extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
             cell?.textLabel?.text = "Monetization"
             cell?.openVC = {
                 self.navigationController?.pushViewController(MonetizationVC(), animated: true)}
-            return cell ?? StaticCell()
+            return cell ?? StaticCell()            
         default:
             return UITableViewCell()
         }
