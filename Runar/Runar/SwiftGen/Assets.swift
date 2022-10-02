@@ -118,7 +118,15 @@ internal enum Assets {
     internal static let uruz = ImageAsset(name: "LayoutsRunes/Uruz")
     internal static let wunji = ImageAsset(name: "LayoutsRunes/Wunji")
   }
+  internal static let checkBox = ImageAsset(name: "checkBox")
+  internal static let sale50 = ImageAsset(name: "sale50")
   internal static let backIcon = ImageAsset(name: "backIcon")
+  internal static let about = ImageAsset(name: "about")
+  internal static let explanation = ImageAsset(name: "explanation")
+  internal static let favorites = ImageAsset(name: "favorites")
+  internal static let generator = ImageAsset(name: "generator")
+  internal static let howTo = ImageAsset(name: "howTo")
+  internal static let library = ImageAsset(name: "library")
   internal static let danheim = ImageAsset(name: "Danheim")
   internal static let led = ImageAsset(name: "Led")
   internal static let vector = ImageAsset(name: "vector")
@@ -166,6 +174,17 @@ internal final class ColorAsset {
     return color
   }()
 
+  #if os(iOS) || os(tvOS)
+  @available(iOS 11.0, tvOS 11.0, *)
+  internal func color(compatibleWith traitCollection: UITraitCollection) -> Color {
+    let bundle = BundleToken.bundle
+    guard let color = Color(named: name, in: bundle, compatibleWith: traitCollection) else {
+      fatalError("Unable to load color asset named \(name).")
+    }
+    return color
+  }
+  #endif
+
   fileprivate init(name: String) {
     self.name = name
   }
@@ -194,6 +213,7 @@ internal struct ImageAsset {
   internal typealias Image = UIImage
   #endif
 
+  @available(iOS 8.0, tvOS 9.0, watchOS 2.0, macOS 10.7, *)
   internal var image: Image {
     let bundle = BundleToken.bundle
     #if os(iOS) || os(tvOS)
@@ -209,9 +229,21 @@ internal struct ImageAsset {
     }
     return result
   }
+
+  #if os(iOS) || os(tvOS)
+  @available(iOS 8.0, tvOS 9.0, *)
+  internal func image(compatibleWith traitCollection: UITraitCollection) -> Image {
+    let bundle = BundleToken.bundle
+    guard let result = Image(named: name, in: bundle, compatibleWith: traitCollection) else {
+      fatalError("Unable to load image asset named \(name).")
+    }
+    return result
+  }
+  #endif
 }
 
 internal extension ImageAsset.Image {
+  @available(iOS 8.0, tvOS 9.0, watchOS 2.0, *)
   @available(macOS, deprecated,
     message: "This initializer is unsafe on macOS, please use the ImageAsset.image property")
   convenience init?(asset: ImageAsset) {

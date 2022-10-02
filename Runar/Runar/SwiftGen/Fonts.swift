@@ -1,7 +1,7 @@
 // swiftlint:disable all
 // Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
 
-#if os(OSX)
+#if os(macOS)
   import AppKit.NSFont
 #elseif os(iOS) || os(tvOS) || os(watchOS)
   import UIKit.UIFont
@@ -43,10 +43,11 @@ internal enum FontFamily {
     internal static let all: [FontConvertible] = [black, blackItalic, bold, boldItalic, italic, light, lightItalic, medium, mediumItalic, regular, thin, thinItalic]
   }
   internal enum SFProDisplay {
+    internal static let bold = FontConvertible(name: "SFProDisplay-Bold", family: "SF Pro Display", path: "SFProDisplay-Bold.ttf")
     internal static let light = FontConvertible(name: "SFProDisplay-Light", family: "SF Pro Display", path: "SFProDisplay-Light.ttf")
     internal static let medium = FontConvertible(name: "SFProDisplay-Medium", family: "SF Pro Display", path: "SFProDisplay-Medium.ttf")
     internal static let regular = FontConvertible(name: "SFProDisplay-Regular", family: "SF Pro Display", path: "SFProDisplay-Regular.ttf")
-    internal static let all: [FontConvertible] = [light, medium, regular]
+    internal static let all: [FontConvertible] = [bold, light, medium, regular]
   }
   internal static let allCustomFonts: [FontConvertible] = [AmaticSC.all, PoiretOne.all, Roboto.all, SFProDisplay.all].flatMap { $0 }
   internal static func registerAllCustomFonts() {
@@ -62,7 +63,7 @@ internal struct FontConvertible {
   internal let family: String
   internal let path: String
 
-  #if os(OSX)
+  #if os(macOS)
   internal typealias Font = NSFont
   #elseif os(iOS) || os(tvOS) || os(watchOS)
   internal typealias Font = UIFont
@@ -93,7 +94,7 @@ internal extension FontConvertible.Font {
     if !UIFont.fontNames(forFamilyName: font.family).contains(font.name) {
       font.register()
     }
-    #elseif os(OSX)
+    #elseif os(macOS)
     if let url = font.url, CTFontManagerGetScopeForURL(url as CFURL) == .none {
       font.register()
     }

@@ -16,8 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = MainTabBarController()
-        window?.makeKeyAndVisible()
+        if UserDefaults.standard.bool(forKey: "hasViewedOnboardingScreen") {
+            window?.rootViewController = MainTabBarController()
+            window?.makeKeyAndVisible()
+        } else {
+            window?.rootViewController = OnboardingScreenVC()
+            window?.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -46,6 +51,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+    func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
+        guard let window = self.window else { return }
+        window.rootViewController = vc
+        UIView.transition(
+            with: window,
+            duration: 1,
+            options: [.transitionCrossDissolve], animations: nil, completion: nil)
     }
     
 }

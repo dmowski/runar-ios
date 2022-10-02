@@ -58,6 +58,8 @@ internal enum L10n {
   internal static let situation = L10n.tr("Localizable", "situation")
   /// Present one
   internal static let situationInRealTime = L10n.tr("Localizable", "situationInRealTime")
+  /// Skip
+  internal static let skip = L10n.tr("Localizable", "skip")
   /// Solution
   internal static let solution = L10n.tr("Localizable", "solution")
   /// Solution
@@ -1737,6 +1739,60 @@ internal enum L10n {
     }
   }
 
+  internal enum Monetization {
+    /// Сhoose a payment plan
+    internal static let chooseTitleMonetization = L10n.tr("Localizable", "monetization.chooseTitleMonetization")
+    /// Get a full access to Runar
+    internal static let descriptionMainTitle = L10n.tr("Localizable", "monetization.descriptionMainTitle")
+    /// 8 runic draws
+    internal static let firstDescriptionTitle = L10n.tr("Localizable", "monetization.firstDescriptionTitle")
+    /// Runic patterns generator
+    internal static let fourthDescriptionTitle = L10n.tr("Localizable", "monetization.fourthDescriptionTitle")
+    /// Forever
+    internal static let goEternalPeriod = L10n.tr("Localizable", "monetization.goEternalPeriod")
+    /// $29,99
+    internal static let goEternalPrice = L10n.tr("Localizable", "monetization.goEternalPrice")
+    /// Eternal
+    internal static let goEternalTitle = L10n.tr("Localizable", "monetization.goEternalTitle")
+    /// Pay the plan
+    internal static let goPay = L10n.tr("Localizable", "monetization.goPay")
+    /// Annually
+    internal static let goPopularPeriod = L10n.tr("Localizable", "monetization.goPopularPeriod")
+    /// $11,99
+    internal static let goPopularPrice = L10n.tr("Localizable", "monetization.goPopularPrice")
+    /// Popular
+    internal static let goPopularTitle = L10n.tr("Localizable", "monetization.goPopularTitle")
+    /// Monthly
+    internal static let goPremiumPeriod = L10n.tr("Localizable", "monetization.goPremiumPeriod")
+    /// $1,99
+    internal static let goPremiumPrice = L10n.tr("Localizable", "monetization.goPremiumPrice")
+    /// Premium
+    internal static let goPremiumTitle = L10n.tr("Localizable", "monetization.goPremiumTitle")
+    /// pay once
+    internal static let goSubEternalPrice = L10n.tr("Localizable", "monetization.goSubEternalPrice")
+    /// $23,88/year
+    internal static let goSubPopularPrice = L10n.tr("Localizable", "monetization.goSubPopularPrice")
+    /// $23,88/year
+    internal static let goSubPremiumPrice = L10n.tr("Localizable", "monetization.goSubPremiumPrice")
+    /// Privacy policy
+    internal static let privacyPolicyButton = L10n.tr("Localizable", "monetization.privacyPolicyButton")
+    /// Restore
+    /// purchase
+    internal static let restoreButton = L10n.tr("Localizable", "monetization.restoreButton")
+    /// All runes description
+    internal static let secondDescriptionTitle = L10n.tr("Localizable", "monetization.secondDescriptionTitle")
+    /// Terms of use
+    internal static let termsOfUseButton = L10n.tr("Localizable", "monetization.termsOfUseButton")
+    /// Audio library
+    internal static let thirdDescriptionTitle = L10n.tr("Localizable", "monetization.thirdDescriptionTitle")
+    /// Runar eternal
+    internal static let titleSubscriptionEternal = L10n.tr("Localizable", "monetization.titleSubscriptionEternal")
+    /// Runar popular
+    internal static let titleSubscriptionPopular = L10n.tr("Localizable", "monetization.titleSubscriptionPopular")
+    /// Runar premium
+    internal static let titleSubscriptionPremium = L10n.tr("Localizable", "monetization.titleSubscriptionPremium")
+  }
+
   internal enum Music {
     /// Black rook
     internal static let blackRook = L10n.tr("Localizable", "music.blackRook")
@@ -1840,6 +1896,39 @@ internal enum L10n {
     }
   }
 
+  internal enum Onboarding {
+    /// Get answers to exciting questions with the help of runes
+    internal static let aboutDescription = L10n.tr("Localizable", "onboarding.aboutDescription")
+    /// What the app is about
+    internal static let aboutTitle = L10n.tr("Localizable", "onboarding.aboutTitle")
+    /// See the interpretation of each divination with the luckiness level
+    internal static let explanationDescription = L10n.tr("Localizable", "onboarding.explanationDescription")
+    /// Interpretation
+    internal static let explanationTitle = L10n.tr("Localizable", "onboarding.explanationTitle")
+    /// Save your favorites interpretations and meanings of runes to your Favorites
+    internal static let favoritesDescription = L10n.tr("Localizable", "onboarding.favoritesDescription")
+    /// Favorites
+    internal static let favoritesTitle = L10n.tr("Localizable", "onboarding.favoritesTitle")
+    /// Куй свою судьбу сам, собери рунный узор и наложи его на классную картинку
+    internal static let generatorDescription = L10n.tr("Localizable", "onboarding.generatorDescription")
+    /// Generator
+    internal static let generatorTitle = L10n.tr("Localizable", "onboarding.generatorTitle")
+    /// Choose one of the eight divinations and see the interpretation of your fate
+    internal static let howToDescription = L10n.tr("Localizable", "onboarding.howToDescription")
+    /// How to read runes
+    internal static let howToTitle = L10n.tr("Localizable", "onboarding.howToTitle")
+    /// Go to the Library of Knowledge, learn fairy tales, mythology and the history of runes
+    internal static let libraryDescription = L10n.tr("Localizable", "onboarding.libraryDescription")
+    /// Library
+    internal static let libraryTitle = L10n.tr("Localizable", "onboarding.libraryTitle")
+    /// Next
+    internal static let nextScreen = L10n.tr("Localizable", "onboarding.nextScreen")
+    /// Skip
+    internal static let skip = L10n.tr("Localizable", "onboarding.skip")
+    /// Start
+    internal static let start = L10n.tr("Localizable", "onboarding.start")
+  }
+
   internal enum PopUp {
     /// No
     internal static let no = L10n.tr("Localizable", "popUp.no")
@@ -1907,7 +1996,13 @@ internal enum L10n {
     internal static let allow = L10n.tr("Localizable", "tabbar.allow")
     /// Cancel
     internal static let cancel = L10n.tr("Localizable", "tabbar.cancel")
-    /// Application version 1.0\n\nRunar is an app for reading Scandinavian runes and studying mythology and fairy tales. Contains 8 types of rune layouts & runes interpretation.\n\nWith the permission of the copyright holders, the following musical compositions are used in the application:\n- Lyod (tracks "Black rook", "My mother told"), https://lyod1.bandcamp.com/releases\n- Danheim (tracks "Runar", "Kala"), https://danheimmusic.com
+    /// Application version 1.0
+    /// 
+    /// Runar is an app for reading Scandinavian runes and studying mythology and fairy tales. Contains 8 types of rune layouts & runes interpretation.
+    /// 
+    /// With the permission of the copyright holders, the following musical compositions are used in the application:
+    /// - Lyod (tracks "Black rook", "My mother told"), https://lyod1.bandcamp.com/releases
+    /// - Danheim (tracks "Runar", "Kala"), https://danheimmusic.com
     internal static let descriptionAppText = L10n.tr("Localizable", "tabbar.descriptionAppText")
     /// Generator
     internal static let generator = L10n.tr("Localizable", "tabbar.generator")

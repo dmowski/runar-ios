@@ -46,7 +46,7 @@ class GeneratorVC: UIViewController {
 
     private func configureNavigationBar() {
 
-        if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
+        if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 && !DeviceType.isIphone78Plus {
             title = .generator
             navigationController?.navigationBar.configure(prefersLargeTitles: true, titleFontSize: 34)
         } else {
@@ -223,7 +223,7 @@ class GeneratorVC: UIViewController {
     }
 
     @objc private func tapWithoutPopUp() {
-        self.navigationController?.pushViewController(SelectionRuneVC(), animated: false)
+        self.navigationController?.pushViewController(SelectionRuneVC(), animated: true)
     }
 
     @objc private func showFormulaPopupTap() {
