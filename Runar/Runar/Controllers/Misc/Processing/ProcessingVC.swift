@@ -84,7 +84,7 @@ class ProcessingVC: UIViewController {
         
         self.delegate?.navigationController?.popViewController(animated: false)
         let emptyWallpaperViewController = EmptyWallpaperVC(runesIds: runesIds)
-        self.delegate?.navigationController?.pushViewController(emptyWallpaperViewController, animated: false)
+        self.delegate?.navigationController?.pushViewController(emptyWallpaperViewController, animated: true)
     }
 
     private func doAnimation() {
