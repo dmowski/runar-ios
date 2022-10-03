@@ -27,6 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //            print("No internet")
         //        }
 
+        if !UserDefaults.standard.bool(forKey: "subscribed") {
+            SubscriptionManager.freeSubscription = true
+        } else {
+            SubscriptionManager.freeSubscription = false
+        }
+
         MusicViewController.shared.initBackgroundMusic()
         if !UserDefaults.standard.bool(forKey: "is_off_music") {
             MusicViewController.shared.playBackgroundMusic()

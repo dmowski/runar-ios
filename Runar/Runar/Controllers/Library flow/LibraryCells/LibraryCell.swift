@@ -59,6 +59,11 @@ public class LibraryCell: UITableViewCell, LibraryCellProtocol {
     public func bind(node: LibraryNode) -> Void {
         fatalError("bind method should be overriden!")
     }
+
+    public func unavailableLibrary() {
+        self.contentView.alpha = 0.3
+        arrow.alpha = 0.3
+    }
 }
 
 // MARK: - Extensions

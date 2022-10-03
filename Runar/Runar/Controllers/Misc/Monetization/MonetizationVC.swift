@@ -63,7 +63,7 @@ extension MonetizationVC: MonetizationViewDelegateProtocol {
     }
     
     func didTapRestoreButton() {
-        print("didTapRestoreButton")
+        viewModel.restorePurchase()
     }
     
     func didTapPayButton() {

@@ -32,6 +32,16 @@ class MonetizationModel: NSObject {
         SKPaymentQueue.default().add(self)
         SKPaymentQueue.default().add(payment)
     }
+
+    internal func restorePurchase() {
+        SKPaymentQueue.default().restoreCompletedTransactions()
+    }
+
+    private func purchaseChanges() {
+        SubscriptionManager.freeSubscription = false
+        UserDefaults.standard.set(true, forKey: "subscribed")
+        //self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension MonetizationModel: SKProductsRequestDelegate, SKPaymentTransactionObserver {
@@ -42,7 +52,7 @@ extension MonetizationModel: SKProductsRequestDelegate, SKPaymentTransactionObse
             print("\(product.localizedTitle) is available!")
             self.purchase(product: product)
         } else {
-            print("product is not available!")
+            print("Product is not available!")
         }
     }
 
@@ -51,10 +61,8 @@ extension MonetizationModel: SKProductsRequestDelegate, SKPaymentTransactionObse
         for transaction in transactions {
             
             switch transaction.transactionState {
-                case .purchasing:
-                    print("customer in the process of purchase")
                 case .purchased:
-                    //remove some blocks
+                    purchaseChanges()
                     SKPaymentQueue.default().finishTransaction(transaction)
                     print("Transaction successful")
                 case .failed:
@@ -63,11 +71,9 @@ extension MonetizationModel: SKProductsRequestDelegate, SKPaymentTransactionObse
                     }
                     SKPaymentQueue.default().finishTransaction(transaction)
                 case .restored:
-                    //remove some blocks
+                    purchaseChanges()
                     print("Transaction restored")
                     SKPaymentQueue.default().finishTransaction(transaction)
-                case .deferred:
-                    print("deferred")
                 default: break
             }
         }

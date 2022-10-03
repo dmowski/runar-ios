@@ -15,6 +15,7 @@ extension String {
 // MARK: - Protocols
 public protocol LibraryCellProtocol {
     func bind(node: LibraryNode) -> Void
+    func unavailableLibrary()
 }
 
 public class LibraryNodeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -68,7 +69,17 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         
         switch child.type {
         case .root, .menu:
-            self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
+            if SubscriptionManager.freeSubscription == true {
+                if indexPath.row >= 4 {
+                    let monetizationVC = MonetizationVC()
+                    monetizationVC.modalPresentationStyle = .fullScreen
+                    self.present(monetizationVC, animated: true, completion: nil)
+                } else {
+                    self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
+                }
+            } else {
+                self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
+            }
             break
         default:
             print(child.title ?? "No Data")
@@ -177,11 +188,11 @@ private extension UITableView {
         
         (cell as! LibraryCellProtocol).bind(node: child)
         
-//        if SubscriptionManager.freeSubscription == true {
-//            if indexPath.row >= 3 {
-//                cell.
-//            }
-//        }
+        if SubscriptionManager.freeSubscription == true {
+            if indexPath.row >= 4 {
+                (cell as! LibraryCellProtocol).unavailableLibrary()
+            }
+        }
         
         return cell
     }
