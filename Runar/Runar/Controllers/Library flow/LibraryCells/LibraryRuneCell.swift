@@ -10,12 +10,12 @@ import UIKit
 public class LibraryRuneCell: LibraryCell {
     
     // MARK: - Funcs
-    public override func bind(node: LibraryNode) -> Void {
+    public override func bind(node: LibraryCoreData) -> Void {
         
-        let runeTitle: UILabel = bindRuneTitle(title: node.title!)
-        let runeImage: UIImageView = bindRuneImage(url: node.imageUrl!)
-        let tagsCV: UICollectionView = bindTagsCV(with: node.tags!)
-        let runeDesc: UILabel = bindRunDescription(description: node.content!)
+        let runeTitle: UILabel = bindRuneTitle(title: node.title ?? "")
+        let runeImage: UIImageView = bindRuneImage(url: node.imageUrl ?? "")
+        let tagsCV: UICollectionView = bindTagsCV(with: node.tags ?? [])
+        let runeDesc: UILabel = bindRunDescription(description: node.content ?? "")
         
         self.separatorInset = UIEdgeInsets(top: 0, left: 26, bottom: 0, right: 26)
         

@@ -12,15 +12,24 @@ extension String {
     static let back = L10n.Navbar.Title.back
 }
 
-// MARK: - Protocols
-public protocol LibraryCellProtocol {
-    func bind(node: LibraryNode) -> Void
+enum LibraryNodeType: String, CaseIterable {
+    case undefined = "undefined"
+    case core = "core"
+    case root = "root"
+    case rune = "rune"
+    case menu = "subMenu"
+    case poem = "poem"
+    case text = "plainText"
 }
 
-public class LibraryNodeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    // MARK: - Mutable props
-    var node: LibraryNode = LibraryNode()
+// MARK: - Protocols
+public protocol LibraryCellProtocol {
+    func bind(node: LibraryCoreData) -> Void
+}
+
+public class LibraryNodeViewController: UIViewController {
+    // MARK: - Properties
+    var node: LibraryNode = .init()
     private var nodeView: UITableView = UITableView()
 
     // MARK: - UI elements
@@ -35,88 +44,78 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     // MARK: - Override funcs
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
         RunarLayout.initBackground(for: view)
 
-        if MemoryStorage.Library.children.isEmpty {
-            startActivityIndicator()
-        } else {
-            configureNodeView()
-        }
-        
-        setupViews()
-    }
-    
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    
-        configureNavigationBar()
-    }
-        
-    func set(_ node: LibraryNode){
-        self.node = node
+        let libraryIsLoaded: Bool = CoreDataManager.shared.libraryIsLoaded
+        guard libraryIsLoaded else { return setupActivityIndicator() }
+        configureNodeView()
     }
 
-    private func setupViews() {
-        self.view.addSubviews(activityIndicatorView)
-        activityIndicatorView.center = self.view.center
+
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureNavigationBar()
     }
-    
+
+    // MARK: - Methods
     private func configureNodeView() -> Void {
-        
         nodeView.dataSource = self
         nodeView.delegate = self
         nodeView.separatorColor = UIColor(red: 0.329, green: 0.329, blue: 0.329, alpha: 1)
         nodeView.separatorStyle = .singleLine
-        
         nodeView.register(node: node)
         nodeView.add(to: view)
     }
-    
+
+    private func setupActivityIndicator() {
+        self.view.addSubviews(activityIndicatorView)
+        activityIndicatorView.startAnimating()
+        activityIndicatorView.isHidden = false
+        activityIndicatorView.center = self.view.center
+    }
+
+    private func create(withNode node: LibraryNode) -> LibraryNodeViewController {
+        let controller = LibraryNodeViewController()
+        controller.set(node)
+        return controller
+    }
+
+    func set(_ node: LibraryNode) {
+        self.node = node
+    }
+
     func configureNavigationBar() {
         title = node.title
         self.navigationController?.navigationBar.configure()
     }
 
-    func startActivityIndicator() {
-        activityIndicatorView.startAnimating()
-        activityIndicatorView.isHidden = false
-    }
-
+    // Refresh the screen after downloading data
     func update() {
         activityIndicatorView.isHidden = true
         activityIndicatorView.stopAnimating()
-        set(MemoryStorage.Library)
+        let nodes = CoreDataManager.shared.fetchRootLibraryNodes()
+        let node = LibraryNode(title: "",
+                        nodes: nodes,
+                        type: "core",
+                        imageUrl: nil,
+                        id: "0")
+        set(node)
         configureNodeView()
     }
-              
-    // MARK: - Delegate funcs
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) -> Void {
-        guard indexPath.row > 0 else {
-            return
-        }
-        
-        let child = node.children[indexPath.row - 1]
-        
-        switch child.type {
-        case .root, .menu:
-            self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: false)
-            break
-        default:
-            print(child.title ?? "No Data")
-        }
-    }
-    
+}
+
+// MARK: - Extensions
+// MARK: - TableViewDelegate and TableViewDataSource
+extension LibraryNodeViewController: UITableViewDelegate, UITableViewDataSource {
+
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return node.children.count + 1
+        return node.nodes.count
     }
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (indexPath.row == 0) {
-            return node.type == .core ? CGFloat.leastNormalMagnitude : 42
-        }
-        
-        switch node.children[indexPath.row - 1].type {
+        let nodeType = LibraryNodeType(rawValue: node.nodes[indexPath.row].type)
+
+        switch nodeType {
         case .root:
             if node.imageUrl == "" {
                 return 66
@@ -151,18 +150,27 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return tableView.getCell(node: node, index: indexPath)
     }
-    
-    public func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-}
 
-// MARK: - Extensions
-public extension LibraryNodeViewController {
-    static func create(withNode node: LibraryNode) -> LibraryNodeViewController {
-        let controller = LibraryNodeViewController()
-        controller.set(node)
-        return controller
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) -> Void {
+        let child = node.nodes[indexPath.row]
+        let nodes = child.children?.allObjects as? [LibraryCoreData] ?? []
+        let filteredNodes = nodes
+            .filter { $0.type != LibraryNodeType.root.rawValue }
+            .sorted { $0.order < $1.order }
+
+        let node = LibraryNode(title: child.title ?? "",
+                        nodes: filteredNodes,
+                        type: child.type,
+                        imageUrl: child.imageUrl,
+                        id: child.id)
+
+        guard let typeNode = LibraryNodeType(rawValue: child.type) else { return }
+        switch typeNode {
+        case .root, .menu:
+            self.navigationController?.pushViewController(create(withNode: node), animated: false)
+        default:
+            print(child.title ?? "No Data")
+        }
     }
 }
 
@@ -176,11 +184,10 @@ private extension UITableView {
     ]
     
     func register(node: LibraryNode) -> Void {
-        self.register(LibraryPathCell.self, forCellReuseIdentifier: node.id)
-        
-        for child in node.children {
-            guard let type: AnyClass? = UITableView.cellTypes[child.type] else {
-                fatalError("cell type '\(child.type.rawValue)' is not implemented")
+        for child in node.nodes {
+            guard let nodeType = LibraryNodeType(rawValue: child.type) else { return }
+            guard let type: AnyClass? = UITableView.cellTypes[nodeType] else {
+                fatalError("cell type '\(child.type)' is not implemented")
             }
             
             self.register(type, forCellReuseIdentifier: child.id)
@@ -204,11 +211,10 @@ private extension UITableView {
     }
     
     func getCell(node: LibraryNode, index indexPath: IndexPath) -> UITableViewCell {
-        let child = indexPath.row == 0 ? node : node.children[indexPath.row - 1]
+        let nodes = node.nodes
+        let child = nodes[indexPath.row]
         let cell = self.dequeueReusableCell(withIdentifier: child.id, for: indexPath)
-        
         (cell as! LibraryCellProtocol).bind(node: child)
-        
         return cell
     }
 }
@@ -221,8 +227,7 @@ private extension UINavigationBar {
         self.backgroundColor = .navBarBackground
         self.barTintColor = .navBarBackground
         self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 17),
-                                         NSAttributedString.Key.foregroundColor: UIColor.white]
-        
+                                    NSAttributedString.Key.foregroundColor: UIColor.white]
         self.backItem?.backButtonTitle = .back
     }
 }

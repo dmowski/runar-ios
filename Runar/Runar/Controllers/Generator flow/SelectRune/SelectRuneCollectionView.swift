@@ -34,11 +34,13 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     }
     
     func setupRunes() {
-        for (index, rune) in MemoryStorage.GenerationRunes.enumerated() {
+        runes.removeAll()
+        let generatorCoreData = CoreDataManager.shared.fetchAllGeneratorNodes()
+        for (index, rune) in generatorCoreData.enumerated() {
             let indexPath = IndexPath(row: index, section: 1)
             let cell = self.dequeueReusableCell(withReuseIdentifier: self.cellId, for: indexPath) as! SelectRuneCell
-            
-            if (cell.model == nil){
+
+            if cell.model == nil {
                 cell.setRune(rune, indexPath)
                 cell.runeImage.addTarget(self, action: #selector(self.selectRune(runeImage:)), for: .touchUpInside)
             }
@@ -56,11 +58,12 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return MemoryStorage.GenerationRunes.count
+        let runes = CoreDataManager.shared.fetchAllGeneratorNodes()
+        return runes.count
     }
                 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return self.runes[indexPath.row]
+            return self.runes[indexPath.row]
     }
     
     public func deselectRune(at index: IndexPath) {

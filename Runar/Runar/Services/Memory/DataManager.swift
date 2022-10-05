@@ -11,14 +11,27 @@ final class DataManager {
 
     // Checking the downloaded data when launching the application
     func checkLoadedData() {
-        DispatchQueue.main.async {
-            let libraryNodeVC = self.getLibraryNodeVC()
+        // Get library data on background queue
+        DispatchQueue.global(qos: .userInteractive).async {
             self.loadLibraryData()
-            if let libraryVC = libraryNodeVC, !libraryVC.activityIndicatorView.isHidden {
-                libraryVC.update()
+
+            // Update SelectionRuneVC on main queue
+            DispatchQueue.main.async {
+                let libraryNodeVC = self.getLibraryNodeVC()
+                libraryNodeVC?.update()
             }
         }
-        loadGeneratorData()
+
+        // Get generator data on background queue
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.loadGeneratorData()
+
+            // Update SelectionRuneVC on main queue
+            DispatchQueue.main.async {
+                let selectionRuneVC = self.getSelectionRuneVC()
+                selectionRuneVC?.update()
+            }
+        }
     }
 
     // Get LibraryNodeViewController
@@ -51,74 +64,33 @@ final class DataManager {
 
     // MARK: - Load library
     private func loadLibraryData() {
-        let storedLibraryHash: String? = LocalStorage.pull(forKey: .libraryHash, withLocalization: true)
-        guard let actualLibraryHash = RunarApi.getLibratyHash() else {
-            fatalError("Library hash is empty")
+        // Download data from server
+        guard let libraryData = RunarApi.getLibratyData() else { fatalError("Library is empty") }
+
+        // Remove all nodes if they are not empty
+        let libraryCoreDataToDelete = CoreDataManager.shared.fetchAllLibraryNodes()
+        if !libraryCoreDataToDelete.isEmpty {
+            CoreDataManager.shared.deleteAllLibraryNodes()
         }
 
-        if storedLibraryHash == nil || actualLibraryHash != storedLibraryHash {
-            guard let libraryData = RunarApi.getLibratyData() else {
-                fatalError("Library is empty")
-            }
-
-            LocalStorage.push(libraryData, forKey: .libraryData, withLocalization: true)
-            LocalStorage.push(actualLibraryHash, forKey: .libraryHash, withLocalization: true)
-            MemoryStorage.Library = LibraryNode.create(fromData: libraryData)
-            return
-        }
-
-        guard let data: Data = LocalStorage.pull(forKey: .libraryData, withLocalization: true) else {
-            fatalError("No data to display")
-        }
-
-        MemoryStorage.Library = LibraryNode.create(fromData: data)
+        // Enter data into the core date
+        CoreDataManager.shared.createLibrary(fromData: libraryData)
+        CoreDataManager.shared.libraryIsLoaded = true
     }
 
     // MARK: - Load generator
     private func loadGeneratorData() {
-        // Get data on background queue
-        DispatchQueue.global().async {
+        // Download data from server
+        guard let runesData = RunarApi.getRunesData() else { fatalError("Runes is empty") }
 
-            self.loadRunes()
-
-            // Update SelectionRuneVC on main queue
-            DispatchQueue.main.async {
-                let selectionRuneVC = self.getSelectionRuneVC()
-                selectionRuneVC?.update()
-            }
-
-            self.loadWallpapers()
-        }
-    }
-
-    private func loadRunes(){
-        var runesData: Data? = LocalStorage.pull(forKey: .runesData)
-
-        if (runesData == nil){
-            guard let _runesData = RunarApi.getRunesData() else {
-                fatalError("Runes is empty")
-            }
-
-            LocalStorage.push(_runesData, forKey: .runesData)
-
-            runesData = _runesData
+        // Remove all nodes if they are not empty
+        let generatorCoreDataToDelete = CoreDataManager.shared.fetchAllGeneratorNodes()
+        if !generatorCoreDataToDelete.isEmpty {
+            CoreDataManager.shared.deleteAllGeneratorNodes()
         }
 
-        MemoryStorage.GenerationRunes = GenerationRuneModel.create(fromData: runesData!)
-    }
-
-    private func loadWallpapers(){
-        var wallpapersStylesData: Data? = LocalStorage.pull(forKey: .wallpapersStylesData)
-        if (wallpapersStylesData == nil){
-            guard let _wallpapersStylesData = RunarApi.getWallpapersStylesData()else {
-                fatalError("Runes is empty")
-            }
-
-            LocalStorage.push(_wallpapersStylesData, forKey: .wallpapersStylesData)
-
-            wallpapersStylesData = _wallpapersStylesData
-        }
-
-        MemoryStorage.GenerationWallpapertsStyles = WallpapperStyleData.create(from: wallpapersStylesData!)
+        // Enter data into the core date
+        CoreDataManager.shared.createGenerator(fromData: runesData)
+        CoreDataManager.shared.generatorIsLoaded = true
     }
 }

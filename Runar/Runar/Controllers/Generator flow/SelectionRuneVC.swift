@@ -18,7 +18,7 @@ private extension String {
 }
 
 public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
-    
+    // MARK: - UI Elements
     let header: UILabel = {
         let title = UILabel()
         title.textColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
@@ -29,6 +29,14 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         title.font = FontFamily.Roboto.light.font(size: 18)
         title.backgroundColor = .clear
         return title
+    }()
+
+    let activityIndicatorView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        view.style = .large
+        view.color = .white
+        view.isHidden = true
+        return view
     }()
     
     let selectedRunesView: SelectedRuneCollectionView = {
@@ -49,14 +57,6 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         randomButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
         randomButton.setTitle(title: .randomButtonTitle)
         return randomButton
-    }()
-
-    let activityIndicatorView: UIActivityIndicatorView = {
-        let view = UIActivityIndicatorView()
-        view.style = .large
-        view.color = .white
-        view.isHidden = true
-        return view
     }()
     
     let selectRunesView: SelectRuneCollectionView = {
@@ -94,8 +94,11 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         
         RunarLayout.initBackground(for: view, with: .mainFire)
-        setupViews()
         configureNavigationBar()
+        
+        let generatorIsLoaded: Bool = CoreDataManager.shared.generatorIsLoaded
+        guard generatorIsLoaded else { return setupActivityIndicator() }
+        setupViews()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -122,6 +125,15 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
 
     @objc func backToInitial(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
+    }
+
+    private func setupActivityIndicator() {
+        self.view.addSubviews(activityIndicatorView)
+        activityIndicatorView.startAnimating()
+        activityIndicatorView.isHidden = false
+        activityIndicatorView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
     }
     
     private func setupViews() {
@@ -150,16 +162,6 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             make.height.equalTo(50)
         }
 
-        self.view.addSubviews(activityIndicatorView)
-        if MemoryStorage.GenerationRunes.isEmpty {
-            activityIndicatorView.startAnimating()
-            activityIndicatorView.isHidden = false
-        }
-        activityIndicatorView.snp.makeConstraints { make in
-            make.top.equalTo(selectedRunesView.snp.bottom).offset(130)
-            make.centerX.equalToSuperview()
-        }
-        
         self.view.addSubview(selectRunesView)
         self.selectRunesView.setSelectHandler(self.selectRune(_:))
         tapedLongGesture(runesView: selectRunesView)
@@ -233,9 +235,16 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
 
         selectRunesView.selectRune(rune: rune)
         
-        for cell in (self.selectedRunesView.visibleCells as! [SelectedRuneCell]).sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
+        for cell in (self.selectedRunesView.visibleCells as! [SelectedRuneCell])
+            .sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
+
             if !cell.isSelected {
-                cell.selectRune(SelectedRuneModel(title: rune.model!.title, image: rune.model!.image.image, index: rune.indexPath, id: rune.model!.id))
+                guard let imageData = rune.model?.runeImage?.image else { return }
+                guard let image = UIImage(data: imageData) else { return }
+                cell.selectRune(SelectedRuneModel(title: rune.model!.title,
+                                                  image: image,
+                                                  index: rune.indexPath,
+                                                  id: rune.model!.id))
                 break
             }
         }
@@ -252,6 +261,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     }
 
     func update() {
+        setupViews()
         activityIndicatorView.isHidden = true
         activityIndicatorView.stopAnimating()
         selectRunesView.setupRunes()
@@ -261,7 +271,8 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     @objc func selectRandomRunesOnTap() {
         self.selectedRunesView.deselectAll()
         
-        var indexes = [Int](0..<MemoryStorage.GenerationRunes.count)
+        let runes = CoreDataManager.shared.fetchAllGeneratorNodes()
+        var indexes = [Int](0 ..< runes.count)
         
         for _ in 0..<3 {
             let index = indexes.randomElement()!
@@ -270,9 +281,16 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             
             self.selectRunesView.selectRune(rune: rune)
             
-            for cell in (self.selectedRunesView.visibleCells as! [SelectedRuneCell]).sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
+            for cell in (self.selectedRunesView.visibleCells as! [SelectedRuneCell])
+                .sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
+
                 if !cell.isSelected {
-                    cell.selectRune(SelectedRuneModel(title: rune.model!.title, image: rune.model!.image.image, index: rune.indexPath, id: rune.model!.id))
+                    guard let imageData = rune.model?.runeImage?.image else { return }
+                    guard let image = UIImage(data: imageData) else { return }
+                    cell.selectRune(SelectedRuneModel(title: rune.model!.title,
+                                                      image: image,
+                                                      index: rune.indexPath,
+                                                      id: rune.model!.id))
                     break
                 }
             }

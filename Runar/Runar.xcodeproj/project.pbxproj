@@ -41,10 +41,8 @@
 		843DFF33265248B900D6DFE5 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF32265248B900D6DFE5 /* LibraryViewController.swift */; };
 		843DFF4D2653FB5400D6DFE5 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF4C2653FB5400D6DFE5 /* LibraryCell.swift */; };
 		843DFF72265BC50800D6DFE5 /* LibraryNodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF71265BC50800D6DFE5 /* LibraryNodeViewController.swift */; };
-		843DFF7D265D66ED00D6DFE5 /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF7C265D66ED00D6DFE5 /* MemoryStorage.swift */; };
 		8440C514272016FD003D6B3C /* RuneData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440C513272016FD003D6B3C /* RuneData.swift */; };
 		844106602705B43E00CD8B56 /* GenerationPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441065F2705B43E00CD8B56 /* GenerationPopUpViewController.swift */; };
-		8441066827063C5400CD8B56 /* GenerationRuneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441066727063C5400CD8B56 /* GenerationRuneModel.swift */; };
 		8441066D27077A2700CD8B56 /* SelectionRuneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441066C27077A2700CD8B56 /* SelectionRuneVC.swift */; };
 		84410672270ADA0400CD8B56 /* SelectedRuneCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84410671270ADA0400CD8B56 /* SelectedRuneCollectionView.swift */; };
 		84410677270CC7E500CD8B56 /* SelectRuneCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84410676270CC7E500CD8B56 /* SelectRuneCollectionView.swift */; };
@@ -52,18 +50,15 @@
 		844BF4D626501A81002C7596 /* RunarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF4D526501A81002C7596 /* RunarLayout.swift */; };
 		8452A5F726F3A3700069DEE5 /* GeneratorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452A5F626F3A3700069DEE5 /* GeneratorVC.swift */; };
 		845D26E42738259E00449D34 /* ChoosedWallpaperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D26E32738259E00449D34 /* ChoosedWallpaperVC.swift */; };
-		8477222E2643C9CA001C280D /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477222D2643C9CA001C280D /* LocalStorage.swift */; };
 		8477224326458020001C280D /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477224226458020001C280D /* Route.swift */; };
 		8477224F26458882001C280D /* CreateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477224E26458882001C280D /* CreateUserRequest.swift */; };
 		849ED285266E3251006E557A /* LibraryPoemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED284266E3251006E557A /* LibraryPoemCell.swift */; };
 		849ED28A266E33D4006E557A /* LibraryTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED289266E33D4006E557A /* LibraryTextCell.swift */; };
 		849ED28F266E3457006E557A /* LibraryRootCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED28E266E3457006E557A /* LibraryRootCell.swift */; };
 		849ED294266E74B9006E557A /* LibraryMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED293266E74B9006E557A /* LibraryMenuCell.swift */; };
-		849ED29C26710C0B006E557A /* LibraryPathCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED29B26710C0A006E557A /* LibraryPathCell.swift */; };
 		84B1C4D62724D825007865CF /* WallpaperWithBackgroundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1C4D52724D825007865CF /* WallpaperWithBackgroundVC.swift */; };
 		84B1C4DB2727184B007865CF /* WallpapperStyleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1C4DA2727184B007865CF /* WallpapperStyleData.swift */; };
 		84D7E5F02649EC6700772EE3 /* LibraryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E5EF2649EC6700772EE3 /* LibraryData.swift */; };
-		84D7E6022649F37700772EE3 /* LibraryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E6012649F37700772EE3 /* LibraryNode.swift */; };
 		84D7E60B264BAED300772EE3 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7E60A264BAED300772EE3 /* Environment.swift */; };
 		9911206C2861107B001B8FCC /* TagsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9911206B2861107B001B8FCC /* TagsCollectionView.swift */; };
 		9911206E28611139001B8FCC /* TagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9911206D28611139001B8FCC /* TagsCell.swift */; };
@@ -120,7 +115,17 @@
 		9BD98CA42628A8B800F3BBD7 /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD98CA32628A8B800F3BBD7 /* SFProDisplay-Medium.ttf */; };
 		9BD98CC02628CD1D00F3BBD7 /* EscapePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpVC.swift */; };
 		9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */; };
+		9C19E06028E432D400CBE240 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C19E05F28E432D400CBE240 /* LocalStorage.swift */; };
+		9C389D4828E0BB2900C4529E /* LibraryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C389D4728E0BB2900C4529E /* LibraryNode.swift */; };
+		9C51B25428D8A9050095B3B1 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C51B25228D8A9050095B3B1 /* CoreData.xcdatamodeld */; };
+		9C51B2D628DE3A0F0095B3B1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C51B2D528DE3A0F0095B3B1 /* CoreDataManager.swift */; };
+		9C51B2DE28DF1D170095B3B1 /* LibraryCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C51B2DD28DF1D170095B3B1 /* LibraryCoreData+CoreDataClass.swift */; };
+		9C51B2DF28DF1D170095B3B1 /* LibraryCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C51B2DC28DF1D170095B3B1 /* LibraryCoreData+CoreDataProperties.swift */; };
 		9C887B6928CF83B300862168 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C887B6828CF83B300862168 /* DataManager.swift */; };
+		9CFFC9F128E1EC8400552D90 /* GeneratorCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFC9EF28E1EC8400552D90 /* GeneratorCoreData+CoreDataProperties.swift */; };
+		9CFFC9F228E1EC8400552D90 /* GeneratorRuneImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFC9EE28E1EC8400552D90 /* GeneratorRuneImage+CoreDataClass.swift */; };
+		9CFFC9F328E1EC8400552D90 /* GeneratorCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFC9F028E1EC8400552D90 /* GeneratorCoreData+CoreDataClass.swift */; };
+		9CFFC9F428E1EC8400552D90 /* GeneratorRuneImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFC9ED28E1EC8400552D90 /* GeneratorRuneImage+CoreDataProperties.swift */; };
 		C22B4DB42858AD2800F6245C /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B4DB32858AD2800F6245C /* String + Extensions.swift */; };
 		C22F6E4127C3CEFF005F8B66 /* EmptyWallpaperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */; };
 		C278B66127C43FAB00EFBD2C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */; };
@@ -192,10 +197,8 @@
 		843DFF32265248B900D6DFE5 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		843DFF4C2653FB5400D6DFE5 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		843DFF71265BC50800D6DFE5 /* LibraryNodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNodeViewController.swift; sourceTree = "<group>"; };
-		843DFF7C265D66ED00D6DFE5 /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
 		8440C513272016FD003D6B3C /* RuneData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneData.swift; sourceTree = "<group>"; };
 		8441065F2705B43E00CD8B56 /* GenerationPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationPopUpViewController.swift; sourceTree = "<group>"; };
-		8441066727063C5400CD8B56 /* GenerationRuneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationRuneModel.swift; sourceTree = "<group>"; };
 		8441066C27077A2700CD8B56 /* SelectionRuneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRuneVC.swift; sourceTree = "<group>"; };
 		84410671270ADA0400CD8B56 /* SelectedRuneCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRuneCollectionView.swift; sourceTree = "<group>"; };
 		84410676270CC7E500CD8B56 /* SelectRuneCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRuneCollectionView.swift; sourceTree = "<group>"; };
@@ -203,18 +206,15 @@
 		844BF4D526501A81002C7596 /* RunarLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunarLayout.swift; sourceTree = "<group>"; };
 		8452A5F626F3A3700069DEE5 /* GeneratorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorVC.swift; sourceTree = "<group>"; };
 		845D26E32738259E00449D34 /* ChoosedWallpaperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosedWallpaperVC.swift; sourceTree = "<group>"; };
-		8477222D2643C9CA001C280D /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		8477224226458020001C280D /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		8477224E26458882001C280D /* CreateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserRequest.swift; sourceTree = "<group>"; };
 		849ED284266E3251006E557A /* LibraryPoemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPoemCell.swift; sourceTree = "<group>"; };
 		849ED289266E33D4006E557A /* LibraryTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTextCell.swift; sourceTree = "<group>"; };
 		849ED28E266E3457006E557A /* LibraryRootCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRootCell.swift; sourceTree = "<group>"; };
 		849ED293266E74B9006E557A /* LibraryMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryMenuCell.swift; sourceTree = "<group>"; };
-		849ED29B26710C0A006E557A /* LibraryPathCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPathCell.swift; sourceTree = "<group>"; };
 		84B1C4D52724D825007865CF /* WallpaperWithBackgroundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWithBackgroundVC.swift; sourceTree = "<group>"; };
 		84B1C4DA2727184B007865CF /* WallpapperStyleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpapperStyleData.swift; sourceTree = "<group>"; };
 		84D7E5EF2649EC6700772EE3 /* LibraryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryData.swift; sourceTree = "<group>"; };
-		84D7E6012649F37700772EE3 /* LibraryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNode.swift; sourceTree = "<group>"; };
 		84D7E60A264BAED300772EE3 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9911206B2861107B001B8FCC /* TagsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionView.swift; sourceTree = "<group>"; };
@@ -277,7 +277,17 @@
 		9BD98CA32628A8B800F3BBD7 /* SFProDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.ttf"; sourceTree = "<group>"; };
 		9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscapePopUpVC.swift; sourceTree = "<group>"; };
 		9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneDescriptionPopUp.swift; sourceTree = "<group>"; };
+		9C19E05F28E432D400CBE240 /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		9C389D4728E0BB2900C4529E /* LibraryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNode.swift; sourceTree = "<group>"; };
+		9C51B25328D8A9050095B3B1 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		9C51B2D528DE3A0F0095B3B1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		9C51B2DC28DF1D170095B3B1 /* LibraryCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LibraryCoreData+CoreDataProperties.swift"; path = "/Users/qeezii/Development/runar-ios/Runar/Runar/Services/Memory/CoreData/LibraryCoreData+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		9C51B2DD28DF1D170095B3B1 /* LibraryCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LibraryCoreData+CoreDataClass.swift"; path = "/Users/qeezii/Development/runar-ios/Runar/Runar/Services/Memory/CoreData/LibraryCoreData+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		9C887B6828CF83B300862168 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		9CFFC9ED28E1EC8400552D90 /* GeneratorRuneImage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GeneratorRuneImage+CoreDataProperties.swift"; path = "/Users/qeezii/Development/runar-ios/Runar/Runar/Services/Memory/CoreData/Models/GeneratorRuneImage+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		9CFFC9EE28E1EC8400552D90 /* GeneratorRuneImage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GeneratorRuneImage+CoreDataClass.swift"; path = "/Users/qeezii/Development/runar-ios/Runar/Runar/Services/Memory/CoreData/Models/GeneratorRuneImage+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		9CFFC9EF28E1EC8400552D90 /* GeneratorCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GeneratorCoreData+CoreDataProperties.swift"; path = "/Users/qeezii/Development/runar-ios/Runar/Runar/Services/Memory/CoreData/Models/GeneratorCoreData+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		9CFFC9F028E1EC8400552D90 /* GeneratorCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GeneratorCoreData+CoreDataClass.swift"; path = "/Users/qeezii/Development/runar-ios/Runar/Runar/Services/Memory/CoreData/Models/GeneratorCoreData+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22B4DB32858AD2800F6245C /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyWallpaperVC.swift; sourceTree = "<group>"; };
@@ -428,8 +438,7 @@
 				1907850325C4232E00434D57 /* RuneLayout.swift */,
 				19C0F21A25BAFEFE0027422B /* RuneDescription.swift */,
 				9BAEB61C25F13412004B7761 /* Affirmation.swift */,
-				84D7E6012649F37700772EE3 /* LibraryNode.swift */,
-				8441066727063C5400CD8B56 /* GenerationRuneModel.swift */,
+				9C389D4728E0BB2900C4529E /* LibraryNode.swift */,
 				C2C5584A283D9E33006B053C /* SlectedRuneModel.swift */,
 			);
 			path = Models;
@@ -438,8 +447,10 @@
 		677C11E6289C71F400CEA5D2 /* Memory */ = {
 			isa = PBXGroup;
 			children = (
+				9C19E05F28E432D400CBE240 /* LocalStorage.swift */,
 				677C11E7289C726900CEA5D2 /* ImageFileManager.swift */,
 				9C887B6828CF83B300862168 /* DataManager.swift */,
+				9C51B2DB28DF1D0E0095B3B1 /* CoreData */,
 			);
 			path = Memory;
 			sourceTree = "<group>";
@@ -462,7 +473,6 @@
 				849ED289266E33D4006E557A /* LibraryTextCell.swift */,
 				849ED28E266E3457006E557A /* LibraryRootCell.swift */,
 				849ED293266E74B9006E557A /* LibraryMenuCell.swift */,
-				849ED29B26710C0A006E557A /* LibraryPathCell.swift */,
 			);
 			path = LibraryCells;
 			sourceTree = "<group>";
@@ -498,15 +508,6 @@
 				8441065F2705B43E00CD8B56 /* GenerationPopUpViewController.swift */,
 			);
 			path = "Generator flow";
-			sourceTree = "<group>";
-		};
-		8477222C2643C9AB001C280D /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				8477222D2643C9CA001C280D /* LocalStorage.swift */,
-				843DFF7C265D66ED00D6DFE5 /* MemoryStorage.swift */,
-			);
-			path = Storage;
 			sourceTree = "<group>";
 		};
 		8477223B26457435001C280D /* Api */ = {
@@ -621,7 +622,6 @@
 		9B9C25CA25993DF800A4E135 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				8477222C2643C9AB001C280D /* Storage */,
 				9B5F5BBC261CE02300A7454F /* Music */,
 				9B739DF225CD765800726B30 /* Constants.swift */,
 				19BDC60225C01A2D000808CF /* ScreenDependent.swift */,
@@ -759,6 +759,29 @@
 				9B739E0F25CD9B9800726B30 /* RuneDescriptionPopUpVM.swift */,
 			);
 			path = RuneDescriptionPopUp;
+			sourceTree = "<group>";
+		};
+		9C389D5128E1CE8600C4529E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9C51B2DD28DF1D170095B3B1 /* LibraryCoreData+CoreDataClass.swift */,
+				9C51B2DC28DF1D170095B3B1 /* LibraryCoreData+CoreDataProperties.swift */,
+				9CFFC9F028E1EC8400552D90 /* GeneratorCoreData+CoreDataClass.swift */,
+				9CFFC9EF28E1EC8400552D90 /* GeneratorCoreData+CoreDataProperties.swift */,
+				9CFFC9EE28E1EC8400552D90 /* GeneratorRuneImage+CoreDataClass.swift */,
+				9CFFC9ED28E1EC8400552D90 /* GeneratorRuneImage+CoreDataProperties.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9C51B2DB28DF1D0E0095B3B1 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				9C389D5128E1CE8600C4529E /* Models */,
+				9C51B2D528DE3A0F0095B3B1 /* CoreDataManager.swift */,
+				9C51B25228D8A9050095B3B1 /* CoreData.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		A2A5CAEB8FFCA1990E63BEE2 /* Pods */ = {
@@ -1169,7 +1192,6 @@
 			files = (
 				849ED285266E3251006E557A /* LibraryPoemCell.swift in Sources */,
 				849ED294266E74B9006E557A /* LibraryMenuCell.swift in Sources */,
-				843DFF7D265D66ED00D6DFE5 /* MemoryStorage.swift in Sources */,
 				C2C5584F283D9F59006B053C /* SelectedRuneCell.swift in Sources */,
 				84410672270ADA0400CD8B56 /* SelectedRuneCollectionView.swift in Sources */,
 				19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */,
@@ -1177,9 +1199,12 @@
 				843DFF4D2653FB5400D6DFE5 /* LibraryCell.swift in Sources */,
 				C2C5584D283D9EE9006B053C /* SelectRuneCell.swift in Sources */,
 				C2AF4B33285AA66000976992 /* UIImage.swift in Sources */,
+				9CFFC9F128E1EC8400552D90 /* GeneratorCoreData+CoreDataProperties.swift in Sources */,
+				9C51B2DE28DF1D170095B3B1 /* LibraryCoreData+CoreDataClass.swift in Sources */,
 				84D7E5F02649EC6700772EE3 /* LibraryData.swift in Sources */,
 				191D32CE25B7C46A001DC210 /* Fonts.swift in Sources */,
 				9B15E36825FE465400737306 /* OneRuneVC.swift in Sources */,
+				9CFFC9F428E1EC8400552D90 /* GeneratorRuneImage+CoreDataProperties.swift in Sources */,
 				19BDC61D25C030B1000808CF /* PublisherProvider.swift in Sources */,
 				1987AAC525BDCDCA00BB3655 /* SixRuneView.swift in Sources */,
 				19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */,
@@ -1197,7 +1222,6 @@
 				19D9BAD625C9765C00418CE7 /* TwoRuneView.swift in Sources */,
 				84410677270CC7E500CD8B56 /* SelectRuneCollectionView.swift in Sources */,
 				9BD2295A258AB02500E17E98 /* RunicDrawsCollectionVC.swift in Sources */,
-				849ED29C26710C0B006E557A /* LibraryPathCell.swift in Sources */,
 				19C0F1F425BAF07E0027422B /* AlignmentVM.swift in Sources */,
 				84B1C4DB2727184B007865CF /* WallpapperStyleData.swift in Sources */,
 				9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */,
@@ -1218,7 +1242,9 @@
 				843DFF72265BC50800D6DFE5 /* LibraryNodeViewController.swift in Sources */,
 				C2C55840283A4823006B053C /* WallpaperWithBackgroundCell.swift in Sources */,
 				19C0F20A25BAFCB20027422B /* Array + Extensions.swift in Sources */,
+				9C51B2DF28DF1D170095B3B1 /* LibraryCoreData+CoreDataProperties.swift in Sources */,
 				84D7E60B264BAED300772EE3 /* Environment.swift in Sources */,
+				9C51B25428D8A9050095B3B1 /* CoreData.xcdatamodeld in Sources */,
 				C2C5584B283D9E33006B053C /* SlectedRuneModel.swift in Sources */,
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
 				9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */,
@@ -1237,32 +1263,34 @@
 				844106602705B43E00CD8B56 /* GenerationPopUpViewController.swift in Sources */,
 				849ED28A266E33D4006E557A /* LibraryTextCell.swift in Sources */,
 				8440C514272016FD003D6B3C /* RuneData.swift in Sources */,
+				9CFFC9F328E1EC8400552D90 /* GeneratorCoreData+CoreDataClass.swift in Sources */,
 				9BD98C962628A74200F3BBD7 /* LanguageCell.swift in Sources */,
 				9BD98C942628A74200F3BBD7 /* StaticCell.swift in Sources */,
 				9B739E0525CD77E900726B30 /* ProcessingVC.swift in Sources */,
+				9C389D4828E0BB2900C4529E /* LibraryNode.swift in Sources */,
 				9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */,
 				C22F6E4127C3CEFF005F8B66 /* EmptyWallpaperVC.swift in Sources */,
 				9B739E4C25D1E99B00726B30 /* RunarApi.swift in Sources */,
-				8477222E2643C9CA001C280D /* LocalStorage.swift in Sources */,
 				9B739E1025CD9B9800726B30 /* RuneDescriptionPopUpVM.swift in Sources */,
 				1987AABB25BDCDB400BB3655 /* FourRuneView.swift in Sources */,
 				1907850425C4232F00434D57 /* RuneLayout.swift in Sources */,
-				84D7E6022649F37700772EE3 /* LibraryNode.swift in Sources */,
 				1987AACF25BDCDF000BB3655 /* EightRuneView.swift in Sources */,
 				191D32D025B7C46A001DC210 /* Localizable.swift in Sources */,
+				9C51B2D628DE3A0F0095B3B1 /* CoreDataManager.swift in Sources */,
 				849ED28F266E3457006E557A /* LibraryRootCell.swift in Sources */,
 				1987AAC025BDCDBF00BB3655 /* FiveRuneView.swift in Sources */,
 				9BD98CC02628CD1D00F3BBD7 /* EscapePopUpVC.swift in Sources */,
 				199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */,
 				9B5F5BB5261CD5A500A7454F /* MusicViewController.swift in Sources */,
-				8441066827063C5400CD8B56 /* GenerationRuneModel.swift in Sources */,
 				9BD98C9E2628A75600F3BBD7 /* UINavigationController.swift in Sources */,
 				9BD98C952628A74200F3BBD7 /* MusicCell.swift in Sources */,
 				9BAEB63425F18C3B004B7761 /* Interperitation+Ext.swift in Sources */,
+				9C19E06028E432D400CBE240 /* LocalStorage.swift in Sources */,
 				84468380266392F900A0790B /* LibraryRuneCell.swift in Sources */,
 				193FFB382613319000D60171 /* CustomButton.swift in Sources */,
 				19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */,
 				9BD98C932628A74200F3BBD7 /* AppInfoVC.swift in Sources */,
+				9CFFC9F228E1EC8400552D90 /* GeneratorRuneImage+CoreDataClass.swift in Sources */,
 				9B0CB88B2607B6A000B2AF60 /* TopWithDescriptionView.swift in Sources */,
 				9BD98C982628A74200F3BBD7 /* SettingsVC.swift in Sources */,
 				844BF4D626501A81002C7596 /* RunarLayout.swift in Sources */,
@@ -1599,6 +1627,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9C51B25228D8A9050095B3B1 /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9C51B25328D8A9050095B3B1 /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 9C51B25328D8A9050095B3B1 /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9BD228F2258A321B00E17E98 /* Project object */;
 }

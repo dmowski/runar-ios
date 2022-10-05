@@ -10,7 +10,7 @@ import UIKit
 public class LibraryPoemCell: LibraryCell {
     
     // MARK: - Funcs
-    public override func bind(node: LibraryNode) -> Void {
+    public override func bind(node: LibraryCoreData) -> Void {
         
         bindTextLabel(text: node.title,
                       font: UIFont.create(withLowSize: 20, withHighSize: 24),

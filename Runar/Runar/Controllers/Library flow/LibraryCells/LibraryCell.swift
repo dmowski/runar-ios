@@ -56,7 +56,7 @@ public class LibraryCell: UITableViewCell, LibraryCellProtocol {
         imageView?.image = UIImage.create(fromUrl: url)
     }
     
-    public func bind(node: LibraryNode) -> Void {
+    public func bind(node: LibraryCoreData) -> Void {
         fatalError("bind method should be overriden!")
     }
 }
