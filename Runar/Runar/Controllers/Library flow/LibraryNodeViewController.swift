@@ -16,6 +16,7 @@ extension String {
 public protocol LibraryCellProtocol {
     func bind(node: LibraryNode) -> Void
     func unavailableLibrary()
+    func availableLibrary()
 }
 
 public class LibraryNodeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -27,7 +28,9 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     // MARK: - Override funcs
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateUI(_:)), name: NSNotification.Name(rawValue: "updateLibraryTableViewAfterPurchase"), object: nil)
+
         RunarLayout.initBackground(for: view)
         
         configureNodeView()
@@ -57,6 +60,10 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     func configureNavigationBar() {
         title = node.title
         self.navigationController?.navigationBar.configure()
+    }
+    
+    @objc private func updateUI(_ notification: NSNotification) {
+        self.nodeView.reloadData()
     }
               
     // MARK: - Delegate funcs
@@ -192,6 +199,8 @@ private extension UITableView {
             if indexPath.row >= 4 {
                 (cell as! LibraryCellProtocol).unavailableLibrary()
             }
+        } else {
+            (cell as! LibraryCellProtocol).availableLibrary()
         }
         
         return cell

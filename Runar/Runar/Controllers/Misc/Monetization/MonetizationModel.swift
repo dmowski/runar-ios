@@ -9,15 +9,20 @@ import Foundation
 import StoreKit
 
 enum IAPSubscriptions: String, CaseIterable {
-
     case premiumSubscription = "com.tnco.runar.premiumSubscription"
     case popularSubscription = "com.tnco.runar.popularSubscription"
     case eternalSubscription = "com.tnco.runar.eternalSubscription"
 }
 
+protocol MonetizationModelDelegate: AnyObject {
+    func dismissScreenAfterPurchase()
+}
+
 class MonetizationModel: NSObject {
 
     internal var subscription: Set<String> = [IAPSubscriptions.popularSubscription.rawValue]
+    
+    weak var delegate: MonetizationModelDelegate?
     
     internal func getSubscription() {
         if SKPaymentQueue.canMakePayments() {
@@ -40,7 +45,11 @@ class MonetizationModel: NSObject {
     private func purchaseChanges() {
         SubscriptionManager.freeSubscription = false
         UserDefaults.standard.set(true, forKey: "subscribed")
-        //self.dismiss(animated: true, completion: nil)
+
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateRunicDrawsCollectionViewAfterPurchase"), object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateLibraryTableViewAfterPurchase"), object: nil, userInfo: nil)
+
+        delegate?.dismissScreenAfterPurchase()
     }
 }
 

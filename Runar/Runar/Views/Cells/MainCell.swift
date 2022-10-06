@@ -59,6 +59,10 @@ class MainCell: UICollectionViewCell {
         self.contentView.alpha = 0.3
     }
     
+    public func availableRunicDraw() {
+        self.contentView.alpha = 1
+    }
+
     func setUpRune() {
         alignmentLabel.translatesAutoresizingMaskIntoConstraints = false
         image.translatesAutoresizingMaskIntoConstraints = false

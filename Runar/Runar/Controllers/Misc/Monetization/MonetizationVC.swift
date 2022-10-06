@@ -21,6 +21,7 @@ class MonetizationVC: UIViewController {
     override func loadView() {
         view = contentView
         contentView.delegate = self
+        viewModel.delegate = self
     }
 
     public override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +37,7 @@ class MonetizationVC: UIViewController {
     }
 }
 
-extension MonetizationVC: MonetizationViewDelegateProtocol {
+extension MonetizationVC: MonetizationViewDelegateProtocol, MonetizationModelDelegate {
 
     func didTapPremiumView() {
         viewModel.subscription = [IAPSubscriptions.premiumSubscription.rawValue]
@@ -71,6 +72,10 @@ extension MonetizationVC: MonetizationViewDelegateProtocol {
     }
 
     func didTapSkipkButton() {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    func dismissScreenAfterPurchase() {
         self.dismiss(animated: true, completion: nil)
     }
 }

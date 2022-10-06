@@ -64,6 +64,11 @@ public class LibraryCell: UITableViewCell, LibraryCellProtocol {
         self.contentView.alpha = 0.3
         arrow.alpha = 0.3
     }
+
+    public func availableLibrary() {
+        self.contentView.alpha = 1
+        arrow.alpha = 1
+    }
 }
 
 // MARK: - Extensions

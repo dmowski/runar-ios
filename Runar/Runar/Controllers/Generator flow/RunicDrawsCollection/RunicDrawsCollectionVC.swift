@@ -65,7 +65,9 @@ class RunicDrawsCollectionVC: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateUI(_:)), name: NSNotification.Name(rawValue: "updateRunicDrawsCollectionViewAfterPurchase"), object: nil)
+
         navigationController?.navigationBar.isHidden = true
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
@@ -79,7 +81,6 @@ class RunicDrawsCollectionVC: UICollectionViewController {
         //        } else {
         //            showAllert()
         //        }
-        //
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,7 +92,11 @@ class RunicDrawsCollectionVC: UICollectionViewController {
         self.navigationController?.pushViewController(OnboardingScreenVC(), animated: true)
     }
     
-    func configureCollectionView() {
+    @objc private func updateUI(_ notification: NSNotification) {
+        self.collectionView.reloadData()
+    }
+
+    private func configureCollectionView() {
         
         let mainImageView: UIImageView = UIImageView(image: Assets.Background.main.image)
         mainImageView.contentMode = .scaleAspectFill
@@ -100,7 +105,7 @@ class RunicDrawsCollectionVC: UICollectionViewController {
         collectionView.register(MainCell.self, forCellWithReuseIdentifier: MainCell.reuseIdentifier)
     }
     
-    func configureConstraints() {
+    private func configureConstraints() {
         
         collectionView.addSubview(generatorView)
         NSLayoutConstraint.activate([
@@ -151,7 +156,7 @@ class RunicDrawsCollectionVC: UICollectionViewController {
         ])
     }
     
-    @IBAction func goToGeneratorTab() {
+    @IBAction private func goToGeneratorTab() {
         self.tabBarController?.selectedIndex = 2
     }
 
@@ -167,7 +172,7 @@ class RunicDrawsCollectionVC: UICollectionViewController {
 }
 
 extension RunicDrawsCollectionVC: UICollectionViewDelegateFlowLayout {
-    
+
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -184,6 +189,8 @@ extension RunicDrawsCollectionVC: UICollectionViewDelegateFlowLayout {
             if indexPath.row >= 3 {
                 cell.unavailableRunicDraw()
             }
+        } else {
+            cell.availableRunicDraw()
         }
 
         return cell
