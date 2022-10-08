@@ -19,6 +19,8 @@ private extension String {
 
 public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
+    private static let runeItemHeight = 78
+    
     let header: UILabel = {
         let title = UILabel()
         title.textColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
@@ -53,7 +55,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     let selectRunesView: SelectRuneCollectionView = {
         let layout2 = UICollectionViewFlowLayout()
-        layout2.itemSize = CGSize(width: 66, height: 78)
+        layout2.itemSize = CGSize(width: 66, height: runeItemHeight)
         layout2.minimumInteritemSpacing = 4
         layout2.minimumLineSpacing = 0
         layout2.scrollDirection = .vertical
@@ -87,6 +89,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         
         RunarLayout.initBackground(for: view, with: .mainFire)
         setupViews()
+        selectRunesView.delegate = self
         configureNavigationBar()
     }
     
@@ -98,6 +101,10 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        remakeConstraints()
     }
 
     private func configureNavigationBar() {
@@ -160,6 +167,22 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             make.width.equalTo(184)
             make.height.equalTo(50)
         }
+    }
+    
+    private func remakeConstraints() {
+        let bottomConstraint = getBottomConstraint()
+        selectRunesView.snp.remakeConstraints { make in
+            make.top.equalTo(selectedRunesView.snp.bottom).offset(130)
+            make.left.equalTo(self.view.snp.left).offset(41)
+            make.right.equalTo(self.view.snp.right).offset(-41)
+            make.bottom.equalToSuperview().offset(-bottomConstraint)
+        }
+    }
+    
+    private func getBottomConstraint() -> Float{
+        let collectionViewVisibleHeight = selectRunesView.visibleSize.height
+        let rowVisibleCount = Int(collectionViewVisibleHeight) / SelectionRuneVC.runeItemHeight
+        return Float(collectionViewVisibleHeight) - Float(rowVisibleCount) * Float(SelectionRuneVC.runeItemHeight)
     }
     
     private func tapedLongGesture(runesView: SelectRuneCollectionView) {
@@ -286,5 +309,22 @@ private extension UINavigationBar {
         self.barTintColor = .navBarBackground
         self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 17),
                                     NSAttributedString.Key.foregroundColor: UIColor.white]
+    }
+}
+
+extension SelectionRuneVC: UICollectionViewDelegate {
+    
+    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        var indexes = self.selectRunesView.indexPathsForVisibleItems
+        indexes.sort()
+        var index = indexes.first!
+        let cell = self.selectRunesView.cellForItem(at: index)!
+    
+        let position = self.selectRunesView.contentOffset.y - cell.frame.origin.y
+        if position > cell.frame.size.height / 2 {
+            index.row += 4
+        }
+        self.selectRunesView.scrollToItem(at: index, at: .top, animated: true )
     }
 }
