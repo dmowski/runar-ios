@@ -171,11 +171,13 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     private func remakeConstraints() {
         let bottomConstraint = getBottomConstraint()
-        selectRunesView.snp.remakeConstraints { make in
-            make.top.equalTo(selectedRunesView.snp.bottom).offset(130)
-            make.left.equalTo(self.view.snp.left).offset(41)
-            make.right.equalTo(self.view.snp.right).offset(-41)
-            make.bottom.equalToSuperview().offset(-bottomConstraint)
+        if bottomConstraint > 0 {
+            selectRunesView.snp.remakeConstraints { make in
+                make.top.equalTo(selectedRunesView.snp.bottom).offset(130)
+                make.left.equalTo(self.view.snp.left).offset(41)
+                make.right.equalTo(self.view.snp.right).offset(-41)
+                make.bottom.equalToSuperview().offset(-bottomConstraint)
+            }
         }
     }
     
@@ -318,9 +320,9 @@ extension SelectionRuneVC: UICollectionViewDelegate {
         
         var indexes = self.selectRunesView.indexPathsForVisibleItems
         indexes.sort()
-        var index = indexes.first!
-        let cell = self.selectRunesView.cellForItem(at: index)!
-    
+        guard var index = indexes.first,
+              let cell = self.selectRunesView.cellForItem(at: index) else { return }
+        
         let position = self.selectRunesView.contentOffset.y - cell.frame.origin.y
         if position > cell.frame.size.height / 2 {
             index.row += 4
