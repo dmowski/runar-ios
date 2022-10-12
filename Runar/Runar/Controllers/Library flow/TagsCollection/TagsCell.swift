@@ -45,14 +45,15 @@ class TagsCell: UICollectionViewCell {
         addSubview(tagCell)
         tagCell.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
-            make.width.equalTo(100)
+            make.trailing.equalTo(0)
+            make.leading.equalTo(0)
             make.height.equalTo(32)
         }
         
         tagCell.addSubview(runeTag)
         runeTag.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
-            make.height.equalTo(14)
+            make.height.equalTo(18)
         }
     }
 }

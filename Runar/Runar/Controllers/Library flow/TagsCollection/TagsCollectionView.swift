@@ -26,6 +26,17 @@ class TagsCollectionView: UICollectionView {
         contentInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
     }
     
+    private func estimateFrameForText(text: String) -> CGRect {
+        
+        let widthMax = 250
+        let height = 32
+        let size = CGSize(width: widthMax, height: height)
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.light)]
+
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: attributes, context: nil)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -44,6 +55,9 @@ extension TagsCollectionView: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 32)
+        
+        let padding: CGFloat = 32
+        let text = cells[indexPath.item]
+        return CGSize(width: estimateFrameForText(text: text).width + padding, height: 32)
     }
 }
