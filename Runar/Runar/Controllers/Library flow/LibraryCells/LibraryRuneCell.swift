@@ -22,7 +22,7 @@ public class LibraryRuneCell: LibraryCell {
         runeTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             runeTitle.topAnchor.constraint(equalTo: topAnchor, constant: 26),
-            runeTitle.heightAnchor.constraint(equalToConstant: 24),
+            runeTitle.heightAnchor.constraint(equalToConstant: 26),
             runeTitle.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
