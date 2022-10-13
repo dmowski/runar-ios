@@ -1823,8 +1823,8 @@ internal enum L10n {
     internal static let mannaz = L10n.tr("Localizable", "name.Mannaz", fallback: "Mannaz")
     /// Naudiz
     internal static let naudiz = L10n.tr("Localizable", "name.Naudiz", fallback: "Naudiz")
-    /// Odin rune
-    internal static let odin = L10n.tr("Localizable", "name.Odin", fallback: "Odin rune")
+    /// Odin Rune
+    internal static let odin = L10n.tr("Localizable", "name.Odin", fallback: "Odin Rune")
     /// Opila
     internal static let opila = L10n.tr("Localizable", "name.Opila", fallback: "Opila")
     /// Perpu
