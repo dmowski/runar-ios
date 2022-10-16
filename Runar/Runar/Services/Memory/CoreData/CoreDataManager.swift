@@ -111,16 +111,15 @@ extension CoreDataManager {
             // Running through childIds of String type
             // Find the child element in the array of core data objects (allNodes)
             // with the corresponding id (structObjects.id)
-            for strChild in structObject.childIds {
+            structObject.childIds.forEach { strChild in
                 let childNode = allNodes.first { $0.id == strChild }
                 let parentNode = allNodes.first { $0.id == structObject.id }
 
-                if let childNode = childNode {
-                    // Assign Child to NSSet parent
-                    // And parent to child
-                    parentNode?.addToChildren(childNode)
-                    childNode.parent = parentNode
-                }
+                guard let childNode = childNode else { return }
+                // Assign Child to NSSet parent
+                // And parent to child
+                parentNode?.addToChildren(childNode)
+                childNode.parent = parentNode
             }
         }
         saveContext()

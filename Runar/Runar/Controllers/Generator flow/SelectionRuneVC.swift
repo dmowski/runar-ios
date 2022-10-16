@@ -234,17 +234,18 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     func selectOnTapBut(rune: SelectRuneCell) {
 
         selectRunesView.selectRune(rune: rune)
-        
-        for cell in (self.selectedRunesView.visibleCells as! [SelectedRuneCell])
+
+        guard let visibleCells = (self.selectedRunesView.visibleCells as? [SelectedRuneCell]) else { return }
+        for cell in visibleCells
             .sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
 
             if !cell.isSelected {
                 guard let imageData = rune.model?.runeImage?.image else { return }
                 guard let image = UIImage(data: imageData) else { return }
-                cell.selectRune(SelectedRuneModel(title: rune.model!.title,
+                cell.selectRune(SelectedRuneModel(title: rune.model?.title ?? "",
                                                   image: image,
                                                   index: rune.indexPath,
-                                                  id: rune.model!.id))
+                                                  id: rune.model?.id ?? ""))
                 break
             }
         }
@@ -280,17 +281,18 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             let rune = selectRunesView.getRune(at: index)
             
             self.selectRunesView.selectRune(rune: rune)
-            
-            for cell in (self.selectedRunesView.visibleCells as! [SelectedRuneCell])
+
+            guard let visibleCells = (self.selectedRunesView.visibleCells as? [SelectedRuneCell]) else { return }
+            for cell in visibleCells
                 .sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
 
                 if !cell.isSelected {
                     guard let imageData = rune.model?.runeImage?.image else { return }
                     guard let image = UIImage(data: imageData) else { return }
-                    cell.selectRune(SelectedRuneModel(title: rune.model!.title,
+                    cell.selectRune(SelectedRuneModel(title: rune.model?.title ?? "",
                                                       image: image,
                                                       index: rune.indexPath,
-                                                      id: rune.model!.id))
+                                                      id: rune.model?.id ?? ""))
                     break
                 }
             }
