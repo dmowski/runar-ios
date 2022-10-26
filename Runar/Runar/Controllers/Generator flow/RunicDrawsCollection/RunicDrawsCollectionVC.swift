@@ -204,9 +204,7 @@ extension RunicDrawsCollectionVC: UICollectionViewDelegateFlowLayout {
 
         if SubscriptionManager.freeSubscription == true {
             if indexPath.row >= 3 {
-                let monetizationVC = MonetizationVC()
-                monetizationVC.modalPresentationStyle = .fullScreen
-                self.present(monetizationVC, animated: true, completion: nil)
+                SubscriptionManager.presentMonetizationVC(vc: self)
             } else {
                 tapRunicDrawCell(runeDescription: runeDescription)
             }
@@ -240,14 +238,12 @@ extension RunicDrawsCollectionVC: UICollectionViewDelegateFlowLayout {
     private func tapRunicDrawCell(runeDescription: RuneDescription) {
         if LocalStorage.pull(forKey: runeDescription.name) == true {
             let viewModel = AlignmentVM(runeDescription: runeDescription)
-            let viewController = AlignmentVC()
-            viewController.viewModel = viewModel
+            let viewController = AlignmentVC(viewModel: viewModel)
             viewController.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(viewController, animated: true)
         } else {
             let viewModel = AlignmentInfoVM(runeDescription: runeDescription)
-            let viewController = AlignmentInfoVC()
-            viewController.viewModel = viewModel
+            let viewController = AlignmentInfoVC(viewModel: viewModel)
             viewController.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(viewController, animated: true)
         }

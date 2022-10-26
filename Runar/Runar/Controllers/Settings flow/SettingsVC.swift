@@ -153,9 +153,7 @@ extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
         case 3:
             self.navigationController?.pushViewController(AppInfoVC(), animated: true)
         case 4:
-            let monetizationVC = MonetizationVC()
-            monetizationVC.modalPresentationStyle = .fullScreen
-            self.present(monetizationVC, animated: true, completion: nil)
+            SubscriptionManager.presentMonetizationVC(vc: self)
         default:
             break
         }

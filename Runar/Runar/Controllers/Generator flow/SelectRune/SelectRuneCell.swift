@@ -11,7 +11,7 @@ class SelectRuneCell: UICollectionViewCell {
 
     public var model: GenerationRuneModel?
     public var indexPath: IndexPath = IndexPath()
-    public var isUnavailableRune: Bool = false
+    public var isUnavailableRune: Bool?
     
     override public init(frame: CGRect) {
         super.init(frame: frame)

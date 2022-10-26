@@ -216,17 +216,17 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     func selectOnTapBut(rune: SelectRuneCell) {
 
         if rune.isUnavailableRune == true {
-
-            let monetizationVC = MonetizationVC()
-            monetizationVC.modalPresentationStyle = .fullScreen
-            self.present(monetizationVC, animated: true, completion: nil)
+            SubscriptionManager.presentMonetizationVC(vc: self)
         } else {
 
             selectRunesView.selectRune(rune: rune)
             
-            for cell in (self.selectedRunesView.visibleCells as! [SelectedRuneCell]).sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
+            for cell in (self.selectedRunesView.visibleCells as? [SelectedRuneCell])!.sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
                 if !cell.isSelected {
-                    cell.selectRune(SelectedRuneModel(title: rune.model!.title, image: rune.model!.image.image, index: rune.indexPath, id: rune.model!.id))
+                    cell.selectRune(SelectedRuneModel(title: rune.model!.title,
+                                                      image: rune.model?.image.image ?? Assets.launchRunar.image,
+                                                      index: rune.indexPath,
+                                                      id: rune.model?.id ?? ""))
                     break
                 }
             }

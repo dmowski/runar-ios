@@ -78,9 +78,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         case .root, .menu:
             if SubscriptionManager.freeSubscription == true {
                 if indexPath.row >= 4 {
-                    let monetizationVC = MonetizationVC()
-                    monetizationVC.modalPresentationStyle = .fullScreen
-                    self.present(monetizationVC, animated: true, completion: nil)
+                    SubscriptionManager.presentMonetizationVC(vc: self)
                 } else {
                     self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
                 }
@@ -197,10 +195,10 @@ private extension UITableView {
         
         if SubscriptionManager.freeSubscription == true {
             if indexPath.row >= 4 {
-                (cell as! LibraryCellProtocol).unavailableLibrary()
+                (cell as? LibraryCellProtocol)?.unavailableLibrary()
             }
         } else {
-            (cell as! LibraryCellProtocol).availableLibrary()
+            (cell as? LibraryCellProtocol)?.availableLibrary()
         }
         
         return cell
