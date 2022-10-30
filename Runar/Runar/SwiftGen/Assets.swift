@@ -68,6 +68,9 @@ internal enum Assets {
   }
   internal static let favouriteSelected = ImageAsset(name: "Favourite-selected")
   internal static let favouriteUnselected = ImageAsset(name: "Favourite-unselected")
+  internal static let odin = ImageAsset(name: "Odin")
+  internal static let checkBoxIsOff = ImageAsset(name: "checkBoxIsOff")
+  internal static let checkBoxIsOn = ImageAsset(name: "checkBoxIsOn")
   internal static let runeFormula = ImageAsset(name: "RuneFormula")
   internal static let runePattern = ImageAsset(name: "RunePattern")
   internal static let runeStaves = ImageAsset(name: "RuneStaves")
