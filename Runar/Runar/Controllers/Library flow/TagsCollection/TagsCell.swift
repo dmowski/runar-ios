@@ -45,8 +45,7 @@ class TagsCell: UICollectionViewCell {
         addSubview(tagCell)
         tagCell.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
-            make.trailing.equalTo(0)
-            make.leading.equalTo(0)
+            make.top.bottom.leading.trailing.equalToSuperview()
             make.height.equalTo(32)
         }
         
@@ -54,6 +53,8 @@ class TagsCell: UICollectionViewCell {
         runeTag.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
             make.height.equalTo(18)
+            make.leading.equalToSuperview().offset(12)
+            make.trailing.equalToSuperview().offset(-12)
         }
     }
 }

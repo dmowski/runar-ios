@@ -14,11 +14,11 @@ class TagsCollectionView: UICollectionView {
     
     init() {
         let layout = KTCenterFlowLayout()
+        layout.estimatedItemSize = KTCenterFlowLayout.automaticSize
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 8
         super.init(frame: .zero, collectionViewLayout: layout)
         
-        delegate = self
         dataSource = self
         register(TagsCell.self, forCellWithReuseIdentifier: TagsCell.reuseId)
         
@@ -26,38 +26,33 @@ class TagsCollectionView: UICollectionView {
         contentInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
     }
     
-    private func estimateFrameForText(text: String) -> CGRect {
-        
-        let widthMax = 250
-        let height = 32
-        let size = CGSize(width: widthMax, height: height)
-        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.light)]
-
-        return NSString(string: text).boundingRect(with: size, options: options, attributes: attributes, context: nil)
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if !(__CGSizeEqualToSize(bounds.size,self.intrinsicContentSize)){
+            self.invalidateIntrinsicContentSize()
+        }
+    }
+
+    override var intrinsicContentSize: CGSize {
+        return contentSize
+    }
 }
 
-extension TagsCollectionView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension TagsCollectionView: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         cells.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = dequeueReusableCell(withReuseIdentifier: TagsCell.reuseId, for: indexPath) as! TagsCell
+        guard let cell = dequeueReusableCell(withReuseIdentifier: TagsCell.reuseId, for: indexPath) as? TagsCell else {
+            return UICollectionViewCell(frame: .zero)
+        }
         cell.runeTag.text = cells[indexPath.row].capitalized
         return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let padding: CGFloat = 32
-        let text = cells[indexPath.item]
-        return CGSize(width: estimateFrameForText(text: text).width + padding, height: 32)
     }
 }
