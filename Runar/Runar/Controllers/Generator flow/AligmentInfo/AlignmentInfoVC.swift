@@ -28,6 +28,15 @@ class AlignmentInfoVC: UIViewController {
     
     var viewModel: AlignmentInfoVM!
     
+    init(viewModel: AlignmentInfoVM) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundSetup()
@@ -114,8 +123,7 @@ class AlignmentInfoVC: UIViewController {
     
     @objc func buttomTapped(_ sender: Any) {
         let viewModel = AlignmentVM(runeDescription: self.viewModel.runeDescription)
-        let viewController = AlignmentVC()
-        viewController.viewModel = viewModel
+        let viewController = AlignmentVC(viewModel: viewModel)
         viewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(viewController, animated: true)
     }

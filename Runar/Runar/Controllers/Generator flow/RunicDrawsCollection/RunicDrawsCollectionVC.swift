@@ -65,7 +65,9 @@ class RunicDrawsCollectionVC: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateUI(_:)), name: NSNotification.Name(rawValue: "updateRunicDrawsCollectionViewAfterPurchase"), object: nil)
+
         navigationController?.navigationBar.isHidden = true
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
@@ -79,7 +81,6 @@ class RunicDrawsCollectionVC: UICollectionViewController {
         //        } else {
         //            showAllert()
         //        }
-        //
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,7 +92,11 @@ class RunicDrawsCollectionVC: UICollectionViewController {
         self.navigationController?.pushViewController(OnboardingScreenVC(), animated: true)
     }
     
-    func configureCollectionView() {
+    @objc private func updateUI(_ notification: NSNotification) {
+        self.collectionView.reloadData()
+    }
+
+    private func configureCollectionView() {
         
         let mainImageView: UIImageView = UIImageView(image: Assets.Background.main.image)
         mainImageView.contentMode = .scaleAspectFill
@@ -100,7 +105,7 @@ class RunicDrawsCollectionVC: UICollectionViewController {
         collectionView.register(MainCell.self, forCellWithReuseIdentifier: MainCell.reuseIdentifier)
     }
     
-    func configureConstraints() {
+    private func configureConstraints() {
         
         collectionView.addSubview(generatorView)
         NSLayoutConstraint.activate([
@@ -151,7 +156,7 @@ class RunicDrawsCollectionVC: UICollectionViewController {
         ])
     }
     
-    @IBAction func goToGeneratorTab() {
+    @IBAction private func goToGeneratorTab() {
         self.tabBarController?.selectedIndex = 2
     }
 
@@ -167,7 +172,7 @@ class RunicDrawsCollectionVC: UICollectionViewController {
 }
 
 extension RunicDrawsCollectionVC: UICollectionViewDelegateFlowLayout {
-    
+
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -179,25 +184,32 @@ extension RunicDrawsCollectionVC: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCell.reuseIdentifier, for: indexPath) as! MainCell
         cell.update(with: data[safe: indexPath.row])
+        
+        if SubscriptionManager.freeSubscription == true {
+            if indexPath.row >= 3 {
+                cell.unavailableRunicDraw()
+            }
+        } else {
+            cell.availableRunicDraw()
+        }
+
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
         guard let runeDescription = DataBase.runes.first(where: {
             $0.id == data[safe: indexPath.row]?.runeId
         }) else { return }
-        if LocalStorage.pull(forKey: runeDescription.name) == true {
-            let viewModel = AlignmentVM(runeDescription: runeDescription)
-            let viewController = AlignmentVC()
-            viewController.viewModel = viewModel
-            viewController.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(viewController, animated: true)
+
+        if SubscriptionManager.freeSubscription == true {
+            if indexPath.row >= 3 {
+                SubscriptionManager.presentMonetizationVC(vc: self)
+            } else {
+                tapRunicDrawCell(runeDescription: runeDescription)
+            }
         } else {
-            let viewModel = AlignmentInfoVM(runeDescription: runeDescription)
-            let viewController = AlignmentInfoVC()
-            viewController.viewModel = viewModel
-            viewController.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(viewController, animated: true)
+            tapRunicDrawCell(runeDescription: runeDescription)
         }
     }
     
@@ -221,6 +233,20 @@ extension RunicDrawsCollectionVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 16
+    }
+    
+    private func tapRunicDrawCell(runeDescription: RuneDescription) {
+        if LocalStorage.pull(forKey: runeDescription.name) == true {
+            let viewModel = AlignmentVM(runeDescription: runeDescription)
+            let viewController = AlignmentVC(viewModel: viewModel)
+            viewController.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(viewController, animated: true)
+        } else {
+            let viewModel = AlignmentInfoVM(runeDescription: runeDescription)
+            let viewController = AlignmentInfoVC(viewModel: viewModel)
+            viewController.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
 

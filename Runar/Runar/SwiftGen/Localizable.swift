@@ -328,6 +328,28 @@ internal enum L10n {
       }
     }
   }
+  internal enum FirstScreen {
+    internal enum ButtomLabel {
+      /// If you’re the brave soul, press the button
+      internal static let title = L10n.tr("Localizable", "firstScreen.buttomLabel.title", fallback: "If you’re the brave soul, press the button")
+    }
+    internal enum CheckBoxLabel {
+      /// Do not show again
+      internal static let title = L10n.tr("Localizable", "firstScreen.checkBoxLabel.title", fallback: "Do not show again")
+    }
+    internal enum MediumLabel {
+      /// Today the Gods favor you!
+      internal static let title = L10n.tr("Localizable", "firstScreen.mediumLabel.title", fallback: "Today the Gods favor you!")
+    }
+    internal enum NextButton {
+      /// Go ahead
+      internal static let title = L10n.tr("Localizable", "firstScreen.nextButton.title", fallback: "Go ahead")
+    }
+    internal enum TopLabel {
+      /// Greetings, young Nordling!
+      internal static let title = L10n.tr("Localizable", "firstScreen.topLabel.title", fallback: "Greetings, young Nordling!")
+    }
+  }
   internal enum Generator {
     /// Comming soon
     internal static let commingSoon = L10n.tr("Localizable", "generator.commingSoon", fallback: "Comming soon")
@@ -1781,6 +1803,8 @@ internal enum L10n {
     internal static let titleSubscriptionPopular = L10n.tr("Localizable", "monetization.titleSubscriptionPopular", fallback: "Runar popular")
     /// Runar premium
     internal static let titleSubscriptionPremium = L10n.tr("Localizable", "monetization.titleSubscriptionPremium", fallback: "Runar premium")
+    /// Subscription
+    internal static let titleSubscriptionSettings = L10n.tr("Localizable", "monetization.titleSubscriptionSettings")
   }
   internal enum Music {
     /// Black rook
@@ -1823,8 +1847,8 @@ internal enum L10n {
     internal static let mannaz = L10n.tr("Localizable", "name.Mannaz", fallback: "Mannaz")
     /// Naudiz
     internal static let naudiz = L10n.tr("Localizable", "name.Naudiz", fallback: "Naudiz")
-    /// Odin rune
-    internal static let odin = L10n.tr("Localizable", "name.Odin", fallback: "Odin rune")
+    /// Odin Rune
+    internal static let odin = L10n.tr("Localizable", "name.Odin", fallback: "Odin Rune")
     /// Opila
     internal static let opila = L10n.tr("Localizable", "name.Opila", fallback: "Opila")
     /// Perpu
