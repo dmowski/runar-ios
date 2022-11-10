@@ -12,10 +12,15 @@ public class LibraryRuneCell: LibraryCell {
     // MARK: - Funcs
     public override func bind(node: LibraryNode) -> Void {
         
-        let runeTitle: UILabel = bindRuneTitle(title: node.title!)
-        let runeImage: UIImageView = bindRuneImage(url: node.imageUrl!)
-        let tagsCV: UICollectionView = bindTagsCV(with: node.tags!)
-        let runeDesc: UILabel = bindRunDescription(description: node.content!)
+        guard let title = node.title,
+              let imageUrl = node.imageUrl,
+              let tags = node.tags,
+              let content = node.content else { return }
+        
+        let runeTitle: UILabel = bindRuneTitle(title: title)
+        let runeImage: UIImageView = bindRuneImage(url: imageUrl)
+        let tagsCV: UICollectionView = bindTagsCV(with: tags)
+        let runeDesc: UILabel = bindRunDescription(description: content)
         
         self.separatorInset = UIEdgeInsets(top: 0, left: 26, bottom: 0, right: 26)
         
@@ -40,7 +45,7 @@ public class LibraryRuneCell: LibraryCell {
             tagsCV.topAnchor.constraint(equalTo: runeImage.bottomAnchor, constant: 10),
             tagsCV.leftAnchor.constraint(equalTo: leftAnchor),
             tagsCV.rightAnchor.constraint(equalTo: rightAnchor),
-            tagsCV.heightAnchor.constraint(equalToConstant: node.tags!.isEmpty ? 0 : (node.tags!.count <= 3) ? 32 : 72)
+            tagsCV.heightAnchor.constraint(greaterThanOrEqualToConstant: tags.count == 0 ? 0 : 32)
         ])
         
         runeDesc.translatesAutoresizingMaskIntoConstraints = false
