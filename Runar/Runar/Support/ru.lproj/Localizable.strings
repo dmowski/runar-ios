@@ -131,6 +131,7 @@ Runar — это приложение для гадания на скандин�
 "generator.alertHeader.title" = "Рунный узор сохранен";
 "generator.alertAction.title" = "Хорошо";
 
+"monetization.titleSubscriptionSettings" = "Подписка";
 "monetization.titleSubscriptionPremium" = "Runar премиум";
 "monetization.titleSubscriptionPopular" = "Runar популярный";
 "monetization.titleSubscriptionEternal" = "Runar вечный";

@@ -1781,6 +1781,8 @@ internal enum L10n {
     internal static let titleSubscriptionPopular = L10n.tr("Localizable", "monetization.titleSubscriptionPopular", fallback: "Runar popular")
     /// Runar premium
     internal static let titleSubscriptionPremium = L10n.tr("Localizable", "monetization.titleSubscriptionPremium", fallback: "Runar premium")
+    /// Subscription
+    internal static let titleSubscriptionSettings = L10n.tr("Localizable", "monetization.titleSubscriptionSettings")
   }
   internal enum Music {
     /// Black rook

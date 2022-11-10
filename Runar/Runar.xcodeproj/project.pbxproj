@@ -145,6 +145,8 @@
 		C2C5584B283D9E33006B053C /* SlectedRuneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584A283D9E33006B053C /* SlectedRuneModel.swift */; };
 		C2C5584D283D9EE9006B053C /* SelectRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584C283D9EE9006B053C /* SelectRuneCell.swift */; };
 		C2C5584F283D9F59006B053C /* SelectedRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584E283D9F59006B053C /* SelectedRuneCell.swift */; };
+		C2F3EA9228E10E74001CB1C5 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3EA9128E10E74001CB1C5 /* SubscriptionManager.swift */; };
+		C2F44DC128C6601B00A43F4D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F44DC028C6601B00A43F4D /* StoreKit.framework */; };
 		D33A65EC2DE4E4D7C3C956F3 /* Pods_Runar_RunarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */; };
 		DB92AEE5E33DCFB508195B8F /* Pods_Runar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */; };
 /* End PBXBuildFile section */
@@ -316,6 +318,8 @@
 		C2C5584A283D9E33006B053C /* SlectedRuneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlectedRuneModel.swift; sourceTree = "<group>"; };
 		C2C5584C283D9EE9006B053C /* SelectRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRuneCell.swift; sourceTree = "<group>"; };
 		C2C5584E283D9F59006B053C /* SelectedRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRuneCell.swift; sourceTree = "<group>"; };
+		C2F3EA9128E10E74001CB1C5 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
+		C2F44DC028C6601B00A43F4D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.release.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar_RunarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B75E01B5066B4D9AE555E1 /* Pods-Runar-RunarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -328,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB92AEE5E33DCFB508195B8F /* Pods_Runar.framework in Frameworks */,
+				C2F44DC128C6601B00A43F4D /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,6 +862,7 @@
 		C22B4DB22858A8F600F6245C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C2F3EA9028E10E4B001CB1C5 /* SubscriptionManager */,
 				677C11E6289C71F400CEA5D2 /* Memory */,
 				8477223B26457435001C280D /* Api */,
 				19BDC61625C0306E000808CF /* Base */,
@@ -948,9 +954,18 @@
 			name = ChoosedWallpaper;
 			sourceTree = "<group>";
 		};
+		C2F3EA9028E10E4B001CB1C5 /* SubscriptionManager */ = {
+			isa = PBXGroup;
+			children = (
+				C2F3EA9128E10E74001CB1C5 /* SubscriptionManager.swift */,
+			);
+			path = SubscriptionManager;
+			sourceTree = "<group>";
+		};
 		F845FBB93D424E742E7134D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2F44DC028C6601B00A43F4D /* StoreKit.framework */,
 				9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */,
 				E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */,
 				952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */,
@@ -1347,6 +1362,7 @@
 				19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */,
 				9BD98C932628A74200F3BBD7 /* AppInfoVC.swift in Sources */,
 				9B0CB88B2607B6A000B2AF60 /* TopWithDescriptionView.swift in Sources */,
+				C2F3EA9228E10E74001CB1C5 /* SubscriptionManager.swift in Sources */,
 				9BD98C982628A74200F3BBD7 /* SettingsVC.swift in Sources */,
 				844BF4D626501A81002C7596 /* RunarLayout.swift in Sources */,
 				C2953E67288A8BB900EA297D /* MonetizationStatusView.swift in Sources */,

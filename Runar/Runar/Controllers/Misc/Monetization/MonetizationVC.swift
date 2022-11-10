@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import StoreKit
 
 class MonetizationVC: UIViewController {
-    
+
     private let contentView = MonetizationView()
     private let viewModel = MonetizationModel()
     
@@ -20,6 +21,7 @@ class MonetizationVC: UIViewController {
     override func loadView() {
         view = contentView
         contentView.delegate = self
+        viewModel.delegate = self
     }
 
     public override func viewWillAppear(_ animated: Bool) {
@@ -35,39 +37,45 @@ class MonetizationVC: UIViewController {
     }
 }
 
+extension MonetizationVC: MonetizationViewDelegateProtocol, MonetizationModelDelegate {
 
-extension MonetizationVC: MonetizationViewDelegateProtocol {
-
-    // TODO: -
     func didTapPremiumView() {
-        print("didTapPremiumView")
+        viewModel.subscription = [IAPSubscriptions.premiumSubscription.rawValue]
     }
     
     func didTapPopularView() {
-        print("didTapPopularView")
+        viewModel.subscription = [IAPSubscriptions.popularSubscription.rawValue]
     }
     
     func didTapEternalView() {
-        print("didTapEternalView")
+        viewModel.subscription = [IAPSubscriptions.eternalSubscription.rawValue]
     }
     
     func didTapTermsOfUseButton() {
-        print("didTapTermsOfUseButton")
+        if let urlTermsOfUse = URL(string: "https://runar.app/privacy#!/tab/487213487-2") {
+            UIApplication.shared.open(urlTermsOfUse)
+        }
     }
     
     func didTapPrivacyPolicyButton() {
-        print("didTapPrivacyPolicyButton")
+        if let urlPrivacyPolicy = URL(string: "https://runar.app/privacy") {
+            UIApplication.shared.open(urlPrivacyPolicy)
+        }
     }
     
     func didTapRestoreButton() {
-        print("didTapRestoreButton")
+        viewModel.restorePurchase()
     }
     
     func didTapPayButton() {
-        print("didTapGoPremiumButton")
+        viewModel.getSubscription()
     }
 
     func didTapSkipkButton() {
-        navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    func dismissScreenAfterPurchase() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
