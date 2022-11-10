@@ -995,7 +995,7 @@ With the permission of the copyright holders, the following musical compositions
 "name.Dagaz" = "Dagaz";
 "name.Opila" = "Opila";
 "name.Reverse.Opila" = "Reverse Opila";
-"name.Odin" = "Odin rune";
+"name.Odin" = "Odin Rune";
 
 "generator.runePattern.description" = "";
 "generator.runeFormula.description" = "Choose a few runes, and we will offer runic formulas which are made from them. Runic formula can be used as a mascot or a guard.";
