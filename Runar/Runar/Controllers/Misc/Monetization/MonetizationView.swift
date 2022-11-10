@@ -22,8 +22,8 @@ protocol MonetizationViewDelegateProtocol: AnyObject {
 
 class MonetizationView: UIView {
     
-    let heightScreen = UIScreen.main.bounds.height
-    let widthScreen = UIScreen.main.bounds.width
+    private let heightScreen = UIScreen.main.bounds.height
+    private let widthScreen = UIScreen.main.bounds.width
 
     private let backgroundImageView = UIImageView()
     private let skipButton = UIButton()
@@ -76,7 +76,7 @@ class MonetizationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupBackgroundImage() {
+    private func setupBackgroundImage() {
 
         backgroundImageView.image = Assets.Background.mainFire.image
         backgroundImageView.contentMode = .scaleAspectFill
@@ -86,7 +86,7 @@ class MonetizationView: UIView {
         }
     }
 
-    func setupSkipButton() {
+    private func setupSkipButton() {
 
         skipButton.setImage(Assets.escape.image, for: .normal)
         skipButton.addTarget(self, action: #selector(self.tapSkipButton), for: .touchUpInside)
@@ -102,7 +102,7 @@ class MonetizationView: UIView {
         }
     }
 
-    func setupTitleDescriptionMonetization() {
+    private func setupTitleDescriptionMonetization() {
 
         subscriptionMainTitle.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         subscriptionMainTitle.font = FontFamily.AmaticSC.bold.font(size: 52)
@@ -132,7 +132,7 @@ class MonetizationView: UIView {
         }
     }
 
-    func setupDescriptionMonetization() {
+    private func setupDescriptionMonetization() {
 
         addSubview(firstDescription)
         firstDescription.snp.makeConstraints { make in
@@ -171,7 +171,7 @@ class MonetizationView: UIView {
         }
     }
     
-    func setupChoosePriceViewsMonetization() {
+    private func setupChoosePriceViewsMonetization() {
 
         chooseTitleMonetization.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         chooseTitleMonetization.font = FontFamily.AmaticSC.bold.font(size: 36)
@@ -229,7 +229,7 @@ class MonetizationView: UIView {
         }
     }
 
-    func setupBottomButtons() {
+    private func setupBottomButtons() {
 
         goPayButton.layer.backgroundColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
         goPayButton.layer.cornerRadius = 8
@@ -290,7 +290,7 @@ class MonetizationView: UIView {
         }
     }
     
-    func tappedPremiumSubscription() {
+    private func tappedPremiumSubscription() {
         subscriptionMainTitle.text = L10n.Monetization.titleSubscriptionPremium
         premiumView.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
         popularView.layer.borderColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 0.3).cgColor
@@ -306,7 +306,7 @@ class MonetizationView: UIView {
         eternalView.titleLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
-    func tappedPopularSubscription() {
+    private func tappedPopularSubscription() {
         subscriptionMainTitle.text = L10n.Monetization.titleSubscriptionPopular
         premiumView.layer.borderColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 0.3).cgColor
         popularView.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
@@ -322,7 +322,7 @@ class MonetizationView: UIView {
         eternalView.titleLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
-    func tappedEternalSubscription() {
+    private func tappedEternalSubscription() {
         subscriptionMainTitle.text = L10n.Monetization.titleSubscriptionEternal
         premiumView.layer.borderColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 0.3).cgColor
         popularView.layer.borderColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 0.3).cgColor
@@ -338,23 +338,23 @@ class MonetizationView: UIView {
         eternalView.titleLabel.textColor = UIColor(red: 0.129, green: 0.129, blue: 0.129, alpha: 1)
     }
     
-    @objc func tapSkipButton() {
+    @objc private func tapSkipButton() {
         delegate?.didTapSkipkButton()
     }
     
-    @objc func tapGoPremiunButton() {
+    @objc private func tapGoPremiunButton() {
         delegate?.didTapPayButton()
     }
     
-    @objc func tapTermsOfUseButton() {
+    @objc private func tapTermsOfUseButton() {
         delegate?.didTapTermsOfUseButton()
     }
     
-    @objc func tapPrivacyPolicyButton() {
+    @objc private func tapPrivacyPolicyButton() {
         delegate?.didTapPrivacyPolicyButton()
     }
 
-    @objc func tapRestoreButton() {
+    @objc private func tapRestoreButton() {
         delegate?.didTapRestoreButton()
     }
 }

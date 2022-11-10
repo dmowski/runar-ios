@@ -15,6 +15,8 @@ extension String {
 // MARK: - Protocols
 public protocol LibraryCellProtocol {
     func bind(node: LibraryNode) -> Void
+    func unavailableLibrary()
+    func availableLibrary()
 }
 
 public class LibraryNodeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -26,7 +28,9 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     // MARK: - Override funcs
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateUI(_:)), name: NSNotification.Name(rawValue: "updateLibraryTableViewAfterPurchase"), object: nil)
+
         RunarLayout.initBackground(for: view)
         
         configureNodeView()
@@ -38,7 +42,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         configureNavigationBar()
     }
         
-    func set(_ node: LibraryNode){
+    func set(_ node: LibraryNode) {
         self.node = node
     }
     
@@ -57,6 +61,10 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         title = node.title
         self.navigationController?.navigationBar.configure()
     }
+    
+    @objc private func updateUI(_ notification: NSNotification) {
+        self.nodeView.reloadData()
+    }
               
     // MARK: - Delegate funcs
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) -> Void {
@@ -68,7 +76,15 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         
         switch child.type {
         case .root, .menu:
-            self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
+            if SubscriptionManager.freeSubscription == true {
+                if indexPath.row >= 4 {
+                    SubscriptionManager.presentMonetizationVC(vc: self)
+                } else {
+                    self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
+                }
+            } else {
+                self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
+            }
             break
         default:
             print(child.title ?? "No Data")
@@ -176,6 +192,14 @@ private extension UITableView {
         let cell = self.dequeueReusableCell(withIdentifier: child.id, for: indexPath)
         
         (cell as! LibraryCellProtocol).bind(node: child)
+        
+        if SubscriptionManager.freeSubscription == true {
+            if indexPath.row >= 4 {
+                (cell as? LibraryCellProtocol)?.unavailableLibrary()
+            }
+        } else {
+            (cell as? LibraryCellProtocol)?.availableLibrary()
+        }
         
         return cell
     }

@@ -126,15 +126,11 @@ extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
             cell?.textLabel?.text = String.aboutApp
-            cell?.openVC = {
-                self.navigationController?.pushViewController(AppInfoVC(), animated: true)}
             return cell ?? StaticCell()
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
-            cell?.textLabel?.text = "Monetization"
-            cell?.openVC = {
-                self.navigationController?.pushViewController(MonetizationVC(), animated: true)}
-            return cell ?? StaticCell()            
+            cell?.textLabel?.text = L10n.Monetization.titleSubscriptionSettings
+            return cell ?? StaticCell()
         default:
             return UITableViewCell()
         }
@@ -157,7 +153,7 @@ extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
         case 3:
             self.navigationController?.pushViewController(AppInfoVC(), animated: true)
         case 4:
-            self.navigationController?.pushViewController(MonetizationVC(), animated: true)
+            SubscriptionManager.presentMonetizationVC(vc: self)
         default:
             break
         }

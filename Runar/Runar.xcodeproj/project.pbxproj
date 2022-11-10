@@ -37,6 +37,9 @@
 		19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BAFD25C9874200418CE7 /* RuneViewProtocol.swift */; };
 		19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BB0525C9874E00418CE7 /* RunesView.swift */; };
 		1A04A48091973E2F0EB04A65 /* Pods_RunarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */; };
+		671E685A28EA2DB5000A0904 /* SparksEffect.sks in Resources */ = {isa = PBXBuildFile; fileRef = 671E685828EA2DB5000A0904 /* SparksEffect.sks */; };
+		671E685B28EA2DB5000A0904 /* SparksScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671E685928EA2DB5000A0904 /* SparksScene.swift */; };
+		671E685D28EA2DC2000A0904 /* UIView+SparksAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671E685C28EA2DC2000A0904 /* UIView+SparksAnimation.swift */; };
 		677C11E8289C726900CEA5D2 /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677C11E7289C726900CEA5D2 /* ImageFileManager.swift */; };
 		843DFF33265248B900D6DFE5 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF32265248B900D6DFE5 /* LibraryViewController.swift */; };
 		843DFF4D2653FB5400D6DFE5 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF4C2653FB5400D6DFE5 /* LibraryCell.swift */; };
@@ -124,6 +127,7 @@
 		9BD98CA42628A8B800F3BBD7 /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD98CA32628A8B800F3BBD7 /* SFProDisplay-Medium.ttf */; };
 		9BD98CC02628CD1D00F3BBD7 /* EscapePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpVC.swift */; };
 		9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */; };
+		9C1F8E8228FF07480073542F /* FirstScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F8E8128FF07480073542F /* FirstScreenVC.swift */; };
 		C22B4DB42858AD2800F6245C /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B4DB32858AD2800F6245C /* String + Extensions.swift */; };
 		C22F6E4127C3CEFF005F8B66 /* EmptyWallpaperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */; };
 		C278B66127C43FAB00EFBD2C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */; };
@@ -142,6 +146,8 @@
 		C2C5584B283D9E33006B053C /* SlectedRuneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584A283D9E33006B053C /* SlectedRuneModel.swift */; };
 		C2C5584D283D9EE9006B053C /* SelectRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584C283D9EE9006B053C /* SelectRuneCell.swift */; };
 		C2C5584F283D9F59006B053C /* SelectedRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584E283D9F59006B053C /* SelectedRuneCell.swift */; };
+		C2F3EA9228E10E74001CB1C5 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3EA9128E10E74001CB1C5 /* SubscriptionManager.swift */; };
+		C2F44DC128C6601B00A43F4D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F44DC028C6601B00A43F4D /* StoreKit.framework */; };
 		D33A65EC2DE4E4D7C3C956F3 /* Pods_Runar_RunarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */; };
 		DB92AEE5E33DCFB508195B8F /* Pods_Runar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */; };
 /* End PBXBuildFile section */
@@ -197,6 +203,9 @@
 		19D9BB0525C9874E00418CE7 /* RunesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunesView.swift; sourceTree = "<group>"; };
 		1A56DC55326BF359E39532FA /* Pods-Runar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar.release.xcconfig"; path = "Target Support Files/Pods-Runar/Pods-Runar.release.xcconfig"; sourceTree = "<group>"; };
 		29AD0AF3F59DE1B0E9AF6F8D /* Pods-RunarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.release.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.release.xcconfig"; sourceTree = "<group>"; };
+		671E685828EA2DB5000A0904 /* SparksEffect.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SparksEffect.sks; sourceTree = "<group>"; };
+		671E685928EA2DB5000A0904 /* SparksScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparksScene.swift; sourceTree = "<group>"; };
+		671E685C28EA2DC2000A0904 /* UIView+SparksAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SparksAnimation.swift"; sourceTree = "<group>"; };
 		677C11E7289C726900CEA5D2 /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
 		7187BE777607C9CC2B878552 /* Pods-RunarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.debug.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		843DFF32265248B900D6DFE5 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +300,7 @@
 		9BD98CA32628A8B800F3BBD7 /* SFProDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.ttf"; sourceTree = "<group>"; };
 		9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscapePopUpVC.swift; sourceTree = "<group>"; };
 		9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneDescriptionPopUp.swift; sourceTree = "<group>"; };
+		9C1F8E8128FF07480073542F /* FirstScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenVC.swift; sourceTree = "<group>"; };
 		9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22B4DB32858AD2800F6245C /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyWallpaperVC.swift; sourceTree = "<group>"; };
@@ -310,6 +320,8 @@
 		C2C5584A283D9E33006B053C /* SlectedRuneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlectedRuneModel.swift; sourceTree = "<group>"; };
 		C2C5584C283D9EE9006B053C /* SelectRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRuneCell.swift; sourceTree = "<group>"; };
 		C2C5584E283D9F59006B053C /* SelectedRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRuneCell.swift; sourceTree = "<group>"; };
+		C2F3EA9128E10E74001CB1C5 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
+		C2F44DC028C6601B00A43F4D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.release.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar_RunarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B75E01B5066B4D9AE555E1 /* Pods-Runar-RunarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -322,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB92AEE5E33DCFB508195B8F /* Pods_Runar.framework in Frameworks */,
+				C2F44DC128C6601B00A43F4D /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +440,7 @@
 				9BD98C9D2628A75600F3BBD7 /* UIView.swift */,
 				C2C55846283D9CEE006B053C /* UIButton.swift */,
 				C2AF4B32285AA66000976992 /* UIImage.swift */,
+				671E685C28EA2DC2000A0904 /* UIView+SparksAnimation.swift */,
 				C2C55848283D9D26006B053C /* UILabel.swift */,
 				19C0F20925BAFCB20027422B /* Array + Extensions.swift */,
 				C22B4DB32858AD2800F6245C /* String + Extensions.swift */,
@@ -456,6 +470,23 @@
 				C2B10B0628C4D58600F9BCF0 /* BindableGestureRecognizer.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		671E685628EA2DB5000A0904 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				671E685728EA2DB5000A0904 /* Sparks */,
+			);
+			path = Effects;
+			sourceTree = "<group>";
+		};
+		671E685728EA2DB5000A0904 /* Sparks */ = {
+			isa = PBXGroup;
+			children = (
+				671E685828EA2DB5000A0904 /* SparksEffect.sks */,
+				671E685928EA2DB5000A0904 /* SparksScene.swift */,
+			);
+			path = Sparks;
 			sourceTree = "<group>";
 		};
 		677C11E6289C71F400CEA5D2 /* Memory */ = {
@@ -655,6 +686,7 @@
 		9B9C25CA25993DF800A4E135 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				671E685628EA2DB5000A0904 /* Effects */,
 				8477222C2643C9AB001C280D /* Storage */,
 				9B5F5BBC261CE02300A7454F /* Music */,
 				9B739DF225CD765800726B30 /* Constants.swift */,
@@ -795,6 +827,14 @@
 			path = RuneDescriptionPopUp;
 			sourceTree = "<group>";
 		};
+		9C1F8E8028FF06C40073542F /* FirstScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F8E8128FF07480073542F /* FirstScreenVC.swift */,
+			);
+			path = FirstScreen;
+			sourceTree = "<group>";
+		};
 		A2A5CAEB8FFCA1990E63BEE2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -811,6 +851,7 @@
 		C22B4DB02858A86C00F6245C /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				9C1F8E8028FF06C40073542F /* FirstScreen */,
 				968939D328D094C200057D2A /* OnboardingScreen */,
 				C2953E5B28896AFB00EA297D /* Monetization */,
 				9B5F5BB3261CD58F00A7454F /* Music */,
@@ -832,6 +873,7 @@
 		C22B4DB22858A8F600F6245C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C2F3EA9028E10E4B001CB1C5 /* SubscriptionManager */,
 				677C11E6289C71F400CEA5D2 /* Memory */,
 				8477223B26457435001C280D /* Api */,
 				19BDC61625C0306E000808CF /* Base */,
@@ -923,9 +965,18 @@
 			name = ChoosedWallpaper;
 			sourceTree = "<group>";
 		};
+		C2F3EA9028E10E4B001CB1C5 /* SubscriptionManager */ = {
+			isa = PBXGroup;
+			children = (
+				C2F3EA9128E10E74001CB1C5 /* SubscriptionManager.swift */,
+			);
+			path = SubscriptionManager;
+			sourceTree = "<group>";
+		};
 		F845FBB93D424E742E7134D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2F44DC028C6601B00A43F4D /* StoreKit.framework */,
 				9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */,
 				E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */,
 				952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */,
@@ -1051,6 +1102,7 @@
 				9BD229CA258D776200E17E98 /* Roboto-MediumItalic.ttf in Resources */,
 				9BC33722262A4F750042A8BF /* Danheim-Kala_master.mp3 in Resources */,
 				9BD229CE258D776200E17E98 /* Roboto-BlackItalic.ttf in Resources */,
+				671E685A28EA2DB5000A0904 /* SparksEffect.sks in Resources */,
 				9BD229D0258D776200E17E98 /* Roboto-Medium.ttf in Resources */,
 				9BD22907258A321F00E17E98 /* Assets.xcassets in Resources */,
 				9B9F151D2591499A00062F47 /* AmaticSC-Bold.ttf in Resources */,
@@ -1247,6 +1299,7 @@
 				191D32CF25B7C46A001DC210 /* Assets.swift in Sources */,
 				19D9BAD625C9765C00418CE7 /* TwoRuneView.swift in Sources */,
 				84410677270CC7E500CD8B56 /* SelectRuneCollectionView.swift in Sources */,
+				671E685B28EA2DB5000A0904 /* SparksScene.swift in Sources */,
 				9BD2295A258AB02500E17E98 /* RunicDrawsCollectionVC.swift in Sources */,
 				849ED29C26710C0B006E557A /* LibraryPathCell.swift in Sources */,
 				968939D928D094FB00057D2A /* OnboardingScreenCell.swift in Sources */,
@@ -1296,6 +1349,7 @@
 				9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */,
 				C22F6E4127C3CEFF005F8B66 /* EmptyWallpaperVC.swift in Sources */,
 				9B739E4C25D1E99B00726B30 /* RunarApi.swift in Sources */,
+				671E685D28EA2DC2000A0904 /* UIView+SparksAnimation.swift in Sources */,
 				8477222E2643C9CA001C280D /* LocalStorage.swift in Sources */,
 				9B739E1025CD9B9800726B30 /* RuneDescriptionPopUpVM.swift in Sources */,
 				1987AABB25BDCDB400BB3655 /* FourRuneView.swift in Sources */,
@@ -1304,6 +1358,7 @@
 				1987AACF25BDCDF000BB3655 /* EightRuneView.swift in Sources */,
 				191D32D025B7C46A001DC210 /* Localizable.swift in Sources */,
 				849ED28F266E3457006E557A /* LibraryRootCell.swift in Sources */,
+				9C1F8E8228FF07480073542F /* FirstScreenVC.swift in Sources */,
 				1987AAC025BDCDBF00BB3655 /* FiveRuneView.swift in Sources */,
 				9BD98CC02628CD1D00F3BBD7 /* EscapePopUpVC.swift in Sources */,
 				199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */,
@@ -1319,6 +1374,7 @@
 				19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */,
 				9BD98C932628A74200F3BBD7 /* AppInfoVC.swift in Sources */,
 				9B0CB88B2607B6A000B2AF60 /* TopWithDescriptionView.swift in Sources */,
+				C2F3EA9228E10E74001CB1C5 /* SubscriptionManager.swift in Sources */,
 				9BD98C982628A74200F3BBD7 /* SettingsVC.swift in Sources */,
 				844BF4D626501A81002C7596 /* RunarLayout.swift in Sources */,
 				C2953E67288A8BB900EA297D /* MonetizationStatusView.swift in Sources */,
@@ -1492,7 +1548,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = FR3LN29YUF;
 				INFOPLIST_FILE = Runar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1515,7 +1571,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = FR3LN29YUF;
 				INFOPLIST_FILE = Runar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

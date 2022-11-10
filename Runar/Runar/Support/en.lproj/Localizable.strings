@@ -129,6 +129,7 @@ With the permission of the copyright holders, the following musical compositions
 "generator.alertHeader.title" = "Runic pattern has been saved";
 "generator.alertAction.title" = "Ok";
 
+"monetization.titleSubscriptionSettings" = "Subscription";
 "monetization.titleSubscriptionPremium" = "Runar premium";
 "monetization.titleSubscriptionPopular" = "Runar popular";
 "monetization.titleSubscriptionEternal" = "Runar eternal";
@@ -994,8 +995,14 @@ With the permission of the copyright holders, the following musical compositions
 "name.Dagaz" = "Dagaz";
 "name.Opila" = "Opila";
 "name.Reverse.Opila" = "Reverse Opila";
-"name.Odin" = "Odin rune";
+"name.Odin" = "Odin Rune";
 
 "generator.runePattern.description" = "";
 "generator.runeFormula.description" = "Choose a few runes, and we will offer runic formulas which are made from them. Runic formula can be used as a mascot or a guard.";
 "generator.runeStaves.description" = "Choose a few runes, and we will offer runic staves which are made from them. Runic staves can be used as a mascot or a guard.";
+
+"firstScreen.topLabel.title" = "Greetings, young Nordling!";
+"firstScreen.mediumLabel.title" = "Today the Gods favor you!";
+"firstScreen.buttomLabel.title" = "If you’re the brave soul, press the button";
+"firstScreen.nextButton.title" = "Go ahead";
+"firstScreen.checkBoxLabel.title" = "Do not show again";
