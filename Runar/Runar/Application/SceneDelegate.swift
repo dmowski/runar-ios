@@ -16,13 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        if UserDefaults.standard.bool(forKey: "hasViewedOnboardingScreen") {
-            window?.rootViewController = MainTabBarController()
-            window?.makeKeyAndVisible()
-        } else {
-            window?.rootViewController = OnboardingScreenVC()
-            window?.makeKeyAndVisible()
-        }
+
+        window?.rootViewController = getRootViewController()
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -59,6 +55,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             with: window,
             duration: 1,
             options: [.transitionCrossDissolve], animations: nil, completion: nil)
+    }
+
+    private func getRootViewController() -> UIViewController {
+        guard UserDefaults.standard.bool(forKey: "dontShowFirstScreenAgain") else { return FirstScreenVC() }
+        guard UserDefaults.standard.bool(forKey: "hasViewedOnboardingScreen") else { return OnboardingScreenVC() }
+        return MainTabBarController()
     }
     
 }
