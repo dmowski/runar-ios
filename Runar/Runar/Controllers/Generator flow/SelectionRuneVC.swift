@@ -97,10 +97,6 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         
         RunarLayout.initBackground(for: view, with: .mainFire)
-
-        //setupViews()
-        //selectRunesView.delegate = self
-
         configureNavigationBar()
         
         let generatorIsLoaded: Bool = CoreDataManager.shared.generatorIsLoaded
@@ -304,7 +300,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         
         let runes = CoreDataManager.shared.fetchAllGeneratorNodes()
         var indexes = [Int](0 ..< runes.count)
-        
+
         for _ in 0..<3 {
             let index = indexes.randomElement()!
             

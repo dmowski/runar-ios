@@ -122,7 +122,6 @@
 		9BD98CA42628A8B800F3BBD7 /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD98CA32628A8B800F3BBD7 /* SFProDisplay-Medium.ttf */; };
 		9BD98CC02628CD1D00F3BBD7 /* EscapePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpVC.swift */; };
 		9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */; };
-<<<<<<< HEAD
 		9C19E06028E432D400CBE240 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C19E05F28E432D400CBE240 /* LocalStorage.swift */; };
 		9C389D4828E0BB2900C4529E /* LibraryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C389D4728E0BB2900C4529E /* LibraryNode.swift */; };
 		9C51B25428D8A9050095B3B1 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C51B25228D8A9050095B3B1 /* CoreData.xcdatamodeld */; };
@@ -134,9 +133,7 @@
 		9CFFC9F228E1EC8400552D90 /* GeneratorRuneImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFC9EE28E1EC8400552D90 /* GeneratorRuneImage+CoreDataClass.swift */; };
 		9CFFC9F328E1EC8400552D90 /* GeneratorCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFC9F028E1EC8400552D90 /* GeneratorCoreData+CoreDataClass.swift */; };
 		9CFFC9F428E1EC8400552D90 /* GeneratorRuneImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFC9ED28E1EC8400552D90 /* GeneratorRuneImage+CoreDataProperties.swift */; };
-=======
 		9C1F8E8228FF07480073542F /* FirstScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F8E8128FF07480073542F /* FirstScreenVC.swift */; };
->>>>>>> develop
 		C22B4DB42858AD2800F6245C /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B4DB32858AD2800F6245C /* String + Extensions.swift */; };
 		C22F6E4127C3CEFF005F8B66 /* EmptyWallpaperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */; };
 		C278B66127C43FAB00EFBD2C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */; };
@@ -304,7 +301,6 @@
 		9BD98CA32628A8B800F3BBD7 /* SFProDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.ttf"; sourceTree = "<group>"; };
 		9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscapePopUpVC.swift; sourceTree = "<group>"; };
 		9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneDescriptionPopUp.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		9C19E05F28E432D400CBE240 /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		9C389D4728E0BB2900C4529E /* LibraryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNode.swift; sourceTree = "<group>"; };
 		9C51B25328D8A9050095B3B1 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
@@ -316,9 +312,7 @@
 		9CFFC9EE28E1EC8400552D90 /* GeneratorRuneImage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GeneratorRuneImage+CoreDataClass.swift"; path = "/Users/qeezii/Development/runar-ios/Runar/Runar/Services/Memory/CoreData/Models/GeneratorRuneImage+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		9CFFC9EF28E1EC8400552D90 /* GeneratorCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GeneratorCoreData+CoreDataProperties.swift"; path = "/Users/qeezii/Development/runar-ios/Runar/Runar/Services/Memory/CoreData/Models/GeneratorCoreData+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		9CFFC9F028E1EC8400552D90 /* GeneratorCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GeneratorCoreData+CoreDataClass.swift"; path = "/Users/qeezii/Development/runar-ios/Runar/Runar/Services/Memory/CoreData/Models/GeneratorCoreData+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-=======
 		9C1F8E8128FF07480073542F /* FirstScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenVC.swift; sourceTree = "<group>"; };
->>>>>>> develop
 		9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22B4DB32858AD2800F6245C /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyWallpaperVC.swift; sourceTree = "<group>"; };
@@ -696,11 +690,8 @@
 		9B9C25CA25993DF800A4E135 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-=======
 				671E685628EA2DB5000A0904 /* Effects */,
 				8477222C2643C9AB001C280D /* Storage */,
->>>>>>> develop
 				9B5F5BBC261CE02300A7454F /* Music */,
 				9B739DF225CD765800726B30 /* Constants.swift */,
 				19BDC60225C01A2D000808CF /* ScreenDependent.swift */,
@@ -840,7 +831,6 @@
 			path = RuneDescriptionPopUp;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		9C389D5128E1CE8600C4529E /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -862,14 +852,12 @@
 				9C51B25228D8A9050095B3B1 /* CoreData.xcdatamodeld */,
 			);
 			path = CoreData;
-=======
 		9C1F8E8028FF06C40073542F /* FirstScreen */ = {
 			isa = PBXGroup;
 			children = (
 				9C1F8E8128FF07480073542F /* FirstScreenVC.swift */,
 			);
 			path = FirstScreen;
->>>>>>> develop
 			sourceTree = "<group>";
 		};
 		A2A5CAEB8FFCA1990E63BEE2 /* Pods */ = {
@@ -1332,11 +1320,8 @@
 				9BD98C972628A74200F3BBD7 /* AlertSettingsVC.swift in Sources */,
 				1907851425C4236000434D57 /* FirstRuneView.swift in Sources */,
 				19C0F1FC25BAF9D00027422B /* MainCellModel.swift in Sources */,
-<<<<<<< HEAD
 				9C887B6928CF83B300862168 /* DataManager.swift in Sources */,
-=======
 				968939DA28D094FB00057D2A /* OnboardingSlideModel.swift in Sources */,
->>>>>>> develop
 				19C0F21025BAFDCB0027422B /* AlignmentInfoVM.swift in Sources */,
 				9911206E28611139001B8FCC /* TagsCell.swift in Sources */,
 				191D32CF25B7C46A001DC210 /* Assets.swift in Sources */,
@@ -1344,11 +1329,8 @@
 				84410677270CC7E500CD8B56 /* SelectRuneCollectionView.swift in Sources */,
 				671E685B28EA2DB5000A0904 /* SparksScene.swift in Sources */,
 				9BD2295A258AB02500E17E98 /* RunicDrawsCollectionVC.swift in Sources */,
-<<<<<<< HEAD
-=======
 				849ED29C26710C0B006E557A /* LibraryPathCell.swift in Sources */,
 				968939D928D094FB00057D2A /* OnboardingScreenCell.swift in Sources */,
->>>>>>> develop
 				19C0F1F425BAF07E0027422B /* AlignmentVM.swift in Sources */,
 				84B1C4DB2727184B007865CF /* WallpapperStyleData.swift in Sources */,
 				9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */,
@@ -1399,11 +1381,8 @@
 				9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */,
 				C22F6E4127C3CEFF005F8B66 /* EmptyWallpaperVC.swift in Sources */,
 				9B739E4C25D1E99B00726B30 /* RunarApi.swift in Sources */,
-<<<<<<< HEAD
-=======
 				671E685D28EA2DC2000A0904 /* UIView+SparksAnimation.swift in Sources */,
 				8477222E2643C9CA001C280D /* LocalStorage.swift in Sources */,
->>>>>>> develop
 				9B739E1025CD9B9800726B30 /* RuneDescriptionPopUpVM.swift in Sources */,
 				1987AABB25BDCDB400BB3655 /* FourRuneView.swift in Sources */,
 				1907850425C4232F00434D57 /* RuneLayout.swift in Sources */,
