@@ -48,7 +48,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
             }
             
             if SubscriptionManager.freeSubscription == true {
-                for indexUnavailable in 7..<MemoryStorage.generationRunes.count {
+                for indexUnavailable in 7..<generatorCoreData.count {
                     if indexPath == IndexPath(row: indexUnavailable, section: 1) {
                         cell.unavailableRune()
                     }

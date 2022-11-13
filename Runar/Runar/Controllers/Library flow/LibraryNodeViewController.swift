@@ -100,12 +100,13 @@ public class LibraryNodeViewController: UIViewController {
         activityIndicatorView.stopAnimating()
         let nodes = CoreDataManager.shared.fetchRootLibraryNodes()
         let node = LibraryNode(title: "",
-                        nodes: nodes,
-                        type: "core",
-                        imageUrl: nil,
-                        id: "0")
+                               nodes: nodes,
+                               type: "core",
+                               imageUrl: nil,
+                               id: "0")
         set(node)
         configureNodeView()
+    }
     
     @objc private func updateUI(_ notification: NSNotification) {
         self.nodeView.reloadData()
