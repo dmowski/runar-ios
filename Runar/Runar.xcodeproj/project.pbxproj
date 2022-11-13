@@ -13,7 +13,6 @@
 		191D32CE25B7C46A001DC210 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D32CB25B7C46A001DC210 /* Fonts.swift */; };
 		191D32CF25B7C46A001DC210 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D32CC25B7C46A001DC210 /* Assets.swift */; };
 		191D32D025B7C46A001DC210 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D32CD25B7C46A001DC210 /* Localizable.swift */; };
-		193FFB382613319000D60171 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193FFB372613319000D60171 /* CustomButton.swift */; };
 		1944411326278EA900EAB9F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1944411526278EA900EAB9F3 /* Localizable.strings */; };
 		195AEDC325B8C3A300180A49 /* AlignmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195AEDC225B8C3A300180A49 /* AlignmentVC.swift */; };
 		1987AAB625BDCDA400BB3655 /* ThreeRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987AAB525BDCDA400BB3655 /* ThreeRuneView.swift */; };
@@ -116,6 +115,14 @@
 		9BD98CC02628CD1D00F3BBD7 /* EscapePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpVC.swift */; };
 		9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */; };
 		9C19E06028E432D400CBE240 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C19E05F28E432D400CBE240 /* LocalStorage.swift */; };
+		9C269BF229210398007D96B4 /* UIView+SparksAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C269BF129210398007D96B4 /* UIView+SparksAnimation.swift */; };
+		9C269BF4292103AF007D96B4 /* SubscriptionManager in Resources */ = {isa = PBXBuildFile; fileRef = 9C269BF3292103AF007D96B4 /* SubscriptionManager */; };
+		9C269BF62921041D007D96B4 /* BindableGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C269BF52921041D007D96B4 /* BindableGestureRecognizer.swift */; };
+		9C269BF829210436007D96B4 /* Custom Views in Resources */ = {isa = PBXBuildFile; fileRef = 9C269BF729210436007D96B4 /* Custom Views */; };
+		9C269BFA2921045B007D96B4 /* Effects in Resources */ = {isa = PBXBuildFile; fileRef = 9C269BF92921045B007D96B4 /* Effects */; };
+		9C269BFC2921052C007D96B4 /* FirstScreen in Resources */ = {isa = PBXBuildFile; fileRef = 9C269BFB2921052C007D96B4 /* FirstScreen */; };
+		9C269BFE29210536007D96B4 /* OnboardingScreen in Resources */ = {isa = PBXBuildFile; fileRef = 9C269BFD29210536007D96B4 /* OnboardingScreen */; };
+		9C269C0629210691007D96B4 /* Monetization in Resources */ = {isa = PBXBuildFile; fileRef = 9C269C0529210691007D96B4 /* Monetization */; };
 		9C389D4828E0BB2900C4529E /* LibraryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C389D4728E0BB2900C4529E /* LibraryNode.swift */; };
 		9C51B25428D8A9050095B3B1 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C51B25228D8A9050095B3B1 /* CoreData.xcdatamodeld */; };
 		9C51B2D628DE3A0F0095B3B1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C51B2D528DE3A0F0095B3B1 /* CoreDataManager.swift */; };
@@ -134,7 +141,7 @@
 		C2C55843283A9F53006B053C /* ApiGeneratorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C55842283A9F53006B053C /* ApiGeneratorModel.swift */; };
 		C2C55847283D9CEE006B053C /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C55846283D9CEE006B053C /* UIButton.swift */; };
 		C2C55849283D9D26006B053C /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C55848283D9D26006B053C /* UILabel.swift */; };
-		C2C5584B283D9E33006B053C /* SlectedRuneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584A283D9E33006B053C /* SlectedRuneModel.swift */; };
+		C2C5584B283D9E33006B053C /* SelectedRuneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584A283D9E33006B053C /* SelectedRuneModel.swift */; };
 		C2C5584D283D9EE9006B053C /* SelectRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584C283D9EE9006B053C /* SelectRuneCell.swift */; };
 		C2C5584F283D9F59006B053C /* SelectedRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584E283D9F59006B053C /* SelectedRuneCell.swift */; };
 		D33A65EC2DE4E4D7C3C956F3 /* Pods_Runar_RunarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */; };
@@ -166,7 +173,6 @@
 		191D32CC25B7C46A001DC210 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Assets.swift; path = Runar/SwiftGen/Assets.swift; sourceTree = SOURCE_ROOT; };
 		191D32CD25B7C46A001DC210 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localizable.swift; path = Runar/SwiftGen/Localizable.swift; sourceTree = SOURCE_ROOT; };
 		192EF92C25B7AFB70055DB9D /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
-		193FFB372613319000D60171 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		1944411426278EA900EAB9F3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1944411626278EAE00EAB9F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		195AEDC225B8C3A300180A49 /* AlignmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentVC.swift; sourceTree = "<group>"; };
@@ -278,6 +284,14 @@
 		9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscapePopUpVC.swift; sourceTree = "<group>"; };
 		9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneDescriptionPopUp.swift; sourceTree = "<group>"; };
 		9C19E05F28E432D400CBE240 /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		9C269BF129210398007D96B4 /* UIView+SparksAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+SparksAnimation.swift"; path = "../../../../../Desktop/runar-ios/Runar/Runar/Extensions/UIView+SparksAnimation.swift"; sourceTree = "<group>"; };
+		9C269BF3292103AF007D96B4 /* SubscriptionManager */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SubscriptionManager; path = "../../../../../Desktop/runar-ios/Runar/Runar/Services/SubscriptionManager"; sourceTree = "<group>"; };
+		9C269BF52921041D007D96B4 /* BindableGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BindableGestureRecognizer.swift; path = "../../../../../Desktop/runar-ios/Runar/Runar/Models/BindableGestureRecognizer.swift"; sourceTree = "<group>"; };
+		9C269BF729210436007D96B4 /* Custom Views */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Custom Views"; path = "../../../../../Desktop/runar-ios/Runar/Runar/Views/Custom Views"; sourceTree = "<group>"; };
+		9C269BF92921045B007D96B4 /* Effects */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Effects; path = "../../../../../Desktop/runar-ios/Runar/Runar/Support/Effects"; sourceTree = "<group>"; };
+		9C269BFB2921052C007D96B4 /* FirstScreen */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FirstScreen; path = "../../../../../../Desktop/runar-ios/Runar/Runar/Controllers/Misc/FirstScreen"; sourceTree = "<group>"; };
+		9C269BFD29210536007D96B4 /* OnboardingScreen */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OnboardingScreen; path = "../../../../../../Desktop/runar-ios/Runar/Runar/Controllers/Misc/OnboardingScreen"; sourceTree = "<group>"; };
+		9C269C0529210691007D96B4 /* Monetization */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Monetization; path = Runar/Controllers/Monetization; sourceTree = SOURCE_ROOT; };
 		9C389D4728E0BB2900C4529E /* LibraryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNode.swift; sourceTree = "<group>"; };
 		9C51B25328D8A9050095B3B1 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		9C51B2D528DE3A0F0095B3B1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -297,7 +311,7 @@
 		C2C55842283A9F53006B053C /* ApiGeneratorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGeneratorModel.swift; sourceTree = "<group>"; };
 		C2C55846283D9CEE006B053C /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		C2C55848283D9D26006B053C /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
-		C2C5584A283D9E33006B053C /* SlectedRuneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlectedRuneModel.swift; sourceTree = "<group>"; };
+		C2C5584A283D9E33006B053C /* SelectedRuneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRuneModel.swift; sourceTree = "<group>"; };
 		C2C5584C283D9EE9006B053C /* SelectRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRuneCell.swift; sourceTree = "<group>"; };
 		C2C5584E283D9F59006B053C /* SelectedRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRuneCell.swift; sourceTree = "<group>"; };
 		C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.release.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -334,14 +348,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		193FFB362613316100D60171 /* Custom Classes */ = {
-			isa = PBXGroup;
-			children = (
-				193FFB372613319000D60171 /* CustomButton.swift */,
-			);
-			path = "Custom Classes";
-			sourceTree = "<group>";
-		};
 		1987AAB425BDCD8600BB3655 /* RunesView */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +421,7 @@
 				9BD98C9D2628A75600F3BBD7 /* UIView.swift */,
 				C2C55846283D9CEE006B053C /* UIButton.swift */,
 				C2AF4B32285AA66000976992 /* UIImage.swift */,
+				9C269BF129210398007D96B4 /* UIView+SparksAnimation.swift */,
 				C2C55848283D9D26006B053C /* UILabel.swift */,
 				19C0F20925BAFCB20027422B /* Array + Extensions.swift */,
 				C22B4DB32858AD2800F6245C /* String + Extensions.swift */,
@@ -439,7 +446,8 @@
 				19C0F21A25BAFEFE0027422B /* RuneDescription.swift */,
 				9BAEB61C25F13412004B7761 /* Affirmation.swift */,
 				9C389D4728E0BB2900C4529E /* LibraryNode.swift */,
-				C2C5584A283D9E33006B053C /* SlectedRuneModel.swift */,
+				C2C5584A283D9E33006B053C /* SelectedRuneModel.swift */,
+				9C269BF52921041D007D96B4 /* BindableGestureRecognizer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -622,6 +630,7 @@
 		9B9C25CA25993DF800A4E135 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				9C269BF92921045B007D96B4 /* Effects */,
 				9B5F5BBC261CE02300A7454F /* Music */,
 				9B739DF225CD765800726B30 /* Constants.swift */,
 				19BDC60225C01A2D000808CF /* ScreenDependent.swift */,
@@ -636,7 +645,7 @@
 		9B9C25CB25993E0900A4E135 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				193FFB362613316100D60171 /* Custom Classes */,
+				9C269BF729210436007D96B4 /* Custom Views */,
 				844BF4D426501A6F002C7596 /* Common */,
 				9B9C25CC25993E1100A4E135 /* Cells */,
 				9B94A4ED261BB0310001A858 /* LaunchScreen.storyboard */,
@@ -800,6 +809,9 @@
 		C22B4DB02858A86C00F6245C /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				9C269BFB2921052C007D96B4 /* FirstScreen */,
+				9C269BFD29210536007D96B4 /* OnboardingScreen */,
+				9C269C0529210691007D96B4 /* Monetization */,
 				9B5F5BB3261CD58F00A7454F /* Music */,
 				199A678925F836C20013DE5D /* TabBarController */,
 				9B739E0225CD77E900726B30 /* Processing */,
@@ -819,6 +831,7 @@
 		C22B4DB22858A8F600F6245C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9C269BF3292103AF007D96B4 /* SubscriptionManager */,
 				677C11E6289C71F400CEA5D2 /* Memory */,
 				8477223B26457435001C280D /* Api */,
 				19BDC61625C0306E000808CF /* Base */,
@@ -1023,6 +1036,7 @@
 				9BD229CC258D776200E17E98 /* Roboto-Bold.ttf in Resources */,
 				9BD229CD258D776200E17E98 /* Roboto-Light.ttf in Resources */,
 				9BD229D3258D776200E17E98 /* Roboto-Italic.ttf in Resources */,
+				9C269BFA2921045B007D96B4 /* Effects in Resources */,
 				9B5F5BC3261CE03700A7454F /* Danheim-Runar_master.mp3 in Resources */,
 				9B5F5BC1261CE03700A7454F /* led_chernaya ladya_master.mp3 in Resources */,
 				9BD229CA258D776200E17E98 /* Roboto-MediumItalic.ttf in Resources */,
@@ -1030,15 +1044,20 @@
 				9BD229CE258D776200E17E98 /* Roboto-BlackItalic.ttf in Resources */,
 				9BD229D0258D776200E17E98 /* Roboto-Medium.ttf in Resources */,
 				9BD22907258A321F00E17E98 /* Assets.xcassets in Resources */,
+				9C269BF829210436007D96B4 /* Custom Views in Resources */,
+				9C269BFC2921052C007D96B4 /* FirstScreen in Resources */,
 				9B9F151D2591499A00062F47 /* AmaticSC-Bold.ttf in Resources */,
 				9B5F5BC2261CE03700A7454F /* led_Mat moys skazala_master.mp3 in Resources */,
+				9C269C0629210691007D96B4 /* Monetization in Resources */,
 				9BD229CF258D776200E17E98 /* Roboto-LightItalic.ttf in Resources */,
 				9BD229D4258D776200E17E98 /* Roboto-ThinItalic.ttf in Resources */,
 				9BD229D1258D776200E17E98 /* Roboto-Thin.ttf in Resources */,
 				9BD229D6258D776200E17E98 /* Roboto-BoldItalic.ttf in Resources */,
+				9C269BFE29210536007D96B4 /* OnboardingScreen in Resources */,
 				9BD229CB258D776200E17E98 /* Roboto-Regular.ttf in Resources */,
 				9B94A4EE261BB0310001A858 /* LaunchScreen.storyboard in Resources */,
 				9B9F151C2591499A00062F47 /* AmaticSC-Regular.ttf in Resources */,
+				9C269BF4292103AF007D96B4 /* SubscriptionManager in Resources */,
 				9BD229D2258D776200E17E98 /* Apache License.txt in Resources */,
 				9BD229D5258D776200E17E98 /* Roboto-Black.ttf in Resources */,
 				9B739E4325D1DCD100726B30 /* SFProDisplay-Regular.ttf in Resources */,
@@ -1224,6 +1243,7 @@
 				9BD2295A258AB02500E17E98 /* RunicDrawsCollectionVC.swift in Sources */,
 				19C0F1F425BAF07E0027422B /* AlignmentVM.swift in Sources */,
 				84B1C4DB2727184B007865CF /* WallpapperStyleData.swift in Sources */,
+				9C269BF62921041D007D96B4 /* BindableGestureRecognizer.swift in Sources */,
 				9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */,
 				1987AAB625BDCDA400BB3655 /* ThreeRuneView.swift in Sources */,
 				8477224326458020001C280D /* Route.swift in Sources */,
@@ -1245,7 +1265,7 @@
 				9C51B2DF28DF1D170095B3B1 /* LibraryCoreData+CoreDataProperties.swift in Sources */,
 				84D7E60B264BAED300772EE3 /* Environment.swift in Sources */,
 				9C51B25428D8A9050095B3B1 /* CoreData.xcdatamodeld in Sources */,
-				C2C5584B283D9E33006B053C /* SlectedRuneModel.swift in Sources */,
+				C2C5584B283D9E33006B053C /* SelectedRuneModel.swift in Sources */,
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
 				9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */,
 				8441066D27077A2700CD8B56 /* SelectionRuneVC.swift in Sources */,
@@ -1268,6 +1288,7 @@
 				9BD98C942628A74200F3BBD7 /* StaticCell.swift in Sources */,
 				9B739E0525CD77E900726B30 /* ProcessingVC.swift in Sources */,
 				9C389D4828E0BB2900C4529E /* LibraryNode.swift in Sources */,
+				9C269BF229210398007D96B4 /* UIView+SparksAnimation.swift in Sources */,
 				9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */,
 				C22F6E4127C3CEFF005F8B66 /* EmptyWallpaperVC.swift in Sources */,
 				9B739E4C25D1E99B00726B30 /* RunarApi.swift in Sources */,
@@ -1287,7 +1308,6 @@
 				9BAEB63425F18C3B004B7761 /* Interperitation+Ext.swift in Sources */,
 				9C19E06028E432D400CBE240 /* LocalStorage.swift in Sources */,
 				84468380266392F900A0790B /* LibraryRuneCell.swift in Sources */,
-				193FFB382613319000D60171 /* CustomButton.swift in Sources */,
 				19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */,
 				9BD98C932628A74200F3BBD7 /* AppInfoVC.swift in Sources */,
 				9CFFC9F228E1EC8400552D90 /* GeneratorRuneImage+CoreDataClass.swift in Sources */,

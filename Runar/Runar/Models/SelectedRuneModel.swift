@@ -1,5 +1,5 @@
 //
-//  SlectedRuneModel.swift
+//  SelectedRuneModel.swift
 //  Runar
 //
 //  Created by George Stupakov on 25/05/2022.
