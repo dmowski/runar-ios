@@ -260,23 +260,28 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     func selectOnTapBut(rune: SelectRuneCell) {
 
-        selectRunesView.selectRune(rune: rune)
+        if rune.isUnavailableRune == true {
+            SubscriptionManager.presentMonetizationVC(vc: self)
+        } else {
 
-        guard let visibleCells = (self.selectedRunesView.visibleCells as? [SelectedRuneCell]) else { return }
-        for cell in visibleCells
-            .sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
+            selectRunesView.selectRune(rune: rune)
 
-            if !cell.isSelected {
-                guard let imageData = rune.model?.runeImage?.image else { return }
-                guard let image = UIImage(data: imageData) else { return }
-                cell.selectRune(SelectedRuneModel(title: rune.model?.title ?? "",
-                                                  image: image,
-                                                  index: rune.indexPath,
-                                                  id: rune.model?.id ?? ""))
-                break
+            guard let visibleCells = (self.selectedRunesView.visibleCells as? [SelectedRuneCell]) else { return }
+            for cell in visibleCells
+                .sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
+
+                if !cell.isSelected {
+                    guard let imageData = rune.model?.runeImage?.image else { return }
+                    guard let image = UIImage(data: imageData) else { return }
+                    cell.selectRune(SelectedRuneModel(title: rune.model?.title ?? "",
+                                                      image: image,
+                                                      index: rune.indexPath,
+                                                      id: rune.model?.id ?? ""))
+                    break
+                }
+                generateButton.isHidden = !selectedRunesView.hasSelectedRunes()
+                randomButton.isHidden = selectedRunesView.hasSelectedRunes()
             }
-            generateButton.isHidden = !selectedRunesView.hasSelectedRunes()
-            randomButton.isHidden = selectedRunesView.hasSelectedRunes()
         }
     }
     

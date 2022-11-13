@@ -176,7 +176,15 @@ extension LibraryNodeViewController: UITableViewDelegate, UITableViewDataSource 
         guard let typeNode = LibraryNodeType(rawValue: child.type) else { return }
         switch typeNode {
         case .root, .menu:
-            self.navigationController?.pushViewController(create(withNode: node), animated: false)
+            if SubscriptionManager.freeSubscription == true {
+                if indexPath.row >= 4 {
+                    SubscriptionManager.presentMonetizationVC(vc: self)
+                } else {
+                    self.navigationController?.pushViewController(create(withNode: node), animated: false)
+                }
+            } else {
+                self.navigationController?.pushViewController(create(withNode: node), animated: false)
+            }
         default:
             print(child.title ?? "No Data")
         }
