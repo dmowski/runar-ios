@@ -24,6 +24,8 @@ public class LibraryPoemCell: LibraryCell {
         ])
         
         bindDetailTextLabel(text: node.content, font: UIFont.create(withLowSize: 17, withHighSize: 19), alignment: .center)
+        detailTextLabel?.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        detailTextLabel?.shadowOffset = CGSize(width: 0, height: 1.2)
         detailTextLabel?.numberOfLines = 0
         detailTextLabel?.lineBreakMode = .byWordWrapping
         detailTextLabel?.translatesAutoresizingMaskIntoConstraints = false

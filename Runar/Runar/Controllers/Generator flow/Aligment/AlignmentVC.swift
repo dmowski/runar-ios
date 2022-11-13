@@ -43,6 +43,15 @@ class AlignmentVC: UIViewController {
     
     var isFirstRuneOpen: Bool = false
     
+    init(viewModel: AlignmentVM) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         runesViewContainer.update(with: .init(viewController: self, runesLayout: viewModel.runeLayout, didHighlightAllRunes: { [weak self] runes in
@@ -326,7 +335,7 @@ class AlignmentVC: UIViewController {
                 self?.scrollViewAlignment.isScrollEnabled = true
                 self?.invibaleView.removeFromSuperview()
                 self?.readyToOpen = true
-                self?.scrollViewAlignment.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+                self?.scrollViewAlignment.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             }
             
             controller.changeContentOffset = { [self]frame in

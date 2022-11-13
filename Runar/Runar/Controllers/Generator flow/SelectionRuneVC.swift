@@ -18,6 +18,9 @@ private extension String {
 }
 
 public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
+
+    private static let runeItemHeight = 78
+
     // MARK: - UI Elements
     let header: UILabel = {
         let title = UILabel()
@@ -61,7 +64,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     let selectRunesView: SelectRuneCollectionView = {
         let layout2 = UICollectionViewFlowLayout()
-        layout2.itemSize = CGSize(width: 66, height: 78)
+        layout2.itemSize = CGSize(width: 66, height: runeItemHeight)
         layout2.minimumInteritemSpacing = 4
         layout2.minimumLineSpacing = 0
         layout2.scrollDirection = .vertical
@@ -94,6 +97,10 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         
         RunarLayout.initBackground(for: view, with: .mainFire)
+
+        //setupViews()
+        //selectRunesView.delegate = self
+
         configureNavigationBar()
         
         let generatorIsLoaded: Bool = CoreDataManager.shared.generatorIsLoaded
@@ -109,6 +116,10 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        remakeConstraints()
     }
 
     private func configureNavigationBar() {
@@ -182,9 +193,27 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    private func remakeConstraints() {
+        let bottomConstraint = getBottomConstraint()
+        if bottomConstraint > 0 {
+            selectRunesView.snp.remakeConstraints { make in
+                make.top.equalTo(selectedRunesView.snp.bottom).offset(130)
+                make.left.equalTo(self.view.snp.left).offset(41)
+                make.right.equalTo(self.view.snp.right).offset(-41)
+                make.bottom.equalToSuperview().offset(-bottomConstraint)
+            }
+        }
+    }
+    
+    private func getBottomConstraint() -> Float{
+        let collectionViewVisibleHeight = selectRunesView.visibleSize.height
+        let rowVisibleCount = Int(collectionViewVisibleHeight) / SelectionRuneVC.runeItemHeight
+        return Float(collectionViewVisibleHeight) - Float(rowVisibleCount) * Float(SelectionRuneVC.runeItemHeight)
+    }
+    
     private func tapedLongGesture(runesView: SelectRuneCollectionView) {
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap))
-        longGesture.minimumPressDuration = 1
+        longGesture.minimumPressDuration = 0.5
         longGesture.delaysTouchesBegan = true
         longGesture.delegate = self
         runesView.addGestureRecognizer(longGesture)
@@ -201,7 +230,9 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             let indexPath = self.selectRunesView.indexPathForItem(at: point)
             
             if let index = indexPath {
+                
                 let rune = self.selectRunesView.cellForItem(at: index) as! SelectRuneCell
+                guard rune.isUnavailableRune == false else { return }
                 
                 popupVC.setupView(view: rune)
                 popupVC.setupModel(rune.model)
@@ -248,10 +279,9 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
                                                   id: rune.model?.id ?? ""))
                 break
             }
+            generateButton.isHidden = !selectedRunesView.hasSelectedRunes()
+            randomButton.isHidden = selectedRunesView.hasSelectedRunes()
         }
-        
-        generateButton.isHidden = !selectedRunesView.hasSelectedRunes()
-        randomButton.isHidden = selectedRunesView.hasSelectedRunes()
     }
     
     private func deselectRune(_ index: IndexPath){
@@ -331,5 +361,22 @@ private extension UINavigationBar {
         self.barTintColor = .navBarBackground
         self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 17),
                                     NSAttributedString.Key.foregroundColor: UIColor.white]
+    }
+}
+
+extension SelectionRuneVC: UICollectionViewDelegate {
+    
+    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        var indexes = self.selectRunesView.indexPathsForVisibleItems
+        indexes.sort()
+        guard var index = indexes.first,
+              let cell = self.selectRunesView.cellForItem(at: index) else { return }
+        
+        let position = self.selectRunesView.contentOffset.y - cell.frame.origin.y
+        if position > cell.frame.size.height / 2 {
+            index.row += 4
+        }
+        self.selectRunesView.scrollToItem(at: index, at: .top, animated: true )
     }
 }

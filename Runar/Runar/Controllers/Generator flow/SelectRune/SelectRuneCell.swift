@@ -11,6 +11,7 @@ class SelectRuneCell: UICollectionViewCell {
 
     public var model: GeneratorCoreData?
     public var indexPath: IndexPath = IndexPath()
+    public var isUnavailableRune: Bool?
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,11 +30,10 @@ class SelectRuneCell: UICollectionViewCell {
         return runeImage
     }()
     
-    private func setupViews(){
+    private func setupViews() {
+
         backgroundColor = .clear
-        
         addSubview(runeImage)
-        
         runeImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             runeImage.heightAnchor.constraint(equalToConstant: 78),
@@ -63,7 +63,12 @@ class SelectRuneCell: UICollectionViewCell {
         self.toggleState()
     }
     
-    public func toggleState(){
+    public func unavailableRune() {
+        self.isUnavailableRune = true
+        self.runeImage.alpha = 0.2
+    }
+    
+    public func toggleState() {
         self.runeImage.isEnabled = !self.isSelected
     }
 }

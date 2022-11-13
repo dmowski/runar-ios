@@ -1,18 +1,20 @@
 // swiftlint:disable all
 // Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
 
-#if os(OSX)
+#if os(macOS)
   import AppKit.NSFont
 #elseif os(iOS) || os(tvOS) || os(watchOS)
   import UIKit.UIFont
+#endif
+#if canImport(SwiftUI)
+  import SwiftUI
 #endif
 
 // Deprecated typealiases
 @available(*, deprecated, renamed: "FontConvertible.Font", message: "This typealias will be removed in SwiftGen 7.0")
 internal typealias Font = FontConvertible.Font
 
-// swiftlint:disable superfluous_disable_command
-// swiftlint:disable file_length
+// swiftlint:disable superfluous_disable_command file_length implicit_return
 
 // MARK: - Fonts
 
@@ -43,10 +45,11 @@ internal enum FontFamily {
     internal static let all: [FontConvertible] = [black, blackItalic, bold, boldItalic, italic, light, lightItalic, medium, mediumItalic, regular, thin, thinItalic]
   }
   internal enum SFProDisplay {
+    internal static let bold = FontConvertible(name: "SFProDisplay-Bold", family: "SF Pro Display", path: "SFProDisplay-Bold.ttf")
     internal static let light = FontConvertible(name: "SFProDisplay-Light", family: "SF Pro Display", path: "SFProDisplay-Light.ttf")
     internal static let medium = FontConvertible(name: "SFProDisplay-Medium", family: "SF Pro Display", path: "SFProDisplay-Medium.ttf")
     internal static let regular = FontConvertible(name: "SFProDisplay-Regular", family: "SF Pro Display", path: "SFProDisplay-Regular.ttf")
-    internal static let all: [FontConvertible] = [light, medium, regular]
+    internal static let all: [FontConvertible] = [bold, light, medium, regular]
   }
   internal static let allCustomFonts: [FontConvertible] = [AmaticSC.all, PoiretOne.all, Roboto.all, SFProDisplay.all].flatMap { $0 }
   internal static func registerAllCustomFonts() {
@@ -62,7 +65,7 @@ internal struct FontConvertible {
   internal let family: String
   internal let path: String
 
-  #if os(OSX)
+  #if os(macOS)
   internal typealias Font = NSFont
   #elseif os(iOS) || os(tvOS) || os(watchOS)
   internal typealias Font = UIFont
@@ -75,10 +78,39 @@ internal struct FontConvertible {
     return font
   }
 
+  #if canImport(SwiftUI)
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  internal func swiftUIFont(size: CGFloat) -> SwiftUI.Font {
+    return SwiftUI.Font.custom(self, size: size)
+  }
+
+  @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+  internal func swiftUIFont(fixedSize: CGFloat) -> SwiftUI.Font {
+    return SwiftUI.Font.custom(self, fixedSize: fixedSize)
+  }
+
+  @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+  internal func swiftUIFont(size: CGFloat, relativeTo textStyle: SwiftUI.Font.TextStyle) -> SwiftUI.Font {
+    return SwiftUI.Font.custom(self, size: size, relativeTo: textStyle)
+  }
+  #endif
+
   internal func register() {
     // swiftlint:disable:next conditional_returns_on_newline
     guard let url = url else { return }
     CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
+  }
+
+  fileprivate func registerIfNeeded() {
+    #if os(iOS) || os(tvOS) || os(watchOS)
+    if !UIFont.fontNames(forFamilyName: family).contains(name) {
+      register()
+    }
+    #elseif os(macOS)
+    if let url = url, CTFontManagerGetScopeForURL(url as CFURL) == .none {
+      register()
+    }
+    #endif
   }
 
   fileprivate var url: URL? {
@@ -89,19 +121,37 @@ internal struct FontConvertible {
 
 internal extension FontConvertible.Font {
   convenience init?(font: FontConvertible, size: CGFloat) {
-    #if os(iOS) || os(tvOS) || os(watchOS)
-    if !UIFont.fontNames(forFamilyName: font.family).contains(font.name) {
-      font.register()
-    }
-    #elseif os(OSX)
-    if let url = font.url, CTFontManagerGetScopeForURL(url as CFURL) == .none {
-      font.register()
-    }
-    #endif
-
+    font.registerIfNeeded()
     self.init(name: font.name, size: size)
   }
 }
+
+#if canImport(SwiftUI)
+@available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+internal extension SwiftUI.Font {
+  static func custom(_ font: FontConvertible, size: CGFloat) -> SwiftUI.Font {
+    font.registerIfNeeded()
+    return custom(font.name, size: size)
+  }
+}
+
+@available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+internal extension SwiftUI.Font {
+  static func custom(_ font: FontConvertible, fixedSize: CGFloat) -> SwiftUI.Font {
+    font.registerIfNeeded()
+    return custom(font.name, fixedSize: fixedSize)
+  }
+
+  static func custom(
+    _ font: FontConvertible,
+    size: CGFloat,
+    relativeTo textStyle: SwiftUI.Font.TextStyle
+  ) -> SwiftUI.Font {
+    font.registerIfNeeded()
+    return custom(font.name, size: size, relativeTo: textStyle)
+  }
+}
+#endif
 
 // swiftlint:disable convenience_type
 private final class BundleToken {

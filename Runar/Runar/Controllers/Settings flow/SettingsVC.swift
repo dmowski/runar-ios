@@ -68,11 +68,10 @@ final class SettingsVC: UIViewController {
 
     func configureNavigationBar() {
 
-        if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
+        if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 && !DeviceType.isIphone78Plus {
             title = .settings
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 34), NSAttributedString.Key.foregroundColor: UIColor.settingsTitleColor]
-
+            navigationController?.navigationBar.prefersLargeTitles = true
+            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 34), NSAttributedString.Key.foregroundColor: UIColor.settingsTitleColor]
         } else {
             navigationController?.navigationBar.prefersLargeTitles = false
             navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 20), NSAttributedString.Key.foregroundColor: UIColor.settingsTitleColor]
@@ -86,8 +85,8 @@ final class SettingsVC: UIViewController {
             label.font = FontFamily.SFProDisplay.medium.font(size: 20)
             label.textAlignment = .left
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: label)
-
         }
+
         navigationController?.navigationBar.backgroundColor = .navBarBackground
         navigationController?.setStatusBar(backgroundColor: .navBarBackground)
     }
@@ -96,7 +95,7 @@ final class SettingsVC: UIViewController {
 extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        4
+        5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -127,10 +126,11 @@ extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
             cell?.textLabel?.text = String.aboutApp
-            cell?.openVC = {
-                self.navigationController?.pushViewController(AppInfoVC(), animated: false)}
             return cell ?? StaticCell()
-            
+        case 4:
+            let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
+            cell?.textLabel?.text = L10n.Monetization.titleSubscriptionSettings
+            return cell ?? StaticCell()
         default:
             return UITableViewCell()
         }
@@ -151,7 +151,9 @@ extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
                 UIApplication.shared.open(url)
             }
         case 3:
-            self.navigationController?.pushViewController(AppInfoVC(), animated: false)
+            self.navigationController?.pushViewController(AppInfoVC(), animated: true)
+        case 4:
+            SubscriptionManager.presentMonetizationVC(vc: self)
         default:
             break
         }

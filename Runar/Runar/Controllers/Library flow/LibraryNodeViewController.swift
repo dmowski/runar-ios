@@ -25,6 +25,8 @@ enum LibraryNodeType: String, CaseIterable {
 // MARK: - Protocols
 public protocol LibraryCellProtocol {
     func bind(node: LibraryCoreData) -> Void
+    func unavailableLibrary()
+    func availableLibrary()
 }
 
 public class LibraryNodeViewController: UIViewController {
@@ -44,6 +46,9 @@ public class LibraryNodeViewController: UIViewController {
     // MARK: - Override funcs
     public override func viewDidLoad() {
         super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateUI(_:)), name: NSNotification.Name(rawValue: "updateLibraryTableViewAfterPurchase"), object: nil)
+
         RunarLayout.initBackground(for: view)
 
         let libraryIsLoaded: Bool = CoreDataManager.shared.libraryIsLoaded
@@ -101,6 +106,9 @@ public class LibraryNodeViewController: UIViewController {
                         id: "0")
         set(node)
         configureNodeView()
+    
+    @objc private func updateUI(_ notification: NSNotification) {
+        self.nodeView.reloadData()
     }
 }
 
@@ -215,6 +223,15 @@ private extension UITableView {
         let child = nodes[indexPath.row]
         let cell = self.dequeueReusableCell(withIdentifier: child.id, for: indexPath)
         (cell as! LibraryCellProtocol).bind(node: child)
+
+        if SubscriptionManager.freeSubscription == true {
+            if indexPath.row >= 4 {
+                (cell as? LibraryCellProtocol)?.unavailableLibrary()
+            }
+        } else {
+            (cell as? LibraryCellProtocol)?.availableLibrary()
+        }
+
         return cell
     }
 }

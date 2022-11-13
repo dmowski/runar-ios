@@ -8,6 +8,7 @@
 import UIKit
 
 public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
+    
     private let cellId = "existingCellId"
     private var selectDeligate: ((SelectRuneCell) -> Void)?
     internal var selectedRunesCount: Int = 0
@@ -32,7 +33,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
         
         register(SelectRuneCell.self, forCellWithReuseIdentifier: cellId)
     }
-    
+
     func setupRunes() {
         runes.removeAll()
         let generatorCoreData = CoreDataManager.shared.fetchAllGeneratorNodes()
@@ -41,10 +42,19 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
             let cell = self.dequeueReusableCell(withReuseIdentifier: self.cellId, for: indexPath) as! SelectRuneCell
 
             if cell.model == nil {
+
                 cell.setRune(rune, indexPath)
                 cell.runeImage.addTarget(self, action: #selector(self.selectRune(runeImage:)), for: .touchUpInside)
             }
             
+            if SubscriptionManager.freeSubscription == true {
+                for indexUnavailable in 7..<MemoryStorage.generationRunes.count {
+                    if indexPath == IndexPath(row: indexUnavailable, section: 1) {
+                        cell.unavailableRune()
+                    }
+                }
+            }
+
             runes.append(cell)
         }
     }
@@ -82,7 +92,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
         }
     }
     
-    func selectRune(rune: SelectRuneCell){
+    func selectRune(rune: SelectRuneCell) {
         rune.selectRune()
         self.selectedRunesCount += 1
     }

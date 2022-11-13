@@ -27,7 +27,7 @@ public class LibraryRuneCell: LibraryCell {
         runeTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             runeTitle.topAnchor.constraint(equalTo: topAnchor, constant: 26),
-            runeTitle.heightAnchor.constraint(equalToConstant: 24),
+            runeTitle.heightAnchor.constraint(equalToConstant: 26),
             runeTitle.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
@@ -45,7 +45,7 @@ public class LibraryRuneCell: LibraryCell {
             tagsCV.topAnchor.constraint(equalTo: runeImage.bottomAnchor, constant: 10),
             tagsCV.leftAnchor.constraint(equalTo: leftAnchor),
             tagsCV.rightAnchor.constraint(equalTo: rightAnchor),
-            tagsCV.heightAnchor.constraint(equalToConstant: node.tags!.isEmpty ? 0 : (node.tags!.count <= 3) ? 32 : 72)
+            tagsCV.heightAnchor.constraint(greaterThanOrEqualToConstant: tags.count == 0 ? 0 : 32)
         ])
         
         runeDesc.translatesAutoresizingMaskIntoConstraints = false
