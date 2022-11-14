@@ -10,6 +10,7 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    let dataManager = DataManager()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // TODO: No Internet
@@ -21,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //NetworkMonitor
         //        if NetworkMonitor.shared.isConnected {
-        loadLibraryData()
-        loadGeneratorData()
+        dataManager.checkLoadedData()
         //        } else {
         //            print("No internet")
         //        }
@@ -78,69 +78,5 @@ extension AppDelegate {
         let systemVersion = "IOS " + UIDevice.current.systemVersion
         RunarApi.createUser(with: id, date: created, os: systemVersion)
         print(id, created, systemVersion)
-    }
-   
-    // MARK: - Load library
-    func loadLibraryData() -> Void {
-        let storedLibraryHash: String? = LocalStorage.pull(forKey: .libraryHash, withLocalization: true)
-        guard let actualLibraryHash = RunarApi.getLibratyHash() else {
-            fatalError("Library hash is empty")
-        }
-        
-        if storedLibraryHash == nil || actualLibraryHash != storedLibraryHash {
-            guard let libraryData = RunarApi.getLibratyData() else {
-                fatalError("Library is empty")
-            }
-
-            LocalStorage.push(libraryData, forKey: .libraryData, withLocalization: true)
-            LocalStorage.push(actualLibraryHash, forKey: .libraryHash, withLocalization: true)
-            
-            MemoryStorage.library = LibraryNode.create(fromData: libraryData)
-            
-            return
-        }
-        
-        guard let data: Data = LocalStorage.pull(forKey: .libraryData, withLocalization: true) else {
-            fatalError("No data to display")
-        }
-                
-        MemoryStorage.library = LibraryNode.create(fromData: data)
-    }
-    
-    func loadGeneratorData() -> Void {
-        loadRues()
-        loadWallpapers()
-    }
-    
-    func loadRues(){
-        var runesData: Data? = LocalStorage.pull(forKey: .runesData)
-        
-        if (runesData == nil){
-            guard let _runesData = RunarApi.getRunesData() else {
-                fatalError("Runes is empty")
-            }
-            
-            LocalStorage.push(_runesData, forKey: .runesData)
-            
-            runesData = _runesData
-        }
-        
-        MemoryStorage.generationRunes = GenerationRuneModel.create(fromData: runesData!)
-    }
-    
-    func loadWallpapers(){
-        var wallpapersStylesData: Data? = LocalStorage.pull(forKey: .wallpapersStylesData)
-        
-        if (wallpapersStylesData == nil){
-            guard let _wallpapersStylesData = RunarApi.getWallpapersStylesData()else {
-                fatalError("Runes is empty")
-            }
-            
-            LocalStorage.push(_wallpapersStylesData, forKey: .wallpapersStylesData)
-            
-            wallpapersStylesData = _wallpapersStylesData
-        }
-        
-        MemoryStorage.generationWallpapertsStyles = WallpapperStyleData.create(from: wallpapersStylesData!)
     }
 }

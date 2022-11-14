@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="GeneratorCoreData" representedClassName="GeneratorCoreData" syncable="YES">
+        <attribute name="descriptionRune" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="runeImage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeneratorRuneImage" inverseName="parent" inverseEntity="GeneratorRuneImage"/>
+    </entity>
+    <entity name="GeneratorRuneImage" representedClassName="GeneratorRuneImage" syncable="YES">
+        <attribute name="height" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="width" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeneratorCoreData" inverseName="runeImage" inverseEntity="GeneratorCoreData"/>
+    </entity>
+    <entity name="LibraryCoreData" representedClassName="LibraryCoreData" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String" customClassName="[String]"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
+        <attribute name="linkTitle" optional="YES" attributeType="String"/>
+        <attribute name="linkUrl" optional="YES" attributeType="String"/>
+        <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LibraryCoreData" inverseName="children" inverseEntity="LibraryCoreData"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LibraryCoreData" inverseName="parent" inverseEntity="LibraryCoreData"/>
+    </entity>
+</model>
