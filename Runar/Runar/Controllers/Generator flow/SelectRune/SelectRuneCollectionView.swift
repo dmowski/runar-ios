@@ -34,9 +34,10 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
         register(SelectRuneCell.self, forCellWithReuseIdentifier: cellId)
     }
     
-    private func setupRunes() {
-
-        for (index, rune) in MemoryStorage.generationRunes.enumerated() {
+    func setupRunes() {
+        runes.removeAll()
+        let generatorNodes = CoreDataManager.shared.fetchAllGeneratorNodes()
+        for (index, rune) in generatorNodes.enumerated() {
 
             let indexPath = IndexPath(row: index, section: 1)
             let cell = self.dequeueReusableCell(withReuseIdentifier: self.cellId, for: indexPath) as! SelectRuneCell
@@ -47,9 +48,11 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
             }
             
             if SubscriptionManager.freeSubscription == true {
-                for indexUnavailable in 7..<MemoryStorage.generationRunes.count {
-                    if indexPath == IndexPath(row: indexUnavailable, section: 1) {
-                        cell.unavailableRune()
+                if CoreDataManager.shared.generatorIsLoaded || generatorNodes.count > 7 {
+                    for indexUnavailable in 7..<generatorNodes.count {
+                        if indexPath == IndexPath(row: indexUnavailable, section: 1) {
+                            cell.unavailableRune()
+                        }
                     }
                 }
             }
@@ -67,7 +70,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return MemoryStorage.generationRunes.count
+        return CoreDataManager.shared.fetchAllGeneratorNodes().count
     }
                 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
