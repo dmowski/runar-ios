@@ -32,6 +32,14 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         title.backgroundColor = .clear
         return title
     }()
+
+    let activityIndicatorView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        view.style = .large
+        view.color = .white
+        view.isHidden = true
+        return view
+    }()
     
     let selectedRunesView: SelectedRuneCollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -88,9 +96,12 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         
         RunarLayout.initBackground(for: view, with: .mainFire)
-        setupViews()
         selectRunesView.delegate = self
         configureNavigationBar()
+
+        let generatorIsLoaded: Bool = CoreDataManager.shared.generatorIsLoaded
+        guard generatorIsLoaded else { return setupActivityIndicator() }
+        setupViews()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -121,6 +132,15 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
 
     @objc func backToInitial(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
+    }
+
+    private func setupActivityIndicator() {
+        self.view.addSubviews(activityIndicatorView)
+        activityIndicatorView.startAnimating()
+        activityIndicatorView.isHidden = false
+        activityIndicatorView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
     }
     
     private func setupViews() {
@@ -248,10 +268,15 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             
             for cell in (self.selectedRunesView.visibleCells as? [SelectedRuneCell])!.sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
                 if !cell.isSelected {
-                    cell.selectRune(SelectedRuneModel(title: rune.model!.title,
-                                                      image: rune.model?.image.image ?? Assets.launchRunar.image,
+                    guard let title = rune.model?.title,
+                          let imageData = rune.model?.runeImage?.image,
+                          let image = UIImage(data: imageData),
+                          let id = rune.model?.id else { return }
+
+                    cell.selectRune(SelectedRuneModel(title: title,
+                                                      image: image,
                                                       index: rune.indexPath,
-                                                      id: rune.model?.id ?? ""))
+                                                      id: id))
                     break
                 }
             }
@@ -267,11 +292,19 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         generateButton.isHidden = !selectedRunesView.hasSelectedRunes()
         randomButton.isHidden = selectedRunesView.hasSelectedRunes()
     }
+
+    func update() {
+        setupViews()
+        activityIndicatorView.isHidden = true
+        activityIndicatorView.stopAnimating()
+        selectRunesView.setupRunes()
+        selectRunesView.reloadData()
+    }
     
     @objc func selectRandomRunesOnTap() {
         self.selectedRunesView.deselectAll()
 
-        var maxRunes = MemoryStorage.generationRunes.count
+        var maxRunes = CoreDataManager.shared.fetchAllGeneratorNodes().count
 
         if SubscriptionManager.freeSubscription == true {
             maxRunes = 7
@@ -288,7 +321,15 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             
             for cell in (self.selectedRunesView.visibleCells as! [SelectedRuneCell]).sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
                 if !cell.isSelected {
-                    cell.selectRune(SelectedRuneModel(title: rune.model!.title, image: rune.model!.image.image, index: rune.indexPath, id: rune.model!.id))
+                    guard let title = rune.model?.title,
+                          let imageData = rune.model?.runeImage?.image,
+                          let image = UIImage(data: imageData),
+                          let id = rune.model?.id else { return }
+
+                    cell.selectRune(SelectedRuneModel(title: title,
+                                                      image: image,
+                                                      index: rune.indexPath,
+                                                      id: id))
                     break
                 }
             }

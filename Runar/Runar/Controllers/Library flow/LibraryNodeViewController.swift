@@ -12,9 +12,19 @@ extension String {
     static let back = L10n.Navbar.Title.back
 }
 
+enum LibraryNodeType: String, CaseIterable {
+    case undefined = "undefined"
+    case core = "core"
+    case root = "root"
+    case rune = "rune"
+    case menu = "subMenu"
+    case poem = "poem"
+    case text = "plainText"
+}
+
 // MARK: - Protocols
 public protocol LibraryCellProtocol {
-    func bind(node: LibraryNode) -> Void
+    func bind(node: LibraryCoreData) -> Void
     func unavailableLibrary()
     func availableLibrary()
 }
@@ -24,6 +34,15 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     // MARK: - Mutable props
     var node: LibraryNode = LibraryNode()
     private var nodeView: UITableView = UITableView()
+
+    // MARK: - UI elements
+    let activityIndicatorView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        view.style = .large
+        view.color = .white
+        view.isHidden = true
+        return view
+    }()
     
     // MARK: - Override funcs
     public override func viewDidLoad() {
@@ -32,7 +51,9 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateUI(_:)), name: NSNotification.Name(rawValue: "updateLibraryTableViewAfterPurchase"), object: nil)
 
         RunarLayout.initBackground(for: view)
-        
+
+        let libraryIsLoaded: Bool = CoreDataManager.shared.libraryIsLoaded
+        guard libraryIsLoaded else { return setupActivityIndicator() }
         configureNodeView()
     }
     
@@ -56,10 +77,31 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         nodeView.register(node: node)
         nodeView.add(to: view)
     }
+
+    private func setupActivityIndicator() {
+        self.view.addSubviews(activityIndicatorView)
+        activityIndicatorView.startAnimating()
+        activityIndicatorView.isHidden = false
+        activityIndicatorView.center = self.view.center
+    }
     
     func configureNavigationBar() {
         title = node.title
         self.navigationController?.navigationBar.configure()
+    }
+
+    // Refresh the screen after downloading data
+    func update() {
+        activityIndicatorView.isHidden = true
+        activityIndicatorView.stopAnimating()
+        let nodes = CoreDataManager.shared.fetchRootLibraryNodes()
+        let node = LibraryNode(title: "",
+                               nodes: nodes,
+                               type: "core",
+                               imageUrl: nil,
+                               id: "0")
+        set(node)
+        configureNodeView()
     }
     
     @objc private func updateUI(_ notification: NSNotification) {
@@ -68,22 +110,29 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
               
     // MARK: - Delegate funcs
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) -> Void {
-        guard indexPath.row > 0 else {
-            return
-        }
-        
-        let child = node.children[indexPath.row - 1]
-        
-        switch child.type {
+        let child = node.nodes[indexPath.row]
+        let nodes = child.children?.allObjects as? [LibraryCoreData] ?? []
+        let filteredNodes = nodes
+            .filter { $0.type != LibraryNodeType.root.rawValue }
+            .sorted { $0.order < $1.order }
+
+        let node = LibraryNode(title: child.title ?? "",
+                        nodes: filteredNodes,
+                        type: child.type,
+                        imageUrl: child.imageUrl,
+                        id: child.id)
+
+        guard let typeNode = LibraryNodeType(rawValue: child.type) else { return }
+        switch typeNode {
         case .root, .menu:
             if SubscriptionManager.freeSubscription == true {
                 if indexPath.row >= 4 {
                     SubscriptionManager.presentMonetizationVC(vc: self)
                 } else {
-                    self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
+                    self.navigationController?.pushViewController(create(withNode: node), animated: false)
                 }
             } else {
-                self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
+                self.navigationController?.pushViewController(create(withNode: node), animated: false)
             }
             break
         default:
@@ -92,15 +141,13 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return node.children.count + 1
+        return node.nodes.count
     }
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (indexPath.row == 0) {
-            return node.type == .core ? CGFloat.leastNormalMagnitude : 42
-        }
+        let nodeType = LibraryNodeType(rawValue: node.nodes[indexPath.row].type)
         
-        switch node.children[indexPath.row - 1].type {
+        switch nodeType {
         case .root:
             if node.imageUrl == "" {
                 return 66
@@ -143,7 +190,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
 
 // MARK: - Extensions
 public extension LibraryNodeViewController {
-    static func create(withNode node: LibraryNode) -> LibraryNodeViewController {
+    private func create(withNode node: LibraryNode) -> LibraryNodeViewController {
         let controller = LibraryNodeViewController()
         controller.set(node)
         return controller
@@ -160,11 +207,10 @@ private extension UITableView {
     ]
     
     func register(node: LibraryNode) -> Void {
-        self.register(LibraryPathCell.self, forCellReuseIdentifier: node.id)
-        
-        for child in node.children {
-            guard let type: AnyClass? = UITableView.cellTypes[child.type] else {
-                fatalError("cell type '\(child.type.rawValue)' is not implemented")
+        for child in node.nodes {
+            guard let nodeType = LibraryNodeType(rawValue: child.type) else { return }
+            guard let type: AnyClass? = UITableView.cellTypes[nodeType] else {
+                fatalError("cell type '\(child.type)' is not implemented")
             }
             
             self.register(type, forCellReuseIdentifier: child.id)
@@ -188,7 +234,8 @@ private extension UITableView {
     }
     
     func getCell(node: LibraryNode, index indexPath: IndexPath) -> UITableViewCell {
-        let child = indexPath.row == 0 ? node : node.children[indexPath.row - 1]
+        let nodes = node.nodes
+        let child = nodes[indexPath.row]
         let cell = self.dequeueReusableCell(withIdentifier: child.id, for: indexPath)
         
         (cell as! LibraryCellProtocol).bind(node: child)
