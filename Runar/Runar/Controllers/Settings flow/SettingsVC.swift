@@ -7,11 +7,6 @@
 
 import UIKit
 
-extension UIColor {
-    static let navBarBackground = UIColor(red: 0.092, green: 0.092, blue: 0.092, alpha: 0.94)
-    static let settingsTitleColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
-}
-
 final class SettingsVC: UIViewController {
     
     private var tableView = UITableView()
@@ -71,24 +66,24 @@ final class SettingsVC: UIViewController {
         if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 && !DeviceType.isIphone78Plus {
             title = .settings
             navigationController?.navigationBar.prefersLargeTitles = true
-            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 34), NSAttributedString.Key.foregroundColor: UIColor.settingsTitleColor]
+            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 34), NSAttributedString.Key.foregroundColor: UIColor.titleColor]
         } else {
             navigationController?.navigationBar.prefersLargeTitles = false
-            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 20), NSAttributedString.Key.foregroundColor: UIColor.settingsTitleColor]
-            navigationController?.navigationBar.barTintColor = .navBarBackground
+            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 20), NSAttributedString.Key.foregroundColor: UIColor.titleColor]
+            navigationController?.navigationBar.barTintColor = .navBarBackgroundColor
             navigationController?.navigationBar.isTranslucent = false
             navigationItem.leftBarButtonItem?.title = .settings
 
             let label = UILabel()
             label.text = .settings
-            label.textColor = .settingsTitleColor
+            label.textColor = .titleColor
             label.font = FontFamily.SFProDisplay.medium.font(size: 20)
             label.textAlignment = .left
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: label)
         }
 
-        navigationController?.navigationBar.backgroundColor = .navBarBackground
-        navigationController?.setStatusBar(backgroundColor: .navBarBackground)
+        navigationController?.navigationBar.backgroundColor = .navBarBackgroundColor
+        navigationController?.setStatusBar(backgroundColor: .navBarBackgroundColor)
     }
 }
 

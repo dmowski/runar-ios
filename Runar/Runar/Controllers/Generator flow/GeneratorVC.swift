@@ -53,7 +53,7 @@ class GeneratorVC: UIViewController {
             navigationController?.navigationBar.configure(prefersLargeTitles: false, titleFontSize: 20)
             navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UILabel.create(withText: .generator, fontSize: 20))
         }
-        navigationController?.setStatusBar(backgroundColor: .navBarBackground)
+        navigationController?.setStatusBar(backgroundColor: .navBarBackgroundColor)
     }
 
     private func configureRunicPatternView() {

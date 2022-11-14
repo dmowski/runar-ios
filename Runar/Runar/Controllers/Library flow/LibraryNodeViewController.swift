@@ -185,9 +185,9 @@ private extension UINavigationBar {
     func configure() -> Void {
         self.isTranslucent = false
         self.prefersLargeTitles = false
-        self.tintColor = .libraryTitleColor
-        self.backgroundColor = .navBarBackground
-        self.barTintColor = .navBarBackground
+        self.tintColor = .titleColor
+        self.backgroundColor = .navBarBackgroundColor
+        self.barTintColor = .navBarBackgroundColor
         self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 17),
                                          NSAttributedString.Key.foregroundColor: UIColor.white]
         

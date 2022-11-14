@@ -25,17 +25,17 @@ public class LibraryViewController: LibraryNodeViewController {
             navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UILabel.create(withText: .library, fontSize: 20))
         }
         
-        navigationController?.setStatusBar(backgroundColor: .navBarBackground)
+        navigationController?.setStatusBar(backgroundColor: .navBarBackgroundColor)
     }
 }
 
 // MARK: - Extensions
 public extension UINavigationBar {
     func configure(prefersLargeTitles: Bool, titleFontSize: CGFloat) -> Void {
-        self.backgroundColor = .navBarBackground
+        self.backgroundColor = .navBarBackgroundColor
         
         let attributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: titleFontSize),
-                          NSAttributedString.Key.foregroundColor: UIColor.libraryTitleColor]
+                          NSAttributedString.Key.foregroundColor: UIColor.titleColor]
         
         if prefersLargeTitles {
             self.largeTitleTextAttributes = attributes
@@ -44,12 +44,10 @@ public extension UINavigationBar {
         } else {
             self.titleTextAttributes = attributes
             self.isTranslucent = false
-            self.barTintColor = .navBarBackground
-            self.tintColor = .libraryTitleColor
+            self.barTintColor = .navBarBackgroundColor
+            self.tintColor = .titleColor
         }
     }
 }
 
-public extension UIColor {
-    static let libraryTitleColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
-}
+

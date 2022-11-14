@@ -80,9 +80,9 @@ class AppInfoVC: UIViewController, UITextViewDelegate {
     private func configureNavigationBar() {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.navigationBar.tintColor = .settingsTitleColor
-        navigationController?.navigationBar.backgroundColor = .navBarBackground
-        navigationController?.navigationBar.barTintColor = .navBarBackground
+        navigationController?.navigationBar.tintColor = .titleColor
+        navigationController?.navigationBar.backgroundColor = .navBarBackgroundColor
+        navigationController?.navigationBar.barTintColor = .navBarBackgroundColor
         title = .aboutApp
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 17)]
