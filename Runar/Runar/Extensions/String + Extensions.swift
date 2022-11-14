@@ -24,4 +24,8 @@ extension String {
             range: NSRange(location: 0, length: attributeString.length))
         return attributeString
     }
+    
+    func capitalizedFirstLetter() -> String {
+        return prefix(1).uppercased() + self.lowercased().dropFirst()
+    }
 }

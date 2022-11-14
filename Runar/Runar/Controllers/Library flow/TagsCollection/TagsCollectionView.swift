@@ -32,7 +32,7 @@ class TagsCollectionView: UICollectionView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        if !(__CGSizeEqualToSize(bounds.size,self.intrinsicContentSize)){
+        if !bounds.size.equalTo(self.intrinsicContentSize) {
             self.invalidateIntrinsicContentSize()
         }
     }
@@ -52,7 +52,7 @@ extension TagsCollectionView: UICollectionViewDataSource {
         guard let cell = dequeueReusableCell(withReuseIdentifier: TagsCell.reuseId, for: indexPath) as? TagsCell else {
             return UICollectionViewCell(frame: .zero)
         }
-        cell.runeTag.text = cells[indexPath.row].capitalized
+        cell.runeTag.text = cells[indexPath.row].capitalizedFirstLetter()
         return cell
     }
 }
