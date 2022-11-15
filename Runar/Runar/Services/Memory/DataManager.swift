@@ -13,7 +13,7 @@ final class DataManager {
     func checkLoadedData() {
         // Get library data on background queue
         DispatchQueue.global(qos: .userInteractive).async {
-            self.loadLibraryData()
+//            self.loadLibraryData()
 
             // Update SelectionRuneVC on main queue
             DispatchQueue.main.async {
