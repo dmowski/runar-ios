@@ -6,15 +6,20 @@
 //
 
 import UIKit
+import FirebaseCore
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        //MARK: - add notifications
+        FirebaseApp.configure()
+        PushNotificationsManager.shared.addNotifications(app: application, appDelegate: self)
+        
         // TODO: No Internet
         //NetworkMonitor.shared.startMonitoring()
-        
         if isFirstLaunch() {
             signIn()
         }
