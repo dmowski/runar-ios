@@ -18,7 +18,8 @@ class OnboardingView: UIView {
     private let onboardingSkipButton = UIButton()
     var onboardingCollectionView: UICollectionView!
     let onboardingNextSlideButton = CustomButton()
-    let onboardingPageControl = UIPageControl()
+    let pageControllStackView = UIStackView()
+    let pageControll = CustomPageControll()
     
     weak var onboardingViewDelegate: OnboardingViewDelegateProtocol?
     
@@ -28,7 +29,7 @@ class OnboardingView: UIView {
         configureSkipButton()
         configureOnboardingCollectioView()
         configureNextSlideButton()
-        configureOnboardingPageControll()
+        configureCustomPageControll()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,7 +39,7 @@ class OnboardingView: UIView {
         configureSkipButton()
         configureOnboardingCollectioView()
         configureNextSlideButton()
-        configureOnboardingPageControll()
+        configureCustomPageControll()
         
         fatalError("init(coder:) has not been implemented")
     }
@@ -106,7 +107,7 @@ class OnboardingView: UIView {
         addSubview(onboardingNextSlideButton)
         onboardingNextSlideButton.addTarget(self, action: #selector(goToNextSlide), for: .touchUpInside)
         onboardingNextSlideButton.snp.makeConstraints { make in
-            if DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
+            if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
                 make.bottom.equalToSuperview().inset(184)
                 make.centerX.equalToSuperview()
                 make.width.equalTo(264)
@@ -120,15 +121,26 @@ class OnboardingView: UIView {
         }
     }
     
-    private func configureOnboardingPageControll() {
-        onboardingPageControl.numberOfPages = 6
-        onboardingPageControl.currentPageIndicatorTintColor = UIColor(red: 1, green: 0.753, blue: 0.275, alpha: 1)
-        onboardingPageControl.isUserInteractionEnabled = false
-        addSubview(onboardingPageControl)
-        onboardingPageControl.snp.makeConstraints { make in
-            make.top.equalTo(onboardingNextSlideButton.snp.bottom).offset(60)
+    func configureCustomPageControll() {
+        pageControllStackView.axis = .horizontal
+        pageControllStackView.distribution = .fillEqually
+        pageControllStackView.spacing = 8
+        addSubview(pageControllStackView)
+        pageControllStackView.snp.makeConstraints { make in
+            make.top.equalTo(onboardingNextSlideButton.snp.bottom).offset(67)
             make.centerX.equalToSuperview()
         }
+        pageControllStackView.removeFullyAllArrangedSubviews()
+        pageControll.numberOfDots = OnboardingSlide.slides().count
+        for number in 0..<pageControll.numberOfDots {
+             let button = CustomPageControll()
+            if pageControll.currentPage == number {
+                button.setUpIndicator(size: 8, indicatorColor: UIColor(red: 1, green: 0.753, blue: 0.275, alpha: 1), image: "circle.fill")  //Current page indicator
+             } else {
+                 button.setUpIndicator(size: 8, indicatorColor: UIColor(red: 1, green: 0.753, blue: 0.275, alpha: 1), image: "circle")  //Page indicator
+             }
+             pageControllStackView.addArrangedSubview(button)
+         }
     }
     
     @objc private func goToNextSlide() {
@@ -137,5 +149,17 @@ class OnboardingView: UIView {
     
     @objc private func goToMainScreen() {
         onboardingViewDelegate?.skipButton()
+    }
+}
+
+extension UIStackView {
+    func removeFully(view: UIView) {
+        removeArrangedSubview(view)
+        view.removeFromSuperview()
+    }
+    func removeFullyAllArrangedSubviews() {
+        arrangedSubviews.forEach { (view) in
+            removeFully(view: view)
+        }
     }
 }
