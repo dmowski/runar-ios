@@ -211,8 +211,14 @@ final class FirstScreenVC: UIViewController {
         if checkBoxButton.isSelected {
             UserDefaults.standard.set(true, forKey: "dontShowFirstScreenAgain")
         }
-        let mainVC = MainTabBarController()
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainVC)
 
+        let mainVC = MainTabBarController()
+        let onboardingVC = OnboardingScreenVC()
+
+        if UserDefaults.standard.bool(forKey: "hasViewedOnboardingScreen") {
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainVC)
+        } else {
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(onboardingVC)
+        }
     }
 }
