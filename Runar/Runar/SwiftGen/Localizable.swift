@@ -1804,7 +1804,7 @@ internal enum L10n {
     /// Runar premium
     internal static let titleSubscriptionPremium = L10n.tr("Localizable", "monetization.titleSubscriptionPremium", fallback: "Runar premium")
     /// Subscription
-    internal static let titleSubscriptionSettings = L10n.tr("Localizable", "monetization.titleSubscriptionSettings")
+    internal static let titleSubscriptionSettings = L10n.tr("Localizable", "monetization.titleSubscriptionSettings", fallback: "Subscription")
   }
   internal enum Music {
     /// Black rook
@@ -1915,12 +1915,8 @@ internal enum L10n {
     internal static let explanationDescription = L10n.tr("Localizable", "onboarding.explanationDescription", fallback: "See the interpretation of each divination with the luckiness level")
     /// Interpretation
     internal static let explanationTitle = L10n.tr("Localizable", "onboarding.explanationTitle", fallback: "Interpretation")
-    /// Save your favorites interpretations and meanings of runes to your Favorites
-    internal static let favoritesDescription = L10n.tr("Localizable", "onboarding.favoritesDescription", fallback: "Save your favorites interpretations and meanings of runes to your Favorites")
-    /// Favorites
-    internal static let favoritesTitle = L10n.tr("Localizable", "onboarding.favoritesTitle", fallback: "Favorites")
-    /// Куй свою судьбу сам, собери рунный узор и наложи его на классную картинку
-    internal static let generatorDescription = L10n.tr("Localizable", "onboarding.generatorDescription", fallback: "Куй свою судьбу сам, собери рунный узор и наложи его на классную картинку")
+    /// Forge your own destiny, collect a rune pattern and choose a background for it
+    internal static let generatorDescription = L10n.tr("Localizable", "onboarding.generatorDescription", fallback: "Forge your own destiny, collect a rune pattern and choose a background for it")
     /// Generator
     internal static let generatorTitle = L10n.tr("Localizable", "onboarding.generatorTitle", fallback: "Generator")
     /// Choose one of the eight divinations and see the interpretation of your fate
