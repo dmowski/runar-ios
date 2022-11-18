@@ -20,7 +20,7 @@ class AppInfoVC: UIViewController, UITextViewDelegate {
     private var backgroundImage: UIImageView = {
         let background = UIImageView()
         background.translatesAutoresizingMaskIntoConstraints = false
-        background.image = Assets.Background.main.image
+        background.image = Assets.Background.main.image.withAlpha(0.45)
         background.contentMode = .scaleAspectFill
         return background
     }()
@@ -36,19 +36,19 @@ class AppInfoVC: UIViewController, UITextViewDelegate {
         let textView = UITextView()
         textView.backgroundColor = .clear
         textView.isEditable = false
+        textView.textContainer.lineBreakMode = .byWordWrapping
         
         let string = String.descriptionAppText
         let firstUrl = "https://lyod1.bandcamp.com/releases"
         let secUrl = "https://danheimmusic.com"
  
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 1.23
+        paragraphStyle.lineHeightMultiple = 1.08
         textView.translatesAutoresizingMaskIntoConstraints = false
         let firstRange = (string as NSString).range(of: firstUrl)
         let secRange = (string as NSString).range(of: secUrl)
         
-        let fontSize = DeviceType.iPhoneSE || DeviceType.isIPhone678 ? 16 : 19.heightDependent()
-        var attributedText = NSMutableAttributedString(string: string, attributes: [NSMutableAttributedString.Key.paragraphStyle: paragraphStyle,NSMutableAttributedString.Key.font: FontFamily.SFProDisplay.light.font(size: fontSize), NSMutableAttributedString.Key.foregroundColor: UIColor.settingsWhiteText])
+        var attributedText = NSMutableAttributedString(string: string, attributes: [NSMutableAttributedString.Key.paragraphStyle: paragraphStyle,NSMutableAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 17), NSMutableAttributedString.Key.foregroundColor: UIColor.settingsWhiteText])
 
         attributedText.addAttribute(.link, value: firstUrl, range: firstRange)
         attributedText.addAttribute(.link, value: secUrl, range: secRange)
@@ -78,6 +78,7 @@ class AppInfoVC: UIViewController, UITextViewDelegate {
     }
     
     private func configureNavigationBar() {
+        navigationController?.navigationBar.topItem?.backButtonTitle = L10n.Navbar.Title.back
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.tintColor = .settingsTitleColor
@@ -91,7 +92,7 @@ class AppInfoVC: UIViewController, UITextViewDelegate {
     private func configureUI() {
         view.addSubviews(backgroundImage, scrollView, descriptionView)
         
-        let descriptionLeading: CGFloat = DeviceType.iPhoneSE || DeviceType.isIPhone678 ? 16 : 24
+        let descriptionTopOffset: CGFloat = DeviceType.iPhoneSE || DeviceType.isIPhone678 ? 26 : 52
         
         NSLayoutConstraint.activate([
             backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
@@ -104,9 +105,9 @@ class AppInfoVC: UIViewController, UITextViewDelegate {
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            descriptionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            descriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:  descriptionLeading),
-            descriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:  -descriptionLeading),
+            descriptionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: descriptionTopOffset),
+            descriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:  24),
+            descriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:  -24),
             descriptionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
