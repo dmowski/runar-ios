@@ -10,7 +10,7 @@ import UIKit
 public class LibraryRuneCell: LibraryCell {
     
     // MARK: - Funcs
-    public override func bind(node: LibraryCoreData) -> Void {
+    public override func bind(node: LibraryNode) -> Void {
         
         guard let title = node.title,
               let imageUrl = node.imageUrl,

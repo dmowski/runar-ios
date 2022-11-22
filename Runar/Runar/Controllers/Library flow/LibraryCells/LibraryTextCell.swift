@@ -10,7 +10,7 @@ import UIKit
 public class LibraryTextCell: LibraryCell {
     
     // MARK: - Funcs
-    public override func bind(node: LibraryCoreData) -> Void {
+    public override func bind(node: LibraryNode) -> Void {
         bindTextLabel(text: node.content, font: UIFont.create(withLowSize: 17, withHighSize: 19))
         self.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
     }
