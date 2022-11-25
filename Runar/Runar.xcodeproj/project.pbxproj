@@ -126,15 +126,9 @@
 		9BD98CC02628CD1D00F3BBD7 /* EscapePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpVC.swift */; };
 		9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */; };
 		9C1F8E8228FF07480073542F /* FirstScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F8E8128FF07480073542F /* FirstScreenVC.swift */; };
+		9C3D6C5F292CDCF80027DE58 /* GenerationRuneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C5E292CDCF80027DE58 /* GenerationRuneModel.swift */; };
+		9C3D6C61292CE3770027DE58 /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C60292CE3770027DE58 /* MemoryStorage.swift */; };
 		9CAEF57829220F66006C0EF9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEF57729220F66006C0EF9 /* DataManager.swift */; };
-		9CAEF598292210E8006C0EF9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEF58E292210E8006C0EF9 /* CoreDataManager.swift */; };
-		9CAEF599292210E8006C0EF9 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEF58F292210E8006C0EF9 /* CoreData.xcdatamodeld */; };
-		9CAEF59A292210E8006C0EF9 /* GeneratorRuneImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEF592292210E8006C0EF9 /* GeneratorRuneImage+CoreDataClass.swift */; };
-		9CAEF59B292210E8006C0EF9 /* LibraryCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEF593292210E8006C0EF9 /* LibraryCoreData+CoreDataClass.swift */; };
-		9CAEF59C292210E8006C0EF9 /* GeneratorRuneImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEF594292210E8006C0EF9 /* GeneratorRuneImage+CoreDataProperties.swift */; };
-		9CAEF59D292210E8006C0EF9 /* GeneratorCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEF595292210E8006C0EF9 /* GeneratorCoreData+CoreDataProperties.swift */; };
-		9CAEF59E292210E8006C0EF9 /* LibraryCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEF596292210E8006C0EF9 /* LibraryCoreData+CoreDataProperties.swift */; };
-		9CAEF59F292210E8006C0EF9 /* GeneratorCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEF597292210E8006C0EF9 /* GeneratorCoreData+CoreDataClass.swift */; };
 		C22B4DB42858AD2800F6245C /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B4DB32858AD2800F6245C /* String + Extensions.swift */; };
 		C22F6E4127C3CEFF005F8B66 /* EmptyWallpaperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */; };
 		C278B66127C43FAB00EFBD2C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */; };
@@ -306,15 +300,9 @@
 		9BD98CBF2628CD1D00F3BBD7 /* EscapePopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscapePopUpVC.swift; sourceTree = "<group>"; };
 		9BD98CE32628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneDescriptionPopUp.swift; sourceTree = "<group>"; };
 		9C1F8E8128FF07480073542F /* FirstScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenVC.swift; sourceTree = "<group>"; };
+		9C3D6C5E292CDCF80027DE58 /* GenerationRuneModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerationRuneModel.swift; sourceTree = "<group>"; };
+		9C3D6C60292CE3770027DE58 /* MemoryStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
 		9CAEF57729220F66006C0EF9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		9CAEF58E292210E8006C0EF9 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		9CAEF590292210E8006C0EF9 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
-		9CAEF592292210E8006C0EF9 /* GeneratorRuneImage+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeneratorRuneImage+CoreDataClass.swift"; sourceTree = "<group>"; };
-		9CAEF593292210E8006C0EF9 /* LibraryCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LibraryCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
-		9CAEF594292210E8006C0EF9 /* GeneratorRuneImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeneratorRuneImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		9CAEF595292210E8006C0EF9 /* GeneratorCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeneratorCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		9CAEF596292210E8006C0EF9 /* LibraryCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LibraryCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		9CAEF597292210E8006C0EF9 /* GeneratorCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeneratorCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22B4DB32858AD2800F6245C /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyWallpaperVC.swift; sourceTree = "<group>"; };
@@ -479,6 +467,7 @@
 				19C0F21A25BAFEFE0027422B /* RuneDescription.swift */,
 				9BAEB61C25F13412004B7761 /* Affirmation.swift */,
 				84D7E6012649F37700772EE3 /* LibraryNode.swift */,
+				9C3D6C5E292CDCF80027DE58 /* GenerationRuneModel.swift */,
 				C2C5584A283D9E33006B053C /* SlectedRuneModel.swift */,
 				C2B10B0628C4D58600F9BCF0 /* BindableGestureRecognizer.swift */,
 			);
@@ -505,10 +494,10 @@
 		677C11E6289C71F400CEA5D2 /* Memory */ = {
 			isa = PBXGroup;
 			children = (
-				9CAEF58D292210E8006C0EF9 /* CoreData */,
+				9CAEF57729220F66006C0EF9 /* DataManager.swift */,
+				9C3D6C60292CE3770027DE58 /* MemoryStorage.swift */,
 				8477222D2643C9CA001C280D /* LocalStorage.swift */,
 				677C11E7289C726900CEA5D2 /* ImageFileManager.swift */,
-				9CAEF57729220F66006C0EF9 /* DataManager.swift */,
 			);
 			path = Memory;
 			sourceTree = "<group>";
@@ -839,29 +828,6 @@
 				9C1F8E8128FF07480073542F /* FirstScreenVC.swift */,
 			);
 			path = FirstScreen;
-			sourceTree = "<group>";
-		};
-		9CAEF58D292210E8006C0EF9 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				9CAEF58E292210E8006C0EF9 /* CoreDataManager.swift */,
-				9CAEF58F292210E8006C0EF9 /* CoreData.xcdatamodeld */,
-				9CAEF591292210E8006C0EF9 /* Models */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
-		9CAEF591292210E8006C0EF9 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				9CAEF592292210E8006C0EF9 /* GeneratorRuneImage+CoreDataClass.swift */,
-				9CAEF593292210E8006C0EF9 /* LibraryCoreData+CoreDataClass.swift */,
-				9CAEF594292210E8006C0EF9 /* GeneratorRuneImage+CoreDataProperties.swift */,
-				9CAEF595292210E8006C0EF9 /* GeneratorCoreData+CoreDataProperties.swift */,
-				9CAEF596292210E8006C0EF9 /* LibraryCoreData+CoreDataProperties.swift */,
-				9CAEF597292210E8006C0EF9 /* GeneratorCoreData+CoreDataClass.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		A2A5CAEB8FFCA1990E63BEE2 /* Pods */ = {
@@ -1296,13 +1262,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				849ED285266E3251006E557A /* LibraryPoemCell.swift in Sources */,
-				9CAEF59E292210E8006C0EF9 /* LibraryCoreData+CoreDataProperties.swift in Sources */,
 				849ED294266E74B9006E557A /* LibraryMenuCell.swift in Sources */,
 				C2C5584F283D9F59006B053C /* SelectedRuneCell.swift in Sources */,
 				84410672270ADA0400CD8B56 /* SelectedRuneCollectionView.swift in Sources */,
 				19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */,
 				C2953E5D2889736400EA297D /* MonetizationVC.swift in Sources */,
-				9CAEF59D292210E8006C0EF9 /* GeneratorCoreData+CoreDataProperties.swift in Sources */,
 				9B739DF325CD765800726B30 /* Constants.swift in Sources */,
 				843DFF4D2653FB5400D6DFE5 /* LibraryCell.swift in Sources */,
 				C2C5584D283D9EE9006B053C /* SelectRuneCell.swift in Sources */,
@@ -1330,11 +1294,9 @@
 				9911206E28611139001B8FCC /* TagsCell.swift in Sources */,
 				191D32CF25B7C46A001DC210 /* Assets.swift in Sources */,
 				19D9BAD625C9765C00418CE7 /* TwoRuneView.swift in Sources */,
-				9CAEF599292210E8006C0EF9 /* CoreData.xcdatamodeld in Sources */,
 				84410677270CC7E500CD8B56 /* SelectRuneCollectionView.swift in Sources */,
 				671E685B28EA2DB5000A0904 /* SparksScene.swift in Sources */,
 				9BD2295A258AB02500E17E98 /* RunicDrawsCollectionVC.swift in Sources */,
-				9CAEF59F292210E8006C0EF9 /* GeneratorCoreData+CoreDataClass.swift in Sources */,
 				968939D928D094FB00057D2A /* OnboardingScreenCell.swift in Sources */,
 				19C0F1F425BAF07E0027422B /* AlignmentVM.swift in Sources */,
 				84B1C4DB2727184B007865CF /* WallpapperStyleData.swift in Sources */,
@@ -1360,12 +1322,11 @@
 				84D7E60B264BAED300772EE3 /* Environment.swift in Sources */,
 				C2C5584B283D9E33006B053C /* SlectedRuneModel.swift in Sources */,
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
-				9CAEF59B292210E8006C0EF9 /* LibraryCoreData+CoreDataClass.swift in Sources */,
 				9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */,
+				9C3D6C5F292CDCF80027DE58 /* GenerationRuneModel.swift in Sources */,
 				8441066D27077A2700CD8B56 /* SelectionRuneVC.swift in Sources */,
 				845D26E42738259E00449D34 /* ChoosedWallpaperVC.swift in Sources */,
 				9B739E0625CD77E900726B30 /* ProcessingVM.swift in Sources */,
-				9CAEF59C292210E8006C0EF9 /* GeneratorRuneImage+CoreDataProperties.swift in Sources */,
 				843DFF33265248B900D6DFE5 /* LibraryViewController.swift in Sources */,
 				9B15E37025FE4BFC00737306 /* TopLineView.swift in Sources */,
 				C2C55847283D9CEE006B053C /* UIButton.swift in Sources */,
@@ -1378,7 +1339,6 @@
 				844106602705B43E00CD8B56 /* GenerationPopUpViewController.swift in Sources */,
 				849ED28A266E33D4006E557A /* LibraryTextCell.swift in Sources */,
 				8440C514272016FD003D6B3C /* RuneData.swift in Sources */,
-				9CAEF598292210E8006C0EF9 /* CoreDataManager.swift in Sources */,
 				9BD98C962628A74200F3BBD7 /* LanguageCell.swift in Sources */,
 				9BD98C942628A74200F3BBD7 /* StaticCell.swift in Sources */,
 				9B739E0525CD77E900726B30 /* ProcessingVC.swift in Sources */,
@@ -1396,10 +1356,10 @@
 				849ED28F266E3457006E557A /* LibraryRootCell.swift in Sources */,
 				9C1F8E8228FF07480073542F /* FirstScreenVC.swift in Sources */,
 				1987AAC025BDCDBF00BB3655 /* FiveRuneView.swift in Sources */,
-				9CAEF59A292210E8006C0EF9 /* GeneratorRuneImage+CoreDataClass.swift in Sources */,
 				9BD98CC02628CD1D00F3BBD7 /* EscapePopUpVC.swift in Sources */,
 				199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */,
 				968939DB28D094FB00057D2A /* OnboardingView.swift in Sources */,
+				9C3D6C61292CE3770027DE58 /* MemoryStorage.swift in Sources */,
 				C2953E612889739000EA297D /* MonetizationModel.swift in Sources */,
 				9B5F5BB5261CD5A500A7454F /* MusicViewController.swift in Sources */,
 				9BD98C9E2628A75600F3BBD7 /* UINavigationController.swift in Sources */,
@@ -1747,19 +1707,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		9CAEF58F292210E8006C0EF9 /* CoreData.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				9CAEF590292210E8006C0EF9 /* CoreData.xcdatamodel */,
-			);
-			currentVersion = 9CAEF590292210E8006C0EF9 /* CoreData.xcdatamodel */;
-			path = CoreData.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 9BD228F2258A321B00E17E98 /* Project object */;
 }
