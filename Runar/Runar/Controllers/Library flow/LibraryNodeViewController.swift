@@ -126,7 +126,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         switch typeNode {
         case .root, .menu:
             if SubscriptionManager.freeSubscription == true {
-                if indexPath.row >= 4 {
+                if indexPath.row >= 3 {
                     SubscriptionManager.presentMonetizationVC(vc: self)
                 } else {
                     self.navigationController?.pushViewController(create(withNode: node), animated: false)
@@ -241,7 +241,7 @@ private extension UITableView {
         (cell as! LibraryCellProtocol).bind(node: child)
         
         if SubscriptionManager.freeSubscription == true {
-            if indexPath.row >= 4 {
+            if indexPath.row >= 3 && node.type != .poem && node.type != .text {
                 (cell as? LibraryCellProtocol)?.unavailableLibrary()
             }
         } else {
