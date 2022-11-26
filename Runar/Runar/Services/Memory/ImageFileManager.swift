@@ -54,8 +54,13 @@ class ImageFileManager {
             let imagesNames = try FileManager.default.contentsOfDirectory(atPath: directoryURL.path)
 
             imagesNames.forEach {
-                guard $0 != Images.emptyWallpapersImage.rawValue else { return }
-                returnArrayOfImages.append(self.readImageFromFile($0))
+                if $0.elementsEqual(Images.choosedWallpapersWithBlackHorizontal.rawValue) ||
+                    $0.elementsEqual(Images.choosedWallpapersWithWpBark.rawValue) ||
+                    $0.elementsEqual(Images.choosedWallpapersWithDarkVertical.rawValue) ||
+                    $0.elementsEqual(Images.choosedWallpapersWithWpForest.rawValue) {
+                    
+                    returnArrayOfImages.append(self.readImageFromFile($0))
+                }
             }
         } catch {
             print(error.localizedDescription)

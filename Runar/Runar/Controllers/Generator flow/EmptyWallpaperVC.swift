@@ -17,7 +17,14 @@ extension String {
 
 public class EmptyWallpaperVC: UIViewController {
     
-    var runesIds: [String]
+    private var emptyWallpapers = [EmptyWallpaper]()
+    
+    private var emptyWallpaperCurrentIndex = 0 {
+        didSet {
+            let emptyWallpaperName = emptyWallpapers[emptyWallpaperCurrentIndex].name
+            imageView.image = ImageFileManager.shared.readImageFromFile(emptyWallpaperName)
+        }
+    }
     
     let mainTitle: UILabel = {
         let title = UILabel()
@@ -79,8 +86,8 @@ public class EmptyWallpaperVC: UIViewController {
         return nextButton
     }()
     
-    init(runesIds: [String]) {
-        self.runesIds = runesIds
+    init(emptyWallpapers: [EmptyWallpaper]) {
+        self.emptyWallpapers = emptyWallpapers
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -92,8 +99,10 @@ public class EmptyWallpaperVC: UIViewController {
         super.viewDidLoad()
         RunarLayout.initBackground(for: view, with: .mainFire)
         
-        imageView.image = ImageFileManager.shared.readImageFromFile(Images.emptyWallpapersImage.rawValue)
+        imageView.image = ImageFileManager.shared.readImageFromFile(emptyWallpapers[emptyWallpaperCurrentIndex].name)
+        
         setupViews()
+        setupImageViewSwipes()
         updateEmptyVC()
     }
     
@@ -175,11 +184,40 @@ public class EmptyWallpaperVC: UIViewController {
     }
     
     @objc func generateNewVariant() {
-        ApiGeneratorModel.showProcessingVCandGenerateImagesModel(vc: self, runesIds: runesIds)
+        emptyWallpaperCurrentIndex = (0..<emptyWallpapers.count).randomElement() ?? 0
+    }
+    
+    private func setupImageViewSwipes() {
+        imageView.isUserInteractionEnabled = true
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeftAction))
+        swipeLeft.direction = .left
+        self.imageView.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeRightAction))
+        swipeRight.direction = .right
+        self.imageView.addGestureRecognizer(swipeRight)
+    }
+    
+    @objc private func swipeRightAction() {
+        if emptyWallpaperCurrentIndex == 0 {
+            emptyWallpaperCurrentIndex = emptyWallpapers.count - 1
+        } else {
+            emptyWallpaperCurrentIndex -= 1
+        }
+    }
+    
+    @objc private func swipeLeftAction() {
+        if emptyWallpaperCurrentIndex == emptyWallpapers.count - 1 {
+            emptyWallpaperCurrentIndex = 0
+        } else {
+            emptyWallpaperCurrentIndex += 1
+        }
     }
     
     @objc func nextButtonTapped() {
         let selectWallpaperStyleVC = WallpaperWithBackgroundVC()
+        selectWallpaperStyleVC.emptyWallpaperUrl = self.emptyWallpapers[self.emptyWallpaperCurrentIndex].url
         self.navigationController?.pushViewController(selectWallpaperStyleVC, animated: true)
     }
 }

@@ -40,6 +40,8 @@ class StaticCell: UITableViewCell {
         return arrow
     }()
     
+    
+    
     private func configureUI() {
         backgroundColor = .clear
         selectionStyle = .none
