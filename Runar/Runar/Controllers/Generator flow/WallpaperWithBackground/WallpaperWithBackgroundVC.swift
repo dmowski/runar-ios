@@ -20,8 +20,9 @@ public class WallpaperWithBackgroundVC: UIViewController {
 
     let cellId = "wallpaperCellId"
     
+    var emptyWallpaperUrl: String?
     var wallpapers: [WallpaperWithBackgroundCell] = []
-    var imagesWithBackground: [UIImage?] = ImageFileManager.shared.getImagesWithBackground()
+    var imagesWithBackground: [UIImage?] = []
     var selectedImage: UIImage?
     var isSelected: Bool = false
     var indexPath: Int?
@@ -70,15 +71,23 @@ public class WallpaperWithBackgroundVC: UIViewController {
         nextButton.setTitle(title: .nextButtonTitle, color: UIColor(red: 0.165, green: 0.165, blue: 0.165, alpha: 1))
         return nextButton
     }()
+    
+    let activityIndicatorView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        view.style = .large
+        view.color = .white
+        view.isHidden = true
+        return view
+    }()
         
     public override func viewDidLoad() {
         super.viewDidLoad()        
         RunarLayout.initBackground(for: view, with: .mainFire)
-
-        setupBindings()
-        setupViews()
-        configureNavBar()
-        setupWallpapers()
+        
+        setupActivityIndicator()
+        startActivityIndicator()
+        setupViewController()
+        
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -111,6 +120,39 @@ public class WallpaperWithBackgroundVC: UIViewController {
                                                    action: #selector(self.backToInitial))
             customBackButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             navigationItem.leftBarButtonItem = customBackButton
+        }
+    }
+    
+    private func setupActivityIndicator() {
+        self.view.addSubviews(activityIndicatorView)
+        activityIndicatorView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+    }
+    
+    private func startActivityIndicator() {
+        activityIndicatorView.startAnimating()
+        activityIndicatorView.isHidden = false
+    }
+    
+    private func stopActivityIndicator() {
+        activityIndicatorView.stopAnimating()
+        activityIndicatorView.isHidden = true
+    }
+    
+    private func setupViewController() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.downloadingWallpapers()
+
+            DispatchQueue.main.async {
+                self.stopActivityIndicator()
+                
+                self.imagesWithBackground = ImageFileManager.shared.getImagesWithBackground()
+                self.setupBindings()
+                self.setupViews()
+                self.configureNavBar()
+                self.setupWallpapers()
+            }
         }
     }
     
@@ -197,6 +239,34 @@ public class WallpaperWithBackgroundVC: UIViewController {
         let wallpaperVC = ChoosedWallpaperVC()
         wallpaperVC.selectedImage = selectedImage
         self.navigationController?.pushViewController(wallpaperVC, animated: true)
+    }
+    
+    private func downloadingWallpapers() {
+        guard let emptyWallpaperUrl = emptyWallpaperUrl else { return }
+        let wallpapersURL = emptyWallpaperUrl.replacingOccurrences(of: "empty-wallpapers", with: "wallpapers")
+        let wallpapersURLblackHorizontal = wallpapersURL + String(".png?style=blackHorizontal&width=720&height=1280")
+        let wallpapersURLdarkVertical = wallpapersURL + String(".png?style=darkVertical&width=720&height=1280")
+        let wallpapersURLwpForest = wallpapersURL + String(".png?style=wpForest&width=720&height=1280")
+        let wallpapersURLwpBark = wallpapersURL + String(".png?style=wpBark&width=720&height=1280")
+
+        var choosedWallpapersWithBlackHorizontal: UIImage?
+        var choosedWallpapersWithDarkVertical: UIImage?
+        var choosedWallpapersWithWpForest: UIImage?
+        var choosedWallpapersWithWpBark: UIImage?
+
+        choosedWallpapersWithBlackHorizontal = UIImage.create(fromUrl: wallpapersURLblackHorizontal)
+        choosedWallpapersWithDarkVertical = UIImage.create(fromUrl: wallpapersURLdarkVertical)
+        choosedWallpapersWithWpForest = UIImage.create(fromUrl: wallpapersURLwpForest)
+        choosedWallpapersWithWpBark = UIImage.create(fromUrl: wallpapersURLwpBark)
+        
+        ImageFileManager.shared.writeImageToFile(image: choosedWallpapersWithBlackHorizontal,
+                                                 fileName: Images.choosedWallpapersWithBlackHorizontal.rawValue)
+        ImageFileManager.shared.writeImageToFile(image: choosedWallpapersWithDarkVertical,
+                                                 fileName: Images.choosedWallpapersWithDarkVertical.rawValue)
+        ImageFileManager.shared.writeImageToFile(image: choosedWallpapersWithWpForest,
+                                                 fileName: Images.choosedWallpapersWithWpForest.rawValue)
+        ImageFileManager.shared.writeImageToFile(image: choosedWallpapersWithWpBark,
+                                                 fileName: Images.choosedWallpapersWithWpBark.rawValue)
     }
 }
 
