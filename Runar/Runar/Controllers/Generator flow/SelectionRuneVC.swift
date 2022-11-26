@@ -99,7 +99,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         selectRunesView.delegate = self
         configureNavigationBar()
 
-        let generatorIsLoaded: Bool = CoreDataManager.shared.generatorIsLoaded
+        let generatorIsLoaded: Bool = DataManager.shared.generatorIsLoaded
         guard generatorIsLoaded else { return setupActivityIndicator() }
         setupViews()
     }
@@ -269,8 +269,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             for cell in (self.selectedRunesView.visibleCells as? [SelectedRuneCell])!.sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
                 if !cell.isSelected {
                     guard let title = rune.model?.title,
-                          let imageData = rune.model?.runeImage?.image,
-                          let image = UIImage(data: imageData),
+                          let image = rune.model?.image.image,
                           let id = rune.model?.id else { return }
 
                     cell.selectRune(SelectedRuneModel(title: title,
@@ -304,7 +303,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     @objc func selectRandomRunesOnTap() {
         self.selectedRunesView.deselectAll()
 
-        var maxRunes = CoreDataManager.shared.fetchAllGeneratorNodes().count
+        var maxRunes = MemoryStorage.GenerationRunes.count
 
         if SubscriptionManager.freeSubscription == true {
             maxRunes = 7
@@ -322,8 +321,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             for cell in (self.selectedRunesView.visibleCells as! [SelectedRuneCell]).sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
                 if !cell.isSelected {
                     guard let title = rune.model?.title,
-                          let imageData = rune.model?.runeImage?.image,
-                          let image = UIImage(data: imageData),
+                          let image = rune.model?.image.image,
                           let id = rune.model?.id else { return }
 
                     cell.selectRune(SelectedRuneModel(title: title,

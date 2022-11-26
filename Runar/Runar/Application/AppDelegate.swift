@@ -10,8 +10,7 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    let dataManager = DataManager()
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // TODO: No Internet
         //NetworkMonitor.shared.startMonitoring()
@@ -22,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //NetworkMonitor
         //        if NetworkMonitor.shared.isConnected {
-        dataManager.checkLoadedData()
+        DataManager.shared.fetchData()
         //        } else {
         //            print("No internet")
         //        }

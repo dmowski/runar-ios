@@ -11,14 +11,7 @@ public class LibraryViewController: LibraryNodeViewController {
     
     // MARK: - Override funcs
     public override func viewDidLoad() {
-        let nodes = CoreDataManager.shared.fetchRootLibraryNodes()
-        let node = LibraryNode(title: "",
-                        nodes: nodes,
-                        type: "core",
-                        imageUrl: nil,
-                        id: "0")
-
-        set(node)
+        set(MemoryStorage.Library)
                 
         super.viewDidLoad()
     }

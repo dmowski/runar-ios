@@ -53,6 +53,9 @@ public class EmptyWallpaperVC: UIViewController {
         let contentView = UIView()
         contentView.layer.backgroundColor = UIColor(red: 0.143, green: 0.142, blue: 0.143, alpha: 0.5).cgColor
         contentView.layer.cornerRadius = 16
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 10)
+        contentView.layer.shadowRadius = 5
+        contentView.layer.shadowOpacity = 0.75
         return contentView
     }()
     

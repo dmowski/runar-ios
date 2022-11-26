@@ -30,6 +30,9 @@ class WallpaperWithBackgroundCell: UICollectionViewCell {
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
+        layer.shadowOffset = CGSize(width: 0, height: 10)
+        layer.shadowRadius = 10
+        layer.shadowOpacity = 0.75
         
         backgroundColor = .clear
         layer.borderWidth = 1

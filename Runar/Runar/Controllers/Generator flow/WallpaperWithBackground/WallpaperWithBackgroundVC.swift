@@ -45,7 +45,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
         layout.scrollDirection = .horizontal
         
         let selectWallpaperView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        selectWallpaperView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        selectWallpaperView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 30, right: 16)
         selectWallpaperView.showsHorizontalScrollIndicator = false
         selectWallpaperView.allowsMultipleSelection = false
         selectWallpaperView.isPagingEnabled = false
@@ -303,7 +303,7 @@ extension WallpaperWithBackgroundVC: UICollectionViewDataSource, UICollectionVie
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: selectWallpaperView.bounds.width * 0.8, height: selectWallpaperView.bounds.height)
+        return CGSize(width: selectWallpaperView.bounds.width * 0.8, height: selectWallpaperView.bounds.height - 30)
     }
 }
 
