@@ -16,26 +16,9 @@ class CoreDataManager: NSObject {
 
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-         */
         let container = NSPersistentContainer(name: "CoreData")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
@@ -43,30 +26,67 @@ class CoreDataManager: NSObject {
     }()
 
     // MARK: - Core Data Saving support
-
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
-
-    // MARK: - Generator
-
 }
 
 extension CoreDataManager {
     func applicationDocumentsDirectory() {
-        // The directory the application uses to store the Core Data store file. This code uses a directory named "yo.BlogReaderApp" in the application's documents directory.
+        // The directory the application uses to store the Core Data store file.
         if let url = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last {
             print(url.absoluteString)
+        }
+    }
+}
+
+// MARK: - Generator
+extension CoreDataManager {
+    private func createGeneratorRuneEntityFrom(_ node: GenerationRuneModel) {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+
+        guard let generatorEntity = NSEntityDescription.insertNewObject(forEntityName: "GeneratorRuneCoreDataModel", into: context) as? GeneratorRuneCoreDataModel,
+              let generatorRuneImageEntity = NSEntityDescription.insertNewObject(forEntityName: "GeneratorRuneImageCoreDataModel", into: context) as? GeneratorRuneImageCoreDataModel else { return }
+
+        generatorEntity.id = node.id
+        generatorEntity.title = node.title
+        generatorEntity.runeDescription = node.description
+        generatorRuneImageEntity.image = node.image.image.pngData()
+        generatorRuneImageEntity.height = Float(node.image.height ?? 0.0)
+        generatorRuneImageEntity.width = Float(node.image.width ?? 0.0)
+        generatorEntity.runeImage = generatorRuneImageEntity
+    }
+
+    func saveInCoreDataWith(_ nodes: [GenerationRuneModel]) {
+        nodes.forEach { self.createGeneratorRuneEntityFrom($0) }
+
+        do {
+            try CoreDataManager.shared.persistentContainer.viewContext.save()
+        } catch let error {
+            print(error)
+        }
+    }
+
+    func clearGeneratorData() {
+        do {
+            let context = CoreDataManager.shared.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: GeneratorRuneCoreDataModel.self))
+            do {
+                let objects  = try context.fetch(fetchRequest) as? [NSManagedObject]
+                print("Objects count: ", objects?.count as Any)
+                _ = objects.map{$0.map{context.delete($0)}}
+                CoreDataManager.shared.saveContext()
+            } catch let error {
+                print("ERROR DELETING : \(error)")
+            }
         }
     }
 }

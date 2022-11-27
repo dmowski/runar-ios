@@ -14,15 +14,12 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     private var selectDeligate: ((SelectRuneCell) -> Void)?
     internal var selectedRunesCount: Int = 0
     private var runes: [SelectRuneCell] = []
-    private lazy var persistentContainer: NSPersistentContainer = {
-        return CoreDataManager.shared.persistentContainer
-    }()
     private lazy var fetchedResultsController: NSFetchedResultsController<GeneratorRuneCoreDataModel> = {
         let fetchRequest: NSFetchRequest<GeneratorRuneCoreDataModel> = GeneratorRuneCoreDataModel.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
 
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                    managedObjectContext: persistentContainer.viewContext,
+                                                    managedObjectContext: CoreDataManager.shared.persistentContainer.viewContext,
                                                     sectionNameKeyPath: nil, cacheName: nil)
         controller.delegate = self
         return controller

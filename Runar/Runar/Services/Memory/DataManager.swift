@@ -86,55 +86,13 @@ final class DataManager {
 
         // Enter data into the GenerationRunes memory storage
         MemoryStorage.GenerationRunes = GenerationRuneModel.create(fromData: runesData)
-        print("Memory storage count: ", MemoryStorage.GenerationRunes.count)
-        generatorIsLoaded = true
 
-        clearData()
+        CoreDataManager.shared.clearGeneratorData()
         print("\n Generator data clear from Core Data \n")
 
         print("\n Generator data saving in Core Data \n")
-        saveInCoreDataWith(MemoryStorage.GenerationRunes)
+        CoreDataManager.shared.saveInCoreDataWith(MemoryStorage.GenerationRunes)
         print("\n Generator data is saved in Core Data \n")
-    }
-
-    private func createGeneratorRuneEntityFrom(_ node: GenerationRuneModel) {
-        let context = CoreDataManager.shared.persistentContainer.viewContext
-
-        guard let generatorEntity = NSEntityDescription.insertNewObject(forEntityName: "GeneratorRuneCoreDataModel", into: context) as? GeneratorRuneCoreDataModel,
-              let generatorRuneImageEntity = NSEntityDescription.insertNewObject(forEntityName: "GeneratorRuneImageCoreDataModel", into: context) as? GeneratorRuneImageCoreDataModel else { return }
-
-        generatorEntity.id = node.id
-        generatorEntity.title = node.title
-        generatorEntity.runeDescription = node.description
-        generatorRuneImageEntity.image = node.image.image.pngData()
-        generatorRuneImageEntity.height = Float(node.image.height ?? 0.0)
-        generatorRuneImageEntity.width = Float(node.image.width ?? 0.0)
-        generatorEntity.runeImage = generatorRuneImageEntity
-    }
-
-    private func saveInCoreDataWith(_ nodes: [GenerationRuneModel]) {
-//        _ = nodes.map{ self.createGeneratorRuneEntityFrom($0) }
-        nodes.forEach { self.createGeneratorRuneEntityFrom($0) }
-
-        do {
-            try CoreDataManager.shared.persistentContainer.viewContext.save()
-        } catch let error {
-            print(error)
-        }
-    }
-
-    private func clearData() {
-        do {
-            let context = CoreDataManager.shared.persistentContainer.viewContext
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: GeneratorRuneCoreDataModel.self))
-            do {
-                let objects  = try context.fetch(fetchRequest) as? [NSManagedObject]
-                print("Objects count: ", objects?.count as Any)
-                _ = objects.map{$0.map{context.delete($0)}}
-                CoreDataManager.shared.saveContext()
-            } catch let error {
-                print("ERROR DELETING : \(error)")
-            }
-        }
+        generatorIsLoaded = true
     }
 }
