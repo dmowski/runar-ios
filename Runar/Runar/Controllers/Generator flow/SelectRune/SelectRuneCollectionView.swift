@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -13,6 +14,19 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     private var selectDeligate: ((SelectRuneCell) -> Void)?
     internal var selectedRunesCount: Int = 0
     private var runes: [SelectRuneCell] = []
+    private lazy var persistentContainer: NSPersistentContainer = {
+        return CoreDataManager.shared.persistentContainer
+    }()
+    private lazy var fetchedResultsController: NSFetchedResultsController<GeneratorRuneCoreDataModel> = {
+        let fetchRequest: NSFetchRequest<GeneratorRuneCoreDataModel> = GeneratorRuneCoreDataModel.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+
+        let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                    managedObjectContext: persistentContainer.viewContext,
+                                                    sectionNameKeyPath: nil, cacheName: nil)
+        controller.delegate = self
+        return controller
+    }()
     
     override public init(frame: CGRect, collectionViewLayout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: collectionViewLayout)
@@ -35,7 +49,13 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     }
     
     func setupRunes() {
-        let generatorNodes = MemoryStorage.GenerationRunes
+        runes.removeAll()
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("###\(#function): Failed to performFetch: \(error)")
+        }
+        guard let generatorNodes = fetchedResultsController.fetchedObjects else { return }
         for (index, rune) in generatorNodes.enumerated() {
 
             let indexPath = IndexPath(row: index, section: 1)
@@ -69,7 +89,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return MemoryStorage.GenerationRunes.count
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
                 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -99,5 +119,11 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     
     func getRune(at index: Int) -> SelectRuneCell {
         return self.runes[index]
+    }
+}
+
+extension SelectRuneCollectionView: NSFetchedResultsControllerDelegate {
+    public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.reloadData()
     }
 }

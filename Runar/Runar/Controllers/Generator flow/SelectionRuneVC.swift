@@ -269,7 +269,8 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             for cell in (self.selectedRunesView.visibleCells as? [SelectedRuneCell])!.sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
                 if !cell.isSelected {
                     guard let title = rune.model?.title,
-                          let image = rune.model?.image.image,
+                          let imageData = rune.model?.runeImage?.image,
+                          let image = UIImage(data: imageData),
                           let id = rune.model?.id else { return }
 
                     cell.selectRune(SelectedRuneModel(title: title,
@@ -321,7 +322,8 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             for cell in (self.selectedRunesView.visibleCells as! [SelectedRuneCell]).sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
                 if !cell.isSelected {
                     guard let title = rune.model?.title,
-                          let image = rune.model?.image.image,
+                          let imageData = rune.model?.runeImage?.image,
+                          let image = UIImage(data: imageData),
                           let id = rune.model?.id else { return }
 
                     cell.selectRune(SelectedRuneModel(title: title,
