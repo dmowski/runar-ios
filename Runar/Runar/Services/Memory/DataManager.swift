@@ -6,12 +6,10 @@
 //
 
 import UIKit
-import CoreData
 
 final class DataManager {
-    static let shared = DataManager()
 
-    var generatorIsLoaded: Bool = false
+    static let shared = DataManager()
     var libraryIsLoaded: Bool = false
 
     // Download data when launching the application
@@ -80,19 +78,15 @@ final class DataManager {
     // MARK: - Load generator
     private func loadGeneratorData() {
         // Download data from server
-        print("\n Generator data downloading \n")
         guard let runesData = RunarApi.getRunesData() else { fatalError("Runes is empty") }
-        print("\n Generator data is downloaded \n")
 
         // Enter data into the GenerationRunes memory storage
         MemoryStorage.GenerationRunes = GenerationRuneModel.create(fromData: runesData)
 
+        // Clear Generator Core Data
         CoreDataManager.shared.clearGeneratorData()
-        print("\n Generator data clear from Core Data \n")
 
-        print("\n Generator data saving in Core Data \n")
-        CoreDataManager.shared.saveInCoreDataWith(MemoryStorage.GenerationRunes)
-        print("\n Generator data is saved in Core Data \n")
-        generatorIsLoaded = true
+        // Create and save Generator Core Data
+        CoreDataManager.shared.saveGeneratorInCoreDataWith(MemoryStorage.GenerationRunes)
     }
 }

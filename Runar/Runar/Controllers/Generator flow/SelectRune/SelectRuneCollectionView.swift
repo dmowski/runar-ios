@@ -14,6 +14,8 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     private var selectDeligate: ((SelectRuneCell) -> Void)?
     internal var selectedRunesCount: Int = 0
     private var runes: [SelectRuneCell] = []
+    var selectedCells: [SelectedRuneCell] = []
+    var generatorSavedInCoreData: Bool = false
     private lazy var fetchedResultsController: NSFetchedResultsController<GeneratorRuneCoreDataModel> = {
         let fetchRequest: NSFetchRequest<GeneratorRuneCoreDataModel> = GeneratorRuneCoreDataModel.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
@@ -21,7 +23,6 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                     managedObjectContext: CoreDataManager.shared.persistentContainer.viewContext,
                                                     sectionNameKeyPath: nil, cacheName: nil)
-        controller.delegate = self
         return controller
     }()
     
@@ -44,14 +45,27 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
         
         register(SelectRuneCell.self, forCellWithReuseIdentifier: cellId)
     }
-    
-    func setupRunes() {
-        runes.removeAll()
+
+    func fetchDataFromCoreData() {
         do {
             try fetchedResultsController.performFetch()
         } catch {
             fatalError("###\(#function): Failed to performFetch: \(error)")
         }
+
+        let objects = fetchCountRunesFromCoreData()
+        guard objects > 0 else { return }
+        generatorSavedInCoreData = true
+    }
+
+    func fetchCountRunesFromCoreData() -> Int {
+        guard let objects = fetchedResultsController.fetchedObjects else { return 0 }
+        return objects.count
+    }
+    
+    func setupRunes() {
+        runes.removeAll()
+        fetchDataFromCoreData()
         guard let generatorNodes = fetchedResultsController.fetchedObjects else { return }
         for (index, rune) in generatorNodes.enumerated() {
 
@@ -61,10 +75,14 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
             if (cell.model == nil) {
                 cell.setRune(rune, indexPath)
                 cell.runeImage.addTarget(self, action: #selector(self.selectRune(runeImage:)), for: .touchUpInside)
+                selectedCells.forEach { selectedCell in
+                    guard selectedCell.runeName.text == cell.model?.title else { return }
+                    cell.runeImage.isEnabled = false
+                }
             }
             
             if SubscriptionManager.freeSubscription == true {
-                if DataManager.shared.generatorIsLoaded || generatorNodes.count > 7 {
+                if generatorSavedInCoreData || generatorNodes.count > 7 {
                     for indexUnavailable in 7..<generatorNodes.count {
                         if indexPath == IndexPath(row: indexUnavailable, section: 1) {
                             cell.unavailableRune()
@@ -86,7 +104,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        return fetchCountRunesFromCoreData()
     }
                 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -104,7 +122,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     @objc func selectRune(runeImage: UIButton) {
         if (self.selectedRunesCount < 3) {
             let cell = runeImage.superview as! SelectRuneCell
-            
+
             self.selectDeligate!(cell)
         }
     }
@@ -116,11 +134,5 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     
     func getRune(at index: Int) -> SelectRuneCell {
         return self.runes[index]
-    }
-}
-
-extension SelectRuneCollectionView: NSFetchedResultsControllerDelegate {
-    public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        self.reloadData()
     }
 }

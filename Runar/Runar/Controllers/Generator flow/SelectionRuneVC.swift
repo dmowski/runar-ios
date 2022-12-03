@@ -99,8 +99,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         selectRunesView.delegate = self
         configureNavigationBar()
 
-        let generatorIsLoaded: Bool = DataManager.shared.generatorIsLoaded
-        guard generatorIsLoaded else { return setupActivityIndicator() }
+        guard selectRunesView.generatorSavedInCoreData else { return setupActivityIndicator() }
         setupViews()
     }
     
@@ -294,7 +293,13 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     }
 
     func update() {
-        setupViews()
+        if let cells = selectedRunesView.visibleCells as? [SelectedRuneCell] {
+            cells.forEach { selectRunesView.selectedCells.append($0) }
+        }
+
+        if !selectRunesView.generatorSavedInCoreData {
+            setupViews()
+        }
         activityIndicatorView.isHidden = true
         activityIndicatorView.stopAnimating()
         selectRunesView.setupRunes()
@@ -304,7 +309,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     @objc func selectRandomRunesOnTap() {
         self.selectedRunesView.deselectAll()
 
-        var maxRunes = MemoryStorage.GenerationRunes.count
+        var maxRunes = selectRunesView.fetchCountRunesFromCoreData()
 
         if SubscriptionManager.freeSubscription == true {
             maxRunes = 7

@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class CoreDataManager: NSObject {
 
@@ -53,8 +54,11 @@ extension CoreDataManager {
     private func createGeneratorRuneEntityFrom(_ node: GenerationRuneModel) {
         let context = CoreDataManager.shared.persistentContainer.viewContext
 
-        guard let generatorEntity = NSEntityDescription.insertNewObject(forEntityName: "GeneratorRuneCoreDataModel", into: context) as? GeneratorRuneCoreDataModel,
-              let generatorRuneImageEntity = NSEntityDescription.insertNewObject(forEntityName: "GeneratorRuneImageCoreDataModel", into: context) as? GeneratorRuneImageCoreDataModel else { return }
+        guard let generatorEntity = NSEntityDescription.insertNewObject(forEntityName: "GeneratorRuneCoreDataModel",
+                                                                        into: context) as? GeneratorRuneCoreDataModel,
+              let generatorRuneImageEntity = NSEntityDescription.insertNewObject(forEntityName: "GeneratorRuneImageCoreDataModel",
+                                                                                 into: context) as? GeneratorRuneImageCoreDataModel
+        else { return }
 
         generatorEntity.id = node.id
         generatorEntity.title = node.title
@@ -65,7 +69,7 @@ extension CoreDataManager {
         generatorEntity.runeImage = generatorRuneImageEntity
     }
 
-    func saveInCoreDataWith(_ nodes: [GenerationRuneModel]) {
+    func saveGeneratorInCoreDataWith(_ nodes: [GenerationRuneModel]) {
         nodes.forEach { self.createGeneratorRuneEntityFrom($0) }
 
         do {
@@ -81,9 +85,8 @@ extension CoreDataManager {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: GeneratorRuneCoreDataModel.self))
             do {
                 let objects  = try context.fetch(fetchRequest) as? [NSManagedObject]
-                print("Objects count: ", objects?.count as Any)
-                _ = objects.map{$0.map{context.delete($0)}}
-                CoreDataManager.shared.saveContext()
+                objects?.forEach { context.delete($0) }
+                saveContext()
             } catch let error {
                 print("ERROR DELETING : \(error)")
             }
