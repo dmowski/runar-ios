@@ -8,9 +8,13 @@
 import UIKit
 
 final class DataManager {
+    static let shared = DataManager()
 
-    // Checking the downloaded data when launching the application
-    func checkLoadedData() {
+    var generatorIsLoaded: Bool = false
+    var libraryIsLoaded: Bool = false
+
+    // Download data when launching the application
+    func fetchData() {
         // Get library data on background queue
         DispatchQueue.global(qos: .userInteractive).async {
             self.loadLibraryData()
@@ -67,15 +71,9 @@ final class DataManager {
         // Download data from server
         guard let libraryData = RunarApi.getLibratyData() else { fatalError("Library is empty") }
 
-        // Remove all nodes if they are not empty
-        let libraryCoreDataToDelete = CoreDataManager.shared.fetchAllLibraryNodes()
-        if !libraryCoreDataToDelete.isEmpty {
-            CoreDataManager.shared.deleteAllLibraryNodes()
-        }
-
-        // Enter data into the core date
-        CoreDataManager.shared.createLibrary(fromData: libraryData)
-        CoreDataManager.shared.libraryIsLoaded = true
+        // Enter data into the Library memory storage
+        MemoryStorage.Library = LibraryNode.create(fromData: libraryData)
+        libraryIsLoaded = true
     }
 
     // MARK: - Load generator
@@ -83,14 +81,8 @@ final class DataManager {
         // Download data from server
         guard let runesData = RunarApi.getRunesData() else { fatalError("Runes is empty") }
 
-        // Remove all nodes if they are not empty
-        let generatorCoreDataToDelete = CoreDataManager.shared.fetchAllGeneratorNodes()
-        if !generatorCoreDataToDelete.isEmpty {
-            CoreDataManager.shared.deleteAllGeneratorNodes()
-        }
-
-        // Enter data into the core date
-        CoreDataManager.shared.createGenerator(fromData: runesData)
-        CoreDataManager.shared.generatorIsLoaded = true
+        // Enter data into the GenerationRunes memory storage
+        MemoryStorage.GenerationRunes = GenerationRuneModel.create(fromData: runesData)
+        generatorIsLoaded = true
     }
 }

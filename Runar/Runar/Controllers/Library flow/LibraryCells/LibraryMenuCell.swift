@@ -10,7 +10,7 @@ import UIKit
 public class LibraryMenuCell: LibraryCell {
     
     //MARK: - Funcs
-    public override func bind(node: LibraryCoreData) -> Void {
+    public override func bind(node: LibraryNode) -> Void {
 
         addArrow()
         

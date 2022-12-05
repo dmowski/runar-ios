@@ -35,8 +35,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     }
     
     func setupRunes() {
-        runes.removeAll()
-        let generatorNodes = CoreDataManager.shared.fetchAllGeneratorNodes()
+        let generatorNodes = MemoryStorage.GenerationRunes
         for (index, rune) in generatorNodes.enumerated() {
 
             let indexPath = IndexPath(row: index, section: 1)
@@ -48,7 +47,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
             }
             
             if SubscriptionManager.freeSubscription == true {
-                if CoreDataManager.shared.generatorIsLoaded || generatorNodes.count > 7 {
+                if DataManager.shared.generatorIsLoaded || generatorNodes.count > 7 {
                     for indexUnavailable in 7..<generatorNodes.count {
                         if indexPath == IndexPath(row: indexUnavailable, section: 1) {
                             cell.unavailableRune()
@@ -70,7 +69,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return CoreDataManager.shared.fetchAllGeneratorNodes().count
+        return MemoryStorage.GenerationRunes.count
     }
                 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

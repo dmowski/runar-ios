@@ -23,12 +23,6 @@ class GeneratorVC: UIViewController {
     let stavesLabel = UILabel()
     let stavesImageView = UIImageView()
 
-    let popupVC: GenerationPopUpViewController = {
-        let viewController = GenerationPopUpViewController()
-        viewController.modalPresentationStyle = .overCurrentContext
-        return viewController
-    }()
-
     public override func viewDidLoad() {
         super.viewDidLoad()
         RunarLayout.initBackground(for: view, with: .mainFire)
@@ -133,7 +127,6 @@ class GeneratorVC: UIViewController {
         formulaView.layer.borderWidth = 1
         formulaView.layer.borderColor = UIColor(red: 0.824, green: 0.769, blue: 0.678, alpha: 0.6).cgColor
         formulaView.layer.backgroundColor = UIColor(red: 0.063, green: 0.063, blue: 0.063, alpha: 0.35).cgColor
-        formulaView.addTarget(self, action: #selector(self.showFormulaPopupTap), for: .touchUpInside)
         view.addSubviews(formulaView)
         formulaView.snp.makeConstraints { make in
             if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
@@ -181,7 +174,6 @@ class GeneratorVC: UIViewController {
         stavesView.layer.borderWidth = 1
         stavesView.layer.borderColor = UIColor(red: 0.824, green: 0.769, blue: 0.678, alpha: 0.6).cgColor
         stavesView.layer.backgroundColor = UIColor(red: 0.063, green: 0.063, blue: 0.063, alpha: 0.35).cgColor
-        stavesView.addTarget(self, action: #selector(self.showStavesPopupTap), for: .touchUpInside)
         view.addSubviews(stavesView)
         stavesView.snp.makeConstraints { make in
             if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
@@ -224,29 +216,5 @@ class GeneratorVC: UIViewController {
 
     @objc private func tapWithoutPopUp() {
         self.navigationController?.pushViewController(SelectionRuneVC(), animated: true)
-    }
-
-    @objc private func showFormulaPopupTap() {
-        
-        popupVC.setupPopUp(image: Assets.runeFormula.image,
-                                   header: L10n.Generator.RuneFormula.title,
-                                   description: L10n.Generator.RuneFormula.description)
-        popupVC.submitButton.isHidden = true
-        self.addChild(popupVC)
-        self.view.addSubview(popupVC.view)
-        popupVC.view.frame = self.view.bounds
-        popupVC.didMove(toParent: self)
-    }
-    
-    @objc private func showStavesPopupTap() {
-        
-        popupVC.setupPopUp(image: Assets.runeStaves.image,
-                                   header: L10n.Generator.RuneStaves.title,
-                                   description: L10n.Generator.RuneStaves.description)
-        popupVC.submitButton.isHidden = true
-        self.addChild(popupVC)
-        self.view.addSubview(popupVC.view)
-        popupVC.view.frame = self.view.bounds
-        popupVC.didMove(toParent: self)
     }
 }

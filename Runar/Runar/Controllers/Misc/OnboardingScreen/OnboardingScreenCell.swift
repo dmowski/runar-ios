@@ -45,17 +45,25 @@ class OnboardingScreenCell: UICollectionViewCell {
     }
     
     private func configureOnboardingDescription() {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.08
         onboardingDescription.font = FontFamily.SFProDisplay.regular.font(size: 17)
         onboardingDescription.textColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
+        onboardingDescription.attributedText = NSAttributedString(
+            string: self.description,
+            attributes: [
+                NSAttributedString.Key.kern: 0.41,
+                NSAttributedString.Key.paragraphStyle: paragraphStyle
+            ])
         onboardingDescription.textAlignment = .center
-        onboardingDescription.numberOfLines = 3
+        onboardingDescription.numberOfLines = 0
         onboardingDescription.lineBreakMode = .byWordWrapping
         onboardingDescription.backgroundColor = .clear
         contentView.addSubview(onboardingDescription)
         onboardingDescription.snp.makeConstraints { make in
             make.top.equalTo(onboardingSlideTitle.snp.bottom).offset(32)
             make.width.equalTo(230)
-            make.height.equalTo(61)
+            make.height.equalTo(70)
             make.centerX.equalTo(contentView)
         }
     }

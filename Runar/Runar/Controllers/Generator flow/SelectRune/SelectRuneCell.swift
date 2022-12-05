@@ -9,9 +9,9 @@ import UIKit
 
 class SelectRuneCell: UICollectionViewCell {
 
-    public var model: GeneratorCoreData?
+    public var model: GenerationRuneModel?
     public var indexPath: IndexPath = IndexPath()
-    public var isUnavailableRune: Bool?
+    public var isUnavailableRune: Bool = false
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,12 +43,11 @@ class SelectRuneCell: UICollectionViewCell {
         ])
     }
     
-    public func setRune(_ rune: GeneratorCoreData, _ indexPath: IndexPath) {
+    public func setRune(_ rune: GenerationRuneModel, _ indexPath: IndexPath) {
         self.model = rune
         self.indexPath = indexPath
 
-        guard let imageData = rune.runeImage?.image else { return }
-        let image = UIImage(data: imageData)
+        let image = rune.image.image
         runeImage.setBackgroundImage(image, for: .normal)
     }
     

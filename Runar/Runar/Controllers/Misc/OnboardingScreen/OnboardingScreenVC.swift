@@ -14,7 +14,8 @@ class OnboardingScreenVC: UIViewController {
     
     var currentPage = 0 {
         didSet {
-            contentView.onboardingPageControl.currentPage = currentPage
+            contentView.pageControll.currentPage = currentPage
+            contentView.configureCustomPageControll()
             if currentPage == onboardingModel.count - 1 {
                 contentView.onboardingNextSlideButton.setTitle(L10n.Onboarding.start, for: .normal)
             } else {
