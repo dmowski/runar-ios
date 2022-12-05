@@ -9,7 +9,7 @@ import UIKit
 
 public extension UIImage {
     static func create(fromUrl url: String) -> UIImage? {
-        let imageData: Data = RunarApi.getData(byUrl: url)!
+        guard let imageData: Data = RunarApi.getData(byUrl: url) else { return nil }
         
         return UIImage(data: imageData)
     }

@@ -32,7 +32,7 @@ class ImageFileManager {
         }
     }
 
-    func readImageFromFile(_ fileName: String) -> UIImage {
+    func readImageFromFile(_ fileName: String) -> UIImage? {
         let fileURL = URL(fileURLWithPath: fileName, relativeTo: directoryURL)
         var image = Assets.emptyErrorImage.image
 
@@ -42,13 +42,14 @@ class ImageFileManager {
             image = savedImage
         } catch {
             print("Reading file resulted with error: \(error.localizedDescription)")
+            return nil
         }
 
         return image
     }
 
     func getImagesWithBackground() -> [UIImage?] {
-        var returnArrayOfImages: [UIImage?] = []
+        var arrayOfImages: [UIImage?] = []
 
         do {
             let imagesNames = try FileManager.default.contentsOfDirectory(atPath: directoryURL.path)
@@ -59,14 +60,36 @@ class ImageFileManager {
                     $0.elementsEqual(Images.choosedWallpapersWithDarkVertical.rawValue) ||
                     $0.elementsEqual(Images.choosedWallpapersWithWpForest.rawValue) {
                     
-                    returnArrayOfImages.append(self.readImageFromFile($0))
+                    arrayOfImages.append(self.readImageFromFile($0))
                 }
             }
         } catch {
             print(error.localizedDescription)
         }
 
-        return returnArrayOfImages
+        return arrayOfImages
+    }
+    
+    func getNamesImagesWithoutBackground() -> [String] {
+        var arrayOfImages = [String]()
+        
+        do {
+            let imagesNames = try FileManager.default.contentsOfDirectory(atPath: directoryURL.path)
+
+            imagesNames.forEach {
+                if !$0.elementsEqual(Images.choosedWallpapersWithBlackHorizontal.rawValue) &&
+                    !$0.elementsEqual(Images.choosedWallpapersWithWpBark.rawValue) &&
+                    !$0.elementsEqual(Images.choosedWallpapersWithDarkVertical.rawValue) &&
+                    !$0.elementsEqual(Images.choosedWallpapersWithWpForest.rawValue) {
+                    
+                    arrayOfImages.append($0)
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return arrayOfImages
     }
 
     func removeImagesFromMemory() {

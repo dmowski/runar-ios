@@ -27,7 +27,11 @@ struct EmptyWallpaper {
 
 class ProcessingVC: UIViewController {
     
+    let queue = OperationQueue()
+    let operation = Operation()
+    
     var viewModel: ProcessingVM!
+    var emptyWallpapers = [EmptyWallpaper]()
     
     var ifGenerateWallpapers: Bool?
     var runesIds: [String]?
@@ -44,10 +48,11 @@ class ProcessingVC: UIViewController {
     }
     
     private func generateWallpapers() {
-        
+
         if ifGenerateWallpapers == true {
+            
             if let runesIds = runesIds {
-                DispatchQueue.main.async {
+                DispatchQueue.global(qos: .userInitiated).async {
                     self.generateEmptyWallpapers(runesIds: runesIds)
                 }
             } else {
@@ -78,8 +83,6 @@ class ProcessingVC: UIViewController {
         guard let data = RunarApi.getEmptyWallpapersData(runsIds: runesIds) else { return }
         guard let emptyWallpapersUrls = try? JSONDecoder().decode([String].self, from: data) else { return }
         
-        var emptyWallpapers = [EmptyWallpaper]()
-        
         for url in emptyWallpapersUrls {
             
             if let separated = url.split(separator: "/").last {
@@ -91,20 +94,22 @@ class ProcessingVC: UIViewController {
                 emptyWallpapers.append(emptyWallpaper)
             }
         }
-
-        downloadEmptyWallpapers(emptyWallpapers)
-        
-        self.delegate?.navigationController?.popViewController(animated: false)
-        let emptyWallpaperViewController = EmptyWallpaperVC(emptyWallpapers: emptyWallpapers)
-        self.delegate?.navigationController?.pushViewController(emptyWallpaperViewController, animated: true)
+        self.downloadEmptyWallpapers(emptyWallpapers)
     }
     
     private func downloadEmptyWallpapers(_ emptyWallpapers: [EmptyWallpaper]) {
         
-        for emptyWallpaper in emptyWallpapers {
+        ImageFileManager.shared.removeImagesFromMemory()
         
-            guard let image = UIImage.create(fromUrl: emptyWallpaper.url) else { return }
-            ImageFileManager.shared.writeImageToFile(image: image, fileName: emptyWallpaper.name)
+        queue.maxConcurrentOperationCount = 5
+        queue.underlyingQueue = .global(qos: .userInitiated)
+        
+        for (index, emptyWallpaper) in emptyWallpapers.enumerated() {
+            let operation = DownloadOperation()
+            operation.emptyWallpaper = emptyWallpaper
+            operation.index = index
+            operation.count = emptyWallpapers.count
+            queue.addOperation(operation)
         }
     }
     
@@ -113,7 +118,16 @@ class ProcessingVC: UIViewController {
 
         CATransaction.begin()
         CATransaction.setCompletionBlock({
+            
+            
             self.viewModel.closeTransition()
+            self.delegate?.navigationController?.popViewController(animated: false)
+            let emptyWallpaperViewController = EmptyWallpaperVC(emptyWallpapers: self.emptyWallpapers) {
+                self.queue.cancelAllOperations()
+            }
+            self.delegate?.navigationController?.pushViewController(emptyWallpaperViewController, animated: true)
+            
+            
         })
         configureShapeLayer()
         backgroundLayer.layer.addSublayer(shapeLayer)
@@ -368,5 +382,22 @@ class ProcessingVC: UIViewController {
     
     func changeAnimationDuration(duration: Int) {
         basicAnimation.duration = CFTimeInterval(duration)
+    }
+}
+
+class DownloadOperation: Operation {
+    var emptyWallpaper: EmptyWallpaper?
+    var index: Int?
+    var count: Int?
+    
+    override func main() {
+        
+        guard let index = index,
+              let count = count,
+              let emptyWallpaper = emptyWallpaper,
+              let image = UIImage.create(fromUrl: emptyWallpaper.url) else { return }
+
+        ImageFileManager.shared.writeImageToFile(image: image, fileName: emptyWallpaper.name)
+        print("Image \(index + 1)/\(count) downloaded")
     }
 }
