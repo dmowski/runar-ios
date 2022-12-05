@@ -104,11 +104,9 @@ class ProcessingVC: UIViewController {
         queue.maxConcurrentOperationCount = 5
         queue.underlyingQueue = .global(qos: .userInitiated)
         
-        for (index, emptyWallpaper) in emptyWallpapers.enumerated() {
+        for emptyWallpaper in emptyWallpapers {
             let operation = DownloadOperation()
             operation.emptyWallpaper = emptyWallpaper
-            operation.index = index
-            operation.count = emptyWallpapers.count
             queue.addOperation(operation)
         }
     }
@@ -387,17 +385,12 @@ class ProcessingVC: UIViewController {
 
 class DownloadOperation: Operation {
     var emptyWallpaper: EmptyWallpaper?
-    var index: Int?
-    var count: Int?
     
     override func main() {
         
-        guard let index = index,
-              let count = count,
-              let emptyWallpaper = emptyWallpaper,
+        guard let emptyWallpaper = emptyWallpaper,
               let image = UIImage.create(fromUrl: emptyWallpaper.url) else { return }
 
         ImageFileManager.shared.writeImageToFile(image: image, fileName: emptyWallpaper.name)
-        print("Image \(index + 1)/\(count) downloaded")
     }
 }
