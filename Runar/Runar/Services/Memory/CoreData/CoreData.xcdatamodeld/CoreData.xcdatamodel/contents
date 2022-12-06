@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="GeneratorRuneCoreDataModel" representedClassName=".GeneratorRuneCoreDataModel" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="runeDescription" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="runeImage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeneratorRuneImageCoreDataModel" inverseName="parent" inverseEntity="GeneratorRuneImageCoreDataModel"/>
+    </entity>
+    <entity name="GeneratorRuneImageCoreDataModel" representedClassName=".GeneratorRuneImageCoreDataModel" syncable="YES">
+        <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="width" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeneratorRuneCoreDataModel" inverseName="runeImage" inverseEntity="GeneratorRuneCoreDataModel"/>
+    </entity>
+</model>

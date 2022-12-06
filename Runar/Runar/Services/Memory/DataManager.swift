@@ -8,9 +8,8 @@
 import UIKit
 
 final class DataManager {
-    static let shared = DataManager()
 
-    var generatorIsLoaded: Bool = false
+    static let shared = DataManager()
     var libraryIsLoaded: Bool = false
 
     // Download data when launching the application
@@ -83,6 +82,11 @@ final class DataManager {
 
         // Enter data into the GenerationRunes memory storage
         MemoryStorage.GenerationRunes = GenerationRuneModel.create(fromData: runesData)
-        generatorIsLoaded = true
+
+        // Clear Generator Core Data
+        CoreDataManager.shared.clearGeneratorData()
+
+        // Create and save Generator Core Data
+        CoreDataManager.shared.saveGeneratorInCoreDataWith(MemoryStorage.GenerationRunes)
     }
 }

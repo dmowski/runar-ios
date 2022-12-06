@@ -128,6 +128,12 @@
 		9C1F8E8228FF07480073542F /* FirstScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F8E8128FF07480073542F /* FirstScreenVC.swift */; };
 		9C3D6C5F292CDCF80027DE58 /* GenerationRuneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C5E292CDCF80027DE58 /* GenerationRuneModel.swift */; };
 		9C3D6C61292CE3770027DE58 /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C60292CE3770027DE58 /* MemoryStorage.swift */; };
+		9C3D6C7D2933BC200027DE58 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C7C2933BC200027DE58 /* CoreDataManager.swift */; };
+		9C3D6C802933BC580027DE58 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C7E2933BC580027DE58 /* CoreData.xcdatamodeld */; };
+		9C3D6C862933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C822933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataProperties.swift */; };
+		9C3D6C872933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C832933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataClass.swift */; };
+		9C3D6C882933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C842933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataProperties.swift */; };
+		9C3D6C892933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C852933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataClass.swift */; };
 		9CAEF57829220F66006C0EF9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEF57729220F66006C0EF9 /* DataManager.swift */; };
 		C22B4DB42858AD2800F6245C /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B4DB32858AD2800F6245C /* String + Extensions.swift */; };
 		C22F6E4127C3CEFF005F8B66 /* EmptyWallpaperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */; };
@@ -302,6 +308,12 @@
 		9C1F8E8128FF07480073542F /* FirstScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenVC.swift; sourceTree = "<group>"; };
 		9C3D6C5E292CDCF80027DE58 /* GenerationRuneModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerationRuneModel.swift; sourceTree = "<group>"; };
 		9C3D6C60292CE3770027DE58 /* MemoryStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
+		9C3D6C7C2933BC200027DE58 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		9C3D6C7F2933BC580027DE58 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		9C3D6C822933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeneratorRuneImageCoreDataModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9C3D6C832933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeneratorRuneImageCoreDataModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9C3D6C842933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeneratorRuneCoreDataModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9C3D6C852933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeneratorRuneCoreDataModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9CAEF57729220F66006C0EF9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22B4DB32858AD2800F6245C /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
@@ -498,6 +510,7 @@
 				9C3D6C60292CE3770027DE58 /* MemoryStorage.swift */,
 				8477222D2643C9CA001C280D /* LocalStorage.swift */,
 				677C11E7289C726900CEA5D2 /* ImageFileManager.swift */,
+				9C3D6C7B2933BBD10027DE58 /* CoreData */,
 			);
 			path = Memory;
 			sourceTree = "<group>";
@@ -828,6 +841,27 @@
 				9C1F8E8128FF07480073542F /* FirstScreenVC.swift */,
 			);
 			path = FirstScreen;
+			sourceTree = "<group>";
+		};
+		9C3D6C7B2933BBD10027DE58 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				9C3D6C7C2933BC200027DE58 /* CoreDataManager.swift */,
+				9C3D6C7E2933BC580027DE58 /* CoreData.xcdatamodeld */,
+				9C3D6C812933BD0F0027DE58 /* Models */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		9C3D6C812933BD0F0027DE58 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9C3D6C832933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataClass.swift */,
+				9C3D6C822933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataProperties.swift */,
+				9C3D6C852933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataClass.swift */,
+				9C3D6C842933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataProperties.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A2A5CAEB8FFCA1990E63BEE2 /* Pods */ = {
@@ -1263,6 +1297,7 @@
 			files = (
 				849ED285266E3251006E557A /* LibraryPoemCell.swift in Sources */,
 				849ED294266E74B9006E557A /* LibraryMenuCell.swift in Sources */,
+				9C3D6C892933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataClass.swift in Sources */,
 				C2C5584F283D9F59006B053C /* SelectedRuneCell.swift in Sources */,
 				84410672270ADA0400CD8B56 /* SelectedRuneCollectionView.swift in Sources */,
 				19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */,
@@ -1287,10 +1322,12 @@
 				9B9C266F25A2173200A4E135 /* DataBase.swift in Sources */,
 				195AEDC325B8C3A300180A49 /* AlignmentVC.swift in Sources */,
 				9BD98C972628A74200F3BBD7 /* AlertSettingsVC.swift in Sources */,
+				9C3D6C882933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataProperties.swift in Sources */,
 				1907851425C4236000434D57 /* FirstRuneView.swift in Sources */,
 				19C0F1FC25BAF9D00027422B /* MainCellModel.swift in Sources */,
 				968939DA28D094FB00057D2A /* OnboardingSlideModel.swift in Sources */,
 				19C0F21025BAFDCB0027422B /* AlignmentInfoVM.swift in Sources */,
+				9C3D6C862933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataProperties.swift in Sources */,
 				9911206E28611139001B8FCC /* TagsCell.swift in Sources */,
 				191D32CF25B7C46A001DC210 /* Assets.swift in Sources */,
 				19D9BAD625C9765C00418CE7 /* TwoRuneView.swift in Sources */,
@@ -1321,6 +1358,7 @@
 				19C0F20A25BAFCB20027422B /* Array + Extensions.swift in Sources */,
 				84D7E60B264BAED300772EE3 /* Environment.swift in Sources */,
 				C2C5584B283D9E33006B053C /* SlectedRuneModel.swift in Sources */,
+				9C3D6C7D2933BC200027DE58 /* CoreDataManager.swift in Sources */,
 				9BD22972258AD6EF00E17E98 /* MainCell.swift in Sources */,
 				9BAEB61D25F13412004B7761 /* Affirmation.swift in Sources */,
 				9C3D6C5F292CDCF80027DE58 /* GenerationRuneModel.swift in Sources */,
@@ -1337,6 +1375,7 @@
 				9B0CB8862607922B00B2AF60 /* DescriptionView.swift in Sources */,
 				8452A5F726F3A3700069DEE5 /* GeneratorVC.swift in Sources */,
 				844106602705B43E00CD8B56 /* GenerationPopUpViewController.swift in Sources */,
+				9C3D6C872933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataClass.swift in Sources */,
 				849ED28A266E33D4006E557A /* LibraryTextCell.swift in Sources */,
 				8440C514272016FD003D6B3C /* RuneData.swift in Sources */,
 				9BD98C962628A74200F3BBD7 /* LanguageCell.swift in Sources */,
@@ -1367,6 +1406,7 @@
 				9BAEB63425F18C3B004B7761 /* Interperitation+Ext.swift in Sources */,
 				84468380266392F900A0790B /* LibraryRuneCell.swift in Sources */,
 				193FFB382613319000D60171 /* CustomButton.swift in Sources */,
+				9C3D6C802933BC580027DE58 /* CoreData.xcdatamodeld in Sources */,
 				19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */,
 				9BD98C932628A74200F3BBD7 /* AppInfoVC.swift in Sources */,
 				9B0CB88B2607B6A000B2AF60 /* TopWithDescriptionView.swift in Sources */,
@@ -1707,6 +1747,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9C3D6C7E2933BC580027DE58 /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9C3D6C7F2933BC580027DE58 /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 9C3D6C7F2933BC580027DE58 /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9BD228F2258A321B00E17E98 /* Project object */;
 }
