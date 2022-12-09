@@ -7,9 +7,6 @@ workflows:
         BUNDLE_ID: "com.tnco.runar"
         XCODE_WORKSPACE: "Runar/Runar.xcworkspace"
         XCODE_SCHEME: "Runar" # <-- Name of your Xcode scheme
-      ios_signing:
-        distribution_type: app_store
-        bundle_identifier: com.tnco.runar
 
     scripts:
       - name: Build ipa for distribution
@@ -17,3 +14,9 @@ workflows:
           xcode-project build-ipa \
             --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" \
             --scheme "$XCODE_SCHEME"
+
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
