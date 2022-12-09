@@ -9,6 +9,9 @@ workflows:
         XCODE_SCHEME: "Runar" # <-- Name of your Xcode scheme
 
     scripts:
+      - name: pod install
+        script: pod install
+
       - name: Build ipa for distribution
         script: |
           xcode-project build-ipa \
