@@ -1,0 +1,21 @@
+workflows:
+  ios-workflow:
+    name: iOS Workflow
+    # ....
+    environment:
+      vars:
+        BUNDLE_ID: "com.tnco.runar"
+        XCODE_WORKSPACE: "Runar/Runar.xcworkspace"
+        XCODE_SCHEME: "Runar" # <-- Name of your Xcode scheme
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.tnco.runar
+
+  scripts:
+    - name: Build ipa for distribution
+      script: |
+        xcode-project build-ipa \
+          --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" \
+          --scheme "$XCODE_SCHEME"
+    - name: Set up code signing settings on Xcode project
+      script: xcode-project use-profiles
