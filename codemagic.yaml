@@ -8,6 +8,15 @@ workflows:
         XCODE_WORKSPACE: "Runar/Runar.xcworkspace"
         XCODE_SCHEME: "Runar" # <-- Name of your Xcode scheme
 
+    triggering:
+      events:
+        - pull_request
+      branch_patterns:
+        - pattern: "*"
+          include: true
+          source: true
+      cancel_previous_builds: false
+
     scripts:
       - name: pod install
         script: pod install
