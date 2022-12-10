@@ -28,6 +28,9 @@ workflows:
       - name: pod install
         script: pod install
 
+      - name: ls
+        script: ls
+
       - name: Build ipa for distribution
         working_directory: ios/ios-automatic-code-signing-demo-project
         script: |
