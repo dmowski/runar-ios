@@ -10,7 +10,7 @@
 	<string>app-store</string>
 	<key>provisioningProfiles</key>
 	<dict>
-		<key>com.msds.customer</key>
+		<key>com.tnco.runar</key>
 		<string>app_Distribution</string>
 	</dict>
 	<key>signingCertificate</key>
@@ -20,7 +20,7 @@
 	<key>stripSwiftSymbols</key>
 	<true/>
 	<key>teamID</key>
-	<string>xxxxxxxxxx</string>
+	<string>09221b43-7e4c-48c7-9acc-87e038228cfe</string>
 	<key>thinning</key>
 	<string>&lt;none&gt;</string>
 </dict>
