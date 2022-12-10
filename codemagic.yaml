@@ -1,13 +1,14 @@
 workflows:
   ios-workflow:
     name: iOS Workflow
-    # ....
+    instance_type: mac_pro
     environment:
       vars:
         BUNDLE_ID: "com.tnco.runar"
         XCODE_WORKSPACE: "Runar.xcworkspace"
         XCODE_SCHEME: "Runar" # <-- Name of your Xcode scheme
       xcode: 13.3.1
+      cocoapods: default
 
     triggering:
       events:
@@ -26,8 +27,7 @@ workflows:
         script: |
           xcode-project build-ipa \
             --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" \
-            --scheme "$XCODE_SCHEME" \
-            --export-options-plist=./Runar/Info.plist
+            --scheme "$XCODE_SCHEME"
 
     artifacts:
       - build/ios/ipa/*.ipa
