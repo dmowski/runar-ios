@@ -28,17 +28,9 @@ workflows:
       - name: ls
         script: ls
 
-      - name: Increment build number
-        script: |
-          #!/bin/sh
-          cd $CM_BUILD_DIR
-          LATEST_BUILD_NUMBER=$(app-store-connect get-latest-app-store-build-number "$APP_ID")
-          agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))
-
       - name: Build ipa for distribution
-        working_directory: ios/ios-automatic-code-signing-demo-project
         script: |
-          xcode-project build-ipa \
+          xcodebuild build-ipa \
             --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" \
             --scheme "$XCODE_SCHEME"
 
