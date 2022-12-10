@@ -5,6 +5,7 @@ workflows:
     environment:
       groups:
         - ios_creds
+
       vars:
         BUNDLE_ID: "com.tnco.runar"
         XCODE_WORKSPACE: "Runar.xcworkspace"
@@ -58,14 +59,14 @@ workflows:
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
 
-   publishing:
-      app_store_connect:
-        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
-        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
-        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
-      email:
-        recipients:
-          - dmowski.alex@gmail.com
-        notify:
-          success: true
-          failure: true
+    publishing:
+        app_store_connect:
+          api_key: $APP_STORE_CONNECT_PRIVATE_KEY
+          key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
+          issuer_id: $APP_STORE_CONNECT_ISSUER_ID
+        email:
+          recipients:
+            - dmowski.alex@gmail.com
+          notify:
+            success: true
+            failure: true
