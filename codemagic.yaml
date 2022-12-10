@@ -3,14 +3,15 @@ workflows:
     name: iOS Workflow
     instance_type: mac_pro
     environment:
-      groups:
-        - ios_creds
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.tnco.runar
 
       vars:
         BUNDLE_ID: "com.tnco.runar"
         XCODE_WORKSPACE: "Runar.xcworkspace"
         XCODE_SCHEME: "Runar"
-        APP_STORE_APP_ID: 1562025468
+        APP_ID: 1562025468
 
       xcode: latest
       cocoapods: default
@@ -31,13 +32,31 @@ workflows:
       - name: ls
         script: ls
 
+      - name: Increment build number
+        script: |
+          #!/bin/sh
+          cd $CM_BUILD_DIR
+          LATEST_BUILD_NUMBER=$(app-store-connect get-latest-app-store-build-number "$APP_ID")
+          agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))
+
       - name: Build ipa for distribution
         working_directory: ios/ios-automatic-code-signing-demo-project
         script: |
-          xcode-project build-ipa --workspace "$XCODE_WORKSPACE" --scheme "$XCODE_SCHEME"
+          xcode-project build-ipa \
+            --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" \
+            --scheme "$XCODE_SCHEME"
 
     artifacts:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
+
+    publishing:
+      email:
+        recipients:
+          - user_1@example.com
+          - user_2@example.com
+        notify:
+          success: true
+          failure: false
