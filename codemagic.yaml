@@ -32,8 +32,6 @@ workflows:
         script: |
           xcode-project build-ipa \
             --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" \
-            --clean  \
-            --export-options-plist "plist" \
             --scheme "$XCODE_SCHEME"
 
     artifacts:
