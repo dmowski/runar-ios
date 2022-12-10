@@ -1,10 +1,11 @@
-# platform :ios, '13.0'
+platform :ios, '13.0'
+workspace 'Runar'
 
 target 'Runar' do
 
   # Pods for Runar
   use_frameworks!
-  pod 'SwiftGen'
+  pod 'SwiftGen', '~> 6.6'
   pod 'SnapKit'
   pod 'KTCenterFlowLayout'
 
@@ -14,6 +15,7 @@ target 'Runar' do
   end
 
   target 'RunarUITests' do
+    inherit! :search_paths
     # Pods for testing
   end
 

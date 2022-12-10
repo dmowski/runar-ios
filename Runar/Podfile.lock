@@ -6,7 +6,7 @@ PODS:
 DEPENDENCIES:
   - KTCenterFlowLayout
   - SnapKit
-  - SwiftGen
+  - SwiftGen (~> 6.6)
 
 SPEC REPOS:
   trunk:
@@ -19,6 +19,6 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftGen: 1366a7f71aeef49954ca5a63ba4bef6b0f24138c
 
-PODFILE CHECKSUM: cc00ed8f02b2ae0f558b986bdd428253f96e6a2c
+PODFILE CHECKSUM: d0deb62b7374523b0406a9b106b15ec4ba56ace6
 
 COCOAPODS: 1.11.3
