@@ -7,7 +7,7 @@ workflows:
         BUNDLE_ID: "com.tnco.runar"
         XCODE_WORKSPACE: "Runar.xcworkspace"
         XCODE_SCHEME: "Runar" # <-- Name of your Xcode scheme
-      xcode: 13.3.1
+      xcode: latest
       cocoapods: default
 
     triggering:
@@ -25,9 +25,7 @@ workflows:
 
       - name: Build ipa for distribution
         script: |
-          xcode-project build-ipa \
-            --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" \
-            --scheme "$XCODE_SCHEME"
+          xcode-project build-ipa --workspace "$XCODE_WORKSPACE" --scheme "$XCODE_SCHEME"
 
     artifacts:
       - build/ios/ipa/*.ipa
