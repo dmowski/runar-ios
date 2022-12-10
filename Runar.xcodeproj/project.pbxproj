@@ -36,7 +36,6 @@
 		19D9BAD625C9765C00418CE7 /* TwoRuneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BAD525C9765C00418CE7 /* TwoRuneView.swift */; };
 		19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BAFD25C9874200418CE7 /* RuneViewProtocol.swift */; };
 		19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D9BB0525C9874E00418CE7 /* RunesView.swift */; };
-		1A04A48091973E2F0EB04A65 /* Pods_RunarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */; };
 		671E685A28EA2DB5000A0904 /* SparksEffect.sks in Resources */ = {isa = PBXBuildFile; fileRef = 671E685828EA2DB5000A0904 /* SparksEffect.sks */; };
 		671E685B28EA2DB5000A0904 /* SparksScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671E685928EA2DB5000A0904 /* SparksScene.swift */; };
 		671E685D28EA2DC2000A0904 /* UIView+SparksAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671E685C28EA2DC2000A0904 /* UIView+SparksAnimation.swift */; };
@@ -155,7 +154,6 @@
 		C2C5584F283D9F59006B053C /* SelectedRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584E283D9F59006B053C /* SelectedRuneCell.swift */; };
 		C2F3EA9228E10E74001CB1C5 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3EA9128E10E74001CB1C5 /* SubscriptionManager.swift */; };
 		C2F44DC128C6601B00A43F4D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F44DC028C6601B00A43F4D /* StoreKit.framework */; };
-		D33A65EC2DE4E4D7C3C956F3 /* Pods_Runar_RunarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */; };
 		DB92AEE5E33DCFB508195B8F /* Pods_Runar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */; };
 /* End PBXBuildFile section */
 
@@ -209,12 +207,10 @@
 		19D9BAFD25C9874200418CE7 /* RuneViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneViewProtocol.swift; sourceTree = "<group>"; };
 		19D9BB0525C9874E00418CE7 /* RunesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunesView.swift; sourceTree = "<group>"; };
 		1A56DC55326BF359E39532FA /* Pods-Runar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar.release.xcconfig"; path = "Target Support Files/Pods-Runar/Pods-Runar.release.xcconfig"; sourceTree = "<group>"; };
-		29AD0AF3F59DE1B0E9AF6F8D /* Pods-RunarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.release.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.release.xcconfig"; sourceTree = "<group>"; };
 		671E685828EA2DB5000A0904 /* SparksEffect.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SparksEffect.sks; sourceTree = "<group>"; };
 		671E685928EA2DB5000A0904 /* SparksScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparksScene.swift; sourceTree = "<group>"; };
 		671E685C28EA2DC2000A0904 /* UIView+SparksAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SparksAnimation.swift"; sourceTree = "<group>"; };
 		677C11E7289C726900CEA5D2 /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
-		7187BE777607C9CC2B878552 /* Pods-RunarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.debug.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		843DFF32265248B900D6DFE5 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		843DFF4C2653FB5400D6DFE5 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		843DFF71265BC50800D6DFE5 /* LibraryNodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNodeViewController.swift; sourceTree = "<group>"; };
@@ -239,7 +235,6 @@
 		84D7E5EF2649EC6700772EE3 /* LibraryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryData.swift; sourceTree = "<group>"; };
 		84D7E6012649F37700772EE3 /* LibraryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNode.swift; sourceTree = "<group>"; };
 		84D7E60A264BAED300772EE3 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		968939D428D094FA00057D2A /* OnboardingScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingScreenVC.swift; sourceTree = "<group>"; };
 		968939D528D094FA00057D2A /* OnboardingScreenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingScreenCell.swift; sourceTree = "<group>"; };
 		968939D628D094FA00057D2A /* OnboardingSlideModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSlideModel.swift; sourceTree = "<group>"; };
@@ -336,9 +331,6 @@
 		C2C5584E283D9F59006B053C /* SelectedRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRuneCell.swift; sourceTree = "<group>"; };
 		C2F3EA9128E10E74001CB1C5 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		C2F44DC028C6601B00A43F4D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.release.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.release.xcconfig"; sourceTree = "<group>"; };
-		E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar_RunarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2B75E01B5066B4D9AE555E1 /* Pods-Runar-RunarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F9215007654A411DBEF358A7 /* Pods-Runar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar.debug.xcconfig"; path = "Target Support Files/Pods-Runar/Pods-Runar.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -356,7 +348,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A04A48091973E2F0EB04A65 /* Pods_RunarTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +355,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D33A65EC2DE4E4D7C3C956F3 /* Pods_Runar_RunarUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -869,10 +859,6 @@
 			children = (
 				F9215007654A411DBEF358A7 /* Pods-Runar.debug.xcconfig */,
 				1A56DC55326BF359E39532FA /* Pods-Runar.release.xcconfig */,
-				F2B75E01B5066B4D9AE555E1 /* Pods-Runar-RunarUITests.debug.xcconfig */,
-				C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */,
-				7187BE777607C9CC2B878552 /* Pods-RunarTests.debug.xcconfig */,
-				29AD0AF3F59DE1B0E9AF6F8D /* Pods-RunarTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1007,8 +993,6 @@
 			children = (
 				C2F44DC028C6601B00A43F4D /* StoreKit.framework */,
 				9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */,
-				E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */,
-				952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1040,7 +1024,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BD22927258A322000E17E98 /* Build configuration list for PBXNativeTarget "RunarTests" */;
 			buildPhases = (
-				ABF78A6E3A36E16A0AC5CE23 /* [CP] Check Pods Manifest.lock */,
 				9BD2290C258A322000E17E98 /* Sources */,
 				9BD2290D258A322000E17E98 /* Frameworks */,
 				9BD2290E258A322000E17E98 /* Resources */,
@@ -1059,11 +1042,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BD2292A258A322000E17E98 /* Build configuration list for PBXNativeTarget "RunarUITests" */;
 			buildPhases = (
-				564B1F13C8738A7E3E299AB3 /* [CP] Check Pods Manifest.lock */,
 				9BD22917258A322000E17E98 /* Sources */,
 				9BD22918258A322000E17E98 /* Frameworks */,
 				9BD22919258A322000E17E98 /* Resources */,
-				9806CC12029B95E8DACDF316 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1187,67 +1168,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" \nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
-		};
-		564B1F13C8738A7E3E299AB3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Runar-RunarUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9806CC12029B95E8DACDF316 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ABF78A6E3A36E16A0AC5CE23 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RunarTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		E310DAD7AEB8D84FE584879F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1625,7 +1545,6 @@
 		};
 		9BD22928258A322000E17E98 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7187BE777607C9CC2B878552 /* Pods-RunarTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1647,7 +1566,6 @@
 		};
 		9BD22929258A322000E17E98 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29AD0AF3F59DE1B0E9AF6F8D /* Pods-RunarTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1669,7 +1587,6 @@
 		};
 		9BD2292B258A322000E17E98 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2B75E01B5066B4D9AE555E1 /* Pods-Runar-RunarUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1689,7 +1606,6 @@
 		};
 		9BD2292C258A322000E17E98 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
