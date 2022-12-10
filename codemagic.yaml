@@ -19,7 +19,7 @@ workflows:
 
     scripts:
       - name: pod install
-        script: pod init && pod install
+        script: pod install
 
       - name: Build ipa for distribution
         script: |
