@@ -30,8 +30,10 @@ workflows:
 
       - name: Build ipa for distribution
         script: |
-          xcodebuild build-ipa \
+          xcode-project build-ipa \
             --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" \
+            --clean
+            --export-options-plist "plist" \
             --scheme "$XCODE_SCHEME"
 
     artifacts:
