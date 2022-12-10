@@ -3,10 +3,6 @@ workflows:
     name: iOS Workflow
     instance_type: mac_pro
     environment:
-      ios_signing:
-        distribution_type: app_store
-        bundle_identifier: com.tnco.runar
-
       vars:
         BUNDLE_ID: "com.tnco.runar"
         XCODE_WORKSPACE: "Runar.xcworkspace"
