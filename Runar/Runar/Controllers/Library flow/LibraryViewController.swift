@@ -24,6 +24,8 @@ public class LibraryViewController: LibraryNodeViewController {
             navigationController?.navigationBar.configure(prefersLargeTitles: false, titleFontSize: 20)
             navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UILabel.create(withText: .library, fontSize: 20))
         }
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: L10n.Navbar.Title.back, style: .plain, target: nil, action: nil)
         
         navigationController?.setStatusBar(backgroundColor: .navBarBackground)
     }
