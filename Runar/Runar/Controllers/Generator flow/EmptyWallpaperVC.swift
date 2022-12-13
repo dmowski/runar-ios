@@ -18,13 +18,8 @@ extension String {
 public class EmptyWallpaperVC: UIViewController {
     
     private var emptyWallpapers = [EmptyWallpaper]()
-    
-    private var emptyWallpaperCurrentIndex = 0 {
-        didSet {
-            let emptyWallpaperName = emptyWallpapers[emptyWallpaperCurrentIndex].name
-            imageView.image = ImageFileManager.shared.readImageFromFile(emptyWallpaperName)
-        }
-    }
+    private var currentEmptyWallpaperName: String?
+    var stopDownloading: (() -> ())?
     
     let mainTitle: UILabel = {
         let title = UILabel()
@@ -89,8 +84,9 @@ public class EmptyWallpaperVC: UIViewController {
         return nextButton
     }()
     
-    init(emptyWallpapers: [EmptyWallpaper]) {
+    init(emptyWallpapers: [EmptyWallpaper], stopDownloading: @escaping (() -> ())) {
         self.emptyWallpapers = emptyWallpapers
+        self.stopDownloading = stopDownloading
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -102,7 +98,8 @@ public class EmptyWallpaperVC: UIViewController {
         super.viewDidLoad()
         RunarLayout.initBackground(for: view, with: .mainFire)
         
-        imageView.image = ImageFileManager.shared.readImageFromFile(emptyWallpapers[emptyWallpaperCurrentIndex].name)
+        currentEmptyWallpaperName = ImageFileManager.shared.getNamesImagesWithoutBackground().first
+        showEmptyWallpaper(with: currentEmptyWallpaperName)
         
         setupViews()
         setupImageViewSwipes()
@@ -187,7 +184,11 @@ public class EmptyWallpaperVC: UIViewController {
     }
     
     @objc func generateNewVariant() {
-        emptyWallpaperCurrentIndex = (0..<emptyWallpapers.count).randomElement() ?? 0
+        
+        let downloadedImagesNames = ImageFileManager.shared.getNamesImagesWithoutBackground()
+        guard let randomElement = downloadedImagesNames.randomElement() else { return }
+        currentEmptyWallpaperName = randomElement
+        showEmptyWallpaper(with: randomElement)
     }
     
     private func setupImageViewSwipes() {
@@ -203,24 +204,83 @@ public class EmptyWallpaperVC: UIViewController {
     }
     
     @objc private func swipeRightAction() {
-        if emptyWallpaperCurrentIndex == 0 {
-            emptyWallpaperCurrentIndex = emptyWallpapers.count - 1
-        } else {
-            emptyWallpaperCurrentIndex -= 1
-        }
+        currentEmptyWallpaperName = getEmptyWallpaperBefore(element: currentEmptyWallpaperName)
+        showEmptyWallpaper(with: currentEmptyWallpaperName)
     }
     
     @objc private func swipeLeftAction() {
-        if emptyWallpaperCurrentIndex == emptyWallpapers.count - 1 {
-            emptyWallpaperCurrentIndex = 0
-        } else {
-            emptyWallpaperCurrentIndex += 1
-        }
+        currentEmptyWallpaperName = getEmptyWallpaperAfter(element: currentEmptyWallpaperName)
+        showEmptyWallpaper(with: currentEmptyWallpaperName)
     }
     
     @objc func nextButtonTapped() {
         let selectWallpaperStyleVC = WallpaperWithBackgroundVC()
-        selectWallpaperStyleVC.emptyWallpaperUrl = self.emptyWallpapers[self.emptyWallpaperCurrentIndex].url
+        guard let currentEmptyWallpaperName = currentEmptyWallpaperName,
+              let emptyWallpaperCurrent = emptyWallpapers.first(where: { $0.name.elementsEqual(currentEmptyWallpaperName) }) else { return }
+        selectWallpaperStyleVC.emptyWallpaperUrl = emptyWallpaperCurrent.url
         self.navigationController?.pushViewController(selectWallpaperStyleVC, animated: true)
+        
+        guard let stopDownloading = stopDownloading else { return }
+        stopDownloading()
+    }
+    
+    private func showEmptyWallpaper(with name: String?) {
+        guard let name = name,
+              let image = ImageFileManager.shared.readImageFromFile(name) else { return }
+        imageView.image = image
+    }
+    
+    private func getEmptyWallpaperBefore(element name: String?) -> String? {
+        
+        let  namesOfDownloadedImages = ImageFileManager.shared.getNamesImagesWithoutBackground()
+        
+        guard let name = name else {
+            let firstElement = namesOfDownloadedImages.first
+            currentEmptyWallpaperName = firstElement
+            return firstElement
+        }
+        
+        guard let index = namesOfDownloadedImages.firstIndex(where: { $0.elementsEqual(name) }) else { return nil }
+        
+        guard index != namesOfDownloadedImages.startIndex else {
+            
+            let lastElement = namesOfDownloadedImages.last
+            
+            return lastElement
+                
+        }
+        
+        let prevIndex = namesOfDownloadedImages.index(before: index)
+        let prevElement = namesOfDownloadedImages[prevIndex]
+        
+        return prevElement
+    }
+    
+    private func getEmptyWallpaperAfter(element name: String?) -> String? {
+
+        let  namesOfDownloadedImages = ImageFileManager.shared.getNamesImagesWithoutBackground()
+        
+        guard let name = name else {
+            let firstElement = namesOfDownloadedImages.first
+            currentEmptyWallpaperName = firstElement
+            return firstElement
+        }
+
+        guard let index = namesOfDownloadedImages.firstIndex(where: { $0.elementsEqual(name) }) else {
+            return nil
+        }
+
+        guard index != namesOfDownloadedImages.endIndex - 1 else {
+
+            let lastElement = namesOfDownloadedImages.first
+
+            return lastElement
+
+        }
+
+        let nextIndex = namesOfDownloadedImages.index(after: index)
+        let nextElement = namesOfDownloadedImages[nextIndex]
+
+        return nextElement
     }
 }
