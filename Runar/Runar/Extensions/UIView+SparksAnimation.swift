@@ -9,16 +9,17 @@ import UIKit
 import SpriteKit
 
 extension UIView {
-    func startSparksAnimation(frame: CGRect) {
+    func startSparksAnimation(top: CGFloat = 0, left: CGFloat = 0, right: CGFloat = 0, bottom: CGFloat = 0) {
         let skView = SKView()
-        skView.translatesAutoresizingMaskIntoConstraints = false
         skView.backgroundColor = .clear
-        self.addSubview(skView)
-        skView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        skView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -5).isActive = true
-        skView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 5).isActive = true
-        skView.heightAnchor.constraint(equalToConstant: self.frame.height + 50).isActive = true
-        let particleScene = SparksScene(size: CGSize(width: self.frame.width, height: self.frame.height + 30))
+        addSubview(skView)
+        skView.snp.makeConstraints { make in
+            make.top.equalTo(snp_topMargin).offset(top)
+            make.left.equalTo(snp_leftMargin).offset(left)
+            make.right.equalTo(snp_rightMargin).offset(right)
+            make.bottom.equalTo(snp_bottomMargin).offset(bottom)
+        }
+        let particleScene = SparksScene(size: frame.size)
         particleScene.backgroundColor = .clear
         particleScene.scaleMode = .resizeFill
         skView.presentScene(particleScene)
