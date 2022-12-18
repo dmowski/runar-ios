@@ -13,8 +13,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                                 willPresent notification: UNNotification) async
     -> UNNotificationPresentationOptions {
         _ = notification.request.content.userInfo
-        return [[.alert, .sound]]
-        
+      
+        return [[.alert, .sound, .badge]]
+
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -25,12 +26,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication,
                      didReceiveRemoteNotification userInfo: [AnyHashable: Any]) async
     -> UIBackgroundFetchResult {
-        
         let gcmMessageIDKey = "gcm.Message_ID"
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
+               
         return UIBackgroundFetchResult.newData
     }
 }

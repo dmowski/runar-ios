@@ -13,6 +13,8 @@ extension AppDelegate: MessagingDelegate {
         print("Firebase registration token: \(String(describing: fcmToken))")
         
         let dataDict: [String: String] = ["token": fcmToken ?? ""]
+        //MARK: - Notification Actions
+  
         NotificationCenter.default.post(
             name: Notification.Name("FCMToken"),
             object: nil,

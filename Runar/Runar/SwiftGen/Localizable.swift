@@ -2034,7 +2034,15 @@ internal enum L10n {
     /// Settings
     internal static let settings = L10n.tr("Localizable", "tabbar.settings", fallback: "Settings")
   }
+    
+    
+    internal enum NotificationText {
+        /// This divination figures out your past, present one, and future.
+        internal static let text = L10n.tr("Localizable", "dailyNotification.text")
+        
+    }
 }
+
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
 

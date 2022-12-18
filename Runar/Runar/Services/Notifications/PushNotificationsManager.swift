@@ -15,13 +15,14 @@ class PushNotificationsManager {
     
     func addNotifications(app: UIApplication, appDelegate: AppDelegate) {
         UNUserNotificationCenter.current().delegate = appDelegate
+        Messaging.messaging().delegate = appDelegate
         
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(
             options: authOptions,
-            completionHandler: { _, _ in }
+            completionHandler: {_,_ in }
         )
-        Messaging.messaging().delegate = appDelegate
+        
         app.registerForRemoteNotifications()
     }
 }
