@@ -11,7 +11,9 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
   /// Most likely waiting for you
-  internal static let awaitsYou = L10n.tr("Localizable", "awaitsYou", fallback: "Most likely waiting for you")
+  internal static let awaitsYou = L10n.tr("Localizable", "awaitsYou")
+  /// Close
+  internal static let close = L10n.tr("Localizable", "close")
   /// Finish
   internal static let complete = L10n.tr("Localizable", "complete", fallback: "Finish")
   /// Pay attention to this
@@ -36,6 +38,8 @@ internal enum L10n {
   internal static func luckLevel(_ p1: Any) -> String {
     return L10n.tr("Localizable", "luckLevel", String(describing: p1), fallback: "Luckiness - %@ %%")
   }
+  /// Open
+  internal static let `open` = L10n.tr("Localizable", "open")
   /// Your goal
   internal static let ourAim = L10n.tr("Localizable", "ourAim", fallback: "Your goal")
   /// Your history
@@ -2034,15 +2038,7 @@ internal enum L10n {
     /// Settings
     internal static let settings = L10n.tr("Localizable", "tabbar.settings", fallback: "Settings")
   }
-    
-    
-    internal enum NotificationText {
-        /// This divination figures out your past, present one, and future.
-        internal static let text = L10n.tr("Localizable", "dailyNotification.text")
-        
-    }
 }
-
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
 
