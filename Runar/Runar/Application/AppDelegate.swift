@@ -17,16 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //MARK: - add notifications
         FirebaseApp.configure()
         PushNotificationsManager.shared.addNotifications(app: application, appDelegate: self)
-        //save as Date
-        UserDefaults.standard.set(Date(), forKey: "Date")
-
-        //read
-//        let date = UserDefaults.standard.object(forKey: "Date") as! Date
-//        let df = DateFormatter()
-//        df.dateFormat = "dd/MM/yyyy HH:mm"
-//        print(df.string(from: date))
-        
-        
         // TODO: No Internet
         //NetworkMonitor.shared.startMonitoring()
         if isFirstLaunch() {
