@@ -73,7 +73,7 @@ class RunicDrawsCollectionVC: UICollectionViewController {
         
         configureCollectionView()
         configureConstraints()
-        saveLastVisitDate()
+        
         // TODO: - No Internet
         //        //NetworkMonitor
         //        if NetworkMonitor.shared.isConnected {
@@ -151,13 +151,7 @@ class RunicDrawsCollectionVC: UICollectionViewController {
             label.heightAnchor.constraint(equalToConstant: 42)
         ])
     }
-    
-    //MARK: - save Date for check notification the next day
-    
-    private func saveLastVisitDate() {
-        UserDefaultsManager.shared.saveDate()
-    }
-    
+        
     @IBAction func goToGeneratorTab() {
         self.tabBarController?.selectedIndex = 2
     }

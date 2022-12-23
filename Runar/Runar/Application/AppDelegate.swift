@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //MARK: - add notifications
         FirebaseApp.configure()
         PushNotificationsManager.shared.addNotifications(app: application, appDelegate: self)
+        
         // TODO: No Internet
         //NetworkMonitor.shared.startMonitoring()
         if isFirstLaunch() {
