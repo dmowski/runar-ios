@@ -49,7 +49,6 @@
 		677C6B26292694A800BB2FD1 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677C6B25292694A800BB2FD1 /* NotificationViewController.swift */; };
 		677C6B29292694A800BB2FD1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 677C6B27292694A800BB2FD1 /* MainInterface.storyboard */; };
 		677C6B2D292694A800BB2FD1 /* NotificationContentExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 677C6B1F292694A800BB2FD1 /* NotificationContentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		67BA85F329312239004F0BBC /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BA85F229312239004F0BBC /* UserDefaultsManager.swift */; };
 		843DFF33265248B900D6DFE5 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF32265248B900D6DFE5 /* LibraryViewController.swift */; };
 		843DFF4D2653FB5400D6DFE5 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF4C2653FB5400D6DFE5 /* LibraryCell.swift */; };
 		843DFF72265BC50800D6DFE5 /* LibraryNodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF71265BC50800D6DFE5 /* LibraryNodeViewController.swift */; };
@@ -263,7 +262,6 @@
 		677C6B25292694A800BB2FD1 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		677C6B28292694A800BB2FD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		677C6B2A292694A800BB2FD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		67BA85F229312239004F0BBC /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		7187BE777607C9CC2B878552 /* Pods-RunarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.debug.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		843DFF32265248B900D6DFE5 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		843DFF4C2653FB5400D6DFE5 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
@@ -569,7 +567,6 @@
 				9C3D6C60292CE3770027DE58 /* MemoryStorage.swift */,
 				8477222D2643C9CA001C280D /* LocalStorage.swift */,
 				677C11E7289C726900CEA5D2 /* ImageFileManager.swift */,
-				67BA85F229312239004F0BBC /* UserDefaultsManager.swift */,
 			);
 			path = Memory;
 			sourceTree = "<group>";
@@ -1498,7 +1495,6 @@
 				671E685B28EA2DB5000A0904 /* SparksScene.swift in Sources */,
 				9BD2295A258AB02500E17E98 /* RunicDrawsCollectionVC.swift in Sources */,
 				968939D928D094FB00057D2A /* OnboardingScreenCell.swift in Sources */,
-				67BA85F329312239004F0BBC /* UserDefaultsManager.swift in Sources */,
 				19C0F1F425BAF07E0027422B /* AlignmentVM.swift in Sources */,
 				84B1C4DB2727184B007865CF /* WallpapperStyleData.swift in Sources */,
 				9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */,

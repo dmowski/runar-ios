@@ -152,7 +152,6 @@ internal enum Assets {
   internal static let languageSelected = ImageAsset(name: "language-selected")
   internal static let languageUnselected = ImageAsset(name: "language-unselected")
   internal static let learnAboutTheAlignment = ImageAsset(name: "learnAboutTheAlignment")
-  internal static let notificationImage = ImageAsset(name: "notificationImage")
   internal static let person2 = ImageAsset(name: "person 2")
   internal static let popUpVectorLeft = ImageAsset(name: "popUpVectorLeft")
   internal static let popUpVectorRight = ImageAsset(name: "popUpVectorRight")
