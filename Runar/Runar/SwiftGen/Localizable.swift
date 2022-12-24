@@ -1751,6 +1751,16 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "layouts.generator.title", fallback: "Runic patterns")
     }
   }
+  internal enum LuckLevel {
+    /// Better luck next time!
+    internal static let from0To20 = L10n.tr("Localizable", "luckLevel.from0To20", fallback: "Better luck next time!")
+    /// A little more, and you'll catch up the luck!
+    internal static let from21To40 = L10n.tr("Localizable", "luckLevel.from21To40", fallback: "A little more, and you'll catch up the luck!")
+    /// Hey, it's your lucky day!
+    internal static let from41To69 = L10n.tr("Localizable", "luckLevel.from41To69", fallback: "Hey, it's your lucky day!")
+    /// The gods favor you!
+    internal static let from70To100 = L10n.tr("Localizable", "luckLevel.from70To100", fallback: "The gods favor you!")
+  }
   internal enum Monetization {
     /// Сhoose a payment plan
     internal static let chooseTitleMonetization = L10n.tr("Localizable", "monetization.chooseTitleMonetization", fallback: "Сhoose a payment plan")

@@ -208,7 +208,6 @@ public class WallpaperWithBackgroundVC: UIViewController {
     }
 
     @objc func backToInitial(sender: UIBarButtonItem) {
-        ImageFileManager.shared.removeImagesFromMemory()
         navigationController?.popToViewController(ofClass: SelectionRuneVC.self, animated: true)
     }
     

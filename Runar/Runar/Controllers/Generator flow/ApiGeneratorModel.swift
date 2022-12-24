@@ -10,17 +10,13 @@ import UIKit
 struct ApiGeneratorModel {
     
     static func showProcessingVCandGenerateImagesModel(vc: UIViewController, runesIds: [String]) {
-        let viewModel = ProcessingVM(name: .progressName, title: .generateProgressTitle) {
-            if vc.navigationController?.topViewController is ProcessingVC {
-                vc.navigationController?.popViewController(animated: true)
-            }
-        }
+        let viewModel = ProcessingVM(name: .progressName, title: .generateProgressTitle) {}
         
         let processCV = ProcessingVC()
         processCV.viewModel = viewModel
         processCV.runesIds = runesIds
         processCV.delegate = vc
-        let duration = 10
+        let duration = 15
         processCV.changeAnimationDuration(duration: duration)
         processCV.ifGenerateWallpapers = true
         processCV.container.isHidden = true

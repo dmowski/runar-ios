@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //NetworkMonitor
         //        if NetworkMonitor.shared.isConnected {
+        CoreDataManager.shared.applicationDocumentsDirectory()
         DataManager.shared.fetchData()
         //        } else {
         //            print("No internet")

@@ -67,48 +67,64 @@ extension AlignmentVC {
     }
     
     // MARK: - Luck Label
+    private func getLevelLuckForLabel(luckyLevel: Int) -> String {
+        switch luckyLevel {
+        case 0...20:
+            return L10n.LuckLevel.from0To20
+        case 21...40:
+            return L10n.LuckLevel.from21To40
+        case 41...69:
+            return L10n.LuckLevel.from41To69
+        case 70...100:
+            return L10n.LuckLevel.from70To100
+        default:
+            return String()
+        }
+    }
+    
+    
     func setUpLuckLevelLabel() {
         switch runesViewContainer.runeLayout {
         case .dayRune:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             totalLuck = runesViewContainer.runesSet[0].luck
-            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
+            luckLevelLabel.text = getLevelLuckForLabel(luckyLevel: totalLuck)
         case .twoRunes:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             let luck1 = runesViewContainer.runesSet[0].luck
             let luck2 = runesViewContainer.runesSet[1].luck
             totalLuck = (luck1 + luck2)/2
-            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
+            luckLevelLabel.text = getLevelLuckForLabel(luckyLevel: totalLuck)
         case .norns:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             totalLuck = runesViewContainer.runesSet[2].luck
-            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
+            luckLevelLabel.text = getLevelLuckForLabel(luckyLevel: totalLuck)
         case .shortPrediction:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             let luck1 = runesViewContainer.runesSet[2].luck
             let luck2 = runesViewContainer.runesSet[3].luck
             totalLuck = (luck1 + luck2)/2
-            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
+            luckLevelLabel.text = getLevelLuckForLabel(luckyLevel: totalLuck)
         case .thorsHummer:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             let luck1 = runesViewContainer.runesSet[1].luck
             let luck2 = runesViewContainer.runesSet[2].luck
             let luck3 = runesViewContainer.runesSet[3].luck
             totalLuck = (luck1 + luck2 + luck3)/3
-            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
+            luckLevelLabel.text = getLevelLuckForLabel(luckyLevel: totalLuck)
         case .cross:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             let luck1 = runesViewContainer.runesSet[2].luck
             let luck2 = runesViewContainer.runesSet[3].luck
             let luck3 = runesViewContainer.runesSet[4].luck
             totalLuck = (luck1 + luck2 + luck3)/3
-            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
+            luckLevelLabel.text = getLevelLuckForLabel(luckyLevel: totalLuck)
         case .elementsCross:
             let luck1 = runesViewContainer.runesSet[2].luck
             let luck2 = runesViewContainer.runesSet[4].luck
             let luck3 = runesViewContainer.runesSet[5].luck
             totalLuck = (luck1 + luck2 + luck3)/3
-            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
+            luckLevelLabel.text = getLevelLuckForLabel(luckyLevel: totalLuck)
         case .keltsCross:
             guard !runesViewContainer.runesSet.isEmpty else {return}
             let luck1 = runesViewContainer.runesSet[2].luck
@@ -116,7 +132,7 @@ extension AlignmentVC {
             let luck3 = runesViewContainer.runesSet[5].luck
             let luck4 = runesViewContainer.runesSet[5].luck
             totalLuck = (luck1 + luck2 + luck3 + luck4)/4
-            luckLevelLabel.text = L10n.luckLevel((String(totalLuck)))
+            luckLevelLabel.text = getLevelLuckForLabel(luckyLevel: totalLuck)
         }
         
         luckLevelLabel.font = FontFamily.SFProDisplay.light.font(size: 19)
