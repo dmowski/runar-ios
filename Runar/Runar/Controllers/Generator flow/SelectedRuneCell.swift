@@ -105,6 +105,8 @@ class SelectedRuneCell: UICollectionViewCell {
            
     public func selectRune(_ rune: SelectedRuneModel) {
         self.selectedRune = rune
+
+        runeImage.startSparksAnimation(top: -50)
         
         self.isSelected = true
         
