@@ -16,6 +16,7 @@ final class DataManager {
     func fetchData() {
         // Get library data on background queue
         DispatchQueue.global(qos: .userInteractive).async {
+            self.createLibraryFromCoreData()
             self.loadLibraryData()
 
             // Update SelectionRuneVC on main queue
@@ -72,6 +73,20 @@ final class DataManager {
 
         // Enter data into the Library memory storage
         MemoryStorage.Library = LibraryNode.create(fromData: libraryData)
+        libraryIsLoaded = true
+
+        // Clear Library Core Data
+        CoreDataManager.shared.clearLibraryData()
+
+        // Create and save Library Core Data
+        CoreDataManager.shared.saveLibraryInCoreDataWith(MemoryStorage.Library)
+    }
+
+    // Method of forming a library model from Core Data if it contains data
+    private func createLibraryFromCoreData() {
+        guard let savedData = CoreDataManager.shared.fetchLibraryDataFromCoreData(),
+              !savedData.isEmpty else { return }
+        MemoryStorage.Library = CoreDataManager.shared.fetchLibraryFromCoreData()
         libraryIsLoaded = true
     }
 

@@ -37,6 +37,18 @@ public class LibraryNode {
         self.type = LibraryNodeType(rawValue: item.type) ?? LibraryNodeType.undefined
     }
 
+    init(item: LibraryCoreDataModel) {
+        self.id = item.id
+        self.imageUrl = item.imageUrl
+        self.linkTitle = item.linkTitle
+        self.linkUrl = item.linkUrl
+        self.title = item.title
+        self.tags = item.tags
+        self.content = item.content
+        self.order = Int(item.order)
+        self.type = item.type
+    }
+
     init() {
         self.id = "0"
         self.imageUrl = nil

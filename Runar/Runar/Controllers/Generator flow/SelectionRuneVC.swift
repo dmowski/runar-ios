@@ -100,7 +100,6 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         
         RunarLayout.initBackground(for: view, with: .mainFire)
         selectRunesView.delegate = self
-        configureNavigationBar()
 
         guard selectRunesView.generatorSavedInCoreData else { return setupActivityIndicator() }
         setupViews()
@@ -109,6 +108,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        configureNavigationBar()
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
@@ -124,7 +124,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     private func configureNavigationBar() {
         title = .generateRunesTitle
         self.navigationController?.navigationBar.configure()
-        
+        navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.hidesBackButton = true
         let customBackButton = UIBarButtonItem(image: Assets.backIcon.image,
                                                style: .plain, target: self,
@@ -390,7 +390,6 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
 private extension UINavigationBar {
     func configure() -> Void {
         self.isTranslucent = false
-        self.prefersLargeTitles = false
         self.tintColor = .libraryTitleColor
         self.backgroundColor = .navBarBackground
         self.barTintColor = .navBarBackground

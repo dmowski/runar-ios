@@ -93,7 +93,8 @@ public class RuneButton: UIButton {
             isUserInteractionEnabled = true
             setAttributedTitle(nil, for: .normal)
             setImage(viewModel?.image, for: .normal)
-            startSparksAnimation(frame: frame)
+            imageView?.clipsToBounds = false
+            imageView?.startSparksAnimation(top: -50, bottom: -5)
             imageEdgeInsets = UIEdgeInsets(top: 120.heightDependent(), left: 95.heightDependent(), bottom: 120.heightDependent(), right: 95.heightDependent())
         }
         

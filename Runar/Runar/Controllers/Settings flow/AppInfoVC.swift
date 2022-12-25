@@ -80,7 +80,7 @@ class AppInfoVC: UIViewController, UITextViewDelegate {
     private func configureNavigationBar() {
         navigationController?.navigationBar.topItem?.backButtonTitle = L10n.Navbar.Title.back
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = .settingsTitleColor
         navigationController?.navigationBar.backgroundColor = .navBarBackground
         navigationController?.navigationBar.barTintColor = .navBarBackground

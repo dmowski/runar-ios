@@ -1925,8 +1925,8 @@ internal enum L10n {
     internal static let explanationDescription = L10n.tr("Localizable", "onboarding.explanationDescription", fallback: "See the interpretation of each divination with the luckiness level")
     /// Interpretation
     internal static let explanationTitle = L10n.tr("Localizable", "onboarding.explanationTitle", fallback: "Interpretation")
-    /// Forge your own destiny, collect a rune pattern and choose a background for it
-    internal static let generatorDescription = L10n.tr("Localizable", "onboarding.generatorDescription", fallback: "Forge your own destiny, collect a rune pattern and choose a background for it")
+    /// Forge your own destiny, collect a rune pattern and chose a background for it
+    internal static let generatorDescription = L10n.tr("Localizable", "onboarding.generatorDescription", fallback: "Forge your own destiny, collect a rune pattern and chose a background for it")
     /// Generator
     internal static let generatorTitle = L10n.tr("Localizable", "onboarding.generatorTitle", fallback: "Generator")
     /// Choose one of the eight divinations and see the interpretation of your fate

@@ -28,6 +28,7 @@ public class SelectedRuneCollectionView: UICollectionView, UICollectionViewDataS
         delegate = self
         allowsMultipleSelection = true
         allowsSelection = true
+        clipsToBounds = false
         
         register(SelectedRuneCell.self, forCellWithReuseIdentifier: cellId)
     }
