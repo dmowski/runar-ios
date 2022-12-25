@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import KTCenterFlowLayout
 
 private extension String {
 
@@ -19,7 +20,7 @@ private extension String {
 
 public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
-    private static let runeItemHeight = 78
+    private var gradientLayer = CAGradientLayer()
     
     let header: UILabel = {
         let title = UILabel()
@@ -42,10 +43,10 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     }()
     
     let selectedRunesView: SelectedRuneCollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = KTCenterFlowLayout()
         layout.itemSize = CGSize(width: 63, height: 110)
         layout.minimumInteritemSpacing = 0
-        
+
         return SelectedRuneCollectionView(frame: .zero, collectionViewLayout: layout)
     }()
     
@@ -62,15 +63,17 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     }()
     
     let selectRunesView: SelectRuneCollectionView = {
-        let layout2 = UICollectionViewFlowLayout()
-        layout2.itemSize = CGSize(width: 66, height: runeItemHeight)
-        layout2.minimumInteritemSpacing = 4
-        layout2.minimumLineSpacing = 0
-        layout2.scrollDirection = .vertical
-        
-        let selectRunesView = SelectRuneCollectionView(frame: .zero, collectionViewLayout: layout2)
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        layout.scrollDirection = .vertical
+
+        let selectRunesView = SelectRuneCollectionView(frame: .zero, collectionViewLayout: layout)
         selectRunesView.showsHorizontalScrollIndicator = false
         selectRunesView.showsVerticalScrollIndicator = false
+        selectRunesView.contentInset = UIEdgeInsets(top: 15, left: 41,
+                                                    bottom: 0, right: 41)
+        
         return selectRunesView
     }()
     
@@ -114,9 +117,10 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     public override func viewDidLayoutSubviews() {
-        remakeConstraints()
+        setupGradientLayerOnBackground()
+        setupGradientLayerOnSelectRunesView()
     }
-
+    
     private func configureNavigationBar() {
         title = .generateRunesTitle
         self.navigationController?.navigationBar.configure()
@@ -156,7 +160,8 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             make.top.equalTo(header.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
             make.height.equalTo(110)
-            make.width.equalTo(200)
+            make.left.greaterThanOrEqualTo(self.view.snp.left).offset(41)
+            make.right.greaterThanOrEqualTo(self.view.snp.right).offset(-41)
         }
         
         self.view.addSubview(randomButton)
@@ -172,10 +177,10 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         self.selectRunesView.setSelectHandler(self.selectRune(_:))
         tapedLongGesture(runesView: selectRunesView)
         selectRunesView.snp.makeConstraints { make in
-            make.top.equalTo(selectedRunesView.snp.bottom).offset(130)
-            make.left.equalTo(self.view.snp.left).offset(41)
-            make.right.equalTo(self.view.snp.right).offset(-41)
-            make.bottom.equalToSuperview()
+            make.top.equalTo(randomButton.snp.bottom).offset(30)
+            make.left.equalTo(self.view.snp.left)
+            make.right.equalTo(self.view.snp.right)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
         }
 
         self.view.addSubview(generateButton)
@@ -188,22 +193,40 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    private func remakeConstraints() {
-        let bottomConstraint = getBottomConstraint()
-        if bottomConstraint > 0 {
-            selectRunesView.snp.remakeConstraints { make in
-                make.top.equalTo(selectedRunesView.snp.bottom).offset(130)
-                make.left.equalTo(self.view.snp.left).offset(41)
-                make.right.equalTo(self.view.snp.right).offset(-41)
-                make.bottom.equalToSuperview().offset(-bottomConstraint)
-            }
-        }
+    private func setupGradientLayerOnBackground() {
+        
+        guard let background = view.subviews.first else { return }
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = background.bounds
+
+        gradientLayer.colors = [
+            UIColor.black.withAlphaComponent(0).cgColor,
+            UIColor.black.withAlphaComponent(0).cgColor,
+            UIColor.white.cgColor
+        ]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
+        gradientLayer.locations = [0.0, 0.5, 1.0]
+        gradientLayer.shouldRasterize = true
+
+        background.layer.mask = gradientLayer
     }
     
-    private func getBottomConstraint() -> Float{
-        let collectionViewVisibleHeight = selectRunesView.visibleSize.height
-        let rowVisibleCount = Int(collectionViewVisibleHeight) / SelectionRuneVC.runeItemHeight
-        return Float(collectionViewVisibleHeight) - Float(rowVisibleCount) * Float(SelectionRuneVC.runeItemHeight)
+    private func setupGradientLayerOnSelectRunesView() {
+        
+        gradientLayer.frame = selectRunesView.bounds
+        gradientLayer.colors = [
+            UIColor.black.withAlphaComponent(0).cgColor,
+            UIColor.white.cgColor,
+            UIColor.white.cgColor,
+            UIColor.black.withAlphaComponent(0).cgColor
+        ]
+        gradientLayer.delegate = self
+        
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
+        gradientLayer.locations = [0.0, 0.2, 0.8, 1.0]
+        selectRunesView.layer.mask = gradientLayer
     }
     
     private func tapedLongGesture(runesView: SelectRuneCollectionView) {
@@ -377,18 +400,55 @@ private extension UINavigationBar {
 }
 
 extension SelectionRuneVC: UICollectionViewDelegate {
-    
+
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        
+
         var indexes = self.selectRunesView.indexPathsForVisibleItems
+
         indexes.sort()
-        guard var index = indexes.first,
+        guard let index = indexes.first,
               let cell = self.selectRunesView.cellForItem(at: index) else { return }
+
+        let cellHeight = cell.frame.height
         
-        let position = self.selectRunesView.contentOffset.y - cell.frame.origin.y
-        if position > cell.frame.size.height / 2 {
-            index.row += 4
+        var currentPoint = self.selectRunesView.contentOffset.y
+        let positionOnRune = currentPoint - cell.frame.origin.y
+        
+        if positionOnRune > cellHeight / 2 {
+            currentPoint += cellHeight - positionOnRune
+        } else {
+            currentPoint -= positionOnRune
         }
-        self.selectRunesView.scrollToItem(at: index, at: .top, animated: true )
+        
+        let nextPoint = CGPoint(x: 0, y: currentPoint)
+        selectRunesView.setContentOffset(nextPoint, animated: true)
+    }
+}
+
+extension SelectionRuneVC: UICollectionViewDelegateFlowLayout {
+
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let selectRunesViewSize = selectRunesView.frame.size
+        let runeIdealSize = CGSize(width: 66, height: 78)
+        let ratio = runeIdealSize.height / runeIdealSize.width
+        let topInset = selectRunesView.contentInset.top
+
+        let rowCount = round((selectRunesViewSize.height - topInset) / (runeIdealSize.height))
+
+        let runeNormalHeight = (selectRunesViewSize.height - topInset) / rowCount
+        let runeNormalWidth = runeNormalHeight / ratio
+
+        return CGSize(width: runeNormalWidth, height: runeNormalHeight)
+    }
+
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.gradientLayer.frame = selectRunesView.bounds
+    }
+}
+
+extension SelectionRuneVC: CALayerDelegate {
+    public func action(for layer: CALayer, forKey event: String) -> CAAction? {
+        return NSNull()
     }
 }

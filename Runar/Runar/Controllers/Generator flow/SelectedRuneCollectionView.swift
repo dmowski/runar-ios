@@ -9,7 +9,7 @@ import UIKit
 
 public class SelectedRuneCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    private let cellId = "selectedCellId"
+    private let cellId = "selectedRuneCell"
     private var deselectRuneHandler: ((IndexPath) -> Void)?
     
     override public init(frame: CGRect, collectionViewLayout: UICollectionViewLayout) {
@@ -18,7 +18,7 @@ public class SelectedRuneCollectionView: UICollectionView, UICollectionViewDataS
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     
     private func setupViews(){
