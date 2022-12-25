@@ -87,6 +87,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     
     func configureNavigationBar() {
         title = node.title
+        navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.configure()
     }
 
@@ -112,10 +113,10 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
                 if indexPath.row >= 7 {
                     SubscriptionManager.presentMonetizationVC(vc: self)
                 } else {
-                    self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: false)
+                    self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
                 }
             } else {
-                self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: false)
+                self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
             }
             break
         default:
@@ -175,6 +176,8 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
 public extension LibraryNodeViewController {
     static func create(withNode node: LibraryNode) -> LibraryNodeViewController {
         let controller = LibraryNodeViewController()
+        controller.navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: L10n.Navbar.Title.back, style: .plain, target: nil, action: nil)
         controller.set(node)
         return controller
     }
@@ -236,7 +239,6 @@ private extension UITableView {
 private extension UINavigationBar {
     func configure() -> Void {
         self.isTranslucent = false
-        self.prefersLargeTitles = false
         self.tintColor = .libraryTitleColor
         self.backgroundColor = .navBarBackground
         self.barTintColor = .navBarBackground
