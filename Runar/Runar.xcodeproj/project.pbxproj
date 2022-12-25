@@ -129,12 +129,15 @@
 		9C3D6C5F292CDCF80027DE58 /* GenerationRuneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C5E292CDCF80027DE58 /* GenerationRuneModel.swift */; };
 		9C3D6C61292CE3770027DE58 /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C60292CE3770027DE58 /* MemoryStorage.swift */; };
 		9C3D6C7D2933BC200027DE58 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C7C2933BC200027DE58 /* CoreDataManager.swift */; };
-		9C3D6C802933BC580027DE58 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C7E2933BC580027DE58 /* CoreData.xcdatamodeld */; };
+		9C3D6C802933BC580027DE58 /* GeneratorCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C7E2933BC580027DE58 /* GeneratorCoreData.xcdatamodeld */; };
 		9C3D6C862933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C822933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataProperties.swift */; };
 		9C3D6C872933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C832933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataClass.swift */; };
 		9C3D6C882933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C842933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataProperties.swift */; };
 		9C3D6C892933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C852933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataClass.swift */; };
 		9CAEF57829220F66006C0EF9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEF57729220F66006C0EF9 /* DataManager.swift */; };
+		9CC75FE0294632E100F125FD /* LibraryCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CC75FDE294632E100F125FD /* LibraryCoreData.xcdatamodeld */; };
+		9CC75FE32946330D00F125FD /* LibraryCoreDataModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC75FE12946330D00F125FD /* LibraryCoreDataModel+CoreDataClass.swift */; };
+		9CC75FE42946330D00F125FD /* LibraryCoreDataModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC75FE22946330D00F125FD /* LibraryCoreDataModel+CoreDataProperties.swift */; };
 		C22B4DB42858AD2800F6245C /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B4DB32858AD2800F6245C /* String + Extensions.swift */; };
 		C22F6E4127C3CEFF005F8B66 /* EmptyWallpaperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */; };
 		C278B66127C43FAB00EFBD2C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */; };
@@ -315,6 +318,9 @@
 		9C3D6C842933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeneratorRuneCoreDataModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9C3D6C852933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeneratorRuneCoreDataModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9CAEF57729220F66006C0EF9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		9CC75FDF294632E100F125FD /* LibraryCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LibraryCoreData.xcdatamodel; sourceTree = "<group>"; };
+		9CC75FE12946330D00F125FD /* LibraryCoreDataModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LibraryCoreDataModel+CoreDataClass.swift"; path = "/Users/qeezii/Development/runar-ios/Runar/Runar/Services/Memory/CoreData/Models/LibraryCoreDataModel+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		9CC75FE22946330D00F125FD /* LibraryCoreDataModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LibraryCoreDataModel+CoreDataProperties.swift"; path = "/Users/qeezii/Development/runar-ios/Runar/Runar/Services/Memory/CoreData/Models/LibraryCoreDataModel+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22B4DB32858AD2800F6245C /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyWallpaperVC.swift; sourceTree = "<group>"; };
@@ -847,7 +853,8 @@
 			isa = PBXGroup;
 			children = (
 				9C3D6C7C2933BC200027DE58 /* CoreDataManager.swift */,
-				9C3D6C7E2933BC580027DE58 /* CoreData.xcdatamodeld */,
+				9CC75FDE294632E100F125FD /* LibraryCoreData.xcdatamodeld */,
+				9C3D6C7E2933BC580027DE58 /* GeneratorCoreData.xcdatamodeld */,
 				9C3D6C812933BD0F0027DE58 /* Models */,
 			);
 			path = CoreData;
@@ -856,6 +863,8 @@
 		9C3D6C812933BD0F0027DE58 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9CC75FE12946330D00F125FD /* LibraryCoreDataModel+CoreDataClass.swift */,
+				9CC75FE22946330D00F125FD /* LibraryCoreDataModel+CoreDataProperties.swift */,
 				9C3D6C832933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataClass.swift */,
 				9C3D6C822933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataProperties.swift */,
 				9C3D6C852933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataClass.swift */,
@@ -1373,6 +1382,7 @@
 				19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */,
 				84B1C4D62724D825007865CF /* WallpaperWithBackgroundVC.swift in Sources */,
 				9B0CB8862607922B00B2AF60 /* DescriptionView.swift in Sources */,
+				9CC75FE42946330D00F125FD /* LibraryCoreDataModel+CoreDataProperties.swift in Sources */,
 				8452A5F726F3A3700069DEE5 /* GeneratorVC.swift in Sources */,
 				844106602705B43E00CD8B56 /* GenerationPopUpViewController.swift in Sources */,
 				9C3D6C872933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataClass.swift in Sources */,
@@ -1387,6 +1397,7 @@
 				671E685D28EA2DC2000A0904 /* UIView+SparksAnimation.swift in Sources */,
 				8477222E2643C9CA001C280D /* LocalStorage.swift in Sources */,
 				9B739E1025CD9B9800726B30 /* RuneDescriptionPopUpVM.swift in Sources */,
+				9CC75FE0294632E100F125FD /* LibraryCoreData.xcdatamodeld in Sources */,
 				1987AABB25BDCDB400BB3655 /* FourRuneView.swift in Sources */,
 				1907850425C4232F00434D57 /* RuneLayout.swift in Sources */,
 				84D7E6022649F37700772EE3 /* LibraryNode.swift in Sources */,
@@ -1404,9 +1415,10 @@
 				9BD98C9E2628A75600F3BBD7 /* UINavigationController.swift in Sources */,
 				9BD98C952628A74200F3BBD7 /* MusicCell.swift in Sources */,
 				9BAEB63425F18C3B004B7761 /* Interperitation+Ext.swift in Sources */,
+				9CC75FE32946330D00F125FD /* LibraryCoreDataModel+CoreDataClass.swift in Sources */,
 				84468380266392F900A0790B /* LibraryRuneCell.swift in Sources */,
 				193FFB382613319000D60171 /* CustomButton.swift in Sources */,
-				9C3D6C802933BC580027DE58 /* CoreData.xcdatamodeld in Sources */,
+				9C3D6C802933BC580027DE58 /* GeneratorCoreData.xcdatamodeld in Sources */,
 				19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */,
 				9BD98C932628A74200F3BBD7 /* AppInfoVC.swift in Sources */,
 				9B0CB88B2607B6A000B2AF60 /* TopWithDescriptionView.swift in Sources */,
@@ -1749,13 +1761,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9C3D6C7E2933BC580027DE58 /* CoreData.xcdatamodeld */ = {
+		9C3D6C7E2933BC580027DE58 /* GeneratorCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				9C3D6C7F2933BC580027DE58 /* CoreData.xcdatamodel */,
 			);
 			currentVersion = 9C3D6C7F2933BC580027DE58 /* CoreData.xcdatamodel */;
-			path = CoreData.xcdatamodeld;
+			path = GeneratorCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		9CC75FDE294632E100F125FD /* LibraryCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9CC75FDF294632E100F125FD /* LibraryCoreData.xcdatamodel */,
+			);
+			currentVersion = 9CC75FDF294632E100F125FD /* LibraryCoreData.xcdatamodel */;
+			path = LibraryCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

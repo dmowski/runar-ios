@@ -21,7 +21,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
 
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                    managedObjectContext: CoreDataManager.shared.persistentContainer.viewContext,
+                                                    managedObjectContext: CoreDataManager.shared.persistentContainerForGenerator.viewContext,
                                                     sectionNameKeyPath: nil, cacheName: nil)
         return controller
     }()
