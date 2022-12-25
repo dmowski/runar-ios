@@ -95,7 +95,8 @@ final class SettingsVC: UIViewController {
 extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        guard SubscriptionManager.freeSubscription else { return 4 }
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
