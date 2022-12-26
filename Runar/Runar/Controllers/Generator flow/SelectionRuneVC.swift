@@ -71,8 +71,8 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         let selectRunesView = SelectRuneCollectionView(frame: .zero, collectionViewLayout: layout)
         selectRunesView.showsHorizontalScrollIndicator = false
         selectRunesView.showsVerticalScrollIndicator = false
-        selectRunesView.contentInset = UIEdgeInsets(top: 15, left: 41,
-                                                    bottom: 0, right: 41)
+        selectRunesView.contentInset = UIEdgeInsets(top: 50, left: 35,
+                                                    bottom: 0, right: 35)
         
         return selectRunesView
     }()
@@ -159,8 +159,8 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             make.top.equalTo(header.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
             make.height.equalTo(110)
-            make.left.greaterThanOrEqualTo(self.view.snp.left).offset(41)
-            make.right.greaterThanOrEqualTo(self.view.snp.right).offset(-41)
+            make.left.greaterThanOrEqualTo(self.view.snp.left).offset(35)
+            make.right.greaterThanOrEqualTo(self.view.snp.right).offset(-35)
         }
         
         self.view.addSubview(randomButton)
@@ -203,9 +203,13 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         ]
         gradientLayer.delegate = self
         
+        let topInset = selectRunesView.contentInset.top
+        let secondLocation = NSNumber(value: topInset / selectRunesView.frame.height)
+        let thirdLocation = NSNumber(value: 1 - topInset / selectRunesView.frame.height)
+        
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
-        gradientLayer.locations = [0.0, 0.2, 0.8, 1.0]
+        gradientLayer.locations = [0.0, secondLocation, thirdLocation, 1.0]
         selectRunesView.layer.mask = gradientLayer
     }
     
@@ -411,11 +415,10 @@ extension SelectionRuneVC: UICollectionViewDelegateFlowLayout {
         let selectRunesViewSize = selectRunesView.frame.size
         let runeIdealSize = CGSize(width: 66, height: 78)
         let ratio = runeIdealSize.height / runeIdealSize.width
-        let topInset = selectRunesView.contentInset.top
 
-        let rowCount = round((selectRunesViewSize.height - topInset) / (runeIdealSize.height))
+        let rowCount = round((selectRunesViewSize.height) / (runeIdealSize.height))
 
-        let runeNormalHeight = (selectRunesViewSize.height - topInset) / rowCount
+        let runeNormalHeight = (selectRunesViewSize.height) / rowCount
         let runeNormalWidth = runeNormalHeight / ratio
 
         return CGSize(width: runeNormalWidth, height: runeNormalHeight)
