@@ -21,9 +21,8 @@ class PushNotificationsManager {
 
         let openButton = UNNotificationAction(identifier: "Open", title: L10n.open, options: .foreground)
         let closeButton = UNNotificationAction(identifier: "Close", title: L10n.close, options: .destructive)
-        /// This code for add tapped on the push and open him
-        let testCategory = UNNotificationCategory(identifier: "TEST_CATEGORY", actions: [openButton, closeButton], intentIdentifiers: [], options: [])
-        UNUserNotificationCenter.current().setNotificationCategories([testCategory])
+        let openPushCategory = UNNotificationCategory(identifier: "OPEN_PUSH_CATEGORY", actions: [openButton, closeButton], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([openPushCategory])
 
         app.registerForRemoteNotifications()
     }

@@ -19,15 +19,12 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     
     func didReceive(_ notification: UNNotification) {
         
-        //MARK: - Notification Actions
+        let attachment = notification.request.content.attachments.first(where: {$0.identifier == "attachment"})
         
-        // Add attachment for show image on the open push notification
-        let bannerAttachment = notification.request.content.attachments.first { $0.identifier == "attachment" }
-        
-        guard let attachment = bannerAttachment,
+        guard let attachment = attachment,
               attachment.url.startAccessingSecurityScopedResource(),
-              let data = try? Data(contentsOf: attachment.url),
-              let image =  UIImage(data: data) else { return }
+              let imageData = try? Data(contentsOf: attachment.url),
+              let image = UIImage(data: imageData) else { return }
         
         preferredContentSize = preferredContentSize(forImageWithSize: image.size)
         imageView.image = image
@@ -39,3 +36,4 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         return CGSize(width: view.frame.width, height: imageSize.height / multiplier)
     }
 }
+
