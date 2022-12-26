@@ -98,7 +98,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        RunarLayout.initBackground(for: view, with: .mainFire)
+        RunarLayout.initBackground(for: view, with: .generatorFire)
         selectRunesView.delegate = self
 
         guard selectRunesView.generatorSavedInCoreData else { return setupActivityIndicator() }
@@ -117,7 +117,6 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     public override func viewDidLayoutSubviews() {
-        setupGradientLayerOnBackground()
         setupGradientLayerOnSelectRunesView()
     }
     
@@ -191,25 +190,6 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             make.width.equalTo(184)
             make.height.equalTo(50)
         }
-    }
-    
-    private func setupGradientLayerOnBackground() {
-        
-        guard let background = view.subviews.first else { return }
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = background.bounds
-
-        gradientLayer.colors = [
-            UIColor.black.withAlphaComponent(0).cgColor,
-            UIColor.black.withAlphaComponent(0).cgColor,
-            UIColor.white.cgColor
-        ]
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
-        gradientLayer.locations = [0.0, 0.5, 1.0]
-        gradientLayer.shouldRasterize = true
-
-        background.layer.mask = gradientLayer
     }
     
     private func setupGradientLayerOnSelectRunesView() {
