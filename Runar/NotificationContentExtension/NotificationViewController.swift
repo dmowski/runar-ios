@@ -19,9 +19,11 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     
     func didReceive(_ notification: UNNotification) {
         
-        let attachment = notification.request.content.attachments.first(where: {$0.identifier == "attachment"})
+        let bannerAttachment = notification.request.content.attachments.first {
+            $0.identifier == "attachment"
+        }
         
-        guard let attachment = attachment,
+        guard let attachment = bannerAttachment,
               attachment.url.startAccessingSecurityScopedResource(),
               let imageData = try? Data(contentsOf: attachment.url),
               let image = UIImage(data: imageData) else { return }
