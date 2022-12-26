@@ -12,6 +12,8 @@ import Foundation
 internal enum L10n {
   /// Most likely waiting for you
   internal static let awaitsYou = L10n.tr("Localizable", "awaitsYou", fallback: "Most likely waiting for you")
+  /// Close
+  internal static let close = L10n.tr("Localizable", "close", fallback: "Close")
   /// Finish
   internal static let complete = L10n.tr("Localizable", "complete", fallback: "Finish")
   /// Pay attention to this
@@ -36,6 +38,8 @@ internal enum L10n {
   internal static func luckLevel(_ p1: Any) -> String {
     return L10n.tr("Localizable", "luckLevel", String(describing: p1), fallback: "Luckiness - %@ %%")
   }
+  /// Open
+  internal static let `open` = L10n.tr("Localizable", "open", fallback: "Open")
   /// Your goal
   internal static let ourAim = L10n.tr("Localizable", "ourAim", fallback: "Your goal")
   /// Your history

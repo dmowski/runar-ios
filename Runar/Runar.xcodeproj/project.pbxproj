@@ -129,15 +129,26 @@
 		9C3D6C5F292CDCF80027DE58 /* GenerationRuneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C5E292CDCF80027DE58 /* GenerationRuneModel.swift */; };
 		9C3D6C61292CE3770027DE58 /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C60292CE3770027DE58 /* MemoryStorage.swift */; };
 		9C3D6C7D2933BC200027DE58 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C7C2933BC200027DE58 /* CoreDataManager.swift */; };
-		9C3D6C802933BC580027DE58 /* GeneratorCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C7E2933BC580027DE58 /* GeneratorCoreData.xcdatamodeld */; };
 		9C3D6C862933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C822933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataProperties.swift */; };
 		9C3D6C872933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C832933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataClass.swift */; };
 		9C3D6C882933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C842933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataProperties.swift */; };
 		9C3D6C892933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D6C852933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataClass.swift */; };
 		9CAEF57829220F66006C0EF9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEF57729220F66006C0EF9 /* DataManager.swift */; };
-		9CC75FE0294632E100F125FD /* LibraryCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CC75FDE294632E100F125FD /* LibraryCoreData.xcdatamodeld */; };
-		9CC75FE32946330D00F125FD /* LibraryCoreDataModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC75FE12946330D00F125FD /* LibraryCoreDataModel+CoreDataClass.swift */; };
-		9CC75FE42946330D00F125FD /* LibraryCoreDataModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC75FE22946330D00F125FD /* LibraryCoreDataModel+CoreDataProperties.swift */; };
+		AE19FD8C2958B73F006A6DA2 /* LibraryCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE19FD882958B73E006A6DA2 /* LibraryCoreData.xcdatamodeld */; };
+		AE19FD8D2958B73F006A6DA2 /* GeneratorCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE19FD8A2958B73F006A6DA2 /* GeneratorCoreData.xcdatamodeld */; };
+		AE19FD902958B747006A6DA2 /* LibraryCoreDataModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE19FD8E2958B747006A6DA2 /* LibraryCoreDataModel+CoreDataClass.swift */; };
+		AE19FD912958B747006A6DA2 /* LibraryCoreDataModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE19FD8F2958B747006A6DA2 /* LibraryCoreDataModel+CoreDataProperties.swift */; };
+		AE19FD932958B840006A6DA2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE19FD922958B83F006A6DA2 /* GoogleService-Info.plist */; };
+		AE19FD962958B890006A6DA2 /* AppDelegate+MessagingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE19FD952958B890006A6DA2 /* AppDelegate+MessagingDelegate.swift */; };
+		AE19FD982958B8BF006A6DA2 /* AppDelegate+UNUserNotificationCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE19FD972958B8BF006A6DA2 /* AppDelegate+UNUserNotificationCenterDelegate.swift */; };
+		AE19FD9A2958B8E3006A6DA2 /* PushNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE19FD992958B8E3006A6DA2 /* PushNotificationsManager.swift */; };
+		AE19FDA22958B9B4006A6DA2 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE19FDA12958B9B4006A6DA2 /* UserNotifications.framework */; };
+		AE19FDA42958B9B4006A6DA2 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE19FDA32958B9B4006A6DA2 /* UserNotificationsUI.framework */; };
+		AE19FDA72958B9B4006A6DA2 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE19FDA62958B9B4006A6DA2 /* NotificationViewController.swift */; };
+		AE19FDAA2958B9B4006A6DA2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE19FDA82958B9B4006A6DA2 /* MainInterface.storyboard */; };
+		AE19FDAE2958B9B4006A6DA2 /* NotificationContentExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AE19FDA02958B9B4006A6DA2 /* NotificationContentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AE19FDBA2958BA45006A6DA2 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE19FDB92958BA45006A6DA2 /* NotificationService.swift */; };
+		AE19FDBE2958BA45006A6DA2 /* NotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AE19FDB72958BA45006A6DA2 /* NotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C22B4DB42858AD2800F6245C /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B4DB32858AD2800F6245C /* String + Extensions.swift */; };
 		C22F6E4127C3CEFF005F8B66 /* EmptyWallpaperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */; };
 		C278B66127C43FAB00EFBD2C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */; };
@@ -177,7 +188,36 @@
 			remoteGlobalIDString = 9BD228F9258A321B00E17E98;
 			remoteInfo = Runar;
 		};
+		AE19FDAC2958B9B4006A6DA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BD228F2258A321B00E17E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE19FD9F2958B9B4006A6DA2;
+			remoteInfo = NotificationContentExtension;
+		};
+		AE19FDBC2958BA45006A6DA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BD228F2258A321B00E17E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE19FDB62958BA45006A6DA2;
+			remoteInfo = NotificationServiceExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AE19FDB22958B9B5006A6DA2 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AE19FDAE2958B9B4006A6DA2 /* NotificationContentExtension.appex in Embed Foundation Extensions */,
+				AE19FDBE2958BA45006A6DA2 /* NotificationServiceExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1907850325C4232E00434D57 /* RuneLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneLayout.swift; sourceTree = "<group>"; };
@@ -312,16 +352,30 @@
 		9C3D6C5E292CDCF80027DE58 /* GenerationRuneModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerationRuneModel.swift; sourceTree = "<group>"; };
 		9C3D6C60292CE3770027DE58 /* MemoryStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
 		9C3D6C7C2933BC200027DE58 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		9C3D6C7F2933BC580027DE58 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		9C3D6C822933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeneratorRuneImageCoreDataModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9C3D6C832933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeneratorRuneImageCoreDataModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9C3D6C842933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeneratorRuneCoreDataModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9C3D6C852933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeneratorRuneCoreDataModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9CAEF57729220F66006C0EF9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		9CC75FDF294632E100F125FD /* LibraryCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LibraryCoreData.xcdatamodel; sourceTree = "<group>"; };
-		9CC75FE12946330D00F125FD /* LibraryCoreDataModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LibraryCoreDataModel+CoreDataClass.swift"; path = "/Users/qeezii/Development/runar-ios/Runar/Runar/Services/Memory/CoreData/Models/LibraryCoreDataModel+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		9CC75FE22946330D00F125FD /* LibraryCoreDataModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LibraryCoreDataModel+CoreDataProperties.swift"; path = "/Users/qeezii/Development/runar-ios/Runar/Runar/Services/Memory/CoreData/Models/LibraryCoreDataModel+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE19FD892958B73E006A6DA2 /* LibraryCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LibraryCoreData.xcdatamodel; sourceTree = "<group>"; };
+		AE19FD8B2958B73F006A6DA2 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		AE19FD8E2958B747006A6DA2 /* LibraryCoreDataModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LibraryCoreDataModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AE19FD8F2958B747006A6DA2 /* LibraryCoreDataModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LibraryCoreDataModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AE19FD922958B83F006A6DA2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AE19FD942958B84C006A6DA2 /* RunarDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RunarDebug.entitlements; sourceTree = "<group>"; };
+		AE19FD952958B890006A6DA2 /* AppDelegate+MessagingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+MessagingDelegate.swift"; sourceTree = "<group>"; };
+		AE19FD972958B8BF006A6DA2 /* AppDelegate+UNUserNotificationCenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+UNUserNotificationCenterDelegate.swift"; sourceTree = "<group>"; };
+		AE19FD992958B8E3006A6DA2 /* PushNotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationsManager.swift; sourceTree = "<group>"; };
+		AE19FDA02958B9B4006A6DA2 /* NotificationContentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationContentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE19FDA12958B9B4006A6DA2 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		AE19FDA32958B9B4006A6DA2 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		AE19FDA62958B9B4006A6DA2 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		AE19FDA92958B9B4006A6DA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		AE19FDAB2958B9B4006A6DA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE19FDB72958BA45006A6DA2 /* NotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE19FDB92958BA45006A6DA2 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		AE19FDBB2958BA45006A6DA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C22B4DB32858AD2800F6245C /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyWallpaperVC.swift; sourceTree = "<group>"; };
 		C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
@@ -371,6 +425,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				D33A65EC2DE4E4D7C3C956F3 /* Pods_Runar_RunarUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE19FD9D2958B9B4006A6DA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE19FDA42958B9B4006A6DA2 /* UserNotificationsUI.framework in Frameworks */,
+				AE19FDA22958B9B4006A6DA2 /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE19FDB42958BA45006A6DA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +534,8 @@
 				C2C55848283D9D26006B053C /* UILabel.swift */,
 				19C0F20925BAFCB20027422B /* Array + Extensions.swift */,
 				C22B4DB32858AD2800F6245C /* String + Extensions.swift */,
+				AE19FD952958B890006A6DA2 /* AppDelegate+MessagingDelegate.swift */,
+				AE19FD972958B8BF006A6DA2 /* AppDelegate+UNUserNotificationCenterDelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -738,6 +810,8 @@
 			children = (
 				192EF92C25B7AFB70055DB9D /* swiftgen.yml */,
 				9BD228FC258A321B00E17E98 /* Runar */,
+				AE19FDA52958B9B4006A6DA2 /* NotificationContentExtension */,
+				AE19FDB82958BA45006A6DA2 /* NotificationServiceExtension */,
 				9BD228FB258A321B00E17E98 /* Products */,
 				A2A5CAEB8FFCA1990E63BEE2 /* Pods */,
 				F845FBB93D424E742E7134D4 /* Frameworks */,
@@ -750,6 +824,8 @@
 				9BD228FA258A321B00E17E98 /* Runar.app */,
 				9BD22910258A322000E17E98 /* RunarTests.xctest */,
 				9BD2291B258A322000E17E98 /* RunarUITests.xctest */,
+				AE19FDA02958B9B4006A6DA2 /* NotificationContentExtension.appex */,
+				AE19FDB72958BA45006A6DA2 /* NotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -757,7 +833,9 @@
 		9BD228FC258A321B00E17E98 /* Runar */ = {
 			isa = PBXGroup;
 			children = (
+				AE19FD942958B84C006A6DA2 /* RunarDebug.entitlements */,
 				9BD2290B258A321F00E17E98 /* Info.plist */,
+				AE19FD922958B83F006A6DA2 /* GoogleService-Info.plist */,
 				C22B4DB12858A8CC00F6245C /* Application */,
 				19C0F20025BAFC830027422B /* Extensions */,
 				C22B4DB22858A8F600F6245C /* Services */,
@@ -853,8 +931,8 @@
 			isa = PBXGroup;
 			children = (
 				9C3D6C7C2933BC200027DE58 /* CoreDataManager.swift */,
-				9CC75FDE294632E100F125FD /* LibraryCoreData.xcdatamodeld */,
-				9C3D6C7E2933BC580027DE58 /* GeneratorCoreData.xcdatamodeld */,
+				AE19FD8A2958B73F006A6DA2 /* GeneratorCoreData.xcdatamodeld */,
+				AE19FD882958B73E006A6DA2 /* LibraryCoreData.xcdatamodeld */,
 				9C3D6C812933BD0F0027DE58 /* Models */,
 			);
 			path = CoreData;
@@ -863,9 +941,9 @@
 		9C3D6C812933BD0F0027DE58 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9CC75FE12946330D00F125FD /* LibraryCoreDataModel+CoreDataClass.swift */,
-				9CC75FE22946330D00F125FD /* LibraryCoreDataModel+CoreDataProperties.swift */,
 				9C3D6C832933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataClass.swift */,
+				AE19FD8E2958B747006A6DA2 /* LibraryCoreDataModel+CoreDataClass.swift */,
+				AE19FD8F2958B747006A6DA2 /* LibraryCoreDataModel+CoreDataProperties.swift */,
 				9C3D6C822933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataProperties.swift */,
 				9C3D6C852933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataClass.swift */,
 				9C3D6C842933BD410027DE58 /* GeneratorRuneCoreDataModel+CoreDataProperties.swift */,
@@ -884,6 +962,33 @@
 				29AD0AF3F59DE1B0E9AF6F8D /* Pods-RunarTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		AE19FD9B2958B8F1006A6DA2 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				AE19FD992958B8E3006A6DA2 /* PushNotificationsManager.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		AE19FDA52958B9B4006A6DA2 /* NotificationContentExtension */ = {
+			isa = PBXGroup;
+			children = (
+				AE19FDA62958B9B4006A6DA2 /* NotificationViewController.swift */,
+				AE19FDA82958B9B4006A6DA2 /* MainInterface.storyboard */,
+				AE19FDAB2958B9B4006A6DA2 /* Info.plist */,
+			);
+			path = NotificationContentExtension;
+			sourceTree = "<group>";
+		};
+		AE19FDB82958BA45006A6DA2 /* NotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				AE19FDB92958BA45006A6DA2 /* NotificationService.swift */,
+				AE19FDBB2958BA45006A6DA2 /* Info.plist */,
+			);
+			path = NotificationServiceExtension;
 			sourceTree = "<group>";
 		};
 		C22B4DB02858A86C00F6245C /* Misc */ = {
@@ -915,6 +1020,7 @@
 				677C11E6289C71F400CEA5D2 /* Memory */,
 				8477223B26457435001C280D /* Api */,
 				19BDC61625C0306E000808CF /* Base */,
+				AE19FD9B2958B8F1006A6DA2 /* Notifications */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1018,6 +1124,8 @@
 				9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */,
 				E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */,
 				952B173A33FAF45663FA3694 /* Pods_RunarTests.framework */,
+				AE19FDA12958B9B4006A6DA2 /* UserNotifications.framework */,
+				AE19FDA32958B9B4006A6DA2 /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1035,10 +1143,13 @@
 				9BD228F7258A321B00E17E98 /* Frameworks */,
 				9BD228F8258A321B00E17E98 /* Resources */,
 				E53E211FCEE4CA2FD61612A4 /* [CP] Embed Pods Frameworks */,
+				AE19FDB22958B9B5006A6DA2 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AE19FDAD2958B9B4006A6DA2 /* PBXTargetDependency */,
+				AE19FDBD2958BA45006A6DA2 /* PBXTargetDependency */,
 			);
 			name = Runar;
 			productName = Runar;
@@ -1084,13 +1195,47 @@
 			productReference = 9BD2291B258A322000E17E98 /* RunarUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		AE19FD9F2958B9B4006A6DA2 /* NotificationContentExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE19FDAF2958B9B5006A6DA2 /* Build configuration list for PBXNativeTarget "NotificationContentExtension" */;
+			buildPhases = (
+				AE19FD9C2958B9B4006A6DA2 /* Sources */,
+				AE19FD9D2958B9B4006A6DA2 /* Frameworks */,
+				AE19FD9E2958B9B4006A6DA2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationContentExtension;
+			productName = NotificationContentExtension;
+			productReference = AE19FDA02958B9B4006A6DA2 /* NotificationContentExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		AE19FDB62958BA45006A6DA2 /* NotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE19FDBF2958BA45006A6DA2 /* Build configuration list for PBXNativeTarget "NotificationServiceExtension" */;
+			buildPhases = (
+				AE19FDB32958BA45006A6DA2 /* Sources */,
+				AE19FDB42958BA45006A6DA2 /* Frameworks */,
+				AE19FDB52958BA45006A6DA2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationServiceExtension;
+			productName = NotificationServiceExtension;
+			productReference = AE19FDB72958BA45006A6DA2 /* NotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		9BD228F2258A321B00E17E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1220;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					9BD228F9258A321B00E17E98 = {
@@ -1103,6 +1248,12 @@
 					9BD2291A258A322000E17E98 = {
 						CreatedOnToolsVersion = 12.2;
 						TestTargetID = 9BD228F9258A321B00E17E98;
+					};
+					AE19FD9F2958B9B4006A6DA2 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					AE19FDB62958BA45006A6DA2 = {
+						CreatedOnToolsVersion = 14.1;
 					};
 				};
 			};
@@ -1123,6 +1274,8 @@
 				9BD228F9258A321B00E17E98 /* Runar */,
 				9BD2290F258A322000E17E98 /* RunarTests */,
 				9BD2291A258A322000E17E98 /* RunarUITests */,
+				AE19FD9F2958B9B4006A6DA2 /* NotificationContentExtension */,
+				AE19FDB62958BA45006A6DA2 /* NotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -1145,6 +1298,7 @@
 				9BD22907258A321F00E17E98 /* Assets.xcassets in Resources */,
 				9B9F151D2591499A00062F47 /* AmaticSC-Bold.ttf in Resources */,
 				9B5F5BC2261CE03700A7454F /* led_Mat moys skazala_master.mp3 in Resources */,
+				AE19FD932958B840006A6DA2 /* GoogleService-Info.plist in Resources */,
 				9BD229CF258D776200E17E98 /* Roboto-LightItalic.ttf in Resources */,
 				9BD229D4258D776200E17E98 /* Roboto-ThinItalic.ttf in Resources */,
 				9BD229D1258D776200E17E98 /* Roboto-Thin.ttf in Resources */,
@@ -1170,6 +1324,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9BD22919258A322000E17E98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE19FD9E2958B9B4006A6DA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE19FDAA2958B9B4006A6DA2 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE19FDB52958BA45006A6DA2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1345,6 +1514,7 @@
 				9BD2295A258AB02500E17E98 /* RunicDrawsCollectionVC.swift in Sources */,
 				968939D928D094FB00057D2A /* OnboardingScreenCell.swift in Sources */,
 				19C0F1F425BAF07E0027422B /* AlignmentVM.swift in Sources */,
+				AE19FD8C2958B73F006A6DA2 /* LibraryCoreData.xcdatamodeld in Sources */,
 				84B1C4DB2727184B007865CF /* WallpapperStyleData.swift in Sources */,
 				9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */,
 				1987AAB625BDCDA400BB3655 /* ThreeRuneView.swift in Sources */,
@@ -1353,7 +1523,9 @@
 				9BD229DF258D82DD00E17E98 /* AlignmentInfoVC.swift in Sources */,
 				C2C55843283A9F53006B053C /* ApiGeneratorModel.swift in Sources */,
 				9911206C2861107B001B8FCC /* TagsCollectionView.swift in Sources */,
+				AE19FD8D2958B73F006A6DA2 /* GeneratorCoreData.xcdatamodeld in Sources */,
 				9B15E37625FE548400737306 /* BottomLineView.swift in Sources */,
+				AE19FD9A2958B8E3006A6DA2 /* PushNotificationsManager.swift in Sources */,
 				C278B66127C43FAB00EFBD2C /* NetworkMonitor.swift in Sources */,
 				19BDC61225C02EE9000808CF /* SceneDelegate.swift in Sources */,
 				19BDC61B25C030B1000808CF /* UIControlPublisher.swift in Sources */,
@@ -1380,9 +1552,9 @@
 				C22B4DB42858AD2800F6245C /* String + Extensions.swift in Sources */,
 				19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */,
 				19C0F21B25BAFEFE0027422B /* RuneDescription.swift in Sources */,
+				AE19FD912958B747006A6DA2 /* LibraryCoreDataModel+CoreDataProperties.swift in Sources */,
 				84B1C4D62724D825007865CF /* WallpaperWithBackgroundVC.swift in Sources */,
 				9B0CB8862607922B00B2AF60 /* DescriptionView.swift in Sources */,
-				9CC75FE42946330D00F125FD /* LibraryCoreDataModel+CoreDataProperties.swift in Sources */,
 				8452A5F726F3A3700069DEE5 /* GeneratorVC.swift in Sources */,
 				844106602705B43E00CD8B56 /* GenerationPopUpViewController.swift in Sources */,
 				9C3D6C872933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataClass.swift in Sources */,
@@ -1394,10 +1566,10 @@
 				9BD98CE42628D3EA00F3BBD7 /* RuneDescriptionPopUp.swift in Sources */,
 				C22F6E4127C3CEFF005F8B66 /* EmptyWallpaperVC.swift in Sources */,
 				9B739E4C25D1E99B00726B30 /* RunarApi.swift in Sources */,
+				AE19FD962958B890006A6DA2 /* AppDelegate+MessagingDelegate.swift in Sources */,
 				671E685D28EA2DC2000A0904 /* UIView+SparksAnimation.swift in Sources */,
 				8477222E2643C9CA001C280D /* LocalStorage.swift in Sources */,
 				9B739E1025CD9B9800726B30 /* RuneDescriptionPopUpVM.swift in Sources */,
-				9CC75FE0294632E100F125FD /* LibraryCoreData.xcdatamodeld in Sources */,
 				1987AABB25BDCDB400BB3655 /* FourRuneView.swift in Sources */,
 				1907850425C4232F00434D57 /* RuneLayout.swift in Sources */,
 				84D7E6022649F37700772EE3 /* LibraryNode.swift in Sources */,
@@ -1414,11 +1586,11 @@
 				9B5F5BB5261CD5A500A7454F /* MusicViewController.swift in Sources */,
 				9BD98C9E2628A75600F3BBD7 /* UINavigationController.swift in Sources */,
 				9BD98C952628A74200F3BBD7 /* MusicCell.swift in Sources */,
+				AE19FD902958B747006A6DA2 /* LibraryCoreDataModel+CoreDataClass.swift in Sources */,
+				AE19FD982958B8BF006A6DA2 /* AppDelegate+UNUserNotificationCenterDelegate.swift in Sources */,
 				9BAEB63425F18C3B004B7761 /* Interperitation+Ext.swift in Sources */,
-				9CC75FE32946330D00F125FD /* LibraryCoreDataModel+CoreDataClass.swift in Sources */,
 				84468380266392F900A0790B /* LibraryRuneCell.swift in Sources */,
 				193FFB382613319000D60171 /* CustomButton.swift in Sources */,
-				9C3D6C802933BC580027DE58 /* GeneratorCoreData.xcdatamodeld in Sources */,
 				19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */,
 				9BD98C932628A74200F3BBD7 /* AppInfoVC.swift in Sources */,
 				9B0CB88B2607B6A000B2AF60 /* TopWithDescriptionView.swift in Sources */,
@@ -1443,6 +1615,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AE19FD9C2958B9B4006A6DA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE19FDA72958B9B4006A6DA2 /* NotificationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE19FDB32958BA45006A6DA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE19FDBA2958BA45006A6DA2 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1456,6 +1644,16 @@
 			target = 9BD228F9258A321B00E17E98 /* Runar */;
 			targetProxy = 9BD2291C258A322000E17E98 /* PBXContainerItemProxy */;
 		};
+		AE19FDAD2958B9B4006A6DA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE19FD9F2958B9B4006A6DA2 /* NotificationContentExtension */;
+			targetProxy = AE19FDAC2958B9B4006A6DA2 /* PBXContainerItemProxy */;
+		};
+		AE19FDBD2958BA45006A6DA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE19FDB62958BA45006A6DA2 /* NotificationServiceExtension */;
+			targetProxy = AE19FDBC2958BA45006A6DA2 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1466,6 +1664,14 @@
 				1944411626278EAE00EAB9F3 /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		AE19FDA82958B9B4006A6DA2 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE19FDA92958B9B4006A6DA2 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1593,7 +1799,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9215007654A411DBEF358A7 /* Pods-Runar.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Runar/RunarDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
@@ -1616,6 +1824,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1A56DC55326BF359E39532FA /* Pods-Runar.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -1719,6 +1928,118 @@
 			};
 			name = Release;
 		};
+		AE19FDB02958B9B5006A6DA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FR3LN29YUF;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationContentExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationContentExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tnco.runar.NotificationContentExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AE19FDB12958B9B5006A6DA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FR3LN29YUF;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationContentExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationContentExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tnco.runar.NotificationContentExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AE19FDC02958BA45006A6DA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FR3LN29YUF;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tnco.runar.NotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AE19FDC12958BA45006A6DA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FR3LN29YUF;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tnco.runar.NotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1758,26 +2079,44 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		AE19FDAF2958B9B5006A6DA2 /* Build configuration list for PBXNativeTarget "NotificationContentExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE19FDB02958B9B5006A6DA2 /* Debug */,
+				AE19FDB12958B9B5006A6DA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE19FDBF2958BA45006A6DA2 /* Build configuration list for PBXNativeTarget "NotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE19FDC02958BA45006A6DA2 /* Debug */,
+				AE19FDC12958BA45006A6DA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9C3D6C7E2933BC580027DE58 /* GeneratorCoreData.xcdatamodeld */ = {
+		AE19FD882958B73E006A6DA2 /* LibraryCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9C3D6C7F2933BC580027DE58 /* CoreData.xcdatamodel */,
+				AE19FD892958B73E006A6DA2 /* LibraryCoreData.xcdatamodel */,
 			);
-			currentVersion = 9C3D6C7F2933BC580027DE58 /* CoreData.xcdatamodel */;
-			path = GeneratorCoreData.xcdatamodeld;
+			currentVersion = AE19FD892958B73E006A6DA2 /* LibraryCoreData.xcdatamodel */;
+			path = LibraryCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
-		9CC75FDE294632E100F125FD /* LibraryCoreData.xcdatamodeld */ = {
+		AE19FD8A2958B73F006A6DA2 /* GeneratorCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9CC75FDF294632E100F125FD /* LibraryCoreData.xcdatamodel */,
+				AE19FD8B2958B73F006A6DA2 /* CoreData.xcdatamodel */,
 			);
-			currentVersion = 9CC75FDF294632E100F125FD /* LibraryCoreData.xcdatamodel */;
-			path = LibraryCoreData.xcdatamodeld;
+			currentVersion = AE19FD8B2958B73F006A6DA2 /* CoreData.xcdatamodel */;
+			path = GeneratorCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
