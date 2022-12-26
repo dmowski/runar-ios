@@ -11,6 +11,7 @@ import UIKit
 public enum BackgroundType {
     case main
     case mainFire
+    case generatorFire
     
     var image: ImageAsset {
         switch self {
@@ -18,6 +19,8 @@ public enum BackgroundType {
             return Assets.Background.main
         case .mainFire:
             return Assets.Background.mainFire
+        case .generatorFire:
+            return Assets.Background.generatorFire
         }
     }
 }

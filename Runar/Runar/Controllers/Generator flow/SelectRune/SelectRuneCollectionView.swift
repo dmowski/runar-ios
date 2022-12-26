@@ -10,7 +10,7 @@ import CoreData
 
 public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    private let cellId = "existingCellId"
+    private let cellId = "selectRuneCell"
     private var selectDeligate: ((SelectRuneCell) -> Void)?
     internal var selectedRunesCount: Int = 0
     private var runes: [SelectRuneCell] = []
@@ -33,7 +33,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
 
     private func setupViews() {
