@@ -51,7 +51,6 @@
 		84410677270CC7E500CD8B56 /* SelectRuneCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84410676270CC7E500CD8B56 /* SelectRuneCollectionView.swift */; };
 		84468380266392F900A0790B /* LibraryRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446837F266392F900A0790B /* LibraryRuneCell.swift */; };
 		844BF4D626501A81002C7596 /* RunarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844BF4D526501A81002C7596 /* RunarLayout.swift */; };
-		8452A5F726F3A3700069DEE5 /* GeneratorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452A5F626F3A3700069DEE5 /* GeneratorVC.swift */; };
 		845D26E42738259E00449D34 /* ChoosedWallpaperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D26E32738259E00449D34 /* ChoosedWallpaperVC.swift */; };
 		8477222E2643C9CA001C280D /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477222D2643C9CA001C280D /* LocalStorage.swift */; };
 		8477224326458020001C280D /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477224226458020001C280D /* Route.swift */; };
@@ -268,7 +267,6 @@
 		84410676270CC7E500CD8B56 /* SelectRuneCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRuneCollectionView.swift; sourceTree = "<group>"; };
 		8446837F266392F900A0790B /* LibraryRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRuneCell.swift; sourceTree = "<group>"; };
 		844BF4D526501A81002C7596 /* RunarLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunarLayout.swift; sourceTree = "<group>"; };
-		8452A5F626F3A3700069DEE5 /* GeneratorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorVC.swift; sourceTree = "<group>"; };
 		845D26E32738259E00449D34 /* ChoosedWallpaperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosedWallpaperVC.swift; sourceTree = "<group>"; };
 		8477222D2643C9CA001C280D /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		8477224226458020001C280D /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -637,7 +635,6 @@
 		8452A5F526F3A3240069DEE5 /* Generator flow */ = {
 			isa = PBXGroup;
 			children = (
-				C2C55850283DA077006B053C /* Generator */,
 				C2C55851283DA115006B053C /* SelectionRune */,
 				C2C55854283DA323006B053C /* EmptyWallpaper */,
 				843DAB9126F9B94C009548D8 /* WallpaperWithBackground */,
@@ -1055,14 +1052,6 @@
 				9BD22959258AB02500E17E98 /* RunicDrawsCollectionVC.swift */,
 			);
 			path = RunicDrawsCollection;
-			sourceTree = "<group>";
-		};
-		C2C55850283DA077006B053C /* Generator */ = {
-			isa = PBXGroup;
-			children = (
-				8452A5F626F3A3700069DEE5 /* GeneratorVC.swift */,
-			);
-			name = Generator;
 			sourceTree = "<group>";
 		};
 		C2C55851283DA115006B053C /* SelectionRune */ = {
@@ -1555,7 +1544,6 @@
 				AE19FD912958B747006A6DA2 /* LibraryCoreDataModel+CoreDataProperties.swift in Sources */,
 				84B1C4D62724D825007865CF /* WallpaperWithBackgroundVC.swift in Sources */,
 				9B0CB8862607922B00B2AF60 /* DescriptionView.swift in Sources */,
-				8452A5F726F3A3700069DEE5 /* GeneratorVC.swift in Sources */,
 				844106602705B43E00CD8B56 /* GenerationPopUpViewController.swift in Sources */,
 				9C3D6C872933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataClass.swift in Sources */,
 				849ED28A266E33D4006E557A /* LibraryTextCell.swift in Sources */,

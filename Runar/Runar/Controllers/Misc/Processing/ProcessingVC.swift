@@ -35,7 +35,6 @@ class ProcessingVC: UIViewController {
     
     var ifGenerateWallpapers: Bool?
     var runesIds: [String]?
-    var delegate: UIViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,8 +62,9 @@ class ProcessingVC: UIViewController {
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
-        self.tabBarController?.tabBar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
+        navigationController?.deletStatusBarView()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -74,8 +74,8 @@ class ProcessingVC: UIViewController {
 
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        self.navigationController?.navigationBar.isHidden = true
-        self.tabBarController?.tabBar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
     }
     
     private func generateEmptyWallpapers(runesIds: [String]) {
@@ -119,11 +119,10 @@ class ProcessingVC: UIViewController {
             
             
             self.viewModel.closeTransition()
-            self.delegate?.navigationController?.popViewController(animated: false)
             let emptyWallpaperViewController = EmptyWallpaperVC(emptyWallpapers: self.emptyWallpapers) {
                 self.queue.cancelAllOperations()
             }
-            self.delegate?.navigationController?.pushViewController(emptyWallpaperViewController, animated: true)
+            self.navigationController?.pushViewController(emptyWallpaperViewController, animated: true)
             
             
         })

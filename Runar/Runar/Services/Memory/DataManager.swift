@@ -58,7 +58,7 @@ final class DataManager {
         let tabBarVC = sceneDelegate?.window?.rootViewController as? MainTabBarController
         let navigationVC = tabBarVC?.viewControllers?.first {
             guard let navVC = $0 as? UINavigationController else { return false }
-            return navVC.viewControllers.first is GeneratorVC
+            return navVC.viewControllers.first is SelectionRuneVC
         } as? UINavigationController
 
         let selectionRuneVC: SelectionRuneVC? = navigationVC?.viewControllers.first { $0 is SelectionRuneVC } as? SelectionRuneVC

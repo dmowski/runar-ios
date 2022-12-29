@@ -93,11 +93,13 @@ public class WallpaperWithBackgroundVC: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        navigationController?.setStatusBar(backgroundColor: .navBarBackground)
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        navigationController?.deletStatusBarView()
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
