@@ -35,6 +35,7 @@ class ProcessingVC: UIViewController {
     
     var ifGenerateWallpapers: Bool?
     var runesIds: [String]?
+    var delegate: UIViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,10 +123,9 @@ class ProcessingVC: UIViewController {
             let emptyWallpaperViewController = EmptyWallpaperVC(emptyWallpapers: self.emptyWallpapers) {
                 self.queue.cancelAllOperations()
             }
-            self.navigationController?.pushViewController(emptyWallpaperViewController, animated: true)
-            
-            
+            self.delegate?.navigationController?.pushViewController(emptyWallpaperViewController, animated: true)
         })
+        
         configureShapeLayer()
         backgroundLayer.layer.addSublayer(shapeLayer)
         shapeLayer.add(basicAnimation, forKey: nil)
