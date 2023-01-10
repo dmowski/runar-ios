@@ -388,8 +388,8 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "generator.nextButton.title", fallback: "Next")
     }
     internal enum Progress {
-      /// Pattern generation
-      internal static let name = L10n.tr("Localizable", "generator.progress.name", fallback: "Pattern generation")
+      /// Magic happens
+      internal static let name = L10n.tr("Localizable", "generator.progress.name", fallback: "Magic happens")
     }
     internal enum ProgressGenerator {
       /// Runic pattern is creating...
