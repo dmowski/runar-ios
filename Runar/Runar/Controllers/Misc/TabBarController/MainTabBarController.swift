@@ -36,7 +36,7 @@ class MainTabBarController: UITabBarController {
         let runicDrawsVC = RunicDrawsCollectionVC(collectionViewLayout: lay)
         let settingsVC = SettingsVC()
         let libraryVC = LibraryViewController()
-        let generatorVC = GeneratorVC()
+        let generatorVC = SelectionRuneVC()
         
         viewControllers = [
             generateTabBarController(rootViewController: runicDrawsVC, image: Assets.TabBar.Image.home.image, title: String.layouts),
@@ -50,8 +50,7 @@ class MainTabBarController: UITabBarController {
         let navigationVC = UINavigationController(rootViewController: rootViewController)
         navigationVC.tabBarItem.image = image
         navigationVC.tabBarItem.title = title
-//        navigationVC.setNavigationBarHidden(true, animated: false)
-        
+
         return navigationVC
     }
 }

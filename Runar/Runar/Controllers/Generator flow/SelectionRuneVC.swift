@@ -107,13 +107,11 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = true
         configureNavigationBar()
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        self.tabBarController?.tabBar.isHidden = false
     }
     
     public override func viewDidLayoutSubviews() {
@@ -122,14 +120,11 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     private func configureNavigationBar() {
         title = .generateRunesTitle
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.tabBarController?.tabBar.isHidden = false
+        navigationController?.setStatusBar(backgroundColor: .navBarBackground)
         self.navigationController?.navigationBar.configure()
         navigationItem.largeTitleDisplayMode = .never
-        self.navigationItem.hidesBackButton = true
-        let customBackButton = UIBarButtonItem(image: Assets.backIcon.image,
-                                               style: .plain, target: self,
-                                               action: #selector(self.backToInitial))
-        customBackButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        navigationItem.leftBarButtonItem = customBackButton
     }
 
     @objc func backToInitial(sender: UIBarButtonItem) {

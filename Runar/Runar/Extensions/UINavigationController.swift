@@ -17,8 +17,17 @@ extension UINavigationController {
             statusBarFrame = UIApplication.shared.statusBarFrame
         }
         let statusBarView = UIView(frame: statusBarFrame)
+        statusBarView.tag = 1
         statusBarView.backgroundColor = backgroundColor
         view.addSubview(statusBarView)
+    }
+    
+    func deletStatusBarView() {
+        view.subviews.forEach {
+            if $0.tag == 1 {
+                $0.removeFromSuperview()
+            }
+        }
     }
     
     func popToViewController(ofClass: AnyClass, animated: Bool = false) {
