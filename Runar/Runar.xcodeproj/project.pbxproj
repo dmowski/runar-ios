@@ -148,6 +148,7 @@
 		AE19FDAE2958B9B4006A6DA2 /* NotificationContentExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AE19FDA02958B9B4006A6DA2 /* NotificationContentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AE19FDBA2958BA45006A6DA2 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE19FDB92958BA45006A6DA2 /* NotificationService.swift */; };
 		AE19FDBE2958BA45006A6DA2 /* NotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AE19FDB72958BA45006A6DA2 /* NotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AEB4781B296EF6810026E0AD /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB4781A296EF6810026E0AD /* Int+Extension.swift */; };
 		C22B4DB42858AD2800F6245C /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B4DB32858AD2800F6245C /* String + Extensions.swift */; };
 		C22F6E4127C3CEFF005F8B66 /* EmptyWallpaperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */; };
 		C278B66127C43FAB00EFBD2C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */; };
@@ -374,6 +375,7 @@
 		AE19FDB72958BA45006A6DA2 /* NotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE19FDB92958BA45006A6DA2 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		AE19FDBB2958BA45006A6DA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEB4781A296EF6810026E0AD /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		C22B4DB32858AD2800F6245C /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyWallpaperVC.swift; sourceTree = "<group>"; };
 		C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 				C22B4DB32858AD2800F6245C /* String + Extensions.swift */,
 				AE19FD952958B890006A6DA2 /* AppDelegate+MessagingDelegate.swift */,
 				AE19FD972958B8BF006A6DA2 /* AppDelegate+UNUserNotificationCenterDelegate.swift */,
+				AEB4781A296EF6810026E0AD /* Int+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1497,6 +1500,7 @@
 				9C3D6C862933BD410027DE58 /* GeneratorRuneImageCoreDataModel+CoreDataProperties.swift in Sources */,
 				9911206E28611139001B8FCC /* TagsCell.swift in Sources */,
 				191D32CF25B7C46A001DC210 /* Assets.swift in Sources */,
+				AEB4781B296EF6810026E0AD /* Int+Extension.swift in Sources */,
 				19D9BAD625C9765C00418CE7 /* TwoRuneView.swift in Sources */,
 				84410677270CC7E500CD8B56 /* SelectRuneCollectionView.swift in Sources */,
 				671E685B28EA2DB5000A0904 /* SparksScene.swift in Sources */,
