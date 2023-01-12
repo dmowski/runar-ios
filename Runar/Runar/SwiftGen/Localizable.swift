@@ -1756,14 +1756,14 @@ internal enum L10n {
     }
   }
   internal enum LuckLevel {
-    /// Better luck next time!
-    internal static let from0To20 = L10n.tr("Localizable", "luckLevel.from0To20", fallback: "Better luck next time!")
-    /// A little more, and you'll catch up the luck!
-    internal static let from21To40 = L10n.tr("Localizable", "luckLevel.from21To40", fallback: "A little more, and you'll catch up the luck!")
-    /// Hey, it's your lucky day!
-    internal static let from41To69 = L10n.tr("Localizable", "luckLevel.from41To69", fallback: "Hey, it's your lucky day!")
-    /// The gods favor you!
-    internal static let from70To100 = L10n.tr("Localizable", "luckLevel.from70To100", fallback: "The gods favor you!")
+    /// Luckiness: Better luck next time!
+    internal static let from0To20 = L10n.tr("Localizable", "luckLevel.from0To20", fallback: "Luckiness: Better luck next time!")
+    /// Luckiness: A little more, and you'll catch up the luck!
+    internal static let from21To40 = L10n.tr("Localizable", "luckLevel.from21To40", fallback: "Luckiness: A little more, and you'll catch up the luck!")
+    /// Luckiness: Hey, it's your lucky day!
+    internal static let from41To69 = L10n.tr("Localizable", "luckLevel.from41To69", fallback: "Luckiness: Hey, it's your lucky day!")
+    /// Luckiness: The gods favor you!
+    internal static let from70To100 = L10n.tr("Localizable", "luckLevel.from70To100", fallback: "Luckiness: The gods favor you!")
   }
   internal enum Monetization {
     /// Сhoose a payment plan
