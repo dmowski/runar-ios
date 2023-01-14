@@ -107,16 +107,15 @@ class OnboardingView: UIView {
         addSubview(onboardingNextSlideButton)
         onboardingNextSlideButton.addTarget(self, action: #selector(goToNextSlide), for: .touchUpInside)
         onboardingNextSlideButton.snp.makeConstraints { make in
-            if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
+            make.centerX.equalToSuperview()
+            make.width.equalTo(264)
+            make.height.equalTo(48)
+            if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 && !DeviceType.isIphone78Plus {
                 make.bottom.equalToSuperview().inset(184)
-                make.centerX.equalToSuperview()
-                make.width.equalTo(264)
-                make.height.equalTo(48)
-            } else {
+            } else if !DeviceType.iPhoneSE {
                 make.bottom.equalToSuperview().inset(130)
-                make.centerX.equalToSuperview()
-                make.width.equalTo(264)
-                make.height.equalTo(48)
+            } else {
+                make.bottom.equalToSuperview().inset(70)
             }
         }
     }
@@ -127,8 +126,12 @@ class OnboardingView: UIView {
         pageControllStackView.spacing = 8
         addSubview(pageControllStackView)
         pageControllStackView.snp.makeConstraints { make in
-            make.top.equalTo(onboardingNextSlideButton.snp.bottom).offset(67)
             make.centerX.equalToSuperview()
+            if !DeviceType.iPhoneSE {
+                make.top.equalTo(onboardingNextSlideButton.snp.bottom).offset(67)
+            } else {
+                make.top.equalTo(onboardingNextSlideButton.snp.bottom).offset(30)
+            }
         }
         pageControllStackView.removeFullyAllArrangedSubviews()
         pageControll.numberOfDots = OnboardingSlide.slides().count

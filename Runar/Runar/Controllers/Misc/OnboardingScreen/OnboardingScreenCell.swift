@@ -62,9 +62,18 @@ class OnboardingScreenCell: UICollectionViewCell {
         contentView.addSubview(onboardingDescription)
         onboardingDescription.snp.makeConstraints { make in
             make.top.equalTo(onboardingSlideTitle.snp.bottom).offset(32)
-            make.width.equalTo(230)
             make.height.equalTo(70)
             make.centerX.equalTo(contentView)
+            if !DeviceType.iPhoneSE && !DeviceType.isIphone78Plus{
+                make.trailing.equalToSuperview().inset(64)
+                make.leading.equalToSuperview().inset(64)
+            } else if !DeviceType.iPhoneSE {
+                make.trailing.equalToSuperview().inset(72)
+                make.leading.equalToSuperview().inset(72)
+            } else {
+                make.trailing.equalToSuperview().inset(42)
+                make.leading.equalToSuperview().inset(42)
+            }
         }
     }
     
