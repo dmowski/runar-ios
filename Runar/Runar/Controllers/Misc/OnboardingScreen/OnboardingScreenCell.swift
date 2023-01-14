@@ -61,10 +61,21 @@ class OnboardingScreenCell: UICollectionViewCell {
         onboardingDescription.backgroundColor = .clear
         contentView.addSubview(onboardingDescription)
         onboardingDescription.snp.makeConstraints { make in
-            make.top.equalTo(onboardingSlideTitle.snp.bottom).offset(32)
-            make.width.equalTo(230)
             make.height.equalTo(70)
             make.centerX.equalTo(contentView)
+            if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 {
+                make.top.equalTo(onboardingSlideTitle.snp.bottom).offset(32)
+                make.trailing.equalToSuperview().inset(72)
+                make.leading.equalToSuperview().inset(72)
+            } else if !DeviceType.iPhoneSE {
+                make.top.equalTo(onboardingSlideTitle.snp.bottom).offset(32)
+                make.trailing.equalToSuperview().inset(64)
+                make.leading.equalToSuperview().inset(64)
+            } else {
+                make.top.equalTo(onboardingSlideTitle.snp.bottom).offset(24)
+                make.trailing.equalToSuperview().inset(42)
+                make.leading.equalToSuperview().inset(42)
+            }
         }
     }
     
