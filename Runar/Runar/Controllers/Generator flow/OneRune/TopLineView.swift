@@ -95,6 +95,7 @@ final class TopLineView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         label.font = UIFont(name: "SFProDisplay-Regular", size: 15)
+        label.numberOfLines = 0
         label.sizeToFit()
         return label
     }()
@@ -102,9 +103,10 @@ final class TopLineView: UIView {
     private func configureLuckConstr() {
         self.addSubview(luckLevelLabel)
         NSLayoutConstraint.activate([
-            luckLevelLabel.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 5.heightDependent()),
-            luckLevelLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            luckLevelLabel.heightAnchor.constraint(equalToConstant: 29.heightDependent())
+            luckLevelLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            luckLevelLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            luckLevelLabel.topAnchor.constraint(equalTo: timeLabel.bottomAnchor),
+            luckLevelLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
     }
 }
