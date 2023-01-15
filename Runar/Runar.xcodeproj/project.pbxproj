@@ -336,8 +336,6 @@
 		AE19FD8B2958B73F006A6DA2 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		AE19FD8E2958B747006A6DA2 /* LibraryCoreDataModel+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LibraryCoreDataModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		AE19FD8F2958B747006A6DA2 /* LibraryCoreDataModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LibraryCoreDataModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		AE19FDA12958B9B4006A6DA2 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
-		AE19FDA32958B9B4006A6DA2 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		C22B4DB32858AD2800F6245C /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyWallpaperVC.swift; sourceTree = "<group>"; };
 		C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
@@ -1019,8 +1017,6 @@
 			isa = PBXGroup;
 			children = (
 				C2F44DC028C6601B00A43F4D /* StoreKit.framework */,
-				AE19FDA12958B9B4006A6DA2 /* UserNotifications.framework */,
-				AE19FDA32958B9B4006A6DA2 /* UserNotificationsUI.framework */,
 				19656F54888680BFAF37C176 /* Pods_Runar.framework */,
 				347A0AE1E9C5C9A6DA9FFE13 /* Pods_Runar_RunarUITests.framework */,
 				4F3D332D3F570BF5A4D6DAB4 /* Pods_RunarTests.framework */,
