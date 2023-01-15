@@ -9,7 +9,7 @@ import UIKit
 
 public class GenerationPopUpViewController: UIViewController {
     
-    var runeModel: GeneratorRuneCoreDataModel?
+    var runeModel: GenerationRuneModel?
     var runeView: UIView?
     var action: Dictionary<String, Selector>.Element?
     
@@ -103,13 +103,12 @@ public class GenerationPopUpViewController: UIViewController {
         self.runeView = view
     }
     
-    public func setupModel(_ model: GeneratorRuneCoreDataModel?) {
+    public func setupModel(_ model: GenerationRuneModel?) {
         self.runeModel = model
 
-        guard let imageData = model?.runeImage?.image,
-              let image = UIImage(data: imageData),
+        guard let image = model?.image.image,
               let title = model?.title,
-              let description = model?.runeDescription else { return }
+              let description = model?.description else { return }
 
         self.imageView.image = image
         self.header.attributedText = UILabel.getAttributedText(text: title, lineHeight: 0.7)
