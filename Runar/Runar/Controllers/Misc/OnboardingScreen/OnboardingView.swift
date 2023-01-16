@@ -18,6 +18,7 @@ class OnboardingView: UIView {
     private let onboardingSkipButton = UIButton()
     var onboardingCollectionView: UICollectionView!
     let onboardingNextSlideButton = CustomButton()
+    let onboardingStartButton = UIButton()
     let pageControllStackView = UIStackView()
     let pageControll = CustomPageControll()
     
@@ -30,6 +31,7 @@ class OnboardingView: UIView {
         configureOnboardingCollectioView()
         configureNextSlideButton()
         configureCustomPageControll()
+        configureOnboardingStartButton()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -107,6 +109,38 @@ class OnboardingView: UIView {
         addSubview(onboardingNextSlideButton)
         onboardingNextSlideButton.addTarget(self, action: #selector(goToNextSlide), for: .touchUpInside)
         onboardingNextSlideButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.width.equalTo(264)
+            make.height.equalTo(48)
+            if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 && !DeviceType.isIphone78Plus {
+                make.bottom.equalToSuperview().inset(184)
+            } else if !DeviceType.iPhoneSE {
+                make.bottom.equalToSuperview().inset(130)
+            } else {
+                make.bottom.equalToSuperview().inset(70)
+            }
+        }
+    }
+    
+    func configureOnboardingStartButton() {
+        
+        onboardingStartButton.isHidden = true
+        
+        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 6.58 : 8
+        let borderConstant: CGFloat = DeviceType.iPhoneSE ? 0.82 : 1
+        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30
+        onboardingStartButton.layer.cornerRadius = radiusConstant
+        onboardingStartButton.layer.borderWidth = borderConstant
+        onboardingStartButton.setTitle(L10n.Onboarding.start, for: .normal)
+        onboardingStartButton.backgroundColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
+        onboardingStartButton.layer.borderColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 0.7).cgColor
+        onboardingStartButton.translatesAutoresizingMaskIntoConstraints = false
+        onboardingStartButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
+        onboardingStartButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .highlighted)
+        onboardingStartButton.setTitleColor(UIColor(red: 0.294, green: 0.282, blue: 0.259, alpha: 1), for: .normal)
+        addSubview(onboardingStartButton)
+        onboardingStartButton.addTarget(self, action: #selector(goToNextSlide), for: .touchUpInside)
+        onboardingStartButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.width.equalTo(264)
             make.height.equalTo(48)
