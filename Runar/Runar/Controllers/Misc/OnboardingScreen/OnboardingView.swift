@@ -17,7 +17,7 @@ class OnboardingView: UIView {
     private let onboardigBackgroundImage = UIImageView()
     private let onboardingSkipButton = UIButton()
     var onboardingCollectionView: UICollectionView!
-    let onboardingNextSlideButton = CustomButton()
+    let onboardingNextSlideButton = UIButton()
     let onboardingStartButton = UIButton()
     let pageControllStackView = UIStackView()
     let pageControll = CustomPageControll()
@@ -108,6 +108,8 @@ class OnboardingView: UIView {
         onboardingNextSlideButton.setTitleColor(UIColor(red: 0.294, green: 0.282, blue: 0.259, alpha: 1), for: .highlighted)
         addSubview(onboardingNextSlideButton)
         onboardingNextSlideButton.addTarget(self, action: #selector(goToNextSlide), for: .touchUpInside)
+        onboardingNextSlideButton.addTarget(self, action: #selector(changeButtonColor(_:)), for: .touchDown)
+        onboardingNextSlideButton.addTarget(self, action: #selector(buttonNormalColor(_:)), for: .touchUpInside)
         onboardingNextSlideButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.width.equalTo(264)
@@ -140,6 +142,8 @@ class OnboardingView: UIView {
         onboardingStartButton.setTitleColor(UIColor(red: 0.294, green: 0.282, blue: 0.259, alpha: 1), for: .normal)
         addSubview(onboardingStartButton)
         onboardingStartButton.addTarget(self, action: #selector(goToNextSlide), for: .touchUpInside)
+        onboardingStartButton.addTarget(self, action: #selector(changeButtonColor(_:)), for: .touchDown)
+        onboardingStartButton.addTarget(self, action: #selector(buttonNormalColor(_:)), for: .touchUpInside)
         onboardingStartButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.width.equalTo(264)
@@ -187,6 +191,27 @@ class OnboardingView: UIView {
     @objc private func goToMainScreen() {
         onboardingViewDelegate?.skipButton()
     }
+    
+    @objc private func buttonNormalColor(_ sender: UIButton) {
+        if sender == onboardingStartButton {
+            onboardingStartButton.backgroundColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
+            onboardingStartButton.layer.borderColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 0.7).cgColor
+        } else {
+            onboardingNextSlideButton.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
+            onboardingNextSlideButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
+        }
+    }
+    
+    @objc private func changeButtonColor(_ sender: UIButton) {
+        if sender == onboardingStartButton {
+            onboardingStartButton.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
+            onboardingStartButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
+        } else {
+            onboardingNextSlideButton.backgroundColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
+            onboardingNextSlideButton.layer.borderColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 0.7).cgColor
+        }
+    }
+    
 }
 
 extension UIStackView {
