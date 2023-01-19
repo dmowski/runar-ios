@@ -47,7 +47,7 @@ class SelectRuneCell: UICollectionViewCell {
         self.model = rune
         self.indexPath = indexPath
 
-        runeImage.setBackgroundImage(rune.imageData.uiImage, for: .normal)
+        runeImage.setBackgroundImage(rune.imageInfo.uiImage, for: .normal)
     }
     
     public func selectRune() {

@@ -106,7 +106,7 @@ public class GenerationPopUpViewController: UIViewController {
     public func setupModel(_ model: GenerationRuneModel?) {
         self.runeModel = model
 
-        guard let image = model?.imageData.uiImage,
+        guard let image = model?.imageInfo.uiImage,
               let title = model?.title,
               let description = model?.description else { return }
 
