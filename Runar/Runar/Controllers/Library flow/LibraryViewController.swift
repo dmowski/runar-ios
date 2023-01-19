@@ -17,13 +17,9 @@ public class LibraryViewController: LibraryNodeViewController {
     }
     
     override func configureNavigationBar() {
-        if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 && !DeviceType.isIphone78Plus {
             title = .library
-            navigationController?.navigationBar.configure(prefersLargeTitles: true, titleFontSize: 34)
-        } else {
-            navigationController?.navigationBar.configure(prefersLargeTitles: false, titleFontSize: 20)
-            navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UILabel.create(withText: .library, fontSize: 20))
-        }
+            navigationController?.navigationBar.configureTitle()
+
         navigationItem.backBarButtonItem = UIBarButtonItem(
             title: L10n.Navbar.Title.back, style: .plain, target: nil, action: nil)
         
@@ -33,22 +29,23 @@ public class LibraryViewController: LibraryNodeViewController {
 
 // MARK: - Extensions
 public extension UINavigationBar {
-    func configure(prefersLargeTitles: Bool, titleFontSize: CGFloat) -> Void {
+    func configureTitle() -> Void {
         self.backgroundColor = .navBarBackground
         
-        let attributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: titleFontSize),
-                          NSAttributedString.Key.foregroundColor: UIColor.libraryTitleColor]
-        
-        if prefersLargeTitles {
-            self.largeTitleTextAttributes = attributes
-            self.prefersLargeTitles = true
-            self.titleTextAttributes = nil
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 0.79
+        if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 && !DeviceType.isIphone78Plus {
+            self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 36),
+                                        NSAttributedString.Key.foregroundColor: UIColor.libraryTitleColor,
+                                        NSAttributedString.Key.paragraphStyle: paragraphStyle]
         } else {
-            self.titleTextAttributes = attributes
+            self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 30),
+                                        NSAttributedString.Key.foregroundColor: UIColor.libraryTitleColor,
+                                        NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        }
             self.isTranslucent = false
             self.barTintColor = .navBarBackground
             self.tintColor = .libraryTitleColor
-        }
     }
 }
 

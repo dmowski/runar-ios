@@ -238,13 +238,23 @@ private extension UITableView {
 
 private extension UINavigationBar {
     func configure() -> Void {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 0.79
+        
         self.isTranslucent = false
         self.tintColor = .libraryTitleColor
         self.backgroundColor = .navBarBackground
         self.barTintColor = .navBarBackground
-        self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 17),
-                                         NSAttributedString.Key.foregroundColor: UIColor.white]
-        
         self.backItem?.backButtonTitle = .back
+        
+        if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 && !DeviceType.isIphone78Plus {
+            self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 36),
+                                        NSAttributedString.Key.foregroundColor: UIColor.libraryTitleColor,
+                                        NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        } else {
+            self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 30),
+                                        NSAttributedString.Key.foregroundColor: UIColor.libraryTitleColor,
+                                        NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        }
     }
 }
