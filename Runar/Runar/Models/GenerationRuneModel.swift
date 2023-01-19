@@ -8,7 +8,7 @@
 import UIKit
 
 struct GenerationRuneImage {
-    var image: UIImage
+    var uiImage: UIImage
     var height: CGFloat?
     var width: CGFloat?
 }
@@ -17,12 +17,12 @@ public class GenerationRuneModel {
     let id: String
     let title: String
     let description: String
-    let image: GenerationRuneImage
+    let imageData: GenerationRuneImage
     
     init(title: String, description: String, image: GenerationRuneImage){
         self.title = title
         self.description = description
-        self.image = image
+        self.imageData = image
         self.id = ""
     }
     
@@ -30,20 +30,20 @@ public class GenerationRuneModel {
         self.id = id
         self.title = title
         self.description = description
-        self.image = image
+        self.imageData = image
     }
 }
 
 public extension GenerationRuneModel {
     
     static func create(title: String, description: String, image: UIImage) -> GenerationRuneModel {
-        let image: GenerationRuneImage = GenerationRuneImage(image: image, height: 70, width: 56)
+        let image: GenerationRuneImage = GenerationRuneImage(uiImage: image, height: 70, width: 56)
         
         return GenerationRuneModel(title: title, description: description, image: image)
     }
     
     static func create(id: String, runeInfo: RuneInfo, image: UIImage) -> GenerationRuneModel {
-        let image: GenerationRuneImage = GenerationRuneImage(image: image)
+        let image: GenerationRuneImage = GenerationRuneImage(uiImage: image)
         
         return GenerationRuneModel(id: id, title: runeInfo.title, description: runeInfo.description, image: image)
     }
