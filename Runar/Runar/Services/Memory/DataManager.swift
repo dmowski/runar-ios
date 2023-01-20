@@ -69,7 +69,10 @@ final class DataManager {
     // MARK: - Load library
     private func loadLibraryData() {
         // Download data from server
-        guard let libraryData = RunarApi.getLibratyData() else { fatalError("Library is empty") }
+        guard let libraryData = RunarApi.getLibratyData() else {
+            // TODO: - Provide for the processing of the case if it was not possible to download data from the server
+            return print("Library is empty")
+        }
 
         // Enter data into the Library memory storage
         MemoryStorage.Library = LibraryNode.create(fromData: libraryData)
@@ -79,7 +82,10 @@ final class DataManager {
     // MARK: - Load generator
     private func loadGeneratorData() {
         // Download data from server
-        guard let runesData = RunarApi.getRunesData() else { fatalError("Runes is empty") }
+        guard let runesData = RunarApi.getRunesData() else {
+            // TODO: - Provide for the processing of the case if it was not possible to download data from the server
+            return print("Runes is empty")
+        }
 
         // Enter data into the GenerationRunes memory storage
         MemoryStorage.GenerationRunes = GenerationRuneModel.create(fromData: runesData)

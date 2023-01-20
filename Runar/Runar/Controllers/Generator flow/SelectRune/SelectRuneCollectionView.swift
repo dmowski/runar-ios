@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CoreData
 
 public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
     
