@@ -71,7 +71,8 @@ final class DataManager {
         // Download data from server
         guard let libraryData = RunarApi.getLibratyData() else {
             // TODO: - Provide for the processing of the case if it was not possible to download data from the server
-            return print("Library is empty")
+            print("Library is empty")
+            return
         }
 
         // Enter data into the Library memory storage
@@ -84,7 +85,8 @@ final class DataManager {
         // Download data from server
         guard let runesData = RunarApi.getRunesData() else {
             // TODO: - Provide for the processing of the case if it was not possible to download data from the server
-            return print("Runes is empty")
+            print("Runes is empty")
+            return
         }
 
         // Enter data into the GenerationRunes memory storage
