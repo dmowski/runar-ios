@@ -11,12 +11,12 @@ final class DataManager {
 
     static let shared = DataManager()
     var libraryIsLoaded: Bool = false
+    var generatorIsLoaded: Bool = false
 
     // Download data when launching the application
     func fetchData() {
         // Get library data on background queue
         DispatchQueue.global(qos: .userInteractive).async {
-            self.createLibraryFromCoreData()
             self.loadLibraryData()
 
             // Update SelectionRuneVC on main queue
@@ -69,39 +69,28 @@ final class DataManager {
     // MARK: - Load library
     private func loadLibraryData() {
         // Download data from server
-        guard let libraryData = RunarApi.getLibratyData() else { fatalError("Library is empty") }
+        guard let libraryData = RunarApi.getLibratyData() else {
+            // TODO: - Provide for the processing of the case if it was not possible to download data from the server
+            print("Library is empty")
+            return
+        }
 
         // Enter data into the Library memory storage
         MemoryStorage.Library = LibraryNode.create(fromData: libraryData)
-        libraryIsLoaded = true
-
-        // Clear Library Core Data
-        CoreDataManager.shared.clearLibraryData()
-
-        // Create and save Library Core Data
-        CoreDataManager.shared.saveLibraryInCoreDataWith(MemoryStorage.Library)
-    }
-
-    // Method of forming a library model from Core Data if it contains data
-    private func createLibraryFromCoreData() {
-        guard let savedData = CoreDataManager.shared.fetchLibraryDataFromCoreData(),
-              !savedData.isEmpty else { return }
-        MemoryStorage.Library = CoreDataManager.shared.fetchLibraryFromCoreData()
         libraryIsLoaded = true
     }
 
     // MARK: - Load generator
     private func loadGeneratorData() {
         // Download data from server
-        guard let runesData = RunarApi.getRunesData() else { fatalError("Runes is empty") }
+        guard let runesData = RunarApi.getRunesData() else {
+            // TODO: - Provide for the processing of the case if it was not possible to download data from the server
+            print("Runes is empty")
+            return
+        }
 
         // Enter data into the GenerationRunes memory storage
         MemoryStorage.GenerationRunes = GenerationRuneModel.create(fromData: runesData)
-
-        // Clear Generator Core Data
-        CoreDataManager.shared.clearGeneratorData()
-
-        // Create and save Generator Core Data
-        CoreDataManager.shared.saveGeneratorInCoreDataWith(MemoryStorage.GenerationRunes)
+        generatorIsLoaded = true
     }
 }

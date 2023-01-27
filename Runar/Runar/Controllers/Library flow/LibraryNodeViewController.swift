@@ -52,8 +52,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
 
         RunarLayout.initBackground(for: view)
 
-        let libraryIsLoaded: Bool = DataManager.shared.libraryIsLoaded
-        guard libraryIsLoaded else { return setupActivityIndicator() }
+        guard DataManager.shared.libraryIsLoaded else { return setupActivityIndicator() }
         configureNodeView()
     }
     
