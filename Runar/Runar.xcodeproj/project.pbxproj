@@ -148,6 +148,7 @@
 		C2C5584F283D9F59006B053C /* SelectedRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584E283D9F59006B053C /* SelectedRuneCell.swift */; };
 		C2F3EA9228E10E74001CB1C5 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3EA9128E10E74001CB1C5 /* SubscriptionManager.swift */; };
 		C2F44DC128C6601B00A43F4D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F44DC028C6601B00A43F4D /* StoreKit.framework */; };
+		CDF8F7682985684500A1191D /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF8F7672985684500A1191D /* Int+Extension.swift */; };
 		D33A65EC2DE4E4D7C3C956F3 /* Pods_Runar_RunarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */; };
 		DB92AEE5E33DCFB508195B8F /* Pods_Runar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */; };
 /* End PBXBuildFile section */
@@ -336,6 +337,7 @@
 		C2F3EA9128E10E74001CB1C5 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		C2F44DC028C6601B00A43F4D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.release.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CDF8F7672985684500A1191D /* Int+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar_RunarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B75E01B5066B4D9AE555E1 /* Pods-Runar-RunarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F9215007654A411DBEF358A7 /* Pods-Runar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar.debug.xcconfig"; path = "Target Support Files/Pods-Runar/Pods-Runar.debug.xcconfig"; sourceTree = "<group>"; };
@@ -449,6 +451,7 @@
 		19C0F20025BAFC830027422B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CDF8F7672985684500A1191D /* Int+Extension.swift */,
 				9BD98C9C2628A75600F3BBD7 /* UINavigationController.swift */,
 				9BD98C9D2628A75600F3BBD7 /* UIView.swift */,
 				C2C55846283D9CEE006B053C /* UIButton.swift */,
@@ -1296,7 +1299,6 @@
 				19C0F21025BAFDCB0027422B /* AlignmentInfoVM.swift in Sources */,
 				9911206E28611139001B8FCC /* TagsCell.swift in Sources */,
 				191D32CF25B7C46A001DC210 /* Assets.swift in Sources */,
-				AEB4781B296EF6810026E0AD /* Int+Extension.swift in Sources */,
 				19D9BAD625C9765C00418CE7 /* TwoRuneView.swift in Sources */,
 				84410677270CC7E500CD8B56 /* SelectRuneCollectionView.swift in Sources */,
 				671E685B28EA2DB5000A0904 /* SparksScene.swift in Sources */,
@@ -1333,6 +1335,7 @@
 				9B739E0625CD77E900726B30 /* ProcessingVM.swift in Sources */,
 				843DFF33265248B900D6DFE5 /* LibraryViewController.swift in Sources */,
 				9B15E37025FE4BFC00737306 /* TopLineView.swift in Sources */,
+				CDF8F7682985684500A1191D /* Int+Extension.swift in Sources */,
 				C2C55847283D9CEE006B053C /* UIButton.swift in Sources */,
 				C22B4DB42858AD2800F6245C /* String + Extensions.swift in Sources */,
 				19BDC60325C01A2D000808CF /* ScreenDependent.swift in Sources */,
