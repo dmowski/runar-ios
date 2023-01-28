@@ -50,5 +50,5 @@ public extension UINavigationBar {
 }
 
 public extension UIColor {
-    static let libraryTitleColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
+    static let libraryTitleColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
 }
