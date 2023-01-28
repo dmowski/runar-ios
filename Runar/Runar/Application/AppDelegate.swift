@@ -6,15 +6,12 @@
 //
 
 import UIKit
-import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
-        PushNotificationsManager.shared.addNotifications(app: application, appDelegate: self)
         
         if isFirstLaunch() {
             signIn()
@@ -22,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //NetworkMonitor
         //        if NetworkMonitor.shared.isConnected {
-        CoreDataManager.shared.applicationDocumentsDirectory()
         DataManager.shared.fetchData()
         //        } else {
         //            print("No internet")
