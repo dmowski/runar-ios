@@ -180,14 +180,6 @@ extension RunicDrawsCollectionVC: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCell.reuseIdentifier, for: indexPath) as! MainCell
         cell.update(with: data[safe: indexPath.row])
-        
-        if SubscriptionManager.freeSubscription == true {
-            if indexPath.row >= 3 {
-                cell.unavailableRunicDraw()
-            }
-        } else {
-            cell.availableRunicDraw()
-        }
 
         return cell
     }
@@ -198,15 +190,8 @@ extension RunicDrawsCollectionVC: UICollectionViewDelegateFlowLayout {
             $0.id == data[safe: indexPath.row]?.runeId
         }) else { return }
 
-        if SubscriptionManager.freeSubscription == true {
-            if indexPath.row >= 3 {
-                SubscriptionManager.presentMonetizationVC(vc: self)
-            } else {
-                tapRunicDrawCell(runeDescription: runeDescription)
-            }
-        } else {
-            tapRunicDrawCell(runeDescription: runeDescription)
-        }
+        tapRunicDrawCell(runeDescription: runeDescription)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

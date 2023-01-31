@@ -95,8 +95,7 @@ final class SettingsVC: UIViewController {
 extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard SubscriptionManager.freeSubscription else { return 4 }
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -128,10 +127,6 @@ extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
             cell?.textLabel?.text = String.aboutApp
             return cell ?? StaticCell()
-        case 4:
-            let cell = tableView.dequeueReusableCell(withIdentifier: StaticCell.identifier, for: indexPath) as? StaticCell
-            cell?.textLabel?.text = L10n.Monetization.titleSubscriptionSettings
-            return cell ?? StaticCell()
         default:
             return UITableViewCell()
         }
@@ -153,8 +148,6 @@ extension SettingsVC: UITableViewDataSource, UITableViewDelegate {
             }
         case 3:
             self.navigationController?.pushViewController(AppInfoVC(), animated: true)
-        case 4:
-            SubscriptionManager.presentMonetizationVC(vc: self)
         default:
             break
         }
