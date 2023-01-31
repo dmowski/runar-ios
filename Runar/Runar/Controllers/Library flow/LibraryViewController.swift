@@ -34,15 +34,10 @@ public extension UINavigationBar {
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 0.79
-        if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 && !DeviceType.isIphone78Plus {
-            self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 36),
+        let font: CGFloat = DeviceType.iPhoneSE ? 30 : 36
+            self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: font),
                                         NSAttributedString.Key.foregroundColor: UIColor.libraryTitleColor,
                                         NSAttributedString.Key.paragraphStyle: paragraphStyle]
-        } else {
-            self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 30),
-                                        NSAttributedString.Key.foregroundColor: UIColor.libraryTitleColor,
-                                        NSAttributedString.Key.paragraphStyle: paragraphStyle]
-        }
             self.isTranslucent = false
             self.barTintColor = .navBarBackground
             self.tintColor = .libraryTitleColor

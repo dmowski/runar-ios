@@ -85,7 +85,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     func configureNavigationBar() {
         title = node.title
         navigationItem.largeTitleDisplayMode = .never
-        self.navigationController?.navigationBar.configure()
+        self.navigationController?.navigationBar.configureTitle()
     }
 
     // Refresh the screen after downloading data
@@ -214,28 +214,5 @@ private extension UITableView {
         (cell as! LibraryCellProtocol).bind(node: child)
         
         return cell
-    }
-}
-
-private extension UINavigationBar {
-    func configure() -> Void {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 0.79
-        
-        self.isTranslucent = false
-        self.tintColor = .libraryTitleColor
-        self.backgroundColor = .navBarBackground
-        self.barTintColor = .navBarBackground
-        self.backItem?.backButtonTitle = .back
-        
-        if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 && !DeviceType.isIphone78Plus {
-            self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 36),
-                                        NSAttributedString.Key.foregroundColor: UIColor.libraryTitleColor,
-                                        NSAttributedString.Key.paragraphStyle: paragraphStyle]
-        } else {
-            self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 30),
-                                        NSAttributedString.Key.foregroundColor: UIColor.libraryTitleColor,
-                                        NSAttributedString.Key.paragraphStyle: paragraphStyle]
-        }
     }
 }
