@@ -60,11 +60,6 @@ class SelectRuneCell: UICollectionViewCell {
         self.toggleState()
     }
     
-    public func unavailableRune() {
-        self.isUnavailableRune = true
-        self.runeImage.alpha = 0.2
-    }
-    
     public func toggleState() {
         self.runeImage.isEnabled = !self.isSelected
     }
