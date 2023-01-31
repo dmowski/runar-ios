@@ -64,16 +64,9 @@ class OnboardingScreenCell: UICollectionViewCell {
             make.top.equalTo(onboardingSlideTitle.snp.bottom).offset(32)
             make.height.equalTo(70)
             make.centerX.equalTo(contentView)
-            if !DeviceType.iPhoneSE && !DeviceType.isIphone78Plus{
-                make.trailing.equalToSuperview().inset(64)
-                make.leading.equalToSuperview().inset(64)
-            } else if !DeviceType.iPhoneSE {
-                make.trailing.equalToSuperview().inset(72)
-                make.leading.equalToSuperview().inset(72)
-            } else {
-                make.trailing.equalToSuperview().inset(42)
-                make.leading.equalToSuperview().inset(42)
-            }
+            let constant: CGFloat = DeviceType.iPhoneSE ? (viewWidth / 7.6) : (viewWidth / 5.45)
+            make.trailing.equalToSuperview().inset(constant)
+            make.leading.equalToSuperview().inset(constant)
         }
     }
     
