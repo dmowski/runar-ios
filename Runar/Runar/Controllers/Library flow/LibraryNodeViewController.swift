@@ -25,8 +25,6 @@ enum LibraryNodeType: String, CaseIterable {
 // MARK: - Protocols
 public protocol LibraryCellProtocol {
     func bind(node: LibraryNode) -> Void
-    func unavailableLibrary()
-    func availableLibrary()
 }
 
 public class LibraryNodeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -108,15 +106,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
 
         switch child.type {
         case .root, .menu:
-            if SubscriptionManager.freeSubscription == true {
-                if indexPath.row >= 7 {
-                    SubscriptionManager.presentMonetizationVC(vc: self)
-                } else {
-                    self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
-                }
-            } else {
-                self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
-            }
+            self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
             break
         default:
             print(child.title ?? "No Data")
@@ -222,14 +212,6 @@ private extension UITableView {
         let cell = self.dequeueReusableCell(withIdentifier: child.id, for: indexPath)
         
         (cell as! LibraryCellProtocol).bind(node: child)
-        
-        if SubscriptionManager.freeSubscription == true {
-            if indexPath.row >= 7 && child.type != .poem && child.type != .text {
-                (cell as? LibraryCellProtocol)?.unavailableLibrary()
-            }
-        } else {
-            (cell as? LibraryCellProtocol)?.availableLibrary()
-        }
         
         return cell
     }

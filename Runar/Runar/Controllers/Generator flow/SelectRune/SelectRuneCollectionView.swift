@@ -45,16 +45,6 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
                 cell.runeImage.addTarget(self, action: #selector(self.selectRune(runeImage:)), for: .touchUpInside)
             }
             
-            if SubscriptionManager.freeSubscription == true {
-                if MemoryStorage.GenerationRunes.count > 7 {
-                    for indexUnavailable in 7..<MemoryStorage.GenerationRunes.count {
-                        if indexPath == IndexPath(row: indexUnavailable, section: 1) {
-                            cell.unavailableRune()
-                        }
-                    }
-                }
-            }
-
             runes.append(cell)
         }
     }

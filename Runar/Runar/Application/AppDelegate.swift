@@ -17,18 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             signIn()
         }
         
-        //NetworkMonitor
-        //        if NetworkMonitor.shared.isConnected {
         DataManager.shared.fetchData()
-        //        } else {
-        //            print("No internet")
-        //        }
-
-        if !UserDefaults.standard.bool(forKey: "subscribed") {
-            SubscriptionManager.freeSubscription = true
-        } else {
-            SubscriptionManager.freeSubscription = false
-        }
 
         MusicViewController.shared.initBackgroundMusic()
         if !UserDefaults.standard.bool(forKey: "is_off_music") {
