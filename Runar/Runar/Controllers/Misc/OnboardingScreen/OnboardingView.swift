@@ -114,13 +114,8 @@ class OnboardingView: UIView {
             make.centerX.equalToSuperview()
             make.width.equalTo(264)
             make.height.equalTo(48)
-            if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 && !DeviceType.isIphone78Plus {
-                make.bottom.equalToSuperview().inset(184)
-            } else if !DeviceType.iPhoneSE {
-                make.bottom.equalToSuperview().inset(130)
-            } else {
-                make.bottom.equalToSuperview().inset(70)
-            }
+            let factor: CGFloat = DeviceType.iPhoneSE ? 0.85 : 0.78
+            make.bottom.equalToSuperview().multipliedBy(factor)
         }
     }
     
@@ -148,13 +143,8 @@ class OnboardingView: UIView {
             make.centerX.equalToSuperview()
             make.width.equalTo(264)
             make.height.equalTo(48)
-            if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 && !DeviceType.isIphone78Plus {
-                make.bottom.equalToSuperview().inset(184)
-            } else if !DeviceType.iPhoneSE {
-                make.bottom.equalToSuperview().inset(130)
-            } else {
-                make.bottom.equalToSuperview().inset(70)
-            }
+            let factor: CGFloat = DeviceType.iPhoneSE ? 0.85 : 0.78
+            make.bottom.equalToSuperview().multipliedBy(factor)
         }
     }
     
@@ -165,11 +155,8 @@ class OnboardingView: UIView {
         addSubview(pageControllStackView)
         pageControllStackView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            if !DeviceType.iPhoneSE {
-                make.top.equalTo(onboardingNextSlideButton.snp.bottom).offset(67)
-            } else {
-                make.top.equalTo(onboardingNextSlideButton.snp.bottom).offset(30)
-            }
+            let constant = DeviceType.iPhoneSE ? 30 : 67
+                make.top.equalTo(onboardingNextSlideButton.snp.bottom).offset(constant)
         }
         pageControllStackView.removeFullyAllArrangedSubviews()
         pageControll.numberOfDots = OnboardingSlide.slides().count
