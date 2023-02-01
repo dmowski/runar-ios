@@ -108,7 +108,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
     }
     
     private func configureNavBar() {
-        title = .wallpapersHeader
+        self.navigationItem.setNavigationTitle(.wallpapersHeader)
         self.navigationItem.hidesBackButton = true
         if isSelected == true {
             let customBackLabel = UIBarButtonItem(title: L10n.Tabbar.cancel,
@@ -165,16 +165,10 @@ public class WallpaperWithBackgroundVC: UIViewController {
     }
 
     private func setupViews() {
-        self.view.addSubview(subTitle)
-        subTitle.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(24)
-            make.leading.equalToSuperview().offset(60)
-            make.trailing.equalToSuperview().offset(-60)
-        }
-
+        
         self.view.addSubview(selectWallpaperView)
         selectWallpaperView.snp.makeConstraints { make in
-            make.top.equalTo(subTitle.snp.bottom).offset(40)
+            make.top.equalTo(self.view.snp.top).offset(155)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview().offset(-144)

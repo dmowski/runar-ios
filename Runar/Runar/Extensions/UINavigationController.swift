@@ -36,3 +36,17 @@ extension UINavigationController {
         }
     }
 }
+
+extension UINavigationItem {
+    
+    func setNavigationTitle(_ title: String) {
+        let titleLabel = UILabel (frame: .zero)
+        titleLabel.backgroundColor = .clear
+        titleLabel.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
+        titleLabel.numberOfLines = 0
+        titleLabel.font = FontFamily.AmaticSC.bold.font(size: 36)
+        titleLabel.textAlignment = .center
+        titleLabel.text = title
+        self.titleView = titleLabel
+    }
+}

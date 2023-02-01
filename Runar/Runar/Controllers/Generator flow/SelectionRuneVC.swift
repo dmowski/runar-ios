@@ -22,18 +22,6 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     private var gradientLayer = CAGradientLayer()
     
-    let header: UILabel = {
-        let title = UILabel()
-        title.textColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
-        title.textAlignment = .center
-        title.numberOfLines = 0
-        title.lineBreakMode = .byWordWrapping
-        title.text = .selectedRunesTitle
-        title.font = FontFamily.Roboto.light.font(size: 18)
-        title.backgroundColor = .clear
-        return title
-    }()
-
     let activityIndicatorView: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
         view.style = .large
@@ -43,11 +31,11 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     }()
     
     let selectedRunesView: SelectedRuneCollectionView = {
-        let layout = KTCenterFlowLayout()
-        layout.itemSize = CGSize(width: 63, height: 110)
-        layout.minimumInteritemSpacing = 0
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 17
 
-        return SelectedRuneCollectionView(frame: .zero, collectionViewLayout: layout)
+        let selectedRunesView = SelectedRuneCollectionView(frame: .zero, collectionViewLayout: layout)
+        return selectedRunesView
     }()
     
     let randomButton: UIButton = {
@@ -64,15 +52,16 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     let selectRunesView: SelectRuneCollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = 0
+        layout.minimumInteritemSpacing = 4
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .vertical
 
         let selectRunesView = SelectRuneCollectionView(frame: .zero, collectionViewLayout: layout)
         selectRunesView.showsHorizontalScrollIndicator = false
-        selectRunesView.showsVerticalScrollIndicator = false
-        selectRunesView.contentInset = UIEdgeInsets(top: 50, left: 35,
-                                                    bottom: 0, right: 35)
+        selectRunesView.showsVerticalScrollIndicator = true
+        selectRunesView.indicatorStyle = UIScrollView.IndicatorStyle.white
+        selectRunesView.contentInset = UIEdgeInsets(top: 16, left: 16,
+                                                    bottom: 0, right: 16)
         
         return selectRunesView
     }()
@@ -88,9 +77,8 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         return generateButton
     }()
     
-    let popupVC: GenerationPopUpViewController = {        
+    let popupVC: GenerationPopUpViewController = {
         let viewController = GenerationPopUpViewController()
-        viewController.isHiddenTabBar = true
         viewController.modalPresentationStyle = .overCurrentContext
         return viewController
     }()
@@ -98,8 +86,9 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        RunarLayout.initBackground(for: view, with: .generatorFire)
+        RunarLayout.initBackground(for: view, with: .mainFire)
         selectRunesView.delegate = self
+        selectedRunesView.delegate = self
 
         guard DataManager.shared.generatorIsLoaded else { return setupActivityIndicator() }
         setupViews()
@@ -119,12 +108,18 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func configureNavigationBar() {
-        title = .generateRunesTitle
-        navigationController?.navigationBar.isHidden = false
-        navigationController?.tabBarController?.tabBar.isHidden = false
-        navigationController?.setStatusBar(backgroundColor: .navBarBackground)
+        
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.navigationBar.backgroundColor = .clear
         self.navigationController?.navigationBar.configure()
-        navigationItem.largeTitleDisplayMode = .never
+        self.navigationItem.setNavigationTitle(.generateRunesTitle)
+
+        let customBackButton = UIBarButtonItem(image: Assets.backIcon.image,
+                                                style: .plain, target: self,
+                                                action: #selector(self.backToInitial))
+        customBackButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 
     @objc func backToInitial(sender: UIBarButtonItem) {
@@ -141,49 +136,42 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func setupViews() {
-        self.view.addSubview(header)
-        header.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(48)
-            make.leading.equalToSuperview().offset(60)
-            make.trailing.equalToSuperview().offset(-60)
-        }
-        
         self.view.addSubview(selectedRunesView)
         selectedRunesView.setDeselectHandler(self.deselectRune(_:))
         selectedRunesView.snp.makeConstraints { make in
-            make.top.equalTo(header.snp.bottom).offset(20)
+            make.top.equalTo(view.snp.top).offset(128)
             make.centerX.equalToSuperview()
-            make.height.equalTo(110)
-            make.left.greaterThanOrEqualTo(self.view.snp.left).offset(35)
-            make.right.greaterThanOrEqualTo(self.view.snp.right).offset(-35)
+            make.height.equalTo(132)
+            make.left.greaterThanOrEqualTo(self.view.snp.left)
+            make.right.greaterThanOrEqualTo(self.view.snp.right)
         }
         
         self.view.addSubview(randomButton)
         randomButton.addTarget(self, action: #selector(self.selectRandomRunesOnTap), for: .touchUpInside)
         randomButton.snp.makeConstraints { make in
-            make.top.equalTo(selectedRunesView.snp.bottom).offset(35)
+            make.top.equalTo(selectedRunesView.snp.bottom).offset(26)
             make.centerX.equalToSuperview()
-            make.width.equalTo(184)
-            make.height.equalTo(50)
+            make.width.equalTo(212)
+            make.height.equalTo(48)
         }
         
         self.view.addSubview(selectRunesView)
         self.selectRunesView.setSelectHandler(self.selectRune(_:))
         tapedLongGesture(runesView: selectRunesView)
         selectRunesView.snp.makeConstraints { make in
-            make.top.equalTo(randomButton.snp.bottom).offset(30)
+            make.top.equalTo(randomButton.snp.bottom).offset(20)
             make.left.equalTo(self.view.snp.left)
             make.right.equalTo(self.view.snp.right)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+            make.bottom.equalTo(self.view.snp.bottom)
         }
 
         self.view.addSubview(generateButton)
         generateButton.addTarget(self, action: #selector(self.generateOnTap), for: .touchUpInside)
         generateButton.snp.makeConstraints { make in
-            make.top.equalTo(selectedRunesView.snp.bottom).offset(35)
+            make.top.equalTo(selectedRunesView.snp.bottom).offset(26)
             make.centerX.equalToSuperview()
-            make.width.equalTo(184)
-            make.height.equalTo(50)
+            make.width.equalTo(212)
+            make.height.equalTo(48)
         }
     }
     
@@ -192,19 +180,16 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         gradientLayer.frame = selectRunesView.bounds
         gradientLayer.colors = [
             UIColor.black.withAlphaComponent(0).cgColor,
-            UIColor.white.cgColor,
-            UIColor.white.cgColor,
-            UIColor.black.withAlphaComponent(0).cgColor
+            UIColor.white.cgColor
         ]
         gradientLayer.delegate = self
         
         let topInset = selectRunesView.contentInset.top
         let secondLocation = NSNumber(value: topInset / selectRunesView.frame.height)
-        let thirdLocation = NSNumber(value: 1 - topInset / selectRunesView.frame.height)
         
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
-        gradientLayer.locations = [0.0, secondLocation, thirdLocation, 1.0]
+        gradientLayer.locations = [0.0, secondLocation]
         selectRunesView.layer.mask = gradientLayer
     }
     
@@ -350,10 +335,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
 
 private extension UINavigationBar {
     func configure() -> Void {
-        self.isTranslucent = false
         self.tintColor = .libraryTitleColor
-        self.backgroundColor = .navBarBackground
-        self.barTintColor = .navBarBackground
         self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 17),
                                     NSAttributedString.Key.foregroundColor: UIColor.white]
     }
@@ -389,16 +371,59 @@ extension SelectionRuneVC: UICollectionViewDelegateFlowLayout {
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let selectRunesViewSize = selectRunesView.frame.size
-        let runeIdealSize = CGSize(width: 66, height: 78)
-        let ratio = runeIdealSize.height / runeIdealSize.width
+        if let _ = collectionView as? SelectRuneCollectionView {
+            let selectRunesViewSize = selectRunesView.frame.size
+            let runeIdealSize = CGSize(width: 66, height: 78)
+            let ratio = runeIdealSize.height / runeIdealSize.width
 
-        let rowCount = round((selectRunesViewSize.height) / (runeIdealSize.height))
+            let rowCount = round((selectRunesViewSize.height) / (runeIdealSize.height))
 
-        let runeNormalHeight = (selectRunesViewSize.height) / rowCount
-        let runeNormalWidth = runeNormalHeight / ratio
+            let runeNormalHeight = (selectRunesViewSize.height) / rowCount
+            let runeNormalWidth = runeNormalHeight / ratio
 
-        return CGSize(width: runeNormalWidth, height: runeNormalHeight)
+            return CGSize(width: runeNormalWidth, height: runeNormalHeight)
+        }
+        
+        if let _ = collectionView as? SelectedRuneCollectionView,
+           let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
+            let itemSize = CGSize(width: 56, height: 110)
+            flowLayout.itemSize = itemSize
+            return itemSize
+        }
+        
+        return .zero
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+       
+        if let selectedRuneVC = collectionView as? SelectedRuneCollectionView,
+           let flowLayout = selectedRuneVC.collectionViewLayout as? UICollectionViewFlowLayout,
+           let dataSourceCount = collectionView.dataSource?.collectionView(collectionView, numberOfItemsInSection: section),
+           dataSourceCount > 0 {
+
+            let cellCount = CGFloat(dataSourceCount)
+            let itemSpacing = flowLayout.minimumInteritemSpacing
+            let cellWidth = flowLayout.itemSize.width + itemSpacing
+            let cellHeight = flowLayout.itemSize.height
+            var insets = flowLayout.sectionInset
+            let totalCellWidth = (cellWidth * cellCount) - itemSpacing
+            let contentWidth = collectionView.frame.size.width - collectionView.contentInset.left - collectionView.contentInset.right
+
+            guard totalCellWidth < contentWidth else {
+                return insets
+            }
+
+            let padding = (contentWidth - totalCellWidth) / 2.0
+            let paddingVertical = (collectionView.frame.height - cellHeight) / 2.0
+            insets.left = padding
+            insets.right = padding
+            insets.top = paddingVertical
+            insets.bottom = paddingVertical
+            return insets
+
+        }
+        
+        return .zero
     }
 
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {

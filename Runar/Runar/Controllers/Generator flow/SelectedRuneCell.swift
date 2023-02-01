@@ -65,10 +65,10 @@ class SelectedRuneCell: UICollectionViewCell {
         addSubview(cell)
         cell.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            cell.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            cell.heightAnchor.constraint(equalToConstant: 63),
-            cell.widthAnchor.constraint(equalToConstant: 45),
-            cell.centerXAnchor.constraint(equalTo: centerXAnchor)
+            cell.widthAnchor.constraint(equalToConstant: 56),
+            cell.heightAnchor.constraint(equalToConstant: 74),
+            cell.centerXAnchor.constraint(equalTo: centerXAnchor),
+            cell.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
         
         cell.addSubview(cellIndex)
@@ -83,16 +83,16 @@ class SelectedRuneCell: UICollectionViewCell {
         addSubview(runeImage)
         runeImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            runeImage.topAnchor.constraint(equalTo: topAnchor),
-            runeImage.heightAnchor.constraint(equalToConstant: 83),
-            runeImage.widthAnchor.constraint(equalToConstant: 70),
-            runeImage.centerXAnchor.constraint(equalTo: centerXAnchor)
+            runeImage.widthAnchor.constraint(equalToConstant: 88),
+            runeImage.heightAnchor.constraint(equalToConstant: 109),
+            runeImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            runeImage.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
         
         addSubview(runeName)
         runeName.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            runeName.topAnchor.constraint(equalTo: runeImage.bottomAnchor),
+            runeName.bottomAnchor.constraint(equalTo: runeImage.bottomAnchor, constant: 5),
             runeName.bottomAnchor.constraint(equalTo: bottomAnchor),
             runeName.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
