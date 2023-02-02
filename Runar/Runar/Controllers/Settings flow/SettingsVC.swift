@@ -67,7 +67,7 @@ final class SettingsVC: UIViewController {
 
     func configureNavigationBar() {
         navigationController?.navigationBar.backgroundColor = .clear
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 36), NSAttributedString.Key.foregroundColor: UIColor.settingsTitleColor]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 36), NSAttributedString.Key.foregroundColor: UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)]
         title = .settings
     }
 }

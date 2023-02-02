@@ -66,7 +66,7 @@ class AppInfoVC: UIViewController, UITextViewDelegate {
     
     private func configureNavigationBar() {
         navigationController?.navigationBar.backgroundColor = .clear
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 36), NSAttributedString.Key.foregroundColor: UIColor.settingsTitleColor]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 36), NSAttributedString.Key.foregroundColor: UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)]
         title = .aboutApp
         navigationController?.navigationBar.tintColor = .settingsTitleColor
         navigationController?.navigationBar.topItem?.backButtonTitle = L10n.Navbar.Title.back
