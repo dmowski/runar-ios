@@ -23,6 +23,8 @@ final class SettingsVC: UIViewController {
         background.contentMode = .scaleAspectFill
         return background
     }()
+    
+    let titleTextSize = 36
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +69,7 @@ final class SettingsVC: UIViewController {
 
     func configureNavigationBar() {
         navigationController?.navigationBar.backgroundColor = .clear
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 36), NSAttributedString.Key.foregroundColor: UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: CGFloat(titleTextSize)), NSAttributedString.Key.foregroundColor: UIColor.libraryTitleColor]
         title = .settings
     }
 }

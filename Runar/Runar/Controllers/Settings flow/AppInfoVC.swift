@@ -18,6 +18,9 @@ extension String {
 
 class AppInfoVC: UIViewController, UITextViewDelegate {
     
+    let titleTextSize = 36
+    let sideInset = 24
+    
     private var backgroundImage: UIImageView = {
         let background = UIImageView()
         background.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +41,8 @@ class AppInfoVC: UIViewController, UITextViewDelegate {
         let secUrl = "https://danheimmusic.com"
  
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 1.17
+        let lineHeightMultiple = 1.17
+        paragraphStyle.lineHeightMultiple = lineHeightMultiple
         textView.translatesAutoresizingMaskIntoConstraints = false
         let firstRange = (string as NSString).range(of: firstUrl)
         let secRange = (string as NSString).range(of: secUrl)
@@ -66,7 +70,7 @@ class AppInfoVC: UIViewController, UITextViewDelegate {
     
     private func configureNavigationBar() {
         navigationController?.navigationBar.backgroundColor = .clear
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 36), NSAttributedString.Key.foregroundColor: UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: CGFloat(titleTextSize)), NSAttributedString.Key.foregroundColor: UIColor.libraryTitleColor]
         title = .aboutApp
         navigationController?.navigationBar.tintColor = .settingsTitleColor
         navigationController?.navigationBar.topItem?.backButtonTitle = L10n.Navbar.Title.back
@@ -81,7 +85,7 @@ class AppInfoVC: UIViewController, UITextViewDelegate {
         }
         
         descriptionView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(24)
+            $0.leading.trailing.equalToSuperview().inset(sideInset)
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
