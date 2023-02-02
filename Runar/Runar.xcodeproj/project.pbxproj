@@ -130,10 +130,6 @@
 		9CAEF57829220F66006C0EF9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEF57729220F66006C0EF9 /* DataManager.swift */; };
 		C22B4DB42858AD2800F6245C /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22B4DB32858AD2800F6245C /* String + Extensions.swift */; };
 		C22F6E4127C3CEFF005F8B66 /* EmptyWallpaperVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */; };
-		C278B66127C43FAB00EFBD2C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */; };
-		C2953E5D2889736400EA297D /* MonetizationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2953E5C2889736400EA297D /* MonetizationVC.swift */; };
-		C2953E5F2889737500EA297D /* MonetizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2953E5E2889737500EA297D /* MonetizationView.swift */; };
-		C2953E612889739000EA297D /* MonetizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2953E602889739000EA297D /* MonetizationModel.swift */; };
 		C2953E632889B5CE00EA297D /* MonetizationDescriptionViewBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2953E622889B5CE00EA297D /* MonetizationDescriptionViewBox.swift */; };
 		C2953E652889C33A00EA297D /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2953E642889C2C200EA297D /* SFProDisplay-Bold.ttf */; };
 		C2953E67288A8BB900EA297D /* MonetizationStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2953E66288A8BB900EA297D /* MonetizationStatusView.swift */; };
@@ -146,7 +142,6 @@
 		C2C5584B283D9E33006B053C /* SlectedRuneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584A283D9E33006B053C /* SlectedRuneModel.swift */; };
 		C2C5584D283D9EE9006B053C /* SelectRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584C283D9EE9006B053C /* SelectRuneCell.swift */; };
 		C2C5584F283D9F59006B053C /* SelectedRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584E283D9F59006B053C /* SelectedRuneCell.swift */; };
-		C2F3EA9228E10E74001CB1C5 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3EA9128E10E74001CB1C5 /* SubscriptionManager.swift */; };
 		C2F44DC128C6601B00A43F4D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F44DC028C6601B00A43F4D /* StoreKit.framework */; };
 		CDF8F7682985684500A1191D /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF8F7672985684500A1191D /* Int+Extension.swift */; };
 		D33A65EC2DE4E4D7C3C956F3 /* Pods_Runar_RunarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */; };
@@ -318,10 +313,6 @@
 		9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22B4DB32858AD2800F6245C /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		C22F6E4027C3CEFF005F8B66 /* EmptyWallpaperVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyWallpaperVC.swift; sourceTree = "<group>"; };
-		C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
-		C2953E5C2889736400EA297D /* MonetizationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationVC.swift; sourceTree = "<group>"; };
-		C2953E5E2889737500EA297D /* MonetizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationView.swift; sourceTree = "<group>"; };
-		C2953E602889739000EA297D /* MonetizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationModel.swift; sourceTree = "<group>"; };
 		C2953E622889B5CE00EA297D /* MonetizationDescriptionViewBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationDescriptionViewBox.swift; sourceTree = "<group>"; };
 		C2953E642889C2C200EA297D /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		C2953E66288A8BB900EA297D /* MonetizationStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationStatusView.swift; sourceTree = "<group>"; };
@@ -334,7 +325,6 @@
 		C2C5584A283D9E33006B053C /* SlectedRuneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlectedRuneModel.swift; sourceTree = "<group>"; };
 		C2C5584C283D9EE9006B053C /* SelectRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRuneCell.swift; sourceTree = "<group>"; };
 		C2C5584E283D9F59006B053C /* SelectedRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRuneCell.swift; sourceTree = "<group>"; };
-		C2F3EA9128E10E74001CB1C5 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		C2F44DC028C6601B00A43F4D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.release.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CDF8F7672985684500A1191D /* Int+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
@@ -577,7 +567,6 @@
 				8477224D2645886C001C280D /* Requests */,
 				9B739E4B25D1E99A00726B30 /* RunarApi.swift */,
 				8477224226458020001C280D /* Route.swift */,
-				C278B66027C43FAB00EFBD2C /* NetworkMonitor.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -861,7 +850,6 @@
 			children = (
 				9C1F8E8028FF06C40073542F /* FirstScreen */,
 				968939D328D094C200057D2A /* OnboardingScreen */,
-				C2953E5B28896AFB00EA297D /* Monetization */,
 				9B5F5BB3261CD58F00A7454F /* Music */,
 				199A678925F836C20013DE5D /* TabBarController */,
 				9B739E0225CD77E900726B30 /* Processing */,
@@ -881,22 +869,11 @@
 		C22B4DB22858A8F600F6245C /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				C2F3EA9028E10E4B001CB1C5 /* SubscriptionManager */,
 				677C11E6289C71F400CEA5D2 /* Memory */,
 				8477223B26457435001C280D /* Api */,
 				19BDC61625C0306E000808CF /* Base */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		C2953E5B28896AFB00EA297D /* Monetization */ = {
-			isa = PBXGroup;
-			children = (
-				C2953E5C2889736400EA297D /* MonetizationVC.swift */,
-				C2953E5E2889737500EA297D /* MonetizationView.swift */,
-				C2953E602889739000EA297D /* MonetizationModel.swift */,
-			);
-			path = Monetization;
 			sourceTree = "<group>";
 		};
 		C2BFDEA8284F6DED00D079E3 /* RunicDraws flow */ = {
@@ -963,14 +940,6 @@
 				845D26E32738259E00449D34 /* ChoosedWallpaperVC.swift */,
 			);
 			name = ChoosedWallpaper;
-			sourceTree = "<group>";
-		};
-		C2F3EA9028E10E4B001CB1C5 /* SubscriptionManager */ = {
-			isa = PBXGroup;
-			children = (
-				C2F3EA9128E10E74001CB1C5 /* SubscriptionManager.swift */,
-			);
-			path = SubscriptionManager;
 			sourceTree = "<group>";
 		};
 		F845FBB93D424E742E7134D4 /* Frameworks */ = {
@@ -1272,7 +1241,6 @@
 				C2C5584F283D9F59006B053C /* SelectedRuneCell.swift in Sources */,
 				84410672270ADA0400CD8B56 /* SelectedRuneCollectionView.swift in Sources */,
 				19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */,
-				C2953E5D2889736400EA297D /* MonetizationVC.swift in Sources */,
 				9B739DF325CD765800726B30 /* Constants.swift in Sources */,
 				843DFF4D2653FB5400D6DFE5 /* LibraryCell.swift in Sources */,
 				C2C5584D283D9EE9006B053C /* SelectRuneCell.swift in Sources */,
@@ -1280,7 +1248,6 @@
 				C2AF4B33285AA66000976992 /* UIImage.swift in Sources */,
 				84D7E5F02649EC6700772EE3 /* LibraryData.swift in Sources */,
 				191D32CE25B7C46A001DC210 /* Fonts.swift in Sources */,
-				C2953E5F2889737500EA297D /* MonetizationView.swift in Sources */,
 				9B15E36825FE465400737306 /* OneRuneVC.swift in Sources */,
 				19BDC61D25C030B1000808CF /* PublisherProvider.swift in Sources */,
 				96AAA78E29266E7F007B3261 /* CustomPageControll.swift in Sources */,
@@ -1314,7 +1281,6 @@
 				C2C55843283A9F53006B053C /* ApiGeneratorModel.swift in Sources */,
 				9911206C2861107B001B8FCC /* TagsCollectionView.swift in Sources */,
 				9B15E37625FE548400737306 /* BottomLineView.swift in Sources */,
-				C278B66127C43FAB00EFBD2C /* NetworkMonitor.swift in Sources */,
 				19BDC61225C02EE9000808CF /* SceneDelegate.swift in Sources */,
 				19BDC61B25C030B1000808CF /* UIControlPublisher.swift in Sources */,
 				677C11E8289C726900CEA5D2 /* ImageFileManager.swift in Sources */,
@@ -1366,7 +1332,6 @@
 				199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */,
 				968939DB28D094FB00057D2A /* OnboardingView.swift in Sources */,
 				9C3D6C61292CE3770027DE58 /* MemoryStorage.swift in Sources */,
-				C2953E612889739000EA297D /* MonetizationModel.swift in Sources */,
 				9B5F5BB5261CD5A500A7454F /* MusicViewController.swift in Sources */,
 				9BD98C9E2628A75600F3BBD7 /* UINavigationController.swift in Sources */,
 				9BD98C952628A74200F3BBD7 /* MusicCell.swift in Sources */,
@@ -1376,7 +1341,6 @@
 				19BDC61C25C030B1000808CF /* UIControlSubscription.swift in Sources */,
 				9BD98C932628A74200F3BBD7 /* AppInfoVC.swift in Sources */,
 				9B0CB88B2607B6A000B2AF60 /* TopWithDescriptionView.swift in Sources */,
-				C2F3EA9228E10E74001CB1C5 /* SubscriptionManager.swift in Sources */,
 				9BD98C982628A74200F3BBD7 /* SettingsVC.swift in Sources */,
 				844BF4D626501A81002C7596 /* RunarLayout.swift in Sources */,
 				C2953E67288A8BB900EA297D /* MonetizationStatusView.swift in Sources */,

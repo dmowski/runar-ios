@@ -54,14 +54,6 @@ class MainCell: UICollectionViewCell {
         alignmentLabel.text = model.name
         image.image = model.image
     }
-    
-    public func unavailableRunicDraw() {
-        self.contentView.alpha = 0.3
-    }
-    
-    public func availableRunicDraw() {
-        self.contentView.alpha = 1
-    }
 
     func setUpRune() {
         alignmentLabel.translatesAutoresizingMaskIntoConstraints = false

@@ -20,7 +20,7 @@ class AlignmentInfoVC: UIViewController {
     var nameLabel = UILabel()
     var startButton = CustomButton()
     var escape = UIButton()
-    var descriptionLabel = UILabel()
+    var descriptionTextView = UITextView()
     var showLabel = UILabel()
     var showButton = UIButton()
     var selected: Bool = false
@@ -151,28 +151,31 @@ class AlignmentInfoVC: UIViewController {
     }
     
     func setUpDescription() {
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.lineBreakMode = .byWordWrapping
-        descriptionLabel.text = viewModel.runeDescription.description
+        descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
+        descriptionTextView.text = viewModel.runeDescription.description
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.26
-        descriptionLabel.attributedText = NSMutableAttributedString(string: descriptionLabel.text!,
+        descriptionTextView.attributedText = NSMutableAttributedString(string: descriptionTextView.text!,
                                                                     attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
-        descriptionLabel.textColor = UIColor(red: 0.913, green: 0.913, blue: 0.913, alpha: 1)
+        descriptionTextView.textColor = UIColor(red: 0.913, green: 0.913, blue: 0.913, alpha: 1)
         let fontConstant: CGFloat = DeviceType.iPhoneSE ? 17 : 20
-        descriptionLabel.font = FontFamily.SFProDisplay.light.font(size: fontConstant)
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.textAlignment = .left
-        descriptionLabel.sizeToFit()
+        descriptionTextView.font = FontFamily.SFProDisplay.light.font(size: fontConstant)
+        descriptionTextView.textAlignment = .left
+        descriptionTextView.sizeToFit()
+        descriptionTextView.showsVerticalScrollIndicator = false
+        descriptionTextView.backgroundColor = .clear
+        descriptionTextView.isEditable = false
         
-        background.addSubview(descriptionLabel)
-        let leadingAnchor: CGFloat = DeviceType.iPhoneSE ? 24 : 31
+        background.addSubview(descriptionTextView)
+        background.addSubview(stack)
+        let leadingAnchor: CGFloat = DeviceType.iPhoneSE ? 24 : 32
         let trailingAnchor: CGFloat = DeviceType.iPhoneSE ? -24 : -32
         let topAnchor: CGFloat = DeviceType.iPhoneSE ? 7 : 31.heightDependent()
         NSLayoutConstraint.activate([
-            descriptionLabel.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: trailingAnchor),
-            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: topAnchor.heightDependent()),
+            descriptionTextView.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: leadingAnchor),
+            descriptionTextView.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: trailingAnchor),
+            descriptionTextView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: topAnchor.heightDependent()),
+            descriptionTextView.bottomAnchor.constraint(equalTo: stack.topAnchor, constant: -8)
         ])
     }
     
@@ -211,7 +214,6 @@ class AlignmentInfoVC: UIViewController {
         let spacing: CGFloat = DeviceType.iPhoneSE ? 9.86 : 12
         stack.spacing = spacing
         
-        background.addSubview(stack)
         stack.addArrangedSubview(showButton)
         stack.addArrangedSubview(showLabel)
         

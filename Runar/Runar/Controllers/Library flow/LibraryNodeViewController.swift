@@ -25,8 +25,6 @@ enum LibraryNodeType: String, CaseIterable {
 // MARK: - Protocols
 public protocol LibraryCellProtocol {
     func bind(node: LibraryNode) -> Void
-    func unavailableLibrary()
-    func availableLibrary()
 }
 
 public class LibraryNodeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -87,7 +85,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     func configureNavigationBar() {
         title = node.title
         navigationItem.largeTitleDisplayMode = .never
-        self.navigationController?.navigationBar.configure()
+        self.navigationController?.navigationBar.configureTitle()
     }
 
     // Refresh the screen after downloading data
@@ -108,15 +106,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
 
         switch child.type {
         case .root, .menu:
-            if SubscriptionManager.freeSubscription == true {
-                if indexPath.row >= 7 {
-                    SubscriptionManager.presentMonetizationVC(vc: self)
-                } else {
-                    self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
-                }
-            } else {
-                self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
-            }
+            self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
             break
         default:
             print(child.title ?? "No Data")
@@ -223,27 +213,6 @@ private extension UITableView {
         
         (cell as! LibraryCellProtocol).bind(node: child)
         
-        if SubscriptionManager.freeSubscription == true {
-            if indexPath.row >= 7 && child.type != .poem && child.type != .text {
-                (cell as? LibraryCellProtocol)?.unavailableLibrary()
-            }
-        } else {
-            (cell as? LibraryCellProtocol)?.availableLibrary()
-        }
-        
         return cell
-    }
-}
-
-private extension UINavigationBar {
-    func configure() -> Void {
-        self.isTranslucent = false
-        self.tintColor = .libraryTitleColor
-        self.backgroundColor = .navBarBackground
-        self.barTintColor = .navBarBackground
-        self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 17),
-                                         NSAttributedString.Key.foregroundColor: UIColor.white]
-        
-        self.backItem?.backButtonTitle = .back
     }
 }

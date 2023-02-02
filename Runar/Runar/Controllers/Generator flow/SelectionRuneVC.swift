@@ -229,7 +229,6 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             if let index = indexPath {
                 
                 let rune = self.selectRunesView.cellForItem(at: index) as! SelectRuneCell
-                guard rune.isUnavailableRune == false else { return }
                 
                 popupVC.setupView(view: rune)
                 popupVC.setupModel(rune.model)
@@ -261,10 +260,6 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     func selectOnTapBut(rune: SelectRuneCell) {
 
-        if rune.isUnavailableRune == true {
-            SubscriptionManager.presentMonetizationVC(vc: self)
-        } else {
-
             selectRunesView.selectRune(rune: rune)
             
             for cell in (self.selectedRunesView.visibleCells as? [SelectedRuneCell])!.sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
@@ -283,7 +278,6 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
             
             generateButton.isHidden = !selectedRunesView.hasSelectedRunes()
             randomButton.isHidden = selectedRunesView.hasSelectedRunes()
-        }
     }
     
     private func deselectRune(_ index: IndexPath){
@@ -305,11 +299,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         self.selectedRunesView.deselectAll()
 
         var maxRunes = MemoryStorage.GenerationRunes.count
-
-        if SubscriptionManager.freeSubscription == true {
-            maxRunes = 7
-        }
-
+        
         var indexes = [Int](0..<maxRunes)
 
         for _ in 0..<3 {
