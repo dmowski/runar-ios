@@ -48,7 +48,6 @@ final class TopWithDescriptionView: UIView {
             topLineView.topAnchor.constraint(equalTo: self.topAnchor),
             topLineView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             topLineView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            topLineView.heightAnchor.constraint(equalToConstant: 153.heightDependent()),
             
             descriptionView.topAnchor.constraint(equalTo: topLineView.bottomAnchor),
             descriptionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),

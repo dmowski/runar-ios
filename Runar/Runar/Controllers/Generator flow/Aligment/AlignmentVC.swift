@@ -24,7 +24,11 @@ class AlignmentVC: UIViewController {
     let contentView = UIView()
     public var viewModel: AlignmentVM!
     let contentInterpretationView = UIView()
-    let luckLevelLabel = UILabel()
+    let luckLevelLabel: UILabel = {
+        var label = UILabel()
+        label.numberOfLines = 0
+        return label
+    }()
     let descriptionLabel = UILabel()
     let affirmationLabel = UILabel()
     let cancelButton = CustomButton()
@@ -65,7 +69,7 @@ class AlignmentVC: UIViewController {
         scrollViewAlignment.showsVerticalScrollIndicator = false
         
         runesViewContainer.setRuneLayout(viewModel.runeLayout)
-        
+        navigationController?.tabBarController?.tabBar.isHidden = true
         setUpScrollView()
         backgroundViewSetup()
         setUpEscape()

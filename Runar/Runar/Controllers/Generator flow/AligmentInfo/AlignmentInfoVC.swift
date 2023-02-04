@@ -47,6 +47,7 @@ class AlignmentInfoVC: UIViewController {
         setUpShowLabel()
         setUpShowButton()
         setUpStack()
+        navigationController?.tabBarController?.tabBar.isHidden = true
     }
     
     func backgroundSetup() {
