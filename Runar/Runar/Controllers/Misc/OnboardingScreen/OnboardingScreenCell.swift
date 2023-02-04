@@ -13,6 +13,10 @@ class OnboardingScreenCell: UICollectionViewCell {
     private let onboardingDescription = UILabel()
     private let onboardingImageView = UIImageView()
     
+    // MARK: Constants
+    let constantConstraintsDescription: CGFloat = DeviceType.iPhoneSE ? (viewWidth / 7.6) : (viewWidth / 5.45)
+    // this is a constant, a divider that is calculated from the screen dimensions, for the correct placement of the Description on the screen
+    
     override public init(frame: CGRect) {
         super.init(frame: frame)
         configureOnboardingSlideTitle()
@@ -64,9 +68,8 @@ class OnboardingScreenCell: UICollectionViewCell {
             make.top.equalTo(onboardingSlideTitle.snp.bottom).offset(32)
             make.height.equalTo(70)
             make.centerX.equalTo(contentView)
-            let constant: CGFloat = DeviceType.iPhoneSE ? (viewWidth / 7.6) : (viewWidth / 5.45)
-            make.trailing.equalToSuperview().inset(constant)
-            make.leading.equalToSuperview().inset(constant)
+            make.trailing.equalToSuperview().inset(constantConstraintsDescription)
+            make.leading.equalToSuperview().inset(constantConstraintsDescription)
         }
     }
     

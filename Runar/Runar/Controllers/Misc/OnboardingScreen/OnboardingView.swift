@@ -22,6 +22,12 @@ class OnboardingView: UIView {
     let pageControllStackView = UIStackView()
     let pageControll = CustomPageControll()
     
+    // MARK: Constants
+    let factorConstant: CGFloat = DeviceType.iPhoneSE ? 0.135 : 0.207
+    let heightButton: CGFloat = 48
+    let widthButton: CGFloat = 264
+    // this is a constant, a multiplier that is calculated from the screen dimensions, for the correct placement of the button on the screen
+    
     weak var onboardingViewDelegate: OnboardingViewDelegateProtocol?
     
     override init(frame: CGRect) {
@@ -93,17 +99,13 @@ class OnboardingView: UIView {
     
     private func configureNextSlideButton() {
         
-        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 6.58 : 8
-        let borderConstant: CGFloat = DeviceType.iPhoneSE ? 0.82 : 1
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30
-
-        onboardingNextSlideButton.layer.cornerRadius = radiusConstant
-        onboardingNextSlideButton.layer.borderWidth = borderConstant
+        onboardingNextSlideButton.layer.cornerRadius = 8
+        onboardingNextSlideButton.layer.borderWidth = 1
         onboardingNextSlideButton.setTitle(L10n.Onboarding.nextScreen, for: .normal)
         onboardingNextSlideButton.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
         onboardingNextSlideButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
         onboardingNextSlideButton.translatesAutoresizingMaskIntoConstraints = false
-        onboardingNextSlideButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
+        onboardingNextSlideButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 24)
         onboardingNextSlideButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .normal)
         onboardingNextSlideButton.setTitleColor(UIColor(red: 0.294, green: 0.282, blue: 0.259, alpha: 1), for: .highlighted)
         addSubview(onboardingNextSlideButton)
@@ -112,27 +114,22 @@ class OnboardingView: UIView {
         onboardingNextSlideButton.addTarget(self, action: #selector(buttonNormalColor(_:)), for: .touchUpInside)
         onboardingNextSlideButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.width.equalTo(264)
-            make.height.equalTo(48)
-            let factor: CGFloat = DeviceType.iPhoneSE ? 0.85 : 0.78
-            make.bottom.equalToSuperview().multipliedBy(factor)
+            make.width.equalTo(widthButton)
+            make.height.equalTo(heightButton)
+            make.bottom.equalToSuperview().inset(ScreenSize.height * factorConstant)
         }
     }
     
     func configureOnboardingStartButton() {
         
         onboardingStartButton.isHidden = true
-        
-        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 6.58 : 8
-        let borderConstant: CGFloat = DeviceType.iPhoneSE ? 0.82 : 1
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30
-        onboardingStartButton.layer.cornerRadius = radiusConstant
-        onboardingStartButton.layer.borderWidth = borderConstant
+        onboardingStartButton.layer.cornerRadius = 8
+        onboardingStartButton.layer.borderWidth = 1
         onboardingStartButton.setTitle(L10n.Onboarding.start, for: .normal)
         onboardingStartButton.backgroundColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
         onboardingStartButton.layer.borderColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 0.7).cgColor
         onboardingStartButton.translatesAutoresizingMaskIntoConstraints = false
-        onboardingStartButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
+        onboardingStartButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 24)
         onboardingStartButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .highlighted)
         onboardingStartButton.setTitleColor(UIColor(red: 0.294, green: 0.282, blue: 0.259, alpha: 1), for: .normal)
         addSubview(onboardingStartButton)
@@ -140,11 +137,11 @@ class OnboardingView: UIView {
         onboardingStartButton.addTarget(self, action: #selector(changeButtonColor(_:)), for: .touchDown)
         onboardingStartButton.addTarget(self, action: #selector(buttonNormalColor(_:)), for: .touchUpInside)
         onboardingStartButton.snp.makeConstraints { make in
+            print(ScreenSize.height)
             make.centerX.equalToSuperview()
-            make.width.equalTo(264)
-            make.height.equalTo(48)
-            let factor: CGFloat = DeviceType.iPhoneSE ? 0.85 : 0.78
-            make.bottom.equalToSuperview().multipliedBy(factor)
+            make.width.equalTo(widthButton)
+            make.height.equalTo(heightButton)
+            make.bottom.equalToSuperview().inset(ScreenSize.height * factorConstant)
         }
     }
     
