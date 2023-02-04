@@ -70,7 +70,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         nodeView.delegate = self
         nodeView.separatorColor = UIColor(red: 0.329, green: 0.329, blue: 0.329, alpha: 1)
         nodeView.separatorStyle = .singleLine
-        
+        nodeView.indicatorStyle = .white
         nodeView.register(node: node)
         nodeView.add(to: view)
     }
@@ -85,7 +85,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
     func configureNavigationBar() {
         title = node.title
         navigationItem.largeTitleDisplayMode = .never
-        self.navigationController?.navigationBar.configure()
+        self.navigationController?.navigationBar.configureTitle()
     }
 
     // Refresh the screen after downloading data
@@ -214,18 +214,5 @@ private extension UITableView {
         (cell as! LibraryCellProtocol).bind(node: child)
         
         return cell
-    }
-}
-
-private extension UINavigationBar {
-    func configure() -> Void {
-        self.isTranslucent = false
-        self.tintColor = .libraryTitleColor
-        self.backgroundColor = .navBarBackground
-        self.barTintColor = .navBarBackground
-        self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 17),
-                                         NSAttributedString.Key.foregroundColor: UIColor.white]
-        
-        self.backItem?.backButtonTitle = .back
     }
 }

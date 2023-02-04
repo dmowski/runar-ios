@@ -128,8 +128,10 @@ Runar — это приложение для гадания на скандин�
 "generator.selectWallpapersHeader.title" = "Выбор рисунка";
 "generator.selectWallpaperHeader.title" = "Рунный узор";
 "generator.shareWallpaperHeader.title" = "Runar изображение для обоев";
-"generator.alertHeader.title" = "Рунный узор сохранен";
-"generator.alertAction.title" = "Хорошо";
+"generator.alertHeaderSuccess.title" = "Рунный узор сохранен";
+"generator.alertActionSuccess.title" = "Хорошо";
+"generator.alertHeaderError.title" = "Ошибка сохранения";
+"generator.alertActionError.title" = "Ок";
 
 "monetization.titleSubscriptionSettings" = "Подписка";
 "monetization.titleSubscriptionPremium" = "Runar премиум";
@@ -987,7 +989,7 @@ Runar — это приложение для гадания на скандин�
 "firstScreen.checkBoxLabel.title" = "Не показывать в будущем это окно";
 
 /// Lucky level for Runic Draws
-"luckLevel.from0To20" = "В следующий раз точно повезёт!";
-"luckLevel.from21To40" = "Ещё немного, и всё получится!";
-"luckLevel.from41To69" = "Сегодня твой день!";
-"luckLevel.from70To100" = "Боги благоволят тебе!";
+"luckLevel.from0To20" = "Уровень удачи: В следующий раз точно повезёт!";
+"luckLevel.from21To40" = "Уровень удачи: Ещё немного, и всё получится!";
+"luckLevel.from41To69" = "Уровень удачи: Сегодня твой день!";
+"luckLevel.from70To100" = "Уровень удачи: Боги благоволят тебе!";

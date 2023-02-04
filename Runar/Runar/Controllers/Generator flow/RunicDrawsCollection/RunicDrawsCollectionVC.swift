@@ -220,12 +220,10 @@ extension RunicDrawsCollectionVC: UICollectionViewDelegateFlowLayout {
         if LocalStorage.pull(forKey: runeDescription.name) == true {
             let viewModel = AlignmentVM(runeDescription: runeDescription)
             let viewController = AlignmentVC(viewModel: viewModel)
-            viewController.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(viewController, animated: true)
         } else {
             let viewModel = AlignmentInfoVM(runeDescription: runeDescription)
             let viewController = AlignmentInfoVC(viewModel: viewModel)
-            viewController.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }

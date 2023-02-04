@@ -15,7 +15,6 @@ final class TopLineView: UIView {
         addBlackView()
         configureNameConstr()
         configureTimeConstr()
-        configureLuckConstr()
     }
     
     convenience init(runeType: RuneType, runeTime: String) {
@@ -26,7 +25,6 @@ final class TopLineView: UIView {
         let timeParagraphStyle = NSMutableParagraphStyle()
         timeParagraphStyle.lineHeightMultiple = 1.4
         timeLabel.attributedText = NSMutableAttributedString(string: runeTime, attributes: [NSAttributedString.Key.paragraphStyle: timeParagraphStyle])
-        luckLevelLabel.attributedText = NSMutableAttributedString(string: L10n.luckLevel(String(runeType.luck)), attributes: [NSAttributedString.Key.paragraphStyle: timeParagraphStyle])
     }
     
     required init?(coder: NSCoder) {
@@ -86,25 +84,7 @@ final class TopLineView: UIView {
         NSLayoutConstraint.activate([
             timeLabel.topAnchor.constraint(equalTo: runeNameLabel.bottomAnchor, constant: 5.heightDependent()),
             timeLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-        ])
-    }
-    
-    //MARK: - LuckLabel
-    private var luckLevelLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 15)
-        label.sizeToFit()
-        return label
-    }()
-    
-    private func configureLuckConstr() {
-        self.addSubview(luckLevelLabel)
-        NSLayoutConstraint.activate([
-            luckLevelLabel.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 5.heightDependent()),
-            luckLevelLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            luckLevelLabel.heightAnchor.constraint(equalToConstant: 29.heightDependent())
+            timeLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
         ])
     }
 }
