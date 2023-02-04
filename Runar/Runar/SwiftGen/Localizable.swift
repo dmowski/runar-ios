@@ -359,13 +359,21 @@ internal enum L10n {
     internal static let commingSoon = L10n.tr("Localizable", "generator.commingSoon", fallback: "Comming soon")
     /// Select
     internal static let select = L10n.tr("Localizable", "generator.select", fallback: "Select")
-    internal enum AlertAction {
+    internal enum AlertActionError {
       /// Ok
-      internal static let title = L10n.tr("Localizable", "generator.alertAction.title", fallback: "Ok")
+      internal static let title = L10n.tr("Localizable", "generator.alertActionError.title", fallback: "Ok")
     }
-    internal enum AlertHeader {
+    internal enum AlertActionSuccess {
+      /// Ok
+      internal static let title = L10n.tr("Localizable", "generator.alertActionSuccess.title", fallback: "Ok")
+    }
+    internal enum AlertHeaderError {
+      /// Save error
+      internal static let title = L10n.tr("Localizable", "generator.alertHeaderError.title", fallback: "Save error")
+    }
+    internal enum AlertHeaderSuccess {
       /// Runic pattern has been saved
-      internal static let title = L10n.tr("Localizable", "generator.alertHeader.title", fallback: "Runic pattern has been saved")
+      internal static let title = L10n.tr("Localizable", "generator.alertHeaderSuccess.title", fallback: "Runic pattern has been saved")
     }
     internal enum EmptyWallpapers {
       /// Next, choose the background for it, Viking
