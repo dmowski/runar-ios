@@ -70,7 +70,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         nodeView.delegate = self
         nodeView.separatorColor = UIColor(red: 0.329, green: 0.329, blue: 0.329, alpha: 1)
         nodeView.separatorStyle = .singleLine
-        
+        nodeView.indicatorStyle = .white
         nodeView.register(node: node)
         nodeView.add(to: view)
     }
