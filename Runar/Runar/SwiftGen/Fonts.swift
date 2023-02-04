@@ -22,36 +22,9 @@ internal typealias Font = FontConvertible.Font
 internal enum FontFamily {
   internal enum AmaticSC {
     internal static let bold = FontConvertible(name: "AmaticSC-Bold", family: "Amatic SC", path: "AmaticSC-Bold.ttf")
-    internal static let regular = FontConvertible(name: "AmaticSC-Regular", family: "Amatic SC", path: "AmaticSC-Regular.ttf")
-    internal static let all: [FontConvertible] = [bold, regular]
+    internal static let all: [FontConvertible] = [bold]
   }
-  internal enum PoiretOne {
-    internal static let regular = FontConvertible(name: "PoiretOne-Regular", family: "Poiret One", path: "PoiretOne-Regular.ttf")
-    internal static let all: [FontConvertible] = [regular]
-  }
-  internal enum Roboto {
-    internal static let black = FontConvertible(name: "Roboto-Black", family: "Roboto", path: "Roboto-Black.ttf")
-    internal static let blackItalic = FontConvertible(name: "Roboto-BlackItalic", family: "Roboto", path: "Roboto-BlackItalic.ttf")
-    internal static let bold = FontConvertible(name: "Roboto-Bold", family: "Roboto", path: "Roboto-Bold.ttf")
-    internal static let boldItalic = FontConvertible(name: "Roboto-BoldItalic", family: "Roboto", path: "Roboto-BoldItalic.ttf")
-    internal static let italic = FontConvertible(name: "Roboto-Italic", family: "Roboto", path: "Roboto-Italic.ttf")
-    internal static let light = FontConvertible(name: "Roboto-Light", family: "Roboto", path: "Roboto-Light.ttf")
-    internal static let lightItalic = FontConvertible(name: "Roboto-LightItalic", family: "Roboto", path: "Roboto-LightItalic.ttf")
-    internal static let medium = FontConvertible(name: "Roboto-Medium", family: "Roboto", path: "Roboto-Medium.ttf")
-    internal static let mediumItalic = FontConvertible(name: "Roboto-MediumItalic", family: "Roboto", path: "Roboto-MediumItalic.ttf")
-    internal static let regular = FontConvertible(name: "Roboto-Regular", family: "Roboto", path: "Roboto-Regular.ttf")
-    internal static let thin = FontConvertible(name: "Roboto-Thin", family: "Roboto", path: "Roboto-Thin.ttf")
-    internal static let thinItalic = FontConvertible(name: "Roboto-ThinItalic", family: "Roboto", path: "Roboto-ThinItalic.ttf")
-    internal static let all: [FontConvertible] = [black, blackItalic, bold, boldItalic, italic, light, lightItalic, medium, mediumItalic, regular, thin, thinItalic]
-  }
-  internal enum SFProDisplay {
-    internal static let bold = FontConvertible(name: "SFProDisplay-Bold", family: "SF Pro Display", path: "SFProDisplay-Bold.ttf")
-    internal static let light = FontConvertible(name: "SFProDisplay-Light", family: "SF Pro Display", path: "SFProDisplay-Light.ttf")
-    internal static let medium = FontConvertible(name: "SFProDisplay-Medium", family: "SF Pro Display", path: "SFProDisplay-Medium.ttf")
-    internal static let regular = FontConvertible(name: "SFProDisplay-Regular", family: "SF Pro Display", path: "SFProDisplay-Regular.ttf")
-    internal static let all: [FontConvertible] = [bold, light, medium, regular]
-  }
-  internal static let allCustomFonts: [FontConvertible] = [AmaticSC.all, PoiretOne.all, Roboto.all, SFProDisplay.all].flatMap { $0 }
+  internal static let allCustomFonts: [FontConvertible] = [AmaticSC.all].flatMap { $0 }
   internal static func registerAllCustomFonts() {
     allCustomFonts.forEach { $0.register() }
   }

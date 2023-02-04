@@ -61,7 +61,7 @@ class MainCell: UICollectionViewCell {
         alignmentLabel.textColor = Assets.CellSettings.Colors.colorDidLight.color
         alignmentLabel.textAlignment = .center
         alignmentLabel.highlightedTextColor = Assets.CellSettings.Colors.colorLight.color
-        alignmentLabel.font = UIFont(name: FontFamily.AmaticSC.bold.family, size: self.frame.size.height * MainCell.fontMultiplier)
+        alignmentLabel.font = .amaticBold(size: self.frame.size.height * MainCell.fontMultiplier)
         alignmentLabel.adjustsFontSizeToFitWidth = true
         alignmentLabel.minimumScaleFactor = 0.9
         contentView.addSubview(alignmentLabel)

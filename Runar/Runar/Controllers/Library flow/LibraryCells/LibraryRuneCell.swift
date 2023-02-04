@@ -108,7 +108,7 @@ public class LibraryRuneCell: LibraryCell {
         let fontSize = DeviceType.iPhoneSE || DeviceType.isIPhone678 ? 16 : 19.heightDependent()
         let attributedText = NSMutableAttributedString(string: description, attributes: [
             NSMutableAttributedString.Key.paragraphStyle: paragraphStyle,
-            NSMutableAttributedString.Key.font: FontFamily.SFProDisplay.light.font(size: fontSize),
+            NSMutableAttributedString.Key.font: UIFont.systemLight(size: fontSize),
             NSMutableAttributedString.Key.foregroundColor: UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)])
         
         runeDescription.attributedText = attributedText

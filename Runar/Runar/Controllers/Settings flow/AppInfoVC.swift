@@ -48,7 +48,12 @@ class AppInfoVC: UIViewController, UITextViewDelegate {
         let firstRange = (string as NSString).range(of: firstUrl)
         let secRange = (string as NSString).range(of: secUrl)
         
-        var attributedText = NSMutableAttributedString(string: string, attributes: [NSMutableAttributedString.Key.paragraphStyle: paragraphStyle,NSMutableAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 17), NSMutableAttributedString.Key.foregroundColor: UIColor.settingsWhiteText])
+        var attributedText = NSMutableAttributedString(string: string,
+                                                       attributes: [
+                                                        .paragraphStyle: paragraphStyle,
+                                                        .font: UIFont.systemRegular(size: 17),
+                                                        .foregroundColor: UIColor.settingsWhiteText
+                                                       ])
 
         attributedText.addAttribute(.link, value: firstUrl, range: firstRange)
         attributedText.addAttribute(.link, value: secUrl, range: secRange)
@@ -85,8 +90,8 @@ class AppInfoVC: UIViewController, UITextViewDelegate {
         navigationController?.navigationBar.backgroundColor = .navBarBackground
         navigationController?.navigationBar.barTintColor = .navBarBackground
         title = .aboutApp
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.regular.font(size: 17)]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.largeTitleTextAttributes = [.font: UIFont.systemRegular(size: 17)]
     }
     
     private func configureUI() {

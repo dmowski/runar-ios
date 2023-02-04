@@ -135,7 +135,7 @@ extension AlignmentVC {
             luckLevelLabel.text = getLuckyLevelString(totalLuck)
         }
         
-        luckLevelLabel.font = FontFamily.SFProDisplay.light.font(size: 19)
+        luckLevelLabel.font = .systemLight(size: 19)
         luckLevelLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         luckLevelLabel.translatesAutoresizingMaskIntoConstraints = false
         contentInterpretationView.addSubview(luckLevelLabel)
@@ -212,8 +212,8 @@ extension AlignmentVC {
             let seventhRune = runesViewContainer.runesSet[6]
             descriptionLabelString = L10n.InterpretationKeltsCross.text(firstRune.value, secondRune.value, thirdRune.value, fourthRune.value, fifthRune.value, sixthRune.value, seventhRune.value)
         }
-        let font: CGFloat = DeviceType.iPhoneSE ? 16 : 19
-        descriptionLabel.font = FontFamily.SFProDisplay.light.font(size: font)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 16 : 19
+        descriptionLabel.font = .systemLight(size: fontSize)
         descriptionLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         descriptionLabel.numberOfLines = 0
         descriptionLabel.sizeToFit()
@@ -245,8 +245,8 @@ extension AlignmentVC {
         } else {
             affirmationLabel.isHidden = true
         }
-        let font: CGFloat = DeviceType.iPhoneSE ? 16 : 19
-        affirmationLabel.font = FontFamily.SFProDisplay.light.font(size: font)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 16 : 19
+        affirmationLabel.font = .systemLight(size: fontSize)
         affirmationLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         affirmationLabel.numberOfLines = 0
         affirmationLabel.sizeToFit()
@@ -284,8 +284,8 @@ extension AlignmentVC {
     func setUpCheckLabel() {
         checkLabel.text = String.saveResult
         checkLabel.translatesAutoresizingMaskIntoConstraints = false
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 14 : 16
-        checkLabel.font = FontFamily.Roboto.light.font(size: fontConstant)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 14 : 16
+        checkLabel.font = .systemLight(size: fontSize)
         checkLabel.textColor = UIColor(red: 0.659, green: 0.651, blue: 0.639, alpha: 1)
         checkLabel.textAlignment = .left
         let heightAnchor: CGFloat = DeviceType.iPhoneSE ? 23.02 : 28
@@ -336,8 +336,8 @@ extension AlignmentVC {
         cancelButton.setTitle(String.complete, for: .normal)
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30
-        cancelButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 24 : 30
+        cancelButton.titleLabel?.font = .amaticBold(size: fontSize)
         cancelButton.addTarget(self, action: #selector(self.exitTapped), for: .touchUpInside)
         cancelButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .normal)
         cancelButton.setTitleColor(UIColor(red: 0.294, green: 0.282, blue: 0.259, alpha: 1), for: .highlighted)

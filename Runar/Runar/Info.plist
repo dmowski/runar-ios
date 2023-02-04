@@ -39,10 +39,7 @@
 	<string>It contains image which can be applied as wallpaper in Iphone</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>SFProDisplay-Medium.ttf</string>
-		<string>SFProDisplay-Light.ttf</string>
 		<string>AmaticSC-Bold.ttf</string>
-		<string>Roboto-Light.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

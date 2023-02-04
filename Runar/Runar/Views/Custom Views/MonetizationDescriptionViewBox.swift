@@ -43,7 +43,7 @@ public class MonetizationDescriptionViewBox: UIView {
     private func setupLabel() {
 
         label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        label.font = FontFamily.SFProDisplay.regular.font(size: 15)
+        label.font = .systemRegular(size: 15)
         label.textAlignment = .left
         addSubview(label)
         label.snp.makeConstraints { make in
