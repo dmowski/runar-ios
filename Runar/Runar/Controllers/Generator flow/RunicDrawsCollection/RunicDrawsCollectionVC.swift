@@ -48,7 +48,7 @@ class RunicDrawsCollectionVC: UICollectionViewController {
     
     let generatorDesc: UILabel = {
         let generatorDesc = UILabel.createAmatic(title: .layoutGeneratorDesc, size: 15, lineHeight: 1.14, height: 50)
-        generatorDesc.font = FontFamily.SFProDisplay.regular.font(size: 15)
+        generatorDesc.font = .systemRegular(size: 15)
         generatorDesc.textColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
         generatorDesc.textAlignment = .left
         generatorDesc.contentMode = .scaleToFill
@@ -220,12 +220,10 @@ extension RunicDrawsCollectionVC: UICollectionViewDelegateFlowLayout {
         if LocalStorage.pull(forKey: runeDescription.name) == true {
             let viewModel = AlignmentVM(runeDescription: runeDescription)
             let viewController = AlignmentVC(viewModel: viewModel)
-            viewController.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(viewController, animated: true)
         } else {
             let viewModel = AlignmentInfoVM(runeDescription: runeDescription)
             let viewController = AlignmentInfoVC(viewModel: viewModel)
-            viewController.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }

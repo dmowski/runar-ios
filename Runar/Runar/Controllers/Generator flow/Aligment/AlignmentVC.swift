@@ -24,7 +24,11 @@ class AlignmentVC: UIViewController {
     let contentView = UIView()
     public var viewModel: AlignmentVM!
     let contentInterpretationView = UIView()
-    let luckLevelLabel = UILabel()
+    let luckLevelLabel: UILabel = {
+        var label = UILabel()
+        label.numberOfLines = 0
+        return label
+    }()
     let descriptionLabel = UILabel()
     let affirmationLabel = UILabel()
     let cancelButton = CustomButton()
@@ -65,7 +69,7 @@ class AlignmentVC: UIViewController {
         scrollViewAlignment.showsVerticalScrollIndicator = false
         
         runesViewContainer.setRuneLayout(viewModel.runeLayout)
-        
+        navigationController?.tabBarController?.tabBar.isHidden = true
         setUpScrollView()
         backgroundViewSetup()
         setUpEscape()
@@ -174,8 +178,8 @@ class AlignmentVC: UIViewController {
     func setUpNameLabel() {
         nameLabel.text = viewModel.name
         
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 45 : 55
-        nameLabel.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 45 : 55
+        nameLabel.font = .amaticBold(size: fontSize)
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.textColor = Assets.Colors.textColor.color
@@ -194,8 +198,8 @@ class AlignmentVC: UIViewController {
     func popapNameLabel() {
         popapLabel.text = viewModel.name
         
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 45 : 55
-        popapLabel.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 45 : 55
+        popapLabel.font = .amaticBold(size: fontSize)
         
         popapLabel.translatesAutoresizingMaskIntoConstraints = false
         popapLabel.textColor = Assets.Colors.textColor.color
@@ -236,9 +240,9 @@ class AlignmentVC: UIViewController {
         startButton.setTitle(String.drawRune, for: .normal)
         startButton.translatesAutoresizingMaskIntoConstraints = false
         
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 24 : 30
         
-        startButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
+        startButton.titleLabel?.font = .amaticBold(size: fontSize)
         startButton.addTarget(self, action: #selector(self.openButton), for: .touchUpInside)
         startButton.setTitleColor(Assets.Colors.textColor.color, for: .normal)
         startButton.setTitleColor(UIColor(red: 0.294, green: 0.282, blue: 0.259, alpha: 1), for: .highlighted)

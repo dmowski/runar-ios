@@ -30,17 +30,17 @@ public class LibraryViewController: LibraryNodeViewController {
 // MARK: - Extensions
 public extension UINavigationBar {
     func configureTitle() -> Void {
-        self.backgroundColor = .navBarBackground
+        backgroundColor = .navBarBackground
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 0.79
-        let font: CGFloat = DeviceType.iPhoneSE ? 30 : 36
-            self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: font),
-                                        NSAttributedString.Key.foregroundColor: UIColor.libraryTitleColor,
-                                        NSAttributedString.Key.paragraphStyle: paragraphStyle]
-            self.isTranslucent = false
-            self.barTintColor = .navBarBackground
-            self.tintColor = .libraryTitleColor
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 30 : 36
+        titleTextAttributes = [.font: UIFont.amaticBold(size: fontSize),
+                                    .foregroundColor: UIColor.libraryTitleColor,
+                                    .paragraphStyle: paragraphStyle]
+        isTranslucent = false
+        barTintColor = .navBarBackground
+        tintColor = .libraryTitleColor
     }
 }
 

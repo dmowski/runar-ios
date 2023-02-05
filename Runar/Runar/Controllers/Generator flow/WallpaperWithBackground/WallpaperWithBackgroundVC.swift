@@ -34,7 +34,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
         title.numberOfLines = 0
         title.lineBreakMode = .byWordWrapping
         title.text = .wallpapersDescription
-        title.font = FontFamily.SFProDisplay.regular.font(size: 16)
+        title.font = .systemRegular(size: 16)
         title.backgroundColor = .clear
         return title
     }()

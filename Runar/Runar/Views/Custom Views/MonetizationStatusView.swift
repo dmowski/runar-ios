@@ -81,7 +81,7 @@ class MonetizationStatusView: UIView {
     func setupDescription() {
         
         titleLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        titleLabel.font = FontFamily.AmaticSC.bold.font(size: 24)
+        titleLabel.font = .amaticBold(size: 24)
         titleLabel.textAlignment = .center
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
@@ -109,7 +109,7 @@ class MonetizationStatusView: UIView {
         }
         
         descriptionLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        descriptionLabel.font = FontFamily.SFProDisplay.regular.font(size: 11)
+        descriptionLabel.font = .systemRegular(size: 11)
         descriptionLabel.textAlignment = .center
         addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { make in
@@ -123,7 +123,7 @@ class MonetizationStatusView: UIView {
         }
         
         priceLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        priceLabel.font = FontFamily.SFProDisplay.medium.font(size: 28)
+        priceLabel.font = .systemMedium(size: 28)
         priceLabel.textAlignment = .center
         addSubview(priceLabel)
         priceLabel.snp.makeConstraints { make in
@@ -137,7 +137,7 @@ class MonetizationStatusView: UIView {
         }
         
         subPriceTitle.textColor = UIColor(red: 0.592, green: 0.592, blue: 0.592, alpha: 1)
-        subPriceTitle.font = FontFamily.SFProDisplay.regular.font(size: 13)
+        subPriceTitle.font = .systemRegular(size: 13)
         subPriceTitle.textAlignment = .center
         if ifStrikeThroughPrice == true {
             self.subPriceTitle.attributedText = subPriceTitle.text?.strikeThrough()

@@ -28,7 +28,7 @@ public class EmptyWallpaperVC: UIViewController {
         title.numberOfLines = 0
         title.lineBreakMode = .byWordWrapping
         title.text = .wallpapersTitele
-        title.font = FontFamily.AmaticSC.bold.font(size: 55)
+        title.font = .amaticBold(size: 55)
         title.backgroundColor = .clear
         return title
     }()
@@ -40,7 +40,7 @@ public class EmptyWallpaperVC: UIViewController {
         processingLabel.numberOfLines = 0
         processingLabel.lineBreakMode = .byWordWrapping
         processingLabel.text = .emptyWallpapersSubTitele
-        processingLabel.font = FontFamily.Roboto.regular.font(size: 16)
+        processingLabel.font = .systemRegular(size: 16)
         return processingLabel
     }()
     

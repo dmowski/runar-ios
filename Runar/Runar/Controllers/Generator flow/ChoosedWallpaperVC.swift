@@ -13,8 +13,10 @@ extension String {
 
     static let selectWallpaperTitile = L10n.Generator.SelectWallpaperHeader.title
     static let shareWallpaperTitle = L10n.Generator.ShareWallpaperHeader.title
-    static let downloadAlertTitle = L10n.Generator.AlertHeader.title
-    static let downloadAlertActionTitile = L10n.Generator.AlertAction.title
+    static let downloadAlertTitleSuccess = L10n.Generator.AlertHeaderSuccess.title
+    static let downloadAlertActionTitleSuccess = L10n.Generator.AlertActionSuccess.title
+    static let downloadAlertTitleError = L10n.Generator.AlertHeaderError.title
+    static let downloadAlertActionTitleError = L10n.Generator.AlertActionError.title
 }
 
 public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
@@ -142,8 +144,14 @@ public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
     
     @objc func imageDownloaded(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
 
-        let alert = UIAlertController(title: .downloadAlertTitle, message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: .downloadAlertActionTitile, style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        if let _ = error {
+            let alertController = UIAlertController(title: .downloadAlertTitleError, message: nil, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: .downloadAlertActionTitleError, style: .default))
+            present(alertController, animated: true)
+        } else {
+            let alertController = UIAlertController(title: .downloadAlertTitleSuccess, message: nil, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: .downloadAlertActionTitleSuccess, style: .default))
+            present(alertController, animated: true)
+        }
     }
 }

@@ -26,7 +26,7 @@ class LanguageCell: UITableViewCell {
         arrow.addTarget(self, action: #selector(openLink), for: .touchUpInside)
         
         let fontSize = DeviceType.isIPhone678 || DeviceType.iPhoneSE ? 17 : 20.heightDependent()
-        textLabel?.font = FontFamily.SFProDisplay.regular.font(size: fontSize)
+        textLabel?.font = .systemRegular(size: fontSize)
         textLabel?.textColor = .settingsWhiteText
         
         configureUI()
