@@ -15,9 +15,9 @@ extension UIButton {
         paragraphStyle.lineHeightMultiple = 0.79
         
         let attributedText = NSMutableAttributedString(string: title, attributes: [
-                                                        NSMutableAttributedString.Key.paragraphStyle: paragraphStyle,
-                                                        NSMutableAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: 24),
-                                                        NSMutableAttributedString.Key.foregroundColor: color])
+                                                        .paragraphStyle: paragraphStyle,
+                                                        .font: UIFont.amaticBold(size: 24),
+                                                        .foregroundColor: color])
         
         self.setAttributedTitle(attributedText, for: .normal)
     }

@@ -76,12 +76,12 @@ public extension UIFont {
     static func create(withLowSize lowSize: CGFloat, withHighSize highSize: CGFloat) -> UIFont{
         let size = DeviceType.isIPhone678 || DeviceType.iPhoneSE ? lowSize : highSize.heightDependent()
         
-        return FontFamily.SFProDisplay.regular.font(size: size)
+        return .systemRegular(size: size)
     }
     
     static func createMedium(withLowSize lowSize: CGFloat, withHighSize highSize: CGFloat) -> UIFont{
         let size = DeviceType.isIPhone678 || DeviceType.iPhoneSE ? lowSize : highSize.heightDependent()
         
-        return FontFamily.SFProDisplay.medium.font(size: size)
+        return .systemMedium(size: size)
     }
 }

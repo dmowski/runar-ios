@@ -29,7 +29,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         title.numberOfLines = 0
         title.lineBreakMode = .byWordWrapping
         title.text = .selectedRunesTitle
-        title.font = FontFamily.Roboto.light.font(size: 18)
+        title.font = .systemLight(size: 18)
         title.backgroundColor = .clear
         return title
     }()
@@ -354,8 +354,8 @@ private extension UINavigationBar {
         self.tintColor = .libraryTitleColor
         self.backgroundColor = .navBarBackground
         self.barTintColor = .navBarBackground
-        self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 17),
-                                    NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.titleTextAttributes = [.font: UIFont.systemMedium(size: 17),
+                                    .foregroundColor: UIColor.white]
     }
 }
 

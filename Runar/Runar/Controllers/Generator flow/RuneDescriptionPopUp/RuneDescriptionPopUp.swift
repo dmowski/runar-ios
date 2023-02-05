@@ -31,9 +31,9 @@ class RuneDescriptionPopUp: UIViewController {
         let titlelabel = UILabel()
         titlelabel.frame = .zero
         titlelabel.textAlignment = .center
-    
-        titlelabel.font = DeviceType.iPhoneSE ?
-            FontFamily.AmaticSC.bold.font(size: 35) : FontFamily.AmaticSC.bold.font(size: 40)
+        
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 35 : 40
+        titlelabel.font = .amaticBold(size: fontSize)
         titlelabel.adjustsFontSizeToFitWidth = true
         titlelabel.minimumScaleFactor = 0.9
         titlelabel.lineBreakMode = .byTruncatingTail
@@ -55,8 +55,8 @@ class RuneDescriptionPopUp: UIViewController {
         messageLabel.textAlignment = .left
         messageLabel.textColor = UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 1)
         
-        messageLabel.font = DeviceType.iPhoneSE ?
-            FontFamily.SFProDisplay.light.font(size: 17) : FontFamily.SFProDisplay.light.font(size: 20)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 17 : 20
+        messageLabel.font = .systemLight(size: fontSize)
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         return messageLabel
     }()
@@ -73,8 +73,9 @@ class RuneDescriptionPopUp: UIViewController {
         actionButton.layer.borderWidth = 1
         actionButton.layer.borderColor = UIColor.popupActionButonTitleColor.cgColor
         actionButton.setTitleColor(UIColor(red: 0.294, green: 0.282, blue: 0.259, alpha: 1), for: .highlighted)
-        actionButton.titleLabel?.font? = DeviceType.iPhoneSE ?
-            FontFamily.AmaticSC.bold.font(size: 24) : FontFamily.AmaticSC.bold.font(size: 30)
+        
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 24 : 30
+        actionButton.titleLabel?.font = .amaticBold(size: fontSize)
         
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         

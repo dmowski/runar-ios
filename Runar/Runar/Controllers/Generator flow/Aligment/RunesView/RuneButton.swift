@@ -23,9 +23,7 @@ public class RuneButton: UIButton {
             NSAttributedString(
                 string: title,
                 attributes: [
-
-                    .font: FontFamily.AmaticSC.bold.font(size: 50.heightDependent()),
-
+                    .font: UIFont.amaticBold(size: 50.heightDependent()),
                     .foregroundColor: color
                 ]
             )
