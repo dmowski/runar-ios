@@ -125,6 +125,7 @@
 		C2C5584D283D9EE9006B053C /* SelectRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584C283D9EE9006B053C /* SelectRuneCell.swift */; };
 		C2C5584F283D9F59006B053C /* SelectedRuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5584E283D9F59006B053C /* SelectedRuneCell.swift */; };
 		C2F44DC128C6601B00A43F4D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F44DC028C6601B00A43F4D /* StoreKit.framework */; };
+		CDF8F76A298E885600A1191D /* UIColor+RunarTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF8F769298E885600A1191D /* UIColor+RunarTheme.swift */; };
 		D33A65EC2DE4E4D7C3C956F3 /* Pods_Runar_RunarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */; };
 		DB92AEE5E33DCFB508195B8F /* Pods_Runar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4C085582C7EC279C4564B8 /* Pods_Runar.framework */; };
 /* End PBXBuildFile section */
@@ -289,6 +290,7 @@
 		C2C5584E283D9F59006B053C /* SelectedRuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRuneCell.swift; sourceTree = "<group>"; };
 		C2F44DC028C6601B00A43F4D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C84338B1879FA51663B0BECC /* Pods-Runar-RunarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.release.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CDF8F769298E885600A1191D /* UIColor+RunarTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+RunarTheme.swift"; sourceTree = "<group>"; };
 		E807DE870CE026A3F0390016 /* Pods_Runar_RunarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runar_RunarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B75E01B5066B4D9AE555E1 /* Pods-Runar-RunarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar-RunarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Runar-RunarUITests/Pods-Runar-RunarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F9215007654A411DBEF358A7 /* Pods-Runar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runar.debug.xcconfig"; path = "Target Support Files/Pods-Runar/Pods-Runar.debug.xcconfig"; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 				C2C55848283D9D26006B053C /* UILabel.swift */,
 				19C0F20925BAFCB20027422B /* Array + Extensions.swift */,
 				C22B4DB32858AD2800F6245C /* String + Extensions.swift */,
+				CDF8F769298E885600A1191D /* UIColor+RunarTheme.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1225,6 +1228,7 @@
 				9B739E4C25D1E99B00726B30 /* RunarApi.swift in Sources */,
 				671E685D28EA2DC2000A0904 /* UIView+SparksAnimation.swift in Sources */,
 				8477222E2643C9CA001C280D /* LocalStorage.swift in Sources */,
+				CDF8F76A298E885600A1191D /* UIColor+RunarTheme.swift in Sources */,
 				9B739E1025CD9B9800726B30 /* RuneDescriptionPopUpVM.swift in Sources */,
 				1987AABB25BDCDB400BB3655 /* FourRuneView.swift in Sources */,
 				1907850425C4232F00434D57 /* RuneLayout.swift in Sources */,
