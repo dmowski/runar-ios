@@ -39,8 +39,8 @@ class EscapePopUpVC: UIViewController {
         titlelabel.textAlignment = .center
         titlelabel.textColor = UIColor(red: 0.871, green: 0.871, blue: 0.871, alpha: 1)
         
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 17 : 20
-        titlelabel.font = FontFamily.SFProDisplay.regular.font(size: fontConstant)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 17 : 20
+        titlelabel.font = .systemRegular(size: fontSize)
         titlelabel.numberOfLines = 0
         titlelabel.adjustsFontSizeToFitWidth = true
         titlelabel.minimumScaleFactor = 0.9
@@ -58,8 +58,8 @@ class EscapePopUpVC: UIViewController {
         actionButton.backgroundColor = .none
         actionButton.setTitle(.no, for: .normal)
         actionButton.setTitleColor(.alertActionButonTitleColor, for: .normal)
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 14 : 17
-        actionButton.titleLabel?.font = FontFamily.SFProDisplay.regular.font(size: fontConstant)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 14 : 17
+        actionButton.titleLabel?.font = .systemRegular(size: fontSize)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         
         return actionButton
@@ -74,8 +74,8 @@ class EscapePopUpVC: UIViewController {
         actionButton.setTitleColor(.alertActionButonTitleColor, for: .normal)
         actionButton.setTitleColor(.popUpContainer, for: .highlighted)
         
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 14 : 17
-        actionButton.titleLabel?.font = FontFamily.SFProDisplay.regular.font(size: fontConstant)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 14 : 17
+        actionButton.titleLabel?.font = .systemRegular(size: fontSize)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         
         return actionButton

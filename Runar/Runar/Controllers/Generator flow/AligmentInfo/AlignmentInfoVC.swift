@@ -78,8 +78,8 @@ class AlignmentInfoVC: UIViewController {
     
     func setUpNameLabel() {
         nameLabel.text = viewModel.name
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 45 : 55
-        nameLabel.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 45 : 55
+        nameLabel.font = .amaticBold(size: fontSize)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.textColor =  UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         nameLabel.textAlignment = .center
@@ -104,8 +104,8 @@ class AlignmentInfoVC: UIViewController {
         startButton.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
         startButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
         startButton.translatesAutoresizingMaskIntoConstraints = false
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30
-        startButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 24 : 30
+        startButton.titleLabel?.font = .amaticBold(size: fontSize)
         startButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .normal)
         startButton.setTitleColor(UIColor(red: 0.294, green: 0.282, blue: 0.259, alpha: 1), for: .highlighted)
         
@@ -158,8 +158,8 @@ class AlignmentInfoVC: UIViewController {
         descriptionTextView.attributedText = NSMutableAttributedString(string: descriptionTextView.text!,
                                                                     attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         descriptionTextView.textColor = UIColor(red: 0.913, green: 0.913, blue: 0.913, alpha: 1)
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 17 : 20
-        descriptionTextView.font = FontFamily.SFProDisplay.light.font(size: fontConstant)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 17 : 20
+        descriptionTextView.font = .systemLight(size: fontSize)
         descriptionTextView.textAlignment = .left
         descriptionTextView.sizeToFit()
         descriptionTextView.showsVerticalScrollIndicator = false
@@ -196,8 +196,8 @@ class AlignmentInfoVC: UIViewController {
     func setUpShowLabel() {
         showLabel.text = String.showAgain
         showLabel.translatesAutoresizingMaskIntoConstraints = false
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 14 : 16
-        showLabel.font = FontFamily.Roboto.light.font(size: fontConstant)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 14 : 16
+        showLabel.font = .systemLight(size: fontSize)
         showLabel.textColor = UIColor(red: 0.659, green: 0.651, blue: 0.639, alpha: 1)
         showLabel.textAlignment = .left
         

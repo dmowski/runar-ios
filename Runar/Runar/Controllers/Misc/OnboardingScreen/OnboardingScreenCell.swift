@@ -31,7 +31,7 @@ class OnboardingScreenCell: UICollectionViewCell {
     }
     
     private func configureOnboardingSlideTitle() {
-        onboardingSlideTitle.font = FontFamily.AmaticSC.bold.font(size: 36)
+        onboardingSlideTitle.font = .amaticBold(size: 36)
         onboardingSlideTitle.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         onboardingSlideTitle.textAlignment = .center
         onboardingSlideTitle.contentMode = .center
@@ -47,7 +47,7 @@ class OnboardingScreenCell: UICollectionViewCell {
     private func configureOnboardingDescription() {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.08
-        onboardingDescription.font = FontFamily.SFProDisplay.regular.font(size: 17)
+        onboardingDescription.font = .systemRegular(size: 17)
         onboardingDescription.textColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
         onboardingDescription.attributedText = NSAttributedString(
             string: self.description,

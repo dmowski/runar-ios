@@ -44,7 +44,7 @@ public class GenerationPopUpViewController: UIViewController {
     let header: UILabel = {
         let header = UILabel()
                
-        header.font = FontFamily.AmaticSC.bold.font(size: 36)
+        header.font = .amaticBold(size: 36)
         header.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         header.textAlignment = .center
         header.contentMode = .center
@@ -55,7 +55,7 @@ public class GenerationPopUpViewController: UIViewController {
     let desc: UILabel = {
         let desc = UILabel()
                
-        desc.font = FontFamily.SFProDisplay.regular.font(size: 15)
+        desc.font = .systemRegular(size: 15)
         desc.textColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
         desc.textAlignment = .left
         desc.contentMode = .scaleToFill

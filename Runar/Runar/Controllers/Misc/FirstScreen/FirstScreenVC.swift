@@ -80,7 +80,7 @@ final class FirstScreenVC: UIViewController {
         let rightAlignment = view.frame.width * kRightAlignment
 
         topLabel.text = L10n.FirstScreen.TopLabel.title
-        topLabel.font = FontFamily.AmaticSC.bold.font(size: fontSize)
+        topLabel.font = .amaticBold(size: fontSize)
         topLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         topLabel.textAlignment = .center
 
@@ -101,7 +101,7 @@ final class FirstScreenVC: UIViewController {
         let rightAlignment = view.frame.width * kRightAlignment
 
         mediumLabel.text = L10n.FirstScreen.MediumLabel.title
-        mediumLabel.font = FontFamily.AmaticSC.bold.font(size: fontSize)
+        mediumLabel.font = .amaticBold(size: fontSize)
         mediumLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         mediumLabel.textAlignment = .center
         mediumLabel.numberOfLines = 0
@@ -125,7 +125,7 @@ final class FirstScreenVC: UIViewController {
         let rightAlignment = view.frame.width * kRightAlignment
 
         bottomLabel.text = L10n.FirstScreen.ButtomLabel.title
-        bottomLabel.font = FontFamily.AmaticSC.bold.font(size: fontSize)
+        bottomLabel.font = .amaticBold(size: fontSize)
         bottomLabel.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         bottomLabel.textAlignment = .center
 
@@ -147,7 +147,7 @@ final class FirstScreenVC: UIViewController {
         let rightAlignment = view.frame.width * kRightAlignment
 
         nextButton.setTitle(title: L10n.FirstScreen.NextButton.title)
-        nextButton.titleLabel?.font = UIFont(font: FontFamily.AmaticSC.bold, size: 24)
+        nextButton.titleLabel?.font = .amaticBold(size: 24)
         nextButton.layer.cornerRadius = 8
         nextButton.layer.borderWidth = 1
         nextButton.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
@@ -188,7 +188,7 @@ final class FirstScreenVC: UIViewController {
         let rightAlignment = view.frame.width * kRightAlignment
 
         checkBoxLabel.text = L10n.FirstScreen.CheckBoxLabel.title
-        checkBoxLabel.font = FontFamily.AmaticSC.bold.font(size: fontSize)
+        checkBoxLabel.font = .amaticBold(size: fontSize)
         checkBoxLabel.textColor = UIColor(red: 0.592, green: 0.588, blue: 0.612, alpha: 1)
         checkBoxLabel.textAlignment = .center
 

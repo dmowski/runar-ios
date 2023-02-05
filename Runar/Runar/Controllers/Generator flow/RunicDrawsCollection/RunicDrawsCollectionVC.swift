@@ -48,7 +48,7 @@ class RunicDrawsCollectionVC: UICollectionViewController {
     
     let generatorDesc: UILabel = {
         let generatorDesc = UILabel.createAmatic(title: .layoutGeneratorDesc, size: 15, lineHeight: 1.14, height: 50)
-        generatorDesc.font = FontFamily.SFProDisplay.regular.font(size: 15)
+        generatorDesc.font = .systemRegular(size: 15)
         generatorDesc.textColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
         generatorDesc.textAlignment = .left
         generatorDesc.contentMode = .scaleToFill
