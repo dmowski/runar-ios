@@ -99,26 +99,16 @@ class OnboardingView: UIView {
     
     private func configureNextSlideButton() {
         
-<<<<<<< HEAD
         onboardingNextSlideButton.layer.cornerRadius = 8
         onboardingNextSlideButton.layer.borderWidth = 1
-=======
-        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 6.58 : 8
-        let borderConstant: CGFloat = DeviceType.iPhoneSE ? 0.82 : 1
-        let fontSize: CGFloat = DeviceType.iPhoneSE ? 24 : 30
 
-        onboardingNextSlideButton.layer.cornerRadius = radiusConstant
-        onboardingNextSlideButton.layer.borderWidth = borderConstant
->>>>>>> develop
         onboardingNextSlideButton.setTitle(L10n.Onboarding.nextScreen, for: .normal)
         onboardingNextSlideButton.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
         onboardingNextSlideButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
         onboardingNextSlideButton.translatesAutoresizingMaskIntoConstraints = false
-<<<<<<< HEAD
-        onboardingNextSlideButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: 24)
-=======
+
         onboardingNextSlideButton.titleLabel?.font = .amaticBold(size: fontSize)
->>>>>>> develop
+
         onboardingNextSlideButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .normal)
         onboardingNextSlideButton.setTitleColor(UIColor(red: 0.294, green: 0.282, blue: 0.259, alpha: 1), for: .highlighted)
         addSubview(onboardingNextSlideButton)
