@@ -8,12 +8,17 @@
 import UIKit
 import SnapKit
 
+//MARK: Constants
 extension String {
-    
     static let wallpapersHeader = L10n.Generator.WallpapersHeader.title
     static let wallpapersDescription = L10n.Generator.WallpapersDescription.subtitle
     static let progressName = L10n.Generator.Progress.name
     static let generateProgressTitle = L10n.Generator.ProgressGenerator.title
+    static let nextButtonTitle = L10n.Generator.NextButton.title
+}
+
+private extension CGFloat {
+    static let selectWallpaperViewTopAnchor = 155.0
 }
 
 public class WallpaperWithBackgroundVC: UIViewController {
@@ -29,7 +34,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
     
     let subTitle: UILabel = {
         let title = UILabel()
-        title.textColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+        title.textColor = UIColor.primaryWhiteColor
         title.textAlignment = .center
         title.numberOfLines = 0
         title.lineBreakMode = .byWordWrapping
@@ -65,10 +70,10 @@ public class WallpaperWithBackgroundVC: UIViewController {
 
     let nextButton: UIButton = {
         let nextButton = UIButton()
-        nextButton.layer.backgroundColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
+        nextButton.layer.backgroundColor = UIColor.yellowPrimaryColor.cgColor
         nextButton.layer.cornerRadius = 5
         nextButton.isHidden = true
-        nextButton.setTitle(title: .nextButtonTitle, color: UIColor(red: 0.165, green: 0.165, blue: 0.165, alpha: 1))
+        nextButton.setTitle(title: .nextButtonTitle, color: UIColor.primaryBlackColor)
         return nextButton
     }()
     
@@ -168,7 +173,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
         
         self.view.addSubview(selectWallpaperView)
         selectWallpaperView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.snp.top).offset(155)
+            make.top.equalTo(self.view.snp.top).offset(CGFloat.selectWallpaperViewTopAnchor)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview().offset(-144)

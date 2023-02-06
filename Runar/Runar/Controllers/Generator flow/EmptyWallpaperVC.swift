@@ -8,11 +8,41 @@
 import UIKit
 import SnapKit
 
-extension String {
+//MARK: Constants
+private extension String {
     static let newVariant = L10n.Generator.EmptyWallpapersNewVariant.btnTitle
     static let wallpapersTitele = L10n.Generator.Wallpapers.title
     static let emptyWallpapersSubTitele = L10n.Generator.EmptyWallpapers.subtitle
-    static let nextButtonTitle = L10n.Generator.NextButton.title
+}
+
+private extension CGFloat {
+    static let mainTitleTopAnchor = 50.0
+    static let mainTitleLeadingAnchor = 60.0
+    static let mainTitleTrailingAnchor = -60.0
+    
+    static let subTitleTopAnchor = 16.0
+    static let subTitleLeadingAnchor = 30.0
+    static let subTitleTrailingAnchor = -30.0
+    
+    static let contentViewTopAnchor = 16.0
+    static let contentViewLeadingAnchor = 16.0
+    static let contentViewTrailingAnchor = -16.0
+    
+    static let imageViewTopAnchor = 10.0
+    static let imageViewLeadingAnchor = 30.0
+    static let imageViewTrailingAnchor = -30.0
+    static let imageViewBottomAnchor = -100.0
+    
+    static let newVariantButtonBottomAnchor = -32.0
+    static let newVariantButtonLeadingAnchor = 90.0
+    static let newVariantButtonTrailingAnchor = -90.0
+    static let newVariantButtonHeightAnchor = 50.0
+    
+    static let nextButtonTopAnchor = 32.0
+    static let nextButtonLeadingAnchor = 16.0
+    static let nextButtonTrailingAnchor = -16.0
+    static let nextButtonBottomAnchor = -40.0
+    static let nextButtonHeightAnchor = 50.0
 }
 
 public class EmptyWallpaperVC: UIViewController {
@@ -23,7 +53,7 @@ public class EmptyWallpaperVC: UIViewController {
     
     let mainTitle: UILabel = {
         let title = UILabel()
-        title.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
+        title.textColor = UIColor.yellowPrimaryColor
         title.textAlignment = .center
         title.numberOfLines = 0
         title.lineBreakMode = .byWordWrapping
@@ -35,7 +65,7 @@ public class EmptyWallpaperVC: UIViewController {
     
     let subTitle: UILabel = {
         let processingLabel = UILabel()
-        processingLabel.textColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+        processingLabel.textColor = UIColor.primaryWhiteColor
         processingLabel.textAlignment = .center
         processingLabel.numberOfLines = 0
         processingLabel.lineBreakMode = .byWordWrapping
@@ -68,17 +98,17 @@ public class EmptyWallpaperVC: UIViewController {
         newVariantButton.layer.borderWidth = 1
         newVariantButton.contentHorizontalAlignment = .center
         newVariantButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
-        newVariantButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
+        newVariantButton.layer.borderColor = UIColor.yellowPrimaryColor.cgColor
         newVariantButton.setTitle(title: .newVariant)
         return newVariantButton
     }()
     
     let nextButton: UIButton = {
         let nextButton = UIButton()
-        nextButton.layer.backgroundColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
+        nextButton.layer.backgroundColor = UIColor.yellowPrimaryColor.cgColor
         nextButton.layer.cornerRadius = 5
         nextButton.setTitle(title: .nextButtonTitle)
-        nextButton.setTitle(title: .nextButtonTitle, color: UIColor(red: 0.165, green: 0.165, blue: 0.165, alpha: 1))
+        nextButton.setTitle(title: .nextButtonTitle, color: UIColor.primaryBlackColor)
         nextButton.contentHorizontalAlignment = .center
         nextButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         return nextButton
@@ -121,50 +151,50 @@ public class EmptyWallpaperVC: UIViewController {
     private func setupViews() {
         view.addSubviews(mainTitle)
         mainTitle.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(50)
-            make.leading.equalToSuperview().offset(60)
-            make.trailing.equalToSuperview().offset(-60)
+            make.top.equalToSuperview().offset(CGFloat.mainTitleTopAnchor)
+            make.leading.equalToSuperview().offset(CGFloat.mainTitleLeadingAnchor)
+            make.trailing.equalToSuperview().offset(CGFloat.mainTitleTrailingAnchor)
         }
         
         view.addSubviews(subTitle)
         subTitle.snp.makeConstraints { make in
-            make.top.equalTo(mainTitle.snp.bottom).offset(16)
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
+            make.top.equalTo(mainTitle.snp.bottom).offset(CGFloat.subTitleTopAnchor)
+            make.leading.equalToSuperview().offset(CGFloat.subTitleLeadingAnchor)
+            make.trailing.equalToSuperview().offset(CGFloat.subTitleTrailingAnchor)
         }
         
         view.addSubviews(contentView)
         contentView.snp.makeConstraints { make in
-            make.top.equalTo(subTitle.snp.bottom).offset(16)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
+            make.top.equalTo(subTitle.snp.bottom).offset(CGFloat.contentViewTopAnchor)
+            make.leading.equalToSuperview().offset(CGFloat.contentViewLeadingAnchor)
+            make.trailing.equalToSuperview().offset(CGFloat.contentViewTrailingAnchor)
         }
         
         contentView.addSubviews(imageView)
         imageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
-            make.bottom.equalToSuperview().offset(-100)
+            make.top.equalToSuperview().offset(CGFloat.imageViewTopAnchor)
+            make.leading.equalToSuperview().offset(CGFloat.imageViewLeadingAnchor)
+            make.trailing.equalToSuperview().offset(CGFloat.imageViewTrailingAnchor)
+            make.bottom.equalToSuperview().offset(CGFloat.imageViewBottomAnchor)
         }
         
         contentView.addSubviews(newVariantButton)
         newVariantButton.addTarget(self, action: #selector(self.generateNewVariant), for: .touchUpInside)
         newVariantButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-32)
-            make.leading.equalToSuperview().offset(90)
-            make.trailing.equalToSuperview().offset(-90)
-            make.height.equalTo(50)
+            make.bottom.equalToSuperview().offset(CGFloat.newVariantButtonBottomAnchor)
+            make.leading.equalToSuperview().offset(CGFloat.newVariantButtonLeadingAnchor)
+            make.trailing.equalToSuperview().offset(CGFloat.newVariantButtonTrailingAnchor)
+            make.height.equalTo(CGFloat.newVariantButtonHeightAnchor)
         }
         
         view.addSubviews(nextButton)
         nextButton.addTarget(self, action: #selector(self.nextButtonTapped), for: .touchUpInside)
         nextButton.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.bottom).offset(32)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.bottom.equalToSuperview().offset(-40)
-            make.height.equalTo(50)
+            make.top.equalTo(contentView.snp.bottom).offset(CGFloat.nextButtonTopAnchor)
+            make.leading.equalToSuperview().offset(CGFloat.nextButtonLeadingAnchor)
+            make.trailing.equalToSuperview().offset(CGFloat.nextButtonTrailingAnchor)
+            make.bottom.equalToSuperview().offset(CGFloat.nextButtonBottomAnchor)
+            make.height.equalTo(CGFloat.nextButtonHeightAnchor)
         }
     }
     

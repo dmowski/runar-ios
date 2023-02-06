@@ -7,6 +7,22 @@
 
 import UIKit
 
+//MARK: Constants
+private extension CGFloat {
+    static let cellBorderWidth = 1.0
+    static let cellCornerRadius = 14.0
+    static let cellWidthAnchor = 56.0
+    static let cellHeightAnchor = 74.0
+    
+    static let cellIndexWidthAnchor = 14.0
+    static let cellIndexTopAnchor = 14.0
+    
+    static let runeImageWidthAnchor = 88.0
+    static let runeImageHeightAnchor = 109.0
+    
+    static let runeNameBottomAnchor = 5.0
+}
+
 class SelectedRuneCell: UICollectionViewCell {
 
     public var enabled: Bool = true
@@ -25,8 +41,8 @@ class SelectedRuneCell: UICollectionViewCell {
     let cell: UILabel = {
         let cell: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 45, height: 63))
         cell.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 14
+        cell.layer.borderWidth = CGFloat.cellBorderWidth
+        cell.layer.cornerRadius = CGFloat.cellCornerRadius
         cell.layer.borderColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 0.6).cgColor
         return cell
     }()
@@ -65,8 +81,8 @@ class SelectedRuneCell: UICollectionViewCell {
         addSubview(cell)
         cell.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            cell.widthAnchor.constraint(equalToConstant: 56),
-            cell.heightAnchor.constraint(equalToConstant: 74),
+            cell.widthAnchor.constraint(equalToConstant: CGFloat.cellWidthAnchor),
+            cell.heightAnchor.constraint(equalToConstant: CGFloat.cellHeightAnchor),
             cell.centerXAnchor.constraint(equalTo: centerXAnchor),
             cell.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
@@ -74,8 +90,8 @@ class SelectedRuneCell: UICollectionViewCell {
         cell.addSubview(cellIndex)
         cellIndex.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            cellIndex.widthAnchor.constraint(equalToConstant: 14),
-            cellIndex.topAnchor.constraint(equalTo: cell.topAnchor, constant: 14),
+            cellIndex.widthAnchor.constraint(equalToConstant: CGFloat.cellIndexWidthAnchor),
+            cellIndex.topAnchor.constraint(equalTo: cell.topAnchor, constant: CGFloat.cellIndexTopAnchor),
             cellIndex.bottomAnchor.constraint(equalTo: cell.bottomAnchor),
             cellIndex.centerXAnchor.constraint(equalTo: cell.centerXAnchor)
         ])
@@ -83,8 +99,8 @@ class SelectedRuneCell: UICollectionViewCell {
         addSubview(runeImage)
         runeImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            runeImage.widthAnchor.constraint(equalToConstant: 88),
-            runeImage.heightAnchor.constraint(equalToConstant: 109),
+            runeImage.widthAnchor.constraint(equalToConstant: CGFloat.runeImageWidthAnchor),
+            runeImage.heightAnchor.constraint(equalToConstant: CGFloat.runeImageHeightAnchor),
             runeImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             runeImage.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
@@ -92,42 +108,36 @@ class SelectedRuneCell: UICollectionViewCell {
         addSubview(runeName)
         runeName.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            runeName.bottomAnchor.constraint(equalTo: runeImage.bottomAnchor, constant: 5),
-            runeName.bottomAnchor.constraint(equalTo: bottomAnchor),
+            runeName.bottomAnchor.constraint(equalTo: runeImage.bottomAnchor, constant: CGFloat.runeNameBottomAnchor),
             runeName.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
     
     public func setIndex(_ index: IndexPath) {
-        self.indexPath = index
+        indexPath = index
         cellIndex.attributedText = UILabel.getAttributedText(text: String(index.row + 1), lineHeight: 0.7)
     }
            
     public func selectRune(_ rune: SelectedRuneModel) {
-        self.selectedRune = rune
-
+        selectedRune = rune
         runeImage.startSparksAnimation(top: -50)
-        
-        self.isSelected = true
-        
-        self.toggleRune()
+        isSelected = true
+        toggleRune()
     }
     
     public func deselectRune() {
-        self.selectedRune = nil
-        
-        self.isSelected = false
-        
-        self.toggleRune()
+        selectedRune = nil
+        isSelected = false
+        toggleRune()
     }
 
     public func toggleRune() {
-        self.runeImage.isHidden = !self.isSelected
-        self.runeName.isHidden = !self.isSelected
-        self.cell.isHidden = self.isSelected
-        self.cellIndex.isHidden = self.isSelected
+        runeImage.isHidden = !isSelected
+        runeName.isHidden = !isSelected
+        cell.isHidden = isSelected
+        cellIndex.isHidden = isSelected
         
-        self.runeImage.setBackgroundImage(self.selectedRune?.image ?? .none, for: .normal)
-        self.runeName.text = self.selectedRune?.title ?? .none
+        runeImage.setBackgroundImage(selectedRune?.image ?? .none, for: .normal)
+        runeName.text = selectedRune?.title ?? .none
     }
 }

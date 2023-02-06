@@ -38,11 +38,11 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
         for (index, rune) in MemoryStorage.GenerationRunes.enumerated() {
 
             let indexPath = IndexPath(row: index, section: 1)
-            let cell = self.dequeueReusableCell(withReuseIdentifier: self.cellId, for: indexPath) as! SelectRuneCell
+            let cell = dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SelectRuneCell
             
             if (cell.model == nil) {
                 cell.setRune(rune, indexPath)
-                cell.runeImage.addTarget(self, action: #selector(self.selectRune(runeImage:)), for: .touchUpInside)
+                cell.runeImage.addTarget(self, action: #selector(selectRune(runeImage:)), for: .touchUpInside)
             }
             
             runes.append(cell)
@@ -50,7 +50,7 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     }
     
     func setSelectHandler(_ action: @escaping (SelectRuneCell) -> Void) {
-        self.selectDeligate = action
+        selectDeligate = action
     }
         
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -62,31 +62,30 @@ public class SelectRuneCollectionView: UICollectionView, UICollectionViewDataSou
     }
                 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return self.runes[indexPath.row]
+        return runes[indexPath.row]
     }
     
     public func deselectRune(at index: IndexPath) {
-        let cell = self.runes[index.row]
+        let cell = runes[index.row]
         
         cell.deselectRune()
         
-        self.selectedRunesCount -= 1
+        selectedRunesCount -= 1
     }
     
     @objc func selectRune(runeImage: UIButton) {
-        if (self.selectedRunesCount < 3) {
-            let cell = runeImage.superview as! SelectRuneCell
-
-            self.selectDeligate!(cell)
+        if (selectedRunesCount < 3) {
+            guard let cell = runeImage.superview as? SelectRuneCell else { return }
+            selectDeligate?(cell)
         }
     }
     
     func selectRune(rune: SelectRuneCell) {
         rune.selectRune()
-        self.selectedRunesCount += 1
+        selectedRunesCount += 1
     }
     
     func getRune(at index: Int) -> SelectRuneCell {
-        return self.runes[index]
+        return runes[index]
     }
 }

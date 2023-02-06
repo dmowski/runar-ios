@@ -47,6 +47,6 @@ extension UINavigationItem {
         titleLabel.font = FontFamily.AmaticSC.bold.font(size: 36)
         titleLabel.textAlignment = .center
         titleLabel.text = title
-        self.titleView = titleLabel
+        titleView = titleLabel
     }
 }

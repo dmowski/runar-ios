@@ -9,13 +9,35 @@ import UIKit
 import SnapKit
 import KTCenterFlowLayout
 
+//MARK: Constants
 private extension String {
-
     static let selectedRunesTitle = L10n.Generator.SelectedRunes.title
     static let randomButtonTitle = L10n.Generator.RandomButton.title
     static let generateButtonTitle = L10n.Generator.GenerateButton.title
     static let generateRunesTitle = L10n.Generator.GenerateRunes.title
     static let runeSelectTitle = L10n.Generator.select
+}
+
+private extension CGFloat {
+    static let buttonCornerRadius = 10.0
+    
+    static let selectedRunesViewTopAnchor = 128.0
+    static let selectedRunesViewHeightAnchor = 132.0
+    static let selectedRuneCellWidthAnchor = 56.0
+    static let selectedRuneCellHeightAnchor = 110.0
+    
+    static let randomButtonTopAnchor = 26.0
+    static let randomButtonHeightAnchor = 48.0
+    static let randomButtonWidthAnchor = 212.0
+    static let randomButtonBorderWidthAnchor = 1.0
+    
+    static let generateButtonTopAnchor = 26.0
+    static let generateButtonHeightAnchor = 48.0
+    static let generateButtonWidthAnchor = 212.0
+    
+    static let selectRunesViewTopAnchor = 20.0
+    static let selectRuneCellWidthAnchor = 66.0
+    static let selectRuneCellHeightAnchor = 78.0
 }
 
 public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
@@ -41,11 +63,11 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     let randomButton: UIButton = {
         let randomButton = UIButton()
         randomButton.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
-        randomButton.layer.cornerRadius = 10
-        randomButton.layer.borderWidth = 1
+        randomButton.layer.cornerRadius = CGFloat.buttonCornerRadius
+        randomButton.layer.borderWidth = CGFloat.randomButtonBorderWidthAnchor
         randomButton.contentHorizontalAlignment = .center
         randomButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
-        randomButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
+        randomButton.layer.borderColor = UIColor.yellowPrimaryColor.cgColor
         randomButton.setTitle(title: .randomButtonTitle)
         return randomButton
     }()
@@ -68,12 +90,12 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     let generateButton: UIButton = {
         let generateButton = UIButton()
-        generateButton.layer.backgroundColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
-        generateButton.layer.cornerRadius = 10
+        generateButton.layer.backgroundColor = UIColor.yellowPrimaryColor.cgColor
+        generateButton.layer.cornerRadius = CGFloat.buttonCornerRadius
         generateButton.contentHorizontalAlignment = .center
         generateButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         generateButton.isHidden = true
-        generateButton.setTitle(title: .generateButtonTitle, color: UIColor(red: 0.165, green: 0.165, blue: 0.165, alpha: 1))
+        generateButton.setTitle(title: .generateButtonTitle, color: UIColor.primaryBlackColor)
         return generateButton
     }()
     
@@ -109,12 +131,12 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     private func configureNavigationBar() {
         
-        self.tabBarController?.tabBar.isHidden = false
-        self.navigationItem.largeTitleDisplayMode = .never
-        self.navigationItem.hidesBackButton = true
-        self.navigationController?.navigationBar.backgroundColor = .clear
-        self.navigationController?.navigationBar.configure()
-        self.navigationItem.setNavigationTitle(.generateRunesTitle)
+        tabBarController?.tabBar.isHidden = false
+        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.hidesBackButton = true
+        navigationController?.navigationBar.backgroundColor = .clear
+        navigationController?.navigationBar.configure()
+        navigationItem.setNavigationTitle(.generateRunesTitle)
 
         let customBackButton = UIBarButtonItem(image: Assets.backIcon.image,
                                                 style: .plain, target: self,
@@ -139,9 +161,9 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         self.view.addSubview(selectedRunesView)
         selectedRunesView.setDeselectHandler(self.deselectRune(_:))
         selectedRunesView.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top).offset(128)
+            make.top.equalTo(view.snp.top).offset(CGFloat.selectedRunesViewTopAnchor)
             make.centerX.equalToSuperview()
-            make.height.equalTo(132)
+            make.height.equalTo(CGFloat.selectedRunesViewHeightAnchor)
             make.left.greaterThanOrEqualTo(self.view.snp.left)
             make.right.greaterThanOrEqualTo(self.view.snp.right)
         }
@@ -149,17 +171,17 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         self.view.addSubview(randomButton)
         randomButton.addTarget(self, action: #selector(self.selectRandomRunesOnTap), for: .touchUpInside)
         randomButton.snp.makeConstraints { make in
-            make.top.equalTo(selectedRunesView.snp.bottom).offset(26)
+            make.top.equalTo(selectedRunesView.snp.bottom).offset(CGFloat.randomButtonTopAnchor)
             make.centerX.equalToSuperview()
-            make.width.equalTo(212)
-            make.height.equalTo(48)
+            make.width.equalTo(CGFloat.randomButtonWidthAnchor)
+            make.height.equalTo(CGFloat.randomButtonHeightAnchor)
         }
         
         self.view.addSubview(selectRunesView)
         self.selectRunesView.setSelectHandler(self.selectRune(_:))
         tapedLongGesture(runesView: selectRunesView)
         selectRunesView.snp.makeConstraints { make in
-            make.top.equalTo(randomButton.snp.bottom).offset(20)
+            make.top.equalTo(randomButton.snp.bottom).offset(CGFloat.selectRunesViewTopAnchor)
             make.left.equalTo(self.view.snp.left)
             make.right.equalTo(self.view.snp.right)
             make.bottom.equalTo(self.view.snp.bottom)
@@ -168,10 +190,10 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         self.view.addSubview(generateButton)
         generateButton.addTarget(self, action: #selector(self.generateOnTap), for: .touchUpInside)
         generateButton.snp.makeConstraints { make in
-            make.top.equalTo(selectedRunesView.snp.bottom).offset(26)
+            make.top.equalTo(selectedRunesView.snp.bottom).offset(CGFloat.generateButtonTopAnchor)
             make.centerX.equalToSuperview()
-            make.width.equalTo(212)
-            make.height.equalTo(48)
+            make.width.equalTo(CGFloat.generateButtonWidthAnchor)
+            make.height.equalTo(CGFloat.generateButtonHeightAnchor)
         }
     }
     
@@ -186,10 +208,11 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         
         let topInset = selectRunesView.contentInset.top
         let secondLocation = NSNumber(value: topInset / selectRunesView.frame.height)
+        let firstLocation = NSNumber(value: 0.0)
         
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
-        gradientLayer.locations = [0.0, secondLocation]
+        gradientLayer.locations = [firstLocation, secondLocation]
         selectRunesView.layer.mask = gradientLayer
     }
     
@@ -283,8 +306,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     @objc func selectRandomRunesOnTap() {
         self.selectedRunesView.deselectAll()
 
-        var maxRunes = MemoryStorage.GenerationRunes.count
-        
+        let maxRunes = MemoryStorage.GenerationRunes.count
         var indexes = [Int](0..<maxRunes)
 
         for _ in 0..<3 {
@@ -373,7 +395,7 @@ extension SelectionRuneVC: UICollectionViewDelegateFlowLayout {
 
         if let _ = collectionView as? SelectRuneCollectionView {
             let selectRunesViewSize = selectRunesView.frame.size
-            let runeIdealSize = CGSize(width: 66, height: 78)
+            let runeIdealSize = CGSize(width: CGFloat.selectRuneCellWidthAnchor, height: CGFloat.selectRuneCellHeightAnchor)
             let ratio = runeIdealSize.height / runeIdealSize.width
 
             let rowCount = round((selectRunesViewSize.height) / (runeIdealSize.height))
@@ -386,7 +408,7 @@ extension SelectionRuneVC: UICollectionViewDelegateFlowLayout {
         
         if let _ = collectionView as? SelectedRuneCollectionView,
            let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
-            let itemSize = CGSize(width: 56, height: 110)
+            let itemSize = CGSize(width: CGFloat.selectedRuneCellWidthAnchor, height: CGFloat.selectedRuneCellHeightAnchor)
             flowLayout.itemSize = itemSize
             return itemSize
         }
