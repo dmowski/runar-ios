@@ -9,7 +9,10 @@ import UIKit
 
 extension UIColor {
     static let navBarBackground = UIColor(red: 0.092, green: 0.092, blue: 0.092, alpha: 0.94)
-    static let settingsTitleColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
+}
+
+private extension CGFloat {
+    static let titleTextSize = CGFloat(36)
 }
 
 final class SettingsVC: UIViewController {
@@ -24,8 +27,6 @@ final class SettingsVC: UIViewController {
         return background
     }()
     
-    let titleTextSize = 36
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -69,7 +70,7 @@ final class SettingsVC: UIViewController {
 
     func configureNavigationBar() {
         navigationController?.navigationBar.backgroundColor = .clear
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: CGFloat(titleTextSize)), NSAttributedString.Key.foregroundColor: UIColor.libraryTitleColor]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.amaticBold(size: .titleTextSize), NSAttributedString.Key.foregroundColor: UIColor.yellowPrimaryColor]
         title = .settings
     }
 }

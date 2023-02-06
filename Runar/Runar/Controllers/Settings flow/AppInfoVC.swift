@@ -8,18 +8,14 @@
 import UIKit
 import SnapKit
 
-extension UIColor {
-   static let linkColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
-}
-
-extension String {
-    static let descriptionAppText = L10n.Tabbar.descriptionAppText
+private extension CGFloat {
+    static let sideInset = 24
+    static let titleTextSize = CGFloat(36)
+    static let lineHeightMultiple = 1.17
+    static let descriptionViewTextSize = CGFloat(20)
 }
 
 class AppInfoVC: UIViewController, UITextViewDelegate {
-    
-    let titleTextSize = 36
-    let sideInset = 24
     
     private var backgroundImage: UIImageView = {
         let background = UIImageView()
@@ -36,23 +32,22 @@ class AppInfoVC: UIViewController, UITextViewDelegate {
         textView.textContainer.lineBreakMode = .byWordWrapping
         textView.showsVerticalScrollIndicator = false
         
-        let string = String.descriptionAppText
+        let string = L10n.Tabbar.descriptionAppText
         let firstUrl = "https://lyod1.bandcamp.com/releases"
         let secUrl = "https://danheimmusic.com"
  
         let paragraphStyle = NSMutableParagraphStyle()
-        let lineHeightMultiple = 1.17
-        paragraphStyle.lineHeightMultiple = lineHeightMultiple
+        paragraphStyle.lineHeightMultiple = .lineHeightMultiple
         textView.translatesAutoresizingMaskIntoConstraints = false
         let firstRange = (string as NSString).range(of: firstUrl)
         let secRange = (string as NSString).range(of: secUrl)
         
-        var attributedText = NSMutableAttributedString(string: string, attributes: [NSMutableAttributedString.Key.paragraphStyle: paragraphStyle,NSMutableAttributedString.Key.font: FontFamily.SFProDisplay.light.font(size: 20), NSMutableAttributedString.Key.foregroundColor: UIColor.settingsWhiteText])
+        var attributedText = NSMutableAttributedString(string: string, attributes: [NSMutableAttributedString.Key.paragraphStyle: paragraphStyle, NSMutableAttributedString.Key.font: UIFont.systemLight(size: .descriptionViewTextSize), NSMutableAttributedString.Key.foregroundColor: UIColor.settingsWhiteText])
 
         attributedText.addAttribute(.link, value: firstUrl, range: firstRange)
         attributedText.addAttribute(.link, value: secUrl, range: secRange)
 
-        textView.tintColor = .linkColor
+        textView.tintColor = .yellowPrimaryColor
         textView.attributedText = attributedText
 
         return textView
@@ -70,9 +65,9 @@ class AppInfoVC: UIViewController, UITextViewDelegate {
     
     private func configureNavigationBar() {
         navigationController?.navigationBar.backgroundColor = .clear
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.AmaticSC.bold.font(size: CGFloat(titleTextSize)), NSAttributedString.Key.foregroundColor: UIColor.libraryTitleColor]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.amaticBold(size: .titleTextSize), NSAttributedString.Key.foregroundColor: UIColor.yellowPrimaryColor]
         title = .aboutApp
-        navigationController?.navigationBar.tintColor = .settingsTitleColor
+        navigationController?.navigationBar.tintColor = .yellowSecondaryColor
         navigationController?.navigationBar.topItem?.backButtonTitle = L10n.Navbar.Title.back
     }
     
@@ -85,7 +80,7 @@ class AppInfoVC: UIViewController, UITextViewDelegate {
         }
         
         descriptionView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(sideInset)
+            $0.leading.trailing.equalToSuperview().inset(CGFloat.sideInset)
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
