@@ -13,6 +13,9 @@ class OnboardingScreenCell: UICollectionViewCell {
     private let onboardingDescription = UILabel()
     private let onboardingImageView = UIImageView()
     
+    // MARK: Constants
+    // this is a constant, a divider that is calculated from the screen dimensions, for the correct placement of the Description on the screen
+    
     override public init(frame: CGRect) {
         super.init(frame: frame)
         configureOnboardingSlideTitle()
@@ -31,24 +34,24 @@ class OnboardingScreenCell: UICollectionViewCell {
     }
     
     private func configureOnboardingSlideTitle() {
-        onboardingSlideTitle.font = .amaticBold(size: 36)
-        onboardingSlideTitle.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
+        onboardingSlideTitle.font = .amaticBold(size: CGFloat.fontSizeSlideTitle)
+        onboardingSlideTitle.textColor = UIColor.yellowPrimaryColor
         onboardingSlideTitle.textAlignment = .center
         onboardingSlideTitle.contentMode = .center
         onboardingSlideTitle.backgroundColor = .clear
         contentView.addSubview(onboardingSlideTitle)
         onboardingSlideTitle.snp.makeConstraints { make in
             make.top.equalTo(contentView)
-            make.height.equalTo(32)
+            make.height.equalTo(CGFloat.heightSlideTitle)
             make.centerX.equalTo(contentView)
         }
     }
     
     private func configureOnboardingDescription() {
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 1.08
-        onboardingDescription.font = .systemRegular(size: 17)
-        onboardingDescription.textColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
+        paragraphStyle.lineHeightMultiple = CGFloat.lineHeightMultipleDescription
+        onboardingDescription.font = .systemRegular(size: CGFloat.fontDescription)
+        onboardingDescription.textColor = UIColor.textColorDescription
         onboardingDescription.attributedText = NSAttributedString(
             string: self.description,
             attributes: [
@@ -61,10 +64,11 @@ class OnboardingScreenCell: UICollectionViewCell {
         onboardingDescription.backgroundColor = .clear
         contentView.addSubview(onboardingDescription)
         onboardingDescription.snp.makeConstraints { make in
-            make.top.equalTo(onboardingSlideTitle.snp.bottom).offset(32)
-            make.width.equalTo(230)
-            make.height.equalTo(70)
+            make.top.equalTo(onboardingSlideTitle.snp.bottom).offset(CGFloat.topAnchorDescription)
+            make.height.equalTo(CGFloat.heightDescription)
+            make.width.equalTo(CGFloat.widthDescription)
             make.centerX.equalTo(contentView)
+            
         }
     }
     
@@ -73,9 +77,27 @@ class OnboardingScreenCell: UICollectionViewCell {
         onboardingImageView.contentMode = .scaleAspectFit
         contentView.addSubview(onboardingImageView)
         onboardingImageView.snp.makeConstraints { make in
-            make.top.equalTo(onboardingDescription.snp.bottom).offset(32)
+            make.top.equalTo(onboardingDescription.snp.bottom).offset(CGFloat.topAnchorImageView)
             make.centerX.equalTo(contentView)
-            make.height.width.equalTo(148)
+            make.height.width.equalTo(CGFloat.heightImageView)
         }
     }
+}
+
+private extension CGFloat {
+    static let fontSizeSlideTitle = 36.0
+    static let heightSlideTitle = 32.0
+    
+    static let lineHeightMultipleDescription = 1.08
+    static let fontDescription = 17.0
+    static let topAnchorDescription = 32.0
+    static let heightDescription = 70.0
+    static let widthDescription = 260.0
+    
+    static let topAnchorImageView = 32.0
+    static let heightImageView = 148.0
+}
+
+private extension UIColor {
+    static let textColorDescription = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
 }
