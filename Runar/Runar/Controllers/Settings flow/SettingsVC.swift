@@ -12,7 +12,7 @@ extension UIColor {
 }
 
 private extension CGFloat {
-    static let titleTextSize = CGFloat(36)
+    static let titleTextSize: CGFloat = DeviceType.iPhoneSE ? 30 : 36
 }
 
 final class SettingsVC: UIViewController {

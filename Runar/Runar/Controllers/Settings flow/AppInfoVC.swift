@@ -10,9 +10,9 @@ import SnapKit
 
 private extension CGFloat {
     static let sideInset = 24
-    static let titleTextSize = CGFloat(36)
+    static let titleTextSize: CGFloat = DeviceType.iPhoneSE ? 30 : 36
     static let lineHeightMultiple = 1.17
-    static let descriptionViewTextSize = CGFloat(20)
+    static let descriptionViewTextSize: CGFloat = 20
 }
 
 class AppInfoVC: UIViewController, UITextViewDelegate {
