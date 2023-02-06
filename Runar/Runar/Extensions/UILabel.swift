@@ -20,7 +20,7 @@ extension UILabel {
     static func createAmatic(title: String, size: CGFloat, lineHeight: CGFloat, height: CGFloat) -> UILabel{
         let label = UILabel()
         
-        label.font = FontFamily.AmaticSC.bold.font(size: size)
+        label.font = .amaticBold(size: size)
         label.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         label.textAlignment = .center
         label.contentMode = .center
@@ -41,7 +41,7 @@ extension UILabel {
         let label = UILabel()
         label.text = text
         label.textColor = .libraryTitleColor
-        label.font = FontFamily.SFProDisplay.medium.font(size: fontSize)
+        label.font = .systemMedium(size: fontSize)
         label.textAlignment = .left
         
         return label

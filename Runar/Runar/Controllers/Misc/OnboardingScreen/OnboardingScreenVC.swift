@@ -17,8 +17,12 @@ class OnboardingScreenVC: UIViewController {
             contentView.pageControll.currentPage = currentPage
             contentView.configureCustomPageControll()
             if currentPage == onboardingModel.count - 1 {
-                contentView.onboardingNextSlideButton.setTitle(L10n.Onboarding.start, for: .normal)
+                contentView.onboardingNextSlideButton.isHidden = true
+                contentView.onboardingStartButton.isHidden = false
+                
             } else {
+                contentView.onboardingStartButton.isHidden = true
+                contentView.onboardingNextSlideButton.isHidden = false
                 contentView.onboardingNextSlideButton.setTitle(L10n.Onboarding.nextScreen, for: .normal)
             }
         }

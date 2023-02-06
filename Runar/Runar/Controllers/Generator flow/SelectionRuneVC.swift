@@ -336,8 +336,8 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
 private extension UINavigationBar {
     func configure() -> Void {
         self.tintColor = .libraryTitleColor
-        self.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 17),
-                                    NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.titleTextAttributes = [.font: UIFont.systemMedium(size: 17),
+                                    .foregroundColor: UIColor.white]
     }
 }
 

@@ -198,8 +198,8 @@ class ProcessingVC: UIViewController {
 
     private var nameLabel: UILabel = {
         let label = UILabel()
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 45 : 55
-        label.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 45 : 55
+        label.font = .amaticBold(size: fontSize)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor =  UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         label.textAlignment = .center
@@ -215,8 +215,8 @@ class ProcessingVC: UIViewController {
         startButton.layer.borderWidth = 1
         startButton.setTitle(L10n.goToTheSite, for: .normal)
         startButton.translatesAutoresizingMaskIntoConstraints = false
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 24 : 30
-        startButton.titleLabel?.font = FontFamily.AmaticSC.bold.font(size: fontConstant)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 24 : 30
+        startButton.titleLabel?.font = .amaticBold(size: fontSize)
         startButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .normal)
         startButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
         return startButton
@@ -238,8 +238,8 @@ class ProcessingVC: UIViewController {
         var processingLabel = UILabel()
         processingLabel.text = L10n.layoutProcessing
         processingLabel.translatesAutoresizingMaskIntoConstraints = false
-        let fontConstant: CGFloat = DeviceType.iPhoneSE ? 14 : 16
-        processingLabel.font = FontFamily.Roboto.light.font(size: fontConstant)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 14 : 16
+        processingLabel.font = .systemLight(size: fontSize)
         
         processingLabel.textColor = UIColor(red: 0.949, green: 0.949, blue: 0.949, alpha: 1)
         processingLabel.textAlignment = .center
@@ -248,8 +248,8 @@ class ProcessingVC: UIViewController {
 
     private var adName: UILabel = {
         let adName = UILabel()
-        let nameFontConstant: CGFloat = DeviceType.iPhoneSE ? 10 : 24
-        adName.font = FontFamily.SFProDisplay.regular.font(size: nameFontConstant)
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 10 : 24
+        adName.font = .systemRegular(size: fontSize)
         adName.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         adName.textAlignment = .center
         adName.translatesAutoresizingMaskIntoConstraints = false
@@ -260,7 +260,7 @@ class ProcessingVC: UIViewController {
         let adText = UILabel()
         adText.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
         let addFontConst: CGFloat =  DeviceType.iPhoneSE ? 14 : 16
-        adText.font = FontFamily.SFProDisplay.light.font(size: addFontConst)
+        adText.font = .systemLight(size: addFontConst)
         adText.textAlignment = .center
         adText.translatesAutoresizingMaskIntoConstraints = false
         return adText

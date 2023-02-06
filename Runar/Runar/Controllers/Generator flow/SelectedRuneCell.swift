@@ -34,7 +34,7 @@ class SelectedRuneCell: UICollectionViewCell {
     let cellIndex: UILabel = {
         let cellIndex: UILabel = UILabel()
         cellIndex.textColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 1)
-        cellIndex.font = FontFamily.AmaticSC.bold.font(size: 36)
+        cellIndex.font = .amaticBold(size: 36)
         cellIndex.textAlignment = .center
         return cellIndex
     }()
@@ -53,7 +53,7 @@ class SelectedRuneCell: UICollectionViewCell {
         let runeName = UILabel()
         
         runeName.textColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 1)
-        runeName.font = FontFamily.SFProDisplay.regular.font(size: 12)
+        runeName.font = .systemRegular(size: 12)
         runeName.isHidden = true
         
         return runeName

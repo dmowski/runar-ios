@@ -55,6 +55,7 @@ class MainTabBarController: UITabBarController {
         let navigationVC = UINavigationController(rootViewController: rootViewController)
         navigationVC.tabBarItem.image = image
         navigationVC.tabBarItem.title = title
+        navigationVC.navigationBar.setBackgroundImage(UIImage(), for: .default)
 
         return navigationVC
     }

@@ -9,7 +9,10 @@ import UIKit
 
 extension UIColor {
     static let navBarBackground = UIColor(red: 0.092, green: 0.092, blue: 0.092, alpha: 0.94)
-    static let settingsTitleColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
+}
+
+private extension CGFloat {
+    static let titleTextSize: CGFloat = DeviceType.iPhoneSE ? 30 : 36
 }
 
 final class SettingsVC: UIViewController {
@@ -19,11 +22,11 @@ final class SettingsVC: UIViewController {
     private var backgroundImage: UIImageView = {
         let background = UIImageView()
         background.translatesAutoresizingMaskIntoConstraints = false
-        background.image = Assets.Background.main.image
+        background.image = Assets.Background.mainFire.image.withAlpha(0.45)
         background.contentMode = .scaleAspectFill
         return background
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,7 +36,6 @@ final class SettingsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         configureNavigationBar()
     }
     
@@ -59,7 +61,7 @@ final class SettingsVC: UIViewController {
             backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16.heightDependent()),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -67,28 +69,9 @@ final class SettingsVC: UIViewController {
     }
 
     func configureNavigationBar() {
-
-        if !DeviceType.iPhoneSE && !DeviceType.isIPhone678 && !DeviceType.isIphone78Plus {
-            title = .settings
-            navigationController?.navigationBar.prefersLargeTitles = true
-            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 34), NSAttributedString.Key.foregroundColor: UIColor.settingsTitleColor]
-        } else {
-            navigationController?.navigationBar.prefersLargeTitles = false
-            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontFamily.SFProDisplay.medium.font(size: 20), NSAttributedString.Key.foregroundColor: UIColor.settingsTitleColor]
-            navigationController?.navigationBar.barTintColor = .navBarBackground
-            navigationController?.navigationBar.isTranslucent = false
-            navigationItem.leftBarButtonItem?.title = .settings
-
-            let label = UILabel()
-            label.text = .settings
-            label.textColor = .settingsTitleColor
-            label.font = FontFamily.SFProDisplay.medium.font(size: 20)
-            label.textAlignment = .left
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: label)
-        }
-
-        navigationController?.navigationBar.backgroundColor = .navBarBackground
-        navigationController?.setStatusBar(backgroundColor: .navBarBackground)
+        navigationController?.navigationBar.backgroundColor = .clear
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.amaticBold(size: .titleTextSize), NSAttributedString.Key.foregroundColor: UIColor.yellowPrimaryColor]
+        title = .settings
     }
 }
 
