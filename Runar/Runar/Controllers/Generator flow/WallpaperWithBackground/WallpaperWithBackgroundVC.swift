@@ -19,6 +19,14 @@ extension String {
 
 private extension CGFloat {
     static let selectWallpaperViewTopAnchor = 155.0
+    static let selectWallpaperBottomAnchor = -144.0
+    static let pageControlTopAnchor = 20.0
+    static let pageControlHeightAnchor = 20.0
+    
+    static let nextButtonLeadingAnchor = 16.0
+    static let nextButtonTrailingAnchor = -16.0
+    static let nextButtonBottomAnchor = -40.0
+    static let nextButtonHeightAnchor = 50.0
 }
 
 public class WallpaperWithBackgroundVC: UIViewController {
@@ -176,23 +184,23 @@ public class WallpaperWithBackgroundVC: UIViewController {
             make.top.equalTo(self.view.snp.top).offset(CGFloat.selectWallpaperViewTopAnchor)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-144)
+            make.bottom.equalToSuperview().offset(CGFloat.selectWallpaperBottomAnchor)
         }
 
         self.view.addSubview(pageControl)
         pageControl.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(selectWallpaperView.snp.bottom).offset(20)
-            make.height.equalTo(20)
+            make.top.equalTo(selectWallpaperView.snp.bottom).offset(CGFloat.pageControlTopAnchor)
+            make.height.equalTo(CGFloat.pageControlHeightAnchor)
         }
 
         self.view.addSubview(nextButton)
         nextButton.addTarget(self, action: #selector(self.nextButtonTapped), for: .touchUpInside)
         nextButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.bottom.equalToSuperview().offset(-40)
-            make.height.equalTo(50)
+            make.leading.equalToSuperview().offset(CGFloat.nextButtonLeadingAnchor)
+            make.trailing.equalToSuperview().offset(CGFloat.nextButtonTrailingAnchor)
+            make.bottom.equalToSuperview().offset(CGFloat.nextButtonBottomAnchor)
+            make.height.equalTo(CGFloat.nextButtonHeightAnchor)
         }
     }
     

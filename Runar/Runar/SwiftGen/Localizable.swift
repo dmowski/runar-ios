@@ -380,8 +380,8 @@ internal enum L10n {
       internal static let subtitle = L10n.tr("Localizable", "generator.emptyWallpapers.subtitle", fallback: "Next, choose the background for it, Viking")
     }
     internal enum EmptyWallpapersNewVariant {
-      /// See more
-      internal static let btnTitle = L10n.tr("Localizable", "generator.emptyWallpapersNewVariant.btnTitle", fallback: "See more")
+      /// New wallpaper
+      internal static let btnTitle = L10n.tr("Localizable", "generator.emptyWallpapersNewVariant.btnTitle", fallback: "New wallpaper")
     }
     internal enum GenerateButton {
       /// Generate

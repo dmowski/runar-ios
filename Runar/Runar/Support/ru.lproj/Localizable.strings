@@ -121,7 +121,7 @@ Runar — это приложение для гадания на скандин�
 "generator.wallpapersDescription.subtitle" = "Запечатли навеки вечные свой узор в небесном чертоге ";
 "generator.wallpapers.title" = "Узор создан";
 "generator.emptyWallpapers.subtitle" = "Далее выбери фон для него, викинг";
-"generator.emptyWallpapersNewVariant.btnTitle" = "Смотреть ещё";
+"generator.emptyWallpapersNewVariant.btnTitle" = "Новый узор";
 "generator.nextButton.title" = "Далее";
 "generator.progress.name" = "Происходит магия";
 "generator.progressGenerator.title" = "Создается узор...";
