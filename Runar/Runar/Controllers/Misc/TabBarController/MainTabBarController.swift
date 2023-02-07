@@ -12,26 +12,35 @@ extension String {
     static let library = L10n.Tabbar.library
     static let settings = L10n.Tabbar.settings
     static let generator = L10n.Tabbar.generator
+    static let softLightBlendModeFilter = "softLightBlendMode"
 }
 
 class MainTabBarController: UITabBarController {
     
+    
+    private let blurEffectIntensity = 0.3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTabBar()
+        setupViewControllers()
+    }
+    
+    private func configureTabBar() {
         UITabBar.appearance().tintColor = Assets.TabBar.pushColor.color
         
-        let blurEffect = UIBlurEffect(style: .dark)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.alpha = 0.98
+        let blurView = CustomIntensityVisualEffectView(effect: UIBlurEffect(style: .dark), intensity: blurEffectIntensity)
         blurView.frame = self.view.bounds
-        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurView.contentView.layer.backgroundColor = UIColor(red: 0.098, green: 0.098, blue: 0.098, alpha: 1).cgColor
+        blurView.contentView.layer.compositingFilter = String.softLightBlendModeFilter
+        tabBar.addSubview(blurView)
         
-        tabBar.insertSubview(blurView, at: 0)
         tabBar.isTranslucent = true
         tabBar.backgroundImage = UIImage()
-        tabBar.shadowImage = UIImage()
-        tabBar.barTintColor = .clear
-        
+        tabBar.barTintColor = .white
+    }
+    
+    private func setupViewControllers() {
         let lay = UICollectionViewFlowLayout()
         let runicDrawsVC = RunicDrawsCollectionVC(collectionViewLayout: lay)
         let settingsVC = SettingsVC()
@@ -55,3 +64,22 @@ class MainTabBarController: UITabBarController {
         return navigationVC
     }
 }
+
+class CustomIntensityVisualEffectView: UIVisualEffectView {
+    
+    private var animator: UIViewPropertyAnimator?
+    
+    init(effect: UIVisualEffect, intensity: CGFloat) {
+        super.init(effect: nil)
+        
+        animator = UIViewPropertyAnimator(duration: 1, curve: .linear) { [weak self] in self?.effect = effect }
+        animator?.fractionComplete = intensity
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+}
+
+
+

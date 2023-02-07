@@ -36,7 +36,7 @@ class WallpaperWithBackgroundCell: UICollectionViewCell {
         
         backgroundColor = .clear
         layer.borderWidth = 1
-        layer.borderColor = UIColor(red: 0.161, green: 0.161, blue: 0.161, alpha: 1).cgColor
+        layer.borderColor = UIColor.primaryDarkItemColor.cgColor
         layer.cornerRadius = 8
         
         setupViews()
@@ -69,12 +69,12 @@ class WallpaperWithBackgroundCell: UICollectionViewCell {
     }
     
     func selectImage() {
-        layer.borderColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1).cgColor
+        layer.borderColor = UIColor.yellowSecondaryColor.cgColor
         selectedCheckbox.isHidden = false
     }
     
     func deselectImage() {
-        layer.borderColor = UIColor(red: 0.161, green: 0.161, blue: 0.161, alpha: 1).cgColor
+        layer.borderColor = UIColor.primaryDarkItemColor.cgColor
         selectedCheckbox.isHidden = true
     }
     

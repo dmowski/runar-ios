@@ -45,7 +45,7 @@ public class GenerationPopUpViewController: UIViewController {
         let header = UILabel()
                
         header.font = .amaticBold(size: 36)
-        header.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
+        header.textColor = UIColor.yellowPrimaryColor
         header.textAlignment = .center
         header.contentMode = .center
         
@@ -71,7 +71,7 @@ public class GenerationPopUpViewController: UIViewController {
         submitButton.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
         submitButton.layer.cornerRadius = 10
         submitButton.layer.borderWidth = 1
-        submitButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
+        submitButton.layer.borderColor = UIColor.yellowPrimaryColor.cgColor
         submitButton.isHidden = true
         
         return submitButton

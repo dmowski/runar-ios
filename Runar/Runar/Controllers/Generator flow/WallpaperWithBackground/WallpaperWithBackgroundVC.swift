@@ -8,12 +8,25 @@
 import UIKit
 import SnapKit
 
+//MARK: Constants
 extension String {
-    
     static let wallpapersHeader = L10n.Generator.WallpapersHeader.title
     static let wallpapersDescription = L10n.Generator.WallpapersDescription.subtitle
     static let progressName = L10n.Generator.Progress.name
     static let generateProgressTitle = L10n.Generator.ProgressGenerator.title
+    static let nextButtonTitle = L10n.Generator.NextButton.title
+}
+
+private extension CGFloat {
+    static let selectWallpaperViewTopAnchor = 155.0
+    static let selectWallpaperBottomAnchor = -144.0
+    static let pageControlTopAnchor = 20.0
+    static let pageControlHeightAnchor = 20.0
+    
+    static let nextButtonLeadingAnchor = 16.0
+    static let nextButtonTrailingAnchor = -16.0
+    static let nextButtonBottomAnchor = -40.0
+    static let nextButtonHeightAnchor = 50.0
 }
 
 public class WallpaperWithBackgroundVC: UIViewController {
@@ -29,7 +42,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
     
     let subTitle: UILabel = {
         let title = UILabel()
-        title.textColor = UIColor(red: 0.973, green: 0.973, blue: 0.973, alpha: 1)
+        title.textColor = UIColor.primaryWhiteColor
         title.textAlignment = .center
         title.numberOfLines = 0
         title.lineBreakMode = .byWordWrapping
@@ -65,10 +78,10 @@ public class WallpaperWithBackgroundVC: UIViewController {
 
     let nextButton: UIButton = {
         let nextButton = UIButton()
-        nextButton.layer.backgroundColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
+        nextButton.layer.backgroundColor = UIColor.yellowPrimaryColor.cgColor
         nextButton.layer.cornerRadius = 5
         nextButton.isHidden = true
-        nextButton.setTitle(title: .nextButtonTitle, color: UIColor(red: 0.165, green: 0.165, blue: 0.165, alpha: 1))
+        nextButton.setTitle(title: .nextButtonTitle, color: UIColor.primaryBlackColor)
         return nextButton
     }()
     
@@ -108,7 +121,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
     }
     
     private func configureNavBar() {
-        title = .wallpapersHeader
+        self.navigationItem.setNavigationTitle(.wallpapersHeader)
         self.navigationItem.hidesBackButton = true
         if isSelected == true {
             let customBackLabel = UIBarButtonItem(title: L10n.Tabbar.cancel,
@@ -165,35 +178,29 @@ public class WallpaperWithBackgroundVC: UIViewController {
     }
 
     private func setupViews() {
-        self.view.addSubview(subTitle)
-        subTitle.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(24)
-            make.leading.equalToSuperview().offset(60)
-            make.trailing.equalToSuperview().offset(-60)
-        }
-
+        
         self.view.addSubview(selectWallpaperView)
         selectWallpaperView.snp.makeConstraints { make in
-            make.top.equalTo(subTitle.snp.bottom).offset(40)
+            make.top.equalTo(self.view.snp.top).offset(CGFloat.selectWallpaperViewTopAnchor)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-144)
+            make.bottom.equalToSuperview().offset(CGFloat.selectWallpaperBottomAnchor)
         }
 
         self.view.addSubview(pageControl)
         pageControl.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(selectWallpaperView.snp.bottom).offset(20)
-            make.height.equalTo(20)
+            make.top.equalTo(selectWallpaperView.snp.bottom).offset(CGFloat.pageControlTopAnchor)
+            make.height.equalTo(CGFloat.pageControlHeightAnchor)
         }
 
         self.view.addSubview(nextButton)
         nextButton.addTarget(self, action: #selector(self.nextButtonTapped), for: .touchUpInside)
         nextButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.bottom.equalToSuperview().offset(-40)
-            make.height.equalTo(50)
+            make.leading.equalToSuperview().offset(CGFloat.nextButtonLeadingAnchor)
+            make.trailing.equalToSuperview().offset(CGFloat.nextButtonTrailingAnchor)
+            make.bottom.equalToSuperview().offset(CGFloat.nextButtonBottomAnchor)
+            make.height.equalTo(CGFloat.nextButtonHeightAnchor)
         }
     }
     

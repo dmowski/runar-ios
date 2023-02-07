@@ -34,7 +34,7 @@ public class SelectedRuneCollectionView: UICollectionView, UICollectionViewDataS
     }
     
     func setDeselectHandler(_ handler: @escaping (IndexPath) -> Void){
-        self.deselectRuneHandler = handler
+        deselectRuneHandler = handler
     }
            
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -50,7 +50,7 @@ public class SelectedRuneCollectionView: UICollectionView, UICollectionViewDataS
     }
         
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SelectedRuneCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? SelectedRuneCell else { return UICollectionViewCell() }
         
         cell.setIndex(indexPath)
         cell.runeImage.addTarget(self, action: #selector(self.deselectRune), for: .touchUpInside)
@@ -59,26 +59,27 @@ public class SelectedRuneCollectionView: UICollectionView, UICollectionViewDataS
     }
     
     public func hasSelectedRunes() -> Bool {
-        self.visibleCells.contains { (cell: UICollectionViewCell) -> Bool in
+        visibleCells.contains { (cell: UICollectionViewCell) -> Bool in
             return cell.isSelected
         }
     }
         
     @objc func deselectRune(sender: UIButton) {
-        let cell = sender.superview as! SelectedRuneCell
-        let index = cell.selectedRune!.index
+        guard let cell = sender.superview as? SelectedRuneCell,
+              let index = cell.selectedRune?.index else { return }
         
         cell.deselectRune()
-        
-        self.deselectRuneHandler!(index)
+        deselectRuneHandler?(index)
     }
     
     public func deselectAll() {
-        for cell in (self.visibleCells as! [SelectedRuneCell]) {
+        
+        guard let visibleCells = self.visibleCells as? [SelectedRuneCell] else { return }
+        for cell in visibleCells {
             if cell.isSelected {
-                let index = cell.selectedRune!.index
+                guard let index = cell.selectedRune?.index else { return }
                 cell.deselectRune()
-                self.deselectRuneHandler!(index)
+                deselectRuneHandler?(index)
             }
         }
     }

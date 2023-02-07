@@ -7,6 +7,12 @@
 
 import UIKit
 
+//MARK: Constants
+private extension CGFloat {
+    static let runeImageHeightAnchor = 78.0
+    static let runeImageWidthAnchor = 66.0
+}
+
 class SelectRuneCell: UICollectionViewCell {
 
     public var model: GenerationRuneModel?
@@ -36,31 +42,31 @@ class SelectRuneCell: UICollectionViewCell {
         addSubview(runeImage)
         runeImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            runeImage.heightAnchor.constraint(equalToConstant: 78),
-            runeImage.widthAnchor.constraint(equalToConstant: 66),
+            runeImage.heightAnchor.constraint(equalToConstant: CGFloat.runeImageHeightAnchor),
+            runeImage.widthAnchor.constraint(equalToConstant: CGFloat.runeImageWidthAnchor),
             runeImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             runeImage.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     
     public func setRune(_ rune: GenerationRuneModel, _ indexPath: IndexPath) {
-        self.model = rune
+        model = rune
         self.indexPath = indexPath
 
         runeImage.setBackgroundImage(rune.imageInfo.uiImage, for: .normal)
     }
     
     public func selectRune() {
-        self.isSelected = true
-        self.toggleState()
+        isSelected = true
+        toggleState()
     }
     
     public func deselectRune() {
-        self.isSelected = false
-        self.toggleState()
+        isSelected = false
+        toggleState()
     }
     
     public func toggleState() {
-        self.runeImage.isEnabled = !self.isSelected
+        runeImage.isEnabled = !self.isSelected
     }
 }

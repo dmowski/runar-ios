@@ -42,7 +42,6 @@ internal enum Assets {
     internal static let backgroundDown = ImageAsset(name: "Background/backgroundDown")
     internal static let bottomBlackGradient = ImageAsset(name: "Background/bottomBlackGradient")
     internal static let generator = ImageAsset(name: "Background/generator")
-    internal static let generatorFire = ImageAsset(name: "Background/generator_fire")
     internal static let main = ImageAsset(name: "Background/main")
     internal static let mainFire = ImageAsset(name: "Background/main_fire")
     internal static let nameLabelGradient = ImageAsset(name: "Background/nameLabelGradient")
