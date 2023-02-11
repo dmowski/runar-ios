@@ -41,6 +41,15 @@
 		671E685B28EA2DB5000A0904 /* SparksScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671E685928EA2DB5000A0904 /* SparksScene.swift */; };
 		671E685D28EA2DC2000A0904 /* UIView+SparksAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671E685C28EA2DC2000A0904 /* UIView+SparksAnimation.swift */; };
 		677C11E8289C726900CEA5D2 /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677C11E7289C726900CEA5D2 /* ImageFileManager.swift */; };
+		75188DC32997737000CCFD59 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75188DC22997737000CCFD59 /* APIClient.swift */; };
+		75188DC52997758400CCFD59 /* RuneModel_v2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75188DC42997758400CCFD59 /* RuneModel_v2.swift */; };
+		75188DC82997BDD500CCFD59 /* Runar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75188DC62997BDD500CCFD59 /* Runar.xcdatamodeld */; };
+		75188DCA2997C3D800CCFD59 /* CoreDataModelResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75188DC92997C3D800CCFD59 /* CoreDataModelResource.swift */; };
+		75188DCC2997C41200CCFD59 /* CoreDataRuneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75188DCB2997C41200CCFD59 /* CoreDataRuneModel.swift */; };
+		75188DCE2997C6C200CCFD59 /* RuneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75188DCD2997C6C200CCFD59 /* RuneFactory.swift */; };
+		75188DD02997CA2C00CCFD59 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75188DCF2997CA2C00CCFD59 /* CoreDataService.swift */; };
+		75188DD22997CFE500CCFD59 /* UINavigationBar+Configure .swift in Sources */ = {isa = PBXBuildFile; fileRef = 75188DD12997CFE500CCFD59 /* UINavigationBar+Configure .swift */; };
+		75188DD42997D2BC00CCFD59 /* UITableView+Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75188DD32997D2BC00CCFD59 /* UITableView+Types.swift */; };
 		843DFF33265248B900D6DFE5 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF32265248B900D6DFE5 /* LibraryViewController.swift */; };
 		843DFF4D2653FB5400D6DFE5 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF4C2653FB5400D6DFE5 /* LibraryCell.swift */; };
 		843DFF72265BC50800D6DFE5 /* LibraryNodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DFF71265BC50800D6DFE5 /* LibraryNodeViewController.swift */; };
@@ -200,6 +209,15 @@
 		671E685C28EA2DC2000A0904 /* UIView+SparksAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SparksAnimation.swift"; sourceTree = "<group>"; };
 		677C11E7289C726900CEA5D2 /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
 		7187BE777607C9CC2B878552 /* Pods-RunarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunarTests.debug.xcconfig"; path = "Target Support Files/Pods-RunarTests/Pods-RunarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		75188DC22997737000CCFD59 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		75188DC42997758400CCFD59 /* RuneModel_v2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneModel_v2.swift; sourceTree = "<group>"; };
+		75188DC72997BDD500CCFD59 /* Runar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Runar.xcdatamodel; sourceTree = "<group>"; };
+		75188DC92997C3D800CCFD59 /* CoreDataModelResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModelResource.swift; sourceTree = "<group>"; };
+		75188DCB2997C41200CCFD59 /* CoreDataRuneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRuneModel.swift; sourceTree = "<group>"; };
+		75188DCD2997C6C200CCFD59 /* RuneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneFactory.swift; sourceTree = "<group>"; };
+		75188DCF2997CA2C00CCFD59 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		75188DD12997CFE500CCFD59 /* UINavigationBar+Configure .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Configure .swift"; sourceTree = "<group>"; };
+		75188DD32997D2BC00CCFD59 /* UITableView+Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Types.swift"; sourceTree = "<group>"; };
 		843DFF32265248B900D6DFE5 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		843DFF4C2653FB5400D6DFE5 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		843DFF71265BC50800D6DFE5 /* LibraryNodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryNodeViewController.swift; sourceTree = "<group>"; };
@@ -416,6 +434,8 @@
 				671E685C28EA2DC2000A0904 /* UIView+SparksAnimation.swift */,
 				C2C55848283D9D26006B053C /* UILabel.swift */,
 				C22B4DB32858AD2800F6245C /* String + Extensions.swift */,
+				75188DD12997CFE500CCFD59 /* UINavigationBar+Configure .swift */,
+				75188DD32997D2BC00CCFD59 /* UITableView+Types.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -470,6 +490,20 @@
 				677C11E7289C726900CEA5D2 /* ImageFileManager.swift */,
 			);
 			path = Memory;
+			sourceTree = "<group>";
+		};
+		75188DC12997731400CCFD59 /* Persistence layer */ = {
+			isa = PBXGroup;
+			children = (
+				75188DC22997737000CCFD59 /* APIClient.swift */,
+				75188DC42997758400CCFD59 /* RuneModel_v2.swift */,
+				75188DC92997C3D800CCFD59 /* CoreDataModelResource.swift */,
+				75188DCB2997C41200CCFD59 /* CoreDataRuneModel.swift */,
+				75188DCD2997C6C200CCFD59 /* RuneFactory.swift */,
+				75188DCF2997CA2C00CCFD59 /* CoreDataService.swift */,
+				75188DC62997BDD500CCFD59 /* Runar.xcdatamodeld */,
+			);
+			path = "Persistence layer";
 			sourceTree = "<group>";
 		};
 		843DAB9126F9B94C009548D8 /* WallpaperWithBackground */ = {
@@ -800,6 +834,7 @@
 		C22B4DB22858A8F600F6245C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				75188DC12997731400CCFD59 /* Persistence layer */,
 				677C11E6289C71F400CEA5D2 /* Memory */,
 				8477223B26457435001C280D /* Api */,
 				19BDC61625C0306E000808CF /* Base */,
@@ -1155,6 +1190,7 @@
 				84410672270ADA0400CD8B56 /* SelectedRuneCollectionView.swift in Sources */,
 				19D9BB0625C9874E00418CE7 /* RunesView.swift in Sources */,
 				9B739DF325CD765800726B30 /* Constants.swift in Sources */,
+				75188DCE2997C6C200CCFD59 /* RuneFactory.swift in Sources */,
 				843DFF4D2653FB5400D6DFE5 /* LibraryCell.swift in Sources */,
 				C2C5584D283D9EE9006B053C /* SelectRuneCell.swift in Sources */,
 				CD7A843D298FC96E0036DD43 /* UIFont+StyleGuide.swift in Sources */,
@@ -1165,9 +1201,12 @@
 				9B15E36825FE465400737306 /* OneRuneVC.swift in Sources */,
 				19BDC61D25C030B1000808CF /* PublisherProvider.swift in Sources */,
 				96AAA78E29266E7F007B3261 /* CustomPageControll.swift in Sources */,
+				75188DD42997D2BC00CCFD59 /* UITableView+Types.swift in Sources */,
 				1987AAC525BDCDCA00BB3655 /* SixRuneView.swift in Sources */,
+				75188DD22997CFE500CCFD59 /* UINavigationBar+Configure .swift in Sources */,
 				9CAEF57829220F66006C0EF9 /* DataManager.swift in Sources */,
 				19D9BAFE25C9874200418CE7 /* RuneViewProtocol.swift in Sources */,
+				75188DD02997CA2C00CCFD59 /* CoreDataService.swift in Sources */,
 				C2B10B0728C4D58600F9BCF0 /* BindableGestureRecognizer.swift in Sources */,
 				C2C55849283D9D26006B053C /* UILabel.swift in Sources */,
 				1987AACA25BDCDD500BB3655 /* SevenRuneView.swift in Sources */,
@@ -1190,7 +1229,9 @@
 				9BD228FE258A321B00E17E98 /* AppDelegate.swift in Sources */,
 				1987AAB625BDCDA400BB3655 /* ThreeRuneView.swift in Sources */,
 				8477224326458020001C280D /* Route.swift in Sources */,
+				75188DCA2997C3D800CCFD59 /* CoreDataModelResource.swift in Sources */,
 				C2953E632889B5CE00EA297D /* MonetizationDescriptionViewBox.swift in Sources */,
+				75188DCC2997C41200CCFD59 /* CoreDataRuneModel.swift in Sources */,
 				9BD229DF258D82DD00E17E98 /* AlignmentInfoVC.swift in Sources */,
 				C2C55843283A9F53006B053C /* ApiGeneratorModel.swift in Sources */,
 				9911206C2861107B001B8FCC /* TagsCollectionView.swift in Sources */,
@@ -1199,8 +1240,10 @@
 				19BDC61B25C030B1000808CF /* UIControlPublisher.swift in Sources */,
 				677C11E8289C726900CEA5D2 /* ImageFileManager.swift in Sources */,
 				9BD98C9F2628A75600F3BBD7 /* UIView.swift in Sources */,
+				75188DC82997BDD500CCFD59 /* Runar.xcdatamodeld in Sources */,
 				8477224F26458882001C280D /* CreateUserRequest.swift in Sources */,
 				9B739DDC25CC296900726B30 /* RuneType.swift in Sources */,
+				75188DC52997758400CCFD59 /* RuneModel_v2.swift in Sources */,
 				1907850C25C4235000434D57 /* RuneButton.swift in Sources */,
 				843DFF72265BC50800D6DFE5 /* LibraryNodeViewController.swift in Sources */,
 				C2C55840283A4823006B053C /* WallpaperWithBackgroundCell.swift in Sources */,
@@ -1242,6 +1285,7 @@
 				849ED28F266E3457006E557A /* LibraryRootCell.swift in Sources */,
 				9C1F8E8228FF07480073542F /* FirstScreenVC.swift in Sources */,
 				1987AAC025BDCDBF00BB3655 /* FiveRuneView.swift in Sources */,
+				75188DC32997737000CCFD59 /* APIClient.swift in Sources */,
 				9BD98CC02628CD1D00F3BBD7 /* EscapePopUpVC.swift in Sources */,
 				199A678B25F837110013DE5D /* MainTabBarController.swift in Sources */,
 				968939DB28D094FB00057D2A /* OnboardingView.swift in Sources */,
@@ -1592,6 +1636,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		75188DC62997BDD500CCFD59 /* Runar.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				75188DC72997BDD500CCFD59 /* Runar.xcdatamodel */,
+			);
+			currentVersion = 75188DC72997BDD500CCFD59 /* Runar.xcdatamodel */;
+			path = Runar.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9BD228F2258A321B00E17E98 /* Project object */;
 }

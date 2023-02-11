@@ -6,12 +6,19 @@
 //
 
 import UIKit
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
+    var persistentContainer: NSPersistentContainer?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
+        createPersistenceContainer { [weak self] container in
+            self?.persistentContainer = container
+        }
         
         if isFirstLaunch() {
             signIn()
@@ -20,32 +27,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DataManager.shared.fetchData()
 
         MusicViewController.shared.initBackgroundMusic()
+        
         if !UserDefaults.standard.bool(forKey: "is_off_music") {
             MusicViewController.shared.playBackgroundMusic()
         } else {
             MusicViewController.shared.stopBackgroundMusic()
         }
-
         return true
-    }
-    
-    @available(iOS 13.0, *)
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-    
-    @available(iOS 13.0, *)
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 }
 
 extension AppDelegate {
-    
     // check for is first launch - only true on first invocation after app install, false on all further invocations
     // Note: Store this value in AppDelegate if you have multiple places where you are checking for this flag
     func isFirstLaunch() -> Bool {
@@ -64,5 +56,32 @@ extension AppDelegate {
         let systemVersion = "IOS " + UIDevice.current.systemVersion
         RunarApi.createUser(with: id, date: created, os: systemVersion)
         print(id, created, systemVersion)
+    }
+}
+
+// MARK: - CoreData Stack
+extension AppDelegate {
+    func saveContext () {
+        guard
+            let context = persistentContainer?.viewContext,
+            context.hasChanges
+        else { return }
+        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        do {
+            try context.save()
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+    }
+
+    private func createPersistenceContainer(completionHandler: @escaping (NSPersistentContainer) -> Void) {
+        let container = NSPersistentContainer(name: "Runar")
+        container.loadPersistentStores { _, error in
+            guard error == nil else { fatalError("Failed to load store: \(String(describing: error))") }
+            DispatchQueue.main.async {
+                completionHandler(container)
+            }
+        }
     }
 }

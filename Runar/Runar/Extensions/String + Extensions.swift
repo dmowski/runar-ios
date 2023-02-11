@@ -8,7 +8,6 @@
 import Foundation
 
 extension String {
-    
     static func random(withLength length: Int) -> String {
 
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -16,7 +15,6 @@ extension String {
     }
     
     func strikeThrough() -> NSAttributedString {
-        
         let attributeString = NSMutableAttributedString(string: self)
         attributeString.addAttribute(
             NSAttributedString.Key.strikethroughStyle,
@@ -28,4 +26,8 @@ extension String {
     func capitalizedFirstLetter() -> String {
         return prefix(1).uppercased() + self.lowercased().dropFirst()
     }
+}
+
+extension String {
+    static let back = L10n.Navbar.Title.back
 }
