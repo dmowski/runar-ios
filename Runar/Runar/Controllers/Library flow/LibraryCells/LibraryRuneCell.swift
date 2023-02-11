@@ -25,37 +25,33 @@ public class LibraryRuneCell: LibraryCell {
         self.separatorInset = UIEdgeInsets(top: 0, left: 26, bottom: 0, right: 26)
         
         runeTitle.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            runeTitle.topAnchor.constraint(equalTo: topAnchor, constant: CGFloat.runTitleTopAnchor),
-            runeTitle.heightAnchor.constraint(equalToConstant: CGFloat.runeTitleHeight),
-            runeTitle.centerXAnchor.constraint(equalTo: centerXAnchor)
-        ])
+        runeTitle.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide).offset(CGFloat.runTitleTopAnchor)
+            make.height.equalTo(CGFloat.runeTitleHeight)
+            make.centerX.equalToSuperview()
+        }
         
         runeImage.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            runeImage.widthAnchor.constraint(equalTo: widthAnchor),
-            runeImage.heightAnchor.constraint(equalToConstant: CGFloat.runeImageHeight),
-            runeImage.topAnchor.constraint(equalTo: runeTitle.bottomAnchor, constant: CGFloat.runeImageTopAnchor),
-            runeImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-        ])
+        runeImage.snp.makeConstraints { make in
+            make.top.equalTo(runeTitle.snp.bottom).offset(CGFloat.runeImageTopAnchor)
+            make.centerX.equalToSuperview()
+        }
         
         tagsCV.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tagsCV.centerXAnchor.constraint(equalTo: centerXAnchor),
-            tagsCV.topAnchor.constraint(equalTo: runeImage.bottomAnchor, constant: CGFloat.tagsCVTopAnchor),
-            tagsCV.leftAnchor.constraint(equalTo: leftAnchor),
-            tagsCV.rightAnchor.constraint(equalTo: rightAnchor),
-            tagsCV.heightAnchor.constraint(greaterThanOrEqualToConstant: tags.count == 0 ? 0 : 32)
-        ])
+        tagsCV.snp.makeConstraints { make in
+            make.top.equalTo(runeImage.snp.bottom).offset(CGFloat.tagsCVTopAnchor)
+            make.height.equalTo(tags.count == 0 ? CGFloat.tagsCVHeightZero : CGFloat.tagsCVHeight)
+            make.trailing.leading.equalToSuperview()
+            make.centerX.equalToSuperview()
+        }
         
         runeDesc.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            runeDesc.centerXAnchor.constraint(equalTo: centerXAnchor),
-            runeDesc.topAnchor.constraint(equalTo: tagsCV.bottomAnchor, constant: CGFloat.runeDescTopAnchor),
-            runeDesc.bottomAnchor.constraint(equalTo: bottomAnchor, constant: CGFloat.runeDescBottomAnchor),
-            runeDesc.leftAnchor.constraint(equalTo: leftAnchor, constant: CGFloat.runeDescLeftAnchor),
-            runeDesc.rightAnchor.constraint(equalTo: rightAnchor, constant: CGFloat.runeDescRightAnchor)
-        ])
+        runeDesc.snp.makeConstraints { make in
+            make.top.equalTo(runeImage.snp.bottom).offset(tags.count == 0 ? CGFloat.runeDescTopAnchorWithOutTagsCV : CGFloat.runeDescTopAnchorWithTagsCV)
+            make.centerX.equalToSuperview()
+            make.trailing.leading.equalToSuperview().inset(CGFloat.runeDescTrailigLeadingAnchor)
+            make.bottom.equalToSuperview().inset(CGFloat.runeDescBottomAnchor)
+        }
     }
     
     func bindRuneTitle(title: String) -> UILabel {
@@ -127,16 +123,17 @@ private extension CGFloat {
     static let runeTitleHeight = 26.0
     static let runeTitleFontSize = 24.0
     
-    static let runeImageHeight = 129.0
     static let runeImageTopAnchor = 10.0
     static let runeImageSize = CGSize(width: 109, height: 129)
     
-    static let tagsCVTopAnchor = 10.0
+    static let tagsCVTopAnchor = 16.0
+    static let tagsCVHeightZero = 0
+    static let tagsCVHeight = 32.0
     
-    static let runeDescTopAnchor = 10.0
-    static let runeDescBottomAnchor = -26.0
-    static let runeDescLeftAnchor = 24.0
-    static let runeDescRightAnchor = -24.0
+    static let runeDescTopAnchorWithTagsCV = 74.0
+    static let runeDescTopAnchorWithOutTagsCV = 16.0
+    static let runeDescTrailigLeadingAnchor = 24.0
+    static let runeDescBottomAnchor = 34.0
     static let runeDescFontSize = DeviceType.iPhoneSE || DeviceType.isIPhone678 ? 16.0 : 19.0
 }
 
