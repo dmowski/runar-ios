@@ -70,7 +70,7 @@ public class EmptyWallpaperVC: UIViewController {
         processingLabel.numberOfLines = 0
         processingLabel.lineBreakMode = .byWordWrapping
         processingLabel.text = .emptyWallpapersSubTitele
-        processingLabel.font = .systemRegular(size: 16)
+        processingLabel.font = .systemRegular(size: 14)
         return processingLabel
     }()
     
