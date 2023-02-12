@@ -22,23 +22,23 @@ extension UITableView {
                 fatalError("cell type '\(child.type.rawValue)' is not implemented")
             }
             
-            self.register(type, forCellReuseIdentifier: child.id)
+            register(type, forCellReuseIdentifier: child.id)
         }
     }
     
     func add(to view: UIView) -> Void {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = .clear
-        self.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
-        self.tableFooterView = UIView()
+        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .clear
+        separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+        tableFooterView = UIView()
         
         view.addSubview(self)
         
         NSLayoutConstraint.activate([
-            self.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            self.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            self.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            self.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     
@@ -46,7 +46,7 @@ extension UITableView {
         let child = node.children[indexPath.row]
         let cell = self.dequeueReusableCell(withIdentifier: child.id, for: indexPath)
         
-        (cell as! LibraryCellProtocol).bind(node: child)
+        (cell as? LibraryCellProtocol)?.bind(node: child)
         
         return cell
     }

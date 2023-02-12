@@ -12,12 +12,10 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var persistentContainer: NSPersistentContainer?
 
-    func application(
-        _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
-    ) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         createPersistenceContainer { [weak self] container in
-            self?.persistentContainer = container
+            guard let self = self else { return }
+            self.persistentContainer = container
         }
         
         if isFirstLaunch() {
@@ -70,8 +68,7 @@ extension AppDelegate {
         do {
             try context.save()
         } catch {
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            fatalError("Unresolved error \(error.localizedDescription)")
         }
     }
 
