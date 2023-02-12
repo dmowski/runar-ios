@@ -26,7 +26,7 @@ public class LibraryRuneCell: LibraryCell {
         
         runeTitle.translatesAutoresizingMaskIntoConstraints = false
         runeTitle.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(CGFloat.runTitleTopAnchor)
+            make.top.equalToSuperview().offset(CGFloat.runTitleTopAnchor)
             make.height.equalTo(CGFloat.runeTitleHeight)
             make.centerX.equalToSuperview()
         }
@@ -70,7 +70,7 @@ public class LibraryRuneCell: LibraryCell {
     func bindRuneImage(url: String) -> UIImageView {
         let image = UIImage.create(fromUrl: url)
         
-        let size: CGSize = CGFloat.runeImageSize
+        let size: CGSize = CGSize(width: CGFloat.runeImageWidth, height: CGFloat.runeImageHeight)
         let render: UIGraphicsImageRenderer = UIGraphicsImageRenderer(size: size)
         
         let resizedImage: UIImage = render.image { (context) in
@@ -124,7 +124,8 @@ private extension CGFloat {
     static let runeTitleFontSize = 24.0
     
     static let runeImageTopAnchor = 10.0
-    static let runeImageSize = CGSize(width: 109, height: 129)
+    static let runeImageHeight = 129.0
+    static let runeImageWidth = 109.0
     
     static let tagsCVTopAnchor = 16.0
     static let tagsCVHeightZero = 0
@@ -138,5 +139,5 @@ private extension CGFloat {
 }
 
 private extension UIColor {
-    static let runeDescColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
+    static let runeDescColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
 }
