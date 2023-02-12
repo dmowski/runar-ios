@@ -19,7 +19,7 @@ public class LibraryRuneCell: LibraryCell {
         
         let runeTitle: UILabel = bindRuneTitle(title: title)
         let runeImage: UIImageView = bindRuneImage(url: imageUrl)
-        let tagsCV: UICollectionView = bindTagsCV(with: tags)
+        let collectionView: UICollectionView = bindTagsCV(with: tags)
         let runeDesc: UILabel = bindRunDescription(description: content)
         
         self.separatorInset = UIEdgeInsets(top: 0, left: 26, bottom: 0, right: 26)
@@ -37,17 +37,17 @@ public class LibraryRuneCell: LibraryCell {
             make.centerX.equalToSuperview()
         }
         
-        tagsCV.translatesAutoresizingMaskIntoConstraints = false
-        tagsCV.snp.makeConstraints { make in
-            make.top.equalTo(runeImage.snp.bottom).offset(CGFloat.tagsCVTopAnchor)
-            make.height.equalTo(tags.count == 0 ? CGFloat.tagsCVHeightZero : CGFloat.tagsCVHeight)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(runeImage.snp.bottom).offset(CGFloat.collectionViewTopAnchor)
+            make.height.equalTo(tags.isEmpty ? 0 : CGFloat.collectionViewHeight)
             make.trailing.leading.equalToSuperview()
             make.centerX.equalToSuperview()
         }
         
         runeDesc.translatesAutoresizingMaskIntoConstraints = false
         runeDesc.snp.makeConstraints { make in
-            make.top.equalTo(runeImage.snp.bottom).offset(tags.count == 0 ? CGFloat.runeDescTopAnchorWithOutTagsCV : CGFloat.runeDescTopAnchorWithTagsCV)
+            make.top.equalTo(runeImage.snp.bottom).offset(tags.isEmpty ? CGFloat.runeDescTopAnchorWithOutTagsCV : CGFloat.runeDescTopAnchorWithTagsCV)
             make.centerX.equalToSuperview()
             make.trailing.leading.equalToSuperview().inset(CGFloat.runeDescTrailigLeadingAnchor)
             make.bottom.equalToSuperview().inset(CGFloat.runeDescBottomAnchor)
@@ -127,9 +127,8 @@ private extension CGFloat {
     static let runeImageHeight = 129.0
     static let runeImageWidth = 109.0
     
-    static let tagsCVTopAnchor = 16.0
-    static let tagsCVHeightZero = 0
-    static let tagsCVHeight = 32.0
+    static let collectionViewTopAnchor = 16.0
+    static let collectionViewHeight = 32.0
     
     static let runeDescTopAnchorWithTagsCV = 74.0
     static let runeDescTopAnchorWithOutTagsCV = 16.0
@@ -139,5 +138,6 @@ private extension CGFloat {
 }
 
 private extension UIColor {
+    // Add to color common class
     static let runeDescColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
 }
