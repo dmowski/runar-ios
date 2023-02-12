@@ -11,16 +11,17 @@ import SnapKit
 //MARK: Constants
 private extension String {
     static let newVariant = L10n.Generator.EmptyWallpapersNewVariant.btnTitle
-    static let wallpapersTitele = L10n.Generator.Wallpapers.title
-    static let emptyWallpapersSubTitele = L10n.Generator.EmptyWallpapers.subtitle
+    static let wallpapersTitle = L10n.Generator.Wallpapers.title
+    static let emptyWallpapersSubTitle = L10n.Generator.EmptyWallpapers.subtitle
+}
+
+private extension UIColor {
+    static let contentViewBackgroundColor = UIColor(red: 0.143, green: 0.142, blue: 0.143, alpha: 0.5)
+    static let newVariantButtonBackgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
 }
 
 private extension CGFloat {
-    static let mainTitleTopAnchor = 50.0
-    static let mainTitleLeadingAnchor = 60.0
-    static let mainTitleTrailingAnchor = -60.0
-    
-    static let subTitleTopAnchor = 16.0
+    static let subTitleTopAnchor = 112.0
     static let subTitleLeadingAnchor = 30.0
     static let subTitleTrailingAnchor = -30.0
     
@@ -51,32 +52,20 @@ public class EmptyWallpaperVC: UIViewController {
     private var currentEmptyWallpaperName: String?
     var stopDownloading: (() -> ())?
     
-    let mainTitle: UILabel = {
-        let title = UILabel()
-        title.textColor = UIColor.yellowPrimaryColor
-        title.textAlignment = .center
-        title.numberOfLines = 0
-        title.lineBreakMode = .byWordWrapping
-        title.text = .wallpapersTitele
-        title.font = .amaticBold(size: 55)
-        title.backgroundColor = .clear
-        return title
-    }()
-    
     let subTitle: UILabel = {
         let processingLabel = UILabel()
         processingLabel.textColor = UIColor.primaryWhiteColor
         processingLabel.textAlignment = .center
         processingLabel.numberOfLines = 0
         processingLabel.lineBreakMode = .byWordWrapping
-        processingLabel.text = .emptyWallpapersSubTitele
+        processingLabel.text = .emptyWallpapersSubTitle
         processingLabel.font = .systemRegular(size: 14)
         return processingLabel
     }()
     
     let contentView: UIView = {
         let contentView = UIView()
-        contentView.layer.backgroundColor = UIColor(red: 0.143, green: 0.142, blue: 0.143, alpha: 0.5).cgColor
+        contentView.layer.backgroundColor = UIColor.contentViewBackgroundColor.cgColor
         contentView.layer.cornerRadius = 16
         contentView.layer.shadowOffset = CGSize(width: 0, height: 10)
         contentView.layer.shadowRadius = 5
@@ -93,7 +82,7 @@ public class EmptyWallpaperVC: UIViewController {
     
     let newVariantButton: UIButton = {
         let newVariantButton = UIButton()
-        newVariantButton.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
+        newVariantButton.layer.backgroundColor = UIColor.newVariantButtonBackgroundColor.cgColor
         newVariantButton.layer.cornerRadius = 8
         newVariantButton.layer.borderWidth = 1
         newVariantButton.contentHorizontalAlignment = .center
@@ -107,7 +96,6 @@ public class EmptyWallpaperVC: UIViewController {
         let nextButton = UIButton()
         nextButton.layer.backgroundColor = UIColor.yellowPrimaryColor.cgColor
         nextButton.layer.cornerRadius = 5
-        nextButton.setTitle(title: .nextButtonTitle)
         nextButton.setTitle(title: .nextButtonTitle, color: UIColor.primaryBlackColor)
         nextButton.contentHorizontalAlignment = .center
         nextButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
@@ -132,6 +120,7 @@ public class EmptyWallpaperVC: UIViewController {
         showEmptyWallpaper(with: currentEmptyWallpaperName)
         
         setupViews()
+        configureNavigationBar()
         setupImageViewSwipes()
         updateEmptyVC()
     }
@@ -139,26 +128,17 @@ public class EmptyWallpaperVC: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
-        self.navigationController?.navigationBar.isHidden = true
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = true
-        self.navigationController?.navigationBar.isHidden = false
     }
     
     private func setupViews() {
-        view.addSubviews(mainTitle)
-        mainTitle.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(CGFloat.mainTitleTopAnchor)
-            make.leading.equalToSuperview().offset(CGFloat.mainTitleLeadingAnchor)
-            make.trailing.equalToSuperview().offset(CGFloat.mainTitleTrailingAnchor)
-        }
-        
         view.addSubviews(subTitle)
         subTitle.snp.makeConstraints { make in
-            make.top.equalTo(mainTitle.snp.bottom).offset(CGFloat.subTitleTopAnchor)
+            make.top.equalToSuperview().offset(CGFloat.subTitleTopAnchor)
             make.leading.equalToSuperview().offset(CGFloat.subTitleLeadingAnchor)
             make.trailing.equalToSuperview().offset(CGFloat.subTitleTrailingAnchor)
         }
@@ -196,6 +176,21 @@ public class EmptyWallpaperVC: UIViewController {
             make.bottom.equalToSuperview().offset(CGFloat.nextButtonBottomAnchor)
             make.height.equalTo(CGFloat.nextButtonHeightAnchor)
         }
+    }
+    
+    private func configureNavigationBar() {
+        navigationItem.setNavigationTitle(.wallpapersTitle)
+        navigationItem.hidesBackButton = true
+        let customBackButton = UIBarButtonItem(image: Assets.backIcon.image,
+                                               style: .plain, target: self,
+                                               action: #selector(self.backToSelectionViewController))
+        customBackButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        navigationItem.leftBarButtonItem = customBackButton
+    }
+    
+    @objc func backToSelectionViewController(sender: UIBarButtonItem) {
+        guard let viewControllers = navigationController?.viewControllers as? [UIViewController] else { return }
+        navigationController?.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
     }
     
     private func updateEmptyVC() {

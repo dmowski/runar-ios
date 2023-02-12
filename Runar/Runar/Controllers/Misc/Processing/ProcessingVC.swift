@@ -41,6 +41,7 @@ class ProcessingVC: UIViewController {
         super.viewDidLoad()
 
         configureUI()
+        configureNavigationBar()
         fillContent()
         doAnimation()
         
@@ -63,7 +64,6 @@ class ProcessingVC: UIViewController {
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = true
         navigationController?.deletStatusBarView()
     }
@@ -75,7 +75,6 @@ class ProcessingVC: UIViewController {
 
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = true
     }
     
@@ -341,6 +340,11 @@ class ProcessingVC: UIViewController {
             adText.bottomAnchor.constraint(equalTo: adText.topAnchor, constant: adHeight)
         ])
     }
+    
+    private func configureNavigationBar() {
+        navigationItem.hidesBackButton = true
+    }
+    
     
     private var link = ""
     
