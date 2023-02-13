@@ -7,43 +7,43 @@
 
 import UIKit
 
-public class LibraryViewController: LibraryNodeViewController {
-    
-    // MARK: - Override funcs
-    public override func viewDidLoad() {
-        set(MemoryStorage.Library)
-                
+final class LibraryViewController: LibraryNodeViewController {
+    // MARK: - LifeCycle
+    override func viewDidLoad() {
         super.viewDidLoad()
+        set(MemoryStorage.Library)
+        coreDataTestFunction()
     }
     
     override func configureNavigationBar() {
-            title = .library
-            navigationController?.navigationBar.configureTitle()
-
+        title = .library
+        navigationController?.navigationBar.configureTitle()
+        
         navigationItem.backBarButtonItem = UIBarButtonItem(
             title: L10n.Navbar.Title.back, style: .plain, target: nil, action: nil)
         
         navigationController?.setStatusBar(backgroundColor: .navBarBackground)
     }
-}
-
-// MARK: - Extensions
-public extension UINavigationBar {
-    func configureTitle() -> Void {
-        backgroundColor = .navBarBackground
+   
+    // TODO: - Should be delete after testing
+    private func coreDataTestFunction() {
+        let urlString = "https://runar-java-back.herokuapp.com/api/v2/"
+        guard let url = URL(string: urlString) else { return }
         
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 0.79
-        let fontSize: CGFloat = DeviceType.iPhoneSE ? 30 : 36
-        titleTextAttributes = [.font: UIFont.amaticBold(size: fontSize),
-                                    .foregroundColor: UIColor.libraryTitleColor,
-                                    .paragraphStyle: paragraphStyle]
-        isTranslucent = false
-        barTintColor = .navBarBackground
-        tintColor = .libraryTitleColor
+        let networkServise = APIClient<[RuneModel]>()
+        let coreDataService: PesistenceService = CoreDataService()
+        
+        Task.init {
+            let runes = try await networkServise.fetch(from: url)
+            
+            coreDataService.addUpdateRune(runes[0]) { result in
+                switch result {
+                case .success(_):
+                    print("Rune \(runes[0]) has been saved(updated)")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
-}
-
-public extension UIColor {
-    static let libraryTitleColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
 }

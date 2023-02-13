@@ -7,11 +7,6 @@
 
 import UIKit
 
-// MARK: Localizations
-extension String {
-    static let back = L10n.Navbar.Title.back
-}
-
 enum LibraryNodeType: String, CaseIterable {
     case undefined = "undefined"
     case core = "core"
@@ -23,17 +18,14 @@ enum LibraryNodeType: String, CaseIterable {
 }
 
 // MARK: - Protocols
-public protocol LibraryCellProtocol {
+protocol LibraryCellProtocol {
     func bind(node: LibraryNode) -> Void
 }
 
-public class LibraryNodeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    // MARK: - Mutable props
-    var node: LibraryNode = LibraryNode()
+class LibraryNodeViewController: UIViewController {
+    // MARK: - Properties
     private var nodeView: UITableView = UITableView()
-
-    // MARK: - UI elements
+    var node: LibraryNode = LibraryNode()
     let activityIndicatorView: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
         view.style = .large
@@ -42,44 +34,35 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         return view
     }()
     
-    // MARK: - Override funcs
-    public override func viewDidLoad() {
+    // MARK: - LifeCycle
+    override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateUI(_:)), name: NSNotification.Name(rawValue: "updateLibraryTableViewAfterPurchase"), object: nil)
-
+        
         RunarLayout.initBackground(for: view)
-
+        
         guard DataManager.shared.libraryIsLoaded else { return setupActivityIndicator() }
         configureNodeView()
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    
+        
         configureNavigationBar()
     }
-        
-    func set(_ node: LibraryNode) {
-        self.node = node
+    
+    // MARK: - Methods
+    static func create(withNode node: LibraryNode) -> LibraryNodeViewController {
+        let controller = LibraryNodeViewController()
+        controller.navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: L10n.Navbar.Title.back, style: .plain, target: nil, action: nil)
+        controller.set(node)
+        return controller
     }
     
-    private func configureNodeView() -> Void {
-        
-        nodeView.dataSource = self
-        nodeView.delegate = self
-        nodeView.separatorColor = UIColor(red: 0.329, green: 0.329, blue: 0.329, alpha: 1)
-        nodeView.separatorStyle = .singleLine
-        nodeView.indicatorStyle = .white
-        nodeView.register(node: node)
-        nodeView.add(to: view)
-    }
-
-    private func setupActivityIndicator() {
-        self.view.addSubviews(activityIndicatorView)
-        activityIndicatorView.startAnimating()
-        activityIndicatorView.isHidden = false
-        activityIndicatorView.center = self.view.center
+    func set(_ node: LibraryNode) {
+        self.node = node
     }
     
     func configureNavigationBar() {
@@ -87,7 +70,7 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.configureTitle()
     }
-
+    
     // Refresh the screen after downloading data
     func update() {
         activityIndicatorView.isHidden = true
@@ -96,14 +79,44 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         configureNodeView()
     }
     
+    private func configureNodeView() -> Void {
+        nodeView.dataSource = self
+        nodeView.delegate = self
+        nodeView.separatorColor = UIColor(red: 0.329, green: 0.329, blue: 0.329, alpha: 1)
+        nodeView.separatorStyle = .singleLine
+        nodeView.indicatorStyle = .white
+        nodeView.register(node: node)
+        nodeView.add(to: view)
+    }
+    
+    private func setupActivityIndicator() {
+        self.view.addSubviews(activityIndicatorView)
+        activityIndicatorView.startAnimating()
+        activityIndicatorView.isHidden = false
+        activityIndicatorView.center = self.view.center
+    }
+    
     @objc private func updateUI(_ notification: NSNotification) {
         self.nodeView.reloadData()
     }
-              
-    // MARK: - Delegate funcs
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) -> Void {
-        let child = node.children[indexPath.row]
+}
 
+// MARK: - UITableViewDataSource
+extension LibraryNodeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return node.children.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return tableView.getCell(node: node, index: indexPath)
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension LibraryNodeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) -> Void {
+        let child = node.children[indexPath.row]
+        
         switch child.type {
         case .root, .menu:
             self.navigationController?.pushViewController(LibraryNodeViewController.create(withNode: child), animated: true)
@@ -113,13 +126,9 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         }
     }
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return node.children.count
-    }
-
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let child = node.children[indexPath.row]
-
+        
         switch child.type {
         case .root:
             if node.imageUrl == "" {
@@ -150,69 +159,5 @@ public class LibraryNodeViewController: UIViewController, UITableViewDelegate, U
         default:
             return UITableView.automaticDimension
         }
-    }
-        
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.getCell(node: node, index: indexPath)
-    }
-    
-    public func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-}
-
-// MARK: - Extensions
-public extension LibraryNodeViewController {
-    static func create(withNode node: LibraryNode) -> LibraryNodeViewController {
-        let controller = LibraryNodeViewController()
-        controller.navigationItem.backBarButtonItem = UIBarButtonItem(
-            title: L10n.Navbar.Title.back, style: .plain, target: nil, action: nil)
-        controller.set(node)
-        return controller
-    }
-}
-
-private extension UITableView {
-    static let cellTypes: [LibraryNodeType: AnyClass?] = [
-        .root: LibraryRootCell.self,
-        .rune: LibraryRuneCell.self,
-        .poem: LibraryPoemCell.self,
-        .text: LibraryTextCell.self,
-        .menu: LibraryMenuCell.self
-    ]
-    
-    func register(node: LibraryNode) -> Void {
-        for child in node.children {
-            guard let type: AnyClass? = UITableView.cellTypes[child.type] else {
-                fatalError("cell type '\(child.type.rawValue)' is not implemented")
-            }
-            
-            self.register(type, forCellReuseIdentifier: child.id)
-        }
-    }
-    
-    func add(to view: UIView) -> Void {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = .clear
-        self.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
-        self.tableFooterView = UIView()
-        
-        view.addSubview(self)
-
-        NSLayoutConstraint.activate([
-            self.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            self.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            self.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            self.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
-    }
-    
-    func getCell(node: LibraryNode, index indexPath: IndexPath) -> UITableViewCell {
-        let child = node.children[indexPath.row]
-        let cell = self.dequeueReusableCell(withIdentifier: child.id, for: indexPath)
-        
-        (cell as! LibraryCellProtocol).bind(node: child)
-        
-        return cell
     }
 }
