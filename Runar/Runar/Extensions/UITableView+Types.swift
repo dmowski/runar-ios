@@ -17,11 +17,10 @@ extension UITableView {
     ]
     
     func register(node: LibraryNode) -> Void {
-        for child in node.children {
+        node.children.forEach { child in
             guard let type: AnyClass? = UITableView.cellTypes[child.type] else {
                 fatalError("cell type '\(child.type.rawValue)' is not implemented")
             }
-            
             register(type, forCellReuseIdentifier: child.id)
         }
     }
