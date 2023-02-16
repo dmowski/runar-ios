@@ -16,14 +16,22 @@ extension String {
 }
 
 class MainTabBarController: UITabBarController {
-    
-    
+
+    private let localNotificationManager: LocalNotificationInterface = LocalNotificationManager()
     private let blurEffectIntensity = 0.3
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTabBar()
         setupViewControllers()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // Local Notifications
+        localNotificationManager.removeAllNotifications()
+        localNotificationManager.addNotification()
     }
     
     private func configureTabBar() {
