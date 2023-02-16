@@ -376,8 +376,8 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "generator.alertHeaderError.title", fallback: "Save error")
     }
     internal enum AlertHeaderSuccess {
-      /// Runic pattern has been saved
-      internal static let title = L10n.tr("Localizable", "generator.alertHeaderSuccess.title", fallback: "Runic pattern has been saved")
+      /// Runic pattern saved
+      internal static let title = L10n.tr("Localizable", "generator.alertHeaderSuccess.title", fallback: "Runic pattern saved")
     }
     internal enum EmptyWallpapers {
       /// Next, choose the background for it, Viking

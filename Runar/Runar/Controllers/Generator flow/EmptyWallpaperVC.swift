@@ -15,11 +15,13 @@ private extension String {
     static let emptyWallpapersSubTitle = L10n.Generator.EmptyWallpapers.subtitle
 }
 
+//MARK: Add to color common class
 private extension UIColor {
     static let contentViewBackgroundColor = UIColor(red: 0.143, green: 0.142, blue: 0.143, alpha: 0.5)
     static let newVariantButtonBackgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
 }
 
+//MARK: Constants
 private extension CGFloat {
     static let subTitleTopAnchor = 112.0
     static let subTitleLeadingAnchor = 30.0
@@ -54,7 +56,7 @@ public class EmptyWallpaperVC: UIViewController {
     
     let subTitle: UILabel = {
         let processingLabel = UILabel()
-        processingLabel.textColor = UIColor.primaryWhiteColor
+        processingLabel.textColor = .primaryWhiteColor
         processingLabel.textAlignment = .center
         processingLabel.numberOfLines = 0
         processingLabel.lineBreakMode = .byWordWrapping
@@ -96,7 +98,7 @@ public class EmptyWallpaperVC: UIViewController {
         let nextButton = UIButton()
         nextButton.layer.backgroundColor = UIColor.yellowPrimaryColor.cgColor
         nextButton.layer.cornerRadius = 5
-        nextButton.setTitle(title: .nextButtonTitle, color: UIColor.primaryBlackColor)
+        nextButton.setTitle(title: .nextButtonTitle, color: .primaryBlackColor)
         nextButton.contentHorizontalAlignment = .center
         nextButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         return nextButton
@@ -189,8 +191,11 @@ public class EmptyWallpaperVC: UIViewController {
     }
     
     @objc func backToSelectionViewController(sender: UIBarButtonItem) {
-        guard let viewControllers = navigationController?.viewControllers as? [UIViewController] else { return }
-        navigationController?.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+        guard let selectionViewController = navigationController?.viewControllers.first(where: { viewController in
+            viewController is SelectionRuneVC
+        }) else { return }
+        
+        navigationController?.popToViewController(selectionViewController, animated: true)
     }
     
     private func updateEmptyVC() {

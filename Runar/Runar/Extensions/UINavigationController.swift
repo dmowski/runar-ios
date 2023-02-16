@@ -45,7 +45,7 @@ extension UINavigationItem {
         titleLabel.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
         titleLabel.numberOfLines = 0
         let fontSize: CGFloat = DeviceType.iPhoneSE ? 30 : 36
-        titleLabel.font = UIFont.amaticBold(size: fontSize)
+        titleLabel.font = .amaticBold(size: fontSize)
         titleLabel.textAlignment = .center
         titleLabel.text = title
         titleView = titleLabel

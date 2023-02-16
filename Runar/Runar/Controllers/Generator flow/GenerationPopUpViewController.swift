@@ -7,6 +7,39 @@
 
 import UIKit
 
+//MARK: Add to color common class
+private extension UIColor {
+    static let containerViewBackgroundColor = UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 0.75)
+    static let descriptionLabelTextColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
+    static let submitButtonBackgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
+}
+
+//MARK: Constants
+private extension CGFloat {
+    static let containerViewHeight = 314.0
+    
+    static let escapeButtonTopAnchor = 18.0
+    static let escapeButtonTrailingAnchor = 18.0
+    static let escapeButtonWidth = 48.0
+    
+    static let imageViewTopAnchor = 18.0
+    static let imageViewLeadingAnchor = 20.0
+    static let imageViewWidth = 80.0
+    
+    static let headerLabelTopAnchor = 40.0
+    static let headerLabelLeadingAnchot = 26.0
+    static let headerLabelHeight = 42.0
+    
+    static let descriptionLabelTopAnchor = 100.0
+    static let descriptionLabelLeadingAnchor = 30.0
+    static let descriptionLabelWidth = 300.0
+    static let descriptionLabelHeight = 130.0
+    
+    static let submitButtonTopAnchor = 14.0
+    static let submitButtonWidth = 156.0
+    static let submitButtonHeight = 48.0
+}
+
 public class GenerationPopUpViewController: UIViewController {
     
     var runeModel: GenerationRuneModel?
@@ -18,7 +51,7 @@ public class GenerationPopUpViewController: UIViewController {
     let containerView: UIView = {
         let containerView = UIView()
                 
-        containerView.backgroundColor = UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 0.75)
+        containerView.backgroundColor = .containerViewBackgroundColor
         containerView.layer.cornerRadius = 20
         
         return containerView
@@ -41,34 +74,34 @@ public class GenerationPopUpViewController: UIViewController {
         return imageView
     }()
     
-    let header: UILabel = {
+    let headerLabel: UILabel = {
         let header = UILabel()
                
         header.font = .amaticBold(size: 36)
-        header.textColor = UIColor.yellowPrimaryColor
+        header.textColor = .yellowPrimaryColor
         header.textAlignment = .center
         header.contentMode = .center
         
         return header
     }()
     
-    let desc: UILabel = {
-        let desc = UILabel()
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
                
-        desc.font = .systemRegular(size: 15)
-        desc.textColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
-        desc.textAlignment = .left
-        desc.contentMode = .scaleToFill
-        desc.numberOfLines = 0
-        desc.lineBreakMode = .byWordWrapping
+        label.font = .systemRegular(size: 15)
+        label.textColor = .descriptionLabelTextColor
+        label.textAlignment = .left
+        label.contentMode = .scaleToFill
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         
-        return desc
+        return label
     }()
     
     let submitButton: UIButton = {
         let submitButton = UIButton()
         
-        submitButton.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
+        submitButton.layer.backgroundColor = UIColor.submitButtonBackgroundColor.cgColor
         submitButton.layer.cornerRadius = 10
         submitButton.layer.borderWidth = 1
         submitButton.layer.borderColor = UIColor.yellowPrimaryColor.cgColor
@@ -111,15 +144,15 @@ public class GenerationPopUpViewController: UIViewController {
               let description = model?.description else { return }
 
         self.imageView.image = image
-        self.header.attributedText = UILabel.getAttributedText(text: title, lineHeight: 0.7)
-        self.desc.attributedText = UILabel.getAttributedText(text: description, lineHeight: 1.12)
+        self.headerLabel.attributedText = UILabel.getAttributedText(text: title, lineHeight: 0.7)
+        self.descriptionLabel.attributedText = UILabel.getAttributedText(text: description, lineHeight: 1.12)
     }
     
     public func setupPopUp(image: UIImage, header: String, description: String) {
         
         self.imageView.image = image
-        self.header.attributedText = UILabel.getAttributedText(text: header, lineHeight: 0.7)
-        self.desc.attributedText = UILabel.getAttributedText(text: description, lineHeight: 1.12)
+        self.headerLabel.attributedText = UILabel.getAttributedText(text: header, lineHeight: 0.7)
+        self.descriptionLabel.attributedText = UILabel.getAttributedText(text: description, lineHeight: 1.12)
     }
     
     public func setupAction(_ title: String, _ action: Selector) {
@@ -144,67 +177,48 @@ public class GenerationPopUpViewController: UIViewController {
     
     private func configureView() -> Void{       
         view.addSubview(containerView)
-        
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            containerView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            containerView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            containerView.heightAnchor.constraint(equalToConstant: 314)
-        ])
-        
-        escapeButton.addTarget(self, action: #selector(self.closeOnTap), for: .touchUpInside)
+        containerView.snp.makeConstraints { make in
+            make.leading.bottom.trailing.equalToSuperview()
+            make.height.equalTo(CGFloat.containerViewHeight)
+        }
         
         containerView.addSubview(escapeButton)
-        
-        escapeButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            escapeButton.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 18),
-            escapeButton.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -18),
-            escapeButton.widthAnchor.constraint(equalToConstant: 48),
-            escapeButton.heightAnchor.constraint(equalToConstant: 48)
-        ])
+        escapeButton.addTarget(self, action: #selector(self.closeOnTap), for: .touchUpInside)
+        escapeButton.snp.makeConstraints { make in
+            make.top.equalTo(containerView.snp.top).offset(CGFloat.escapeButtonTopAnchor)
+            make.trailing.equalTo(containerView.snp.trailing).inset(CGFloat.escapeButtonTrailingAnchor)
+            make.width.height.equalTo(CGFloat.escapeButtonWidth)
+        }
         
         containerView.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(containerView.snp.top).offset(CGFloat.imageViewTopAnchor)
+            make.leading.equalTo(containerView.snp.leading).offset(CGFloat.imageViewLeadingAnchor)
+            make.width.height.equalTo(CGFloat.imageViewWidth)
+        }
         
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 18),
-            imageView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 20),
-            imageView.heightAnchor.constraint(equalToConstant: 80),
-            imageView.widthAnchor.constraint(equalToConstant: 80)
-        ])
+        containerView.addSubview(headerLabel)
+        headerLabel.snp.makeConstraints { make in
+            make.top.equalTo(containerView.snp.top).offset(CGFloat.headerLabelTopAnchor)
+            make.leading.equalTo(containerView.snp.trailing).offset(CGFloat.headerLabelLeadingAnchot)
+            make.height.equalTo(CGFloat.headerLabelHeight)
+        }
         
-        containerView.addSubview(header)
-        
-        header.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            header.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 40),
-            header.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 26),
-            header.heightAnchor.constraint(equalToConstant: 42)
-        ])
-        
-        containerView.addSubview(desc)
-        
-        desc.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            desc.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 100),
-            desc.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 30),
-            desc.widthAnchor.constraint(equalToConstant: 300),
-            desc.heightAnchor.constraint(equalToConstant: 130)
-        ])
+        containerView.addSubview(descriptionLabel)
+        descriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(containerView.snp.top).offset(CGFloat.descriptionLabelTopAnchor)
+            make.leading.equalTo(containerView.snp.leading).offset(CGFloat.descriptionLabelLeadingAnchor)
+            make.width.equalTo(CGFloat.descriptionLabelWidth)
+            make.height.equalTo(CGFloat.descriptionLabelHeight)
+        }
         
         containerView.addSubview(submitButton)
-    
         submitButton.addTarget(self, action: #selector(self.closeOnTap), for: .touchUpInside)
-        
-        submitButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            submitButton.topAnchor.constraint(equalTo: desc.bottomAnchor, constant: 14),
-            submitButton.heightAnchor.constraint(equalToConstant: 48),
-            submitButton.widthAnchor.constraint(equalToConstant: 156),
-            submitButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
-        ])
+        submitButton.snp.makeConstraints { make in
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(CGFloat.submitButtonTopAnchor)
+            make.width.equalTo(CGFloat.submitButtonWidth)
+            make.height.equalTo(CGFloat.submitButtonHeight)
+        }
     }
     
     @objc func closeOnTap (sender: UIButton!) {

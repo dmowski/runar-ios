@@ -41,7 +41,7 @@ class ProcessingVC: UIViewController {
         super.viewDidLoad()
 
         configureUI()
-        configureNavigationBar()
+        hideBackButton()
         fillContent()
         doAnimation()
         
@@ -341,7 +341,7 @@ class ProcessingVC: UIViewController {
         ])
     }
     
-    private func configureNavigationBar() {
+    private func hideBackButton() {
         navigationItem.hidesBackButton = true
     }
     

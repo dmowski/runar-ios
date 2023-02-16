@@ -20,6 +20,12 @@ extension String {
     static let downloadAlertActionTitleError = L10n.Generator.AlertActionError.title
 }
 
+//MARK: Add to color common class
+private extension UIColor {
+    static let wallpaperImageBorderColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
+}
+
+//MARK: Constants
 private extension CGFloat {
     static let wallpaperImageTopAnchor = 129
     static let wallpaperImageLeadingAncor = 60
@@ -44,7 +50,7 @@ public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
         wallpaperImage.contentMode = .scaleAspectFill
         wallpaperImage.layer.cornerRadius = 16
         wallpaperImage.layer.borderWidth = 1
-        wallpaperImage.layer.borderColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
+        wallpaperImage.layer.borderColor = UIColor.wallpaperImageBorderColor.cgColor
         return wallpaperImage
     }()
     
@@ -53,7 +59,7 @@ public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
         shareButton.layer.backgroundColor = UIColor.yellowPrimaryColor.cgColor
         shareButton.layer.cornerRadius = 5
         shareButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
-        shareButton.tintColor = UIColor.primaryDarkItemColor
+        shareButton.tintColor = .primaryDarkItemColor
         return shareButton
     }()
     
@@ -62,7 +68,7 @@ public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
         downloadButton.layer.backgroundColor = UIColor.yellowPrimaryColor.cgColor
         downloadButton.layer.cornerRadius = 5
         downloadButton.setImage(UIImage(systemName: "square.and.arrow.down"), for: .normal)
-        downloadButton.tintColor = UIColor.primaryDarkItemColor
+        downloadButton.tintColor = .primaryDarkItemColor
         return downloadButton
     }()
     

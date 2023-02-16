@@ -18,6 +18,7 @@ private extension String {
     static let runeSelectTitle = L10n.Generator.select
 }
 
+//MARK: Constants
 private extension CGFloat {
     static let buttonCornerRadius = 10.0
     
@@ -38,6 +39,11 @@ private extension CGFloat {
     static let selectRunesViewTopAnchor = 20.0
     static let selectRuneCellWidthAnchor = 66.0
     static let selectRuneCellHeightAnchor = 78.0
+}
+
+//MARK: Add to color common class
+private extension UIColor {
+    static let randomButtonBackgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
 }
 
 public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
@@ -62,8 +68,8 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     let randomButton: UIButton = {
         let randomButton = UIButton()
-        randomButton.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
-        randomButton.layer.cornerRadius = CGFloat.buttonCornerRadius
+        randomButton.layer.backgroundColor = UIColor.randomButtonBackgroundColor.cgColor
+        randomButton.layer.cornerRadius = .buttonCornerRadius
         randomButton.layer.borderWidth = CGFloat.randomButtonBorderWidthAnchor
         randomButton.contentHorizontalAlignment = .center
         randomButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
@@ -91,7 +97,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     let generateButton: UIButton = {
         let generateButton = UIButton()
         generateButton.layer.backgroundColor = UIColor.yellowPrimaryColor.cgColor
-        generateButton.layer.cornerRadius = CGFloat.buttonCornerRadius
+        generateButton.layer.cornerRadius = .buttonCornerRadius
         generateButton.contentHorizontalAlignment = .center
         generateButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         generateButton.isHidden = true

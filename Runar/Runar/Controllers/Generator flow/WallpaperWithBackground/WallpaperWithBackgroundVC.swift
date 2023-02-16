@@ -43,7 +43,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
     
     let subTitle: UILabel = {
         let title = UILabel()
-        title.textColor = UIColor.primaryWhiteColor
+        title.textColor = .primaryWhiteColor
         title.textAlignment = .center
         title.numberOfLines = 0
         title.lineBreakMode = .byWordWrapping
@@ -183,15 +183,13 @@ public class WallpaperWithBackgroundVC: UIViewController {
         self.view.addSubview(subTitle)
         subTitle.snp.makeConstraints { make in
             make.top.equalTo(self.view.snp.top).offset(CGFloat.subTitleTopAnchor)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
         }
         
         self.view.addSubview(selectWallpaperView)
         selectWallpaperView.snp.makeConstraints { make in
             make.top.equalTo(subTitle.snp.bottom).offset(CGFloat.selectWallpaperViewTopAnchor)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview().offset(CGFloat.selectWallpaperBottomAnchor)
         }
 

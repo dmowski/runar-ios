@@ -40,13 +40,11 @@ class SelectRuneCell: UICollectionViewCell {
 
         backgroundColor = .clear
         addSubview(runeImage)
-        runeImage.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            runeImage.heightAnchor.constraint(equalToConstant: CGFloat.runeImageHeightAnchor),
-            runeImage.widthAnchor.constraint(equalToConstant: CGFloat.runeImageWidthAnchor),
-            runeImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            runeImage.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
+        runeImage.snp.makeConstraints { make in
+            make.width.equalTo(CGFloat.runeImageWidthAnchor)
+            make.height.equalTo(CGFloat.runeImageHeightAnchor)
+            make.centerX.centerY.equalToSuperview()
+        }
     }
     
     public func setRune(_ rune: GenerationRuneModel, _ indexPath: IndexPath) {

@@ -7,7 +7,15 @@
 
 import UIKit
 
+//MARK: Constants
+private extension CGFloat {
+    static let wallpaperImageTopAnchor = 36.0
+    static let wallpaperImageTrailingAnchor = 36.0
+    static let wallpaperImageWidth = 22.0
+}
+
 class WallpaperWithBackgroundCell: UICollectionViewCell {
+    
     
     let selectedCheckbox: UIImageView = {
         let check = UIImageView(image: Assets.selectedCircle.image)
@@ -48,24 +56,16 @@ class WallpaperWithBackgroundCell: UICollectionViewCell {
     
     func setupViews() {
         self.addSubview(wallpaperImage)
-        
-        self.wallpaperImage.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            wallpaperImage.topAnchor.constraint(equalTo: self.topAnchor),
-            wallpaperImage.rightAnchor.constraint(equalTo: self.rightAnchor),
-            wallpaperImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            wallpaperImage.leftAnchor.constraint(equalTo: self.leftAnchor)
-        ])
+        wallpaperImage.snp.makeConstraints { make in
+            make.trailing.leading.top.bottom.equalToSuperview()
+        }
         
         self.addSubview(selectedCheckbox)
-        
-        self.selectedCheckbox.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            selectedCheckbox.topAnchor.constraint(equalTo: self.topAnchor, constant: 19),
-            selectedCheckbox.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -19),
-            selectedCheckbox.heightAnchor.constraint(equalToConstant: 22),
-            selectedCheckbox.widthAnchor.constraint(equalToConstant: 22)
-        ])
+        selectedCheckbox.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(CGFloat.wallpaperImageTopAnchor)
+            make.trailing.equalToSuperview().inset(CGFloat.wallpaperImageTrailingAnchor)
+            make.width.height.equalTo(CGFloat.wallpaperImageWidth)
+        }
     }
     
     func selectImage() {
