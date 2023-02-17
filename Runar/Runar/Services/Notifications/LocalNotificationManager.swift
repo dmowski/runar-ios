@@ -33,14 +33,14 @@ final class LocalNotificationManager: NSObject, LocalNotificationInterface {
     /// If the user logs into the app on the day of the notification call before the time of the call, the notification on that day will be deleted
     private func checkTheDayAndTime() {
         let dateComponents = Calendar.current.dateComponents([.weekday, .hour, .weekOfMonth], from: Date())
-        let weekdaySP = TimeOfSendingLocalNotifications.weekday.rawValue
-        let hourSP = TimeOfSendingLocalNotifications.hour.rawValue
+        let weekdaySetPoint = TimeOfSendingLocalNotifications.weekday.rawValue
+        let hourSetPoint = TimeOfSendingLocalNotifications.hour.rawValue
 
         guard let weekday = dateComponents.weekday,
               let hour = dateComponents.hour,
               let week = dateComponents.weekOfMonth else { return }
 
-        if weekday == weekdaySP && hour < hourSP {
+        if weekday == weekdaySetPoint && hour < hourSetPoint {
             var identifier: String = .notificationGeneralIdentifier
             identifier += "_Week_\(week)"
             notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
