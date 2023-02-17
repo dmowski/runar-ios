@@ -40,7 +40,7 @@ final class LocalNotificationManager: NSObject, LocalNotificationInterface {
               let hour = dateComponents.hour,
               let week = dateComponents.weekOfMonth else { return }
 
-        if weekday == weekdaySP && hour <= hourSP {
+        if weekday == weekdaySP && hour < hourSP {
             var identifier: String = .notificationGeneralIdentifier
             identifier += "_Week_\(week)"
             notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
