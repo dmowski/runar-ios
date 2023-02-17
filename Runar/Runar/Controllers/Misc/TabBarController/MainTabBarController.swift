@@ -24,10 +24,6 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         configureTabBar()
         setupViewControllers()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
 
         // Local Notifications
         localNotificationManager.removeAllNotifications()
