@@ -18,7 +18,10 @@ extension String {
 }
 
 private extension CGFloat {
-    static let subTitleTopAnchor = 112.0
+    static let subTitleTopAnchor = 27
+    static let subTitleLeadingAnchor = 16
+    static let subTitleTrailingAnchor = 16
+    
     static let selectWallpaperViewTopAnchor = 32.0
     static let selectWallpaperBottomAnchor = -144.0
     static let pageControlTopAnchor = 20.0
@@ -45,11 +48,11 @@ public class WallpaperWithBackgroundVC: UIViewController {
         let title = UILabel()
         title.textColor = .primaryWhiteColor
         title.textAlignment = .center
-        title.numberOfLines = 0
-        title.lineBreakMode = .byWordWrapping
+        title.numberOfLines = 1
         title.text = .wallpapersDescription
         title.font = .amaticBold(size: 24)
         title.backgroundColor = .clear
+        title.adjustsFontSizeToFitWidth = true
         return title
     }()
     
@@ -182,8 +185,9 @@ public class WallpaperWithBackgroundVC: UIViewController {
         
         self.view.addSubview(subTitle)
         subTitle.snp.makeConstraints { make in
-            make.top.equalTo(self.view.snp.top).offset(CGFloat.subTitleTopAnchor)
-            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(CGFloat.subTitleTopAnchor)
+            make.leading.equalToSuperview().offset(CGFloat.subTitleLeadingAnchor)
+            make.trailing.equalToSuperview().inset(CGFloat.subTitleTrailingAnchor)
         }
         
         self.view.addSubview(selectWallpaperView)

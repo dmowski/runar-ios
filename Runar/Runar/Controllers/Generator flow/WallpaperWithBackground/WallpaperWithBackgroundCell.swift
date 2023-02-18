@@ -9,8 +9,8 @@ import UIKit
 
 //MARK: Constants
 private extension CGFloat {
-    static let wallpaperImageTopAnchor = 36.0
-    static let wallpaperImageTrailingAnchor = 36.0
+    static let wallpaperImageTopAnchor = 21.0
+    static let wallpaperImageTrailingAnchor = 21.0
     static let wallpaperImageWidth = 22.0
 }
 

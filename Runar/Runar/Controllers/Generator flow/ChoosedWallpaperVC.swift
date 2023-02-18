@@ -27,7 +27,7 @@ private extension UIColor {
 
 //MARK: Constants
 private extension CGFloat {
-    static let wallpaperImageTopAnchor = 129
+    static let wallpaperImageTopAnchor = 44
     static let wallpaperImageLeadingAncor = 60
     static let wallpaperImageBottomAnchor = 164
     
@@ -109,7 +109,7 @@ public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
         
         self.view.addSubview(wallpaperImage)
         wallpaperImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(CGFloat.wallpaperImageTopAnchor)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(CGFloat.wallpaperImageTopAnchor)
             make.leading.equalToSuperview().offset(CGFloat.wallpaperImageLeadingAncor)
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(CGFloat.wallpaperImageBottomAnchor)

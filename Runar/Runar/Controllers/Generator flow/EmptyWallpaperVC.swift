@@ -23,11 +23,11 @@ private extension UIColor {
 
 //MARK: Constants
 private extension CGFloat {
-    static let subTitleTopAnchor = 112.0
-    static let subTitleLeadingAnchor = 30.0
-    static let subTitleTrailingAnchor = -30.0
+    static let subTitleTopAnchor = 27.0
+    static let subTitleLeadingAnchor = 16.0
+    static let subTitleTrailingAnchor = 16.0
     
-    static let contentViewTopAnchor = 16.0
+    static let contentViewTopAnchor = 52.0
     static let contentViewLeadingAnchor = 16.0
     static let contentViewTrailingAnchor = -16.0
     
@@ -55,14 +55,14 @@ public class EmptyWallpaperVC: UIViewController {
     var stopDownloading: (() -> ())?
     
     let subTitle: UILabel = {
-        let processingLabel = UILabel()
-        processingLabel.textColor = .primaryWhiteColor
-        processingLabel.textAlignment = .center
-        processingLabel.numberOfLines = 0
-        processingLabel.lineBreakMode = .byWordWrapping
-        processingLabel.text = .emptyWallpapersSubTitle
-        processingLabel.font = .systemRegular(size: 14)
-        return processingLabel
+        let label = UILabel()
+        label.textColor = .primaryWhiteColor
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
+        label.text = .emptyWallpapersSubTitle
+        label.font = .systemRegular(size: 14)
+        return label
     }()
     
     let contentView: UIView = {
@@ -140,9 +140,9 @@ public class EmptyWallpaperVC: UIViewController {
     private func setupViews() {
         view.addSubviews(subTitle)
         subTitle.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(CGFloat.subTitleTopAnchor)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(CGFloat.subTitleTopAnchor)
             make.leading.equalToSuperview().offset(CGFloat.subTitleLeadingAnchor)
-            make.trailing.equalToSuperview().offset(CGFloat.subTitleTrailingAnchor)
+            make.trailing.equalToSuperview().inset(CGFloat.subTitleTrailingAnchor)
         }
         
         view.addSubviews(contentView)

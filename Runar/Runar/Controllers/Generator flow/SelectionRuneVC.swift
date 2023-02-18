@@ -22,7 +22,7 @@ private extension String {
 private extension CGFloat {
     static let buttonCornerRadius = 10.0
     
-    static let selectedRunesViewTopAnchor = 128.0
+    static let selectedRunesViewTopAnchor = 43.0
     static let selectedRunesViewHeightAnchor = 132.0
     static let selectedRuneCellWidthAnchor = 56.0
     static let selectedRuneCellHeightAnchor = 110.0
@@ -167,7 +167,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         self.view.addSubview(selectedRunesView)
         selectedRunesView.setDeselectHandler(self.deselectRune(_:))
         selectedRunesView.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top).offset(CGFloat.selectedRunesViewTopAnchor)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(CGFloat.selectedRunesViewTopAnchor)
             make.centerX.equalToSuperview()
             make.height.equalTo(CGFloat.selectedRunesViewHeightAnchor)
             make.left.greaterThanOrEqualTo(self.view.snp.left)
