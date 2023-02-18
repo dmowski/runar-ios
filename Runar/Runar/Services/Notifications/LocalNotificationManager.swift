@@ -69,7 +69,7 @@ final class LocalNotificationManager: NSObject, LocalNotificationInterface {
         content.sound = UNNotificationSound.default
         content.badge = 1
 
-        // Configureting the recurring date
+        // Configuration the recurring date
         var dateComponents = DateComponents()
         dateComponents.calendar = Calendar.current
         dateComponents.weekday = TimeOfSendingLocalNotifications.weekday.rawValue
