@@ -20,16 +20,15 @@ extension String {
 private extension CGFloat {
     static let subTitleTopAnchor = 27
     static let subTitleLeadingAnchor = 16
-    static let subTitleTrailingAnchor = 16
     
     static let selectWallpaperViewTopAnchor = 32.0
-    static let selectWallpaperBottomAnchor = -144.0
+    static let selectWallpaperBottomAnchor = 144.0
+    
     static let pageControlTopAnchor = 20.0
     static let pageControlHeightAnchor = 20.0
     
     static let nextButtonLeadingAnchor = 16.0
-    static let nextButtonTrailingAnchor = -16.0
-    static let nextButtonBottomAnchor = -40.0
+    static let nextButtonBottomAnchor = 40.0
     static let nextButtonHeightAnchor = 50.0
 }
 
@@ -186,15 +185,14 @@ public class WallpaperWithBackgroundVC: UIViewController {
         self.view.addSubview(subTitle)
         subTitle.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(CGFloat.subTitleTopAnchor)
-            make.leading.equalToSuperview().offset(CGFloat.subTitleLeadingAnchor)
-            make.trailing.equalToSuperview().inset(CGFloat.subTitleTrailingAnchor)
+            make.leading.trailing.equalToSuperview().inset(CGFloat.subTitleLeadingAnchor)
         }
         
         self.view.addSubview(selectWallpaperView)
         selectWallpaperView.snp.makeConstraints { make in
             make.top.equalTo(subTitle.snp.bottom).offset(CGFloat.selectWallpaperViewTopAnchor)
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().offset(CGFloat.selectWallpaperBottomAnchor)
+            make.bottom.equalToSuperview().inset(CGFloat.selectWallpaperBottomAnchor)
         }
 
         self.view.addSubview(pageControl)
@@ -207,9 +205,8 @@ public class WallpaperWithBackgroundVC: UIViewController {
         self.view.addSubview(nextButton)
         nextButton.addTarget(self, action: #selector(self.nextButtonTapped), for: .touchUpInside)
         nextButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(CGFloat.nextButtonLeadingAnchor)
-            make.trailing.equalToSuperview().offset(CGFloat.nextButtonTrailingAnchor)
-            make.bottom.equalToSuperview().offset(CGFloat.nextButtonBottomAnchor)
+            make.leading.trailing.equalToSuperview().inset(CGFloat.nextButtonLeadingAnchor)
+            make.bottom.equalToSuperview().inset(CGFloat.nextButtonBottomAnchor)
             make.height.equalTo(CGFloat.nextButtonHeightAnchor)
         }
     }

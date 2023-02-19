@@ -33,7 +33,6 @@ private extension CGFloat {
     
     static let descriptionTextViewTopAnchor = 5.0
     static let descriptionTextViewLeadingAnchor = 32.0
-    static let descriptionTextViewTrailingAnchor = 32.0
     static let descriptionTextViewWidth = 300.0
     static let descriptionTextViewHeight = 130.0
     
@@ -211,8 +210,7 @@ public class GenerationPopUpViewController: UIViewController {
         containerView.addSubview(descriptionTextView)
         descriptionTextView.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(CGFloat.descriptionTextViewTopAnchor)
-            make.leading.equalTo(containerView.snp.leading).offset(CGFloat.descriptionTextViewLeadingAnchor)
-            make.trailing.equalTo(containerView.snp.trailing).inset(CGFloat.descriptionTextViewTrailingAnchor)
+            make.leading.trailing.equalTo(containerView).inset(CGFloat.descriptionTextViewLeadingAnchor)
             make.width.equalTo(CGFloat.descriptionTextViewWidth)
             make.height.equalTo(CGFloat.descriptionTextViewHeight)
         }

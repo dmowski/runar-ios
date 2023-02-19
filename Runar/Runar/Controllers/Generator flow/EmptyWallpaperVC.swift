@@ -29,22 +29,18 @@ private extension CGFloat {
     
     static let contentViewTopAnchor = 52.0
     static let contentViewLeadingAnchor = 16.0
-    static let contentViewTrailingAnchor = -16.0
     
     static let imageViewTopAnchor = 10.0
     static let imageViewLeadingAnchor = 30.0
-    static let imageViewTrailingAnchor = -30.0
-    static let imageViewBottomAnchor = -100.0
+    static let imageViewBottomAnchor = 100.0
     
-    static let newVariantButtonBottomAnchor = -32.0
+    static let newVariantButtonBottomAnchor = 32.0
     static let newVariantButtonLeadingAnchor = 90.0
-    static let newVariantButtonTrailingAnchor = -90.0
     static let newVariantButtonHeightAnchor = 50.0
     
     static let nextButtonTopAnchor = 32.0
     static let nextButtonLeadingAnchor = 16.0
-    static let nextButtonTrailingAnchor = -16.0
-    static let nextButtonBottomAnchor = -40.0
+    static let nextButtonBottomAnchor = 40.0
     static let nextButtonHeightAnchor = 50.0
 }
 
@@ -148,24 +144,21 @@ public class EmptyWallpaperVC: UIViewController {
         view.addSubviews(contentView)
         contentView.snp.makeConstraints { make in
             make.top.equalTo(subTitle.snp.bottom).offset(CGFloat.contentViewTopAnchor)
-            make.leading.equalToSuperview().offset(CGFloat.contentViewLeadingAnchor)
-            make.trailing.equalToSuperview().offset(CGFloat.contentViewTrailingAnchor)
+            make.leading.trailing.equalToSuperview().inset(CGFloat.contentViewLeadingAnchor)
         }
         
         contentView.addSubviews(imageView)
         imageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(CGFloat.imageViewTopAnchor)
-            make.leading.equalToSuperview().offset(CGFloat.imageViewLeadingAnchor)
-            make.trailing.equalToSuperview().offset(CGFloat.imageViewTrailingAnchor)
-            make.bottom.equalToSuperview().offset(CGFloat.imageViewBottomAnchor)
+            make.leading.trailing.equalToSuperview().inset(CGFloat.imageViewLeadingAnchor)
+            make.bottom.equalToSuperview().inset(CGFloat.imageViewBottomAnchor)
         }
         
         contentView.addSubviews(newVariantButton)
         newVariantButton.addTarget(self, action: #selector(self.generateNewVariant), for: .touchUpInside)
         newVariantButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(CGFloat.newVariantButtonBottomAnchor)
-            make.leading.equalToSuperview().offset(CGFloat.newVariantButtonLeadingAnchor)
-            make.trailing.equalToSuperview().offset(CGFloat.newVariantButtonTrailingAnchor)
+            make.bottom.equalToSuperview().inset(CGFloat.newVariantButtonBottomAnchor)
+            make.leading.trailing.equalToSuperview().inset(CGFloat.newVariantButtonLeadingAnchor)
             make.height.equalTo(CGFloat.newVariantButtonHeightAnchor)
         }
         
@@ -173,9 +166,8 @@ public class EmptyWallpaperVC: UIViewController {
         nextButton.addTarget(self, action: #selector(self.nextButtonTapped), for: .touchUpInside)
         nextButton.snp.makeConstraints { make in
             make.top.equalTo(contentView.snp.bottom).offset(CGFloat.nextButtonTopAnchor)
-            make.leading.equalToSuperview().offset(CGFloat.nextButtonLeadingAnchor)
-            make.trailing.equalToSuperview().offset(CGFloat.nextButtonTrailingAnchor)
-            make.bottom.equalToSuperview().offset(CGFloat.nextButtonBottomAnchor)
+            make.leading.trailing.equalToSuperview().inset(CGFloat.nextButtonLeadingAnchor)
+            make.bottom.equalToSuperview().inset(CGFloat.nextButtonBottomAnchor)
             make.height.equalTo(CGFloat.nextButtonHeightAnchor)
         }
     }
