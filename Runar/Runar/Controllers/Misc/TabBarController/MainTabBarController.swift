@@ -26,7 +26,6 @@ class MainTabBarController: UITabBarController {
         setupViewControllers()
 
         // Local Notifications
-        localNotificationManager.removeAllNotifications()
         localNotificationManager.addNotification()
     }
     
