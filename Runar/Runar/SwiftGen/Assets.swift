@@ -145,6 +145,7 @@ internal enum Assets {
   internal static let generator = ImageAsset(name: "generator")
   internal static let howTo = ImageAsset(name: "howTo")
   internal static let library = ImageAsset(name: "library")
+  internal static let blackRook = ImageAsset(name: "BlackRook")
   internal static let danheim = ImageAsset(name: "Danheim")
   internal static let led = ImageAsset(name: "Led")
   internal static let vector = ImageAsset(name: "vector")

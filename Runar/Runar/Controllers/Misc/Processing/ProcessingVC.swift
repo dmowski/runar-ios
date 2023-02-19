@@ -7,10 +7,43 @@
 
 import UIKit
 
+//MARK: Constants
 extension String {
     static let lyod = L10n.Music.lyod
     static let blackRook = L10n.Music.blackRook
     static let myMotherTold = L10n.Music.myMotherTold
+    static let bandcampLink = "https://lyod1.bandcamp.com/releases"
+    static let danheimMusicLink = "https://danheimmusic.com"
+    static let danheimText = "Danheim"
+    static let kalaText = "Kala"
+    static let runarText = "Runar"
+}
+
+//MARK: Add to color common class
+private extension UIColor {
+    static let startButtonBackgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
+    static let processingLabelTextColor = UIColor(red: 0.949, green: 0.949, blue: 0.949, alpha: 1)
+    static let titleLabelTextColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
+}
+
+//MARK: Constants
+private extension CGFloat {
+    
+    static let processingLabelTopAnchor = 27.0
+    
+    static let imageViewHeight = DeviceType.iPhoneSE ? 167.0 : 250.0
+    static let imageViewTopAnchor = 32.0
+    
+    static let titleLabelTopAnchor = DeviceType.iPhoneSE ? 32.0 : 72.0
+    
+    static let subtitleLabelTopAnchor = DeviceType.iPhoneSE ? 12.0 : 28.0
+    
+    static let goToTheSiteButtonHeight = 48.0
+    static let goToTheSiteButtonWidth = 254.0
+    static let goToTheSiteButtonBottomAnchor = 49.0
+    
+    static let arrowImageViewTrailingAnchor = 16.0
+    static let arrowImageViewWidth = 24.0
 }
 
 enum Images: String {
@@ -36,16 +69,104 @@ class ProcessingVC: UIViewController {
     var ifGenerateWallpapers: Bool?
     var runesIds: [String]?
     var delegate: UIViewController?
+    
+    private var link = ""
+    
+    private let processingLabel: UILabel = {
+        var processingLabel = UILabel()
+        processingLabel.text = L10n.layoutProcessing
+        processingLabel.font = .systemLight(size: 14)
+        
+        processingLabel.textColor = UIColor.processingLabelTextColor
+        processingLabel.textAlignment = .center
+        return processingLabel
+    }()
+    
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
+    
+    private let shapeView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
 
+    private let shapeLayer: CAShapeLayer = {
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.strokeEnd = 0
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = UIColor.yellowSecondaryColor.cgColor
+        shapeLayer.lineWidth = 2
+        return shapeLayer
+    }()
+    
+    private let basicAnimation: CABasicAnimation = {
+        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        basicAnimation.fromValue = 0
+        basicAnimation.toValue = 1
+        basicAnimation.duration = 15
+        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
+        basicAnimation.isRemovedOnCompletion = false
+        return basicAnimation
+    }()
+    
+    private let titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.font = .boldSystemFont(ofSize: 26)
+        titleLabel.textColor = .titleLabelTextColor
+        titleLabel.textAlignment = .center
+        return titleLabel
+    }()
+    
+    private let subtitleLabel: UILabel = {
+        let subtitleLabel = UILabel()
+        subtitleLabel.textColor = .yellowPrimaryColor
+        subtitleLabel.font = .systemLight(size: 20)
+        subtitleLabel.textAlignment = .center
+        subtitleLabel.numberOfLines = 0
+        return subtitleLabel
+    }()
+    
+    private let goToTheSiteButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .startButtonBackgroundColor
+        button.layer.borderColor = UIColor.yellowPrimaryColor.cgColor
+        button.layer.cornerRadius = 8
+        button.layer.borderWidth = 1
+        button.setTitle(L10n.goToTheSite, for: .normal)
+        button.titleLabel?.font = .amaticBold(size: 24)
+        button.setTitleColor(.yellowPrimaryColor, for: .normal)
+        button.setTitleColor(.yellowSecondaryColor, for: .highlighted)
+        return button
+    }()
+    
+    private let arrowImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = Assets.vector.image
+        return imageView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureUI()
-        hideBackButton()
+        RunarLayout.initBackground(for: view, with: .mainFire)
+        configureViews()
+        configureNavigationBar()
         fillContent()
         doAnimation()
-        
         generateWallpapers()
+    }
+
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        tabBarController?.tabBar.isHidden = true
     }
     
     private func generateWallpapers() {
@@ -60,22 +181,6 @@ class ProcessingVC: UIViewController {
                 fatalError("RunesIds is empty")
             }
         }
-    }
-
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = true
-        navigationController?.deletStatusBarView()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-    }
-
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        tabBarController?.tabBar.isHidden = true
     }
     
     private func generateEmptyWallpapers(runesIds: [String]) {
@@ -94,7 +199,7 @@ class ProcessingVC: UIViewController {
                 emptyWallpapers.append(emptyWallpaper)
             }
         }
-        self.downloadEmptyWallpapers(emptyWallpapers)
+        downloadEmptyWallpapers(emptyWallpapers)
     }
     
     private func downloadEmptyWallpapers(_ emptyWallpapers: [EmptyWallpaper]) {
@@ -117,7 +222,6 @@ class ProcessingVC: UIViewController {
         CATransaction.begin()
         CATransaction.setCompletionBlock({
             
-            
             self.viewModel.closeTransition()
             let emptyWallpaperViewController = EmptyWallpaperVC(emptyWallpapers: self.emptyWallpapers) {
                 self.queue.cancelAllOperations()
@@ -126,263 +230,108 @@ class ProcessingVC: UIViewController {
         })
         
         configureShapeLayer()
-        backgroundLayer.layer.addSublayer(shapeLayer)
         shapeLayer.add(basicAnimation, forKey: nil)
         CATransaction.commit()
     }
     
-    private var backgroundFire: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = Assets.Background.mainFire.image
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
-        imageView.isUserInteractionEnabled = true
-        return imageView
-    }()
-    
-    private var backgroundLayer: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .clear
-        view.isUserInteractionEnabled = true
-        return view
-    }()
-    
-    var container: UIView = {
-        let container = UIView()
-        container.translatesAutoresizingMaskIntoConstraints = false
-        container.clipsToBounds = false
-        container.layer.backgroundColor = UIColor(red: 0.078, green: 0.078, blue: 0.078, alpha: 1).cgColor
-        container.layer.cornerRadius = 5
-        container.layer.bounds = container.bounds
-        container.layer.position = container.center
-        container.isHidden = true
-        return container
-    }()
-    
-    private var imageView: UIImageView = {
-        let imageView = UIImageView()
-        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147.heightDependent()
-        imageView.layer.cornerRadius = radiusConstant
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
     private func configureShapeLayer() {
-        let radiusConstant: CGFloat = DeviceType.iPhoneSE ? 83.5 : 147.heightDependent()
-        let startAngle: CGFloat = -0.25 * 2 * .pi
+        let radiusConstant = CGFloat.imageViewHeight / 2
+        let startAngle: CGFloat = -0.5 * .pi
         let endAngle: CGFloat = startAngle + 2 * .pi
-        let circularPath = UIBezierPath(arcCenter: imageView.center, radius: radiusConstant, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        let arcCenter = CGPoint(x: shapeView.frame.width / 2, y: shapeView.frame.height / 2)
+        let circularPath = UIBezierPath(arcCenter: arcCenter, radius: radiusConstant, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         shapeLayer.path = circularPath.cgPath
     }
-    
-    private var shapeLayer: CAShapeLayer = {
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.strokeEnd = 0
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.strokeColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1).cgColor
-        shapeLayer.lineWidth = 2
-        return shapeLayer
-    }()
-    
-    private var basicAnimation: CABasicAnimation = {
-        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        basicAnimation.fromValue = 0
-        basicAnimation.toValue = 1
-        basicAnimation.duration = 7
-        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
-        basicAnimation.isRemovedOnCompletion = false
-        return basicAnimation
-    }()
 
-    private var nameLabel: UILabel = {
-        let label = UILabel()
-        let fontSize: CGFloat = DeviceType.iPhoneSE ? 45 : 55
-        label.font = .amaticBold(size: fontSize)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor =  UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
-        label.textAlignment = .center
-        label.attributedText = NSMutableAttributedString(string: label.text ?? "", attributes: [NSAttributedString.Key.kern: -1.1])
-        return label
-    }()
+    private func configureViews() {
+        view.addSubview(processingLabel)
+        processingLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(CGFloat.processingLabelTopAnchor)
+            make.centerX.equalToSuperview()
+        }
+        
+        view.addSubviews(imageView)
+        imageView.snp.makeConstraints { make in
+            make.width.height.equalTo(CGFloat.imageViewHeight)
+            make.top.equalTo(processingLabel.snp.bottom).offset(CGFloat.imageViewTopAnchor)
+            make.centerX.equalToSuperview()
+        }
+        
+        view.addSubview(shapeView)
+        shapeView.layer.addSublayer(shapeLayer)
+        shapeView.snp.makeConstraints { make in
+            make.leading.top.bottom.trailing.equalTo(imageView)
+        }
+
+        view.addSubview(goToTheSiteButton)
+        goToTheSiteButton.addTarget(self, action: #selector(goToTheSiteButtonOnTap), for: .touchUpInside)
+        goToTheSiteButton.snp.makeConstraints { make in
+            make.width.equalTo(CGFloat.goToTheSiteButtonWidth)
+            make.height.equalTo(CGFloat.goToTheSiteButtonHeight)
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().inset(CGFloat.goToTheSiteButtonBottomAnchor)
+        }
+        
+        view.addSubview(arrowImageView)
+        arrowImageView.snp.makeConstraints { make in
+            make.width.height.equalTo(CGFloat.arrowImageViewWidth)
+            make.centerY.equalTo(goToTheSiteButton)
+            make.trailing.equalTo(goToTheSiteButton.snp.trailing).inset(CGFloat.arrowImageViewTrailingAnchor)
+        }
+        
+        view.addSubviews(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(CGFloat.titleLabelTopAnchor)
+            make.centerX.equalToSuperview()
+        }
+        
+        view.addSubviews(subtitleLabel)
+        subtitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(CGFloat.subtitleLabelTopAnchor)
+            make.centerX.equalToSuperview()
+        }
+    }
     
-    private var startButton: UIButton = {
-        let startButton = UIButton()
-        startButton.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
-        startButton.layer.borderColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
-        startButton.layer.cornerRadius = 8
-        startButton.layer.borderWidth = 1
-        startButton.setTitle(L10n.goToTheSite, for: .normal)
-        startButton.translatesAutoresizingMaskIntoConstraints = false
-        let fontSize: CGFloat = DeviceType.iPhoneSE ? 24 : 30
-        startButton.titleLabel?.font = .amaticBold(size: fontSize)
-        startButton.setTitleColor(UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1), for: .normal)
-        startButton.setTitleColor(UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1), for: .highlighted)
-        return startButton
-    }()
-    
-    @objc private func startButtonOnTap() {
-        guard let url = URL(string: link) else {return}
+    @objc private func goToTheSiteButtonOnTap() {
+        guard let url = URL(string: link) else { return }
         UIApplication.shared.open(url)
     }
     
-    private var vectorImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = Assets.vector.image
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-
-    private var processingLabel: UILabel = {
-        var processingLabel = UILabel()
-        processingLabel.text = L10n.layoutProcessing
-        processingLabel.translatesAutoresizingMaskIntoConstraints = false
-        let fontSize: CGFloat = DeviceType.iPhoneSE ? 14 : 16
-        processingLabel.font = .systemLight(size: fontSize)
-        
-        processingLabel.textColor = UIColor(red: 0.949, green: 0.949, blue: 0.949, alpha: 1)
-        processingLabel.textAlignment = .center
-        return processingLabel
-    }()
-
-    private var adName: UILabel = {
-        let adName = UILabel()
-        let fontSize: CGFloat = DeviceType.iPhoneSE ? 10 : 24
-        adName.font = .systemRegular(size: fontSize)
-        adName.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
-        adName.textAlignment = .center
-        adName.translatesAutoresizingMaskIntoConstraints = false
-        return adName
-    }()
-    
-    private var adText: UILabel = {
-        let adText = UILabel()
-        adText.textColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)
-        let addFontConst: CGFloat =  DeviceType.iPhoneSE ? 14 : 16
-        adText.font = .systemLight(size: addFontConst)
-        adText.textAlignment = .center
-        adText.translatesAutoresizingMaskIntoConstraints = false
-        return adText
-    }()
-    
-    private func configureUI() {
-        view.addSubviews(backgroundFire, container, backgroundLayer, nameLabel, startButton, vectorImageView, processingLabel, imageView, adName, adText)
-        startButton.addTarget(self, action: #selector(startButtonOnTap), for: .touchUpInside)
-        
-        let imageViewHeightConstant: CGFloat = DeviceType.iPhoneSE ? 167 : 294.heightDependent()
-        let imageViewTopConstant: CGFloat = DeviceType.iPhoneSE ? 70 : 93.heightDependent()
-        
-        let nameLabelTop: CGFloat = DeviceType.iPhoneSE ? 35 : 57.heightDependent()
-        let nameLabelHeight: CGFloat = DeviceType.iPhoneSE ? 75 : 90
-        
-        let startHeightConstant: CGFloat = DeviceType.iPhoneSE ? 46 : 56
-        let buttonWidthConsatnt: CGFloat = DeviceType.iPhoneSE ? 210 : 255
-        
-        let vectorTop: CGFloat = DeviceType.iPhoneSE ? 17.25 : 21
-        let vectorTrailing: CGFloat = DeviceType.iPhoneSE ? -18.76 : -22.84
-        let vectorWidth: CGFloat = DeviceType.iPhoneSE ? 15.74 : 19.16
-        let vectorHeight: CGFloat = DeviceType.iPhoneSE ? 10.68 : 13
-        
-        let processingTop: CGFloat = DeviceType.iPhoneSE ? 6 : 15.heightDependent()
-        
-        let adNameTop: CGFloat = DeviceType.iPhoneSE ? 16 : 24.heightDependent()
-        let adTextTop: CGFloat = DeviceType.iPhoneSE ? 0 : 4.heightDependent()
-        let adHeight: CGFloat = DeviceType.iPhoneSE ? 17 : 25
-        
-        NSLayoutConstraint.activate([
-            backgroundFire.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundFire.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            backgroundFire.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -1),
-            backgroundFire.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            backgroundLayer.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundLayer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            backgroundLayer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundLayer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-
-            nameLabel.topAnchor.constraint(equalTo: backgroundFire.topAnchor, constant: nameLabelTop),
-            nameLabel.heightAnchor.constraint(equalToConstant: nameLabelHeight),
-            nameLabel.centerXAnchor.constraint(equalTo: backgroundFire.centerXAnchor),
-            
-            startButton.bottomAnchor.constraint(equalTo: backgroundFire.bottomAnchor, constant: -40.heightDependent()),
-            startButton.widthAnchor.constraint(equalToConstant: buttonWidthConsatnt),
-            startButton.heightAnchor.constraint(equalToConstant: startHeightConstant),
-            startButton.centerXAnchor.constraint(equalTo: backgroundFire.centerXAnchor),
-            
-            vectorImageView.topAnchor.constraint(equalTo: startButton.topAnchor, constant: vectorTop),
-            vectorImageView.trailingAnchor.constraint(equalTo: startButton.trailingAnchor, constant: vectorTrailing),
-            vectorImageView.widthAnchor.constraint(equalToConstant: vectorWidth),
-            vectorImageView.heightAnchor.constraint(equalToConstant: vectorHeight),
-            
-            processingLabel.leadingAnchor.constraint(equalTo: backgroundFire.leadingAnchor, constant: 50),
-            processingLabel.trailingAnchor.constraint(equalTo: backgroundFire.trailingAnchor, constant: -50),
-            processingLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: processingTop),
-            processingLabel.heightAnchor.constraint(equalToConstant: 17),
-            
-            container.topAnchor.constraint(equalTo: processingLabel.bottomAnchor, constant: 10),
-            container.rightAnchor.constraint(equalTo: backgroundFire.rightAnchor, constant: -16),
-            container.bottomAnchor.constraint(equalTo: backgroundFire.bottomAnchor, constant: -18),
-            container.leftAnchor.constraint(equalTo: backgroundFire.leftAnchor, constant: 16),
-            
-            imageView.topAnchor.constraint(equalTo: processingLabel.bottomAnchor, constant: imageViewTopConstant),
-            imageView.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: imageViewHeightConstant),
-            imageView.centerXAnchor.constraint(equalTo: backgroundFire.centerXAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: imageViewHeightConstant),
-            
-            adName.leadingAnchor.constraint(equalTo: backgroundFire.leadingAnchor, constant: 60),
-            adName.trailingAnchor.constraint(equalTo: backgroundFire.trailingAnchor, constant: -60),
-            adName.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: adNameTop),
-            adName.bottomAnchor.constraint(equalTo: adName.topAnchor, constant: adHeight),
-            
-            adText.leadingAnchor.constraint(equalTo: backgroundFire.leadingAnchor, constant: 60),
-            adText.trailingAnchor.constraint(equalTo: backgroundFire.trailingAnchor, constant: -60),
-            adText.topAnchor.constraint(equalTo: adName.bottomAnchor, constant: adTextTop),
-            adText.bottomAnchor.constraint(equalTo: adText.topAnchor, constant: adHeight)
-        ])
-    }
-    
-    private func hideBackButton() {
+    private func configureNavigationBar() {
+        navigationItem.setNavigationTitle(viewModel.name)
         navigationItem.hidesBackButton = true
     }
     
-    
-    private var link = ""
-    
     private func fillContent() {
-        nameLabel.text = viewModel.name
         
-        if (viewModel.title != nil){
-            processingLabel.text = viewModel.title
+        if let processingTitle = viewModel.title {
+            processingLabel.text = processingTitle
         }
         
         switch MusicViewController.shared.currentSoundsIndex {
         case 0:
             imageView.image = Assets.led.image
-            adName.text = String.lyod
-            adText.text = String.myMotherTold
-            link = "https://lyod1.bandcamp.com/releases"
+            titleLabel.text = .lyod
+            subtitleLabel.text = .myMotherTold
+            link = .bandcampLink
         case 1:
-            imageView.image = Assets.led.image
-            adName.text = String.lyod
-            adText.text = String.blackRook
-            link = "https://lyod1.bandcamp.com/releases"
+            imageView.image = Assets.blackRook.image
+            titleLabel.text = .lyod
+            subtitleLabel.text = .blackRook
+            link = .bandcampLink
         case 2:
             imageView.image = Assets.danheim.image
-            adName.text = "Danheim"
-            adText.text = "Runar"
-            link = "https://danheimmusic.com"
+            titleLabel.text = .danheimText
+            subtitleLabel.text = .runarText
+            link = .danheimMusicLink
         case 3:
             imageView.image = Assets.danheim.image
-            adName.text = "Danheim"
-            adText.text = "Kala"
-            link = "https://danheimmusic.com"
+            titleLabel.text = .danheimText
+            subtitleLabel.text = .kalaText
+            link = .danheimMusicLink
         default:
             imageView.image = nil
         }
-    }
-    
-    func changeAnimationDuration(duration: Int) {
-        basicAnimation.duration = CFTimeInterval(duration)
     }
 }
 
