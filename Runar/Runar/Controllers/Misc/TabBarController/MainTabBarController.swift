@@ -35,17 +35,15 @@ class MainTabBarController: UITabBarController {
     }
     
     private func configureTabBar() {
-        UITabBar.appearance().tintColor = Assets.TabBar.pushColor.color
+        tabBar.backgroundImage = UIImage()
+        tabBar.barTintColor = .white
+        UITabBar.appearance().tintColor = UIColor.yellowSecondaryColor
         
         let blurView = CustomIntensityVisualEffectView(effect: UIBlurEffect(style: .dark), intensity: .blurEffectIntensity)
-        blurView.frame = self.view.bounds
+        blurView.frame = view.bounds
         blurView.contentView.layer.backgroundColor = UIColor.blurViewBackgroundColor.cgColor
         blurView.contentView.layer.compositingFilter = String.softLightBlendModeFilter
         tabBar.addSubview(blurView)
-        
-        tabBar.isTranslucent = true
-        tabBar.backgroundImage = UIImage()
-        tabBar.barTintColor = .white
     }
     
     private func setupViewControllers() {
@@ -80,7 +78,9 @@ class CustomIntensityVisualEffectView: UIVisualEffectView {
     init(effect: UIVisualEffect, intensity: CGFloat) {
         super.init(effect: nil)
         
-        animator = UIViewPropertyAnimator(duration: 1, curve: .linear) { [weak self] in self?.effect = effect }
+        animator = UIViewPropertyAnimator(duration: 1, curve: .linear) { [weak self] in
+            self?.effect = effect
+        }
         animator?.fractionComplete = intensity
         animator?.pausesOnCompletion = true
     }
