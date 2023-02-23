@@ -289,6 +289,10 @@ extension WallpaperWithBackgroundVC: UICollectionViewDataSource, UICollectionVie
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard !wallpapers.isEmpty else {
+            return selectWallpaperView.dequeueReusableCell(
+                withReuseIdentifier: cellId,
+                for: indexPath) as? WallpaperWithBackgroundCell ?? UICollectionViewCell() }
         return wallpapers[indexPath.row]
     }
     
