@@ -15,8 +15,7 @@ private extension String {
 
 private enum TimeOfSendingLocalNotifications: Int {
     case weekday = 2 // Monday
-    // Temp: 11 -> 19
-    case hour = 19   // 11:00
+    case hour = 11   // 11:00
 }
 
 protocol LocalNotificationInterface {
@@ -75,8 +74,6 @@ final class LocalNotificationManager: NSObject, LocalNotificationInterface {
         dateComponents.calendar = Calendar.current
         dateComponents.weekday = TimeOfSendingLocalNotifications.weekday.rawValue
         dateComponents.hour = TimeOfSendingLocalNotifications.hour.rawValue
-        // Temp: added minute
-        dateComponents.minute = 5
 
         for week in 1...5 {
             var identifier: String = .notificationGeneralIdentifier
@@ -98,8 +95,7 @@ final class LocalNotificationManager: NSObject, LocalNotificationInterface {
             }
         }
 
-        // Temp: commented
-//        checkTheDayAndTime()
+        checkTheDayAndTime()
     }
 
     func addNotification() {
