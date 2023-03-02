@@ -1937,6 +1937,10 @@ internal enum L10n {
     internal static let explanationDescription = L10n.tr("Localizable", "onboarding.explanationDescription", fallback: "See the interpretation of each divination with the luckiness level")
     /// Interpretation
     internal static let explanationTitle = L10n.tr("Localizable", "onboarding.explanationTitle", fallback: "Interpretation")
+    /// Favourites
+    internal static let favourites = L10n.tr("Localizable", "onboarding.favourites", fallback: "Favourites")
+    /// Save your favourite interpretations and meanings of runes to your Favourites
+    internal static let favouritesDescription = L10n.tr("Localizable", "onboarding.favouritesDescription", fallback: "Save your favourite interpretations and meanings of runes to your Favourites")
     /// Forge your own destiny, collect a rune pattern and chose a background for it
     internal static let generatorDescription = L10n.tr("Localizable", "onboarding.generatorDescription", fallback: "Forge your own destiny, collect a rune pattern and chose a background for it")
     /// Generator

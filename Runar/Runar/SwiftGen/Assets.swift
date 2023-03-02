@@ -142,6 +142,7 @@ internal enum Assets {
   internal static let backIcon = ImageAsset(name: "backIcon")
   internal static let about = ImageAsset(name: "about")
   internal static let explanation = ImageAsset(name: "explanation")
+  internal static let favorites = ImageAsset(name: "favorites")
   internal static let generator = ImageAsset(name: "generator")
   internal static let howTo = ImageAsset(name: "howTo")
   internal static let library = ImageAsset(name: "library")
