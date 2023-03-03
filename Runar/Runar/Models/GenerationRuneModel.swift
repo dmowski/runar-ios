@@ -49,10 +49,20 @@ public extension GenerationRuneModel {
     }
     
     static func create(fromData data: Data) -> [GenerationRuneModel] {
-        guard let runesData = try! JSONDecoder().decode([RuneData]?.self, from: data) else { fatalError("No Data") }
+        guard let runesData = try? JSONDecoder().decode([RuneData]?.self, from: data) else {
+            print("Can't get data")
+            return []
+        }
         var runes: [GenerationRuneModel] = []
         for rune in runesData {
-            runes.append(create(id: String(rune.id), runeInfo: rune.getInfo(), image: UIImage.create(fromUrl: rune.imageUrl)!))
+            guard let image = UIImage.create(fromUrl: rune.imageUrl) else {
+                print("Can't get image")
+                return []
+            }
+            runes.append(create(
+                id: String(rune.id),
+                runeInfo: rune.getInfo(),
+                image: image))
         }
         
         return runes
