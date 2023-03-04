@@ -21,7 +21,7 @@ class RunicDrawsCollectionVC: UICollectionViewController {
     let heightTitleCollectionView: CGFloat = 42
 
     let topAnchorGeneratorView: CGFloat = 32
-    let trailingLeadingAnchorGeneratorView: CGFloat = 16
+    let widthGeneratorView: CGFloat = ScreenSize.width - 32
     let heightGeneratorView: CGFloat = 120
 
     let topAnchorGeneratorHeader: CGFloat = 25
@@ -149,8 +149,8 @@ class RunicDrawsCollectionVC: UICollectionViewController {
         collectionView.addSubview(generatorView)
         generatorView.snp.makeConstraints { make in
             make.top.equalTo(collectionView.snp.top).offset(topAnchorGeneratorView)
-            make.trailing.leading.equalTo(collectionView).inset(trailingLeadingAnchorGeneratorView)
             make.height.equalTo(heightGeneratorView)
+            make.width.equalTo(widthGeneratorView)
             make.centerX.equalTo(collectionView)
         }
 
