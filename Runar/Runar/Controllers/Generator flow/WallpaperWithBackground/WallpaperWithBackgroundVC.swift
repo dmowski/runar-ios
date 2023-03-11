@@ -297,6 +297,7 @@ extension WallpaperWithBackgroundVC: UICollectionViewDataSource, UICollectionVie
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard !wallpapers.isEmpty else { return }
         wallpapers[indexPath.row].selectImage()
         self.indexPath = indexPath.row
         nextButton.isHidden = false
@@ -306,6 +307,7 @@ extension WallpaperWithBackgroundVC: UICollectionViewDataSource, UICollectionVie
     }
     
     public func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard !wallpapers.isEmpty else { return }
         wallpapers[indexPath.row].deselectImage()
         nextButton.isHidden = true
     }
