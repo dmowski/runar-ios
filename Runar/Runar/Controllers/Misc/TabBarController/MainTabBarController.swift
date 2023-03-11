@@ -27,10 +27,15 @@ private extension UIColor {
 }
 
 class MainTabBarController: UITabBarController {
+    
+    private let localNotificationManager: LocalNotificationInterface = LocalNotificationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureTabBar()
         setupViewControllers()
+        localNotificationManager.addNotification()
     }
     
     private func configureTabBar() {
