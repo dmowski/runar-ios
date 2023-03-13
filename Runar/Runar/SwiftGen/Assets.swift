@@ -40,6 +40,7 @@ internal enum Assets {
   internal enum Background {
     internal static let interpretationBackground = ImageAsset(name: "Background/InterpretationBackground")
     internal static let backgroundDown = ImageAsset(name: "Background/backgroundDown")
+    internal static let backgroundInterpretation = ImageAsset(name: "Background/backgroundInterpretation")
     internal static let bottomBlackGradient = ImageAsset(name: "Background/bottomBlackGradient")
     internal static let generator = ImageAsset(name: "Background/generator")
     internal static let main = ImageAsset(name: "Background/main")

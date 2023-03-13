@@ -9,6 +9,10 @@ import UIKit
 
 class OneRuneVC: UIViewController {
     
+    // MARK: Constant
+    
+    let heightBottomLine = 95
+    
     var closeVC = {() -> () in return }
     var runesSet = [RuneType]()
     private var runeType : RuneType?
@@ -20,13 +24,15 @@ class OneRuneVC: UIViewController {
     var removeAllDark: (()->())?
     var changeContentOffset: ((CGRect)->())?
     var buttonFrames: [CGRect]?
+    var luck: String?
     
-    init(runeType: RuneType, runeLayout: RuneLayout, runesSet: [RuneType], index: Int) {
+    init(runeType: RuneType, runeLayout: RuneLayout, runesSet: [RuneType], index: Int, luck: String) {
         super.init(nibName: nil, bundle: nil)
         self.runeType = runeType
         self.runeLayout = runeLayout
         self.runesSet = runesSet
         self.index = index
+        self.luck = luck
         pageScroll.delegate = self
         bottomLine = BottomLineView(runesSet: runesSet, runeType: runeType)
     }
@@ -60,12 +66,11 @@ class OneRuneVC: UIViewController {
         }
         bottomLine.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bottomLine)
-        NSLayoutConstraint.activate([
-            bottomLine.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            bottomLine.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bottomLine.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            bottomLine.heightAnchor.constraint(equalToConstant: 95.heightDependent())
-        ])
+
+        bottomLine.snp.makeConstraints { make in
+            make.trailing.leading.bottom.equalToSuperview()
+            make.height.equalTo(heightBottomLine)
+        }
     }
     
     private var pageScroll = UIScrollView()
@@ -74,17 +79,16 @@ class OneRuneVC: UIViewController {
         pageScroll.translatesAutoresizingMaskIntoConstraints = false
         guard let bottomLine = bottomLine else {return}
         view.addSubview(pageScroll)
-        NSLayoutConstraint.activate([
-            pageScroll.topAnchor.constraint(equalTo: view.topAnchor),
-            pageScroll.leadingAnchor.constraint(equalTo:view.leadingAnchor),
-            pageScroll.bottomAnchor.constraint(equalTo: bottomLine.topAnchor),
-            pageScroll.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
+
+        pageScroll.snp.makeConstraints { make in
+            make.top.trailing.leading.equalToSuperview()
+            make.bottom.equalTo(bottomLine.snp.top)
+        }
         
-        var previousAnchor = pageScroll.leadingAnchor
+        var previousAnchor = pageScroll.snp.leading
         for index in 0..<runesSet.count {
             guard let runeLayout = runeLayout else {return}
-            let page = TopWithDescriptionView(runeType: runesSet[index], runeTime: runesSet[index].configureRuneTime(runeLayout: runeLayout, index: index))
+            let page = TopWithDescriptionView(runeType: runesSet[index], runeTime: runesSet[index].configureRuneTime(runeLayout: runeLayout, index: index), luck: luck ?? "")
             page.close = { [self] in
                 self.willMove(toParent: nil)
                 self.view.removeFromSuperview()
@@ -93,16 +97,16 @@ class OneRuneVC: UIViewController {
                 removeAllDark!()
             }
             pageScroll.addSubview(page)
-            NSLayoutConstraint.activate([
-                page.leadingAnchor.constraint(equalTo: previousAnchor),
-                page.widthAnchor.constraint(equalToConstant: self.view.frame.size.width),
-                page.topAnchor.constraint(equalTo: view.topAnchor),
-                page.bottomAnchor.constraint(equalTo: bottomLine.topAnchor)
-            ])
-            previousAnchor = page.trailingAnchor
+            
+            page.snp.makeConstraints { make in
+                make.leading.equalTo(previousAnchor)
+                make.width.equalTo(self.view.frame.size.width)
+                make.top.equalToSuperview()
+                make.bottom.equalTo(bottomLine.snp.top)
+            }
+            previousAnchor = page.snp.trailing
             
         }
-        previousAnchor.constraint(equalTo: pageScroll.trailingAnchor).isActive = true
     }
     
     private func openCurrentPage() {
