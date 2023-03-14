@@ -1014,3 +1014,7 @@ With the permission of the copyright holders, the following musical compositions
 "luckLevel.from21To40" = "Luckiness: A little more, and you'll catch up the luck!";
 "luckLevel.from41To69" = "Luckiness: Hey, it's your lucky day!";
 "luckLevel.from70To100"= "Luckiness: The gods favor you!";
+
+// Notifications
+"notifications.general.title" = "Runar App";
+"notifications.general.body" = "Just open Runar and find out what’s the rune of the day";

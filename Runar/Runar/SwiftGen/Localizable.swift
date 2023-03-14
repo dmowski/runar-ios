@@ -1932,6 +1932,14 @@ internal enum L10n {
       internal static let back = L10n.tr("Localizable", "navbar.title.back", fallback: "Back")
     }
   }
+  internal enum Notifications {
+    internal enum General {
+      /// Just open Runar and find out what’s the rune of the day
+      internal static let body = L10n.tr("Localizable", "notifications.general.body", fallback: "Just open Runar and find out what’s the rune of the day")
+      /// Runar App
+      internal static let title = L10n.tr("Localizable", "notifications.general.title", fallback: "Runar App")
+    }
+  }
   internal enum Onboarding {
     /// Get answers to exciting questions with the help of runes
     internal static let aboutDescription = L10n.tr("Localizable", "onboarding.aboutDescription", fallback: "Get answers to exciting questions with the help of runes")

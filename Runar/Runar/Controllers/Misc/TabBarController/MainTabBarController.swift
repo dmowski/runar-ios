@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: Constants
 extension String {
     static let layouts = L10n.Tabbar.layouts
     static let library = L10n.Tabbar.library
@@ -15,29 +16,38 @@ extension String {
     static let softLightBlendModeFilter = "softLightBlendMode"
 }
 
+//MARK: Constants
+private extension CGFloat {
+    static let blurEffectIntensity = 0.3
+}
+
+//MARK: Add to color common class
+private extension UIColor {
+    static let blurViewBackgroundColor = UIColor(red: 0.098, green: 0.098, blue: 0.098, alpha: 1)
+}
+
 class MainTabBarController: UITabBarController {
     
-    
-    private let blurEffectIntensity = 0.3
+    private let localNotificationManager: LocalNotificationInterface = LocalNotificationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureTabBar()
         setupViewControllers()
+        localNotificationManager.addNotification()
     }
     
     private func configureTabBar() {
-        UITabBar.appearance().tintColor = Assets.TabBar.pushColor.color
-        
-        let blurView = CustomIntensityVisualEffectView(effect: UIBlurEffect(style: .dark), intensity: blurEffectIntensity)
-        blurView.frame = self.view.bounds
-        blurView.contentView.layer.backgroundColor = UIColor(red: 0.098, green: 0.098, blue: 0.098, alpha: 1).cgColor
-        blurView.contentView.layer.compositingFilter = String.softLightBlendModeFilter
-        tabBar.addSubview(blurView)
-        
-        tabBar.isTranslucent = true
         tabBar.backgroundImage = UIImage()
         tabBar.barTintColor = .white
+        UITabBar.appearance().tintColor = UIColor.yellowSecondaryColor
+        
+        let blurView = CustomIntensityVisualEffectView(effect: UIBlurEffect(style: .dark), intensity: .blurEffectIntensity)
+        blurView.frame = view.bounds
+        blurView.contentView.layer.backgroundColor = UIColor.blurViewBackgroundColor.cgColor
+        blurView.contentView.layer.compositingFilter = String.softLightBlendModeFilter
+        tabBar.addSubview(blurView)
     }
     
     private func setupViewControllers() {
@@ -64,22 +74,3 @@ class MainTabBarController: UITabBarController {
         return navigationVC
     }
 }
-
-class CustomIntensityVisualEffectView: UIVisualEffectView {
-    
-    private var animator: UIViewPropertyAnimator?
-    
-    init(effect: UIVisualEffect, intensity: CGFloat) {
-        super.init(effect: nil)
-        
-        animator = UIViewPropertyAnimator(duration: 1, curve: .linear) { [weak self] in self?.effect = effect }
-        animator?.fractionComplete = intensity
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
-    }
-}
-
-
-

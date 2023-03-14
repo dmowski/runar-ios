@@ -19,51 +19,47 @@ public class LibraryRuneCell: LibraryCell {
         
         let runeTitle: UILabel = bindRuneTitle(title: title)
         let runeImage: UIImageView = bindRuneImage(url: imageUrl)
-        let tagsCV: UICollectionView = bindTagsCV(with: tags)
+        let collectionView: UICollectionView = bindTagsCV(with: tags)
         let runeDesc: UILabel = bindRunDescription(description: content)
         
         self.separatorInset = UIEdgeInsets(top: 0, left: 26, bottom: 0, right: 26)
         
         runeTitle.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            runeTitle.topAnchor.constraint(equalTo: topAnchor, constant: 26),
-            runeTitle.heightAnchor.constraint(equalToConstant: 26),
-            runeTitle.centerXAnchor.constraint(equalTo: centerXAnchor)
-        ])
+        runeTitle.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(CGFloat.runTitleTopAnchor)
+            make.height.equalTo(CGFloat.runeTitleHeight)
+            make.centerX.equalToSuperview()
+        }
         
         runeImage.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            runeImage.widthAnchor.constraint(equalTo: widthAnchor),
-            runeImage.heightAnchor.constraint(equalToConstant: 129),
-            runeImage.topAnchor.constraint(equalTo: runeTitle.bottomAnchor, constant: 10),
-            runeImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-        ])
+        runeImage.snp.makeConstraints { make in
+            make.top.equalTo(runeTitle.snp.bottom).offset(CGFloat.runeImageTopAnchor)
+            make.centerX.equalToSuperview()
+        }
         
-        tagsCV.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tagsCV.centerXAnchor.constraint(equalTo: centerXAnchor),
-            tagsCV.topAnchor.constraint(equalTo: runeImage.bottomAnchor, constant: 10),
-            tagsCV.leftAnchor.constraint(equalTo: leftAnchor),
-            tagsCV.rightAnchor.constraint(equalTo: rightAnchor),
-            tagsCV.heightAnchor.constraint(greaterThanOrEqualToConstant: tags.count == 0 ? 0 : 32)
-        ])
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(runeImage.snp.bottom).offset(CGFloat.collectionViewTopAnchor)
+            make.height.equalTo(tags.isEmpty ? 0 : CGFloat.collectionViewHeight)
+            make.trailing.leading.equalToSuperview()
+            make.centerX.equalToSuperview()
+        }
         
         runeDesc.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            runeDesc.centerXAnchor.constraint(equalTo: centerXAnchor),
-            runeDesc.topAnchor.constraint(equalTo: tagsCV.bottomAnchor, constant: 10),
-            runeDesc.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -26),
-            runeDesc.leftAnchor.constraint(equalTo: leftAnchor, constant: 24),
-            runeDesc.rightAnchor.constraint(equalTo: rightAnchor, constant: -24)
-        ])
+        runeDesc.snp.makeConstraints { make in
+            make.top.equalTo(runeImage.snp.bottom).offset(tags.isEmpty ? CGFloat.runeDescTopAnchorWithOutTagsCV : CGFloat.runeDescTopAnchorWithTagsCV)
+            make.centerX.equalToSuperview()
+            make.trailing.leading.equalToSuperview().inset(CGFloat.runeDescTrailigLeadingAnchor)
+            make.bottom.equalToSuperview().inset(CGFloat.runeDescBottomAnchor)
+        }
     }
     
     func bindRuneTitle(title: String) -> UILabel {
         let runeTitle = UILabel()
         
         runeTitle.text = title
-        runeTitle.font = UIFont.create(withLowSize: 24, withHighSize: 24)
-        runeTitle.textColor = UIColor(red: 0.937, green: 0.804, blue: 0.576, alpha: 1)
+        runeTitle.font = .systemRegular(size: CGFloat.runeTitleFontSize)
+        runeTitle.textColor = UIColor.yellowSecondaryColor
         runeTitle.contentMode = .center
         
         addSubview(runeTitle)
@@ -74,7 +70,7 @@ public class LibraryRuneCell: LibraryCell {
     func bindRuneImage(url: String) -> UIImageView {
         let image = UIImage.create(fromUrl: url)
         
-        let size: CGSize = CGSize(width: 109, height: 129)
+        let size: CGSize = CGSize(width: CGFloat.runeImageWidth, height: CGFloat.runeImageHeight)
         let render: UIGraphicsImageRenderer = UIGraphicsImageRenderer(size: size)
         
         let resizedImage: UIImage = render.image { (context) in
@@ -105,11 +101,10 @@ public class LibraryRuneCell: LibraryCell {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.23
         
-        let fontSize = DeviceType.iPhoneSE || DeviceType.isIPhone678 ? 16 : 19.heightDependent()
         let attributedText = NSMutableAttributedString(string: description, attributes: [
             NSMutableAttributedString.Key.paragraphStyle: paragraphStyle,
-            NSMutableAttributedString.Key.font: UIFont.systemLight(size: fontSize),
-            NSMutableAttributedString.Key.foregroundColor: UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1)])
+            NSMutableAttributedString.Key.font: UIFont.systemLight(size: CGFloat.runeDescFontSize),
+            NSMutableAttributedString.Key.foregroundColor: UIColor.runeDescColor])
         
         runeDescription.attributedText = attributedText
         runeDescription.contentMode = .scaleToFill
@@ -121,4 +116,28 @@ public class LibraryRuneCell: LibraryCell {
         
         return runeDescription
     }
+}
+
+private extension CGFloat {
+    static let runTitleTopAnchor = 15.0
+    static let runeTitleHeight = 26.0
+    static let runeTitleFontSize = 24.0
+    
+    static let runeImageTopAnchor = 10.0
+    static let runeImageHeight = 129.0
+    static let runeImageWidth = 109.0
+    
+    static let collectionViewTopAnchor = 16.0
+    static let collectionViewHeight = 32.0
+    
+    static let runeDescTopAnchorWithTagsCV = 74.0
+    static let runeDescTopAnchorWithOutTagsCV = 16.0
+    static let runeDescTrailigLeadingAnchor = 24.0
+    static let runeDescBottomAnchor = 34.0
+    static let runeDescFontSize = DeviceType.iPhoneSE || DeviceType.isIPhone678 ? 16.0 : 19.0
+}
+
+private extension UIColor {
+    // Add to color common class
+    static let runeDescColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
 }

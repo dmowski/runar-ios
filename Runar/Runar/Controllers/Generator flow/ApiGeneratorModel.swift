@@ -16,6 +16,8 @@ struct ApiGeneratorModel {
         processCV.viewModel = viewModel
         processCV.runesIds = runesIds
         processCV.delegate = vc
+        let duration = 3
+        processCV.changeAnimationDuration(duration: duration)
         processCV.ifGenerateWallpapers = true
         vc.navigationController?.pushViewController(processCV, animated: true)
     }

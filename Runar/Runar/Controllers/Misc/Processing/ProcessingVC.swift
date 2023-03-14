@@ -333,6 +333,10 @@ class ProcessingVC: UIViewController {
             imageView.image = nil
         }
     }
+    
+    func changeAnimationDuration(duration: Int) {
+        basicAnimation.duration = CFTimeInterval(duration)
+    }
 }
 
 class DownloadOperation: Operation {

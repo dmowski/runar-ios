@@ -310,24 +310,27 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func selectRandomRunesOnTap() {
-        self.selectedRunesView.deselectAll()
+        selectedRunesView.deselectAll()
 
         let maxRunes = MemoryStorage.GenerationRunes.count
+        guard maxRunes > 0 else { return }
         var indexes = [Int](0..<maxRunes)
 
-        for _ in 0..<3 {
-            let index = indexes.randomElement()!
+        (0..<3).forEach { _ in
+            guard let index = indexes.randomElement() else { return }
             
             let rune = selectRunesView.getRune(at: index)
             
-            self.selectRunesView.selectRune(rune: rune)
+            selectRunesView.selectRune(rune: rune)
             
-            for cell in (self.selectedRunesView.visibleCells as! [SelectedRuneCell]).sorted(by: {c1, c2 in return c1.indexPath.row < c2.indexPath.row} ) {
+            guard let cells = selectedRunesView.visibleCells as? [SelectedRuneCell] else { return }
+            let sortedCells = cells.sorted { $0.indexPath.row < $1.indexPath.row }
+            for cell in sortedCells {
                 if !cell.isSelected {
                     guard let title = rune.model?.title,
                           let image = rune.model?.imageInfo.uiImage,
                           let id = rune.model?.id else { return }
-
+                    
                     cell.selectRune(SelectedRuneModel(title: title,
                                                       image: image,
                                                       index: rune.indexPath,
