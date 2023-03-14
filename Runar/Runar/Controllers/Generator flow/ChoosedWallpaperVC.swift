@@ -51,6 +51,7 @@ public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
         wallpaperImage.layer.cornerRadius = 16
         wallpaperImage.layer.borderWidth = 1
         wallpaperImage.layer.borderColor = UIColor.wallpaperImageBorderColor.cgColor
+        wallpaperImage.translatesAutoresizingMaskIntoConstraints = false
         return wallpaperImage
     }()
     
@@ -60,6 +61,7 @@ public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
         shareButton.layer.cornerRadius = 5
         shareButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
         shareButton.tintColor = .primaryDarkItemColor
+        shareButton.translatesAutoresizingMaskIntoConstraints = false
         return shareButton
     }()
     
@@ -69,6 +71,7 @@ public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
         downloadButton.layer.cornerRadius = 5
         downloadButton.setImage(UIImage(systemName: "square.and.arrow.down"), for: .normal)
         downloadButton.tintColor = .primaryDarkItemColor
+        downloadButton.translatesAutoresizingMaskIntoConstraints = false
         return downloadButton
     }()
     

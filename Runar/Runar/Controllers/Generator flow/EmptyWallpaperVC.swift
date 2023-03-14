@@ -25,7 +25,6 @@ private extension UIColor {
 private extension CGFloat {
     static let subTitleTopAnchor = 27.0
     static let subTitleLeadingAnchor = 16.0
-    static let subTitleTrailingAnchor = 16.0
     
     static let contentViewTopAnchor = 52.0
     static let contentViewLeadingAnchor = 16.0
@@ -58,6 +57,7 @@ public class EmptyWallpaperVC: UIViewController {
         label.adjustsFontSizeToFitWidth = true
         label.text = .emptyWallpapersSubTitle
         label.font = .systemRegular(size: 14)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -68,6 +68,7 @@ public class EmptyWallpaperVC: UIViewController {
         contentView.layer.shadowOffset = CGSize(width: 0, height: 10)
         contentView.layer.shadowRadius = 5
         contentView.layer.shadowOpacity = 0.75
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         return contentView
     }()
     
@@ -75,6 +76,7 @@ public class EmptyWallpaperVC: UIViewController {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -87,6 +89,7 @@ public class EmptyWallpaperVC: UIViewController {
         newVariantButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         newVariantButton.layer.borderColor = UIColor.yellowPrimaryColor.cgColor
         newVariantButton.setTitle(title: .newVariant)
+        newVariantButton.translatesAutoresizingMaskIntoConstraints = false
         return newVariantButton
     }()
     
@@ -97,6 +100,7 @@ public class EmptyWallpaperVC: UIViewController {
         nextButton.setTitle(title: .nextButtonTitle, color: .primaryBlackColor)
         nextButton.contentHorizontalAlignment = .center
         nextButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
         return nextButton
     }()
     
@@ -137,8 +141,7 @@ public class EmptyWallpaperVC: UIViewController {
         view.addSubviews(subTitle)
         subTitle.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(CGFloat.subTitleTopAnchor)
-            make.leading.equalToSuperview().offset(CGFloat.subTitleLeadingAnchor)
-            make.trailing.equalToSuperview().inset(CGFloat.subTitleTrailingAnchor)
+            make.leading.trailing.equalToSuperview().inset(CGFloat.subTitleLeadingAnchor)
         }
         
         view.addSubviews(contentView)

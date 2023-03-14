@@ -22,6 +22,7 @@ class WallpaperWithBackgroundCell: UICollectionViewCell {
         
         check.contentMode = .scaleAspectFit
         check.isHidden = true
+        check.translatesAutoresizingMaskIntoConstraints = false
         
         return check
     }()
@@ -32,6 +33,7 @@ class WallpaperWithBackgroundCell: UICollectionViewCell {
         wallpaperImage.contentMode = .scaleAspectFill
         wallpaperImage.layer.cornerRadius = 8
         wallpaperImage.clipsToBounds = true
+        wallpaperImage.translatesAutoresizingMaskIntoConstraints = false
         
         return wallpaperImage
     }()

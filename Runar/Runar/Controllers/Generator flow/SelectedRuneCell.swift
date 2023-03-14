@@ -50,6 +50,7 @@ class SelectedRuneCell: UICollectionViewCell {
         cell.layer.borderWidth = .cellBorderWidth
         cell.layer.cornerRadius = .cellCornerRadius
         cell.layer.borderColor = UIColor.textColor.cgColor
+        cell.translatesAutoresizingMaskIntoConstraints = false
         return cell
     }()
     
@@ -58,6 +59,7 @@ class SelectedRuneCell: UICollectionViewCell {
         cellIndex.textColor = .textColor
         cellIndex.font = .amaticBold(size: 36)
         cellIndex.textAlignment = .center
+        cellIndex.translatesAutoresizingMaskIntoConstraints = false
         return cellIndex
     }()
     
@@ -67,6 +69,7 @@ class SelectedRuneCell: UICollectionViewCell {
         runeImage.contentMode = .scaleAspectFill
         runeImage.isHidden = true
         runeImage.isUserInteractionEnabled = true
+        runeImage.translatesAutoresizingMaskIntoConstraints = false
         
         return runeImage
     }()
@@ -77,6 +80,7 @@ class SelectedRuneCell: UICollectionViewCell {
         runeName.textColor = .textColor
         runeName.font = .systemRegular(size: 12)
         runeName.isHidden = true
+        runeName.translatesAutoresizingMaskIntoConstraints = false
         
         return runeName
     }()

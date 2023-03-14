@@ -33,7 +33,6 @@ private extension CGFloat {
     
     static let descriptionTextViewTopAnchor = 5.0
     static let descriptionTextViewLeadingAnchor = 32.0
-    static let descriptionTextViewWidth = 300.0
     static let descriptionTextViewHeight = 130.0
     
     static let submitButtonTopAnchor = 14.0
@@ -55,6 +54,7 @@ public class GenerationPopUpViewController: UIViewController {
                 
         containerView.backgroundColor = .containerViewBackgroundColor
         containerView.layer.cornerRadius = 20
+        containerView.translatesAutoresizingMaskIntoConstraints = false
         
         return containerView
     }()
@@ -64,6 +64,7 @@ public class GenerationPopUpViewController: UIViewController {
         
         let image = Assets.escape.image
         escapeButton.setImage(image, for: .normal)
+        escapeButton.translatesAutoresizingMaskIntoConstraints = false
         
         return escapeButton
     }()
@@ -72,6 +73,7 @@ public class GenerationPopUpViewController: UIViewController {
         let imageView = UIImageView()
         
         imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
@@ -83,6 +85,7 @@ public class GenerationPopUpViewController: UIViewController {
         header.textColor = .yellowPrimaryColor
         header.textAlignment = .center
         header.contentMode = .center
+        header.translatesAutoresizingMaskIntoConstraints = false
         
         return header
     }()
@@ -98,6 +101,7 @@ public class GenerationPopUpViewController: UIViewController {
         view.isEditable = false
         view.indicatorStyle = .white
         view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
     }()
@@ -110,6 +114,7 @@ public class GenerationPopUpViewController: UIViewController {
         submitButton.layer.borderWidth = 1
         submitButton.layer.borderColor = UIColor.yellowPrimaryColor.cgColor
         submitButton.isHidden = true
+        submitButton.translatesAutoresizingMaskIntoConstraints = false
         
         return submitButton
     }()
@@ -211,7 +216,6 @@ public class GenerationPopUpViewController: UIViewController {
         descriptionTextView.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(CGFloat.descriptionTextViewTopAnchor)
             make.leading.trailing.equalTo(containerView).inset(CGFloat.descriptionTextViewLeadingAnchor)
-            make.width.equalTo(CGFloat.descriptionTextViewWidth)
             make.height.equalTo(CGFloat.descriptionTextViewHeight)
         }
         
@@ -272,7 +276,5 @@ extension GenerationPopUpViewController: UITextViewDelegate {
 }
 
 extension GenerationPopUpViewController: CALayerDelegate {
-    public func action(for layer: CALayer, forKey event: String) -> CAAction? {
-        return NSNull()
-    }
+    public func action(for layer: CALayer, forKey event: String) -> CAAction? { NSNull() }
 }

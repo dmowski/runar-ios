@@ -52,6 +52,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
         title.font = .amaticBold(size: 24)
         title.backgroundColor = .clear
         title.adjustsFontSizeToFitWidth = true
+        title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
     
@@ -67,6 +68,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
         selectWallpaperView.isPagingEnabled = false
         selectWallpaperView.isScrollEnabled = true
         selectWallpaperView.backgroundColor = .clear
+        selectWallpaperView.translatesAutoresizingMaskIntoConstraints = false
         
         return selectWallpaperView
     }()
@@ -76,6 +78,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
         page.backgroundColor = .clear
         page.numberOfPages = 4
         page.currentPage = 0
+        page.translatesAutoresizingMaskIntoConstraints = false
         return page
     }()
 
@@ -85,6 +88,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
         nextButton.layer.cornerRadius = 5
         nextButton.isHidden = true
         nextButton.setTitle(title: .nextButtonTitle, color: UIColor.primaryBlackColor)
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
         return nextButton
     }()
     
@@ -93,6 +97,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
         view.style = .large
         view.color = .white
         view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
         

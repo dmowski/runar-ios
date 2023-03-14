@@ -55,6 +55,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         view.style = .large
         view.color = .white
         view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -63,6 +64,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         layout.minimumInteritemSpacing = 17
 
         let selectedRunesView = SelectedRuneCollectionView(frame: .zero, collectionViewLayout: layout)
+        selectedRunesView.translatesAutoresizingMaskIntoConstraints = false
         return selectedRunesView
     }()
     
@@ -75,6 +77,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         randomButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         randomButton.layer.borderColor = UIColor.yellowPrimaryColor.cgColor
         randomButton.setTitle(title: .randomButtonTitle)
+        randomButton.translatesAutoresizingMaskIntoConstraints = false
         return randomButton
     }()
     
@@ -90,7 +93,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         selectRunesView.indicatorStyle = UIScrollView.IndicatorStyle.white
         selectRunesView.contentInset = UIEdgeInsets(top: 16, left: 16,
                                                     bottom: 0, right: 16)
-        
+        selectRunesView.translatesAutoresizingMaskIntoConstraints = false
         return selectRunesView
     }()
     
@@ -102,6 +105,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         generateButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         generateButton.isHidden = true
         generateButton.setTitle(title: .generateButtonTitle, color: UIColor.primaryBlackColor)
+        generateButton.translatesAutoresizingMaskIntoConstraints = false
         return generateButton
     }()
     
