@@ -19,7 +19,6 @@ struct ApiGeneratorModel {
         let duration = 3
         processCV.changeAnimationDuration(duration: duration)
         processCV.ifGenerateWallpapers = true
-        processCV.container.isHidden = true
         vc.navigationController?.pushViewController(processCV, animated: true)
     }
 }

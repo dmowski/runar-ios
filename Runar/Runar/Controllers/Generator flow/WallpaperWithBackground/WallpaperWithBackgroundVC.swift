@@ -18,14 +18,17 @@ extension String {
 }
 
 private extension CGFloat {
-    static let selectWallpaperViewTopAnchor = 155.0
-    static let selectWallpaperBottomAnchor = -144.0
+    static let subTitleTopAnchor = 27
+    static let subTitleLeadingAnchor = 16
+    
+    static let selectWallpaperViewTopAnchor = 32.0
+    static let selectWallpaperBottomAnchor = 144.0
+    
     static let pageControlTopAnchor = 20.0
     static let pageControlHeightAnchor = 20.0
     
     static let nextButtonLeadingAnchor = 16.0
-    static let nextButtonTrailingAnchor = -16.0
-    static let nextButtonBottomAnchor = -40.0
+    static let nextButtonBottomAnchor = 40.0
     static let nextButtonHeightAnchor = 50.0
 }
 
@@ -42,13 +45,14 @@ public class WallpaperWithBackgroundVC: UIViewController {
     
     let subTitle: UILabel = {
         let title = UILabel()
-        title.textColor = UIColor.primaryWhiteColor
+        title.textColor = .primaryWhiteColor
         title.textAlignment = .center
-        title.numberOfLines = 0
-        title.lineBreakMode = .byWordWrapping
+        title.numberOfLines = 1
         title.text = .wallpapersDescription
-        title.font = .systemRegular(size: 16)
+        title.font = .amaticBold(size: 24)
         title.backgroundColor = .clear
+        title.adjustsFontSizeToFitWidth = true
+        title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
     
@@ -64,6 +68,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
         selectWallpaperView.isPagingEnabled = false
         selectWallpaperView.isScrollEnabled = true
         selectWallpaperView.backgroundColor = .clear
+        selectWallpaperView.translatesAutoresizingMaskIntoConstraints = false
         
         return selectWallpaperView
     }()
@@ -73,6 +78,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
         page.backgroundColor = .clear
         page.numberOfPages = 4
         page.currentPage = 0
+        page.translatesAutoresizingMaskIntoConstraints = false
         return page
     }()
 
@@ -82,6 +88,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
         nextButton.layer.cornerRadius = 5
         nextButton.isHidden = true
         nextButton.setTitle(title: .nextButtonTitle, color: UIColor.primaryBlackColor)
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
         return nextButton
     }()
     
@@ -90,6 +97,7 @@ public class WallpaperWithBackgroundVC: UIViewController {
         view.style = .large
         view.color = .white
         view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
         
@@ -179,12 +187,17 @@ public class WallpaperWithBackgroundVC: UIViewController {
 
     private func setupViews() {
         
+        self.view.addSubview(subTitle)
+        subTitle.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(CGFloat.subTitleTopAnchor)
+            make.leading.trailing.equalToSuperview().inset(CGFloat.subTitleLeadingAnchor)
+        }
+        
         self.view.addSubview(selectWallpaperView)
         selectWallpaperView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.snp.top).offset(CGFloat.selectWallpaperViewTopAnchor)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().offset(CGFloat.selectWallpaperBottomAnchor)
+            make.top.equalTo(subTitle.snp.bottom).offset(CGFloat.selectWallpaperViewTopAnchor)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview().inset(CGFloat.selectWallpaperBottomAnchor)
         }
 
         self.view.addSubview(pageControl)
@@ -197,9 +210,8 @@ public class WallpaperWithBackgroundVC: UIViewController {
         self.view.addSubview(nextButton)
         nextButton.addTarget(self, action: #selector(self.nextButtonTapped), for: .touchUpInside)
         nextButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(CGFloat.nextButtonLeadingAnchor)
-            make.trailing.equalToSuperview().offset(CGFloat.nextButtonTrailingAnchor)
-            make.bottom.equalToSuperview().offset(CGFloat.nextButtonBottomAnchor)
+            make.leading.trailing.equalToSuperview().inset(CGFloat.nextButtonLeadingAnchor)
+            make.bottom.equalToSuperview().inset(CGFloat.nextButtonBottomAnchor)
             make.height.equalTo(CGFloat.nextButtonHeightAnchor)
         }
     }

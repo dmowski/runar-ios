@@ -52,7 +52,7 @@ Runar — это приложение для гадания на скандин�
 
 "layouts.title" = "Расклады рун";
 "layouts.generator.title" = "Рунические узоры";
-"layouts.generator.description" = "Создай свой рунный узор выбрав несколько рун";
+"layouts.generator.description" = "Создай свой рунный узор, выбрав несколько рун";
 
 "luckLevel" = "Уровень удачи - %@ %%";
 "goToTheSite" = "Перейти на сайт";
@@ -89,8 +89,8 @@ Runar — это приложение для гадания на скандин�
 "theBest" = "Лучшее, чего Вы можете ожидать - это";
 "awaitsYou" = "С большой вероятностью вас ожидает";
 
-"music.lyod" = "Ледъ";
-"music.blackRook" = "Черная Ладья";
+"music.lyod" = "Лёдъ";
+"music.blackRook" = "Не ведомо, не страшно - \nЧёрная Ладья";
 "music.myMotherTold" = "Мать моя сказала";
 
 "onboarding.nextScreen" = "Далее";
@@ -118,7 +118,7 @@ Runar — это приложение для гадания на скандин�
 "generator.generateButton.title" = "Cгенерировать";
 "generator.generateRunes.title" = "Выбор рун";
 "generator.wallpapersHeader.title" = "Выбор обоев";
-"generator.wallpapersDescription.subtitle" = "Запечатли навеки вечные свой узор в небесном чертоге ";
+"generator.wallpapersDescription.subtitle" = "Для начала выберите понравившуюся картинку";
 "generator.wallpapers.title" = "Узор создан";
 "generator.emptyWallpapers.subtitle" = "Далее выбери фон для него, викинг";
 "generator.emptyWallpapersNewVariant.btnTitle" = "Новый узор";
@@ -126,7 +126,7 @@ Runar — это приложение для гадания на скандин�
 "generator.progress.name" = "Происходит магия";
 "generator.progressGenerator.title" = "Создается узор...";
 "generator.selectWallpapersHeader.title" = "Выбор рисунка";
-"generator.selectWallpaperHeader.title" = "Рунный узор";
+"generator.selectWallpaperHeader.title" = "Рунический узор";
 "generator.shareWallpaperHeader.title" = "Runar изображение для обоев";
 "generator.alertHeaderSuccess.title" = "Рунный узор сохранен";
 "generator.alertActionSuccess.title" = "Хорошо";

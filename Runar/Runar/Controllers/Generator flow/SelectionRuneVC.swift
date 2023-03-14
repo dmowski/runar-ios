@@ -18,10 +18,11 @@ private extension String {
     static let runeSelectTitle = L10n.Generator.select
 }
 
+//MARK: Constants
 private extension CGFloat {
     static let buttonCornerRadius = 10.0
     
-    static let selectedRunesViewTopAnchor = 128.0
+    static let selectedRunesViewTopAnchor = 43.0
     static let selectedRunesViewHeightAnchor = 132.0
     static let selectedRuneCellWidthAnchor = 56.0
     static let selectedRuneCellHeightAnchor = 110.0
@@ -40,6 +41,11 @@ private extension CGFloat {
     static let selectRuneCellHeightAnchor = 78.0
 }
 
+//MARK: Add to color common class
+private extension UIColor {
+    static let randomButtonBackgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
+}
+
 public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
     
     private var gradientLayer = CAGradientLayer()
@@ -49,6 +55,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         view.style = .large
         view.color = .white
         view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -57,18 +64,20 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         layout.minimumInteritemSpacing = 17
 
         let selectedRunesView = SelectedRuneCollectionView(frame: .zero, collectionViewLayout: layout)
+        selectedRunesView.translatesAutoresizingMaskIntoConstraints = false
         return selectedRunesView
     }()
     
     let randomButton: UIButton = {
         let randomButton = UIButton()
-        randomButton.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
-        randomButton.layer.cornerRadius = CGFloat.buttonCornerRadius
+        randomButton.layer.backgroundColor = UIColor.randomButtonBackgroundColor.cgColor
+        randomButton.layer.cornerRadius = .buttonCornerRadius
         randomButton.layer.borderWidth = CGFloat.randomButtonBorderWidthAnchor
         randomButton.contentHorizontalAlignment = .center
         randomButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         randomButton.layer.borderColor = UIColor.yellowPrimaryColor.cgColor
         randomButton.setTitle(title: .randomButtonTitle)
+        randomButton.translatesAutoresizingMaskIntoConstraints = false
         return randomButton
     }()
     
@@ -84,18 +93,19 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         selectRunesView.indicatorStyle = UIScrollView.IndicatorStyle.white
         selectRunesView.contentInset = UIEdgeInsets(top: 16, left: 16,
                                                     bottom: 0, right: 16)
-        
+        selectRunesView.translatesAutoresizingMaskIntoConstraints = false
         return selectRunesView
     }()
     
     let generateButton: UIButton = {
         let generateButton = UIButton()
         generateButton.layer.backgroundColor = UIColor.yellowPrimaryColor.cgColor
-        generateButton.layer.cornerRadius = CGFloat.buttonCornerRadius
+        generateButton.layer.cornerRadius = .buttonCornerRadius
         generateButton.contentHorizontalAlignment = .center
         generateButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         generateButton.isHidden = true
         generateButton.setTitle(title: .generateButtonTitle, color: UIColor.primaryBlackColor)
+        generateButton.translatesAutoresizingMaskIntoConstraints = false
         return generateButton
     }()
     
@@ -161,7 +171,7 @@ public class SelectionRuneVC: UIViewController, UIGestureRecognizerDelegate {
         self.view.addSubview(selectedRunesView)
         selectedRunesView.setDeselectHandler(self.deselectRune(_:))
         selectedRunesView.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top).offset(CGFloat.selectedRunesViewTopAnchor)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(CGFloat.selectedRunesViewTopAnchor)
             make.centerX.equalToSuperview()
             make.height.equalTo(CGFloat.selectedRunesViewHeightAnchor)
             make.left.greaterThanOrEqualTo(self.view.snp.left)

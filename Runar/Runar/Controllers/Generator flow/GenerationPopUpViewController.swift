@@ -7,19 +7,54 @@
 
 import UIKit
 
+//MARK: Add to color common class
+private extension UIColor {
+    static let containerViewBackgroundColor = UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 0.75)
+    static let descriptionLabelTextColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
+    static let submitButtonBackgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
+}
+
+//MARK: Constants
+private extension CGFloat {
+    static let containerViewHeight = 314.0
+    
+    static let escapeButtonTopAnchor = 18.0
+    static let escapeButtonTrailingAnchor = 18.0
+    static let escapeButtonWidth = 48.0
+    
+    static let imageViewTopAnchor = 20.0
+    static let imageViewLeadingAnchor = 20.0
+    static let imageViewWidth = 56.0
+    static let imageViewHeight = 70.0
+    
+    static let headerLabelTopAnchor = 43.0
+    static let headerLabelLeadingAnchot = 26.0
+    static let headerLabelHeight = 42.0
+    
+    static let descriptionTextViewTopAnchor = 5.0
+    static let descriptionTextViewLeadingAnchor = 32.0
+    static let descriptionTextViewHeight = 130.0
+    
+    static let submitButtonTopAnchor = 14.0
+    static let submitButtonWidth = 156.0
+    static let submitButtonHeight = 48.0
+}
+
 public class GenerationPopUpViewController: UIViewController {
     
     var runeModel: GenerationRuneModel?
     var runeView: UIView?
     var action: Dictionary<String, Selector>.Element?
+    let gradientLayer = CAGradientLayer()
     
     var isHiddenTabBar: Bool = false
     
     let containerView: UIView = {
         let containerView = UIView()
                 
-        containerView.backgroundColor = UIColor(red: 0.118, green: 0.118, blue: 0.118, alpha: 0.75)
+        containerView.backgroundColor = .containerViewBackgroundColor
         containerView.layer.cornerRadius = 20
+        containerView.translatesAutoresizingMaskIntoConstraints = false
         
         return containerView
     }()
@@ -29,6 +64,7 @@ public class GenerationPopUpViewController: UIViewController {
         
         let image = Assets.escape.image
         escapeButton.setImage(image, for: .normal)
+        escapeButton.translatesAutoresizingMaskIntoConstraints = false
         
         return escapeButton
     }()
@@ -37,42 +73,48 @@ public class GenerationPopUpViewController: UIViewController {
         let imageView = UIImageView()
         
         imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
-    let header: UILabel = {
+    let headerLabel: UILabel = {
         let header = UILabel()
                
         header.font = .amaticBold(size: 36)
-        header.textColor = UIColor.yellowPrimaryColor
+        header.textColor = .yellowPrimaryColor
         header.textAlignment = .center
         header.contentMode = .center
+        header.translatesAutoresizingMaskIntoConstraints = false
         
         return header
     }()
     
-    let desc: UILabel = {
-        let desc = UILabel()
+    let descriptionTextView: UITextView = {
+        let view = UITextView()
                
-        desc.font = .systemRegular(size: 15)
-        desc.textColor = UIColor(red: 0.882, green: 0.882, blue: 0.882, alpha: 1)
-        desc.textAlignment = .left
-        desc.contentMode = .scaleToFill
-        desc.numberOfLines = 0
-        desc.lineBreakMode = .byWordWrapping
+        view.font = .systemRegular(size: 17)
+        view.textColor = .descriptionLabelTextColor
+        view.textAlignment = .left
+        view.contentMode = .scaleToFill
+        view.isSelectable = false
+        view.isEditable = false
+        view.indicatorStyle = .white
+        view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
         
-        return desc
+        return view
     }()
     
     let submitButton: UIButton = {
         let submitButton = UIButton()
         
-        submitButton.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
+        submitButton.layer.backgroundColor = UIColor.submitButtonBackgroundColor.cgColor
         submitButton.layer.cornerRadius = 10
         submitButton.layer.borderWidth = 1
         submitButton.layer.borderColor = UIColor.yellowPrimaryColor.cgColor
         submitButton.isHidden = true
+        submitButton.translatesAutoresizingMaskIntoConstraints = false
         
         return submitButton
     }()
@@ -80,55 +122,53 @@ public class GenerationPopUpViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         configureBlure()
-        configureView()
+        configureViews()
         
-        self.view.backgroundColor = .clear
+        view.backgroundColor = .clear
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if isHiddenTabBar == false {
-            self.tabBarController?.tabBar.isHidden = false
+            tabBarController?.tabBar.isHidden = false
         } else {
-            self.tabBarController?.tabBar.isHidden = true
+            tabBarController?.tabBar.isHidden = true
         }
     }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        configureGradientLayer()
     }
     
     public func setupView(view: UIView) {
-        self.runeView = view
+        runeView = view
     }
     
     public func setupModel(_ model: GenerationRuneModel?) {
-        self.runeModel = model
+        runeModel = model
 
         guard let image = model?.imageInfo.uiImage,
               let title = model?.title,
               let description = model?.description else { return }
 
-        self.imageView.image = image
-        self.header.attributedText = UILabel.getAttributedText(text: title, lineHeight: 0.7)
-        self.desc.attributedText = UILabel.getAttributedText(text: description, lineHeight: 1.12)
-    }
-    
-    public func setupPopUp(image: UIImage, header: String, description: String) {
+        imageView.image = image
         
-        self.imageView.image = image
-        self.header.attributedText = UILabel.getAttributedText(text: header, lineHeight: 0.7)
-        self.desc.attributedText = UILabel.getAttributedText(text: description, lineHeight: 1.12)
+        headerLabel.text = title
+        descriptionTextView.text = description
     }
     
     public func setupAction(_ title: String, _ action: Selector) {
         self.action = (key: title, value: action)
+    
+        submitButton.setTitle(title: title)
         
-        self.submitButton.setTitle(title: title)
-        
-        self.submitButton.removeTarget(self.parent, action: action, for: .touchUpInside)
-        self.submitButton.addTarget(self.parent, action: action, for: .touchUpInside)
+        submitButton.removeTarget(self.parent, action: action, for: .touchUpInside)
+        submitButton.addTarget(self.parent, action: action, for: .touchUpInside)
     }
     
     private func configureBlure() -> Void {
@@ -142,76 +182,99 @@ public class GenerationPopUpViewController: UIViewController {
         view.insertSubview(blurView, at: 0)
     }
     
-    private func configureView() -> Void{       
+    private func configureViews() -> Void {       
         view.addSubview(containerView)
-        
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            containerView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            containerView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            containerView.heightAnchor.constraint(equalToConstant: 314)
-        ])
-        
-        escapeButton.addTarget(self, action: #selector(self.closeOnTap), for: .touchUpInside)
+        containerView.snp.makeConstraints { make in
+            make.leading.bottom.trailing.equalToSuperview()
+            make.height.equalTo(CGFloat.containerViewHeight)
+        }
         
         containerView.addSubview(escapeButton)
-        
-        escapeButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            escapeButton.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 18),
-            escapeButton.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -18),
-            escapeButton.widthAnchor.constraint(equalToConstant: 48),
-            escapeButton.heightAnchor.constraint(equalToConstant: 48)
-        ])
+        escapeButton.addTarget(self, action: #selector(self.closeOnTap), for: .touchUpInside)
+        escapeButton.snp.makeConstraints { make in
+            make.top.equalTo(containerView.snp.top).offset(CGFloat.escapeButtonTopAnchor)
+            make.trailing.equalTo(containerView.snp.trailing).inset(CGFloat.escapeButtonTrailingAnchor)
+            make.width.height.equalTo(CGFloat.escapeButtonWidth)
+        }
         
         containerView.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(containerView.snp.top).offset(CGFloat.imageViewTopAnchor)
+            make.leading.equalTo(containerView.snp.leading).offset(CGFloat.imageViewLeadingAnchor)
+            make.width.equalTo(CGFloat.imageViewWidth)
+            make.height.equalTo(CGFloat.imageViewHeight)
+        }
         
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 18),
-            imageView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 20),
-            imageView.heightAnchor.constraint(equalToConstant: 80),
-            imageView.widthAnchor.constraint(equalToConstant: 80)
-        ])
+        containerView.addSubview(headerLabel)
+        headerLabel.snp.makeConstraints { make in
+            make.leading.equalTo(imageView.snp.trailing).offset(CGFloat.headerLabelLeadingAnchot)
+            make.height.equalTo(CGFloat.headerLabelHeight)
+            make.centerY.equalTo(imageView.snp.centerY)
+        }
         
-        containerView.addSubview(header)
-        
-        header.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            header.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 40),
-            header.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 26),
-            header.heightAnchor.constraint(equalToConstant: 42)
-        ])
-        
-        containerView.addSubview(desc)
-        
-        desc.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            desc.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 100),
-            desc.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 30),
-            desc.widthAnchor.constraint(equalToConstant: 300),
-            desc.heightAnchor.constraint(equalToConstant: 130)
-        ])
+        containerView.addSubview(descriptionTextView)
+        descriptionTextView.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(CGFloat.descriptionTextViewTopAnchor)
+            make.leading.trailing.equalTo(containerView).inset(CGFloat.descriptionTextViewLeadingAnchor)
+            make.height.equalTo(CGFloat.descriptionTextViewHeight)
+        }
         
         containerView.addSubview(submitButton)
-    
         submitButton.addTarget(self, action: #selector(self.closeOnTap), for: .touchUpInside)
+        submitButton.snp.makeConstraints { make in
+            make.top.equalTo(descriptionTextView.snp.bottom).offset(CGFloat.submitButtonTopAnchor)
+            make.width.equalTo(CGFloat.submitButtonWidth)
+            make.height.equalTo(CGFloat.submitButtonHeight)
+            make.centerX.equalToSuperview()
+        }
+    }
+    
+    private func configureGradientLayer() {
+        descriptionTextView.delegate = self
+        gradientLayer.delegate = self
+        gradientLayer.frame = descriptionTextView.bounds
         
-        submitButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            submitButton.topAnchor.constraint(equalTo: desc.bottomAnchor, constant: 14),
-            submitButton.heightAnchor.constraint(equalToConstant: 48),
-            submitButton.widthAnchor.constraint(equalToConstant: 156),
-            submitButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
-        ])
+        gradientLayer.colors = [
+            UIColor.black.withAlphaComponent(0).cgColor,
+            UIColor.white.cgColor,
+            UIColor.white.cgColor,
+            UIColor.black.withAlphaComponent(0).cgColor
+        ]
+        
+        let topInset = descriptionTextView.textContainerInset.top
+        let bottomInset = descriptionTextView.textContainerInset.bottom
+        
+        let firstLocation = NSNumber(value: 0.0)
+        let secondLocation = NSNumber(value: topInset / descriptionTextView.frame.height)
+        let thirdLocation = NSNumber(value: 1.0 - bottomInset / descriptionTextView.frame.height)
+        let fourthLocation = NSNumber(value: 1.0)
+        
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
+        gradientLayer.locations = [
+            firstLocation,
+            secondLocation,
+            thirdLocation,
+            fourthLocation
+        ]
+        descriptionTextView.layer.mask = gradientLayer
     }
     
     @objc func closeOnTap (sender: UIButton!) {
-        self.close()
+        close()
     }
     
     public func close() {
-        self.view.removeFromSuperview()
+        view.removeFromSuperview()
     }
+}
+
+extension GenerationPopUpViewController: UITextViewDelegate {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        gradientLayer.frame = descriptionTextView.bounds
+    }
+}
+
+extension GenerationPopUpViewController: CALayerDelegate {
+    public func action(for layer: CALayer, forKey event: String) -> CAAction? { NSNull() }
 }

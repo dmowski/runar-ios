@@ -23,6 +23,12 @@ private extension CGFloat {
     static let runeNameBottomAnchor = 5.0
 }
 
+//MARK: Add to color common class
+private extension UIColor {
+    static let cellBackgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
+    static let textColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 0.6)
+}
+
 class SelectedRuneCell: UICollectionViewCell {
 
     public var enabled: Bool = true
@@ -40,18 +46,20 @@ class SelectedRuneCell: UICollectionViewCell {
     
     let cell: UILabel = {
         let cell: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 45, height: 63))
-        cell.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
-        cell.layer.borderWidth = CGFloat.cellBorderWidth
-        cell.layer.cornerRadius = CGFloat.cellCornerRadius
-        cell.layer.borderColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 0.6).cgColor
+        cell.layer.backgroundColor = UIColor.cellBackgroundColor.cgColor
+        cell.layer.borderWidth = .cellBorderWidth
+        cell.layer.cornerRadius = .cellCornerRadius
+        cell.layer.borderColor = UIColor.textColor.cgColor
+        cell.translatesAutoresizingMaskIntoConstraints = false
         return cell
     }()
     
     let cellIndex: UILabel = {
         let cellIndex: UILabel = UILabel()
-        cellIndex.textColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 1)
+        cellIndex.textColor = .textColor
         cellIndex.font = .amaticBold(size: 36)
         cellIndex.textAlignment = .center
+        cellIndex.translatesAutoresizingMaskIntoConstraints = false
         return cellIndex
     }()
     
@@ -61,6 +69,7 @@ class SelectedRuneCell: UICollectionViewCell {
         runeImage.contentMode = .scaleAspectFill
         runeImage.isHidden = true
         runeImage.isUserInteractionEnabled = true
+        runeImage.translatesAutoresizingMaskIntoConstraints = false
         
         return runeImage
     }()
@@ -68,9 +77,10 @@ class SelectedRuneCell: UICollectionViewCell {
     let runeName: UILabel = {
         let runeName = UILabel()
         
-        runeName.textColor = UIColor(red: 1, green: 0.917, blue: 0.792, alpha: 1)
+        runeName.textColor = .textColor
         runeName.font = .systemRegular(size: 12)
         runeName.isHidden = true
+        runeName.translatesAutoresizingMaskIntoConstraints = false
         
         return runeName
     }()
@@ -79,38 +89,32 @@ class SelectedRuneCell: UICollectionViewCell {
         backgroundColor = .clear
         
         addSubview(cell)
-        cell.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            cell.widthAnchor.constraint(equalToConstant: CGFloat.cellWidthAnchor),
-            cell.heightAnchor.constraint(equalToConstant: CGFloat.cellHeightAnchor),
-            cell.centerXAnchor.constraint(equalTo: centerXAnchor),
-            cell.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
+        cell.snp.makeConstraints { make in
+            make.width.equalTo(CGFloat.cellWidthAnchor)
+            make.height.equalTo(CGFloat.cellHeightAnchor)
+            make.centerX.centerY.equalToSuperview()
+        }
         
         cell.addSubview(cellIndex)
-        cellIndex.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            cellIndex.widthAnchor.constraint(equalToConstant: CGFloat.cellIndexWidthAnchor),
-            cellIndex.topAnchor.constraint(equalTo: cell.topAnchor, constant: CGFloat.cellIndexTopAnchor),
-            cellIndex.bottomAnchor.constraint(equalTo: cell.bottomAnchor),
-            cellIndex.centerXAnchor.constraint(equalTo: cell.centerXAnchor)
-        ])
+        cellIndex.snp.makeConstraints { make in
+            make.width.equalTo(CGFloat.cellIndexWidthAnchor)
+            make.top.equalTo(cell.snp.top).offset(CGFloat.cellIndexTopAnchor)
+            make.bottom.equalTo(cell.snp.bottom)
+            make.centerX.equalTo(cell.snp.centerX)
+        }
         
         addSubview(runeImage)
-        runeImage.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            runeImage.widthAnchor.constraint(equalToConstant: CGFloat.runeImageWidthAnchor),
-            runeImage.heightAnchor.constraint(equalToConstant: CGFloat.runeImageHeightAnchor),
-            runeImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            runeImage.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
+        runeImage.snp.makeConstraints { make in
+            make.width.equalTo(CGFloat.runeImageWidthAnchor)
+            make.height.equalTo(CGFloat.runeImageHeightAnchor)
+            make.centerX.centerY.equalToSuperview()
+        }
         
         addSubview(runeName)
-        runeName.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            runeName.bottomAnchor.constraint(equalTo: runeImage.bottomAnchor, constant: CGFloat.runeNameBottomAnchor),
-            runeName.centerXAnchor.constraint(equalTo: centerXAnchor)
-        ])
+        runeName.snp.makeConstraints { make in
+            make.bottom.equalTo(runeImage.snp.bottom).offset(CGFloat.runeNameBottomAnchor)
+            make.centerX.equalToSuperview()
+        }
     }
     
     public func setIndex(_ index: IndexPath) {

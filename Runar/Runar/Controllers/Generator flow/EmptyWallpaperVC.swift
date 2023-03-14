@@ -11,37 +11,35 @@ import SnapKit
 //MARK: Constants
 private extension String {
     static let newVariant = L10n.Generator.EmptyWallpapersNewVariant.btnTitle
-    static let wallpapersTitele = L10n.Generator.Wallpapers.title
-    static let emptyWallpapersSubTitele = L10n.Generator.EmptyWallpapers.subtitle
+    static let wallpapersTitle = L10n.Generator.Wallpapers.title
+    static let emptyWallpapersSubTitle = L10n.Generator.EmptyWallpapers.subtitle
 }
 
+//MARK: Add to color common class
+private extension UIColor {
+    static let contentViewBackgroundColor = UIColor(red: 0.143, green: 0.142, blue: 0.143, alpha: 0.5)
+    static let newVariantButtonBackgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
+}
+
+//MARK: Constants
 private extension CGFloat {
-    static let mainTitleTopAnchor = 50.0
-    static let mainTitleLeadingAnchor = 60.0
-    static let mainTitleTrailingAnchor = -60.0
+    static let subTitleTopAnchor = 27.0
+    static let subTitleLeadingAnchor = 16.0
     
-    static let subTitleTopAnchor = 16.0
-    static let subTitleLeadingAnchor = 30.0
-    static let subTitleTrailingAnchor = -30.0
-    
-    static let contentViewTopAnchor = 16.0
+    static let contentViewTopAnchor = 52.0
     static let contentViewLeadingAnchor = 16.0
-    static let contentViewTrailingAnchor = -16.0
     
     static let imageViewTopAnchor = 10.0
     static let imageViewLeadingAnchor = 30.0
-    static let imageViewTrailingAnchor = -30.0
-    static let imageViewBottomAnchor = -100.0
+    static let imageViewBottomAnchor = 100.0
     
-    static let newVariantButtonBottomAnchor = -32.0
+    static let newVariantButtonBottomAnchor = 32.0
     static let newVariantButtonLeadingAnchor = 90.0
-    static let newVariantButtonTrailingAnchor = -90.0
     static let newVariantButtonHeightAnchor = 50.0
     
     static let nextButtonTopAnchor = 32.0
     static let nextButtonLeadingAnchor = 16.0
-    static let nextButtonTrailingAnchor = -16.0
-    static let nextButtonBottomAnchor = -40.0
+    static let nextButtonBottomAnchor = 40.0
     static let nextButtonHeightAnchor = 50.0
 }
 
@@ -51,36 +49,26 @@ public class EmptyWallpaperVC: UIViewController {
     private var currentEmptyWallpaperName: String?
     var stopDownloading: (() -> ())?
     
-    let mainTitle: UILabel = {
-        let title = UILabel()
-        title.textColor = UIColor.yellowPrimaryColor
-        title.textAlignment = .center
-        title.numberOfLines = 0
-        title.lineBreakMode = .byWordWrapping
-        title.text = .wallpapersTitele
-        title.font = .amaticBold(size: 55)
-        title.backgroundColor = .clear
-        return title
-    }()
-    
     let subTitle: UILabel = {
-        let processingLabel = UILabel()
-        processingLabel.textColor = UIColor.primaryWhiteColor
-        processingLabel.textAlignment = .center
-        processingLabel.numberOfLines = 0
-        processingLabel.lineBreakMode = .byWordWrapping
-        processingLabel.text = .emptyWallpapersSubTitele
-        processingLabel.font = .systemRegular(size: 16)
-        return processingLabel
+        let label = UILabel()
+        label.textColor = .primaryWhiteColor
+        label.textAlignment = .center
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
+        label.text = .emptyWallpapersSubTitle
+        label.font = .systemRegular(size: 14)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     let contentView: UIView = {
         let contentView = UIView()
-        contentView.layer.backgroundColor = UIColor(red: 0.143, green: 0.142, blue: 0.143, alpha: 0.5).cgColor
+        contentView.layer.backgroundColor = UIColor.contentViewBackgroundColor.cgColor
         contentView.layer.cornerRadius = 16
         contentView.layer.shadowOffset = CGSize(width: 0, height: 10)
         contentView.layer.shadowRadius = 5
         contentView.layer.shadowOpacity = 0.75
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         return contentView
     }()
     
@@ -88,18 +76,20 @@ public class EmptyWallpaperVC: UIViewController {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     let newVariantButton: UIButton = {
         let newVariantButton = UIButton()
-        newVariantButton.layer.backgroundColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
+        newVariantButton.layer.backgroundColor = UIColor.newVariantButtonBackgroundColor.cgColor
         newVariantButton.layer.cornerRadius = 8
         newVariantButton.layer.borderWidth = 1
         newVariantButton.contentHorizontalAlignment = .center
         newVariantButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         newVariantButton.layer.borderColor = UIColor.yellowPrimaryColor.cgColor
         newVariantButton.setTitle(title: .newVariant)
+        newVariantButton.translatesAutoresizingMaskIntoConstraints = false
         return newVariantButton
     }()
     
@@ -107,10 +97,10 @@ public class EmptyWallpaperVC: UIViewController {
         let nextButton = UIButton()
         nextButton.layer.backgroundColor = UIColor.yellowPrimaryColor.cgColor
         nextButton.layer.cornerRadius = 5
-        nextButton.setTitle(title: .nextButtonTitle)
-        nextButton.setTitle(title: .nextButtonTitle, color: UIColor.primaryBlackColor)
+        nextButton.setTitle(title: .nextButtonTitle, color: .primaryBlackColor)
         nextButton.contentHorizontalAlignment = .center
         nextButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
         return nextButton
     }()
     
@@ -132,6 +122,7 @@ public class EmptyWallpaperVC: UIViewController {
         showEmptyWallpaper(with: currentEmptyWallpaperName)
         
         setupViews()
+        configureNavigationBar()
         setupImageViewSwipes()
         updateEmptyVC()
     }
@@ -139,51 +130,38 @@ public class EmptyWallpaperVC: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
-        self.navigationController?.navigationBar.isHidden = true
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = true
-        self.navigationController?.navigationBar.isHidden = false
     }
     
     private func setupViews() {
-        view.addSubviews(mainTitle)
-        mainTitle.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(CGFloat.mainTitleTopAnchor)
-            make.leading.equalToSuperview().offset(CGFloat.mainTitleLeadingAnchor)
-            make.trailing.equalToSuperview().offset(CGFloat.mainTitleTrailingAnchor)
-        }
-        
         view.addSubviews(subTitle)
         subTitle.snp.makeConstraints { make in
-            make.top.equalTo(mainTitle.snp.bottom).offset(CGFloat.subTitleTopAnchor)
-            make.leading.equalToSuperview().offset(CGFloat.subTitleLeadingAnchor)
-            make.trailing.equalToSuperview().offset(CGFloat.subTitleTrailingAnchor)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(CGFloat.subTitleTopAnchor)
+            make.leading.trailing.equalToSuperview().inset(CGFloat.subTitleLeadingAnchor)
         }
         
         view.addSubviews(contentView)
         contentView.snp.makeConstraints { make in
             make.top.equalTo(subTitle.snp.bottom).offset(CGFloat.contentViewTopAnchor)
-            make.leading.equalToSuperview().offset(CGFloat.contentViewLeadingAnchor)
-            make.trailing.equalToSuperview().offset(CGFloat.contentViewTrailingAnchor)
+            make.leading.trailing.equalToSuperview().inset(CGFloat.contentViewLeadingAnchor)
         }
         
         contentView.addSubviews(imageView)
         imageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(CGFloat.imageViewTopAnchor)
-            make.leading.equalToSuperview().offset(CGFloat.imageViewLeadingAnchor)
-            make.trailing.equalToSuperview().offset(CGFloat.imageViewTrailingAnchor)
-            make.bottom.equalToSuperview().offset(CGFloat.imageViewBottomAnchor)
+            make.leading.trailing.equalToSuperview().inset(CGFloat.imageViewLeadingAnchor)
+            make.bottom.equalToSuperview().inset(CGFloat.imageViewBottomAnchor)
         }
         
         contentView.addSubviews(newVariantButton)
         newVariantButton.addTarget(self, action: #selector(self.generateNewVariant), for: .touchUpInside)
         newVariantButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(CGFloat.newVariantButtonBottomAnchor)
-            make.leading.equalToSuperview().offset(CGFloat.newVariantButtonLeadingAnchor)
-            make.trailing.equalToSuperview().offset(CGFloat.newVariantButtonTrailingAnchor)
+            make.bottom.equalToSuperview().inset(CGFloat.newVariantButtonBottomAnchor)
+            make.leading.trailing.equalToSuperview().inset(CGFloat.newVariantButtonLeadingAnchor)
             make.height.equalTo(CGFloat.newVariantButtonHeightAnchor)
         }
         
@@ -191,11 +169,28 @@ public class EmptyWallpaperVC: UIViewController {
         nextButton.addTarget(self, action: #selector(self.nextButtonTapped), for: .touchUpInside)
         nextButton.snp.makeConstraints { make in
             make.top.equalTo(contentView.snp.bottom).offset(CGFloat.nextButtonTopAnchor)
-            make.leading.equalToSuperview().offset(CGFloat.nextButtonLeadingAnchor)
-            make.trailing.equalToSuperview().offset(CGFloat.nextButtonTrailingAnchor)
-            make.bottom.equalToSuperview().offset(CGFloat.nextButtonBottomAnchor)
+            make.leading.trailing.equalToSuperview().inset(CGFloat.nextButtonLeadingAnchor)
+            make.bottom.equalToSuperview().inset(CGFloat.nextButtonBottomAnchor)
             make.height.equalTo(CGFloat.nextButtonHeightAnchor)
         }
+    }
+    
+    private func configureNavigationBar() {
+        navigationItem.setNavigationTitle(.wallpapersTitle)
+        navigationItem.hidesBackButton = true
+        let customBackButton = UIBarButtonItem(image: Assets.backIcon.image,
+                                               style: .plain, target: self,
+                                               action: #selector(self.backToSelectionViewController))
+        customBackButton.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        navigationItem.leftBarButtonItem = customBackButton
+    }
+    
+    @objc func backToSelectionViewController(sender: UIBarButtonItem) {
+        guard let selectionViewController = navigationController?.viewControllers.first(where: { viewController in
+            viewController is SelectionRuneVC
+        }) else { return }
+        
+        navigationController?.popToViewController(selectionViewController, animated: true)
     }
     
     private func updateEmptyVC() {

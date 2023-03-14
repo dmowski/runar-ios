@@ -9,14 +9,35 @@ import UIKit
 import LinkPresentation
 import SnapKit
 
+//MARK: Constants
 extension String {
 
-    static let selectWallpaperTitile = L10n.Generator.SelectWallpaperHeader.title
+    static let selectWallpaperTitle = L10n.Generator.SelectWallpaperHeader.title
     static let shareWallpaperTitle = L10n.Generator.ShareWallpaperHeader.title
     static let downloadAlertTitleSuccess = L10n.Generator.AlertHeaderSuccess.title
     static let downloadAlertActionTitleSuccess = L10n.Generator.AlertActionSuccess.title
     static let downloadAlertTitleError = L10n.Generator.AlertHeaderError.title
     static let downloadAlertActionTitleError = L10n.Generator.AlertActionError.title
+}
+
+//MARK: Add to color common class
+private extension UIColor {
+    static let wallpaperImageBorderColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36)
+}
+
+//MARK: Constants
+private extension CGFloat {
+    static let wallpaperImageTopAnchor = 44
+    static let wallpaperImageLeadingAncor = 60
+    static let wallpaperImageBottomAnchor = 164
+    
+    static let downloadButtonLeadingAnchor = 60
+    static let downloadButtonTopAnchor = 40
+    static let downloadButtonHeightAnchor = 50
+    
+    static let shareButtonLeadingAnchor = 16
+    static let shareButtonTopAnchor = 40
+    static let shareButtonHeightAnchor = 50
 }
 
 public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
@@ -29,25 +50,28 @@ public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
         wallpaperImage.contentMode = .scaleAspectFill
         wallpaperImage.layer.cornerRadius = 16
         wallpaperImage.layer.borderWidth = 1
-        wallpaperImage.layer.borderColor = UIColor(red: 0.417, green: 0.417, blue: 0.417, alpha: 0.36).cgColor
+        wallpaperImage.layer.borderColor = UIColor.wallpaperImageBorderColor.cgColor
+        wallpaperImage.translatesAutoresizingMaskIntoConstraints = false
         return wallpaperImage
     }()
     
     let shareButton: UIButton = {
         let shareButton = UIButton()
-        shareButton.layer.backgroundColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
+        shareButton.layer.backgroundColor = UIColor.yellowPrimaryColor.cgColor
         shareButton.layer.cornerRadius = 5
         shareButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
-        shareButton.tintColor = UIColor(red: 0.161, green: 0.161, blue: 0.161, alpha: 1)
+        shareButton.tintColor = .primaryDarkItemColor
+        shareButton.translatesAutoresizingMaskIntoConstraints = false
         return shareButton
     }()
     
     let downloadButton: UIButton = {
         let downloadButton = UIButton()
-        downloadButton.layer.backgroundColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1).cgColor
+        downloadButton.layer.backgroundColor = UIColor.yellowPrimaryColor.cgColor
         downloadButton.layer.cornerRadius = 5
         downloadButton.setImage(UIImage(systemName: "square.and.arrow.down"), for: .normal)
-        downloadButton.tintColor = UIColor(red: 0.161, green: 0.161, blue: 0.161, alpha: 1)
+        downloadButton.tintColor = .primaryDarkItemColor
+        downloadButton.translatesAutoresizingMaskIntoConstraints = false
         return downloadButton
     }()
     
@@ -71,8 +95,8 @@ public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
     }
     
     private func configureNavBar() {
-        title = .selectWallpaperTitile
-        self.navigationItem.hidesBackButton = true
+        navigationItem.setNavigationTitle(.selectWallpaperTitle)
+        navigationItem.hidesBackButton = true
         let customBackButton = UIBarButtonItem(image: Assets.backIcon.image,
                                                style: .plain, target: self,
                                                action: #selector(self.backToInitial))
@@ -88,26 +112,26 @@ public class ChoosedWallpaperVC : UIViewController, UIActivityItemSource {
         
         self.view.addSubview(wallpaperImage)
         wallpaperImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(40)
-            make.leading.equalToSuperview().offset(40)
-            make.trailing.equalToSuperview().offset(-40)
-            make.bottom.equalToSuperview().offset(-120)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(CGFloat.wallpaperImageTopAnchor)
+            make.leading.equalToSuperview().offset(CGFloat.wallpaperImageLeadingAncor)
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().inset(CGFloat.wallpaperImageBottomAnchor)
         }
         
         self.view.addSubview(downloadButton)
         downloadButton.addTarget(self, action: #selector(self.downloadOnTap), for: .touchUpInside)
         downloadButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(40)
-            make.bottom.equalToSuperview().offset(-40)
-            make.height.width.equalTo(50)
+            make.leading.equalToSuperview().offset(CGFloat.downloadButtonLeadingAnchor)
+            make.top.equalTo(wallpaperImage.snp.bottom).offset(CGFloat.downloadButtonTopAnchor)
+            make.height.width.equalTo(CGFloat.downloadButtonHeightAnchor)
         }
         
         self.view.addSubview(shareButton)
         shareButton.addTarget(self, action: #selector(self.shareOnTap), for: .touchUpInside)
         shareButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(120)
-            make.bottom.equalToSuperview().offset(-40)
-            make.height.width.equalTo(50)
+            make.leading.equalTo(downloadButton.snp.trailing).offset(CGFloat.shareButtonLeadingAnchor)
+            make.top.equalTo(wallpaperImage.snp.bottom).offset(CGFloat.shareButtonTopAnchor)
+            make.height.width.equalTo(CGFloat.shareButtonHeightAnchor)
         }
     }
     

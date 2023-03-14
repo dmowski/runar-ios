@@ -367,13 +367,17 @@ internal enum L10n {
       /// Ok
       internal static let title = L10n.tr("Localizable", "generator.alertActionSuccess.title", fallback: "Ok")
     }
+    internal enum AlertHeader {
+      /// Runic pattern saved
+      internal static let title = L10n.tr("Localizable", "generator.alertHeader.title", fallback: "Runic pattern saved")
+    }
     internal enum AlertHeaderError {
       /// Save error
       internal static let title = L10n.tr("Localizable", "generator.alertHeaderError.title", fallback: "Save error")
     }
     internal enum AlertHeaderSuccess {
-      /// Runic pattern has been saved
-      internal static let title = L10n.tr("Localizable", "generator.alertHeaderSuccess.title", fallback: "Runic pattern has been saved")
+      /// Runic pattern saved
+      internal static let title = L10n.tr("Localizable", "generator.alertHeaderSuccess.title", fallback: "Runic pattern saved")
     }
     internal enum EmptyWallpapers {
       /// Next, choose the background for it, Viking
@@ -400,8 +404,8 @@ internal enum L10n {
       internal static let name = L10n.tr("Localizable", "generator.progress.name", fallback: "Magic happens")
     }
     internal enum ProgressGenerator {
-      /// Runic pattern is creating...
-      internal static let title = L10n.tr("Localizable", "generator.progressGenerator.title", fallback: "Runic pattern is creating...")
+      /// Template is creating...
+      internal static let title = L10n.tr("Localizable", "generator.progressGenerator.title", fallback: "Template is creating...")
     }
     internal enum RandomButton {
       /// Select random runes
@@ -446,8 +450,8 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "generator.wallpapers.title", fallback: "Wallpaper selection")
     }
     internal enum WallpapersDescription {
-      /// Sealed forever and ever your pattern in the sky
-      internal static let subtitle = L10n.tr("Localizable", "generator.wallpapersDescription.subtitle", fallback: "Sealed forever and ever your pattern in the sky")
+      /// Please choose a picture
+      internal static let subtitle = L10n.tr("Localizable", "generator.wallpapersDescription.subtitle", fallback: "Please choose a picture")
     }
     internal enum WallpapersHeader {
       /// Wallpaper selection
