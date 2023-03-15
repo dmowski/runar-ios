@@ -10,7 +10,6 @@ import UIKit
 final class TopWithDescriptionView: UIView {
     
     // MARK: Constants
-    
     let trailingLeadingAnchorDescriptionView = 24
     let topTrailingCloseButton = 10
     let heightWidthCloseButton = 48
@@ -19,7 +18,7 @@ final class TopWithDescriptionView: UIView {
     private var descriptionView: DescriptionView?
     private var runeType: RuneType?
     private var runeTime: String?
-    private var luck: String?
+    private var luck: String = ""
     var close: (()->())?
     
     private var closeButton: UIButton = {

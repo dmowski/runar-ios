@@ -10,7 +10,6 @@ import UIKit
 class OneRuneVC: UIViewController {
     
     // MARK: Constant
-    
     let heightBottomLine = 95
     
     var closeVC = {() -> () in return }
@@ -24,15 +23,15 @@ class OneRuneVC: UIViewController {
     var removeAllDark: (()->())?
     var changeContentOffset: ((CGRect)->())?
     var buttonFrames: [CGRect]?
-    var luck: String?
+    var luck: String
     
     init(runeType: RuneType, runeLayout: RuneLayout, runesSet: [RuneType], index: Int, luck: String) {
+        self.luck = luck
         super.init(nibName: nil, bundle: nil)
         self.runeType = runeType
         self.runeLayout = runeLayout
         self.runesSet = runesSet
         self.index = index
-        self.luck = luck
         pageScroll.delegate = self
         bottomLine = BottomLineView(runesSet: runesSet, runeType: runeType)
     }

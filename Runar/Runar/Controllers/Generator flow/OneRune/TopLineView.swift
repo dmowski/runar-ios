@@ -10,7 +10,6 @@ import UIKit
 final class TopLineView: UIView {
     
     // MARK: Constants
-    
     let nameLabelTopAnchor = 37
     let timeLabelTopAnchor = 5
     let timeLabeltrailingLeadingAnchor = 24

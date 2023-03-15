@@ -303,7 +303,7 @@ class AlignmentVC: UIViewController {
     
     func addOneRuneViewController(controller: OneRuneVC) {
         invisibaleView()
-        controller.luck = luckLevelLabel.text
+        controller.luck = luckLevelLabel.text ?? ""
         if runesViewContainer.runeLayout != .dayRune && self.children.isEmpty {
             self.readyToOpen = false
             contentInterpretationView.isHidden = true

@@ -10,7 +10,6 @@ import UIKit
 final class BottomLineView: UIView {
     
     // MARK: Constants
-    
     let vectorSize: CGFloat = DeviceType.iPhoneSE ? 40 : 48
     let trailingLeadingVector = 24
     let pageControlHeight = 45
