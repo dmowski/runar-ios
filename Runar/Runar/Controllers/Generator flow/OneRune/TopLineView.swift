@@ -9,22 +9,36 @@ import UIKit
 
 final class TopLineView: UIView {
     
+    // MARK: Constants
+    let nameLabelTopAnchor = 37
+    let timeLabelTopAnchor = 5
+    let timeLabeltrailingLeadingAnchor = 24
+    let luckLabelTopAnchor = 2
+    let luckLabeltrailingLeadingAnchor = 24
+    let LuckLabelBottomAnchor = 15
+    
     override init(frame: CGRect) {
         super.init(frame:frame)
         self.translatesAutoresizingMaskIntoConstraints = false
         addBlackView()
-        configureNameConstr()
-        configureTimeConstr()
+        configureNameConstraints()
+        configureTimeConstraints()
+        configureLuckLabelConstraints()
     }
     
-    convenience init(runeType: RuneType, runeTime: String) {
+    convenience init(runeType: RuneType, runeTime: String, luck: String) {
         self.init(frame: .zero)
         let nameParagraphStyle = NSMutableParagraphStyle()
         nameParagraphStyle.lineHeightMultiple = 0.87
         runeNameLabel.attributedText = NSMutableAttributedString(string: String(runeType.name), attributes: [NSAttributedString.Key.paragraphStyle: nameParagraphStyle])
         let timeParagraphStyle = NSMutableParagraphStyle()
         timeParagraphStyle.lineHeightMultiple = 1.4
+        timeParagraphStyle.alignment = .center
         timeLabel.attributedText = NSMutableAttributedString(string: runeTime, attributes: [NSAttributedString.Key.paragraphStyle: timeParagraphStyle])
+        let luckParagraphStyle = NSMutableParagraphStyle()
+        luckParagraphStyle.lineHeightMultiple = 1.12
+        luckParagraphStyle.alignment = .center
+        luckLabel.attributedText = NSMutableAttributedString(string: luck, attributes: [NSAttributedString.Key.paragraphStyle: luckParagraphStyle])
     }
     
     required init?(coder: NSCoder) {
@@ -34,57 +48,73 @@ final class TopLineView: UIView {
     //MARK: -BlackView
     private var blackView: UIImageView = {
         let blackView = UIImageView()
-        blackView.image = UIImage(named: "topBlackGradient")
+        blackView.image = Assets.Background.topBlackGradient.image
         blackView.translatesAutoresizingMaskIntoConstraints = false
         return blackView
     }()
     
     private func addBlackView() {
         self.addSubview(blackView)
-        NSLayoutConstraint.activate([
-            blackView.topAnchor.constraint(equalTo: self.topAnchor),
-            blackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            blackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            blackView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
+        blackView.snp.makeConstraints { make in
+            make.top.trailing.leading.bottom.equalToSuperview()
+        }
     }
     
     //MARK: - NameLabel
     private var runeNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
+        label.textColor = .yellowPrimaryColor
         let nameHeight: CGFloat = DeviceType.iPhoneSE || DeviceType.isIPhone678 ? 17 : 24
-        label.font = UIFont(name: "SFProDisplay-Regular", size: nameHeight)
+        label.font = .systemRegular(size: nameHeight)
         label.sizeToFit()
         return label
     }()
     
-    private func configureNameConstr() {
+    private func configureNameConstraints() {
         self.addSubview(runeNameLabel)
-        NSLayoutConstraint.activate([
-            runeNameLabel.topAnchor.constraint(equalTo:topAnchor, constant: 37.heightDependent()),
-            runeNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-        ])
+        runeNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(nameLabelTopAnchor)
+            make.centerX.equalToSuperview()
+        }
     }
     
     //MARK: - TimeLabel
     private var timeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor(red: 0.659, green: 0.651, blue: 0.639, alpha: 1)
-        let labelHeight: CGFloat = DeviceType.iPhoneSE || DeviceType.isIPhone678 ? 14 : 15
-        label.font = UIFont(name: "SFProDisplay-Regular", size: labelHeight)
+        label.textColor = .disabledTextColor
+        label.numberOfLines = 0
+        let labelHeight: CGFloat = 15
+        label.font = .systemRegular(size: labelHeight)
         label.sizeToFit()
         return label
     }()
     
-    private func configureTimeConstr() {
+    private func configureTimeConstraints() {
         self.addSubview(timeLabel)
-        NSLayoutConstraint.activate([
-            timeLabel.topAnchor.constraint(equalTo: runeNameLabel.bottomAnchor, constant: 5.heightDependent()),
-            timeLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            timeLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
-        ])
+        timeLabel.snp.makeConstraints { make in
+            make.top.equalTo(runeNameLabel.snp.bottom).offset(timeLabelTopAnchor)
+            make.trailing.leading.equalToSuperview().inset(timeLabeltrailingLeadingAnchor)
+        }
+    }
+    
+    private var luckLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .iconNeutralsGreyColor
+        label.numberOfLines = 0
+        let labelHeight: CGFloat = 15
+        label.font = .systemRegular(size: labelHeight)
+        return label
+    }()
+    
+    private func configureLuckLabelConstraints() {
+        self.addSubview(luckLabel)
+        luckLabel.snp.makeConstraints { make in
+            make.top.equalTo(timeLabel.snp.bottom).offset(luckLabelTopAnchor)
+            make.trailing.leading.equalToSuperview().inset(luckLabeltrailingLeadingAnchor)
+            make.bottom.equalToSuperview().inset(LuckLabelBottomAnchor)
+        }
     }
 }

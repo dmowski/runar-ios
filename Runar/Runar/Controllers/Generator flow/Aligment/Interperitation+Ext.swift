@@ -137,6 +137,7 @@ extension AlignmentVC {
         
         luckLevelLabel.font = .systemLight(size: 19)
         luckLevelLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        luckLevelLabel.textAlignment = .center
         luckLevelLabel.translatesAutoresizingMaskIntoConstraints = false
         contentInterpretationView.addSubview(luckLevelLabel)
         NSLayoutConstraint.activate([

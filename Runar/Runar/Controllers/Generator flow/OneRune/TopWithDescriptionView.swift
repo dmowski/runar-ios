@@ -9,10 +9,16 @@ import UIKit
 
 final class TopWithDescriptionView: UIView {
     
+    // MARK: Constants
+    let trailingLeadingAnchorDescriptionView = 24
+    let topTrailingCloseButton = 10
+    let heightWidthCloseButton = 48
+    
     private var topLineView: TopLineView?
     private var descriptionView: DescriptionView?
     private var runeType: RuneType?
     private var runeTime: String?
+    private var luck: String = ""
     var close: (()->())?
     
     private var closeButton: UIButton = {
@@ -27,9 +33,9 @@ final class TopWithDescriptionView: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    convenience init(runeType: RuneType, runeTime: String) {
+    convenience init(runeType: RuneType, runeTime: String, luck: String) {
         self.init(frame: .zero)
-        topLineView = TopLineView(runeType: runeType, runeTime: runeTime)
+        topLineView = TopLineView(runeType: runeType, runeTime: runeTime, luck: luck)
         descriptionView = DescriptionView(runeType: runeType)
         configureView()
         setUpCloseConstr()
@@ -44,27 +50,26 @@ final class TopWithDescriptionView: UIView {
               let descriptionView = descriptionView else {return}
         self.addSubview(topLineView)
         self.addSubview(descriptionView)
-        NSLayoutConstraint.activate([
-            topLineView.topAnchor.constraint(equalTo: self.topAnchor),
-            topLineView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            topLineView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            
-            descriptionView.topAnchor.constraint(equalTo: topLineView.bottomAnchor),
-            descriptionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            descriptionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            descriptionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24)
-        ])
+
+        topLineView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+        }
+        descriptionView.snp.makeConstraints { make in
+            make.top.equalTo(topLineView.snp.bottom)
+            make.trailing.leading.equalToSuperview().inset(trailingLeadingAnchorDescriptionView)
+            make.bottom.equalToSuperview()
+        }
     }
     
     private func setUpCloseConstr() {
         self.addSubview(closeButton)
         closeButton.addTarget(self, action: #selector(buttonOnClose), for: .touchUpInside)
-        NSLayoutConstraint.activate([
-            closeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 10.heightDependent()),
-            closeButton.heightAnchor.constraint(equalToConstant: 48),
-            closeButton.widthAnchor.constraint(equalToConstant: 48),
-            closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10.heightDependent())
-        ])
+
+        closeButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(topTrailingCloseButton)
+            make.height.width.equalTo(heightWidthCloseButton)
+            make.trailing.equalToSuperview().inset(topTrailingCloseButton)
+        }
     }
     
     @objc private func buttonOnClose() {

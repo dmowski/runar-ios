@@ -37,9 +37,9 @@ class DescriptionView: UIView {
         self.runeType = runeType
         let timeParagraphStyle = NSMutableParagraphStyle()
         timeParagraphStyle.lineHeightMultiple = 1.23
-  
+        let fontSize: CGFloat = DeviceType.iPhoneSE ? 16 : 19
         let atributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemLight(size: 19),
+            .font: UIFont.systemLight(size: fontSize),
             .foregroundColor: UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1),
             .paragraphStyle: timeParagraphStyle,
             .kern: -0.38,
@@ -52,21 +52,16 @@ class DescriptionView: UIView {
         
         self.addSubview(scrollViewDescription)
         
-        NSLayoutConstraint.activate([
-            scrollViewDescription.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            scrollViewDescription.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            scrollViewDescription.topAnchor.constraint(equalTo: self.topAnchor),
-            scrollViewDescription.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-        ])
+        scrollViewDescription.snp.makeConstraints { make in
+            make.trailing.leading.top.bottom.equalToSuperview()
+        }
     }
 
     private func setUpDescriptionLabel() {
         scrollViewDescription.addSubview(descriptionLabel)
-        NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: scrollViewDescription.topAnchor),
-            descriptionLabel.widthAnchor.constraint(equalTo: scrollViewDescription.widthAnchor),
-            descriptionLabel.bottomAnchor.constraint(equalTo: scrollViewDescription.bottomAnchor),
-            descriptionLabel.centerXAnchor.constraint(equalTo: scrollViewDescription.centerXAnchor)
-        ])
+        
+        descriptionLabel.snp.makeConstraints { make in
+            make.top.width.bottom.centerX.equalTo(scrollViewDescription)
+        }
     }
 }

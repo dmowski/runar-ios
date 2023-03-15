@@ -9,6 +9,11 @@ import UIKit
 
 final class BottomLineView: UIView {
     
+    // MARK: Constants
+    let vectorSize: CGFloat = DeviceType.iPhoneSE ? 40 : 48
+    let trailingLeadingVector = 24
+    let pageControlHeight = 45
+    
     private var runesSet = [RuneType]()
     private var runeType : RuneType?
     var pageControl = UIPageControl()
@@ -37,19 +42,17 @@ final class BottomLineView: UIView {
     //MARK: -BlackView
     private var blackView: UIImageView = {
         let blackView = UIImageView()
-        blackView.image = UIImage(named: "bottomBlackGradient")
+        blackView.image = Assets.Background.bottomBlackGradient.image
         blackView.translatesAutoresizingMaskIntoConstraints = false
         return blackView
     }()
     
     private func addBlackView() {
         self.addSubview(blackView)
-        NSLayoutConstraint.activate([
-            blackView.topAnchor.constraint(equalTo: self.topAnchor),
-            blackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            blackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            blackView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
+
+        blackView.snp.makeConstraints { make in
+            make.top.trailing.leading.bottom.equalToSuperview()
+        }
     }
     
     //MARK: - Vectors
@@ -79,20 +82,18 @@ final class BottomLineView: UIView {
         tapGestureRight.addTarget(self, action: #selector(rightVectorTap))
         self.addSubview(leftVectror)
         self.addSubview(rightVectror)
+
+        leftVectror.snp.makeConstraints { make in
+            make.leading.equalToSuperview().inset(trailingLeadingVector)
+            make.bottom.equalToSuperview()
+            make.height.width.equalTo(vectorSize)
+        }
         
-        let vectorSize: CGFloat = DeviceType.iPhoneSE ? 40 : 48
-        let vectorBottom: CGFloat = DeviceType.isIPhone678 || DeviceType.iPhoneSE ? 0 : -15
-        NSLayoutConstraint.activate([
-            leftVectror.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24.heightDependent()),
-            leftVectror.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: vectorBottom),
-            leftVectror.heightAnchor.constraint(equalToConstant: vectorSize),
-            leftVectror.widthAnchor.constraint(equalToConstant: vectorSize),
-            
-            rightVectror.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24.heightDependent()),
-            rightVectror.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: vectorBottom),
-            rightVectror.heightAnchor.constraint(equalToConstant: vectorSize),
-            rightVectror.widthAnchor.constraint(equalToConstant: vectorSize)
-        ])
+        rightVectror.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(trailingLeadingVector)
+            make.bottom.equalToSuperview()
+            make.height.width.equalTo(vectorSize)
+        }
     }
     
     @objc private func lefrVectorTap() {
@@ -114,17 +115,18 @@ final class BottomLineView: UIView {
     }
     
     private func setUpPageControl()  {
-        pageControl.currentPageIndicatorTintColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 1)
+        pageControl.currentPageIndicatorTintColor = .yellowPrimaryColor
         pageControl.pageIndicatorTintColor = UIColor(red: 0.825, green: 0.77, blue: 0.677, alpha: 0.3)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.addTarget(self, action: #selector(pageControlDidChange(_:)), for: .valueChanged)
         
         self.addSubview(pageControl)
-        NSLayoutConstraint.activate([
-            pageControl.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
-            pageControl.heightAnchor.constraint(equalToConstant: 45.heightDependent()),
-            pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor)
-        ])
+
+        pageControl.snp.makeConstraints { make in
+            make.bottom.equalToSuperview()
+            make.height.equalTo(pageControlHeight)
+            make.centerX.equalToSuperview()
+        }
     }
     
     @objc private func pageControlDidChange(_ sender: UIPageControl) {
